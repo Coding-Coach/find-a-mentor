@@ -1,32 +1,20 @@
 [{
-    "name": "Steve Sanders",
-    "avatar": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
-    "title": "NodeJS developer",
-    "description": "Hi, I'm NodeJs developer",
+    "name": "Mosh Feuchtwanger",
+    "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
+    "title": "Frontend at @wix",
+    "description": "Hi, I'm Mosh and I will love to help",
     "country": "Israel",
     "tags": [
-      "nodejs", "webpack", "mongodb"
+      "frontend", "javascript", "reactjs", "html", "css"
     ],
     "channels": [
       {
         "type": "email",
-        "id": "john@gmail.com"
-      }
-    ]
-  },
-  {
-    "name": "Molly Thomas",
-    "avatar": "https://react.semantic-ui.com/images/avatar/large/molly.png",
-    "title": "PHP developer",
-    "description": "Hi, I'm php developer",
-    "country": "Spain",
-    "tags": [
-      "php", "mysql"
-    ],
-    "channels": [
+        "id": "moshfeu@gmail.com"
+      },
       {
         "type": "slack",
-        "id": "UCQA9GL3U"
+        "id": "UFL4N8ETE"
       }
     ]
   }

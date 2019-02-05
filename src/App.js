@@ -56,10 +56,6 @@ class App extends Component {
   render() {
     const mentors = this.state.mentors.filter(this.filterMentors);
 
-    for (let index = 0; index < 7; index++) {
-      mentors.push(...mentors);
-    }
-
     return (
       <div className="app">
         <header className="main-header">
