@@ -35,6 +35,6 @@
     "gh-pages": "^2.0.1",
     "nodemon": "^1.18.9"
   },
-  "homepage": "https://Coding-Coach.github.io/find-a-mentor/",
+  "homepage": "http://members.codingcoach.io",
   "license": "MIT"
 }
