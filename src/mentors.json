@@ -1,0 +1,33 @@
+[{
+    "name": "Steve Sanders",
+    "avatar": "https://react.semantic-ui.com/images/avatar/large/steve.jpg",
+    "title": "NodeJS developer",
+    "description": "Hi, I'm NodeJs developer",
+    "country": "Israel",
+    "tags": [
+      "nodejs", "webpack", "mongodb"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "john@gmail.com"
+      }
+    ]
+  },
+  {
+    "name": "Molly Thomas",
+    "avatar": "https://react.semantic-ui.com/images/avatar/large/molly.png",
+    "title": "PHP developer",
+    "description": "Hi, I'm php developer",
+    "country": "Spain",
+    "tags": [
+      "php", "mysql"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UCQA9GL3U"
+      }
+    ]
+  }
+]

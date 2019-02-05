@@ -1,0 +1,38 @@
+{
+  "name": "coding-coach-basic",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-infinite-scroll-component": "^4.3.0",
+    "react-infinite-scroller": "^1.2.4",
+    "react-scripts": "2.1.3",
+    "semantic-ui-react": "^0.84.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "ajv": "^6.8.1",
+    "gh-pages": "^2.0.1",
+    "nodemon": "^1.18.9"
+  },
+  "homepage": "https://Coding-Coach.github.io/find-a-mentor/"
+}
