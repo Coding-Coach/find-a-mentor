@@ -35,6 +35,6 @@
     "gh-pages": "^2.0.1",
     "nodemon": "^1.18.9"
   },
-  "homepage": "http://members.codingcoach.io",
+  "homepage": "http://mentors.codingcoach.io",
   "license": "MIT"
 }
