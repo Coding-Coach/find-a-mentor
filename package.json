@@ -1,5 +1,5 @@
 {
-  "name": "coding-coach-basic",
+  "name": "find-a-mentor",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,12 +13,13 @@
     "semantic-ui-react": "^0.84.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "yarn run sync-lists && react-scripts start",
+    "build": "yarn run sync-lists && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "sync-lists": "node scripts/sync-lists.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +35,6 @@
     "gh-pages": "^2.0.1",
     "nodemon": "^1.18.9"
   },
-  "homepage": "https://Coding-Coach.github.io/find-a-mentor/"
+  "homepage": "https://Coding-Coach.github.io/find-a-mentor/",
+  "license": "MIT"
 }

@@ -1,14 +1,16 @@
 import './App.css';
 import mentors from './mentors.json';
+import lists from './lists.json';
 
 import React, { Component } from 'react';
-import { tags, countries } from './lists';
 import AutoComplete from './AutoComplete';
 import MentorsList from './MentorsList';
 import Logo from './Logo';
 
-const tagsSource = tags.map(tag => ({title: tag}));
-const countriesSource = countries.map(country => ({title: country}));
+const { tags, countries } = lists;
+const mapToDropdown = item => ({title: item})
+const tagsSource = tags.map(mapToDropdown);
+const countriesSource = countries.map(mapToDropdown);
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
