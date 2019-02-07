@@ -26,7 +26,7 @@ it('should mentors json contains all fields', () => {
         "description": {
           "type": "string",
           "minLength": 5,
-          "maxLength": 45
+          "maxLength": 80
         },
         "country": {
           "type": "string",
