@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/Coding-Coach/find-a-mentor.svg?branch=master)](https://travis-ci.com/Coding-Coach/find-a-mentor)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
+
 Pre-release version of Coaching Code.
 
 ## Looking for a mentor?
@@ -12,6 +15,8 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 5. Run `npm test` to validate that the details is following the right schema.
 6. PR.
 7. Thanks!
+
+**By the way** You can either do all these steps [using Github UI](https://help.github.com/articles/editing-files-in-another-user-s-repository/). Don't worry, trvis-ci will run the tests for you on the PR.
 
 ### Mentor schema
 
