@@ -17,10 +17,9 @@
     "build": "yarn run sync-lists && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build && yarn run add-cname",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "sync-lists": "node scripts/sync-lists.js",
-    "add-cname": "echo \"mentors.codingcoach.io\" >> build/CNAME"
+    "sync-lists": "node scripts/sync-lists.js"
   },
   "eslintConfig": {
     "extends": "react-app"
