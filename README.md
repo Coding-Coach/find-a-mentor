@@ -2,7 +2,7 @@ Pre-release version of Coaching Code.
 
 ## Looking for a mentor?
 
-Just go to https://mentors.codingcoach.io/ and find him.
+Just go to https://mentors.codingcoach.io/ and find her / him.
 
 ## Want to be a mentor?
 
