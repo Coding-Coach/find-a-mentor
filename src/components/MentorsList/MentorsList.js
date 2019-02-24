@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { Card, Image, Label } from 'semantic-ui-react';
-import { getChannelInfo } from './channelProvider';
+import { getChannelInfo } from '../../channelProvider';
 import InfiniteScroll from 'react-infinite-scroller';
 
 const itemsInPage = 10;

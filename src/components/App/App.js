@@ -1,11 +1,11 @@
 import './App.css';
-import mentors from './mentors.json';
-import lists from './lists.json';
+import mentors from '../../mentors.json';
+import lists from '../../lists.json';
 
 import React, { Component } from 'react';
-import AutoComplete from './AutoComplete';
-import MentorsList from './MentorsList';
-import Logo from './Logo';
+import AutoComplete from '../AutoComplete/AutoComplete';
+import MentorsList from '../MentorsList/MentorsList';
+import Logo from '../Logo';
 
 const { tags, countries } = lists;
 const mapToDropdown = item => ({title: item})
