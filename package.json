@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.2.6",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "react": "^16.7.0",

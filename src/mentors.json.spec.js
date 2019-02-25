@@ -11,6 +11,10 @@ it('should mentors json contains all fields', () => {
     "items": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "format": "email"
+        },
         "name": {
           "type": "string",
           "minLength": 2
@@ -43,19 +47,20 @@ it('should mentors json contains all fields', () => {
         },
         "channels": {
           "type": "array",
+          "maxItems": 3,
           "items": {
             "type": "object",
             "properties": {
               "type": {
                 "type": "string",
-                "enum": ["slack", "email"]
+                "enum": ["slack", "email", "linkedin", "facebook", "twitter"]
               }
             },
             "required": ["type", "id"]
           }
         }
       },
-      "required": ["name", "avatar", "title", "country", "tags", "channels"]
+      "required": ["id", "name", "avatar", "title", "country", "tags", "channels"]
     }
   }, mentors);
   if (ajv.errors) {

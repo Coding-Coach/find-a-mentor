@@ -3,6 +3,8 @@ import mentors from '../../mentors.json';
 import lists from '../../lists.json';
 
 import React, { Component } from 'react';
+import { Header, Button, Icon } from 'semantic-ui-react';
+import classNames from 'classnames';
 import AutoComplete from '../AutoComplete/AutoComplete';
 import MentorsList from '../MentorsList/MentorsList';
 import Logo from '../Logo';
@@ -48,6 +50,12 @@ class App extends Component {
     });
   }
 
+  toggleFields = () => {
+    this.setState({
+      fieldsIsActive: !this.state.fieldsIsActive
+    })
+  }
+
   // async componentDidMount() {
   //   const mentors = await fetch(`${serverEndpoint}/get_mentors`).then(res => res.json());
   //   this.setState({
@@ -56,31 +64,52 @@ class App extends Component {
   // }
 
   render() {
-    const mentors = this.state.mentors.filter(this.filterMentors);
+    const { mentors, fieldsIsActive } = this.state;
+    const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
       <div className="app">
         <header className="main-header">
-          <h1>Search for mentor</h1>
-          <Logo
-            width={110}
-            height={50}
-            color="#009d6e" />
+          <a href="/">
+            <Logo
+              width={110}
+              height={50}
+              color="#68d5b1" />
+            <span>CODING COACH ALPHA</span>
+          </a>
         </header>
-        <AutoComplete
-          placeholder="Language or Technology"
-          source={tagsSource}
-          handleResultSelect={this.handleTagSelect}
-          onReset={this.resetTag}
-        />
-        <AutoComplete
-          placeholder="Country"
-          source={countriesSource}
-          handleResultSelect={this.handleCountrySelect}
-          onReset={this.resetCountry}
-        />
+        <div className="filters-outer">
+          <div className="filters">
+            <Header as='h1'>
+              <div>
+                Find a mentor
+                <Button size="huge" floated='right' className="tertiary mobile" icon onClick={this.toggleFields}>
+                  <Icon name="filter" />
+                </Button>
+              </div>
+              <Header.Subheader>{mentors.length} mentors available</Header.Subheader>
+            </Header>
+            <div className="fields">
+              <AutoComplete
+                placeholder="Language or Technology"
+                source={tagsSource}
+                handleResultSelect={this.handleTagSelect}
+                onReset={this.resetTag}
+              />
+              <AutoComplete
+                placeholder="Country"
+                source={countriesSource}
+                handleResultSelect={this.handleCountrySelect}
+                onReset={this.resetCountry}
+              />
+            </div>
+          </div>
+        </div>
         <MentorsList
-          mentors={mentors}
+          className={classNames({
+            'active': fieldsIsActive
+          })}
+          mentors={mentorsInList}
         />
       </div>
     );

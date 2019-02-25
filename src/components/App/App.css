@@ -3,22 +3,35 @@ body {
   background-color: #f8f8f8;
 }
 
-.app {
+.device-desktop .filters-outer {
   text-align: center;
 }
 
+.device-desktop .filters {
+  display: inline-block;
+  text-align: left;
+}
+
+.device-mobile .filters {
+  padding: 0 20px;
+}
+
 .main-header {
+  padding: 30px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.device-mobile .main-header {
+  padding: 20px;
+}
+
+.main-header a {
   display: flex;
-  color: #fff;
-  padding: 30px 0;
-  justify-content: space-around;
-  background: linear-gradient(to right, #00c595 0%,#7ef0cc 100%);
+  color: #a1a1a1;
+  justify-content: space-between;
 }
 
 .main-header h1 {
   font-size: 48px;
-}
-
-.mentors-wrapper {
-  margin-top: 15px;
 }

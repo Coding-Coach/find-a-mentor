@@ -1,5 +1,12 @@
-.Search-wrapper {
+.search-wrapper {
   position: relative;
-  display: inline-block;
   margin: 10px 0;
+}
+
+.device-desktop .search-wrapper {
+  display: inline-block;
+}
+
+.device-mobile .search-input > .input {
+  display: flex;
 }

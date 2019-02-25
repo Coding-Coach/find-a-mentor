@@ -22,6 +22,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 
 ```javascript
 {
+  "id": "your email",
   "name": "your name",                          // minLength: 2
   "avatar": "https://link-to-your/avatar.jpg",  // url
   "title": "NodeJS developer",                  // minLength: 2

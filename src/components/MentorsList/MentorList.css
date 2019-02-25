@@ -1,0 +1,55 @@
+.mentors-wrapper {
+  margin-top: 15px;
+}
+
+.device-mobile .mentors-wrapper {
+  transform: translateY(-105px);
+  transition: transform .3s ease;
+}
+
+.device-mobile .mentors-wrapper.active {
+  transform: translateY(0);
+}
+
+.device-mobile .mentors-wrapper > .mentors-cards {
+  margin: 0;
+  padding: 0 20px;
+}
+
+.device-desktop .mentor-card.mentor-card.mentor-card {
+  width: 310px;
+}
+
+.device-mobile .mentor-card.mentor-card.mentor-card {
+  width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.mentor-card header {
+  display: flex;
+}
+
+.mentor-card .details {
+  padding: .35em 1em;
+}
+
+.mentor-card .description {
+  /* 2 lines min */
+  height: 38px;
+}
+
+.mentor-card img {
+  height: 100px;
+}
+
+.mentor-card .mentor-tag {
+  border-radius: 0;
+  background-color: #68d5b1;
+  color: #fff;
+  margin: .14285714em;
+}
+
+.mentor-card .mentor-quote {
+  color: #68d5b1;
+}
