@@ -71,7 +71,7 @@ class App extends Component {
     return (
       <div className="app">
         <header className="main-header">
-          <a class="logo" href="/">
+          <a className="logo" href="/">
             <Logo
               width={110}
               height={50}
