@@ -32,11 +32,14 @@ then
 fi
 `;
 try {
-  cp.execSync(command, {
+  const result = cp.execSync(command, {
     shell: '/bin/bash'
   });
+  console.log('==================');
+  console.log(result)
+  console.log('==================');
 } catch (error) {
-  throw error;
+  console.error(error);
 }
 
 module.exports = generateLists;
