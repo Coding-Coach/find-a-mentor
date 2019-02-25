@@ -26,7 +26,7 @@ body {
   padding: 20px;
 }
 
-.main-header a {
+.main-header .logo {
   display: flex;
   color: #a1a1a1;
   justify-content: space-between;
@@ -34,4 +34,8 @@ body {
 
 .main-header h1 {
   font-size: 48px;
+}
+
+.social {
+  margin-top: 10px;
 }

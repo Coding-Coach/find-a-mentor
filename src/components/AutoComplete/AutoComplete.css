@@ -7,6 +7,10 @@
   display: inline-block;
 }
 
+.device-desktop .search-wrapper:not(:last-child) {
+  margin-right: 5px;
+}
+
 .device-mobile .search-input > .input {
   display: flex;
 }

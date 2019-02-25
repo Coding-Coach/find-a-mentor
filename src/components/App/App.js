@@ -8,6 +8,7 @@ import classNames from 'classnames';
 import AutoComplete from '../AutoComplete/AutoComplete';
 import MentorsList from '../MentorsList/MentorsList';
 import Logo from '../Logo';
+import shuffle from 'lodash/shuffle';
 
 const { tags, countries } = lists;
 const mapToDropdown = item => ({title: item})
@@ -17,7 +18,7 @@ const countriesSource = countries.map(mapToDropdown);
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
-    mentors
+    mentors: shuffle(mentors)
   }
 
   handleTagSelect = (result) => {
@@ -70,13 +71,19 @@ class App extends Component {
     return (
       <div className="app">
         <header className="main-header">
-          <a href="/">
+          <a class="logo" href="/">
             <Logo
               width={110}
               height={50}
               color="#68d5b1" />
             <span>CODING COACH ALPHA</span>
           </a>
+          <div className="social">
+            <Button role="link" circular size="mini" as="a" icon="github" color="black" href="https://github.com/Coding-Coach/find-a-mentor" target="_blank" />
+            <Button role="link" circular size="mini" as="a" icon="twitter" color="twitter" href="https://twitter.com/codingcoach_io" target="_blank" />
+            <Button role="link" circular size="mini" as="a" icon="facebook" color="facebook" href="https://www.facebook.com/codingcoachio/" target="_blank" />
+            <Button role="link" circular size="mini" as="a" icon="slack" color="purple" href="https://coding-coach.slack.com/join/shared_invite/enQtNTE2NDY4NTczNzE0LTMyOTAyZTFiYjE4OTUzYjgwYzk5MzlmYjgwNjUyNDZlZGY3NGVhYmU1NjdmZDQ3MmQ3YjRhYjJkMjM4OTYwNDA" target="_blank" />
+          </div>
         </header>
         <div className="filters-outer">
           <div className="filters">
