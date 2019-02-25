@@ -21,6 +21,7 @@ function generateLists() {
 
 writeFileSync('src/lists.json', JSON.stringify(generateLists()));
 const command = `
+#!/bin/bash
 if [[ ! -z $(git status -s) ]]
 then
   git add src/lists.json
