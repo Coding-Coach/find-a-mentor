@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.2.6",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
     "react": "^16.7.0",
@@ -17,10 +18,9 @@
     "build": "yarn run sync-lists && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build && yarn run add-cname",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "sync-lists": "node scripts/sync-lists.js",
-    "add-cname": "echo \"mentors.codingcoach.io\" >> build/CNAME"
+    "sync-lists": "node scripts/sync-lists.js"
   },
   "eslintConfig": {
     "extends": "react-app"

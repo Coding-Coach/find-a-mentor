@@ -1,0 +1,16 @@
+.search-wrapper {
+  position: relative;
+  margin: 10px 0;
+}
+
+.device-desktop .search-wrapper {
+  display: inline-block;
+}
+
+.device-desktop .search-wrapper:not(:last-child) {
+  margin-right: 5px;
+}
+
+.device-mobile .search-input > .input {
+  display: flex;
+}

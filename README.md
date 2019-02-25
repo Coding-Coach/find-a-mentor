@@ -1,8 +1,11 @@
+[![Build Status](https://travis-ci.com/Coding-Coach/find-a-mentor.svg?branch=master)](https://travis-ci.com/Coding-Coach/find-a-mentor)
+[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
+
 Pre-release version of Coaching Code.
 
 ## Looking for a mentor?
 
-Just go to https://Coding-Coach.github.io/find-a-mentor/ and find him.
+Just go to https://mentors.codingcoach.io/ and find her / him.
 
 ## Want to be a mentor?
 
@@ -13,14 +16,17 @@ Just go to https://Coding-Coach.github.io/find-a-mentor/ and find him.
 6. PR.
 7. Thanks!
 
+**By the way** You can either do all these steps [using Github UI](https://help.github.com/articles/editing-files-in-another-user-s-repository/). Don't worry, trvis-ci will run the tests for you on the PR.
+
 ### Mentor schema
 
 ```javascript
 {
+  "id": "your email",
   "name": "your name",                          // minLength: 2
   "avatar": "https://link-to-your/avatar.jpg",  // url
   "title": "NodeJS developer",                  // minLength: 2
-  "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 45 optional
+  "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
   "country": "Israel",                          // should be real :)
   "tags": [                                     // minItems: 1, maxItems: 5
     "nodejs", "webpack", "mongodb"
