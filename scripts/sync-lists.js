@@ -26,10 +26,11 @@ if [[ ! -z $(git status -s) ]]
 then
   git add src/lists.json
   git commit -m "[auto] update lists"
-  if [ [ -z "\${TRAVIS_PULL_REQUEST}" ] && "\${TRAVIS_PULL_REQUEST}" != "false" ]
+  if [ -n "\${TRAVIS_PULL_REQUEST}" ] && [ "\${TRAVIS_PULL_REQUEST}" != "false" ]
   then
     git push
   else
+    git reset HEAD~
     echo "no travis PR"
   fi
 else
