@@ -19,9 +19,9 @@ const tagsList = tags => tags.map((tag, index) => {
 const items = (mentors, favs, onToggleFav) => mentors.map((mentor, index) => {
   return (<Card className="mentor-card" key={index}>
     <header>
-      <button className="ui right corner label" onClick={onToggleFav.bind(null, mentor)}>
+      <Label as='button' corner="right" onClick={onToggleFav.bind(null, mentor)}>
         <Icon name="heart" color={favs.indexOf(mentor.id) > -1 ? 'red' : 'black'} />
-      </button>
+      </Label>
       <img src={mentor.avatar} alt={`${mentor.name}'s avatar`} />
       <div className="details">
         <Card.Header>{mentor.name}</Card.Header>
