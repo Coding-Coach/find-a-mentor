@@ -20,6 +20,7 @@ function generateLists() {
 }
 
 writeFileSync('src/lists.json', JSON.stringify(generateLists()));
+
 const command = `
 if [[ ! -z $(git status -s) ]]
 then
@@ -28,7 +29,11 @@ then
   if [ "\${TRAVIS_PULL_REQUEST}" = "true" ]
   then
     git push
+  else
+    echo "no travis PR"
   fi
+else
+  echo "tree is clean"
 fi
 `;
 try {
