@@ -44,7 +44,25 @@
       }
     ]
   },
- {
-     
- }
+  {
+    "id": "crysfel@bleext.com",
+    "name": "Crysfel Villa",
+    "avatar": "https://avatars0.githubusercontent.com/u/219207?s=88&v=4",
+    "title": "Sr. Engineer at @invisionapp",
+    "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
+    "country": "USA",
+    "tags": [
+      "frontend", "javascript", "react", "native", "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "crysfel@bleext.com"
+      },
+      {
+        "type": "slack",
+        "id": "UCQ9GL8UB"
+      }
+    ]
+  }
 ]
