@@ -21,7 +21,6 @@ function generateLists() {
 
 writeFileSync('src/lists.json', JSON.stringify(generateLists()));
 const command = `
-#!/bin/bash
 if [[ ! -z $(git status -s) ]]
 then
   git add src/lists.json
@@ -32,6 +31,12 @@ then
   fi
 fi
 `;
-cp.execSync(command);
+try {
+  cp.execSync(command, {
+    shell: '/bin/bash'
+  });
+} catch (error) {
+  throw error;
+}
 
 module.exports = generateLists;
