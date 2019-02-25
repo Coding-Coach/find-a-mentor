@@ -36,7 +36,7 @@ try {
     shell: '/bin/bash'
   });
   console.log('==================');
-  console.log(result)
+  console.log(result.toString())
   console.log('==================');
 } catch (error) {
   console.error(error);
