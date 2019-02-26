@@ -12,7 +12,8 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 1. Fork
 2. `yarn`
 3. Add your details in `mentors.json` file.
-5. Run `npm test` to validate that the details is following the right schema.
+4. Run `yarn run sync-lists`
+5. Run `yarn test` to validate that the details is following the right schema.
 6. PR.
 7. Thanks!
 

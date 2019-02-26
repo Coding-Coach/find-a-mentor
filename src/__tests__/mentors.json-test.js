@@ -2,7 +2,7 @@ import mentors from '../mentors.json';
 import Ajv from 'ajv';
 import lists from '../lists.json';
 
-import generateLists from '../../scripts/sync-lists';
+import generateLists from '../../scripts/generate-lists';
 
 it('should mentors json contains all fields', () => {
   var ajv = new Ajv({ removeAdditional: false });
