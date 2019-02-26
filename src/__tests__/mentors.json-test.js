@@ -47,6 +47,7 @@ it('should mentors json contains all fields', () => {
         },
         "channels": {
           "type": "array",
+          "minItems": 1,
           "maxItems": 3,
           "items": {
             "type": "object",

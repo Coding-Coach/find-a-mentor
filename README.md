@@ -30,7 +30,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
   "tags": [                                     // minItems: 1, maxItems: 5
     "nodejs", "webpack", "mongodb"
   ],
-  "channels": [
+  "channels": [                                 // minItems: 1, maxItems: 3
     {
       "type": "email",                          // see available channels below
       "id": "john@gmail.com"                    // depends on the type
