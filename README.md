@@ -17,8 +17,6 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 6. PR.
 7. Thanks!
 
-**By the way** You can either do all these steps [using Github UI](https://help.github.com/articles/editing-files-in-another-user-s-repository/). Don't worry, trvis-ci will run the tests for you on the PR.
-
 ### Mentor schema
 
 ```javascript
