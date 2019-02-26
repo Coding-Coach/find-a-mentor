@@ -28,8 +28,8 @@ then
   git commit -m "[auto] update lists"
   if [ -n "\${TRAVIS_PULL_REQUEST}" ] && [ "\${TRAVIS_PULL_REQUEST}" != "false" ]
   then
-    echo "trying to push to: \${TRAVIS_BRANCH} \${TRAVIS_PULL_REQUEST_BRANCH} \${TRAVIS_PULL_REQUEST_SLUG} branch"
-    git push https://moshfeu:\${$GITHUB_TOKEN}@github.com/\${TRAVIS_PULL_REQUEST_SLUG}.git HEAD:\${TRAVIS_PULL_REQUEST_BRANCH}
+    echo "trying to push to: https://moshfeu:\${GITHUB_TOKEN}@github.com/\${TRAVIS_PULL_REQUEST_SLUG}.git HEAD:\${TRAVIS_PULL_REQUEST_BRANCH}"
+    #git push https://moshfeu:\${GITHUB_TOKEN}@github.com/\${TRAVIS_PULL_REQUEST_SLUG}.git HEAD:\${TRAVIS_PULL_REQUEST_BRANCH}
   else
     git reset HEAD~
     echo "no travis PR"
