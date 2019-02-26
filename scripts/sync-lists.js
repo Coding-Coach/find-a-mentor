@@ -20,6 +20,7 @@ function generateLists() {
 }
 
 writeFileSync('src/lists.json', JSON.stringify(generateLists()));
+console.log('just updated lists', JSON.stringify(generateLists(), null, 2))
 
 const command = `
 if [[ ! -z $(git status -s) ]]
