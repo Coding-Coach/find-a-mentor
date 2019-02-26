@@ -28,7 +28,7 @@ then
   git commit -m "[auto] update lists"
   if [ -n "\${TRAVIS_PULL_REQUEST}" ] && [ "\${TRAVIS_PULL_REQUEST}" != "false" ]
   then
-    echo "trying to push to: \${TRAVIS_BRANCH} branch"
+    echo "trying to push to: \${TRAVIS_BRANCH} \${TRAVIS_PULL_REQUEST_BRANCH} \${TRAVIS_PULL_REQUEST_SLUG} branch"
   else
     git reset HEAD~
     echo "no travis PR"
