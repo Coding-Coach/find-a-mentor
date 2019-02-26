@@ -38,15 +38,15 @@ else
   echo "tree is clean"
 fi
 `;
-try {
-  //const result = cp.execSync(command, {
-  //  shell: '/bin/bash'
-  //});
-  console.log('==================');
-  console.log(result.toString())
-  console.log('==================');
-} catch (error) {
-  console.error(error);
-}
+// try {
+//   const result = cp.execSync(command, {
+//     shell: '/bin/bash'
+//   });
+//   console.log('==================');
+//   console.log(result.toString())
+//   console.log('==================');
+// } catch (error) {
+//   console.error(error);
+// }
 
 module.exports = generateLists;
