@@ -43,5 +43,28 @@
         "id": "UCQ9GL8UB"
       }
     ]
+  },
+  {
+    "id": "me@ahmadsantarissy.com",
+    "name": "Ahmad Santarissy",
+    "avatar": "https://avatars0.githubusercontent.com/u/522352?s=460&v=4",
+    "title": "co-CEO @RelativelyFund",
+    "description": "Passionate coder and tech advisor",
+    "country": "Jordan",
+    "tags": ["javascript", "react", "web", "php"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@ahmadsantarissy.com"
+      },
+      {
+        "type": "facebook",
+        "id": "asantarissy"
+      },
+      {
+        "type": "linkedin",
+        "id": "asantarissy"
+      }
+    ]
   }
 ]
