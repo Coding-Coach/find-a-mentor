@@ -1,5 +1,5 @@
-.mentors-wrapper {
-  margin-top: 15px;
+.device-mobile .mentors-wrapper {
+  margin-top: 1.250rem;
 }
 
 .device-mobile .mentors-wrapper {
@@ -16,6 +16,10 @@
   padding: 0 20px;
 }
 
+.device-desktop .mentors-wrapper {
+  margin-top: 3.125rem;
+}
+
 .device-desktop .mentor-card.mentor-card.mentor-card {
   width: 310px;
 }
@@ -24,6 +28,10 @@
   width: 100%;
   margin-right: 0;
   margin-left: 0;
+}
+
+.mentor-card {
+  box-shadow: 0 7px 25px 0 rgba(0,0,0,.3) !important;
 }
 
 .mentor-card header {
@@ -41,6 +49,8 @@
 
 .mentor-card img {
   height: 100px;
+  border-top-left-radius: .28571429rem;
+  border-bottom-right-radius: 1.563rem;
 }
 
 .mentor-card .mentor-tag {
