@@ -53,3 +53,8 @@
 .mentor-card .mentor-quote {
   color: #68d5b1;
 }
+
+.ui.button.channel-link {
+  padding-right: 0;
+  padding-left: 0;
+}

@@ -40,7 +40,7 @@ const items = (mentors, favs, onToggleFav) => mentors.map((mentor, index) => {
       mentor.channels.map(channel => {
         const { icon, url } = getChannelInfo(channel);
         return (
-          <a className="ui black basic button" key={channel.type} href={url} target="_blank" rel="noopener noreferrer">
+          <a className="ui black basic button channel-link" key={channel.type} href={url} target="_blank" rel="noopener noreferrer">
             <Icon name={icon} />
             <span>{channel.type}</span>
           </a>
