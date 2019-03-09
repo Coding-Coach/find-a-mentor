@@ -248,5 +248,30 @@
         "id": "botherchou"
       }
     ]
+  },
+  {
+    "id": "ambatikirankumar4@gmail.com",
+    "name": "Kirankumar Ambati",
+    "avatar": "https://avatars0.githubusercontent.com/u/9110567?s=460&v=4",
+    "title": "Senior Software Engineer @ValueLabs",
+    "description": "Hi, I'm Kirankumar Ambati! Let me know if you need any help.👨‍💻",
+    "country": "India",
+    "tags": [
+      "frontend", "javascript", "reactjs", "redux", "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ambatikirankumar4@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "ambatikirankumar"
+      },
+      {
+        "type": "slack",
+        "id": "kirankumarambati"
+      }
+    ]
   }
 ]
