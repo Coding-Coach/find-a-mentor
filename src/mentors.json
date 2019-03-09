@@ -81,7 +81,8 @@
       "nodejs",
       "express"
     ],
-    "channels": [{
+    "channels": [
+      {
         "type": "email",
         "id": "asjas@outlook.com"
       },
@@ -103,7 +104,8 @@
     "description": "Hi! I am BD. Would love to help in any way 🙂",
     "country": "India",
     "tags": ["javascript", "react", "node", "fp"],
-    "channels": [{
+    "channels": [
+      {
         "type": "email",
         "id": "dhanjalbhavdeep@gmail.com"
       },
