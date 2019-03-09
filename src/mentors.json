@@ -273,5 +273,30 @@
         "id": "kirankumarambati"
       }
     ]
+  },
+  {
+    "id": "hello@artofcode.co.uk",
+    "name": "Owen Jenkins",
+    "avatar": "https://avatars2.githubusercontent.com/u/10406565?s=460&v=4",
+    "title": "Generalist; Python/Ruby/Web",
+    "description": "Hi! Happy to help in general; I specialise in Python, Ruby (inc. Rails), and web projects.",
+    "country": "United Kingdom",
+    "tags": [
+      "python", "ruby", "rails", "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@artofcode.co.uk"
+      },
+      {
+        "type": "slack",
+        "id": "Owen Jenkins"
+      },
+      {
+        "type": "twitter",
+        "id": "_ArtOfCode"
+      }
+    ]
   }
 ]
