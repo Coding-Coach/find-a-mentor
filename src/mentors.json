@@ -66,5 +66,187 @@
         "id": "asantarissy"
       }
     ]
+  },
+  {
+    "id": "asjas@outlook.com",
+    "name": "A-J Roos",
+    "avatar": "https://avatars0.githubusercontent.com/u/3828967?s=400&v=4",
+    "title": "JavaScript Web Developer",
+    "description": "I'm a JavaScript Web Developer. Ask me any questions that you have.",
+    "country": "South Africa",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "gatsby",
+      "nodejs",
+      "express"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "asjas@outlook.com"
+      },
+      {
+        "type": "twitter",
+        "id": "_asjas"
+      },
+      {
+        "type": "slack",
+        "id": "UCQHCSC3F"
+      }
+    ]
+  },
+  {
+    "id": "dhanjalbhavdeep@gmail.com",
+    "name": "Bhavdeep Dhanjal",
+    "avatar": "https://avatars3.githubusercontent.com/u/19860968?s=400&v=4",
+    "title": "Software Engineer",
+    "description": "Hi! I am BD. Would love to help in any way 🙂",
+    "country": "India",
+    "tags": ["javascript", "react", "node", "fp"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "dhanjalbhavdeep@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "bhavdeep-dhanjal"
+      },
+      {
+        "type": "twitter",
+        "id": "bhavdeepdhanjal"
+      }
+    ]
+  },
+  {
+    "id": "tommy@sapid.com",
+    "name": "Tommy Williams",
+    "avatar": "https://avatars2.githubusercontent.com/u/1378042?v=4",
+    "title": "Full Stack .NET Web Developer",
+    "description": "28-year career in software. Would love to share what I know.",
+    "country": "USA",
+    "tags": ["csharp", "aspnet", "backend", "build", "powershell"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "tommy@sapid.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "twwilliams"
+      },
+      {
+        "type": "twitter",
+        "id": "twwilliams"
+      }
+    ]
+  },
+  {
+    "id": "nickfoden@gmail.com",
+    "name": "Nick Foden",
+    "avatar": "https://avatars3.githubusercontent.com/u/8321838?s=460&v=4",
+    "title": "Developer at @wallplaynetwork",
+    "description": "Hola ! Let's solve some problems.",
+    "country": "USA",
+    "tags": ["reactjs", "firebase", "javascript", "node", "redux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "nickfoden@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGTLF9ERZ"
+      },
+      {
+        "type": "twitter",
+        "id": "nickfoden"
+      }
+    ]
+  },
+  {
+    "id": "me@andrewmiracle.com",
+    "name": "Andrew Miracle",
+    "avatar": "http://andrewmiracle.com/images/headshot.jpg",
+    "title": "Software Developer at @sendboxng",
+    "description": "When the journey looks rough, I promise you won't have to do it alone",
+    "country": "Nigeria",
+    "tags": ["javascript", "reactjs", "web", "frontend", "ux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@andrewmiracle.com"
+      },
+      {
+        "type": "slack",
+        "id": "UCT87M68N"
+      },
+      {
+        "type": "linkedin",
+        "id": "salzzyandrewmiracle"
+      }
+    ]
+  },
+  {
+    "id": "alsoicode@gmail.com",
+    "name": "Brandon Taylor",
+    "avatar": "https://s.gravatar.com/avatar/9bed82f5b46890bf247d2bf7ca558ef7?s=80&r=g",
+    "title": "Full Stack Web Developer / Designer",
+    "description": "23 year web development veteran specializing in Angular, Node and TypeScript",
+    "country": "USA",
+    "tags": ["angular", "django", "node", "typescript", "javascript"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alsoicode@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "alsoicode"
+      }
+    ]
+  },
+  {
+    "id": "gregorifaroux@gmail.com",
+    "name": "Gregori Faroux",
+    "avatar": "https://avatars0.githubusercontent.com/gregorifaroux",
+    "title": "CTO @ Catalytic DS",
+    "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
+    "country": "USA",
+    "tags": ["javascript", "react", "redux"],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "gregorifaroux"
+      },
+      {
+        "type": "slack",
+        "id": "UGPPXCKB2"
+      },
+      {
+        "type": "linkedin",
+        "id": "gregorifaroux"
+      }
+    ]
+  },
+  {
+    "id": "chouandrewo@gmail.com",
+    "name": "Andrew Chou",
+    "avatar": "https://avatars3.githubusercontent.com/u/18542095?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Open web enthusiast. Come explore the various corners of the internet with me!",
+    "country": "USA",
+    "tags": ["javascript", "css", "html", "web", "p2p"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "chouandrewo@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "botherchou"
+      }
+    ]
   }
 ]

@@ -17,7 +17,7 @@
 }
 
 .device-desktop .mentor-card.mentor-card.mentor-card {
-  width: 310px;
+  width: 350px;
 }
 
 .device-mobile .mentor-card.mentor-card.mentor-card {
@@ -32,6 +32,10 @@
 
 .mentor-card .details {
   padding: .35em 1em;
+}
+
+.mentor-card .tags {
+  margin-bottom: -8px;
 }
 
 .mentor-card .description {
