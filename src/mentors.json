@@ -187,5 +187,24 @@
         "id": "salzzyandrewmiracle"
       }
     ]
+  },
+  {
+    "id": "alsoicode@gmail.com",
+    "name": "Brandon Taylor",
+    "avatar": "https://avatars2.githubusercontent.com/u/1378042?v=4",
+    "title": "Full Stack Web Developer / Designer",
+    "description": "23 year web development veteran specializing in Angular, Node and TypeScript",
+    "country": "USA",
+    "tags": ["angular", "django", "node", "typescript", "javascript"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alsoicode@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "alsoicode"
+      }
+    ]
   }
 ]
