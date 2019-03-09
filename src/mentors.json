@@ -1,13 +1,12 @@
-[{
+[
+  {
     "id": "moshfeu@gmail.com",
     "name": "Mosh Feuchtwanger",
     "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
     "title": "Frontend at @wix",
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "Israel",
-    "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
-    ],
+    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -30,9 +29,7 @@
     "title": "Sr. Engineer at @invisionapp",
     "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
     "country": "USA",
-    "tags": [
-      "frontend", "javascript", "react", "native", "css"
-    ],
+    "tags": ["frontend", "javascript", "react", "native", "css"],
     "channels": [
       {
         "type": "email",
@@ -64,6 +61,29 @@
       {
         "type": "linkedin",
         "id": "asantarissy"
+      }
+    ]
+  },
+  {
+    "id": "nickfoden@gmail.com",
+    "name": "Nick Foden",
+    "avatar": "https://avatars3.githubusercontent.com/u/8321838?s=460&v=4",
+    "title": "Developer at @wallplaynetwork",
+    "description": "Hola ! Let's solve some problems.",
+    "country": "USA",
+    "tags": ["reactjs", "firebase", "javascript", "node", "redux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "nickfoden@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGTLF9ERZ"
+      },
+      {
+        "type": "twitter",
+        "id": "nickfoden        "
       }
     ]
   }
