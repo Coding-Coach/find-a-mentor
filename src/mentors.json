@@ -8,7 +8,8 @@
     "tags": [
       "frontend", "javascript", "reactjs", "html", "css"
     ],
-    "channels": [{
+    "channels": [
+      {
         "type": "email",
         "id": "moshfeu@gmail.com"
       },
@@ -32,7 +33,8 @@
     "tags": [
       "frontend", "javascript", "react", "native", "css"
     ],
-    "channels": [{
+    "channels": [
+      {
         "type": "email",
         "id": "crysfel@bleext.com"
       },
@@ -50,7 +52,8 @@
     "description": "Passionate coder and tech advisor",
     "country": "Jordan",
     "tags": ["javascript", "react", "web", "php"],
-    "channels": [{
+    "channels": [
+      {
         "type": "email",
         "id": "me@ahmadsantarissy.com"
       },
