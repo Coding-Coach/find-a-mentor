@@ -51,7 +51,7 @@
     "title": "co-CEO @RelativelyFund",
     "description": "Passionate coder and tech advisor",
     "country": "Jordan",
-    "tags": ["javascript", "react", "web", "php"],
+    "tags": ["javascript", "reactjs", "web", "php", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -64,6 +64,29 @@
       {
         "type": "linkedin",
         "id": "asantarissy"
+      }
+    ]
+  },
+  {
+    "id": "me@andrewmiracle.com",
+    "name": "Andrew Miracle",
+    "avatar": "http://andrewmiracle.com/images/headshot.jpg",
+    "title": "Software Developer at @sendboxng",
+    "description": "When the journey looks rough, I promise you won't have to do it alone",
+    "country": "Nigeria",
+    "tags": ["javascript", "react", "web", "frontend"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@andrewmiracle.com"
+      },
+      {
+        "type": "twitter",
+        "id": "koolamusic"
+      },
+      {
+        "type": "linkedin",
+        "id": "salzzyandrewmiracle"
       }
     ]
   }
