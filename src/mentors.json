@@ -273,5 +273,34 @@
         "id": "kirankumarambati"
       }
     ]
+  },
+  {
+    "id": "yusadolat@gmail.com",
+    "name": "Yusuf Adeyemo",
+    "avatar": "https://avatars0.githubusercontent.com/u/10975011?s=460&v=4",
+    "title": "Front End Engineer at IderaOS",
+    "description": "Hey, Yusuf here! Fullstack JS Dev, Let me know if you need any help.👨‍💻",
+    "country": "Nigeria",
+    "tags": [
+      "javascript", "reactjs", "redux", "fullstack", "vuejs", "NodeJS"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "yusadolat@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "yusadolat"
+      },
+      {
+        "type": "slack",
+        "id": "yusadolat"
+      },
+      {
+        "type": "twitter",
+        "id": "yusadolat"
+      }
+    ]
   }
 ]
