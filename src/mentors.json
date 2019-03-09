@@ -1,12 +1,13 @@
-[
-  {
+[{
     "id": "moshfeu@gmail.com",
     "name": "Mosh Feuchtwanger",
     "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
     "title": "Frontend at @wix",
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "Israel",
-    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
+    "tags": [
+      "frontend", "javascript", "reactjs", "html", "css"
+    ],
     "channels": [
       {
         "type": "email",
@@ -29,7 +30,9 @@
     "title": "Sr. Engineer at @invisionapp",
     "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
     "country": "USA",
-    "tags": ["frontend", "javascript", "react", "native", "css"],
+    "tags": [
+      "frontend", "javascript", "react", "native", "css"
+    ],
     "channels": [
       {
         "type": "email",
@@ -65,6 +68,59 @@
     ]
   },
   {
+    "id": "asjas@outlook.com",
+    "name": "A-J Roos",
+    "avatar": "https://avatars0.githubusercontent.com/u/3828967?s=400&v=4",
+    "title": "JavaScript Web Developer",
+    "description": "I'm a JavaScript Web Developer. Ask me any questions that you have.",
+    "country": "South Africa",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "gatsby",
+      "nodejs",
+      "express"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "asjas@outlook.com"
+      },
+      {
+        "type": "twitter",
+        "id": "_asjas"
+      },
+      {
+        "type": "slack",
+        "id": "UCQHCSC3F"
+      }
+    ]
+  },
+  {
+    "id": "dhanjalbhavdeep@gmail.com",
+    "name": "Bhavdeep Dhanjal",
+    "avatar": "https://avatars3.githubusercontent.com/u/19860968?s=400&v=4",
+    "title": "Software Engineer",
+    "description": "Hi! I am BD. Would love to help in any way 🙂",
+    "country": "India",
+    "tags": ["javascript", "react", "node", "fp"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "dhanjalbhavdeep@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "bhavdeep-dhanjal"
+      },
+      {
+        "type": "twitter",
+        "id": "bhavdeepdhanjal"
+      }
+    ]
+  },
+  {
+
     "id": "tommy@sapid.com",
     "name": "Tommy Williams",
     "avatar": "https://avatars2.githubusercontent.com/u/1378042?v=4",
