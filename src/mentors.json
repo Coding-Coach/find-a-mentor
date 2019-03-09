@@ -51,7 +51,7 @@
     "title": "co-CEO @RelativelyFund",
     "description": "Passionate coder and tech advisor",
     "country": "Jordan",
-    "tags": ["javascript", "react", "web", "php", "html"],
+    "tags": ["javascript", "react", "web", "php"],
     "channels": [
       {
         "type": "email",
@@ -68,25 +68,31 @@
     ]
   },
   {
-    "id": "me@andrewmiracle.com",
-    "name": "Andrew Miracle",
-    "avatar": "http://andrewmiracle.com/images/headshot.jpg",
-    "title": "Software Developer at @sendboxng",
-    "description": "When the journey looks rough, I promise you won't have to do it alone",
-    "country": "Nigeria",
-    "tags": ["javascript", "reactjs", "web", "frontend", "ux"],
+    "id": "asjas@outlook.com",
+    "name": "A-J Roos",
+    "avatar": "https://avatars0.githubusercontent.com/u/3828967?s=400&v=4",
+    "title": "JavaScript Web Developer",
+    "description": "I'm a JavaScript Web Developer. Ask me any questions that you have.",
+    "country": "South Africa",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "gatsby",
+      "nodejs",
+      "express"
+    ],
     "channels": [
       {
         "type": "email",
-        "id": "me@andrewmiracle.com"
+        "id": "asjas@outlook.com"
+      },
+      {
+        "type": "twitter",
+        "id": "_asjas"
       },
       {
         "type": "slack",
-        "id": "UCT87M68N"
-      },
-      {
-        "type": "linkedin",
-        "id": "salzzyandrewmiracle"
+        "id": "UCQHCSC3F"
       }
     ]
   },
@@ -110,6 +116,75 @@
       {
         "type": "twitter",
         "id": "bhavdeepdhanjal"
+      }
+    ]
+  },
+  {
+    "id": "tommy@sapid.com",
+    "name": "Tommy Williams",
+    "avatar": "https://avatars2.githubusercontent.com/u/1378042?v=4",
+    "title": "Full Stack .NET Web Developer",
+    "description": "28-year career in software. Would love to share what I know.",
+    "country": "USA",
+    "tags": ["csharp", "aspnet", "backend", "build", "powershell"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "tommy@sapid.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "twwilliams"
+      },
+      {
+        "type": "twitter",
+        "id": "twwilliams"
+      }
+    ]
+  },
+  {
+    "id": "nickfoden@gmail.com",
+    "name": "Nick Foden",
+    "avatar": "https://avatars3.githubusercontent.com/u/8321838?s=460&v=4",
+    "title": "Developer at @wallplaynetwork",
+    "description": "Hola ! Let's solve some problems.",
+    "country": "USA",
+    "tags": ["reactjs", "firebase", "javascript", "node", "redux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "nickfoden@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGTLF9ERZ"
+      },
+      {
+        "type": "twitter",
+        "id": "nickfoden"
+      }
+    ]
+  },
+  {
+    "id": "me@andrewmiracle.com",
+    "name": "Andrew Miracle",
+    "avatar": "http://andrewmiracle.com/images/headshot.jpg",
+    "title": "Software Developer at @sendboxng",
+    "description": "When the journey looks rough, I promise you won't have to do it alone",
+    "country": "Nigeria",
+    "tags": ["javascript", "reactjs", "web", "frontend", "ux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@andrewmiracle.com"
+      },
+      {
+        "type": "slack",
+        "id": "UCT87M68N"
+      },
+      {
+        "type": "linkedin",
+        "id": "salzzyandrewmiracle"
       }
     ]
   }
