@@ -208,6 +208,29 @@
     ]
   },
   {
+    "id": "gregorifaroux@gmail.com",
+    "name": "Gregori Faroux",
+    "avatar": "https://avatars0.githubusercontent.com/gregorifaroux",
+    "title": "CTO @ Catalytic DS",
+    "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
+    "country": "USA",
+    "tags": ["javascript", "react", "redux"],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "gregorifaroux"
+      },
+      {
+        "type": "slack",
+        "id": "UGPPXCKB2"
+      },
+      {
+        "type": "linkedin",
+        "id": "gregorifaroux"
+      }
+    ]
+  },
+  {
     "id": "chouandrewo@gmail.com",
     "name": "Andrew Chou",
     "avatar": "https://avatars3.githubusercontent.com/u/18542095?s=460&v=4",

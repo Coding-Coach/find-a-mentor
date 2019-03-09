@@ -24,7 +24,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
   "id": "your email",
   "name": "your name",                          // minLength: 2
   "avatar": "https://link-to-your/avatar.jpg",  // url
-  "title": "NodeJS developer",                  // minLength: 2
+  "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
   "country": "Israel",                          // should be real :)
   "tags": [                                     // minItems: 1, maxItems: 5
