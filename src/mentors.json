@@ -1,100 +1,93 @@
 [{
-    "id": "moshfeu@gmail.com",
-    "name": "Mosh Feuchtwanger",
-    "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
-    "title": "Frontend at @wix",
-    "description": "Hi, I'm Mosh and I will love to help! 🤪",
-    "country": "Israel",
-    "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "moshfeu@gmail.com"
-      },
-      {
-        "type": "slack",
-        "id": "UFL4N8ETE"
-      },
-      {
-        "type": "linkedin",
-        "id": "moshfeu"
-      }
-    ]
-  },
-  {
-    "id": "crysfel@bleext.com",
-    "name": "Crysfel Villa",
-    "avatar": "https://avatars0.githubusercontent.com/u/219207?s=88&v=4",
-    "title": "Sr. Engineer at @invisionapp",
-    "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
-    "country": "USA",
-    "tags": [
-      "frontend", "javascript", "react", "native", "css"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "crysfel@bleext.com"
-      },
-      {
-        "type": "slack",
-        "id": "UCQ9GL8UB"
-      }
-    ]
-  },
-  {
-    "id": "me@ahmadsantarissy.com",
-    "name": "Ahmad Santarissy",
-    "avatar": "https://avatars0.githubusercontent.com/u/522352?s=460&v=4",
-    "title": "co-CEO @RelativelyFund",
-    "description": "Passionate coder and tech advisor",
-    "country": "Jordan",
-    "tags": ["javascript", "react", "web", "php"],
-    "channels": [
-      {
-        "type": "email",
-        "id": "me@ahmadsantarissy.com"
-      },
-      {
-        "type": "facebook",
-        "id": "asantarissy"
-      },
-      {
-        "type": "linkedin",
-        "id": "asantarissy"
-      }
-    ]
-  },
-  {
-    "id": "gregorifaroux@gmail.com",
-    "name": "Gregori Faroux",
-    "avatar": "https://avatars.githubusercontent.com/gregorifaroux",
-    "title": "CTO @ Catalytic Data Science",
-    "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
-    "country": "USA",
-    "tags": [
-      "frontend", "javascript", "react", "redux", "react hooks"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "gregorifaroux@gmail.com"
-      },
-      {
-        "type": "slack",
-        "id": "UGPPXCKB2"
-      },
-      {
-        "type": "linkedin",
-        "id": "gregorifaroux"
-      },
-      {
-        "type": "twitter",
-        "id": "gregorifaroux"
-      }
-
-    ]
-  }
+  "id": "moshfeu@gmail.com",
+  "name": "Mosh Feuchtwanger",
+  "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
+  "title": "Frontend at @wix",
+  "description": "Hi, I'm Mosh and I will love to help! 🤪",
+  "country": "Israel",
+  "tags": [
+    "frontend", "javascript", "reactjs", "html", "css"
+  ],
+  "channels": [
+    {
+      "type": "email",
+      "id": "moshfeu@gmail.com"
+    },
+    {
+      "type": "slack",
+      "id": "UFL4N8ETE"
+    },
+    {
+      "type": "linkedin",
+      "id": "moshfeu"
+    }
+  ]
+},
+{
+  "id": "crysfel@bleext.com",
+  "name": "Crysfel Villa",
+  "avatar": "https://avatars0.githubusercontent.com/u/219207?s=88&v=4",
+  "title": "Sr. Engineer at @invisionapp",
+  "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
+  "country": "USA",
+  "tags": [
+    "frontend", "javascript", "react", "native", "css"
+  ],
+  "channels": [
+    {
+      "type": "email",
+      "id": "crysfel@bleext.com"
+    },
+    {
+      "type": "slack",
+      "id": "UCQ9GL8UB"
+    }
+  ]
+},
+{
+  "id": "me@ahmadsantarissy.com",
+  "name": "Ahmad Santarissy",
+  "avatar": "https://avatars0.githubusercontent.com/u/522352?s=460&v=4",
+  "title": "co-CEO @RelativelyFund",
+  "description": "Passionate coder and tech advisor",
+  "country": "Jordan",
+  "tags": ["javascript", "react", "web", "php"],
+  "channels": [
+    {
+      "type": "email",
+      "id": "me@ahmadsantarissy.com"
+    },
+    {
+      "type": "facebook",
+      "id": "asantarissy"
+    },
+    {
+      "type": "linkedin",
+      "id": "asantarissy"
+    }
+  ]
+},
+{
+  "id": "gregorifaroux@gmail.com",
+  "name": "Gregori Faroux",
+  "avatar": "https://avatars0.githubusercontent.com/gregorifaroux",
+  "title": "CTO @ Catalytic Data Science",
+  "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
+  "country": "USA",
+  "tags": ["javascript", "react", "hooks", "redux"],
+  "channels": [
+    {
+      "type": "email",
+      "id": "gregorifaroux@gmail.com"
+    },
+    {
+      "type": "slack",
+      "id": "UGPPXCKB2"
+    },
+    {
+      "type": "linkedin",
+      "id": "gregorifaroux"
+    }
+  ]
+}
 ]
