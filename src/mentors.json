@@ -66,5 +66,35 @@
         "id": "asantarissy"
       }
     ]
+  },
+  {
+    "id": "gregorifaroux@gmail.com",
+    "name": "Gregori Faroux",
+    "avatar": "https://avatars.githubusercontent.com/gregorifaroux",
+    "title": "CTO @ Catalytic Data Science",
+    "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
+    "country": "USA",
+    "tags": [
+      "frontend", "javascript", "react", "redux", "react hooks"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gregorifaroux@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGPPXCKB2"
+      },
+      {
+        "type": "linkedin",
+        "id": "gregorifaroux"
+      },
+      {
+        "type": "twitter",
+        "id": "gregorifaroux"
+      }
+
+    ]
   }
 ]
