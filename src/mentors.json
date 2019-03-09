@@ -164,5 +164,28 @@
         "id": "nickfoden"
       }
     ]
+  },
+  {
+    "id": "me@andrewmiracle.com",
+    "name": "Andrew Miracle",
+    "avatar": "http://andrewmiracle.com/images/headshot.jpg",
+    "title": "Software Developer at @sendboxng",
+    "description": "When the journey looks rough, I promise you won't have to do it alone",
+    "country": "Nigeria",
+    "tags": ["javascript", "reactjs", "web", "frontend", "ux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@andrewmiracle.com"
+      },
+      {
+        "type": "slack",
+        "id": "UCT87M68N"
+      },
+      {
+        "type": "linkedin",
+        "id": "salzzyandrewmiracle"
+      }
+    ]
   }
 ]
