@@ -12,16 +12,16 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 1. Fork
 2. `yarn`
 3. Add your details in `mentors.json` file.
-5. Run `npm test` to validate that the details is following the right schema.
+4. Run `yarn run sync-lists`
+5. Run `yarn test` to validate that the details is following the right schema.
 6. PR.
 7. Thanks!
-
-**By the way** You can either do all these steps [using Github UI](https://help.github.com/articles/editing-files-in-another-user-s-repository/). Don't worry, trvis-ci will run the tests for you on the PR.
 
 ### Mentor schema
 
 ```javascript
 {
+  "id": "your email",
   "name": "your name",                          // minLength: 2
   "avatar": "https://link-to-your/avatar.jpg",  // url
   "title": "NodeJS developer",                  // minLength: 2
@@ -30,7 +30,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
   "tags": [                                     // minItems: 1, maxItems: 5
     "nodejs", "webpack", "mongodb"
   ],
-  "channels": [
+  "channels": [                                 // minItems: 1, maxItems: 3
     {
       "type": "email",                          // see available channels below
       "id": "john@gmail.com"                    // depends on the type

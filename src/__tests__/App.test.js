@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from '../components/App/App'
+
+// run this tests first
+import './mentors.json-test';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

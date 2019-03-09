@@ -42,15 +42,16 @@ export default class AutoComplete extends Component {
     const { isLoading, value, results } = this.state
 
     return (
-      <div className="Search-wrapper">
+      <div className="search-wrapper">
         <Search
+          input="search"
           loading={isLoading}
           onResultSelect={this.handleResultSelect}
           onSearchChange={debounce(this.handleSearchChange, 500, { leading: true })}
           results={results}
           value={value}
           placeholder={this.props.placeholder}
-          className="Search-input"
+          className="search-input"
         />
       </div>
     )

@@ -1,8 +1,8 @@
-import mentors from './mentors.json';
+import mentors from '../mentors.json';
 import Ajv from 'ajv';
-import lists from './lists.json';
+import lists from '../lists.json';
 
-import generateLists from '../scripts/sync-lists';
+import generateLists from '../../scripts/generate-lists';
 
 it('should mentors json contains all fields', () => {
   var ajv = new Ajv({ removeAdditional: false });
@@ -11,6 +11,10 @@ it('should mentors json contains all fields', () => {
     "items": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "string",
+          "format": "email"
+        },
         "name": {
           "type": "string",
           "minLength": 2
@@ -43,19 +47,21 @@ it('should mentors json contains all fields', () => {
         },
         "channels": {
           "type": "array",
+          "minItems": 1,
+          "maxItems": 3,
           "items": {
             "type": "object",
             "properties": {
               "type": {
                 "type": "string",
-                "enum": ["slack", "email"]
+                "enum": ["slack", "email", "linkedin", "facebook", "twitter"]
               }
             },
             "required": ["type", "id"]
           }
         }
       },
-      "required": ["name", "avatar", "title", "country", "tags", "channels"]
+      "required": ["id", "name", "avatar", "title", "country", "tags", "channels"]
     }
   }, mentors);
   if (ajv.errors) {
