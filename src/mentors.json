@@ -120,7 +120,6 @@
     ]
   },
   {
-
     "id": "tommy@sapid.com",
     "name": "Tommy Williams",
     "avatar": "https://avatars2.githubusercontent.com/u/1378042?v=4",
@@ -140,6 +139,29 @@
       {
         "type": "twitter",
         "id": "twwilliams"
+      }
+    ]
+  },
+  {
+    "id": "nickfoden@gmail.com",
+    "name": "Nick Foden",
+    "avatar": "https://avatars3.githubusercontent.com/u/8321838?s=460&v=4",
+    "title": "Developer at @wallplaynetwork",
+    "description": "Hola ! Let's solve some problems.",
+    "country": "USA",
+    "tags": ["reactjs", "firebase", "javascript", "node", "redux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "nickfoden@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGTLF9ERZ"
+      },
+      {
+        "type": "twitter",
+        "id": "nickfoden"
       }
     ]
   }
