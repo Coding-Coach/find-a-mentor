@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": "moshfeu@gmail.com",
     "name": "Mosh Feuchtwanger",
     "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
@@ -6,7 +7,11 @@
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "Israel",
     "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
+      "frontend",
+      "javascript",
+      "reactjs",
+      "html",
+      "css"
     ],
     "channels": [
       {
@@ -31,7 +36,11 @@
     "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
     "country": "USA",
     "tags": [
-      "frontend", "javascript", "react", "native", "css"
+      "frontend",
+      "javascript",
+      "react",
+      "native",
+      "css"
     ],
     "channels": [
       {
@@ -51,7 +60,12 @@
     "title": "co-CEO @RelativelyFund",
     "description": "Passionate coder and tech advisor",
     "country": "Jordan",
-    "tags": ["javascript", "react", "web", "php"],
+    "tags": [
+      "javascript",
+      "react",
+      "web",
+      "php"
+    ],
     "channels": [
       {
         "type": "email",
@@ -103,7 +117,12 @@
     "title": "Software Engineer",
     "description": "Hi! I am BD. Would love to help in any way 🙂",
     "country": "India",
-    "tags": ["javascript", "react", "node", "fp"],
+    "tags": [
+      "javascript",
+      "react",
+      "node",
+      "fp"
+    ],
     "channels": [
       {
         "type": "email",
@@ -126,7 +145,13 @@
     "title": "Full Stack .NET Web Developer",
     "description": "28-year career in software. Would love to share what I know.",
     "country": "USA",
-    "tags": ["csharp", "aspnet", "backend", "build", "powershell"],
+    "tags": [
+      "csharp",
+      "aspnet",
+      "backend",
+      "build",
+      "powershell"
+    ],
     "channels": [
       {
         "type": "email",
@@ -149,7 +174,13 @@
     "title": "Developer at @wallplaynetwork",
     "description": "Hola ! Let's solve some problems.",
     "country": "USA",
-    "tags": ["reactjs", "firebase", "javascript", "node", "redux"],
+    "tags": [
+      "reactjs",
+      "firebase",
+      "javascript",
+      "node",
+      "redux"
+    ],
     "channels": [
       {
         "type": "email",
@@ -172,7 +203,13 @@
     "title": "Software Developer at @sendboxng",
     "description": "When the journey looks rough, I promise you won't have to do it alone",
     "country": "Nigeria",
-    "tags": ["javascript", "reactjs", "web", "frontend", "ux"],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "web",
+      "frontend",
+      "ux"
+    ],
     "channels": [
       {
         "type": "email",
@@ -195,7 +232,13 @@
     "title": "Full Stack Web Developer / Designer",
     "description": "23 year web development veteran specializing in Angular, Node and TypeScript",
     "country": "USA",
-    "tags": ["angular", "django", "node", "typescript", "javascript"],
+    "tags": [
+      "angular",
+      "django",
+      "node",
+      "typescript",
+      "javascript"
+    ],
     "channels": [
       {
         "type": "email",
@@ -214,7 +257,11 @@
     "title": "CTO @ Catalytic DS",
     "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
     "country": "USA",
-    "tags": ["javascript", "react", "redux"],
+    "tags": [
+      "javascript",
+      "react",
+      "redux"
+    ],
     "channels": [
       {
         "type": "twitter",
@@ -237,7 +284,13 @@
     "title": "Software Engineer",
     "description": "Open web enthusiast. Come explore the various corners of the internet with me!",
     "country": "USA",
-    "tags": ["javascript", "css", "html", "web", "p2p"],
+    "tags": [
+      "javascript",
+      "css",
+      "html",
+      "web",
+      "p2p"
+    ],
     "channels": [
       {
         "type": "email",
@@ -257,7 +310,11 @@
     "description": "Hi, I'm Kirankumar Ambati! Let me know if you need any help.👨‍💻",
     "country": "India",
     "tags": [
-      "frontend", "javascript", "reactjs", "redux", "fullstack"
+      "frontend",
+      "javascript",
+      "reactjs",
+      "redux",
+      "fullstack"
     ],
     "channels": [
       {
@@ -282,7 +339,12 @@
     "description": "Hey, Yusuf here! Fullstack JS Dev, Let me know if you need any help.👨‍💻",
     "country": "Nigeria",
     "tags": [
-      "javascript", "reactjs", "redux", "fullstack", "vuejs", "NodeJS"
+      "javascript",
+      "reactjs",
+      "redux",
+      "fullstack",
+      "vuejs",
+      "NodeJS"
     ],
     "channels": [
       {
