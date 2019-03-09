@@ -85,6 +85,10 @@
       {
         "type": "linkedin",
         "id": "ambatikirankumar"
+      },
+      {
+        "type": "slack",
+        "id": "kirankumarambati"
       }
     ]
   }
