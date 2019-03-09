@@ -66,5 +66,26 @@
         "id": "asantarissy"
       }
     ]
+  },
+  {
+    "id": "ambatikirankumar4@gmail.com",
+    "name": "Kirankumar Ambati",
+    "avatar": "https://avatars0.githubusercontent.com/u/9110567?s=460&v=4",
+    "title": "Senior Software Engineer @ValueLabs",
+    "description": "Hi, I'm Kirankumar! Let me know if you need any help. You can find me at https://kirankumarambati.me 👨‍💻",
+    "country": "INDIA",
+    "tags": [
+      "frontend", "javascript", "reactjs", "react-native", "html", "css", "redux", "fullstack", "node", "express", "mongodb", "vue", "vuex"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ambatikirankumar4@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "ambatikirankumar"
+      }
+    ]
   }
 ]
