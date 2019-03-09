@@ -8,8 +8,7 @@
     "tags": [
       "frontend", "javascript", "reactjs", "html", "css"
     ],
-    "channels": [
-      {
+    "channels": [{
         "type": "email",
         "id": "moshfeu@gmail.com"
       },
@@ -33,8 +32,7 @@
     "tags": [
       "frontend", "javascript", "react", "native", "css"
     ],
-    "channels": [
-      {
+    "channels": [{
         "type": "email",
         "id": "crysfel@bleext.com"
       },
@@ -52,8 +50,7 @@
     "description": "Passionate coder and tech advisor",
     "country": "Jordan",
     "tags": ["javascript", "react", "web", "php"],
-    "channels": [
-      {
+    "channels": [{
         "type": "email",
         "id": "me@ahmadsantarissy.com"
       },
@@ -81,8 +78,7 @@
       "nodejs",
       "express"
     ],
-    "channels": [
-      {
+    "channels": [{
         "type": "email",
         "id": "asjas@outlook.com"
       },
@@ -93,6 +89,28 @@
       {
         "type": "slack",
         "id": "UCQHCSC3F"
+      }
+    ]
+  },
+  {
+    "id": "dhanjalbhavdeep@gmail.com",
+    "name": "Bhavdeep Dhanjal",
+    "avatar": "https://avatars3.githubusercontent.com/u/19860968?s=400&v=4",
+    "title": "Software Engineer",
+    "description": "Hi! I am BD. Would love to help in any way 🙂",
+    "country": "India",
+    "tags": ["javascript", "react", "node", "fp"],
+    "channels": [{
+        "type": "email",
+        "id": "dhanjalbhavdeep@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "bhavdeep-dhanjal"
+      },
+      {
+        "type": "twitter",
+        "id": "bhavdeepdhanjal"
       }
     ]
   }
