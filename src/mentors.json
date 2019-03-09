@@ -66,5 +66,34 @@
         "id": "asantarissy"
       }
     ]
+  },
+  {
+    "id": "asjas@outlook.com",
+    "name": "A-J Roos",
+    "avatar": "https://avatars0.githubusercontent.com/u/3828967?s=400&v=4",
+    "title": "JavaScript Web Developer",
+    "description": "I'm a JavaScript Web Developer. Ask me any questions that you have.",
+    "country": "South Africa",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "gatsby",
+      "nodejs",
+      "express"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "asjas@outlook.com"
+      },
+      {
+        "type": "twitter",
+        "id": "_asjas"
+      },
+      {
+        "type": "slack",
+        "id": "UCQHCSC3F"
+      }
+    ]
   }
 ]
