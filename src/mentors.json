@@ -118,5 +118,29 @@
         "id": "bhavdeepdhanjal"
       }
     ]
+  },
+  {
+
+    "id": "tommy@sapid.com",
+    "name": "Tommy Williams",
+    "avatar": "https://avatars2.githubusercontent.com/u/1378042?v=4",
+    "title": "Full Stack .NET Web Developer",
+    "description": "28-year career in software. Would love to share what I know.",
+    "country": "USA",
+    "tags": ["csharp", "aspnet", "backend", "build", "powershell"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "tommy@sapid.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "twwilliams"
+      },
+      {
+        "type": "twitter",
+        "id": "twwilliams"
+      }
+    ]
   }
 ]
