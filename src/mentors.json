@@ -206,5 +206,24 @@
         "id": "alsoicode"
       }
     ]
+  },
+  {
+    "id": "chouandrewo@gmail.com",
+    "name": "Andrew Chou",
+    "avatar": "https://avatars3.githubusercontent.com/u/18542095?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Open web enthusiast. Come explore the various corners of the internet with me!",
+    "country": "USA",
+    "tags": ["javascript", "css", "html", "web", "p2p"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "chouandrewo@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "botherchou"
+      }
+    ]
   }
 ]
