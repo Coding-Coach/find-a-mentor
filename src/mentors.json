@@ -298,5 +298,28 @@
         "id": "_ArtOfCode"
       }
     ]
+  },
+  {
+    "id": "victor.ribero3@gmail.com",
+    "name": "Victor Ribero",
+    "avatar": "https://avatars1.githubusercontent.com/u/16169890?s=460&v=4",
+    "title": "Frontend Engineer at @Schibsted",
+    "description": "Pragmatic, efficient and happy to help😀. Focus on one thing at the time🤓.",
+    "country": "Spain",
+    "tags": ["frontend", "javascript", "react", "html", "css"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "victor.ribero3@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "victorribero"
+      },
+      {
+        "type": "twitter",
+        "id": "JS_TUREEY"
+      }
+    ]
   }
 ]
