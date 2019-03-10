@@ -26,7 +26,9 @@ const items = (mentors, favs, onToggleFav) => mentors.map((mentor, index) => {
       <div className="details">
         <Card.Header>{mentor.name}</Card.Header>
         <Card.Meta>{mentor.title}</Card.Meta>
-        {tagsList(mentor.tags)}
+        <div className="tags">
+          {tagsList(mentor.tags)}
+        </div>
       </div>
     </header>
     <div className="details">
