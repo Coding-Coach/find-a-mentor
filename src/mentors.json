@@ -1,13 +1,12 @@
-[{
+[
+  {
     "id": "moshfeu@gmail.com",
     "name": "Mosh Feuchtwanger",
     "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
     "title": "Frontend at @wix",
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "Israel",
-    "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
-    ],
+    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -30,9 +29,7 @@
     "title": "Sr. Engineer at @invisionapp",
     "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
     "country": "USA",
-    "tags": [
-      "frontend", "javascript", "react", "native", "css"
-    ],
+    "tags": ["frontend", "javascript", "react", "native", "css"],
     "channels": [
       {
         "type": "email",
@@ -74,13 +71,7 @@
     "title": "JavaScript Web Developer",
     "description": "I'm a JavaScript Web Developer. Ask me any questions that you have.",
     "country": "South Africa",
-    "tags": [
-      "javascript",
-      "reactjs",
-      "gatsby",
-      "nodejs",
-      "express"
-    ],
+    "tags": ["javascript", "reactjs", "gatsby", "nodejs", "express"],
     "channels": [
       {
         "type": "email",
@@ -208,6 +199,7 @@
     ]
   },
   {
+    "id": "gogia.prateek@hotmail.com",
     "name": "Prateek Gogia",
     "avatar": "https://avatars0.githubusercontent.com/u/21155917?s=460&v=4",
     "title": "Product Engineer at @whitepanda",
@@ -218,6 +210,10 @@
       {
         "type": "email",
         "id": "gogia.prateek@hotmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "reeversedev"
       },
       {
         "type": "slack",
