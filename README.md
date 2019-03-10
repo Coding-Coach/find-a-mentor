@@ -12,8 +12,6 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 - Nodejs 11.6.0+ installed [Install Nodejs](https://nodejs.org/en/download/)
 - Yarn (we recommend using yarn as a package manager) [Install Yarn](https://yarnpkg.com/en/)
 
-
-
 ## Want to be a mentor?
 
 1. Fork
@@ -23,6 +21,11 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 5. Run `yarn test` to validate that the details is following the right schema.
 6. PR.
 7. Thanks!
+
+**Notes:**
+
+1. Please double check your details. It’s important that the data scheme remains the same; just replace the details with your values. If you change the data architecture, it will cause errors.
+2. In order to avoid merge conflicts, please fetch the changes on master before pushing.
 
 ### Mentor schema
 
@@ -48,13 +51,13 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 
 #### Channels
 
-| type     | parameter                         |
-|----------|-----------------------------------|
-| email    | email address                     |
-| slack    | slackId in coding-coach workspace |
-| linkedin | userId                            |
-| facebook | userId                            |
-| twitter  | userId                            |
+| type     | parameter                                                                                                               |
+|----------|-------------------------------------------------------------------------------------------------------------------------|
+| email    | email address                                                                                                           |
+| slack    | memberID ([How to find it?](https://medium.com/@moshfeu/how-to-find-my-member-id-in-slack-workspace-d4bba942e38c#88b8)) |
+| linkedin | userId                                                                                                                  |
+| facebook | userId                                                                                                                  |
+| twitter  | userId                                                                                                                  |
 
 ## Want to contribute this project?
 
