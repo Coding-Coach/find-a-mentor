@@ -24,3 +24,9 @@ button.tertiary {
 .ui.card.mentor-card:after {
   display: none;
 }
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .ui.cards {
+    margin: 0 auto;
+  }
+}
