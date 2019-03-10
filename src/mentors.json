@@ -361,5 +361,28 @@
         "id": "jsjoeio"
       }
     ]
+  },
+  {
+    "id": "me@robertwpearce.com",
+    "name": "Robert Pearce",
+    "avatar": "https://avatars0.githubusercontent.com/u/592876?s=460&v=4",
+    "title": "Full stack developer",
+    "description": "Hey there! Happy to help in whatever aspect is needed!",
+    "country": "New Zealand",
+    "tags": [ "nodejs", "a11y", "css", "fp", "rails" ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@robertwpearce.com"
+      },
+      {
+        "type": "twitter",
+        "id": "RobertWPearce"
+      },
+      {
+        "type": "linkedin",
+        "id": "robertwpearce"
+      }
+    ]
   }
 ]
