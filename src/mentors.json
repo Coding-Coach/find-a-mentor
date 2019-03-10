@@ -298,5 +298,34 @@
         "id": "_ArtOfCode"
       }
     ]
+  },
+  {
+    "id": "kamponistullar@gmail.com",
+    "name": "Ogundiji Bolade",
+    "avatar": "https://avatars1.githubusercontent.com/u/19638388?s=460&v=4",
+    "title": "Full Stack Web Developer",
+    "description": "Hi, I'm AdroitCode! Let me know if you need any help.",
+    "country": "Nigeria",
+    "tags": [
+      "php", "SQL", "javascript", "Laravel", "Slim php"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "kamponistullar@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "AdroitCode"
+      },
+      {
+        "type": "twitter",
+        "id": "bollybkampo"
+      },
+      {
+        "type": "linkedin",
+        "id": "ogundiji-bolade-b3b00387"
+      }
+    ]
   }
 ]
