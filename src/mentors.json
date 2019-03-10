@@ -321,5 +321,27 @@
         "id": "JS_TUREEY"
       }
     ]
-  }
+  },
+  {
+    "id": "gogia.prateek@hotmail.com",
+    "name": "Prateek Gogia",
+    "avatar": "https://avatars0.githubusercontent.com/u/21155917?s=460&v=4",
+    "title": "Product Engineer at @whitepanda",
+    "description": "Hi, I'm Prateek. I mostly code in JavaScript. Shoot your queries at me.",
+    "country": "India",
+    "tags": ["frontend", "javascript", "react", "node", "redux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gogia.prateek@hotmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "reeversedev"
+      },
+      {
+        "type": "slack",
+        "id": "UCPP0S9PB"
+      }
+    ]}
 ]
