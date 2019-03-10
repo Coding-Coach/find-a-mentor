@@ -205,7 +205,7 @@
     "title": "Product Engineer at @whitepanda",
     "description": "Hi, I'm Prateek. I mostly code in JavaScript. Shoot your queries at me.",
     "country": "India",
-    "tags": ["frontend", "javascript", "react", "node", "css", "redux"],
+    "tags": ["frontend", "javascript", "react", "node", "redux"],
     "channels": [
       {
         "type": "email",
