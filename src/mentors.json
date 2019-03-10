@@ -1,12 +1,13 @@
-[
-  {
+[{
     "id": "moshfeu@gmail.com",
     "name": "Mosh Feuchtwanger",
     "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
     "title": "Frontend at @wix",
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "Israel",
-    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
+    "tags": [
+      "frontend", "javascript", "reactjs", "html", "css"
+    ],
     "channels": [
       {
         "type": "email",
@@ -29,7 +30,9 @@
     "title": "Sr. Engineer at @invisionapp",
     "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
     "country": "USA",
-    "tags": ["frontend", "javascript", "react", "native", "css"],
+    "tags": [
+      "frontend", "javascript", "react", "native", "css"
+    ],
     "channels": [
       {
         "type": "email",
@@ -71,7 +74,13 @@
     "title": "JavaScript Web Developer",
     "description": "I'm a JavaScript Web Developer. Ask me any questions that you have.",
     "country": "South Africa",
-    "tags": ["javascript", "reactjs", "gatsby", "nodejs", "express"],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "gatsby",
+      "nodejs",
+      "express"
+    ],
     "channels": [
       {
         "type": "email",
@@ -182,7 +191,7 @@
   {
     "id": "alsoicode@gmail.com",
     "name": "Brandon Taylor",
-    "avatar": "https://avatars2.githubusercontent.com/u/1378042?v=4",
+    "avatar": "https://s.gravatar.com/avatar/9bed82f5b46890bf247d2bf7ca558ef7?s=80&r=g",
     "title": "Full Stack Web Developer / Designer",
     "description": "23 year web development veteran specializing in Angular, Node and TypeScript",
     "country": "USA",
@@ -195,6 +204,121 @@
       {
         "type": "linkedin",
         "id": "alsoicode"
+      }
+    ]
+  },
+  {
+    "id": "gregorifaroux@gmail.com",
+    "name": "Gregori Faroux",
+    "avatar": "https://avatars0.githubusercontent.com/gregorifaroux",
+    "title": "CTO @ Catalytic DS",
+    "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
+    "country": "USA",
+    "tags": ["javascript", "react", "redux"],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "gregorifaroux"
+      },
+      {
+        "type": "slack",
+        "id": "UGPPXCKB2"
+      },
+      {
+        "type": "linkedin",
+        "id": "gregorifaroux"
+      }
+    ]
+  },
+  {
+    "id": "chouandrewo@gmail.com",
+    "name": "Andrew Chou",
+    "avatar": "https://avatars3.githubusercontent.com/u/18542095?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Open web enthusiast. Come explore the various corners of the internet with me!",
+    "country": "USA",
+    "tags": ["javascript", "css", "html", "web", "p2p"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "chouandrewo@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "botherchou"
+      }
+    ]
+  },
+  {
+    "id": "ambatikirankumar4@gmail.com",
+    "name": "Kirankumar Ambati",
+    "avatar": "https://avatars0.githubusercontent.com/u/9110567?s=460&v=4",
+    "title": "Senior Software Engineer @ValueLabs",
+    "description": "Hi, I'm Kirankumar Ambati! Let me know if you need any help.👨‍💻",
+    "country": "India",
+    "tags": [
+      "frontend", "javascript", "reactjs", "redux", "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ambatikirankumar4@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "ambatikirankumar"
+      },
+      {
+        "type": "slack",
+        "id": "kirankumarambati"
+      }
+    ]
+  },
+  {
+    "id": "hello@artofcode.co.uk",
+    "name": "Owen Jenkins",
+    "avatar": "https://avatars2.githubusercontent.com/u/10406565?s=460&v=4",
+    "title": "Generalist; Python/Ruby/Web",
+    "description": "Hi! Here for general help; specialise in Python, Ruby/Rails, and web projects.",
+    "country": "United Kingdom",
+    "tags": [
+      "python", "ruby", "rails", "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@artofcode.co.uk"
+      },
+      {
+        "type": "slack",
+        "id": "Owen Jenkins"
+      },
+      {
+        "type": "twitter",
+        "id": "_ArtOfCode"
+      }
+    ]
+  },
+  {
+    "id": "victor.ribero3@gmail.com",
+    "name": "Victor Ribero",
+    "avatar": "https://avatars1.githubusercontent.com/u/16169890?s=460&v=4",
+    "title": "Frontend Engineer at @Schibsted",
+    "description": "Pragmatic, efficient and happy to help😀. Focus on one thing at the time🤓.",
+    "country": "Spain",
+    "tags": ["frontend", "javascript", "react", "html", "css"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "victor.ribero3@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "victorribero"
+      },
+      {
+        "type": "twitter",
+        "id": "JS_TUREEY"
       }
     ]
   },
@@ -219,6 +343,5 @@
         "type": "slack",
         "id": "UCPP0S9PB"
       }
-    ]
-  }
+    ]}
 ]

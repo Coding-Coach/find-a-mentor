@@ -16,3 +16,11 @@ button.tertiary {
   left: 0.48571429em;
   right: auto;
 }
+
+.ui.card.mentor-card {
+  justify-content: space-between;
+}
+
+.ui.card.mentor-card:after {
+  display: none;
+}
