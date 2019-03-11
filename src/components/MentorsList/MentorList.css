@@ -2,6 +2,11 @@
   margin-top: 15px;
 }
 
+.device-desktop .mentors-wrapper {
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
 .device-mobile .mentors-wrapper {
   transform: translateY(-105px);
   transition: transform .3s ease;
