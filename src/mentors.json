@@ -516,5 +516,26 @@
         "id": "emanuelegaspari"
       }
     ]
+  },
+  {
+    "id": "zhivko.siderov@gmail.com",
+    "name": "Zhivko Siderov",
+    "avatar": "https://avatars2.githubusercontent.com/u/11786608?v=4",
+    "title": "Software Developer at AND Digital",
+    "description": "Hi, I am a front-end developer. Let me know if you want to have a chat.",
+    "country": "United Kingdom",
+    "tags": [
+      "frontend", "javascript", "react"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "zhivko.siderov@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UE025ELRF"
+      }
+    ]
   }
 ]
