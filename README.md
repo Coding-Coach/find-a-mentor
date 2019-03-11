@@ -15,7 +15,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 ## Want to be a mentor?
 
 1. Fork
-2. `yarn` (make sure you have a compatible node version, nvm can help here https://github.com/creationix/nvm)
+2. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
 3. **Create a branch** "add-{your-name}-as-mentor"
 4. Add your details in `src/mentors.json` file (check the below schema for requirements).
 5. Run `yarn run sync-lists`
