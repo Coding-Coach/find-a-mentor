@@ -43,7 +43,7 @@ it('should mentors json contains all fields', () => {
           "items": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 10
+            "maxLength": 15
           }
         },
         "channels": {
