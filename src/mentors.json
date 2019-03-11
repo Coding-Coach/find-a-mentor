@@ -438,5 +438,33 @@
          "id":"UCSSLPNFQ"
       }
     ]
+  },
+  {
+    "id": "gulshan.saini@gmail.com",
+    "name": "Gulshan Saini",
+    "avatar": "https://avatars0.githubusercontent.com/u/8197984?s=460&v=4",
+    "title": "Staff Software Engineer",
+    "description": "Hi, I'm Gulshan and I am happy to share my knowledge!",
+    "country": "India",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "css",
+      "api"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gulshan.saini@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "gulshansainis"
+      },
+      {
+        "type": "linkedin",
+        "id": "gulshansainis"
+      }
+    ]
   }
 ]
