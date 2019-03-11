@@ -384,5 +384,30 @@
         "id": "robertwpearce"
       }
     ]
+  },
+  {
+    "id": "vsareen24@gmail.com",
+    "name": "Vinamra Sareen",
+    "avatar": "https://avatars2.githubusercontent.com/u/24828008?s=400&v=4",
+    "title": "Software Developer",
+    "description": "Hi, I'm Vinamra and I am excited to help you !",
+    "country": "India",
+    "tags": [
+      "java", "android", "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vsareen24@gmail.com"
+      },
+    {
+        "type": "twitter",
+        "id": "VinamraSareen"
+      },
+      {
+        "type": "linkedin",
+        "id": "vinamra-sareen"
+      }
+    ]
   }
 ]

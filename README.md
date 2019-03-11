@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/Coding-Coach/find-a-mentor.svg?branch=master)](https://travis-ci.com/Coding-Coach/find-a-mentor)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
 
-Pre-release version of Coaching Code.
+Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
 
