@@ -291,7 +291,7 @@
       },
       {
         "type": "slack",
-        "id": "Owen Jenkins"
+        "id": "UCRJPEC4S"
       },
       {
         "type": "twitter",
@@ -323,5 +323,68 @@
       "id": "vinamra-sareen" 
     }		
   ]
-}
+},
+{
+    "id": "victor.ribero3@gmail.com",
+    "name": "Victor Ribero",
+    "avatar": "https://avatars1.githubusercontent.com/u/16169890?s=460&v=4",
+    "title": "Frontend Engineer at @Schibsted",
+    "description": "Pragmatic, efficient and happy to help😀. Focus on one thing at the time🤓.",
+    "country": "Spain",
+    "tags": ["frontend", "javascript", "react", "html", "css"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "victor.ribero3@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "victorribero"
+      },
+      {
+        "type": "twitter",
+        "id": "JS_TUREEY"
+      }
+    ]
+  },
+  {
+    "id": "gogia.prateek@hotmail.com",
+    "name": "Prateek Gogia",
+    "avatar": "https://avatars0.githubusercontent.com/u/21155917?s=460&v=4",
+    "title": "Product Engineer at @whitepanda",
+    "description": "Hi, I'm Prateek. I mostly code in JavaScript. Shoot your queries at me.",
+    "country": "India",
+    "tags": ["frontend", "javascript", "react", "node", "redux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gogia.prateek@hotmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "reeversedev"
+      },
+      {
+        "type": "slack",
+        "id": "UCPP0S9PB"
+      }
+      ]
+  },
+  {
+    "id": "jjprevite@gmail.com",
+    "name": "JavaScript Joe",
+    "avatar": "https://avatars1.githubusercontent.com/u/3806031?s=460&v=4",
+    "title": "Front End at Digial Air Strike",
+    "description": "Hi! Happy to help you level up 🤠",
+    "country": "USA",
+    "tags": [
+      "frontend", "javascript", "reactjs", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "jsjoeio"
+      }
+    ]
+  }
 ]
