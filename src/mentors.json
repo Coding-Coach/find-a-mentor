@@ -466,5 +466,30 @@
         "id": "gulshansainis"
       }
     ]
+  },
+  {
+    "id": "cristian.echeverri4@gmail.com",
+    "name": "Cristian Echeverria",
+    "avatar": "https://avatars2.githubusercontent.com/u/6706729?s=400&v=4",
+    "title": "Software Developer",
+    "description": "Hola, I'm Cristian and I'm happy to help!",
+    "country": "Sweden",
+    "tags": [
+      "html", "css", "javascript", "react", "node"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "cristian.echeverri4@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "cecheverri4"
+      },
+      {
+        "type": "linkedin",
+        "id": "cristian-echeverria-martinez"
+      }
+    ]
   }
 ]
