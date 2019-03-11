@@ -562,5 +562,30 @@
         "id": "UE025ELRF"
       }
     ]
+  },
+  {
+    "id": "meta.author@gersonnino.me",
+    "name": "Gerson Niño",
+    "avatar": "https://avatars0.githubusercontent.com/u/2708687?v=4",
+    "title": "Senior Fullstack Developer @Globant",
+    "description": "Hi, I am Gerson and I'll be happy to learn with you.",
+    "country": "Perú",
+    "tags": [
+      "nodejs", "javascript", "fullstack", "frontend", "serverless"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "meta.author@gersonnino.me"
+      },
+      {
+        "type": "slack",
+        "id": "UGVQBPEBZ"
+      },
+      {
+        "type": "twitter",
+        "id": "07Gond"
+      }
+    ]
   }
 ]
