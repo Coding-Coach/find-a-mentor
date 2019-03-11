@@ -291,11 +291,325 @@
       },
       {
         "type": "slack",
-        "id": "Owen Jenkins"
+        "id": "UCRJPEC4S"
       },
       {
         "type": "twitter",
         "id": "_ArtOfCode"
+      }
+    ]
+  },
+  {
+    "id": "victor.ribero3@gmail.com",
+    "name": "Victor Ribero",
+    "avatar": "https://avatars1.githubusercontent.com/u/16169890?s=460&v=4",
+    "title": "Frontend Engineer at @Schibsted",
+    "description": "Pragmatic, efficient and happy to help😀. Focus on one thing at the time🤓.",
+    "country": "Spain",
+    "tags": ["frontend", "javascript", "react", "html", "css"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "victor.ribero3@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "victorribero"
+      },
+      {
+        "type": "twitter",
+        "id": "JS_TUREEY"
+      }
+    ]
+  },
+  {
+    "id": "gogia.prateek@hotmail.com",
+    "name": "Prateek Gogia",
+    "avatar": "https://avatars0.githubusercontent.com/u/21155917?s=460&v=4",
+    "title": "Product Engineer at @whitepanda",
+    "description": "Hi, I'm Prateek. I mostly code in JavaScript. Shoot your queries at me.",
+    "country": "India",
+    "tags": ["frontend", "javascript", "react", "node", "redux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gogia.prateek@hotmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "reeversedev"
+      },
+      {
+        "type": "slack",
+        "id": "UCPP0S9PB"
+      }
+      ]
+  },
+  {
+    "id": "jjprevite@gmail.com",
+    "name": "JavaScript Joe",
+    "avatar": "https://avatars1.githubusercontent.com/u/3806031?s=460&v=4",
+    "title": "Front End at Digial Air Strike",
+    "description": "Hi! Happy to help you level up 🤠",
+    "country": "USA",
+    "tags": [
+      "frontend", "javascript", "reactjs", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "jsjoeio"
+      }
+    ]
+  },
+  {
+    "id": "me@robertwpearce.com",
+    "name": "Robert Pearce",
+    "avatar": "https://avatars0.githubusercontent.com/u/592876?s=460&v=4",
+    "title": "Full stack developer",
+    "description": "Hey there! Happy to help in whatever aspect is needed!",
+    "country": "New Zealand",
+    "tags": [ "nodejs", "a11y", "css", "fp", "rails" ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@robertwpearce.com"
+      },
+      {
+        "type": "twitter",
+        "id": "RobertWPearce"
+      },
+      {
+        "type": "linkedin",
+        "id": "robertwpearce"
+      }
+    ]
+  },
+  {
+    "id": "vsareen24@gmail.com",
+    "name": "Vinamra Sareen",
+    "avatar": "https://avatars2.githubusercontent.com/u/24828008?s=400&v=4",
+    "title": "Software Developer",
+    "description": "Hi, I'm Vinamra and I am excited to help you !",
+    "country": "India",
+    "tags": [
+      "java", "android", "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vsareen24@gmail.com"
+      },
+    {
+        "type": "twitter",
+        "id": "VinamraSareen"
+      },
+      {
+        "type": "linkedin",
+        "id": "vinamra-sareen"
+      }
+    ]
+  },
+  {
+    "id": "chanangae@gmail.com",
+    "name": "Joseph Myalla",
+    "avatar": "https://avatars2.githubusercontent.com/u/5945067?v=4",
+    "title": "Full Stack Developer",
+    "description": "We can learn together, just ask or suggest.",
+    "country": "Tanzania",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "react native",
+      "express"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "chanangae@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "chanangae"
+      },
+      {
+         "type":"slack",
+         "id":"UCSSLPNFQ"
+      }
+    ]
+  },
+  {
+    "id": "gulshan.saini@gmail.com",
+    "name": "Gulshan Saini",
+    "avatar": "https://avatars0.githubusercontent.com/u/8197984?s=460&v=4",
+    "title": "Staff Software Engineer",
+    "description": "Hi, I'm Gulshan and I am happy to share my knowledge!",
+    "country": "India",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "css",
+      "api"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gulshan.saini@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "gulshansainis"
+      },
+      {
+        "type": "linkedin",
+        "id": "gulshansainis"
+      }
+    ]
+  },
+  {
+    "id": "cristian.echeverri4@gmail.com",
+    "name": "Cristian Echeverria",
+    "avatar": "https://avatars2.githubusercontent.com/u/6706729?s=400&v=4",
+    "title": "Software Developer",
+    "description": "Hola, I'm Cristian and I'm happy to help!",
+    "country": "Sweden",
+    "tags": [
+      "html", "css", "javascript", "react", "node"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "cristian.echeverri4@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "cecheverri4"
+      },
+      {
+        "type": "linkedin",
+        "id": "cristian-echeverria-martinez"
+      }
+    ]
+  },
+  {
+    "id": "inmarelibero@gmail.com",
+    "name": "Emanuele Gaspari Castelletti",
+    "avatar": "https://www.libravatar.org/gravatarproxy/d02f7988d633a63ec4f1f1f936e46178?s=80&default=None",
+    "title": "PHP/Symfony Developer",
+    "description": "I am an enthusiastic PHP/Symfony developer and trainer.",
+    "country": "Italy",
+    "tags": [
+      "php", "Symfony", "web", "html", "git"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "inmarelibero@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "inmarelibero"
+      },
+      {
+        "type": "linkedin",
+        "id": "emanuelegaspari"
+      }
+    ]
+  },
+  {
+    "id": "smith@pooteeweet.org",
+    "name": "Lukas Kahwe Smith (he/him)",
+    "avatar": "https://secure.gravatar.com/avatar/54787afbd0e7c30936101c2fa84bd89b",
+    "title": "PHP/Symfony Developer",
+    "description": "PHP since 1998, co-RM for PHP 5.3, Symfony core team/lead diversity initiative.",
+    "country": "Switzerland",
+    "tags": [
+      "php", "Symfony", "opensource", "databases", "speaking"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "smith@pooteeweet.org"
+      },
+      {
+        "type": "twitter",
+        "id": "lsmith"
+      },
+      {
+        "type": "slack",
+        "id": "UG89SDP2Q"
+      }
+    ]
+  },
+  {
+    "id": "zhivko.siderov@gmail.com",
+    "name": "Zhivko Siderov",
+    "avatar": "https://avatars2.githubusercontent.com/u/11786608?v=4",
+    "title": "Software Developer at AND Digital",
+    "description": "Hi, I am a front-end developer. Let me know if you want to have a chat.",
+    "country": "United Kingdom",
+    "tags": [
+      "frontend", "javascript", "react"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "zhivko.siderov@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UE025ELRF"
+      }
+    ]
+  },
+  {
+    "id": "meta.author@gersonnino.me",
+    "name": "Gerson Niño",
+    "avatar": "https://avatars0.githubusercontent.com/u/2708687?v=4",
+    "title": "Senior Fullstack Developer @Globant",
+    "description": "Hi, I am Gerson and I'll be happy to learn with you.",
+    "country": "Perú",
+    "tags": [
+      "nodejs", "javascript", "fullstack", "frontend", "serverless"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "meta.author@gersonnino.me"
+      },
+      {
+        "type": "slack",
+        "id": "UGVQBPEBZ"
+      },
+      {
+        "type": "twitter",
+        "id": "07Gond"
+      }
+    ]
+  },
+  {
+    "id": "carlos@carlostrinidad.me",
+    "name": "Carlos Trinidad",
+    "avatar": "https://avatars3.githubusercontent.com/u/18605964?v=4",
+    "title": "Full Stack Cloud Developer at @IBM",
+    "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",
+    "country": "Uruguay",
+    "tags": [
+      "nodejs", "watson", "ibm cloud", "javascript", "angular"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "carlos@carlostrinidad.me"
+      },
+      {
+        "type": "twitter",
+        "id": "ctrinidad_"
+      },
+      {
+        "type": "linkedin",
+        "id": "carlostrinidad"
       }
     ]
   },
@@ -316,7 +630,7 @@
       },
       {
         "type": "slack",
-        "id": "AdroitCode"
+        "id": "UCR2WLA8Y"
       },
       {
         "type": "twitter",
