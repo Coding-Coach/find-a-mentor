@@ -16,11 +16,12 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 
 1. Fork
 2. `yarn`
-3. Add your details in `mentors.json` file.
-4. Run `yarn run sync-lists`
-5. Run `yarn test` to validate that the details is following the right schema.
-6. PR.
-7. Thanks!
+3. **Create a branch** "add-{your-name}-as-mentor"
+4. Add your details in `mentors.json` file.
+5. Run `yarn run sync-lists`
+6. Run `yarn test` to validate that the details is following the right schema.
+7. PR with the title "Add {Your Name} as mentor".
+8. Thanks!
 
 **Notes:**
 
@@ -63,7 +64,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 
 That's why we here! 😀
 
-Have an idea? Please [create a PR](https://help.github.com/articles/creating-a-pull-request/). If you not sure how to do this, ask us or find a mentor who can assist.
+Have an idea? Please **use a branch** and [create a PR](https://help.github.com/articles/creating-a-pull-request/). If you not sure how to do this, ask us or find a mentor who can assist.
 
 Haven't time to code it? Please open an [issue](https://github.com/Coding-Coach/find-a-mentor/issues/new).
 
