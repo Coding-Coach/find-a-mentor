@@ -592,16 +592,16 @@
     "id": "carlos@carlostrinidad.me",
     "name": "Carlos Trinidad",
     "avatar": "https://avatars3.githubusercontent.com/u/18605964?v=4",
-    "title": "Full Stack Cloud Developer at @IBM",                  
-    "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",    
-    "country": "Uruguay",                          
-    "tags": [                                    
-      "nodejs", "watson", "ibm cloud", "javascript", "angular"             
+    "title": "Full Stack Cloud Developer at @IBM",
+    "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",
+    "country": "Uruguay",
+    "tags": [
+      "nodejs", "watson", "ibm cloud", "javascript", "angular"
     ],
-    "channels": [                                 
+    "channels": [
       {
-        "type": "email",                          
-        "id": "carlos@carlostrinidad.me"                    
+        "type": "email",
+        "id": "carlos@carlostrinidad.me"
       },
       {
         "type": "twitter",
@@ -610,6 +610,31 @@
       {
         "type": "linkedin",
         "id": "carlostrinidad"
+      }
+    ]
+  },
+  {
+    "id": "kamponistullar@gmail.com",
+    "name": "Ogundiji Bolade",
+    "avatar": "https://avatars1.githubusercontent.com/u/19638388?s=460&v=4",
+    "title": "Full Stack Web Developer",
+    "description": "Hi, I'm AdroitCode! Let me know if you need any help.",
+    "country": "Nigeria",
+    "tags": [
+      "php", "frontend", "javascript", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "kamponistullar@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UCR2WLA8Y"
+      },
+      {
+        "type": "twitter",
+        "id": "bollybkampo"
       }
     ]
   }
