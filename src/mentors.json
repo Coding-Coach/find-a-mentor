@@ -491,5 +491,30 @@
         "id": "cristian-echeverria-martinez"
       }
     ]
+  },
+  {
+    "id": "inmarelibero@gmail.com",
+    "name": "Emanuele Gaspari Castelletti",
+    "avatar": "https://www.libravatar.org/gravatarproxy/d02f7988d633a63ec4f1f1f936e46178?s=80&default=None",
+    "title": "PHP/Symfony Developer",
+    "description": "I am an enthusiastic PHP/Symfony developer and trainer.",
+    "country": "Italy",
+    "tags": [
+      "php", "Symfony", "web", "html", "git"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "inmarelibero@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "inmarelibero"
+      },
+      {
+        "type": "linkedin",
+        "id": "emanuelegaspari"
+      }
+    ]
   }
 ]
