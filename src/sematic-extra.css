@@ -30,3 +30,9 @@ button.tertiary {
     margin: auto 10px;
   }
 }
+
+@media (min-width: 1441px) and (max-width: 2560px) {
+  .ui .cards {
+    margin: 10rem 10rem;
+  }
+}
