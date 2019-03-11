@@ -17,7 +17,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 1. Fork
 2. `yarn`
 3. **Create a branch** "add-{your-name}-as-mentor"
-4. Add your details in `mentors.json` file.
+4. Add your details in `src/mentors.json` file.
 5. Run `yarn run sync-lists`
 6. Run `yarn test` to validate that the details is following the right schema.
 7. PR with the title "Add {Your Name} as mentor".
