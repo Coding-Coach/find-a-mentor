@@ -409,5 +409,34 @@
         "id": "vinamra-sareen"
       }
     ]
+  },
+  {
+    "id": "chanangae@gmail.com",
+    "name": "Joseph Myalla",
+    "avatar": "https://avatars2.githubusercontent.com/u/5945067?v=4",
+    "title": "Full Stack Developer",
+    "description": "We can learn together, just ask or suggest.",
+    "country": "Tanzania",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "react native",
+      "express"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "chanangae@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "chanangae"
+      },
+      {
+         "type":"slack",
+         "id":"UCSSLPNFQ"
+      }
+    ]
   }
 ]
