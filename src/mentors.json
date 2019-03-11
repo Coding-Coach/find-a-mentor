@@ -291,7 +291,7 @@
       },
       {
         "type": "slack",
-        "id": "Owen Jenkins"
+        "id": "UCRJPEC4S"
       },
       {
         "type": "twitter",
@@ -323,6 +323,94 @@
     ]
   },
   {
+    "id": "gogia.prateek@hotmail.com",
+    "name": "Prateek Gogia",
+    "avatar": "https://avatars0.githubusercontent.com/u/21155917?s=460&v=4",
+    "title": "Product Engineer at @whitepanda",
+    "description": "Hi, I'm Prateek. I mostly code in JavaScript. Shoot your queries at me.",
+    "country": "India",
+    "tags": ["frontend", "javascript", "react", "node", "redux"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gogia.prateek@hotmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "reeversedev"
+      },
+      {
+        "type": "slack",
+        "id": "UCPP0S9PB"
+      }
+      ]
+  },
+  {
+    "id": "jjprevite@gmail.com",
+    "name": "JavaScript Joe",
+    "avatar": "https://avatars1.githubusercontent.com/u/3806031?s=460&v=4",
+    "title": "Front End at Digial Air Strike",
+    "description": "Hi! Happy to help you level up 🤠",
+    "country": "USA",
+    "tags": [
+      "frontend", "javascript", "reactjs", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "jsjoeio"
+      }
+    ]
+  },
+  {
+    "id": "me@robertwpearce.com",
+    "name": "Robert Pearce",
+    "avatar": "https://avatars0.githubusercontent.com/u/592876?s=460&v=4",
+    "title": "Full stack developer",
+    "description": "Hey there! Happy to help in whatever aspect is needed!",
+    "country": "New Zealand",
+    "tags": [ "nodejs", "a11y", "css", "fp", "rails" ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@robertwpearce.com"
+      },
+      {
+        "type": "twitter",
+        "id": "RobertWPearce"
+      },
+      {
+        "type": "linkedin",
+        "id": "robertwpearce"
+      }
+    ]
+  },
+  {
+    "id": "vsareen24@gmail.com",
+    "name": "Vinamra Sareen",
+    "avatar": "https://avatars2.githubusercontent.com/u/24828008?s=400&v=4",
+    "title": "Software Developer",
+    "description": "Hi, I'm Vinamra and I am excited to help you !",
+    "country": "India",
+    "tags": [
+      "java", "android", "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vsareen24@gmail.com"
+      },
+    {
+        "type": "twitter",
+        "id": "VinamraSareen"
+      },
+      {
+        "type": "linkedin",
+        "id": "vinamra-sareen"
+      }
+    ]
+  },
+  {
     "id": "chanangae@gmail.com",
     "name": "Joseph Myalla",
     "avatar": "https://avatars2.githubusercontent.com/u/5945067?v=4",
@@ -350,5 +438,5 @@
          "id":"UCSSLPNFQ"
       }
     ]
-}
+  }
 ]
