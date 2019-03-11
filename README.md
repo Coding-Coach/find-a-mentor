@@ -37,9 +37,9 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
   "avatar": "https://link-to-your/avatar.jpg",  // url
   "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
-  "country": "Israel",                          // should be real :)
+  "country": "Israel",                          // Full name. please avoid synonyms (check if it's not already exist)
   "tags": [                                     // minItems: 1, maxItems: 5
-    "nodejs", "webpack", "mongodb"
+    "nodejs", "webpack", "mongodb"              // please avoid synonyms
   ],
   "channels": [                                 // minItems: 1, maxItems: 3
     {
