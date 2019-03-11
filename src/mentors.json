@@ -587,5 +587,30 @@
         "id": "07Gond"
       }
     ]
+  },
+  {
+    "id": "carlos@carlostrinidad.me",
+    "name": "Carlos Trinidad",
+    "avatar": "https://avatars3.githubusercontent.com/u/18605964?v=4",
+    "title": "Full Stack Cloud Developer at @IBM",                  
+    "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",    
+    "country": "Uruguay",                          
+    "tags": [                                    
+      "nodejs", "watson", "ibm cloud", "javascript", "angular"             
+    ],
+    "channels": [                                 
+      {
+        "type": "email",                          
+        "id": "carlos@carlostrinidad.me"                    
+      },
+      {
+        "type": "twitter",
+        "id": "ctrinidad_"
+      },
+      {
+        "type": "linkedin",
+        "id": "carlostrinidad"
+      }
+    ]
   }
 ]
