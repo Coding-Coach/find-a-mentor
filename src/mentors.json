@@ -1,29 +1,4 @@
 [{
-  "id": "memonjabbar2@gmail.com",
-  "name": "Jabbar Memon",
-  "avatar": "https://avatars.githubusercontent.com/jabbar86",
-  "title": "Software Engineer @Jump360",
-  "description": "Hi, I'm Jabbar and I will be happy to solve your {bug}",
-  "country": "India",
-  "tags": [
-    "backend", "javascript", "nodejs", "firebase", "mongodb"
-  ],
-  "channels": [
-    {
-      "type": "email",
-      "id": "memonjabbar2@gmail.com"
-    },
-    {
-      "type": "slack",
-      "id": "UEU31AM32"
-    },
-    {
-      "type": "linkedin",
-      "id": "jabbar-memon-4ab5347a"
-    }
-  ]
-},
-  {
     "id": "moshfeu@gmail.com",
     "name": "Mosh Feuchtwanger",
     "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
@@ -432,6 +407,31 @@
       {
         "type": "linkedin",
         "id": "vinamra-sareen"
+      }
+    ]
+  },
+  {
+    "id": "memonjabbar2@gmail.com",
+    "name": "Jabbar Memon",
+    "avatar": "https://avatars.githubusercontent.com/jabbar86",
+    "title": "Software Engineer @Jump360",
+    "description": "Hi, I'm Jabbar and I will be happy to solve your {bug}",
+    "country": "India",
+    "tags": [
+      "backend", "javascript", "nodejs", "firebase", "mongodb"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "memonjabbar2@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UEU31AM32"
+      },
+      {
+        "type": "linkedin",
+        "id": "jabbar-memon-4ab5347a"
       }
     ]
   }
