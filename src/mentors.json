@@ -794,5 +794,30 @@
         "id": "zac-braddy-17a81b22"
       }
     ]
-  }
+  },
+  {
+    "id": "eda-qa@disemia.com",
+    "name": "Edaqa Mortoray",
+    "avatar": "https://avatars3.githubusercontent.com/u/1308999",
+    "title": "Programmer, Writer, Monster Slayer",
+    "description": "I'm an adventurous programmer with an extensive range of experience.",
+    "country": "Germany",
+    "tags": [
+      "programming", "ux", "management", "quality", "automation"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "eda-qa@disemia.com"
+      },
+      {
+        "type": "twitter",
+        "id": "edaqa"
+      },
+      {
+        "type": "linkedin",
+        "id": "edaqa"
+      }
+    ]
+  }  
 ]
