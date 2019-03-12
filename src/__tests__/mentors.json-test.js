@@ -1,8 +1,5 @@
 import mentors from '../mentors.json';
 import Ajv from 'ajv';
-import lists from '../lists.json';
-
-import generateLists from '../../scripts/generate-lists';
 
 expect.extend({
   toBeValid(isValid, errorMessage) {
@@ -90,9 +87,4 @@ it('should mentors shema should be valid', () => {
   const valid = ajv.validate(mentorSchema, mentors);
   const errorMessage = (ajv.errors || []).map(error => error.message).join('\n');
   expect(valid).toBeValid(errorMessage);
-});
-
-it('should lists be synced with the mentors details', () => {
-  const json = generateLists();
-  expect(lists).toEqual(json);
 });
