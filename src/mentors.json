@@ -634,6 +634,30 @@
       }
     ]
   },
+  {    "id": "kamponistullar@gmail.com",
+    "name": "Ogundiji Bolade",
+    "avatar": "https://avatars1.githubusercontent.com/u/19638388?s=460&v=4",
+    "title": "Full Stack Web Developer",
+    "description": "Hi, I'm AdroitCode! Let me know if you need any help.",
+    "country": "Nigeria",
+    "tags": [
+      "php", "frontend", "javascript", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "kamponistullar@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UCR2WLA8Y"
+      },
+      {
+        "type": "twitter",
+        "id": "bollybkampo"
+      }
+    ]
+  },
   {
     "id": "bayoopesanya@gmail.com",
     "name": "Adebayo Opesanya",
