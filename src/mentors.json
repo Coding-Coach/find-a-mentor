@@ -592,16 +592,16 @@
     "id": "carlos@carlostrinidad.me",
     "name": "Carlos Trinidad",
     "avatar": "https://avatars3.githubusercontent.com/u/18605964?v=4",
-    "title": "Full Stack Cloud Developer at @IBM",                  
-    "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",    
-    "country": "Uruguay",                          
-    "tags": [                                    
-      "nodejs", "watson", "ibm cloud", "javascript", "angular"             
+    "title": "Full Stack Cloud Developer at @IBM",
+    "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",
+    "country": "Uruguay",
+    "tags": [
+      "nodejs", "watson", "ibm cloud", "javascript", "angular"
     ],
-    "channels": [                                 
+    "channels": [
       {
-        "type": "email",                          
-        "id": "carlos@carlostrinidad.me"                    
+        "type": "email",
+        "id": "carlos@carlostrinidad.me"
       },
       {
         "type": "twitter",
@@ -621,12 +621,12 @@
     "description": "Hello, I'm a backend developer interested in all things Javascript!",    
     "country": "Nigeria",                          
     "tags": [                                    
-      "nodejs", "javascript", "ibm cloud", "ibm watson", "angular"             
+      "nodejs", "javascript", "ibm cloud", "watson", "angular"             
     ],
     "channels": [                                 
       {
         "type": "email",                          
-        "id": "bayoopesanya@gmail.com"                    
+        "id": "bayoopesanya.@gmail.com"                    
       },
       {
         "type": "twitter",
