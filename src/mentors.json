@@ -612,5 +612,26 @@
         "id": "carlostrinidad"
       }
     ]
+  },
+  {
+    "id": "carlos@carlostrinidad.me",
+    "name": "Adebayo Opesanya",
+    "avatar": "https://avatars0.githubusercontent.com/u/18659878?s=460&v=4",
+    "title": "Backend Developer",                  
+    "description": "Hello, I'm a backend developer interested in all things Javascript!",    
+    "country": "Nigeria",                          
+    "tags": [                                    
+      "Node.js", "Javascript", "ibm cloud", "ibm watson", "angular"             
+    ],
+    "channels": [                                 
+      {
+        "type": "email",                          
+        "id": "bayoopesanya@gmail.com"                    
+      },
+      {
+        "type": "twitter",
+        "id": "onejsninja"
+      }
+    ]
   }
 ]
