@@ -614,14 +614,14 @@
     ]
   },
   {
-    "id": "carlos@carlostrinidad.me",
+    "id": "bayoopesanya@gmail.com",
     "name": "Adebayo Opesanya",
     "avatar": "https://avatars0.githubusercontent.com/u/18659878?s=460&v=4",
     "title": "Backend Developer",                  
     "description": "Hello, I'm a backend developer interested in all things Javascript!",    
     "country": "Nigeria",                          
     "tags": [                                    
-      "Node.js", "Javascript", "ibm cloud", "ibm watson", "angular"             
+      "nodejs", "javascript", "ibm cloud", "ibm watson", "angular"             
     ],
     "channels": [                                 
       {
