@@ -642,20 +642,39 @@
     "id": "corinnealing@gmail.com",
     "name": "Corinne Ling",
     "avatar": "https://avatars1.githubusercontent.com/u/31801723?s=460&v=4",
-    "title": "Full Stack Developer @Sparkbox",                  
-    "description": "Hi! I'm happy to help in anyway I can. Ask me anything! 👩‍💻",    
-    "country": "USA",                          
-    "tags": [                                    
-      "javascript", "sass", "markup", "a11y", "php"             
+    "title": "Full Stack Developer @Sparkbox",
+    "description": "Hi! I'm happy to help in anyway I can. Ask me anything! 👩‍💻",
+    "country": "USA",
+    "tags": [
+      "javascript", "sass", "markup", "a11y", "php"
     ],
-    "channels": [                                 
+    "channels": [
       {
-        "type": "email",                          
-        "id": "corinnealing@gmail.com"                    
+        "type": "email",
+        "id": "corinnealing@gmail.com"
       },
       {
         "type": "twitter",
         "id": "corinnealing"
+      }
+    ]
+  },
+  {
+    "id": "thewebdevcoach@gmail.com",
+    "name": "Aryan Jabbari",
+    "avatar":"https://avatars3.githubusercontent.com/u/8263430",
+    "title": "Full Stack Developer",
+    "description": "Feel free to ask me any question, big or small!",
+    "country": "USA",
+    "tags": ["react", "angular", "node"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "thewebdevcoach@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "aryanjabbari"
       }
     ]
   }
