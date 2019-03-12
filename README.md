@@ -15,13 +15,14 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 ## Want to be a mentor?
 
 1. Fork
-2. `yarn`
+2. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
 3. **Create a branch** "add-{your-name}-as-mentor"
-4. Add your details in `mentors.json` file.
+4. Add your details in `src/mentors.json` file (check the below schema for requirements).
 5. Run `yarn run sync-lists`
-6. Run `yarn test` to validate that the details is following the right schema.
-7. PR with the title "Add {Your Name} as mentor".
-8. Thanks!
+6. Run `yarn test` to validate that the details is following the right schema (carelfully read the output to see what needs to be fixed)
+7. Push the "add-{your-name}-as-mentor" branch to github
+8. PR with the title "Add {Your Name} as mentor".
+9. Thanks!
 
 **Notes:**
 
@@ -34,12 +35,12 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 {
   "id": "your email",
   "name": "your name",                          // minLength: 2
-  "avatar": "https://link-to-your/avatar.jpg",  // url
+  "avatar": "https://link-to-your/avatar.jpg",  // url, must start with https://
   "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
-  "country": "Israel",                          // should be real :)
+  "country": "Israel",                          // Full name. please avoid synonyms (check if it's not already exist)
   "tags": [                                     // minItems: 1, maxItems: 5
-    "nodejs", "webpack", "mongodb"
+    "nodejs", "webpack", "mongodb"              // please avoid synonyms
   ],
   "channels": [                                 // minItems: 1, maxItems: 3
     {
