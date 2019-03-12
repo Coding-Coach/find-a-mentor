@@ -614,6 +614,27 @@
     ]
   },
   {
+    "id": "corinnealing@gmail.com",
+    "name": "Corinne Ling",
+    "avatar": "https://avatars1.githubusercontent.com/u/31801723?s=460&v=4",
+    "title": "Full Stack Developer @Sparkbox",                  
+    "description": "Hi! I'm happy to help in anyway I can. Ask me anything! 👩‍💻",    
+    "country": "USA",                          
+    "tags": [                                    
+      "javascript", "sass", "markup", "a11y", "php"             
+    ],
+    "channels": [                                 
+      {
+        "type": "email",                          
+        "id": "corinnealing@gmail.com"                    
+      },
+      {
+        "type": "twitter",
+        "id": "corinnealing"
+      }
+    ]
+  },
+  {
     "id": "bayoopesanya@gmail.com",
     "name": "Adebayo Opesanya",
     "avatar": "https://avatars0.githubusercontent.com/u/18659878?s=460&v=4",
