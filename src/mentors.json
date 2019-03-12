@@ -660,6 +660,31 @@
     ]
   },
   {
+    "id": "analista.carlosh@gmail.com",
+    "name": "Carlos H. Fructuoso",
+    "avatar": "https://avatars2.githubusercontent.com/u/2495963?s=400&v=4",
+    "title": "Team Leader at QuickTech.no",
+    "description": "Hey! Let me know if you need any help.",
+    "country": "Brazil",
+    "tags": [
+      "ionic", "react native", "javascript", "angular", "git"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "analista.carlosh@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "analistacarlos"
+      },
+      {
+        "type": "linkedin",
+        "id": "analistacarlosh"
+      }
+    ]
+  },
+  {
     "id": "thewebdevcoach@gmail.com",
     "name": "Aryan Jabbari",
     "avatar":"https://avatars3.githubusercontent.com/u/8263430",
