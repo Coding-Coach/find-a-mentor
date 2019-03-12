@@ -702,5 +702,30 @@
         "id": "aryanjabbari"
       }
     ]
+  },
+  {
+    "id": "memonjabbar2@gmail.com",
+    "name": "Jabbar Memon",
+    "avatar": "https://avatars.githubusercontent.com/jabbar86",
+    "title": "Software Engineer @Jump360",
+    "description": "Hi, I'm Jabbar and I will be happy to solve your {bug}",
+    "country": "India",
+    "tags": [
+      "backend", "javascript", "nodejs", "firebase", "mongodb"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "memonjabbar2@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UEU31AM32"
+      },
+      {
+        "type": "linkedin",
+        "id": "jabbar-memon-4ab5347a"
+      }
+    ]
   }
 ]
