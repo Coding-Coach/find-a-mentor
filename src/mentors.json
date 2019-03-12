@@ -769,5 +769,30 @@
         "id": "UGPGRH2RY"
       }
     ]
+  },
+  {
+    "id": "zacharybraddy@gmail.com",
+    "name": "Zac Braddy",
+    "avatar": "https://avatars0.githubusercontent.com/u/794241",
+    "title": "Lead Fullstack Javscript Developer",
+    "description": "I'm a lead developer and budding architect. I love talking about tech!",
+    "country": "United Kingdom",
+    "tags": [
+      "nodejs", "microservices", "kubernetes", "C#", "React"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "zackerthehacker"
+      },
+      {
+        "type": "slack",
+        "id": "UGWA4UG21"
+      },
+      {
+        "type": "linkedin",
+        "id": "zac-braddy-17a81b22"
+      }
+    ]
   }
 ]
