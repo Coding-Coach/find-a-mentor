@@ -819,5 +819,29 @@
         "id": "edaqa"
       }
     ]
-  }  
+  },
+  {
+    "id": "silverjillian@gmail.com",
+    "name": "Jillian Silver",
+    "avatar": "https://avatars0.githubusercontent.com/u/5667054?s=460&v=4",
+    "title": "Javascript developer",
+    "description": "Hi! Here to relieve you of your Javascript woes",
+    "country": "United States",                      
+    "tags": [                                     
+      "javascript", 
+      "react", 
+      "node", 
+      "fp"     
+    ],
+    "channels": [
+      {
+        "type": "email",                   
+        "id": "silverjillian@gmail.com"                
+      },
+      {
+        "type": "linkedin",
+        "id": "jsilve"
+      }
+    ]
+  }
 ]
