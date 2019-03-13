@@ -168,7 +168,7 @@
   {
     "id": "me@andrewmiracle.com",
     "name": "Andrew Miracle",
-    "avatar": "http://andrewmiracle.com/images/headshot.jpg",
+    "avatar": "https://avatars2.githubusercontent.com/u/6226591",
     "title": "Software Developer at @sendboxng",
     "description": "When the journey looks rough, I promise you won't have to do it alone",
     "country": "Nigeria",
@@ -587,5 +587,237 @@
         "id": "07Gond"
       }
     ]
-  }
+  },
+  {
+    "id": "carlos@carlostrinidad.me",
+    "name": "Carlos Trinidad",
+    "avatar": "https://avatars3.githubusercontent.com/u/18605964?v=4",
+    "title": "Full Stack Cloud Developer at @IBM",
+    "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",
+    "country": "Uruguay",
+    "tags": [
+      "nodejs", "watson", "ibm cloud", "javascript", "angular"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "carlos@carlostrinidad.me"
+      },
+      {
+        "type": "twitter",
+        "id": "ctrinidad_"
+      },
+      {
+        "type": "linkedin",
+        "id": "carlostrinidad"
+      }
+    ]
+  },
+  {
+    "id": "kamponistullar@gmail.com",
+    "name": "Ogundiji Bolade",
+    "avatar": "https://avatars1.githubusercontent.com/u/19638388?s=460&v=4",
+    "title": "Full Stack Web Developer",
+    "description": "Hi, I'm AdroitCode! Let me know if you need any help.",
+    "country": "Nigeria",
+    "tags": [
+      "php", "frontend", "javascript", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "kamponistullar@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UCR2WLA8Y"
+      },
+      {
+        "type": "twitter",
+        "id": "bollybkampo"
+      }
+    ]
+  },
+  {
+    "id": "corinnealing@gmail.com",
+    "name": "Corinne Ling",
+    "avatar": "https://avatars1.githubusercontent.com/u/31801723?s=460&v=4",
+    "title": "Full Stack Developer @Sparkbox",
+    "description": "Hi! I'm happy to help in anyway I can. Ask me anything! 👩‍💻",
+    "country": "USA",
+    "tags": [
+      "javascript", "sass", "markup", "a11y", "php"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "corinnealing@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "corinnealing"
+      }
+    ]
+  },
+  {
+    "id": "analista.carlosh@gmail.com",
+    "name": "Carlos H. Fructuoso",
+    "avatar": "https://avatars2.githubusercontent.com/u/2495963?s=400&v=4",
+    "title": "Team Leader at QuickTech.no",
+    "description": "Hey! Let me know if you need any help.",
+    "country": "Brazil",
+    "tags": [
+      "ionic", "react native", "javascript", "angular", "git"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "analista.carlosh@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "analistacarlos"
+      },
+      {
+        "type": "linkedin",
+        "id": "analistacarlosh"
+      }
+    ]
+  },
+  {
+    "id": "thewebdevcoach@gmail.com",
+    "name": "Aryan Jabbari",
+    "avatar":"https://avatars3.githubusercontent.com/u/8263430",
+    "title": "Full Stack Developer",
+    "description": "Feel free to ask me any question, big or small!",
+    "country": "USA",
+    "tags": ["react", "angular", "node"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "thewebdevcoach@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "aryanjabbari"
+      }
+    ]
+  },
+  {
+    "id": "memonjabbar2@gmail.com",
+    "name": "Jabbar Memon",
+    "avatar": "https://avatars.githubusercontent.com/jabbar86",
+    "title": "Software Engineer @Jump360",
+    "description": "Hi, I'm Jabbar and I will be happy to solve your {bug}",
+    "country": "India",
+    "tags": [
+      "backend", "javascript", "nodejs", "firebase", "mongodb"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "memonjabbar2@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UEU31AM32"
+      },
+      {
+        "type": "linkedin",
+        "id": "jabbar-memon-4ab5347a"
+      }
+    ]
+  },
+  {
+    "id": "bayoopesanya@gmail.com",
+    "name": "Adebayo Opesanya",
+    "avatar": "https://avatars0.githubusercontent.com/u/18659878?s=460&v=4",
+    "title": "Backend Developer",
+    "description": "Hello, I'm a backend developer interested in all things Javascript!",
+    "country": "Nigeria",
+    "tags": [
+      "nodejs", "javascript", "ibm cloud", "watson", "angular"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "bayoopesanya.@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "onejsninja"
+      }
+    ]
+  },
+  {
+    "id": "davisokoth@gmail.com",
+    "name": "Davis Okoth",
+    "avatar": "https://avatars3.githubusercontent.com/u/12512405?v=4",
+    "title": "Fullstack Developer",
+    "description": "Hi, am leveling up on Angular and Nodejs :)",
+    "country": "Kenya",
+    "tags": [
+      "nodejs", "javascript", "angular"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "davisokoth"
+      },
+      {
+        "type": "slack",
+        "id": "UGPGRH2RY"
+      }
+    ]
+  },
+  {
+    "id": "zacharybraddy@gmail.com",
+    "name": "Zac Braddy",
+    "avatar": "https://avatars0.githubusercontent.com/u/794241",
+    "title": "Lead Fullstack Javascript Developer",
+    "description": "I'm a lead developer and budding architect. I love talking about tech!",
+    "country": "United Kingdom",
+    "tags": [
+      "nodejs", "microservices", "kubernetes", "C#", "react"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "zackerthehacker"
+      },
+      {
+        "type": "slack",
+        "id": "UGWA4UG21"
+      },
+      {
+        "type": "linkedin",
+        "id": "zac-braddy-17a81b22"
+      }
+    ]
+  },
+  {
+    "id": "eda-qa@disemia.com",
+    "name": "Edaqa Mortoray",
+    "avatar": "https://avatars3.githubusercontent.com/u/1308999",
+    "title": "Programmer, Writer, Monster Slayer",
+    "description": "I'm an adventurous programmer with an extensive range of experience.",
+    "country": "Germany",
+    "tags": [
+      "programming", "ux", "management", "quality", "automation"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "eda-qa@disemia.com"
+      },
+      {
+        "type": "twitter",
+        "id": "edaqa"
+      },
+      {
+        "type": "linkedin",
+        "id": "edaqa"
+      }
+    ]
+  }  
 ]

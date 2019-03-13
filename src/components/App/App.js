@@ -1,6 +1,5 @@
 import './App.css';
 import mentors from '../../mentors.json';
-import lists from '../../lists.json';
 
 import React, { Component } from 'react';
 import { Header, Button, Icon } from 'semantic-ui-react';
@@ -9,8 +8,9 @@ import AutoComplete from '../AutoComplete/AutoComplete';
 import MentorsList from '../MentorsList/MentorsList';
 import Logo from '../Logo';
 import shuffle from 'lodash/shuffle';
+import { generateLists } from '../../listsGenerator';
 
-const { tags, countries } = lists;
+const { tags, countries } = generateLists(mentors);
 const mapToDropdown = item => ({title: item})
 const tagsSource = tags.map(mapToDropdown);
 const countriesSource = countries.map(mapToDropdown);

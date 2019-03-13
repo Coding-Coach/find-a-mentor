@@ -14,13 +14,12 @@
     "semantic-ui-react": "^0.84.0"
   },
   "scripts": {
-    "start": "yarn run sync-lists && react-scripts start",
-    "build": "yarn run sync-lists && react-scripts build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "sync-lists": "node scripts/sync-lists.js",
     "add-user": "node scripts/add-user.js"
   },
   "eslintConfig": {

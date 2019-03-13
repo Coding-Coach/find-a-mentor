@@ -1,5 +1,4 @@
-module.exports = function () {
-  const mentors = require('../src/mentors.json');
+export function generateLists(mentors) {
   const json = {
     tags: [],
     countries: [],
