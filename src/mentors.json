@@ -843,5 +843,34 @@
         "id": "jsilve"
       }
     ]
+  },
+  {
+    "id": "manuel.penaloza@gmx.at",
+    "name": "Manuel Penaloza",
+    "avatar": "https://avatars.githubusercontent.com/manpenaloza",
+    "title": "Web Developer @ blue-tomato.com",
+    "description": "self-taught, daughter-driven programmer - had a career switch (former marketeer)",
+    "country": "Austria",
+    "tags": [
+      "javascript",
+      "react",
+      "nodejs",
+      "css",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "manuel.penaloza@gmx.at"
+      },
+      {
+        "type": "twitter",
+        "id": "manpenaloza"
+      },
+      {
+        "type": "slack",
+        "id": "U5C2SQHGF"
+      }
+    ]
   }
 ]
