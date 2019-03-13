@@ -20,7 +20,8 @@
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "sync-lists": "node scripts/sync-lists.js"
+    "sync-lists": "node scripts/sync-lists.js",
+    "add-user": "node scripts/add-user.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +35,7 @@
   "devDependencies": {
     "ajv": "^6.8.1",
     "gh-pages": "^2.0.1",
+    "inquirer": "^6.2.2",
     "nodemon": "^1.18.9"
   },
   "homepage": "https://mentors.codingcoach.io",
