@@ -1,4 +1,5 @@
-[{
+[
+  {
     "id": "moshfeu@gmail.com",
     "name": "Mosh Feuchtwanger",
     "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
@@ -6,7 +7,11 @@
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "Israel",
     "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
+      "frontend",
+      "javascript",
+      "reactjs",
+      "html",
+      "css"
     ],
     "channels": [
       {
@@ -31,7 +36,11 @@
     "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
     "country": "USA",
     "tags": [
-      "frontend", "javascript", "react", "native", "css"
+      "frontend",
+      "javascript",
+      "react",
+      "native",
+      "css"
     ],
     "channels": [
       {
@@ -51,7 +60,12 @@
     "title": "co-CEO @RelativelyFund",
     "description": "Passionate coder and tech advisor",
     "country": "Jordan",
-    "tags": ["javascript", "react", "web", "php"],
+    "tags": [
+      "javascript",
+      "react",
+      "web",
+      "php"
+    ],
     "channels": [
       {
         "type": "email",
@@ -103,7 +117,12 @@
     "title": "Software Engineer",
     "description": "Hi! I am BD. Would love to help in any way 🙂",
     "country": "India",
-    "tags": ["javascript", "react", "node", "fp"],
+    "tags": [
+      "javascript",
+      "react",
+      "node",
+      "fp"
+    ],
     "channels": [
       {
         "type": "email",
@@ -126,7 +145,13 @@
     "title": "Full Stack .NET Web Developer",
     "description": "28-year career in software. Would love to share what I know.",
     "country": "USA",
-    "tags": ["csharp", "aspnet", "backend", "build", "powershell"],
+    "tags": [
+      "csharp",
+      "aspnet",
+      "backend",
+      "build",
+      "powershell"
+    ],
     "channels": [
       {
         "type": "email",
@@ -149,7 +174,13 @@
     "title": "Developer at @wallplaynetwork",
     "description": "Hola ! Let's solve some problems.",
     "country": "USA",
-    "tags": ["reactjs", "firebase", "javascript", "node", "redux"],
+    "tags": [
+      "reactjs",
+      "firebase",
+      "javascript",
+      "node",
+      "redux"
+    ],
     "channels": [
       {
         "type": "email",
@@ -172,7 +203,13 @@
     "title": "Software Developer at @sendboxng",
     "description": "When the journey looks rough, I promise you won't have to do it alone",
     "country": "Nigeria",
-    "tags": ["javascript", "reactjs", "web", "frontend", "ux"],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "web",
+      "frontend",
+      "ux"
+    ],
     "channels": [
       {
         "type": "email",
@@ -195,7 +232,13 @@
     "title": "Full Stack Web Developer / Designer",
     "description": "23 year web development veteran specializing in Angular, Node and TypeScript",
     "country": "USA",
-    "tags": ["angular", "django", "node", "typescript", "javascript"],
+    "tags": [
+      "angular",
+      "django",
+      "node",
+      "typescript",
+      "javascript"
+    ],
     "channels": [
       {
         "type": "email",
@@ -214,7 +257,11 @@
     "title": "CTO @ Catalytic DS",
     "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
     "country": "USA",
-    "tags": ["javascript", "react", "redux"],
+    "tags": [
+      "javascript",
+      "react",
+      "redux"
+    ],
     "channels": [
       {
         "type": "twitter",
@@ -237,7 +284,13 @@
     "title": "Software Engineer",
     "description": "Open web enthusiast. Come explore the various corners of the internet with me!",
     "country": "USA",
-    "tags": ["javascript", "css", "html", "web", "p2p"],
+    "tags": [
+      "javascript",
+      "css",
+      "html",
+      "web",
+      "p2p"
+    ],
     "channels": [
       {
         "type": "email",
@@ -257,7 +310,11 @@
     "description": "Hi, I'm Kirankumar Ambati! Let me know if you need any help.👨‍💻",
     "country": "India",
     "tags": [
-      "frontend", "javascript", "reactjs", "redux", "fullstack"
+      "frontend",
+      "javascript",
+      "reactjs",
+      "redux",
+      "fullstack"
     ],
     "channels": [
       {
@@ -282,7 +339,10 @@
     "description": "Hi! Here for general help; specialise in Python, Ruby/Rails, and web projects.",
     "country": "United Kingdom",
     "tags": [
-      "python", "ruby", "rails", "javascript"
+      "python",
+      "ruby",
+      "rails",
+      "javascript"
     ],
     "channels": [
       {
@@ -306,7 +366,13 @@
     "title": "Frontend Engineer at @Schibsted",
     "description": "Pragmatic, efficient and happy to help😀. Focus on one thing at the time🤓.",
     "country": "Spain",
-    "tags": ["frontend", "javascript", "react", "html", "css"],
+    "tags": [
+      "frontend",
+      "javascript",
+      "react",
+      "html",
+      "css"
+    ],
     "channels": [
       {
         "type": "email",
@@ -329,7 +395,13 @@
     "title": "Product Engineer at @whitepanda",
     "description": "Hi, I'm Prateek. I mostly code in JavaScript. Shoot your queries at me.",
     "country": "India",
-    "tags": ["frontend", "javascript", "react", "node", "redux"],
+    "tags": [
+      "frontend",
+      "javascript",
+      "react",
+      "node",
+      "redux"
+    ],
     "channels": [
       {
         "type": "email",
@@ -343,7 +415,7 @@
         "type": "slack",
         "id": "UCPP0S9PB"
       }
-      ]
+    ]
   },
   {
     "id": "jjprevite@gmail.com",
@@ -353,7 +425,11 @@
     "description": "Hi! Happy to help you level up 🤠",
     "country": "USA",
     "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
+      "frontend",
+      "javascript",
+      "reactjs",
+      "html",
+      "css"
     ],
     "channels": [
       {
@@ -369,7 +445,13 @@
     "title": "Full stack developer",
     "description": "Hey there! Happy to help in whatever aspect is needed!",
     "country": "New Zealand",
-    "tags": [ "nodejs", "a11y", "css", "fp", "rails" ],
+    "tags": [
+      "nodejs",
+      "a11y",
+      "css",
+      "fp",
+      "rails"
+    ],
     "channels": [
       {
         "type": "email",
@@ -393,14 +475,16 @@
     "description": "Hi, I'm Vinamra and I am excited to help you !",
     "country": "India",
     "tags": [
-      "java", "android", "javascript"
+      "java",
+      "android",
+      "javascript"
     ],
     "channels": [
       {
         "type": "email",
         "id": "vsareen24@gmail.com"
       },
-    {
+      {
         "type": "twitter",
         "id": "VinamraSareen"
       },
@@ -434,8 +518,8 @@
         "id": "chanangae"
       },
       {
-         "type":"slack",
-         "id":"UCSSLPNFQ"
+        "type": "slack",
+        "id": "UCSSLPNFQ"
       }
     ]
   },
@@ -475,7 +559,11 @@
     "description": "Hola, I'm Cristian and I'm happy to help!",
     "country": "Sweden",
     "tags": [
-      "html", "css", "javascript", "react", "node"
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "node"
     ],
     "channels": [
       {
@@ -500,7 +588,11 @@
     "description": "I am an enthusiastic PHP/Symfony developer and trainer.",
     "country": "Italy",
     "tags": [
-      "php", "Symfony", "web", "html", "git"
+      "php",
+      "Symfony",
+      "web",
+      "html",
+      "git"
     ],
     "channels": [
       {
@@ -525,7 +617,11 @@
     "description": "PHP since 1998, co-RM for PHP 5.3, Symfony core team/lead diversity initiative.",
     "country": "Switzerland",
     "tags": [
-      "php", "Symfony", "opensource", "databases", "speaking"
+      "php",
+      "Symfony",
+      "opensource",
+      "databases",
+      "speaking"
     ],
     "channels": [
       {
@@ -550,7 +646,9 @@
     "description": "Hi, I am a front-end developer. Let me know if you want to have a chat.",
     "country": "United Kingdom",
     "tags": [
-      "frontend", "javascript", "react"
+      "frontend",
+      "javascript",
+      "react"
     ],
     "channels": [
       {
@@ -571,7 +669,11 @@
     "description": "Hi, I am Gerson and I'll be happy to learn with you.",
     "country": "Perú",
     "tags": [
-      "nodejs", "javascript", "fullstack", "frontend", "serverless"
+      "nodejs",
+      "javascript",
+      "fullstack",
+      "frontend",
+      "serverless"
     ],
     "channels": [
       {
@@ -596,7 +698,11 @@
     "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",
     "country": "Uruguay",
     "tags": [
-      "nodejs", "watson", "ibm cloud", "javascript", "angular"
+      "nodejs",
+      "watson",
+      "ibm cloud",
+      "javascript",
+      "angular"
     ],
     "channels": [
       {
@@ -621,7 +727,11 @@
     "description": "Hi, I'm AdroitCode! Let me know if you need any help.",
     "country": "Nigeria",
     "tags": [
-      "php", "frontend", "javascript", "html", "css"
+      "php",
+      "frontend",
+      "javascript",
+      "html",
+      "css"
     ],
     "channels": [
       {
@@ -646,7 +756,11 @@
     "description": "Hi! I'm happy to help in anyway I can. Ask me anything! 👩‍💻",
     "country": "USA",
     "tags": [
-      "javascript", "sass", "markup", "a11y", "php"
+      "javascript",
+      "sass",
+      "markup",
+      "a11y",
+      "php"
     ],
     "channels": [
       {
@@ -667,7 +781,11 @@
     "description": "Hey! Let me know if you need any help.",
     "country": "Brazil",
     "tags": [
-      "ionic", "react native", "javascript", "angular", "git"
+      "ionic",
+      "react native",
+      "javascript",
+      "angular",
+      "git"
     ],
     "channels": [
       {
@@ -687,11 +805,15 @@
   {
     "id": "thewebdevcoach@gmail.com",
     "name": "Aryan Jabbari",
-    "avatar":"https://avatars3.githubusercontent.com/u/8263430",
+    "avatar": "https://avatars3.githubusercontent.com/u/8263430",
     "title": "Full Stack Developer",
     "description": "Feel free to ask me any question, big or small!",
     "country": "USA",
-    "tags": ["react", "angular", "node"],
+    "tags": [
+      "react",
+      "angular",
+      "node"
+    ],
     "channels": [
       {
         "type": "email",
@@ -711,7 +833,11 @@
     "description": "Hi, I'm Jabbar and I will be happy to solve your {bug}",
     "country": "India",
     "tags": [
-      "backend", "javascript", "nodejs", "firebase", "mongodb"
+      "backend",
+      "javascript",
+      "nodejs",
+      "firebase",
+      "mongodb"
     ],
     "channels": [
       {
@@ -736,7 +862,11 @@
     "description": "Hello, I'm a backend developer interested in all things Javascript!",
     "country": "Nigeria",
     "tags": [
-      "nodejs", "javascript", "ibm cloud", "watson", "angular"
+      "nodejs",
+      "javascript",
+      "ibm cloud",
+      "watson",
+      "angular"
     ],
     "channels": [
       {
@@ -757,7 +887,9 @@
     "description": "Hi, am leveling up on Angular and Nodejs :)",
     "country": "Kenya",
     "tags": [
-      "nodejs", "javascript", "angular"
+      "nodejs",
+      "javascript",
+      "angular"
     ],
     "channels": [
       {
@@ -778,7 +910,11 @@
     "description": "I'm a lead developer and budding architect. I love talking about tech!",
     "country": "United Kingdom",
     "tags": [
-      "nodejs", "microservices", "kubernetes", "C#", "react"
+      "nodejs",
+      "microservices",
+      "kubernetes",
+      "C#",
+      "react"
     ],
     "channels": [
       {
@@ -803,7 +939,11 @@
     "description": "I'm an adventurous programmer with an extensive range of experience.",
     "country": "Germany",
     "tags": [
-      "programming", "ux", "management", "quality", "automation"
+      "programming",
+      "ux",
+      "management",
+      "quality",
+      "automation"
     ],
     "channels": [
       {
@@ -826,17 +966,17 @@
     "avatar": "https://avatars0.githubusercontent.com/u/5667054?s=460&v=4",
     "title": "Javascript developer",
     "description": "Hi! Here to relieve you of your Javascript woes",
-    "country": "USA",                      
-    "tags": [                                     
-      "javascript", 
-      "react", 
-      "node", 
-      "fp"     
+    "country": "USA",
+    "tags": [
+      "javascript",
+      "react",
+      "node",
+      "fp"
     ],
     "channels": [
       {
-        "type": "email",                   
-        "id": "silverjillian@gmail.com"                
+        "type": "email",
+        "id": "silverjillian@gmail.com"
       },
       {
         "type": "linkedin",
@@ -874,23 +1014,48 @@
     ]
   },
   {
-    "id": "rajeshsunnyd@gmail.com",
-    "name": "Rajesh Dhiman",
-    "avatar":"https://avatars0.githubusercontent.com/u/10572008",
-    "title": "Javascript developer",
-    "description": "Hi I am an experienced fullstack web developer. Happy to help.",
-    "country": "India",                      
-    "tags": [                                     
-      "javascript", 
-      "react", 
-      "node.js",
-      "mongodb",
-      "api-design"    
+    "id": "matt@laceysnr.com",
+    "name": "Matt Lacey",
+    "avatar": "https://avatars.githubusercontent.com/mattlacey",
+    "title": "Co-Founder @ Proximity Insight",
+    "description": "10 years and counting working on Salesforce.com and with JavaScript",
+    "country": "Australia",
+    "tags": [
+      "salesforce",
+      "javascript",
+      "apex",
+      "css",
+      "c"
     ],
     "channels": [
       {
-        "type": "email",                   
-        "id": "rajeshsunnyd@gmail.com"                
+        "type": "twitter",
+        "id": "laceysnr"
+      },
+      {
+        "type": "linkedin",
+        "id": "mplacey"
+      }
+    ]
+  },
+  {
+    "id": "rajeshsunnyd@gmail.com",
+    "name": "Rajesh Dhiman",
+    "avatar": "https://avatars0.githubusercontent.com/u/10572008",
+    "title": "Javascript developer",
+    "description": "Hi I am an experienced fullstack web developer. Happy to help.",
+    "country": "India",
+    "tags": [
+      "javascript",
+      "react",
+      "node.js",
+      "mongodb",
+      "api-design"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rajeshsunnyd@gmail.com"
       },
       {
         "type": "twitter",
