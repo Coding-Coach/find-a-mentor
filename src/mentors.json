@@ -826,17 +826,17 @@
     "avatar": "https://avatars0.githubusercontent.com/u/5667054?s=460&v=4",
     "title": "Javascript developer",
     "description": "Hi! Here to relieve you of your Javascript woes",
-    "country": "USA",                      
-    "tags": [                                     
-      "javascript", 
-      "react", 
-      "node", 
-      "fp"     
+    "country": "USA",
+    "tags": [
+      "javascript",
+      "react",
+      "node",
+      "fp"
     ],
     "channels": [
       {
-        "type": "email",                   
-        "id": "silverjillian@gmail.com"                
+        "type": "email",
+        "id": "silverjillian@gmail.com"
       },
       {
         "type": "linkedin",
@@ -957,6 +957,7 @@
     ]
   },
   {
+
     "id": "debck7019@gmail.com",
     "name": "Debasish Sahoo",
     "avatar": "https://avatars2.githubusercontent.com/u/33368759?s=460&v=4",
@@ -980,6 +981,7 @@
       {
         "type": "linkedin",
         "id": "debasish2014"
+
       }
     ]
   }
