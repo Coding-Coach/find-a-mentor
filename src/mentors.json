@@ -926,5 +926,34 @@
         "id": "UCQJP2E0Y"
       }
     ]
+  },
+  {
+    "id": "carlosjimenezdelgado@gmail.com",
+    "name": "Carlos Jiménez Delgado",
+    "avatar": "https://avatars.githubusercontent.com/carlosjdelgado",
+    "title": "Backend Developer",
+    "description": "Hi, My name is Carlos, if you need some help just ask me.",
+    "country": "Spain",
+    "tags": [
+      "dotnet",
+      "azure",
+      "architecture",
+      "software-design",
+      "best-practices"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "carlosjdelgado_"
+      },
+      {
+        "type": "email",
+        "id": "carlosjimenezdelgado@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "carlos-jiménez-delgado-104395a"
+      }
+    ]
   }
 ]
