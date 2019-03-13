@@ -897,5 +897,34 @@
         "id": "mplacey"
       }
     ]
+  },
+  {
+    "id": "rajeshsunnyd@gmail.com",
+    "name": "Rajesh Dhiman",
+    "avatar": "https://avatars.githubusercontent.com/rajeshdh",
+    "title": "Fullstack Developer",
+    "description": "Hi, I am an experienced fullstack web developer. Happy to help.",
+    "country": "India",
+    "tags": [
+      "nodejs",
+      "javascript",
+      "reactjs",
+      "mongodb",
+      "api-design"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "paharihacker"
+      },
+      {
+        "type": "email",
+        "id": "rajeshsunnyd@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UCQJP2E0Y"
+      }
+    ]
   }
 ]
