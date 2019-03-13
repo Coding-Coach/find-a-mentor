@@ -955,5 +955,32 @@
         "id": "carlos-jiménez-delgado-104395a"
       }
     ]
+  },
+  {
+    "id": "debck7019@gmail.com",
+    "name": "Debasish Sahoo",
+    "avatar": "https://avatars2.githubusercontent.com/u/33368759?s=460&v=4",
+    "title": "MEAN stack Developer",
+    "description": "Hey! debck here, would love to help in Open Source and MEAN stack development.",
+    "country": "India",
+    "tags": [
+      "angular",
+      "nodejs",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "imhere_ck"
+      },
+      {
+        "type": "email",
+        "id": "debck7019@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "debasish2014"
+      }
+    ]
   }
 ]
