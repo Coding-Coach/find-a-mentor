@@ -872,5 +872,30 @@
         "id": "U5C2SQHGF"
       }
     ]
+  },
+  {
+    "id": "matt@laceysnr.com",
+    "name": "Matt Lacey",
+    "avatar": "https://avatars.githubusercontent.com/mattlacey",
+    "title": "Co-Founder @ Proximity Insight",
+    "description": "10 years and counting working on Salesforce.com and with JavaScript",
+    "country": "Australia",
+    "tags": [
+      "salesforce",
+      "javascript",
+      "apex",
+      "css",
+      "c"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "laceysnr"
+      },
+      {
+        "type": "linkedin",
+        "id": "mplacey"
+      }
+    ]
   }
 ]
