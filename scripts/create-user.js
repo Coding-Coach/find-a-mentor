@@ -222,8 +222,6 @@ async function main() {
   console.log('Hi! Thanks for adding you or someone else as a mentor!');
   const answers = await inquirer.prompt(questions);
   const schema = await convertAnswersToSchema(answers);
-  // console.log('\nSchema:');
-  // console.log(JSON.stringify(schema, null, '  '));
   return schema;
 }
 
