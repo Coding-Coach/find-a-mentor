@@ -1,4 +1,29 @@
 [{
+    "id": "me@robkendal.co.uk",
+    "name": "Rob Kendal",
+    "avatar": "https://avatars2.githubusercontent.com/u/38687284?s=400&v=4",
+    "title": "Senior UI Developer @iamcloud",
+    "description": "Front end veteran looking to help those starting out. Let's build all the front end things!",
+    "country": "United Kingdom",
+    "tags": [
+      "frontend", "javascript", "reactjs", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@robkendal.co.uk"
+      },
+      {
+        "type": "linkedin",
+        "id": "robkendal"
+      },
+      {
+        "type": "twitter",
+        "id": "kendalmintcode"
+      }
+    ]
+  },
+  {
     "id": "moshfeu@gmail.com",
     "name": "Mosh Feuchtwanger",
     "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
@@ -826,17 +851,17 @@
     "avatar": "https://avatars0.githubusercontent.com/u/5667054?s=460&v=4",
     "title": "Javascript developer",
     "description": "Hi! Here to relieve you of your Javascript woes",
-    "country": "USA",                      
-    "tags": [                                     
-      "javascript", 
-      "react", 
-      "node", 
-      "fp"     
+    "country": "USA",
+    "tags": [
+      "javascript",
+      "react",
+      "node",
+      "fp"
     ],
     "channels": [
       {
-        "type": "email",                   
-        "id": "silverjillian@gmail.com"                
+        "type": "email",
+        "id": "silverjillian@gmail.com"
       },
       {
         "type": "linkedin",
