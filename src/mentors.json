@@ -1129,5 +1129,30 @@
         "id": "kendalmintcode"
       }
     ]
+  },
+  {
+    "id": "molly.struve@gmail.com",
+    "name": "Molly Struve",
+    "avatar": "https://avatars3.githubusercontent.com/u/1813380?s=460&v=4",
+    "title": "Lead Site Reliability Engineer",
+    "description": "I'm a self taught dev who wants to help others break into this amazing field!",
+    "country": "United States",
+    "tags": [
+      "elasticsearch", "ruby", "backend", "devops", "sre", "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "molly_struve"
+      },
+      {
+        "type": "linkedin",
+        "id": "mollystruve"
+      },
+      {
+        "type": "email",
+        "id": "molly.struve@gmail.com"
+      }
+    ]
   }
 ]
