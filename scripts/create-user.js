@@ -198,7 +198,7 @@ const questions = [
   questionByChannel.twitter
 ];
 
-async function convertAnswersToSchema(answers) {
+function convertAnswersToSchema(answers) {
   const choices = ['Email', 'Slack', 'Linkedin', 'Facebook', 'Twitter'];
   for (let answer in answers) {
     if (answer === 'tags') {
@@ -219,9 +219,9 @@ async function convertAnswersToSchema(answers) {
 }
 
 async function main() {
-  console.log('Hi! Thanks for adding you or someone else as a mentor!');
+  console.log('Hi, Welcome aboard! Please answer the following questions');
   const answers = await inquirer.prompt(questions);
-  const schema = await convertAnswersToSchema(answers);
+  const schema = convertAnswersToSchema(answers);
   return schema;
 }
 
