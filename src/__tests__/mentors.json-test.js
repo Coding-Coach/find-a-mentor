@@ -83,8 +83,15 @@ const mentorSchema = {
   }
 }
 
-it('should mentors shema should be valid', () => {
+it('should mentors shema be valid', () => {
   const valid = ajv.validate(mentorSchema, mentors);
-  const errorMessage = (ajv.errors || []).map(error => error.message).join('\n');
+  const errorMessage = (ajv.errors || []).map(error => {
+    try {
+      const [, index, fieldName] = /\[(.*)\].(.*)/.exec(error.dataPath);
+      return `error with item #${index}'s field "${fieldName}". The error is: ${error.message}`;
+    } catch (error) {
+      return error.message;
+    }
+  }).join('\n');
   expect(valid).toBeValid(errorMessage);
 });
