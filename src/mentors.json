@@ -1,4 +1,30 @@
-[{
+[
+  {
+    "id": "yashish.dua@gmail.com",
+    "name": "Yashish Dua",
+    "avatar": "https://avatars0.githubusercontent.com/u/20666950?s=400&v=4",
+    "title": "Platform Engineer at Postman",
+    "description": "Product Engineer, Writer and Speaker",
+    "country": "India",
+    "tags": [
+      "android", "reactjs", "backend", "go", "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "duayashish"
+      },
+      {
+        "type": "linkedin",
+        "id": "yashishdua"
+      },
+      {
+        "type": "email",
+        "id": "yashish.dua@gmail.com"
+      }
+    ]
+  },
+  {
     "id": "moshfeu@gmail.com",
     "name": "Mosh Feuchtwanger",
     "avatar": "https://avatars3.githubusercontent.com/u/3723951?s=460&v=4",
