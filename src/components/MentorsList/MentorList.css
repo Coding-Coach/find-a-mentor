@@ -57,6 +57,7 @@
   background-color: #68d5b1;
   color: #fff;
   margin: .14285714em;
+  text-transform: lowercase;
 }
 
 .mentor-card .mentor-quote {
