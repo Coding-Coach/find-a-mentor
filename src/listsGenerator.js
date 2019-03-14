@@ -9,7 +9,7 @@ export function generateLists(mentors) {
     json.countries.push(mentors[i].country);
   }
 
-  json.tags = [...new Set(json.tags)]
+  json.tags = [...new Set(json.tags.map(tag => tag.toLowerCase()))]
   json.countries = [...new Set(json.countries)]
 
   return json;

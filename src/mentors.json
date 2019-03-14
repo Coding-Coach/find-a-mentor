@@ -1,25 +1,26 @@
-[{
-    "id": "me@robkendal.co.uk",
-    "name": "Rob Kendal",
-    "avatar": "https://avatars2.githubusercontent.com/u/38687284?s=400&v=4",
-    "title": "Senior UI Developer @iamcloud",
-    "description": "UI veteran looking to help those starting out. Let's build all the things!",
-    "country": "United Kingdom",
+[
+  {
+    "id": "yashish.dua@gmail.com",
+    "name": "Yashish Dua",
+    "avatar": "https://avatars0.githubusercontent.com/u/20666950?s=400&v=4",
+    "title": "Platform Engineer at Postman",
+    "description": "Product Engineer, Writer and Speaker",
+    "country": "India",
     "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
+      "android", "reactjs", "backend", "go", "nodejs"
     ],
     "channels": [
       {
-        "type": "email",
-        "id": "me@robkendal.co.uk"
+        "type": "twitter",
+        "id": "duayashish"
       },
       {
         "type": "linkedin",
-        "id": "robkendal"
+        "id": "yashishdua"
       },
       {
-        "type": "twitter",
-        "id": "kendalmintcode"
+        "type": "email",
+        "id": "yashish.dua@gmail.com"
       }
     ]
   },
@@ -949,6 +950,183 @@
       {
         "type": "slack",
         "id": "UCQJP2E0Y"
+      }
+    ]
+  },
+  {
+    "id": "carlosjimenezdelgado@gmail.com",
+    "name": "Carlos Jiménez Delgado",
+    "avatar": "https://avatars.githubusercontent.com/carlosjdelgado",
+    "title": "Backend Developer",
+    "description": "Hi, My name is Carlos, if you need some help just ask me.",
+    "country": "Spain",
+    "tags": [
+      "dotnet",
+      "azure",
+      "architecture",
+      "software-design",
+      "best-practices"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "carlosjdelgado_"
+      },
+      {
+        "type": "email",
+        "id": "carlosjimenezdelgado@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "carlos-jiménez-delgado-104395a"
+      }
+    ]
+  },
+  {
+    "id": "ignaciodenuevo@posteo.net",
+    "name": "Ignacio Villanueva",
+    "avatar": "https://avatars.githubusercontent.com/ignaciodenuevo",
+    "title": "Frontend Dev. at @PlainConcepts",
+    "description": "Hi, My name is Ignacio, if you think I can help you, don't hesitate to tell me.",
+    "country": "Spain",
+    "tags": [
+      "Performance",
+      "Web Typography",
+      "Accessibility",
+      "CSS",
+      "JavaScript"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "ignaciodenuevo"
+      },
+      {
+        "type": "email",
+        "id": "ignaciodenuevo@posteo.net"
+      }
+    ]
+  },
+    {
+    "id": "mbrenner24@gmail.com",
+    "name": "Michelle Brenner",
+    "avatar": "https://avatars.githubusercontent.com/michellelynne",
+    "title": "Senior Backend Engineer",
+    "description": "Self-taught developer, 8+ years experience, entertainment & food tech.",
+    "country": "USA",
+    "tags": [
+      "python",
+      "rest",
+      "speaker",
+      "podcast",
+      "inclusion"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "michellelynneb"
+      },
+      {
+        "type": "email",
+        "id": "codingcoach@@mbrenner24.33mail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGVTKPHMW"
+      }
+    ]
+  },
+  {
+    "id": "marina@mosti.com.mx",
+    "name": "Marina Mosti",
+    "avatar": "https://pbs.twimg.com/profile_images/1105963507026141185/y6t9AHL2_400x400.jpg",
+    "title": "Senior FE Engineer",
+    "description": "Im a full stack engineer with 13 years experience :)",
+    "country": "Mexico",
+    "tags": ["javascript", "vue", "women"],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "marinamosti"
+      },
+      {
+        "type": "email",
+        "id": "marina@mosti.com.mx"
+      },
+      {
+        "type": "slack",
+        "id": "UE7Q65YU8"
+      }
+    ]
+  },
+  {
+    "id": "garyhollandxyz@gmail.com",
+    "name": "Gary Holland",
+    "avatar": "https://avatars.githubusercontent.com/garyhollandxyz",
+    "title": "Full Stack Software Developer",
+    "description": "I build React UIs and serverless NodeJS backends. Excited to help!",
+    "country": "United Kingdon",
+    "tags": ["javascript", "react", "nodeJS", "serverless", "fullstack"],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "implicit_return"
+      },
+      {
+        "type": "email",
+        "id": "garyhollandxyz@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGYCCB2TD"
+      }
+    ]
+  },
+  {
+    "id": "emmanuelgatwech@gmail.com",
+    "name": "Emmanuel Gatwech",
+    "avatar": "https://avatars.githubusercontent.com/emmanuel-melon",
+    "title": "Fullstack Developer",
+    "description": "Hi, I'm a fullstack web developer.",
+    "country": "Uganda",
+    "tags": [
+      "JavaScript",
+      "nodejs",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "junubiman"
+      },
+      {
+        "type": "email",
+        "id": "emmanuelgatwech@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "me@robkendal.co.uk",
+    "name": "Rob Kendal",
+    "avatar": "https://avatars2.githubusercontent.com/u/38687284?s=400&v=4",
+    "title": "Senior UI Developer @iamcloud",
+    "description": "UI veteran looking to help those starting out. Let's build all the things!",
+    "country": "United Kingdom",
+    "tags": [
+      "frontend", "javascript", "reactjs", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@robkendal.co.uk"
+      },
+      {
+        "type": "linkedin",
+        "id": "robkendal"
+      },
+      {
+        "type": "twitter",
+        "id": "kendalmintcode"
       }
     ]
   }
