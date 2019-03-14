@@ -1056,6 +1056,27 @@
     ]
   },
   {
+    "id": "bencodezen@gmail.com",
+    "name": "Ben Hong",
+    "avatar": "https://pbs.twimg.com/profile_images/1007989522058108930/TqUpZKuh_400x400.jpg",
+    "title": "Senior Frontend Engineer @GitLab",
+    "description": "Official Vue.js Community Partner. Google Developer Expert - Web Technologies.",
+    "country": "United States",
+    "tags": [
+      "vue",
+      "html",
+      "css",
+      "javascript",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "bencodezen"
+      }
+    ]
+  },
+  {
     "id": "garyhollandxyz@gmail.com",
     "name": "Gary Holland",
     "avatar": "https://avatars.githubusercontent.com/garyhollandxyz",
