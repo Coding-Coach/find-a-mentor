@@ -1104,5 +1104,30 @@
         "id": "emmanuelgatwech@gmail.com"
       }
     ]
+  },
+  {
+    "id": "me@robkendal.co.uk",
+    "name": "Rob Kendal",
+    "avatar": "https://avatars2.githubusercontent.com/u/38687284?s=400&v=4",
+    "title": "Senior UI Developer @iamcloud",
+    "description": "UI veteran looking to help those starting out. Let's build all the things!",
+    "country": "United Kingdom",
+    "tags": [
+      "frontend", "javascript", "reactjs", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@robkendal.co.uk"
+      },
+      {
+        "type": "linkedin",
+        "id": "robkendal"
+      },
+      {
+        "type": "twitter",
+        "id": "kendalmintcode"
+      }
+    ]
   }
 ]
