@@ -202,7 +202,7 @@ async function convertAnswersToSchema(answers) {
   const choices = ['Email', 'Slack', 'Linkedin', 'Facebook', 'Twitter'];
   for (let answer in answers) {
     if (answer === 'tags') {
-      answers[answer] = answers[answer].split(',');
+      answers[answer] = answers[answer].split(',').map(t => t.trim());
     } else if (choices.includes(answer)) {
       answers.channels.forEach((element, index) => {
         if (element === answer) {
