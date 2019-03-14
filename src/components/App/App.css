@@ -1,5 +1,5 @@
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   background-color: #f8f8f8;
 }
 
@@ -18,8 +18,10 @@ body {
 
 .main-header {
   padding: 30px;
-  max-width: 960px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .device-mobile .main-header {
