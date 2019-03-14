@@ -1050,10 +1050,6 @@
         "id": "marinamosti"
       },
       {
-        "type": "email",
-        "id": "marina@mosti.com.mx"
-      },
-      {
         "type": "slack",
         "id": "UE7Q65YU8"
       }
