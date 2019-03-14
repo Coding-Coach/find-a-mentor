@@ -10,12 +10,22 @@ const Ora = require('ora');
 
 const createUser = require('./create-user');
 
+const spinnerPull = new Ora({
+  text: 'Getting the last changes'
+});
 const spinnerMerge = new Ora({
   text: 'Adding to mentors list'
 })
-const spinnerGit = new Ora({
+const spinnerCommit = new Ora({
   text: 'Adding to Git'
 });
+const spinnerPush = new Ora({
+  text: 'Publishing to Github'
+})
+
+async function gitPull() {
+  await execa('git', ['pull']);
+}
 
 async function addToMentorsList(mentor) {
   try {
@@ -30,35 +40,60 @@ async function addToMentorsList(mentor) {
   }
 }
 
-async function gitJob(name) {
+async function gitCommit(name) {
   const commitMessage = `add ${name} as mentor`
   await execa('git', ['add', '.']);
   await execa('git', ['commit', '-m', commitMessage]);
 }
 
+async function gitPush(name) {
+  const branchName = `add-${name}-as-mentor`
+  await execa('git', ['checkout','-b', branchName]);
+  await execa('git', ['push']);
+}
+
 (async () => {
-    const answers = await createUser();
-    const name = answers.name;
+  spinnerPull.start();
+  try {
+    await gitPull();
+    spinnerPull.succeed()
+  } catch (error) {
+    spinnerPull.fail();
+    console.error('Error: ', error.message);
+    return false;
+  }
 
-    spinnerMerge.start();
-    try {
-      await addToMentorsList(answers);
-      spinnerMerge.succeed()
-    } catch (error) {
-      spinnerMerge.fail();
-      console.error('Error: ', error.message);
-      return false;
-    }
+  const answers = await createUser();
 
-    spinnerGit.start();
-    try {
-      await gitJob(name);
-      spinnerGit.succeed();
-    } catch (error) {
-      spinnerGit.fail();
-      console.error('Error: ', error.message);
-      return false;
-    }
+  spinnerMerge.start();
+  try {
+    await addToMentorsList(answers.name);
+    spinnerMerge.succeed()
+  } catch (error) {
+    spinnerMerge.fail();
+    console.error('Error: ', error.message);
+    return false;
+  }
 
-    console.log('Mentor added. Please now do a git push and create a PR for finish the process. Thanks!');
+  spinnerCommit.start();
+  try {
+    await gitCommit(answers.name);
+    spinnerCommit.succeed();
+  } catch (error) {
+    spinnerCommit.fail();
+    console.error('Error: ', error.message);
+    return false;
+  }
+
+  spinnerPush.start();
+  try {
+    await gitPush(answers.name);
+    spinnerPush.succeed();
+  } catch (error) {
+    spinnerPush.fail();
+    console.error('Error: ', error.message);
+    return false;
+  }
+
+  console.log('Mentor added. Please now do a git push and create a PR for finish the process. Thanks!');
 })()
