@@ -826,17 +826,17 @@
     "avatar": "https://avatars0.githubusercontent.com/u/5667054?s=460&v=4",
     "title": "Javascript developer",
     "description": "Hi! Here to relieve you of your Javascript woes",
-    "country": "USA",                      
-    "tags": [                                     
-      "javascript", 
-      "react", 
-      "node", 
-      "fp"     
+    "country": "USA",
+    "tags": [
+      "javascript",
+      "react",
+      "node",
+      "fp"
     ],
     "channels": [
       {
-        "type": "email",                   
-        "id": "silverjillian@gmail.com"                
+        "type": "email",
+        "id": "silverjillian@gmail.com"
       },
       {
         "type": "linkedin",
@@ -924,6 +924,60 @@
       {
         "type": "slack",
         "id": "UCQJP2E0Y"
+      }
+    ]
+  },
+  {
+    "id": "carlosjimenezdelgado@gmail.com",
+    "name": "Carlos Jiménez Delgado",
+    "avatar": "https://avatars.githubusercontent.com/carlosjdelgado",
+    "title": "Backend Developer",
+    "description": "Hi, My name is Carlos, if you need some help just ask me.",
+    "country": "Spain",
+    "tags": [
+      "dotnet",
+      "azure",
+      "architecture",
+      "software-design",
+      "best-practices"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "carlosjdelgado_"
+      },
+      {
+        "type": "email",
+        "id": "carlosjimenezdelgado@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "carlos-jiménez-delgado-104395a"
+      }
+    ]
+  },
+  {
+    "id": "ignaciodenuevo@posteo.net",
+    "name": "Ignacio Villanueva",
+    "avatar": "https://avatars.githubusercontent.com/ignaciodenuevo",
+    "title": "Frontend Dev. at @PlainConcepts",
+    "description": "Hi, My name is Ignacio, if you think I can help you, don't hesitate to tell me.",
+    "country": "Spain",
+    "tags": [
+      "Performance",
+      "Web Typography",
+      "Accessibility",
+      "CSS",
+      "JavaScript"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "ignaciodenuevo"
+      },
+      {
+        "type": "email",
+        "id": "ignaciodenuevo@posteo.net"
       }
     ]
   },
