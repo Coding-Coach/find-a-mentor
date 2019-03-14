@@ -44,7 +44,7 @@ async function gitPush(name) {
 }
 
 const gitFunctions = {
-  pullProcess: async () => {
+  pullProcess: async() => {
     spinnerPull.start();
     try {
       await gitPull();
@@ -55,10 +55,10 @@ const gitFunctions = {
       return false;
     }
   },
-  branchProcess: async() => {
+  branchProcess: async(answers) => {
     spinnerBranch.start();
     try {
-      await gitBranch(answers.name);
+      await gitBranch(answers.name.toLowerCase().replace(/\s/g, '-'));
       spinnerBranch.succeed();
     } catch (error) {
       spinnerBranch.fail();
@@ -66,7 +66,7 @@ const gitFunctions = {
       return false;
     }
   },
-  commitProcess: async() => {
+  commitProcess: async(answers) => {
     spinnerCommit.start();
     try {
       await gitCommit(answers.name);
@@ -77,7 +77,7 @@ const gitFunctions = {
       return false;
     }
   },
-  pushProcess: async() => {
+  pushProcess: async(answers) => {
     spinnerPush.start();
     try {
       await gitPush(answers.name.toLowerCase().replace(/\s/g, '-'));
@@ -111,9 +111,9 @@ async function addToMentorsList(mentor) {
   await gitFunctions.pullProcess();
   const answers = await createUser();
   await addToMentorsList(answers);
-  await gitFunctions.branchProcess();
-  await gitFunctions.commitProcess();
-  await gitFunctions.pushProcess();
+  await gitFunctions.branchProcess(answers);
+  await gitFunctions.commitProcess(answers);
+  await gitFunctions.pushProcess(answers);
 
   console.log('\nMentor added.Please now create a PR for finish the process. Thanks!');
 })()
