@@ -1081,5 +1081,28 @@
         "id": "UGYCCB2TD"
       }
     ]
+  },
+  {
+    "id": "emmanuelgatwech@gmail.com",
+    "name": "Emmanuel Gatwech",
+    "avatar": "https://avatars.githubusercontent.com/emmanuel-melon",
+    "title": "Fullstack Developer",
+    "description": "Hi, I'm a fullstack web developer.",
+    "country": "Uganda",
+    "tags": [
+      "JavaScript",
+      "nodejs",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "junubiman"
+      },
+      {
+        "type": "email",
+        "id": "emmanuelgatwech@gmail.com"
+      }
+    ]
   }
 ]
