@@ -980,5 +980,34 @@
         "id": "ignaciodenuevo@posteo.net"
       }
     ]
+  },
+    {
+    "id": "mbrenner24@gmail.com",
+    "name": "Michelle Brenner",
+    "avatar": "https://avatars.githubusercontent.com/michellelynne",
+    "title": "Senior Backend Engineer",
+    "description": "Self-taught developer, 8+ years experience, entertainment & food tech.",
+    "country": "USA",
+    "tags": [
+      "python",
+      "rest",
+      "speaker",
+      "podcast",
+      "inclusion"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "michellelynneb"
+      },
+      {
+        "type": "email",
+        "id": "codingcoach@@mbrenner24.33mail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGVTKPHMW"
+      }
+    ]
   }
 ]
