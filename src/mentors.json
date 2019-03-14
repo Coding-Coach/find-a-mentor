@@ -1009,5 +1009,28 @@
         "id": "UGVTKPHMW"
       }
     ]
+  },
+  {
+    "id": "marina@mosti.com.mx",
+    "name": "Marina Mosti",
+    "avatar": "https://pbs.twimg.com/profile_images/1105963507026141185/y6t9AHL2_400x400.jpg",
+    "title": "Senior FE Engineer",
+    "description": "Im a full stack engineer with 13 years experience :)",
+    "country": "MX",
+    "tags": ["javascript", "vue", "women"],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "marinamosti"
+      },
+      {
+        "type": "email",
+        "id": "marina@mosti.com.mx"
+      },
+      {
+        "type": "slack",
+        "id": "UE7Q65YU8"
+      }
+    ]
   }
 ]
