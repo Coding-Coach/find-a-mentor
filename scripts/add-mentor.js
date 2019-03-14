@@ -49,7 +49,7 @@ async function gitCommit(name) {
 async function gitPush(name) {
   const branchName = `add-${name}-as-mentor`
   await execa('git', ['checkout','-b', branchName]);
-  await execa('git', ['push']);
+  await execa('git', ['push', '--set-upstream', 'origin', branchName]);
 }
 
 (async () => {
@@ -87,7 +87,7 @@ async function gitPush(name) {
 
   spinnerPush.start();
   try {
-    await gitPush(answers.name);
+    await gitPush(answers.name.toLowerCase().replace(/\s/g, '-'));
     spinnerPush.succeed();
   } catch (error) {
     spinnerPush.fail();
