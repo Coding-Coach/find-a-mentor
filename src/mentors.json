@@ -1032,5 +1032,28 @@
         "id": "UE7Q65YU8"
       }
     ]
+  },
+  {
+    "id": "garyhollandxyz@gmail.com",
+    "name": "Gary Holland",
+    "avatar": "https://avatars.githubusercontent.com/garyhollandxyz",
+    "title": "Full Stack Software Developer",
+    "description": "Im a full stack engineer with 13 years experience :)",
+    "country": "United Kingdon",
+    "tags": ["javascript", "react", "nodeJS", "serverless", "fullstack"],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "implicit_return"
+      },
+      {
+        "type": "email",
+        "id": "garyhollandxyz@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGYCCB2TD"
+      }
+    ]
   }
 ]
