@@ -1177,7 +1177,7 @@
     "name": "Corneil du Plessis",
     "avatar": "https://avatars2.githubusercontent.com/u/466422?s=460&v=4",
     "title": "Software Architect",
-    "description": "I have been earning a living by writing code since 1985. From embedded systems to mainframes and everything in between.",
+    "description": "Coding embedded systems to mainframes and everything in between since 1985.",
     "country": "South Africa",
     "tags": [
       "java", "spring", "cloud", "devops", "career"
@@ -1190,10 +1190,6 @@
       {
         "type": "linkedin",
         "id": "corneil"
-      },
-      {
-        "type": "email",
-        "id": "corneil.duplessis@gmail.com"
       },
       {
         "type": "slack",
