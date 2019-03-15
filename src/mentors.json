@@ -1173,6 +1173,85 @@
     ]
   },
   {
+    "id": "brian@brianmorrison.me",
+    "name": "Brian Morrison II",
+    "avatar": "https://brianmorrison.me/wp-content/uploads/2019/03/personal-profile-image-sq.png",
+    "title": "JavaScript & C# Developer",
+    "description": "Been writing code for over 10 years on many platforms. Excited to help!",
+    "country": "United Kingdom",
+    "tags": [
+      "javascript", "nodejs", "vuejs", "c-sharp", "mongodb"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "brian@brianmorrison.me"
+      },
+      {
+        "type": "twitter",
+        "id": "brianmorrisonme"
+      },
+      {
+        "type": "slack",
+        "id": "UGRAMV5FD"
+      }
+    ]
+  },
+  {
+    "id": "contact@andrewjudd.ca",
+    "name": "Andrew Judd",
+    "avatar": "https://www.andrewjudd.ca/assets/images/andrew-judd.jpg",
+    "title": "Fullstack Developer/Entrepreneur",
+    "description": "Hi, I'm Andrew and I love help growing those around me!",
+    "country": "Canada",
+    "tags": [
+      "vuejs",
+      "css",
+      "php",
+      "sql",
+      "dotnet"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UGZAP6THQ"
+      },
+      {
+        "type": "linkedin",
+        "id": "awjudd"
+      },
+      {
+        "type": "twitter",
+        "id": "min_sleep"
+      }
+    ]
+  },
+  {
+    "id": "corneil.duplessis@gmail.com",
+    "name": "Corneil du Plessis",
+    "avatar": "https://avatars2.githubusercontent.com/u/466422?s=460&v=4",
+    "title": "Software Architect",
+    "description": "Coding embedded systems to mainframes and everything in between since 1985.",
+    "country": "South Africa",
+    "tags": [
+      "java", "spring", "cloud", "devops", "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "corneil"
+      },
+      {
+        "type": "linkedin",
+        "id": "corneil"
+      },
+      {
+        "type": "slack",
+        "id": "UF2RD379T"
+      }
+    ]
+  },
+  {
     "id": "arnellebalane@gmail.com",
     "name": "Arnelle Balane",
     "avatar": "https://avatars0.githubusercontent.com/u/1428598?s=460&v=4",
