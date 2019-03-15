@@ -1225,5 +1225,30 @@
         "id": "min_sleep"
       }
     ]
+  },
+  {
+    "id": "corneil.duplessis@gmail.com",
+    "name": "Corneil du Plessis",
+    "avatar": "https://avatars2.githubusercontent.com/u/466422?s=460&v=4",
+    "title": "Software Architect",
+    "description": "Coding embedded systems to mainframes and everything in between since 1985.",
+    "country": "South Africa",
+    "tags": [
+      "java", "spring", "cloud", "devops", "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "corneil"
+      },
+      {
+        "type": "linkedin",
+        "id": "corneil"
+      },
+      {
+        "type": "slack",
+        "id": "UF2RD379T"
+      }
+    ]
   }
 ]
