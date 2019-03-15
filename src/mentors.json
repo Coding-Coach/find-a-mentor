@@ -1250,5 +1250,34 @@
         "id": "UF2RD379T"
       }
     ]
+  },
+  {
+    "id": "tbs.timm@gmail.com",
+    "name": "Tobias Timm",
+    "avatar": "https://avatars1.githubusercontent.com/u/10043789?s=460&v=4",
+    "title": "Software Developer @P7S1",
+    "description": "JavaScript & Java Developer working with react, react-native, GraphQL, ...",
+    "country": "Germany",
+    "tags": [
+      "javascript",
+      "react",
+      "react-native",
+      "node.js",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "TbsTimm"
+      },
+      {
+        "type": "slack",
+        "id": "UG4FQE4FM"
+      },
+      {
+        "type": "email",
+        "id": "tbs.timm@gmail.com"
+      }
+    ]
   }
 ]
