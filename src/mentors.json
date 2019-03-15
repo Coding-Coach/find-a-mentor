@@ -1330,4 +1330,30 @@
       }
     ]
   }
+,
+  {
+    "id": "andreas.falk@novatec-gmbh.de",
+    "name": "Andreas Falk",
+    "avatar": "https://avatars3.githubusercontent.com/u/1106872?s=460&v=4",
+    "title": "Backend Security Engineer",
+    "description": "Building and pushing secure software to the cloud. Just ask me anything",
+    "country": "Germany",
+    "tags": [
+      "java", "spring", "cloud", "kubernetes", "security"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UGXK6BMUY"
+      },
+      {
+        "type": "twitter",
+        "id": "andifalk"
+      },
+      {
+        "type": "linkedin",
+        "id": "andifalk"
+      }
+    ]
+  }
 ]
