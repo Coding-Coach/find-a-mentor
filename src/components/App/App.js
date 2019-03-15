@@ -2,12 +2,12 @@ import "./App.css";
 import mentors from "../../mentors.json";
 
 import React, { Component } from "react";
-import { Header, Button, Icon } from "semantic-ui-react";
 import classNames from "classnames";
-import AutoComplete from "../AutoComplete/AutoComplete";
-import SocialLinks from "../SocialLinks";
 import MentorsList from "../MentorsList/MentorsList";
-import Logo from "../Logo";
+import Filter from "../Filter/Filter";
+// import { Header, Button, Icon } from "semantic-ui-react";
+import AutoComplete from "../AutoComplete/AutoComplete";
+import Header from "../Header/Header";
 import shuffle from "lodash/shuffle";
 import { generateLists } from "../../listsGenerator";
 
@@ -66,13 +66,9 @@ class App extends Component {
 
     return (
       <div className="app">
-        <header className="main-header">
-          <a className="logo" href="/">
-            <Logo width={110} height={50} color="#68d5b1" />
-          </a>
-          <SocialLinks />
-        </header>
-        <div className="filters-outer">
+        <Header />
+        <Filter />
+        {/* <div className="filters-outer">
           <div className="filters">
             <Header as="h1">
               <div>
@@ -106,7 +102,7 @@ class App extends Component {
               />
             </div>
           </div>
-        </div>
+        </div> */}
         <MentorsList
           className={classNames({
             active: fieldsIsActive

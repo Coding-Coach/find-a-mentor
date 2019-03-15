@@ -1,0 +1,8 @@
+#filter {
+  background-color: rgba(105, 213, 177, 0.3);
+  color: #4a4a4a;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  padding: 15px 0px 15px 30px;
+  width: 265px;
+}
