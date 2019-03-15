@@ -1173,6 +1173,31 @@
     ]
   },
   {
+    "id": "brian@brianmorrison.me",
+    "name": "Brian Morrison II",
+    "avatar": "https://brianmorrison.me/wp-content/uploads/2019/03/personal-profile-image-sq.png",
+    "title": "JavaScript & C# Developer",
+    "description": "Been writing code for over 10 years on many platforms. Excited to help!",
+    "country": "United Kingdom",
+    "tags": [
+      "javascript", "nodejs", "vuejs", "c-sharp", "mongodb"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "brian@brianmorrison.me"
+      },
+      {
+        "type": "twitter",
+        "id": "brianmorrisonme"
+      },
+      {
+        "type": "slack",
+        "id": "UGRAMV5FD"
+      }
+    ]
+  },
+  {
     "id": "contact@andrewjudd.ca",
     "name": "Andrew Judd",
     "avatar": "https://www.andrewjudd.ca/assets/images/andrew-judd.jpg",
