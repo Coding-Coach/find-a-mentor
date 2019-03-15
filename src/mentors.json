@@ -1275,5 +1275,30 @@
         "id": "arnellebalane"
       }
     ]
+  },
+  {
+    "id": "honzik.petr@gmail.com",
+    "name": "Jan Petr",
+    "avatar": "https://avatars2.githubusercontent.com/u/1058144?s=460&v=4",
+    "title": "Staff Software Engineer",
+    "description": "Full-stack developer, working on projects in Algolia. Feel free to reach out!",
+    "country": "Czech Republic",
+    "tags": [
+      "php", "backend", "javascript", "search", "ecommerce"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "honzik.petr@algolia.com"
+      },
+      {
+        "type": "twitter",
+        "id": "janpetr"
+      },
+      {
+        "type": "linkedin",
+        "id": "janpetr1"
+      }
+    ]
   }
 ]
