@@ -1196,5 +1196,34 @@
         "id": "UGRAMV5FD"
       }
     ]
+  },
+  {
+    "id": "contact@andrewjudd.ca",
+    "name": "Andrew Judd",
+    "avatar": "https://www.andrewjudd.ca/assets/images/andrew-judd.jpg",
+    "title": "Fullstack Developer/Entrepreneur",
+    "description": "Hi, I'm Andrew and I love help growing those around me!",
+    "country": "Canada",
+    "tags": [
+      "vuejs",
+      "css",
+      "php",
+      "sql",
+      "dotnet"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UGZAP6THQ"
+      },
+      {
+        "type": "linkedin",
+        "id": "awjudd"
+      },
+      {
+        "type": "twitter",
+        "id": "min_sleep"
+      }
+    ]
   }
 ]
