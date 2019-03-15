@@ -1171,5 +1171,30 @@
         "id": "molly.struve@gmail.com"
       }
     ]
+  },
+  {
+    "id": "arnellebalane@gmail.com",
+    "name": "Arnelle Balane",
+    "avatar": "https://avatars0.githubusercontent.com/u/1428598?s=460&v=4",
+    "title": "Software Developer",
+    "description": "I do frontend Web development most of the time. Don't hesitate to ask! 👋",
+    "country": "Philippines",
+    "tags": [
+      "javascript", "nodejs", "frontend", "css", "web-apis"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "arnellebalane@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGZSES4CC"
+      },
+      {
+        "type": "twitter",
+        "id": "arnellebalane"
+      }
+    ]
   }
 ]
