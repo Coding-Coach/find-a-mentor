@@ -1041,7 +1041,7 @@
     "name": "Marina Mosti",
     "avatar": "https://pbs.twimg.com/profile_images/1105963507026141185/y6t9AHL2_400x400.jpg",
     "title": "Senior FE Engineer",
-    "description": "Im a full stack engineer with 13 years experience :)",
+    "description": "Currently only mentoring women, sorry bois <3",
     "country": "Mexico",
     "tags": ["javascript", "vue", "women"],
     "channels": [
@@ -1050,12 +1050,29 @@
         "id": "marinamosti"
       },
       {
-        "type": "email",
-        "id": "marina@mosti.com.mx"
-      },
-      {
         "type": "slack",
         "id": "UE7Q65YU8"
+      }
+    ]
+  },
+  {
+    "id": "bencodezen@gmail.com",
+    "name": "Ben Hong",
+    "avatar": "https://pbs.twimg.com/profile_images/1007989522058108930/TqUpZKuh_400x400.jpg",
+    "title": "Senior Frontend Engineer @GitLab",
+    "description": "Official Vue.js Community Partner. Google Developer Expert - Web Technologies.",
+    "country": "United States",
+    "tags": [
+      "vue",
+      "html",
+      "css",
+      "javascript",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "bencodezen"
       }
     ]
   },
@@ -1127,6 +1144,31 @@
       {
         "type": "twitter",
         "id": "kendalmintcode"
+      }
+    ]
+  },
+  {
+    "id": "molly.struve@gmail.com",
+    "name": "Molly Struve",
+    "avatar": "https://avatars3.githubusercontent.com/u/1813380?s=460&v=4",
+    "title": "Lead Site Reliability Engineer",
+    "description": "I'm a self taught dev who wants to help others break into this amazing field!",
+    "country": "United States",
+    "tags": [
+      "elasticsearch", "ruby", "backend", "devops", "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "molly_struve"
+      },
+      {
+        "type": "linkedin",
+        "id": "mollystruve"
+      },
+      {
+        "type": "email",
+        "id": "molly.struve@gmail.com"
       }
     ]
   },
