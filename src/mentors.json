@@ -6,9 +6,7 @@
     "title": "Platform Engineer at Postman",
     "description": "Product Engineer, Writer and Speaker",
     "country": "India",
-    "tags": [
-      "android", "reactjs", "backend", "go", "nodejs"
-    ],
+    "tags": ["android", "reactjs", "backend", "go", "nodejs"],
     "channels": [
       {
         "type": "twitter",
@@ -31,9 +29,7 @@
     "title": "Frontend at @wix",
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "Israel",
-    "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
-    ],
+    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -56,9 +52,7 @@
     "title": "Sr. Engineer at @invisionapp",
     "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
     "country": "USA",
-    "tags": [
-      "frontend", "javascript", "react", "native", "css"
-    ],
+    "tags": ["frontend", "javascript", "react", "native", "css"],
     "channels": [
       {
         "type": "email",
@@ -100,13 +94,7 @@
     "title": "JavaScript Web Developer",
     "description": "I'm a JavaScript Web Developer. Ask me any questions that you have.",
     "country": "South Africa",
-    "tags": [
-      "javascript",
-      "reactjs",
-      "gatsby",
-      "nodejs",
-      "express"
-    ],
+    "tags": ["javascript", "reactjs", "gatsby", "nodejs", "express"],
     "channels": [
       {
         "type": "email",
@@ -282,9 +270,7 @@
     "title": "Senior Software Engineer @ValueLabs",
     "description": "Hi, I'm Kirankumar Ambati! Let me know if you need any help.👨‍💻",
     "country": "India",
-    "tags": [
-      "frontend", "javascript", "reactjs", "redux", "fullstack"
-    ],
+    "tags": ["frontend", "javascript", "reactjs", "redux", "fullstack"],
     "channels": [
       {
         "type": "email",
@@ -307,9 +293,7 @@
     "title": "Generalist; Python/Ruby/Web",
     "description": "Hi! Here for general help; specialise in Python, Ruby/Rails, and web projects.",
     "country": "United Kingdom",
-    "tags": [
-      "python", "ruby", "rails", "javascript"
-    ],
+    "tags": ["python", "ruby", "rails", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -369,7 +353,7 @@
         "type": "slack",
         "id": "UCPP0S9PB"
       }
-      ]
+    ]
   },
   {
     "id": "jjprevite@gmail.com",
@@ -378,9 +362,7 @@
     "title": "Front End at Digial Air Strike",
     "description": "Hi! Happy to help you level up 🤠",
     "country": "USA",
-    "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
-    ],
+    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
     "channels": [
       {
         "type": "twitter",
@@ -395,7 +377,7 @@
     "title": "Full stack developer",
     "description": "Hey there! Happy to help in whatever aspect is needed!",
     "country": "New Zealand",
-    "tags": [ "nodejs", "a11y", "css", "fp", "rails" ],
+    "tags": ["nodejs", "a11y", "css", "fp", "rails"],
     "channels": [
       {
         "type": "email",
@@ -418,15 +400,13 @@
     "title": "Software Developer",
     "description": "Hi, I'm Vinamra and I am excited to help you !",
     "country": "India",
-    "tags": [
-      "java", "android", "javascript"
-    ],
+    "tags": ["java", "android", "javascript"],
     "channels": [
       {
         "type": "email",
         "id": "vsareen24@gmail.com"
       },
-    {
+      {
         "type": "twitter",
         "id": "VinamraSareen"
       },
@@ -443,13 +423,7 @@
     "title": "Full Stack Developer",
     "description": "We can learn together, just ask or suggest.",
     "country": "Tanzania",
-    "tags": [
-      "javascript",
-      "nodejs",
-      "reactjs",
-      "react native",
-      "express"
-    ],
+    "tags": ["javascript", "nodejs", "reactjs", "react native", "express"],
     "channels": [
       {
         "type": "email",
@@ -460,8 +434,8 @@
         "id": "chanangae"
       },
       {
-         "type":"slack",
-         "id":"UCSSLPNFQ"
+        "type": "slack",
+        "id": "UCSSLPNFQ"
       }
     ]
   },
@@ -472,12 +446,7 @@
     "title": "Staff Software Engineer",
     "description": "Hi, I'm Gulshan and I am happy to share my knowledge!",
     "country": "India",
-    "tags": [
-      "javascript",
-      "reactjs",
-      "css",
-      "api"
-    ],
+    "tags": ["javascript", "reactjs", "css", "api"],
     "channels": [
       {
         "type": "email",
@@ -500,9 +469,7 @@
     "title": "Software Developer",
     "description": "Hola, I'm Cristian and I'm happy to help!",
     "country": "Sweden",
-    "tags": [
-      "html", "css", "javascript", "react", "node"
-    ],
+    "tags": ["html", "css", "javascript", "react", "node"],
     "channels": [
       {
         "type": "email",
@@ -525,9 +492,7 @@
     "title": "PHP/Symfony Developer",
     "description": "I am an enthusiastic PHP/Symfony developer and trainer.",
     "country": "Italy",
-    "tags": [
-      "php", "Symfony", "web", "html", "git"
-    ],
+    "tags": ["php", "Symfony", "web", "html", "git"],
     "channels": [
       {
         "type": "email",
@@ -550,9 +515,7 @@
     "title": "PHP/Symfony Developer",
     "description": "PHP since 1998, co-RM for PHP 5.3, Symfony core team/lead diversity initiative.",
     "country": "Switzerland",
-    "tags": [
-      "php", "Symfony", "opensource", "databases", "speaking"
-    ],
+    "tags": ["php", "Symfony", "opensource", "databases", "speaking"],
     "channels": [
       {
         "type": "email",
@@ -575,9 +538,7 @@
     "title": "Software Developer at AND Digital",
     "description": "Hi, I am a front-end developer. Let me know if you want to have a chat.",
     "country": "United Kingdom",
-    "tags": [
-      "frontend", "javascript", "react"
-    ],
+    "tags": ["frontend", "javascript", "react"],
     "channels": [
       {
         "type": "email",
@@ -596,9 +557,7 @@
     "title": "Senior Fullstack Developer @Globant",
     "description": "Hi, I am Gerson and I'll be happy to learn with you.",
     "country": "Perú",
-    "tags": [
-      "nodejs", "javascript", "fullstack", "frontend", "serverless"
-    ],
+    "tags": ["nodejs", "javascript", "fullstack", "frontend", "serverless"],
     "channels": [
       {
         "type": "email",
@@ -621,9 +580,7 @@
     "title": "Full Stack Cloud Developer at @IBM",
     "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",
     "country": "Uruguay",
-    "tags": [
-      "nodejs", "watson", "ibm cloud", "javascript", "angular"
-    ],
+    "tags": ["nodejs", "watson", "ibm cloud", "javascript", "angular"],
     "channels": [
       {
         "type": "email",
@@ -646,9 +603,7 @@
     "title": "Full Stack Web Developer",
     "description": "Hi, I'm AdroitCode! Let me know if you need any help.",
     "country": "Nigeria",
-    "tags": [
-      "php", "frontend", "javascript", "html", "css"
-    ],
+    "tags": ["php", "frontend", "javascript", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -671,9 +626,7 @@
     "title": "Full Stack Developer @Sparkbox",
     "description": "Hi! I'm happy to help in anyway I can. Ask me anything! 👩‍💻",
     "country": "USA",
-    "tags": [
-      "javascript", "sass", "markup", "a11y", "php"
-    ],
+    "tags": ["javascript", "sass", "markup", "a11y", "php"],
     "channels": [
       {
         "type": "email",
@@ -692,9 +645,7 @@
     "title": "Team Leader at QuickTech.no",
     "description": "Hey! Let me know if you need any help.",
     "country": "Brazil",
-    "tags": [
-      "ionic", "react native", "javascript", "angular", "git"
-    ],
+    "tags": ["ionic", "react native", "javascript", "angular", "git"],
     "channels": [
       {
         "type": "email",
@@ -713,7 +664,7 @@
   {
     "id": "thewebdevcoach@gmail.com",
     "name": "Aryan Jabbari",
-    "avatar":"https://avatars3.githubusercontent.com/u/8263430",
+    "avatar": "https://avatars3.githubusercontent.com/u/8263430",
     "title": "Full Stack Developer",
     "description": "Feel free to ask me any question, big or small!",
     "country": "USA",
@@ -736,9 +687,7 @@
     "title": "Software Engineer @Jump360",
     "description": "Hi, I'm Jabbar and I will be happy to solve your {bug}",
     "country": "India",
-    "tags": [
-      "backend", "javascript", "nodejs", "firebase", "mongodb"
-    ],
+    "tags": ["backend", "javascript", "nodejs", "firebase", "mongodb"],
     "channels": [
       {
         "type": "email",
@@ -761,9 +710,7 @@
     "title": "Backend Developer",
     "description": "Hello, I'm a backend developer interested in all things Javascript!",
     "country": "Nigeria",
-    "tags": [
-      "nodejs", "javascript", "ibm cloud", "watson", "angular"
-    ],
+    "tags": ["nodejs", "javascript", "ibm cloud", "watson", "angular"],
     "channels": [
       {
         "type": "email",
@@ -782,9 +729,7 @@
     "title": "Fullstack Developer",
     "description": "Hi, am leveling up on Angular and Nodejs :)",
     "country": "Kenya",
-    "tags": [
-      "nodejs", "javascript", "angular"
-    ],
+    "tags": ["nodejs", "javascript", "angular"],
     "channels": [
       {
         "type": "twitter",
@@ -803,9 +748,7 @@
     "title": "Lead Fullstack Javascript Developer",
     "description": "I'm a lead developer and budding architect. I love talking about tech!",
     "country": "United Kingdom",
-    "tags": [
-      "nodejs", "microservices", "kubernetes", "C#", "react"
-    ],
+    "tags": ["nodejs", "microservices", "kubernetes", "C#", "react"],
     "channels": [
       {
         "type": "twitter",
@@ -828,9 +771,7 @@
     "title": "Programmer, Writer, Monster Slayer",
     "description": "I'm an adventurous programmer with an extensive range of experience.",
     "country": "Germany",
-    "tags": [
-      "programming", "ux", "management", "quality", "automation"
-    ],
+    "tags": ["programming", "ux", "management", "quality", "automation"],
     "channels": [
       {
         "type": "email",
@@ -853,12 +794,7 @@
     "title": "Javascript developer",
     "description": "Hi! Here to relieve you of your Javascript woes",
     "country": "USA",
-    "tags": [
-      "javascript",
-      "react",
-      "node",
-      "fp"
-    ],
+    "tags": ["javascript", "react", "node", "fp"],
     "channels": [
       {
         "type": "email",
@@ -877,13 +813,7 @@
     "title": "Web Developer @ blue-tomato.com",
     "description": "self-taught, daughter-driven programmer - had a career switch (former marketeer)",
     "country": "Austria",
-    "tags": [
-      "javascript",
-      "react",
-      "nodejs",
-      "css",
-      "frontend"
-    ],
+    "tags": ["javascript", "react", "nodejs", "css", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -906,13 +836,7 @@
     "title": "Co-Founder @ Proximity Insight",
     "description": "10 years and counting working on Salesforce.com and with JavaScript",
     "country": "Australia",
-    "tags": [
-      "salesforce",
-      "javascript",
-      "apex",
-      "css",
-      "c"
-    ],
+    "tags": ["salesforce", "javascript", "apex", "css", "c"],
     "channels": [
       {
         "type": "twitter",
@@ -931,13 +855,7 @@
     "title": "Fullstack Developer",
     "description": "Hi, I am an experienced fullstack web developer. Happy to help.",
     "country": "India",
-    "tags": [
-      "nodejs",
-      "javascript",
-      "reactjs",
-      "mongodb",
-      "api-design"
-    ],
+    "tags": ["nodejs", "javascript", "reactjs", "mongodb", "api-design"],
     "channels": [
       {
         "type": "twitter",
@@ -1007,20 +925,14 @@
       }
     ]
   },
-    {
+  {
     "id": "mbrenner24@gmail.com",
     "name": "Michelle Brenner",
     "avatar": "https://avatars.githubusercontent.com/michellelynne",
     "title": "Senior Backend Engineer",
     "description": "Self-taught developer, 8+ years experience, entertainment & food tech.",
     "country": "USA",
-    "tags": [
-      "python",
-      "rest",
-      "speaker",
-      "podcast",
-      "inclusion"
-    ],
+    "tags": ["python", "rest", "speaker", "podcast", "inclusion"],
     "channels": [
       {
         "type": "twitter",
@@ -1062,13 +974,7 @@
     "title": "Senior Frontend Engineer @GitLab",
     "description": "Official Vue.js Community Partner. Google Developer Expert - Web Technologies.",
     "country": "United States",
-    "tags": [
-      "vue",
-      "html",
-      "css",
-      "javascript",
-      "career"
-    ],
+    "tags": ["vue", "html", "css", "javascript", "career"],
     "channels": [
       {
         "type": "twitter",
@@ -1106,11 +1012,7 @@
     "title": "Fullstack Developer",
     "description": "Hi, I'm a fullstack web developer.",
     "country": "Uganda",
-    "tags": [
-      "JavaScript",
-      "nodejs",
-      "frontend"
-    ],
+    "tags": ["JavaScript", "nodejs", "frontend"],
     "channels": [
       {
         "type": "twitter",
@@ -1129,9 +1031,7 @@
     "title": "Senior UI Developer @iamcloud",
     "description": "UI veteran looking to help those starting out. Let's build all the things!",
     "country": "United Kingdom",
-    "tags": [
-      "frontend", "javascript", "reactjs", "html", "css"
-    ],
+    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -1154,9 +1054,7 @@
     "title": "Lead Site Reliability Engineer",
     "description": "I'm a self taught dev who wants to help others break into this amazing field!",
     "country": "United States",
-    "tags": [
-      "elasticsearch", "ruby", "backend", "devops", "career"
-    ],
+    "tags": ["elasticsearch", "ruby", "backend", "devops", "career"],
     "channels": [
       {
         "type": "twitter",
@@ -1179,9 +1077,7 @@
     "title": "JavaScript & C# Developer",
     "description": "Been writing code for over 10 years on many platforms. Excited to help!",
     "country": "United Kingdom",
-    "tags": [
-      "javascript", "nodejs", "vuejs", "c-sharp", "mongodb"
-    ],
+    "tags": ["javascript", "nodejs", "vuejs", "c-sharp", "mongodb"],
     "channels": [
       {
         "type": "email",
@@ -1204,13 +1100,7 @@
     "title": "Fullstack Developer/Entrepreneur",
     "description": "Hi, I'm Andrew and I love help growing those around me!",
     "country": "Canada",
-    "tags": [
-      "vuejs",
-      "css",
-      "php",
-      "sql",
-      "dotnet"
-    ],
+    "tags": ["vuejs", "css", "php", "sql", "dotnet"],
     "channels": [
       {
         "type": "slack",
@@ -1233,9 +1123,7 @@
     "title": "Software Architect",
     "description": "Coding embedded systems to mainframes and everything in between since 1985.",
     "country": "South Africa",
-    "tags": [
-      "java", "spring", "cloud", "devops", "career"
-    ],
+    "tags": ["java", "spring", "cloud", "devops", "career"],
     "channels": [
       {
         "type": "twitter",
@@ -1258,9 +1146,7 @@
     "title": "Software Developer",
     "description": "I do frontend Web development most of the time. Don't hesitate to ask! 👋",
     "country": "Philippines",
-    "tags": [
-      "javascript", "nodejs", "frontend", "css", "web-apis"
-    ],
+    "tags": ["javascript", "nodejs", "frontend", "css", "web-apis"],
     "channels": [
       {
         "type": "email",
@@ -1283,9 +1169,7 @@
     "title": "Staff Software Engineer",
     "description": "Full-stack developer, working on projects in Algolia. Feel free to reach out!",
     "country": "Czech Republic",
-    "tags": [
-      "php", "backend", "javascript", "search", "ecommerce"
-    ],
+    "tags": ["php", "backend", "javascript", "search", "ecommerce"],
     "channels": [
       {
         "type": "email",
@@ -1308,13 +1192,7 @@
     "title": "Software Developer @P7S1",
     "description": "JavaScript & Java Developer working with react, react-native, GraphQL, ...",
     "country": "Germany",
-    "tags": [
-      "javascript",
-      "react",
-      "react-native",
-      "nodejs",
-      "graphql"
-    ],
+    "tags": ["javascript", "react", "react-native", "nodejs", "graphql"],
     "channels": [
       {
         "type": "twitter",
@@ -1327,6 +1205,25 @@
       {
         "type": "email",
         "id": "tbs.timm@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "cristian.hosu@gmail.com",
+    "name": "Cristian Hosu",
+    "avatar": "https://avatars1.githubusercontent.com/u/17679598",
+    "title": "Senior Full Stack Engineer",
+    "description": "Full stack dev with 10+ years of experience in the game, mentor for 4+ years.",
+    "country": "Romania",
+    "tags": ["Javascript", "Angular", "VueJs", "dotnet", "MSSQL"],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "cristianhosu"
+      },
+      {
+        "type": "email",
+        "id": "cristian.hosu@gmail.com"
       }
     ]
   }
