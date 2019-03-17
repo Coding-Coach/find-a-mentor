@@ -219,7 +219,7 @@ function convertAnswersToSchema(answers) {
 }
 
 async function main() {
-  console.log('Hi, Welcome aboard! Please answer the following questions');
+  console.log('\x1b[36m%s\x1b[0m','\nHi, Welcome aboard!\nPlease answer the following questions\n');
   const answers = await inquirer.prompt(questions);
   const schema = convertAnswersToSchema(answers);
   return schema;
