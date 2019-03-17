@@ -16,6 +16,13 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
 
 1. Fork
 1. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
+
+### CLI Geek?
+1. `yarn run add-user`
+1. Answer the quesions.
+1. Step 2 will push the required changes to a branch `add-{your-name}-as-mentor` so you just need to create a PR.
+
+### Like to do it manually?
 1. **Create a branch** "add-{your-name}-as-mentor"
 1. Add your details in `src/mentors.json` file (check the below schema for requirements).
 1. Run `yarn test` to validate that the details is following the right schema (carelfully read the output to see what needs to be fixed)
