@@ -1272,5 +1272,26 @@
         "id": "yusadolat"
       }
     ]
+  },
+  {
+    "id": "charlie.a.gerard@gmail.com",
+    "name": "Charlie Gerard",
+    "avatar": "https://pbs.twimg.com/profile_images/440808125721870336/34QLtMdA_400x400.jpeg",
+    "title": "Software developer",
+    "description": "Software developer, Creative Technologist and speaker",
+    "country": "Australia",
+    "tags": [
+      "javascript", "nodejs", "front-end", "arduino"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "charlie.a.gerard@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "@devdevcharlie"
+      }
+    ]
   }
 ]
