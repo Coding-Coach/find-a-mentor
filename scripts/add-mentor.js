@@ -51,8 +51,8 @@ const gitFunctions = {
       spinnerPull.succeed()
     } catch (error) {
       spinnerPull.fail();
-      console.error('Error: ', error.message);
-      return false;
+      console.error('\x1b[31m%s\x1b[0m', 'Error: ' + error.message);
+      throw new Error('There is a problem with the git pull process');
     }
   },
   branchProcess: async(answers) => {
@@ -62,8 +62,8 @@ const gitFunctions = {
       spinnerBranch.succeed();
     } catch (error) {
       spinnerBranch.fail();
-      console.error('Error: ', error.message);
-      return false;
+      console.error('\x1b[31m%s\x1b[0m', 'Error: ' + error.message);
+      throw new Error('There is a problem with the git branch creation process');
     }
   },
   commitProcess: async(answers) => {
@@ -73,8 +73,8 @@ const gitFunctions = {
       spinnerCommit.succeed();
     } catch (error) {
       spinnerCommit.fail();
-      console.error('Error: ', error.message);
-      return false;
+      console.error('\x1b[31m%s\x1b[0m', 'Error: ' + error.message);
+      throw new Error('There is a problem with the git commit process');
     }
   },
   pushProcess: async(answers) => {
@@ -84,8 +84,8 @@ const gitFunctions = {
       spinnerPush.succeed();
     } catch (error) {
       spinnerPush.fail();
-      console.error('Error: ', error.message);
-      return false;
+      console.error('\x1b[31m%s\x1b[0m', 'Error: ' + error.message);
+      throw new Error('There is a problem with the git push process');
     }
   }
 };
@@ -101,19 +101,23 @@ async function addToMentorsList(mentor) {
     spinnerMerge.succeed();
   } catch (error) {
     spinnerMerge.fail();
-    console.error('Error: ', error.message);
-    return false;
+    console.error('\x1b[31m%s\x1b[0m', 'Error: ' + error.message);
+    throw new Error('There is a problem with the addition to the mentor list process');
   }
 }
 
 (async () => {
-
-  await gitFunctions.pullProcess();
-  const answers = await createUser();
-  await addToMentorsList(answers);
-  await gitFunctions.branchProcess(answers);
-  await gitFunctions.commitProcess(answers);
-  await gitFunctions.pushProcess(answers);
-
-  console.log('\nMentor added.Please now create a PR for finish the process. Thanks!');
+  try {
+    await gitFunctions.pullProcess();
+    const answers = await createUser();
+    await addToMentorsList(answers);
+    await gitFunctions.branchProcess(answers);
+    await gitFunctions.commitProcess(answers);
+    await gitFunctions.pushProcess(answers);
+    console.log('\nMentor added.Please now create a PR for finish the process. Thanks!');
+  } catch (error) {
+    console.log('\x1b[31m%s\x1b[0m', error.message);
+    console.log('\x1b[36m%s\x1b[0m','If you know what is the issue about please open an Issue or Pull Request.\nYou still can use the manual process for being added as mentor');
+    process.exit();
+  }
 })()
