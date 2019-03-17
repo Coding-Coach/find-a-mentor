@@ -14,3 +14,22 @@
 .device-mobile .search-input > .input {
   display: flex;
 }
+
+.ac .highlight {
+  background: rgba(105, 213, 177, 0.3);
+}
+
+.ac .ac-menu {
+  position: absolute;
+  z-index: 11;
+  left: 15px;
+  width: calc(100% - 15px);
+  max-height: 150px;
+  overflow: auto;
+  background: #fff;
+}
+
+.ac .ac-item {
+  cursor: pointer;
+  padding: 5px;
+}

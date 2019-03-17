@@ -6,13 +6,13 @@ import classNames from "classnames";
 import MentorsList from "../MentorsList/MentorsList";
 import Filter from "../Filter/Filter";
 // import { Header, Button, Icon } from "semantic-ui-react";
-import AutoComplete from "../AutoComplete/AutoComplete";
+// import AutoComplete from "../AutoComplete/AutoComplete";
 import Header from "../Header/Header";
 import shuffle from "lodash/shuffle";
 import { generateLists } from "../../listsGenerator";
 
 const { tags, countries } = generateLists(mentors);
-const mapToDropdown = item => ({ title: item });
+const mapToDropdown = item => ({ label: item });
 const tagsSource = tags.map(mapToDropdown);
 const countriesSource = countries.map(mapToDropdown);
 
@@ -22,15 +22,15 @@ class App extends Component {
     mentors: shuffle(mentors)
   };
 
-  handleTagSelect = result => {
+  handleTagSelect = tag => {
     this.setState({
-      tag: result.title
+      tag
     });
   };
 
-  handleCountrySelect = result => {
+  handleCountrySelect = country => {
     this.setState({
-      country: result.title
+      country
     });
   };
 
@@ -67,7 +67,14 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <Filter />
+        <main>
+          <Filter
+            tags={tagsSource}
+            countries={countriesSource}
+            onTagSelected={this.handleTagSelect}
+            onCountrySelected={this.handleCountrySelect}
+            onResetTag={this.resetTag}
+            onResetCountry={this.resetCountry} />
         {/* <div className="filters-outer">
           <div className="filters">
             <Header as="h1">
@@ -103,12 +110,13 @@ class App extends Component {
             </div>
           </div>
         </div> */}
-        <MentorsList
-          className={classNames({
-            active: fieldsIsActive
-          })}
-          mentors={mentorsInList}
-        />
+          <MentorsList
+            className={classNames({
+              active: fieldsIsActive
+            })}
+            mentors={mentorsInList}
+          />
+        </main>
       </div>
     );
   }

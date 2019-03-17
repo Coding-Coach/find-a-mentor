@@ -3,6 +3,10 @@ body {
   background-color: #f8f8f8;
 }
 
+main {
+  display: flex;
+}
+
 .device-desktop .filters-outer {
   text-align: center;
 }
