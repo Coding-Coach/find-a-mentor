@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import AutoComplete from '../AutoComplete/AutoComplete';
 import MentorsList from '../MentorsList/MentorsList';
 import Logo from '../Logo';
+import Footer from '../Footer/Footer';
+import LegalModal from '../LegalModal/LegalModal';
 import shuffle from 'lodash/shuffle';
 import { generateLists } from '../../listsGenerator';
 
@@ -18,7 +20,11 @@ const countriesSource = countries.map(mapToDropdown);
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
-    mentors: shuffle(mentors)
+    mentors: shuffle(mentors),
+    legal: {
+      page: undefined,
+      show: false,
+    },
   }
 
   handleTagSelect = (result) => {
@@ -57,6 +63,15 @@ class App extends Component {
     })
   }
 
+  toggleModal = (page) => {
+    this.setState((prevState) => ({
+      legal: {
+        show: !prevState.legal.show,
+        page,
+      },
+    }))
+  }
+
   // async componentDidMount() {
   //   const mentors = await fetch(`${serverEndpoint}/get_mentors`).then(res => res.json());
   //   this.setState({
@@ -65,7 +80,7 @@ class App extends Component {
   // }
 
   render() {
-    const { mentors, fieldsIsActive } = this.state;
+    const { mentors, fieldsIsActive, legal } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
@@ -118,6 +133,14 @@ class App extends Component {
           })}
           mentors={mentorsInList}
         />
+        <Footer onClickLegal={this.toggleModal} />
+        {
+          legal.show &&
+          <LegalModal
+            page={legal.page}
+            showModal={legal.show}
+            onClose={this.toggleModal} />
+        }
       </div>
     );
   }

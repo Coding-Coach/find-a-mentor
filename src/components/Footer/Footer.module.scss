@@ -1,0 +1,79 @@
+@import '../../theme/base/variables';
+@import '../../theme/base/mediaqueries';
+@import '../../theme/base/utils';
+@import '../../theme/base/spacing';
+
+.footerMain {
+  width: 100%;
+  position: fixed;
+  left: 0px;
+  display: inline-flex;
+  z-index: 100;
+  bottom: 0px;
+  width: 100%;
+  background: $color-secondary;
+}
+
+.footerInner {
+  composes: PVS;
+  @include generalAlignment();
+  display: inline;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid $color-grey-light;
+  
+  @include respond-to(mobile) {
+    margin: 0 auto;
+  }
+
+  @include respond-to(tablet) {
+    @include spacing('P', 'V', 'M');
+    flex-direction: row;
+    margin-left: 30px;
+    margin-right: 30px;
+
+    .column {
+      flex: 1;
+
+      &:last-child {
+        text-align: right;
+      }
+    }
+  };
+
+  @include respond-to(desktop) {
+    margin: 0 auto;
+    margin-right: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+}
+
+.footerLink {
+  display: inline-block;
+  padding: 10px;
+  font-size: $font-xxs;
+  // Migrating to CRA2 is messing up with the sass imports
+  // the `!important` here is a temporal fix, after all
+  // we will remove this styles once migrated to tailwind
+  color: $color-grey-medium !important;
+  text-decoration: none;
+  &:hover {
+    color:$color-grey-dark;
+  }
+}
+
+.bodyBorder {
+  a {
+    color: $color-primary;
+    text-decoration: none;
+    border-bottom: 1px solid $color-black;
+    transition: background 0.15s ease-out, color 0.15s ease-out;
+    cursor: pointer;
+
+    &:hover{
+      background: $color-secondary;
+      color: $color-white;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+/**
+ * @TODO: Remove this file when fully migrated to tailwind
+ */
+ 
+:global {
+  body, html {
+    padding: 0;
+    margin: 0;
+    font-family: $font-primary;
+    width: 100%;
+    height: 100%;
+    font-size: $font-s;
+  }
+
+  #root {
+    min-height: 100%;
+
+    & > div {
+      height: 100%;
+    }
+  }
+}

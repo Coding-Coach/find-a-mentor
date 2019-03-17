@@ -1,0 +1,55 @@
+/**
+ * @TODO: Remove this file when fully migrated to tailwind
+ */
+
+// Font Family
+$font-primary: 'Open Sans',
+sans-serif;
+$font-secondary: 'Fjalla One',
+sans-serif;
+
+// Palette
+$color-primary: #00bc89;
+$color-primary-darker: #009d6c;
+$color-primary-blur: #d5fff4;
+
+$color-secondary: #69D5B1;
+$color-tertiary: #E6F5F0;
+
+$color-white: #FFFFFF;
+$color-grey-light: #E8E7E7;
+$color-grey-subtle: #979797;
+$color-grey-medium: #A8A4A4;
+$color-grey-dark: #4A4A4A;
+$color-grey: #929292;
+$color-black: #000000;
+
+$color-danger: #EB6E64;
+$color-danger-lighter: #EA7A71;
+$color-danger-darker: #d4574d;
+$color-danger-blur: #ffd5db;
+
+
+// Font Sizes
+$font-xxs: 0.75rem; // 12px
+$font-xs: 0.875rem; // 14px
+$font-s: 1rem; // 16px
+$font-m: 1.125rem; // 18px
+$font-l: 1.5rem; // 24px
+$font-xl: 2rem; // 32px
+$font-xxl: 4.25rem; // 68px
+$font-xxxl: 5.25rem; // 84px
+
+$font-thin:100;
+$font-light:300;
+$font-regular:400;
+$font-medium:500;
+$font-bold:700;
+
+// Button Heights:
+$button-default: 46px;
+$button-large: 60px;
+$button-small: 30px;
+
+$border-radius-rounded: 3px;
+$border-radius-pill: 500px;

@@ -1,0 +1,109 @@
+/**
+ * @TODO: Remove this file when fully migrated to tailwind
+ */
+
+/**
+ * We need a way to consistently set the spacing in the app. This script
+ * generates classnames for paddings and margins. It also defines a mixin to
+ * use inside responsive selectors.
+ *
+ * The idea is to use composition when possible, for responsive scenarios we should use
+ * the `spacing` mixing.
+ *
+ * The classnames consist of three parts, representing the following:
+ *
+ *  .[Type][Direction][Size]
+ *
+ *  Type = `M` or `P` = Margin or Padding
+ *  Direction = `T`, `L`, `R`, `B` = Top, Left, Right, Bottom
+ *  Size = `Z`, `T`, `S`, `M`, `L`, `XL` = Zero, Tiny, Small, Medium, Large, Extra Large
+ *
+ **/
+$typeList: (
+  'M': 'margin',
+  'P': 'padding',
+);
+
+$directionListVertical: (
+  'T': ('top'),
+  'B': ('bottom'),
+  'V': ('top', 'bottom'),
+);
+
+$directionListHorizontal: (
+  'L': ('left'),
+  'R': ('right'),
+  'H': ('left', 'right'),
+);
+
+// Size list description:
+// A - auto
+// Z - zero
+// T - tiny
+// XS - extra small
+// S - small
+// M - medium
+// L - large
+// XL - extra large
+$sizeList: (
+  'A': 'auto',
+  'Z': 0,
+  'T': 1px,
+  'XS': 4px,
+  'S': 8px,
+  'M': 16px,
+  'L': 32px,
+  'XL': 64px,
+  'XXL': 84px,
+);
+
+/**
+ * Composition doesn't work well inside responsive selectors, therefore we
+ * should use this mixing instead to still keep consistency across our code base.
+ * 
+ *  .button {
+ *    // some styles for mobile
+ *
+ *    respond-to(tablet) {
+ *      @include spacing('M', 'L', 'XL'); // marging-left: 64px;
+ *      // something else....
+ *    }
+ *  }
+ */
+@mixin spacing($type: 'P', $direction: 'V', $size: 'M') {
+  $directions: map-get($directionListVertical, $direction);
+
+  @if ($directions) { } @else {
+    $directions: map-get($directionListHorizontal, $direction);
+  }
+
+  @each $dir in $directions {
+    #{map-get($typeList, $type) + '-' + $dir}: #{map-get($sizeList, $size)};
+  }
+}
+
+/**
+ * Generates the common spacing classes for composition.
+ *
+ *  .button {
+ *    composes: PTM; // padding-top: 16px;
+ *    composes: MLL; // margin-left: 32px;
+ *  }
+ *
+ */
+@mixin spacingGenerator($types, $directions, $sizes) {
+  @each $typeKey, $type in $types {
+    @each $directionKey, $direction in $directions {
+      @each $sizeKey, $size in $sizes {
+        .#{$typeKey}#{$directionKey}#{$sizeKey} {
+          @each $dir in $direction {
+            #{$type + '-' + $dir}: #{$size};
+          }
+        }
+      }
+    }
+  }
+}
+
+@include spacingGenerator($typeList, $directionListVertical, $sizeList);
+@include spacingGenerator($typeList, $directionListHorizontal, $sizeList);

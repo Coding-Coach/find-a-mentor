@@ -5,9 +5,11 @@
 .device-desktop .mentors-wrapper {
   margin-right: 1rem;
   margin-left: 1rem;
+  margin-bottom: 100px;
 }
 
 .device-mobile .mentors-wrapper {
+  margin-bottom: 50px;
   transform: translateY(-105px);
   transition: transform .3s ease;
 }

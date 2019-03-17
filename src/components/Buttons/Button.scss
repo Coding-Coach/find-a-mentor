@@ -1,0 +1,154 @@
+@import '../../theme/base/variables';
+@import '../../theme/base/mediaqueries';
+@import '../../theme/base/utils';
+@import '../../theme/base/spacing';
+
+.button {
+  display: inline-block;
+  min-height: $button-default;
+  line-height: inherit;
+  min-width: 96px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  transition-property: all;
+  transition-duration: 0.15s;
+  font-size: $font-xs;
+
+  &.primary {
+    background: $color-primary;
+    box-shadow: 0px 0px 0px 0px inset $color-primary-darker,
+      0px 0px 20px 3px $color-primary-blur;
+    color: $color-white;
+
+    &:hover {
+      box-shadow: 0px -5px 0px 0px inset $color-primary-darker,
+        0px 0px 20px 3px $color-primary-blur;
+    }
+
+    &:active {
+      background: $color-primary-darker;
+    }
+  }
+
+  &.secondary {
+    background: transparent;
+    box-shadow: 0px 0px 0px 0px inset $color-primary,
+    0px 0px 20px 0px inset $color-primary-blur;
+    color: $color-primary;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: 2px solid $color-primary;
+
+    &:hover {
+      box-shadow: 0px -3px 0px 0px inset $color-primary,
+        0px 0px 20px 0px inset $color-primary-blur;
+    }
+
+    &:active {
+      background: $color-primary;
+      box-shadow: none;
+      color: $color-white;
+    }
+  }
+
+  &.tertiary {
+    background: transparent;
+    color: $color-primary-darker;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &.danger {
+    background: $color-danger;
+    box-shadow: 0px 0px 0px 0px inset $color-danger-darker,
+    0px 0px 20px 3px $color-danger-blur;
+    color: $color-white;
+
+    &:hover {
+      box-shadow: 0px -5px 0px 0px inset $color-danger-darker,
+        0px 0px 20px 3px $color-danger-blur;
+    }
+
+    &:active {
+      background: $color-danger-darker;
+    }
+  }
+
+  &:disabled {
+    background: $color-grey-light;
+    box-shadow: 0px 0px 20px 3px $color-grey-light;
+    color: $color-grey;
+
+    &:hover, &:active {
+      transform: none;
+      box-shadow: 0px 0px 20px 3px $color-grey-light;
+      background: $color-grey-light;
+      cursor: not-allowed;
+    }
+  }
+
+  &.transparent-white {
+    background: transparent;
+    color: $color-white;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  /* Common Hover and Active styles for all Buttons*/
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    text-shadow: none;
+  }
+
+
+  &.default {
+    padding: 0px $font-s;
+  }
+
+  &.large {
+    padding: 0px $font-l;
+    min-height: $button-large;
+    line-height: $button-large;
+    font-size: $font-l;
+  }
+
+  &.small {
+    padding: 0px $font-xs;
+    min-height: $button-small;
+    line-height: $button-small;
+    font-size: $font-xs
+  }
+
+  @include respond-to(mobile) {
+    &.small {
+      padding: 0px $font-xxs;
+      font-size: $font-xxs;
+    }
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  // For icons and svgs
+  i, svg {
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+}

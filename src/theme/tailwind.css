@@ -1,0 +1,133 @@
+@tailwind preflight;
+@tailwind components;
+
+/* button */
+.button {
+  @apply text-center whitespace-no-wrap
+}
+
+/* types */
+.primary {
+  @apply bg-primary text-white shadows border-4 border-primary
+}
+
+.primary:hover {
+  @apply bg-primary-dark border-primary-dark
+}
+
+.primary:active {
+  @apply border-primary-dark
+}
+
+.primary:focus {
+  @apply bg-primary-dark border-primary-dark
+}
+
+.secondary {
+  @apply bg-transparent text-primary shadows border-4 border-primary
+}
+
+.secondary:hover {
+  @apply bg-primary border-primary
+}
+
+.secondary:active {
+  @apply border-primary text-primary
+}
+
+.secondary:focus {
+  @apply bg-primary border-primary
+}
+
+.tertiary {
+  @apply bg-transparent text-primary-dark
+}
+
+.tertiary:hover {
+  @apply underline
+}
+
+.tertiary:focus {
+  @apply underline
+}
+
+.danger {
+  @apply bg-danger text-white shadows border-4 border-danger
+}
+
+.danger:hover {
+  @apply bg-danger-darker border-danger-darker
+}
+
+.danger:active {
+  @apply border-danger-darker
+}
+
+.danger:focus {
+  @apply bg-danger-darker border-danger-darker
+}
+
+.disabled {
+  @apply bg-secondary-lightest text-secondary-dark shadows opacity-50 cursor-not-allowed border-4 border-secondary-lightest
+}
+
+.disabled:hover {
+  @apply bg-secondary-lightest border-secondary-lightest
+}
+
+.disabled:active {
+  @apply border-secondary-lightest
+}
+
+/* shadows */
+.shadows {
+  @apply shadow-floating
+}
+
+.shadows:hover {
+  @apply shadow-md
+}
+
+.shadows:focus {
+  @apply shadow-md
+}
+
+/* shapes */
+.square {
+  @apply rounded
+}
+.pill {
+  @apply rounded-full
+}
+
+/* sizes */
+.small {
+  @apply py-2 px-3 text-xs
+}
+.medium {
+  @apply py-3 px-4 text-sm
+}
+.large {
+  @apply py-4 px-5 text-lg
+}
+
+@tailwind utilities;
+/* Your custom CSS here */
+
+/* open-sans-regular - cyrillic-ext_vietnamese_cyrillic_greek_greek-ext_latin_latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/open-sans-v15-cyrillic-ext_vietnamese_cyrillic_greek_greek-ext_latin_latin-ext/open-sans-v15-cyrillic-ext_vietnamese_cyrillic_greek_greek-ext_latin_latin-ext-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/open-sans-v15-cyrillic-ext_vietnamese_cyrillic_greek_greek-ext_latin_latin-ext/open-sans-v15-cyrillic-ext_vietnamese_cyrillic_greek_greek-ext_latin_latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* fjalla-one-regular - latin_latin-ext */
+@font-face {
+  font-family: 'Fjalla One';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/fjalla-one-v5-latin_latin-ext/fjalla-one-v5-latin_latin-ext-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url('fonts/fjalla-one-v5-latin_latin-ext/fjalla-one-v5-latin_latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}

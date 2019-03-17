@@ -1,0 +1,66 @@
+/**
+ * @TODO: Remove this file when fully migrated to tailwind
+ */
+/*
+  MEDIAQUERIES
+  
+  We should follow mobile-first methodology. It means that our default styles will be applied since the lowest resolutions.
+  We should start always giving scss with the mobile resolution and once they are finished, expand our device simulator to tablet and so on.
+  Doing this, we will prevent writting lots of lines of code and extra mediaqueries that are not needed.
+  
+  
+  # Definition
+  -----------------------
+  @mixin respond-to takes an argument to apply styles to that resolution and wider:
+    - tablet
+    - desktop
+
+  # Usage:
+  -----------------------
+  .header {
+    height: 50px;
+    @include respond-to(tablet){
+      height: 40px // This will overide the height in tablet and wider screen sizes
+    }
+
+    @include respond-to(desktop){
+      height: 30px // This will overide the height in desktop and wider screen sizes
+      color: red;
+    }
+
+    @include respond-to(ultrawide){
+      height: 30px // This will overide the height in desktop and wider screen sizes
+      max-width: 50px;
+    }
+  }
+*/
+
+$mobile-and-wider: 360px; // Mobile
+$tablet-and-wider: 768px; // Tablet
+$desktop-and-wider: 1024px; // Desktop
+$desktop-large-and-wider: 1440px; // Large desktops
+
+@mixin respond-to($media) {
+  @if $media == mobile {
+    @media screen and (min-width: $mobile-and-wider) {
+        @content;
+    }
+  }
+  @else if $media == tablet {
+    @media screen and (min-width: $tablet-and-wider) {
+        @content;
+    }
+  }
+  
+   @else if $media == desktop {
+    @media screen and (min-width: $desktop-and-wider) {
+        @content;
+    }
+  }
+
+  @else if $media==ultrawide {
+    @media (min-width: $desktop-large-and-wider) {
+        @content;
+    }
+  }
+}
