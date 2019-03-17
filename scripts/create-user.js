@@ -86,12 +86,12 @@ const questionDescription = {
 
 function validateCountry(value) {
   const pass = value.match(
-    /^[A-Za-z].{3,}$/
+    /^[A-Za-z].{2,}$/
   )
   if (pass) {
     return true;
   }
-  return 'Please enter a valid country. Minimum 4 characters.';
+  return 'Please enter a valid country. Minimum 3 characters.';
 }
 const questionCountry = {
   type: 'input',
