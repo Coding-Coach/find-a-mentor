@@ -9,7 +9,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 ## Requirements
 - Git should be installed [Install Git](https://git-scm.com/downloads)
-- Nodejs 11.6.0+ installed [Install Nodejs](https://nodejs.org/en/download/)
+- Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests** 
 - Yarn (we recommend using yarn as a package manager) [Install Yarn](https://yarnpkg.com/en/)
 
 ## Want to be a mentor?
