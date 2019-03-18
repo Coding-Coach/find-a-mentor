@@ -1642,5 +1642,26 @@
         "id": "emmawedekind"
       }
     ]
+  },
+  {
+    "id": "hello@etiennemarais.co.za",
+    "name": "Etienne Marais",
+    "avatar": "https://avatars0.githubusercontent.com/u/4479918?s=460&v=4",
+    "title": "Fullstack developer",
+    "description": "I code because I can action the changes and ideas I want to see in the world.",
+    "country": "South Africa",
+    "tags": [
+      "laravel", "php", "vue", "docker", "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@etiennemarais.co.za"
+      },
+      {
+        "type": "twitter",
+        "id": "@etbal"
+      }
+    ]
   }
 ]
