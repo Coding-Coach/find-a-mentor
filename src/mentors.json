@@ -1534,8 +1534,8 @@
         "type": "email",
         "id": "kenichi@shibata.co.uk"
       }
-    ] 
-   },
+    ]
+  },
   {
     "id": "cristian.hosu@gmail.com",
     "name": "Cristian Hosu",
@@ -1680,7 +1680,11 @@
     "description": "I code because I can action the changes and ideas I want to see in the world.",
     "country": "South Africa",
     "tags": [
-      "laravel", "php", "vue", "docker", "architecture"
+      "laravel",
+      "php",
+      "vue",
+      "docker",
+      "architecture"
     ],
     "channels": [
       {
@@ -1690,6 +1694,33 @@
       {
         "type": "twitter",
         "id": "@etbal"
+      }
+    ]
+  },
+  {
+    "id": "me@martina-kraus.io",
+    "name": "Martina Kraus",
+    "avatar": "https://imgur.com/a/RaDPfjI",
+    "title": "Senior Software Engineer",
+    "description": "Hey, want to learn some crazy JavaScript stuff? Talk to me",
+    "country": "Germany",
+    "tags": [
+      "Angular",
+      "Node",
+      "WebAssembly"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@martina-kraus.io"
+      },
+      {
+        "type": "linkedin",
+        "id": "martina-kraus-398493108"
+      },
+      {
+        "type": "twitter",
+        "id": "MartinaKraus11"
       }
     ]
   }
