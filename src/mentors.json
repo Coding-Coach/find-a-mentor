@@ -1293,5 +1293,27 @@
         "id": "@devdevcharlie"
       }
     ]
+  },
+  {
+    "id": "hello@danilo.cc",
+    "name": "Danilo Lima",
+    "avatar": "https://avatars2.githubusercontent.com/u/5581367?s=460&v=4",
+    "title": "Solutions Architect",
+    "description": "Working as a software developer roughly 9 years already and I am still feeling that I didn't learn everything. Indeed this will never happen, and this is not bad. Learning new things is my passion and make someones life better through technology is one of my commitments. Let me know if you need any help :)",
+    "country": "Brazil",
+    "tags": [
+      "php", "nodejs", "javascript", "java", "aws", "mongodb", "reactjs", "fullstack", "linux", "rest", "software-design"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@danilo.cc"
+      },
+      {
+        "type": "linkedin",
+        "id": "https://www.linkedin.com/in/danilodev/"
+      }
+    ]
+
   }
 ]
