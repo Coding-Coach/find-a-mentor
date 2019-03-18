@@ -1723,5 +1723,29 @@
         "id": "MartinaKraus11"
       }
     ]
+  },
+  {
+    "id": "hi@mariog.xyz",
+    "name": "Mario García",
+    "avatar": "https://pbs.twimg.com/profile_images/1005248422423785472/Jcu97U3Y_400x400.jpg",
+    "title": "Software Developer",
+    "description": "FOSS enthusiast, Speaker, Mozillian, Python & Rust developer",
+    "country": "Mexico",
+    "tags": [
+      "Python",
+      "Rust",
+      "Linux",
+      "OpenSource"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hi@mariog.xyz"
+      },
+      {
+        "type": "twitter",
+        "id": "@mariogmd"
+      }
+    ]
   }
 ]
