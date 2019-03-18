@@ -1508,6 +1508,35 @@
     ]
   },
   {
+    "id": "kenichi@shibata.co.uk",
+    "name": "Kenichi Shibata",
+    "avatar": "https://avatars1.githubusercontent.com/u/10043789?s=460&v=4",
+    "title": "Architect @Comparethemarket.com",
+    "description": "Working with AWS, KUBERNETES, DevOps + Architecture",
+    "country": "UK",
+    "tags": [
+      "devops",
+      "kubernetes",
+      "aws",
+      "operations",
+      "python"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "kenichigale"
+      },
+      {
+        "type": "slack",
+        "id": "UH3BV7K70"
+      },
+      {
+        "type": "email",
+        "id": "kenichi@shibata.co.uk"
+      }
+    ] 
+   },
+  {
     "id": "cristian.hosu@gmail.com",
     "name": "Cristian Hosu",
     "avatar": "https://avatars1.githubusercontent.com/u/17679598",
