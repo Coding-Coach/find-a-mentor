@@ -3,6 +3,10 @@ body {
   background-color: #f8f8f8;
 }
 
+.app {
+  padding-bottom: 70px;
+}
+
 .device-desktop .filters-outer {
   text-align: center;
 }
@@ -38,4 +42,22 @@ body {
 
 .social {
   margin-top: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: #65d6af;
+  padding: 10px 0;
+  z-index: 100;
+}
+
+footer a,
+footer a:hover {
+  padding: 0 3px;
+  color: #fff;
+  text-decoration: underline;
 }
