@@ -5,7 +5,7 @@ Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
 
-Just go to https://mentors.codingcoach.io/ and find her / him.
+Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 ## Requirements
 - Git should be installed [Install Git](https://git-scm.com/downloads)
