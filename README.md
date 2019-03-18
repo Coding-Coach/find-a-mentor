@@ -22,7 +22,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 ![Add user - demo](docs-assets/demo-add-user.gif)
 
 1. `yarn run add-user`
-1. Answer the quesions.
+1. Answer the questions.
 1. Step 2 will push the required changes to a branch `add-{your-name}-as-mentor` so you just need to create a PR.
 
 ### Like to do it manually?
