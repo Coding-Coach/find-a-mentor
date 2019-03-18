@@ -42,13 +42,13 @@ class App extends Component {
 
   resetTag = () => {
     this.setState({
-      tag: ""
+      tag: ''
     });
   };
 
   resetCountry = () => {
     this.setState({
-      country: ""
+      country: ''
     });
   };
 

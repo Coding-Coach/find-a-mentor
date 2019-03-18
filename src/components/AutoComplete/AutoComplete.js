@@ -30,6 +30,13 @@ export default class AutoComplete extends Component {
     this.props.onSelect(value);
   }
 
+  onChange = (event, value) => {
+    this.setState({value});
+    if (!value) {
+      this.props.onReset(value);
+    }
+  }
+
   matchStateToTerm(state, value) {
     return (
       state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1
@@ -52,7 +59,7 @@ export default class AutoComplete extends Component {
           getItemValue={item => item.label}
           shouldItemRender={this.matchStateToTerm}
           onSelect={this.onSelect}
-          onChange={(event, value) => this.setState({ value })}
+          onChange={this.onChange}
         />
       </div>
     )

@@ -12,12 +12,20 @@ export default class Filter extends Component {
 
   onTagSelect = tag => {
     this.setState({tag});
-    this.props.onTagSelected(tag);
+    if (tag) {
+      this.props.onTagSelected(tag);
+    } else {
+      this.props.onResetTag();
+    }
   }
 
   onCountrySelect = country => {
     this.setState({country});
-    this.props.onCountrySelected(country);
+    if (country) {
+      this.props.onCountrySelected(country);
+    } else {
+      this.props.onResetCountry();
+    }
   }
 
   render() {
@@ -30,12 +38,14 @@ export default class Filter extends Component {
           <AutoComplete
             source={tags}
             onSelect={this.onTagSelect}
+            onReset={this.onTagSelect}
           />
         </Input>
         <Input id="country" label="Country" key="country">
           <AutoComplete
             source={countries}
             onSelect={this.onCountrySelect}
+            onReset={this.onTagSelect}
           />
         </Input>
       </aside>
