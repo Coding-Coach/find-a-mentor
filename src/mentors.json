@@ -1220,7 +1220,6 @@
       "kubernetes",
       "aws",
       "operations",
-      "golang",
       "python"
     ],
     "channels": [
@@ -1238,6 +1237,7 @@
       }
     ] 
    },
+  {
     "id": "cristian.hosu@gmail.com",
     "name": "Cristian Hosu",
     "avatar": "https://avatars1.githubusercontent.com/u/17679598",
