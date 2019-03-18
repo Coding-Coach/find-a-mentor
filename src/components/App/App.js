@@ -5,8 +5,6 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import MentorsList from "../MentorsList/MentorsList";
 import Filter from "../Filter/Filter";
-// import { Header, Button, Icon } from "semantic-ui-react";
-// import AutoComplete from "../AutoComplete/AutoComplete";
 import Header from "../Header/Header";
 import shuffle from "lodash/shuffle";
 import { generateLists } from "../../listsGenerator";

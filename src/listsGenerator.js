@@ -1,3 +1,5 @@
+import countries from 'svg-country-flags/countries.json';
+
 export function generateLists(mentors) {
   const json = {
     tags: [],
@@ -6,7 +8,7 @@ export function generateLists(mentors) {
 
   for (let i = 0; i < mentors.length; i++) {
     json.tags.push(...(mentors[i].tags || []));
-    json.countries.push(mentors[i].country);
+    json.countries.push(countries[mentors[i].country]);
   }
 
   json.tags = [...new Set(json.tags.map(tag => tag.toLowerCase()))]

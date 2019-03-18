@@ -1,6 +1,9 @@
+:root {
+  --tag-color: #6ad4b0;
+}
+
 body {
   font-family: "Lato", sans-serif;
-  background-color: #f8f8f8;
 }
 
 main {
