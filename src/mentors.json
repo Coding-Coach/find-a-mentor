@@ -71,12 +71,7 @@
     "title": "co-CEO @RelativelyFund",
     "description": "Passionate coder and tech advisor",
     "country": "Jordan",
-    "tags": [
-      "javascript",
-      "react",
-      "web",
-      "php"
-    ],
+    "tags": ["javascript", "react", "web", "php"],
     "channels": [
       {
         "type": "email",
@@ -122,12 +117,7 @@
     "title": "Software Engineer",
     "description": "Hi! I am BD. Would love to help in any way 🙂",
     "country": "India",
-    "tags": [
-      "javascript",
-      "react",
-      "node",
-      "fp"
-    ],
+    "tags": ["javascript", "react", "node", "fp"],
     "channels": [
       {
         "type": "email",
@@ -150,13 +140,7 @@
     "title": "Full Stack .NET Web Developer",
     "description": "28-year career in software. Would love to share what I know.",
     "country": "USA",
-    "tags": [
-      "csharp",
-      "aspnet",
-      "backend",
-      "build",
-      "powershell"
-    ],
+    "tags": ["csharp", "aspnet", "backend", "build", "powershell"],
     "channels": [
       {
         "type": "email",
@@ -179,13 +163,7 @@
     "title": "Developer at @wallplaynetwork",
     "description": "Hola ! Let's solve some problems.",
     "country": "USA",
-    "tags": [
-      "reactjs",
-      "firebase",
-      "javascript",
-      "node",
-      "redux"
-    ],
+    "tags": ["reactjs", "firebase", "javascript", "node", "redux"],
     "channels": [
       {
         "type": "email",
@@ -208,13 +186,7 @@
     "title": "Software Developer at @sendboxng",
     "description": "When the journey looks rough, I promise you won't have to do it alone",
     "country": "Nigeria",
-    "tags": [
-      "javascript",
-      "reactjs",
-      "web",
-      "frontend",
-      "ux"
-    ],
+    "tags": ["javascript", "reactjs", "web", "frontend", "ux"],
     "channels": [
       {
         "type": "email",
@@ -237,13 +209,7 @@
     "title": "Full Stack Web Developer / Designer",
     "description": "23 year web development veteran specializing in Angular, Node and TypeScript",
     "country": "USA",
-    "tags": [
-      "angular",
-      "django",
-      "node",
-      "typescript",
-      "javascript"
-    ],
+    "tags": ["angular", "django", "node", "typescript", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -262,11 +228,7 @@
     "title": "CTO @ Catalytic DS",
     "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
     "country": "USA",
-    "tags": [
-      "javascript",
-      "react",
-      "redux"
-    ],
+    "tags": ["javascript", "react", "redux"],
     "channels": [
       {
         "type": "twitter",
@@ -289,13 +251,7 @@
     "title": "Software Engineer",
     "description": "Open web enthusiast. Come explore the various corners of the internet with me!",
     "country": "USA",
-    "tags": [
-      "javascript",
-      "css",
-      "html",
-      "web",
-      "p2p"
-    ],
+    "tags": ["javascript", "css", "html", "web", "p2p"],
     "channels": [
       {
         "type": "email",
@@ -360,13 +316,7 @@
     "title": "Frontend Engineer at @Schibsted",
     "description": "Pragmatic, efficient and happy to help😀. Focus on one thing at the time🤓.",
     "country": "Spain",
-    "tags": [
-      "frontend",
-      "javascript",
-      "react",
-      "html",
-      "css"
-    ],
+    "tags": ["frontend", "javascript", "react", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -389,13 +339,7 @@
     "title": "Product Engineer at @whitepanda",
     "description": "Hi, I'm Prateek. I mostly code in JavaScript. Shoot your queries at me.",
     "country": "India",
-    "tags": [
-      "frontend",
-      "javascript",
-      "react",
-      "node",
-      "redux"
-    ],
+    "tags": ["frontend", "javascript", "react", "node", "redux"],
     "channels": [
       {
         "type": "email",
@@ -724,11 +668,7 @@
     "title": "Full Stack Developer",
     "description": "Feel free to ask me any question, big or small!",
     "country": "USA",
-    "tags": [
-      "react",
-      "angular",
-      "node"
-    ],
+    "tags": ["react", "angular", "node"],
     "channels": [
       {
         "type": "email",
