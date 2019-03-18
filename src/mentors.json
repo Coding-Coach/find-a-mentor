@@ -1510,7 +1510,7 @@
   {
     "id": "kenichi@shibata.co.uk",
     "name": "Kenichi Shibata",
-    "avatar": "https://avatars1.githubusercontent.com/u/10043789?s=460&v=4",
+    "avatar": "https://avatars0.githubusercontent.com/u/13744098?s=400&u=21c703da9a2c23b2f6c15f81f82ae1f818ed26dc&v=4",
     "title": "Architect @Comparethemarket.com",
     "description": "Working with AWS, KUBERNETES, DevOps + Architecture",
     "country": "UK",
@@ -1534,8 +1534,8 @@
         "type": "email",
         "id": "kenichi@shibata.co.uk"
       }
-    ] 
-   },
+    ]
+  },
   {
     "id": "cristian.hosu@gmail.com",
     "name": "Cristian Hosu",
@@ -1680,7 +1680,11 @@
     "description": "I code because I can action the changes and ideas I want to see in the world.",
     "country": "South Africa",
     "tags": [
-      "laravel", "php", "vue", "docker", "architecture"
+      "laravel",
+      "php",
+      "vue",
+      "docker",
+      "architecture"
     ],
     "channels": [
       {
@@ -1694,14 +1698,44 @@
     ]
   },
   {
+    "id": "me@martina-kraus.io",
+    "name": "Martina Kraus",
+    "avatar": "https://imgur.com/a/RaDPfjI",
+    "title": "Senior Software Engineer",
+    "description": "Hey, want to learn some crazy JavaScript stuff? Talk to me",
+    "country": "Germany",
+    "tags": [
+      "Angular",
+      "Node",
+      "WebAssembly"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@martina-kraus.io"
+      },
+      {
+        "type": "linkedin",
+        "id": "martina-kraus-398493108"
+      },
+      {
+        "type": "twitter",
+        "id": "MartinaKraus11"
+      }
+    ]
+  },
+  {
     "id": "hi@mariog.xyz",
     "name": "Mario García",
     "avatar": "https://pbs.twimg.com/profile_images/1005248422423785472/Jcu97U3Y_400x400.jpg",
-    "title": "Python & Rust Developer",
-    "description": "FOSS enthusiast, Speaker, Mozillian, Python & Rust Developer",
+    "title": "Software Developer",
+    "description": "FOSS enthusiast, Speaker, Mozillian, Python & Rust developer",
     "country": "Mexico",
     "tags": [
-      "python", "rust", "linux", "opensource", "speaker"
+      "Python",
+      "Rust",
+      "Linux",
+      "OpenSource"
     ],
     "channels": [
       {
