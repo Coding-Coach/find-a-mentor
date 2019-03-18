@@ -1700,7 +1700,7 @@
   {
     "id": "me@martina-kraus.io",
     "name": "Martina Kraus",
-    "avatar": "https://imgur.com/a/RaDPfjI",
+    "avatar": "https://i.imgur.com/ZO4EFzL.jpg",
     "title": "Senior Software Engineer",
     "description": "Hey, want to learn some crazy JavaScript stuff? Talk to me",
     "country": "Germany",
@@ -1715,8 +1715,8 @@
         "id": "me@martina-kraus.io"
       },
       {
-        "type": "linkedin",
-        "id": "martina-kraus-398493108"
+        "type": "slack",
+        "id": "DGZTC9LTS"
       },
       {
         "type": "twitter",
