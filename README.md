@@ -68,6 +68,9 @@ Have an idea? Please **use a branch** and [create a PR](https://help.github.com/
 
 Haven't time to code it? Please open an [issue](https://github.com/Coding-Coach/find-a-mentor/issues/new).
 
+## Slack
+
+Coding Coach is on Slack! [Click here](https://join.slack.com/t/coding-coach/shared_invite/enQtNTE2NDY4NTczNzE0LTMyOTAyZTFiYjE4OTUzYjgwYzk5MzlmYjgwNjUyNDZlZGY3NGVhYmU1NjdmZDQ3MmQ3YjRhYjJkMjM4OTYwNDA) to join.
 
 ---
 
