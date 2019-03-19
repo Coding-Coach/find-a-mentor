@@ -5,17 +5,27 @@ Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
 
-Just go to https://mentors.codingcoach.io/ and find her / him.
+Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 ## Requirements
 - Git should be installed [Install Git](https://git-scm.com/downloads)
-- Nodejs 11.6.0+ installed [Install Nodejs](https://nodejs.org/en/download/)
+- Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests** 
 - Yarn (we recommend using yarn as a package manager) [Install Yarn](https://yarnpkg.com/en/)
 
 ## Want to be a mentor?
 
 1. Fork
 1. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
+
+### CLI Geek?
+
+![Add user - demo](docs-assets/demo-add-user.gif)
+
+1. `yarn run add-user`
+1. Answer the questions.
+1. Step 2 will push the required changes to a branch `add-{your-name}-as-mentor` so you just need to create a PR.
+
+### Like to do it manually?
 1. **Create a branch** "add-{your-name}-as-mentor"
 1. Add your details in `src/mentors.json` file (check the below schema for requirements).
 1. Run `yarn test` to validate that the details is following the right schema (carelfully read the output to see what needs to be fixed)
@@ -37,7 +47,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him.
   "avatar": "https://link-to-your/avatar.jpg",  // url, must start with https://
   "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
-  "country": "Israel",                          // Full name. please avoid synonyms (check if it's not already exist)
+  "country": "Sweden",                          // Full name. please avoid synonyms (check if it's not already exist)
   "tags": [                                     // minItems: 1, maxItems: 5
     "nodejs", "webpack", "mongodb"              // please avoid synonyms
   ],
@@ -68,6 +78,9 @@ Have an idea? Please **use a branch** and [create a PR](https://help.github.com/
 
 Haven't time to code it? Please open an [issue](https://github.com/Coding-Coach/find-a-mentor/issues/new).
 
+## Slack
+
+Coding Coach is on Slack! [Click here](https://join.slack.com/t/coding-coach/shared_invite/enQtNTE2NDY4NTczNzE0LTMyOTAyZTFiYjE4OTUzYjgwYzk5MzlmYjgwNjUyNDZlZGY3NGVhYmU1NjdmZDQ3MmQ3YjRhYjJkMjM4OTYwNDA) to join.
 
 ---
 

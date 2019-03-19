@@ -21,7 +21,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "add-user": "node scripts/add-mentor.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,8 +35,11 @@
   ],
   "devDependencies": {
     "ajv": "^6.8.1",
+    "execa": "^1.0.0",
     "gh-pages": "^2.0.1",
-    "nodemon": "^1.18.9"
+    "inquirer": "^6.2.2",
+    "nodemon": "^1.18.9",
+    "ora": "^3.2.0"
   },
   "homepage": "https://mentors.codingcoach.io",
   "license": "MIT"

@@ -1184,7 +1184,7 @@
     "name": "Marina Mosti",
     "avatar": "https://pbs.twimg.com/profile_images/1105963507026141185/y6t9AHL2_400x400.jpg",
     "title": "Senior FE Engineer",
-    "description": "Im a full stack engineer with 13 years experience :)",
+    "description": "Currently only mentoring women, sorry bois <3",
     "country": "MX",
     "tags": [
       "javascript",
@@ -1197,12 +1197,29 @@
         "id": "marinamosti"
       },
       {
-        "type": "email",
-        "id": "marina@mosti.com.mx"
-      },
-      {
         "type": "slack",
         "id": "UE7Q65YU8"
+      }
+    ]
+  },
+  {
+    "id": "bencodezen@gmail.com",
+    "name": "Ben Hong",
+    "avatar": "https://pbs.twimg.com/profile_images/1007989522058108930/TqUpZKuh_400x400.jpg",
+    "title": "Senior Frontend Engineer @GitLab",
+    "description": "Official Vue.js Community Partner. Google Developer Expert - Web Technologies.",
+    "country": "US",
+    "tags": [
+      "vue",
+      "html",
+      "css",
+      "javascript",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "bencodezen"
       }
     ]
   },
@@ -1255,6 +1272,561 @@
       {
         "type": "email",
         "id": "emmanuelgatwech@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "me@robkendal.co.uk",
+    "name": "Rob Kendal",
+    "avatar": "https://avatars2.githubusercontent.com/u/38687284?s=400&v=4",
+    "title": "Senior UI Developer @iamcloud",
+    "description": "UI veteran looking to help those starting out. Let's build all the things!",
+    "country": "GB",
+    "tags": [
+      "frontend",
+      "javascript",
+      "reactjs",
+      "html",
+      "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@robkendal.co.uk"
+      },
+      {
+        "type": "linkedin",
+        "id": "robkendal"
+      },
+      {
+        "type": "twitter",
+        "id": "kendalmintcode"
+      }
+    ]
+  },
+  {
+    "id": "molly.struve@gmail.com",
+    "name": "Molly Struve",
+    "avatar": "https://avatars3.githubusercontent.com/u/1813380?s=460&v=4",
+    "title": "Lead Site Reliability Engineer",
+    "description": "I'm a self taught dev who wants to help others break into this amazing field!",
+    "country": "US",
+    "tags": [
+      "elasticsearch",
+      "ruby",
+      "backend",
+      "devops",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "molly_struve"
+      },
+      {
+        "type": "linkedin",
+        "id": "mollystruve"
+      },
+      {
+        "type": "email",
+        "id": "molly.struve@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "brian@brianmorrison.me",
+    "name": "Brian Morrison II",
+    "avatar": "https://brianmorrison.me/wp-content/uploads/2019/03/personal-profile-image-sq.png",
+    "title": "JavaScript & C# Developer",
+    "description": "Been writing code for over 10 years on many platforms. Excited to help!",
+    "country": "GB",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "vuejs",
+      "c-sharp",
+      "mongodb"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "brian@brianmorrison.me"
+      },
+      {
+        "type": "twitter",
+        "id": "brianmorrisonme"
+      },
+      {
+        "type": "slack",
+        "id": "UGRAMV5FD"
+      }
+    ]
+  },
+  {
+    "id": "contact@andrewjudd.ca",
+    "name": "Andrew Judd",
+    "avatar": "https://www.andrewjudd.ca/assets/images/andrew-judd.jpg",
+    "title": "Fullstack Developer/Entrepreneur",
+    "description": "Hi, I'm Andrew and I love help growing those around me!",
+    "country": "CA",
+    "tags": [
+      "vuejs",
+      "css",
+      "php",
+      "sql",
+      "dotnet"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UGZAP6THQ"
+      },
+      {
+        "type": "linkedin",
+        "id": "awjudd"
+      },
+      {
+        "type": "twitter",
+        "id": "min_sleep"
+      }
+    ]
+  },
+  {
+    "id": "corneil.duplessis@gmail.com",
+    "name": "Corneil du Plessis",
+    "avatar": "https://avatars2.githubusercontent.com/u/466422?s=460&v=4",
+    "title": "Software Architect",
+    "description": "Coding embedded systems to mainframes and everything in between since 1985.",
+    "country": "ZA",
+    "tags": [
+      "java",
+      "spring",
+      "cloud",
+      "devops",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "corneil"
+      },
+      {
+        "type": "linkedin",
+        "id": "corneil"
+      },
+      {
+        "type": "slack",
+        "id": "UF2RD379T"
+      }
+    ]
+  },
+  {
+    "id": "arnellebalane@gmail.com",
+    "name": "Arnelle Balane",
+    "avatar": "https://avatars0.githubusercontent.com/u/1428598?s=460&v=4",
+    "title": "Software Developer",
+    "description": "I do frontend Web development most of the time. Don't hesitate to ask! 👋",
+    "country": "PH",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "frontend",
+      "css",
+      "web-apis"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "arnellebalane@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGZSES4CC"
+      },
+      {
+        "type": "twitter",
+        "id": "arnellebalane"
+      }
+    ]
+  },
+  {
+    "id": "honzik.petr@gmail.com",
+    "name": "Jan Petr",
+    "avatar": "https://avatars2.githubusercontent.com/u/1058144?s=460&v=4",
+    "title": "Staff Software Engineer",
+    "description": "Full-stack developer, working on projects in Algolia. Feel free to reach out!",
+    "country": "CZ",
+    "tags": [
+      "php",
+      "backend",
+      "javascript",
+      "search",
+      "ecommerce"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "honzik.petr@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "janpetr"
+      },
+      {
+        "type": "linkedin",
+        "id": "janpetr1"
+      }
+    ]
+  },
+  {
+    "id": "tbs.timm@gmail.com",
+    "name": "Tobias Timm",
+    "avatar": "https://avatars1.githubusercontent.com/u/10043789?s=460&v=4",
+    "title": "Software Developer @P7S1",
+    "description": "JavaScript & Java Developer working with react, react-native, GraphQL, ...",
+    "country": "DE",
+    "tags": [
+      "javascript",
+      "react",
+      "react-native",
+      "nodejs",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "TbsTimm"
+      },
+      {
+        "type": "slack",
+        "id": "UG4FQE4FM"
+      },
+      {
+        "type": "email",
+        "id": "tbs.timm@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "kenichi@shibata.co.uk",
+    "name": "Kenichi Shibata",
+    "avatar": "https://avatars0.githubusercontent.com/u/13744098?s=400&u=21c703da9a2c23b2f6c15f81f82ae1f818ed26dc&v=4",
+    "title": "Architect @Comparethemarket.com",
+    "description": "Working with AWS, KUBERNETES, DevOps + Architecture",
+    "country": "GB",
+    "tags": [
+      "devops",
+      "kubernetes",
+      "aws",
+      "operations",
+      "python"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "kenichigale"
+      },
+      {
+        "type": "slack",
+        "id": "UH3BV7K70"
+      },
+      {
+        "type": "email",
+        "id": "kenichi@shibata.co.uk"
+      }
+    ]
+  },
+  {
+    "id": "cristian.hosu@gmail.com",
+    "name": "Cristian Hosu",
+    "avatar": "https://avatars1.githubusercontent.com/u/17679598",
+    "title": "Senior Full Stack Engineer",
+    "description": "Full stack dev with 10+ years of experience in the game, mentor for 4+ years.",
+    "country": "RO",
+    "tags": [
+      "Javascript",
+      "Angular",
+      "VueJs",
+      "dotnet",
+      "MSSQL"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "cristianhosu"
+      },
+      {
+        "type": "email",
+        "id": "cristian.hosu@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "andreas.falk@novatec-gmbh.de",
+    "name": "Andreas Falk",
+    "avatar": "https://avatars3.githubusercontent.com/u/1106872?s=460&v=4",
+    "title": "Backend Security Engineer",
+    "description": "Building and pushing secure software to the cloud. Just ask me anything",
+    "country": "DE",
+    "tags": [
+      "java",
+      "spring",
+      "cloud",
+      "kubernetes",
+      "security"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UGXK6BMUY"
+      },
+      {
+        "type": "twitter",
+        "id": "andifalk"
+      },
+      {
+        "type": "linkedin",
+        "id": "andifalk"
+      }
+    ]
+  },
+  {
+    "id": "yUnited Statesdolat@gmail.com",
+    "name": "Yusuf Adeyemo",
+    "avatar": "https://avatars0.githubusercontent.com/u/10975011?s=460&v=4",
+    "title": "Front End Engineer at IderaOS",
+    "description": "Hey, Yusuf here! Fullstack JS Dev, Let me know if you need any help.",
+    "country": "NG",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "fullstack",
+      "vuejs",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "yUnited Statesdolat@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "yUnited Statesdolat"
+      },
+      {
+        "type": "twitter",
+        "id": "yUnited Statesdolat"
+      }
+    ]
+  },
+  {
+    "id": "charlie.a.gerard@gmail.com",
+    "name": "Charlie Gerard",
+    "avatar": "https://pbs.twimg.com/profile_images/440808125721870336/34QLtMdA_400x400.jpeg",
+    "title": "Software developer",
+    "description": "Software developer, Creative Technologist and speaker",
+    "country": "AU",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "front-end",
+      "arduino"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "charlie.a.gerard@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "@devdevcharlie"
+      }
+    ]
+  },
+  {
+    "id": "wedekind.emma@gmail.com",
+    "name": "Emma Wedekind",
+    "avatar": "https://avatars0.githubusercontent.com/u/7671983?s=460&v=4",
+    "title": "UX Engineer",
+    "description": "Software Engineer turned UX Engineer",
+    "country": "DE",
+    "tags": [
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "redux"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "wedekind.emma@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UCQA9GL3U"
+      },
+      {
+        "type": "twitter",
+        "id": "emmawedekind"
+      }
+    ]
+  },
+  {
+    "id": "hello@etiennemarais.co.za",
+    "name": "Etienne Marais",
+    "avatar": "https://avatars0.githubusercontent.com/u/4479918?s=460&v=4",
+    "title": "Fullstack developer",
+    "description": "I code because I can action the changes and ideas I want to see in the world.",
+    "country": "ZA",
+    "tags": [
+      "laravel",
+      "php",
+      "vue",
+      "docker",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@etiennemarais.co.za"
+      },
+      {
+        "type": "twitter",
+        "id": "@etbal"
+      }
+    ]
+  },
+  {
+    "id": "me@martina-kraus.io",
+    "name": "Martina Kraus",
+    "avatar": "https://avatars0.githubusercontent.com/u/6086902?s=100&v=4",
+    "title": "Senior Software Engineer",
+    "description": "Hey, want to learn some crazy JavaScript stuff? Talk to me",
+    "country": "DE",
+    "tags": [
+      "Angular",
+      "Node",
+      "WebAssembly"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "me@martina-kraus.io"
+      },
+      {
+        "type": "slack",
+        "id": "DGZTC9LTS"
+      },
+      {
+        "type": "twitter",
+        "id": "MartinaKraus11"
+      }
+    ]
+  },
+  {
+    "id": "hi@mariog.xyz",
+    "name": "Mario García",
+    "avatar": "https://pbs.twimg.com/profile_images/1005248422423785472/Jcu97U3Y_400x400.jpg",
+    "title": "Software Developer",
+    "description": "FOSS enthusiast, Speaker, Mozillian, Python & Rust developer",
+    "country": "MX",
+    "tags": [
+      "Python",
+      "Rust",
+      "Linux",
+      "OpenSource"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hi@mariog.xyz"
+      },
+      {
+        "type": "twitter",
+        "id": "@mariogmd"
+      }
+    ]
+  },
+  {
+    "id": "joranquinten@hotmail.com",
+    "name": "Joran Quinten",
+    "avatar": "https://avatars3.githubusercontent.com/u/11775608?s=460&v=4",
+    "title": "Interaction Developer",
+    "description": "JavaScript wrangler and div slinger. Front end, UX and tinkering with stuff.",
+    "country": "AN",
+    "tags": [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "ReactJS",
+      "NodeJS"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "joranquinten@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "@joranquinten"
+      },
+      {
+        "type": "slack",
+        "id": "UCQS192RH"
+      }
+    ]
+  },
+  {
+    "id": "dimitri.ivashchuk@gmail.com",
+    "name": "Dimitri",
+    "avatar": "https://res.cloudinary.com/dg7puxsai/image/upload/v1552986418/IMG_2759.heic",
+    "title": "Frontend engineer",
+    "description": "Hey! I would be happy to help you on your coding journey!",
+    "country": "UA",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "gatsby",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "dimitri.ivashchuk@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "divdev_"
+      }
+    ]
+  },
+  {
+    "id": "shadow.codex01@gmail.com",
+    "name": "Shannon Duncan",
+    "avatar": "https://pbs.twimg.com/profile_images/672481536826937344/GeAx6xl4_400x400.jpg",
+    "title": "VP of Dev @halo_platform",
+    "description": "Fullstack Dev. Leading teams & architecture at Halo Platform.",
+    "country": "US",
+    "tags": [
+      "leadership",
+      "javascript",
+      "database",
+      "fullstack",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "shadow.codex01@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UH0QPFA77"
+      },
+      {
+        "type": "twitter",
+        "id": "iamMrDuncan"
       }
     ]
   }
