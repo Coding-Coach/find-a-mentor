@@ -10,10 +10,11 @@ import Logo from '../Logo';
 import shuffle from 'lodash/shuffle';
 import { generateLists } from '../../listsGenerator';
 
-const { tags, countries } = generateLists(mentors);
+const { tags, countries, names } = generateLists(mentors);
 const mapToDropdown = item => ({title: item})
 const tagsSource = tags.map(mapToDropdown);
 const countriesSource = countries.map(mapToDropdown);
+const namesSource = names.map(mapToDropdown);
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -33,10 +34,17 @@ class App extends Component {
     })
   }
 
+  handleNameSelect = (result) => {
+    this.setState({
+      name: result.title
+    })
+  }
+
   filterMentors = mentor =>  {
-    const { tag, country } = this.state;
+    const { tag, country, name } = this.state;
     return (!tag || mentor.tags.includes(tag)) &&
-           (!country || mentor.country === country);
+           (!country || mentor.country === country) &&
+           (!name || mentor.name === name);
   }
 
   resetTag = () => {
@@ -48,6 +56,12 @@ class App extends Component {
   resetCountry = () => {
     this.setState({
       country: ''
+    });
+  }
+
+  resetName = () => {
+    this.setState({
+      name: ''
     });
   }
 
@@ -108,6 +122,12 @@ class App extends Component {
                 source={countriesSource}
                 handleResultSelect={this.handleCountrySelect}
                 onReset={this.resetCountry}
+              />
+              <AutoComplete
+                placeholder="Name"
+                source={namesSource}
+                handleResultSelect={this.handleNameSelect}
+                onReset={this.resetName}
               />
             </div>
           </div>
