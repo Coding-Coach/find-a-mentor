@@ -10,9 +10,6 @@ import shuffle from "lodash/shuffle";
 import { generateLists } from "../../listsGenerator";
 
 const { tags, countries } = generateLists(mentors);
-const mapToDropdown = item => ({ label: item });
-const tagsSource = tags.map(mapToDropdown);
-const countriesSource = countries.map(mapToDropdown);
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -20,14 +17,14 @@ class App extends Component {
     mentors: shuffle(mentors)
   };
 
-  handleTagSelect = async tag => {
+  handleTagSelect = async ({value: tag}) => {
     await scrollToTop();
     this.setState({
       tag
     });
   };
 
-  handleCountrySelect = async country => {
+  handleCountrySelect = async ({value: country}) => {
     await scrollToTop();
     this.setState({
       country
@@ -71,12 +68,11 @@ class App extends Component {
         <Header />
         <main>
           <Filter
-            tags={tagsSource}
-            countries={countriesSource}
+            tags={tags}
+            countries={countries}
             onTagSelected={this.handleTagSelect}
             onCountrySelected={this.handleCountrySelect}
-            onResetTag={this.resetTag}
-            onResetCountry={this.resetCountry} />
+            onToggleFilter={this.toggleFields} />
           <MentorsList
             className={classNames({
               active: fieldsIsActive
@@ -84,6 +80,11 @@ class App extends Component {
             mentors={mentorsInList}
           />
         </main>
+        <footer>
+          <a rel="noopener noreferrer" href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/TermsAndConditions.md#terms-and-conditions" target="_blank">Terms & Conditions</a>
+          <a rel="noopener noreferrer" href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/CookiesPolicy.md#what-are-cookies" target="_blank">Cookies</a>
+          <a rel="noopener noreferrer" href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/PrivacyPolicy.md#effective-date-october-03-2018" target="_blank">Privacy Policy</a>
+        </footer>
       </div>
     );
   }

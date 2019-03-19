@@ -1,6 +1,10 @@
 :root {
+  --filter-input-offset: 15px;
   --tag-color: #6ad4b0;
   --filter-width: 265px;
+
+  --mq-mobile: 576px;
+  --mq-desktop: 577px;
 }
 
 body {
@@ -16,9 +20,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
-
-.device-desktop .mobile,
-.device-mobile .desktop {
-  display: none !important;
 }

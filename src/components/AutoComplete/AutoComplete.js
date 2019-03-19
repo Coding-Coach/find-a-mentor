@@ -25,15 +25,15 @@ export default class AutoComplete extends Component {
     value: ''
   }
 
-  onSelect = value => {
+  onSelect = (value, item) => {
     this.setState({value});
-    this.props.onSelect(value);
+    this.props.onSelect(item);
   }
 
   onChange = (event, value) => {
     this.setState({value});
     if (!value) {
-      this.props.onReset(value);
+      this.props.onSelect({value: '', label: ''});
     }
   }
 

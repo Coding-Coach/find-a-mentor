@@ -5,7 +5,6 @@
   background-color: #fff;
   text-transform: uppercase;
   color: #4a4a4a;
-  z-index: 10;
   font-weight: bold;
 }
 
@@ -21,7 +20,13 @@
   border: none;
   border: 1px solid rgba(155, 155, 155, 0.5);
   border-radius: 2px;
-  margin-left: 15px;
+  margin-left: var(--filter-input-offset);
   padding-left: 10px;
   color: var(--tag-color);
+}
+
+@media all and (max-width: 576px) {
+  .input {
+    width: calc(100% - var(--filter-input-offset) * 2);
+  }
 }

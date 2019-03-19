@@ -1,13 +1,42 @@
-aside {
-  position: fixed;
-  left: 0;
-  width: var(--filter-width);
-}
-
 #filter {
   background-color: rgba(105, 213, 177, 0.3);
   color: #4a4a4a;
   font-size: 1.5em;
   text-transform: uppercase;
   padding: 15px 0px 15px 30px;
+}
+
+.toggle-filter {
+  float: right;
+  margin-right: 10px;
+  background: none;
+  border: none;
+}
+
+.toggle-filter i {
+  transition: transform .15s ease;
+}
+
+.toggle-filter i.show-filters {
+  transform: rotateZ(90deg);
+}
+
+@media all and (max-width: 576px) {
+  .inputs {
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+}
+
+@media all and (min-width: 577px) {
+  aside {
+    position: fixed;
+    left: 0;
+    width: var(--filter-width);
+  }
+
+  .toggle-filter {
+    display: none;
+  }
 }

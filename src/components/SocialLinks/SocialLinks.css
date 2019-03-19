@@ -1,3 +1,9 @@
 .social-link {
   margin: 0px 10px;
 }
+
+@media all and (max-width: 576px) {
+  .social-link {
+    margin: 0 5px;
+  }
+}

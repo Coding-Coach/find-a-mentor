@@ -2,21 +2,8 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-main {
-  padding-left: var(--filter-width);
-}
-
-.device-desktop .filters-outer {
-  text-align: center;
-}
-
-.device-desktop .filters {
-  display: inline-block;
-  text-align: left;
-}
-
-.device-mobile .filters {
-  padding: 0 20px;
+.app {
+  padding-bottom: 50px;
 }
 
 .main-header {
@@ -25,10 +12,6 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.device-mobile .main-header {
-  padding: 20px;
 }
 
 .main-header .logo {
@@ -43,4 +26,44 @@ main {
 
 .social {
   margin-top: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: #65d6af;
+  padding: 10px 0;
+  z-index: 100;
+}
+
+footer a,
+footer a:hover {
+  padding: 0 3px;
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media all and (min-width: 577px) {
+  main {
+    padding-left: var(--filter-width);
+  }
+}
+
+@media all and (max-width: 576px) {
+  .main-header {
+    padding: 10px;
+  }
+
+  .main-header .logo svg {
+    width: 100px;
+    height: 58.333333333333336px;
+  }
+
+  .main-header nav svg {
+    width: 15px;
+    height: 15px;
+  }
 }
