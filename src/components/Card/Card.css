@@ -1,5 +1,6 @@
 .card {
   --avatar-offset: 54px;
+  --avatar-dim: 108px;
 
   display: flex;
   flex-direction: column;
@@ -21,15 +22,29 @@
 }
 
 .card .avatar {
-  width: 108px;
+  width: var(--avatar-dim);
   height: 118px;
   margin: calc(var(--avatar-offset) * -1) auto 0;
 }
 
-.card .avatar img {
-  width: 100%;
+.card .avatar i {
+  position: absolute;
+  font-size: var(--avatar-dim);
+  width: var(--avatar-dim);
+  height: var(--avatar-dim);
+  background: #fff;
+  color: rgb(155, 155, 155);
   border-radius: 50%;
   box-shadow: 0 0 10px 0;
+  display: block;
+}
+
+.card .avatar img {
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  width: var(--avatar-dim);
+  height: var(--avatar-dim);
 }
 
 .card .name {

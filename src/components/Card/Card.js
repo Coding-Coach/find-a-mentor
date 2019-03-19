@@ -18,7 +18,16 @@ const channelsList = channels => channels.map(channel => {
       <div className="type">{channel.type}</div>
     </a>
   )
-})
+});
+
+const Avatar = ({mentor}) => {
+  return (
+    <div className="avatar">
+      <i className="fa fa-user-circle" />
+      <img src={mentor.avatar} alt={`${mentor.name}'s avatar`} />
+    </div>
+  )
+}
 
 const LikeButton = ({onClick, liked}) => (
   <button onClick={onClick} className="like-button">
@@ -36,9 +45,7 @@ const Card = ({mentor, onToggleFav, isFav}) => {
     <div className="card">
       <LikeButton onClick={toggleFav} liked={isFav} />
       <img className="country" src={`https://www.countryflags.io/${mentor.country}/flat/32.png`} alt={countries[mentor.country]} />
-      <div className="avatar">
-        <img src={mentor.avatar} alt={`${mentor.name}'s avatar`} />
-      </div>
+      <Avatar mentor={mentor} />
       <div className="name">{mentor.name}</div>
       <div className="title">{mentor.title}</div>
       <div className="description">"{mentor.description}"</div>
