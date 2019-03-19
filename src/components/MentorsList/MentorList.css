@@ -7,11 +7,6 @@
   margin-left: 1rem;
 }
 
-.device-mobile .mentors-wrapper {
-  transform: translateY(-105px);
-  transition: transform .3s ease;
-}
-
 .device-mobile .mentors-wrapper.active {
   transform: translateY(0);
 }
