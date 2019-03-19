@@ -8,7 +8,7 @@
 }
 
 .device-mobile .mentors-wrapper {
-  transform: translateY(-105px);
+  transform: translateY(-150px);
   transition: transform .3s ease;
 }
 
