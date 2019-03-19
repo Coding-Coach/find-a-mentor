@@ -1747,5 +1747,33 @@
         "id": "@mariogmd"
       }
     ]
+  },  {
+    "id": "joranquinten@hotmail.com",
+    "name": "Joran Quinten",
+    "avatar": "https://avatars3.githubusercontent.com/u/11775608?s=460&v=4",
+    "title": "Interaction Developer",
+    "description": "JavaScript wrangler and div slinger. Front end, UX and tinkering with stuff.",
+    "country": "Netherlands",
+    "tags": [
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "ReactJS",
+      "NodeJS"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "joranquinten@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "@joranquinten"
+      },
+      {
+        "type": "slack",
+        "id": "UCQS192RH"
+      }
+    ]
   }
 ]
