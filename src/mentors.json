@@ -1800,5 +1800,34 @@
         "id": "divdev_"
       }
     ]
+  },
+  {
+    "id": "shadow.codex01@gmail.com",
+    "name": "Shannon Duncan",
+    "avatar": "https://pbs.twimg.com/profile_images/672481536826937344/GeAx6xl4_400x400.jpg",
+    "title": "VP of Dev @halo_platform",
+    "description": "Fullstack Dev. Leading teams & architecture at Halo Platform.",
+    "country": "United States",
+    "tags": [
+      "leadership",
+      "javascript",
+      "database",
+      "fullstack",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "shadow.codex01@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UH0QPFA77"
+      },
+      {
+        "type": "twitter",
+        "id": "iamMrDuncan"
+      }
+    ]
   }
 ]
