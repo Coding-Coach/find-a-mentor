@@ -13,7 +13,7 @@
   }
 
   .mentors-wrapper.active {
-    transform: translateY(120px);
+    transform: translateY(190px);
     margin-bottom: 50px;
   }
 }
@@ -22,4 +22,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.nothing-to-show {
+  font-size: 20px;
+  line-height: 1.6;
 }

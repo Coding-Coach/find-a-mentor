@@ -1,14 +1,19 @@
+import "./Filter.css";
+import mentors from "../../mentors.json";
+
 import React, { Component } from "react";
 import classNames from 'classnames';
 import AutoComplete from '../AutoComplete/AutoComplete';
 import Input from "../Input/Input";
 
-import "./Filter.css";
+import { generateLists } from "../../listsGenerator";
+const { tags, countries, names } = generateLists(mentors);
 
 export default class Filter extends Component {
   state = {
     tag: '',
     country: '',
+    name: '',
     showFilters: false,
   }
 
@@ -22,6 +27,11 @@ export default class Filter extends Component {
     this.props.onCountrySelected(country);
   }
 
+  onNameSelect = name => {
+    this.setState({name});
+    this.props.onNameSelected(name);
+  }
+
   onToggleFilter = () => {
     this.setState({
       showFilters: !this.state.showFilters
@@ -30,7 +40,6 @@ export default class Filter extends Component {
   }
 
   render() {
-    const { tags, countries } = this.props;
     const { showFilters } = this.state;
 
     return (
@@ -52,6 +61,12 @@ export default class Filter extends Component {
             <AutoComplete
               source={countries}
               onSelect={this.onCountrySelect}
+            />
+          </Input>
+          <Input id="name" label="Name" key="name">
+            <AutoComplete
+              source={names}
+              onSelect={this.onNameSelect}
             />
           </Input>
         </div>

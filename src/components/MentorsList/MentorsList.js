@@ -62,6 +62,11 @@ export default class MentorsLists extends Component {
               />
             ))
           }
+          {
+            mentorsInList.length === 0 && (
+              <div className="nothing-to-show">¯\_(ツ)_/¯ Wow, we can't believe it. We have nothing for you!</div>
+            )
+          }
         </InfiniteScroll>
       </div>);
   }

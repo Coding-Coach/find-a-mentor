@@ -7,9 +7,6 @@ import MentorsList from "../MentorsList/MentorsList";
 import Filter from "../Filter/Filter";
 import Header from "../Header/Header";
 import shuffle from "lodash/shuffle";
-import { generateLists } from "../../listsGenerator";
-
-const { tags, countries } = generateLists(mentors);
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -31,26 +28,20 @@ class App extends Component {
     });
   };
 
+  handleNameSelect = async ({value: name}) => {
+    await scrollToTop();
+    this.setState({
+      name
+    });
+  }
+
   filterMentors = mentor => {
-    const { tag, country } = this.state;
+    const { tag, country, name } = this.state;
     return (
       (!tag || mentor.tags.includes(tag)) &&
-      (!country || mentor.country === country)
+      (!country || mentor.country === country) &&
+      (!name || mentor.name === name)
     );
-  };
-
-  resetTag = async () => {
-    await scrollToTop();
-    this.setState({
-      tag: ''
-    });
-  };
-
-  resetCountry = async () => {
-    await scrollToTop();
-    this.setState({
-      country: ''
-    });
   };
 
   toggleFields = () => {
@@ -68,10 +59,9 @@ class App extends Component {
         <Header />
         <main>
           <Filter
-            tags={tags}
-            countries={countries}
             onTagSelected={this.handleTagSelect}
             onCountrySelected={this.handleCountrySelect}
+            onNameSelected={this.handleNameSelect}
             onToggleFilter={this.toggleFields} />
           <MentorsList
             className={classNames({
