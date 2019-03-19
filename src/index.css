@@ -7,6 +7,10 @@
   --mq-desktop: 577px;
 }
 
+html {
+  font-size: 14px;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -15,6 +19,39 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  line-height: 1.4285em;
+}
+
+*, :after, :before {
+  box-sizing: inherit;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button, input {
+  overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.28571429rem;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  line-height: 1.28571429em;
+  margin: calc(2rem - .14285714em) 0 1rem;
+  font-weight: 700;
+  padding: 0;
 }
 
 code {
