@@ -1,5 +1,7 @@
 aside {
-  width: 265px;
+  position: fixed;
+  left: 0;
+  width: var(--filter-width);
 }
 
 #filter {

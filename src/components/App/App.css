@@ -1,13 +1,9 @@
-:root {
-  --tag-color: #6ad4b0;
-}
-
 body {
   font-family: "Lato", sans-serif;
 }
 
 main {
-  display: flex;
+  padding-left: var(--filter-width);
 }
 
 .device-desktop .filters-outer {

@@ -20,13 +20,15 @@ class App extends Component {
     mentors: shuffle(mentors)
   };
 
-  handleTagSelect = tag => {
+  handleTagSelect = async tag => {
+    await scrollToTop();
     this.setState({
       tag
     });
   };
 
-  handleCountrySelect = country => {
+  handleCountrySelect = async country => {
+    await scrollToTop();
     this.setState({
       country
     });
@@ -40,13 +42,15 @@ class App extends Component {
     );
   };
 
-  resetTag = () => {
+  resetTag = async () => {
+    await scrollToTop();
     this.setState({
       tag: ''
     });
   };
 
-  resetCountry = () => {
+  resetCountry = async () => {
+    await scrollToTop();
     this.setState({
       country: ''
     });
@@ -73,41 +77,6 @@ class App extends Component {
             onCountrySelected={this.handleCountrySelect}
             onResetTag={this.resetTag}
             onResetCountry={this.resetCountry} />
-        {/* <div className="filters-outer">
-          <div className="filters">
-            <Header as="h1">
-              <div>
-                Find a mentor
-                <Button
-                  size="huge"
-                  floated="right"
-                  className="tertiary mobile"
-                  icon
-                  onClick={this.toggleFields}
-                >
-                  <Icon name="filter" />
-                </Button>
-              </div>
-              <Header.Subheader>
-                {mentors.length} mentors available
-              </Header.Subheader>
-            </Header>
-            <div className="fields">
-              <AutoComplete
-                placeholder="Language or Technology"
-                source={tagsSource}
-                handleResultSelect={this.handleTagSelect}
-                onReset={this.resetTag}
-              />
-              <AutoComplete
-                placeholder="Country"
-                source={countriesSource}
-                handleResultSelect={this.handleCountrySelect}
-                onReset={this.resetCountry}
-              />
-            </div>
-          </div>
-        </div> */}
           <MentorsList
             className={classNames({
               active: fieldsIsActive
@@ -121,3 +90,19 @@ class App extends Component {
 }
 
 export default App;
+
+function scrollToTop() {
+  const scrollDuration = 200;
+  return new Promise(resolve => {
+    var scrollStep = -window.scrollY / (scrollDuration / 15),
+        scrollInterval = setInterval(function(){
+        if ( window.scrollY !== 0 ) {
+            window.scrollBy( 0, scrollStep );
+        }
+        else {
+          clearInterval(scrollInterval);
+          resolve();
+        }
+    },15);
+  });
+}
