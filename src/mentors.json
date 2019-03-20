@@ -1960,5 +1960,30 @@
         "id": "glenn.versweyveld@gmail.com"
       }
     ]
+  },
+  {
+    "id": "nothanks@email.com",
+    "name": "Erik Aybar",
+    "avatar": "https://pbs.twimg.com/profile_images/950028607606452226/o7rPOIoB_400x400.jpg",
+    "title": "Software Engineer (Frontend)",
+    "description": "8+ years focused mostly on Javascript/React. Happy to connect and help 😀",
+    "country": "US",
+    "tags": [
+      "Javascript",
+      "React",
+      "React Native",
+      "Remote Work",
+      "Frontend"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "erikaybar"
+      },
+      {
+        "type": "twitter",
+        "id": "erikaybar_"
+      }
+    ]
   }
 ]
