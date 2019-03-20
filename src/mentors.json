@@ -1883,5 +1883,30 @@
         "id": "tankerxyz"
       }
     ]
+  },
+  {
+    "id": "ruben.valseca@gmail.com",
+    "name": "Ruben Valseca",
+    "avatar": "https://i.postimg.cc/0NpLKTSN/ruben.jpg",
+    "title": "Full-Stack Web Developer",
+    "description": "In love with JavaScript, Vue.js, Python, Startups and Communities ecosystem.",
+    "country": "ES",
+    "tags": [
+      "frontend",
+      "javascript",
+      "vuejs",
+      "python",
+      "django"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ruben.valseca@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rubnvp"
+      }
+    ]
   }
 ]
