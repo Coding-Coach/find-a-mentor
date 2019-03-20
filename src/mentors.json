@@ -1985,5 +1985,33 @@
         "id": "erikaybar_"
       }
     ]
+  },
+  {
+    "id": "hello@peterberkenbosch.nl",
+    "name": "Peter Berkenbosch",
+    "avatar": "https://avatars1.githubusercontent.com/u/4252?s=460&v=4",
+    "title": "Independent Contractor",
+    "description": "OpenSource e-Commerce veteran working with Spree and Solidus",
+    "country": "NL",
+    "tags": [
+      "ruby",
+      "rails",
+      "spree",
+      "solidus"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@peterberkenbosch.nl"
+      },
+      {
+        "type": "linkedin",
+        "id": "peterberkenbosch"
+      },
+      {
+        "type": "twitter",
+        "id": "pberkenbosch"
+      }
+    ]
   }
 ]
