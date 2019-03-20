@@ -1854,5 +1854,34 @@
         "id": "saltnburnem"
       }
     ]
+  },
+  {
+    "id": "tankerxyz1@gmail.com",
+    "name": "Viktor Gavrilov",
+    "avatar": "https://tankerxyz.com/tankerxyz_face.jpg",
+    "title": "Senior Fullstack developer",
+    "description": "If you treat programming as an art, write to me I will help you ;)",
+    "country": "UA",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "3D",
+      "gamedev"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "tankerxyz1@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "tankerxyz"
+      },
+      {
+        "type": "twitter",
+        "id": "tankerxyz"
+      }
+    ]
   }
 ]
