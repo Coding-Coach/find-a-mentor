@@ -1,26 +1,21 @@
 .mentors-wrapper {
   padding-bottom: 30px;
-  max-height: calc(100vh - 50px);
-  overflow: auto;
 }
 
 @media all and (max-width: 576px) {
   main {
     flex-direction: column;
   }
-
   .mentors-wrapper {
     position: relative;
     background: #fff;
     transform: translateY(0);
     transition: transform 0.3s ease;
-    max-height: calc(100vh - 370px);
   }
 
   .mentors-wrapper.active {
     transform: translateY(190px);
     margin-bottom: 50px;
-    max-height: calc(100vh - 550px);
   }
 }
 
