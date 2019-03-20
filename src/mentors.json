@@ -1856,6 +1856,31 @@
     ]
   },
   {
+    "id": "stevenyung@icloud.com",
+    "name": "Steven Yung",
+    "avatar": "https://pbs.twimg.com/profile_images/979841334642200576/5l_sOTvi_400x400.jpg",
+    "title": "Full-stack developer",
+    "description": "Developer learning how to free himself from traditional 9-5",
+    "country": "FR",
+    "tags": [
+      "laravel",
+      "vue",
+      "react",
+      "graphql",
+      "node"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "stevenyung@icloud.com"
+      },
+      {
+        "type": "twitter",
+        "id": "stvnyung"
+      }
+    ]
+  },
+  {
     "id": "tankerxyz1@gmail.com",
     "name": "Viktor Gavrilov",
     "avatar": "https://tankerxyz.com/tankerxyz_face.jpg",
@@ -1906,6 +1931,33 @@
       {
         "type": "twitter",
         "id": "rubnvp"
+      }
+    ]
+  },
+  {
+    "id": "glenn.versweyveld@gmail.com",
+    "name": "Glenn Versweyveld",
+    "avatar": "https://avatars2.githubusercontent.com/u/351693?s=400&v=4",
+    "title": "Mobile application developer",
+    "description": "Xamarin Forms mobile application developer, speaker and User group board member",
+    "country": "BE",
+    "tags": [
+      "C#",
+      "Xamarin Forms",
+      "XAML"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "depechie"
+      },
+      {
+        "type": "linkedin",
+        "id": "depechie"
+      },
+      {
+        "type": "email",
+        "id": "glenn.versweyveld@gmail.com"
       }
     ]
   }
