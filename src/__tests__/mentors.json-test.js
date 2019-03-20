@@ -18,6 +18,27 @@ const validateSecuredUrl = function (schema, uri) {
   return uri.indexOf('https://') === 0;
 };
 
+const synonymsTags = {
+  '(node|node.js)': 'nodejs',
+  'react': 'reactjs',
+  'react-native': 'react native',
+  'csharp': 'c#'
+}
+
+const validateSynonymsTags = function (schema, tag) {
+  let isValid = true;
+  let message = '';
+  Object.keys(synonymsTags).forEach(synonym => {
+    if (new RegExp(`^${synonym}$`).exec(tag)) {
+      message = `should NOT use "${tag}", should use the conventional name: "${synonymsTags[synonym]}"`
+      isValid = false;
+    }
+  });
+
+  validateSynonymsTags.errors = [{keyword: 'synonymsTags', message, params: {keyword: 'synonymsTags'}}];
+  return isValid;
+};
+
 const validateDescription = function (schema, description) {
   const minLength = 5;
   const maxLength = 80;
@@ -47,6 +68,11 @@ ajv.addKeyword('suitableDescription', {
   errors: true
 });
 
+ajv.addKeyword('synonymsTags', {
+  validate: validateSynonymsTags,
+  errors: true
+});
+
 const mentorSchema = {
   "type": "array",
   "items": {
@@ -72,8 +98,6 @@ const mentorSchema = {
       },
       "description": {
         "type": "string",
-        // "minLength": 5,
-        // "maxLength": 80,
         "suitableDescription": true
       },
       "country": {
@@ -87,7 +111,8 @@ const mentorSchema = {
         "items": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 15
+          "maxLength": 15,
+          "synonymsTags": true
         }
       },
       "channels": {
