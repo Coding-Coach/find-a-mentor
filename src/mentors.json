@@ -1960,5 +1960,34 @@
         "id": "glenn.versweyveld@gmail.com"
       }
     ]
+  },
+  {
+    "id": "mike.eling97@gmail.com",
+    "name": "Mike Eling",
+    "avatar": "https://pbs.twimg.com/profile_images/1099148291789545472/cazquMnr_400x400.jpg",
+    "title": "Front-End Developer",
+    "description": "Just converting pizza into code and trying not to overflow! Ready to help! 💖",
+    "country": "PL",
+    "tags": [
+      "JavaScript",
+      "C#",
+      "Lua",
+      "React",
+      "NodeJS"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mike.eling97@gmail.com"
+      },
+      {
+        "type": "facebook",
+        "id": "drfrost420"
+      },
+      {
+        "type": "twitter",
+        "id": "DRFR0ST"
+      }
+    ]
   }
 ]
