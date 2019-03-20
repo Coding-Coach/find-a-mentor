@@ -24,3 +24,7 @@ yarn-error.log*
 
 # npm
 package-lock.json
+
+#editors
+.idea
+.vscode
