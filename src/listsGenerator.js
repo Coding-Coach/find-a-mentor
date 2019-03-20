@@ -7,6 +7,10 @@ function mapToItem(label, value) {
   }
 }
 
+function sortByLabel(a, b) {
+  return a.label < b.label ? -1 : 1;
+}
+
 export function generateLists(mentors) {
   const json = {
     tags: [],
