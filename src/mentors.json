@@ -2066,5 +2066,34 @@
         "id": "DRFR0ST"
       }
     ]
+  },
+  {
+    "id": "vardhan.bhaskar@gmail.com",
+    "name": "Bhaskar Gyan Vardhan",
+    "avatar": "https://avatars3.githubusercontent.com/u/10504808?s=460&v=4",
+    "title": "Technical Lead @ Walmart Labs",
+    "description": "UI guy with 7 years of Experience. Happy to help :)",
+    "country": "IN",
+    "tags": [
+      "Javascript",
+      "React",
+      "Html",
+      "Css",
+      "FrontEnd"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vardhan.bhaskar@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "bhaskar-gyan-vardhan"
+      },
+      {
+        "type": "twitter",
+        "id": "anotherJsGuy"
+      }
+    ]
   }
 ]
