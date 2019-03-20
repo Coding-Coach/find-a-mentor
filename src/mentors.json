@@ -2013,5 +2013,29 @@
         "id": "pberkenbosch"
       }
     ]
+  },
+  {
+    "id": "l.roettig@techdivision.com",
+    "name": "Lars Roettig",
+    "avatar": "https://secure.gravatar.com/avatar/7a9f9cde77cf47b315f59ed3ac5df12d",
+    "title": "PHP Developer ",
+    "description": "Maintainer Community Engineering Team @magento",
+    "country": "DE",
+    "tags": [
+      "php",
+      "magento",
+      "architecture",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "l.roettig@techdivision.com"
+      },
+      {
+        "type": "twitter",
+        "id": "larsroettig"
+      }
+    ]
   }
 ]
