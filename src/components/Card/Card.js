@@ -1,64 +1,82 @@
 import React from "react";
-import './Card.css';
-import { getChannelInfo } from '../../channelProvider';
-import classNames from 'classnames';
-import countries from 'svg-country-flags/countries.json';
+import "./Card.css";
+import { getChannelInfo } from "../../channelProvider";
+import classNames from "classnames";
+import countries from "svg-country-flags/countries.json";
 
-const tagsList = tags => tags.map((tag, index) => {
-  return (
-    <div className="tag" key={index}>{tag}</div>
-  );
-});
+const tagsList = tags =>
+  tags.map((tag, index) => {
+    return (
+      <div className="tag" key={index}>
+        {tag}
+      </div>
+    );
+  });
 
-const channelsList = channels => channels.map(channel => {
-  const { icon, url } = getChannelInfo(channel);
-  return (
-    <a key={channel.type} href={url} target="_blank" rel="noopener noreferrer">
-      <div className="icon"><i className={`fa fa-${icon}`} /></div>
-      <div className="type">{channel.type}</div>
-    </a>
-  )
-});
+const channelsList = channels =>
+  channels.map(channel => {
+    const { icon, url } = getChannelInfo(channel);
+    return (
+      <a
+        key={channel.type}
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="icon">
+          <i className={`fa fa-${icon}`} />
+        </div>
+        <div className="type">{channel.type}</div>
+      </a>
+    );
+  });
 
-const Avatar = ({mentor}) => {
+const Avatar = ({ mentor }) => {
   return (
     <div className="avatar">
       <i className="fa fa-user-circle" />
-      <img src={mentor.avatar} alt={`${mentor.name}'s avatar`} />
+      <img src={mentor.avatar} aria-labelledby={`${mentor.name}-name`} alt="" />
     </div>
-  )
-}
+  );
+};
 
-const LikeButton = ({onClick, liked}) => (
+const LikeButton = ({ onClick, liked }) => (
   <button onClick={onClick} className="like-button">
-    <i className={classNames(['fa', { 'liked fa-heart': liked, 'fa-heart-o': !liked}])} />
+    <i
+      className={classNames([
+        "fa",
+        { "liked fa-heart": liked, "fa-heart-o": !liked }
+      ])}
+    />
   </button>
 );
 
-const Card = ({mentor, onToggleFav, isFav}) => {
+const Card = ({ mentor, onToggleFav, isFav }) => {
   const toggleFav = () => {
     isFav = !isFav;
     onToggleFav(mentor);
-  }
+  };
 
   return (
     <div className="card">
       <LikeButton onClick={toggleFav} liked={isFav} />
-      <img className="country" src={`https://www.countryflags.io/${mentor.country}/flat/32.png`} alt={countries[mentor.country]} />
+      <img
+        className="country"
+        src={`https://www.countryflags.io/${mentor.country}/flat/32.png`}
+        alt={countries[mentor.country]}
+      />
       <Avatar mentor={mentor} />
-      <div className="name">{mentor.name}</div>
+      <div className="name" id={`${mentor.name}-name`}>
+        {mentor.name}
+      </div>
       <div className="title">{mentor.title}</div>
       <div className="description">"{mentor.description}"</div>
-      <div className="tags">
-        {tagsList(mentor.tags)}
-      </div>
+      <div className="tags">{tagsList(mentor.tags)}</div>
       <div className="channels">
-        <div className="channel-inner">
-          {channelsList(mentor.channels)}
-        </div>
+        <div className="channel-inner">{channelsList(mentor.channels)}</div>
       </div>
     </div>
   );
-}
+};
 
 export default Card;
