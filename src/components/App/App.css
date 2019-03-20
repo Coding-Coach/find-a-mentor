@@ -1,33 +1,17 @@
 body {
-  font-family: 'Lato', sans-serif;
-  background-color: #f8f8f8;
+  font-family: "Lato", sans-serif;
 }
 
 .app {
-  padding-bottom: 70px;
-}
-
-.device-desktop .filters-outer {
-  text-align: center;
-}
-
-.device-desktop .filters {
-  display: inline-block;
-  text-align: left;
-}
-
-.device-mobile .filters {
-  padding: 0 20px;
+  padding-bottom: 50px;
 }
 
 .main-header {
   padding: 30px;
-  max-width: 960px;
   margin: 0 auto;
-}
-
-.device-mobile .main-header {
-  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .main-header .logo {
@@ -60,4 +44,26 @@ footer a:hover {
   padding: 0 3px;
   color: #fff;
   text-decoration: underline;
+}
+
+@media all and (min-width: 577px) {
+  main {
+    padding-left: var(--filter-width);
+  }
+}
+
+@media all and (max-width: 576px) {
+  .main-header {
+    padding: 10px;
+  }
+
+  .main-header .logo svg {
+    width: 100px;
+    height: 58.333333333333336px;
+  }
+
+  .main-header nav svg {
+    width: 15px;
+    height: 15px;
+  }
 }

@@ -9,7 +9,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 ## Requirements
 - Git should be installed [Install Git](https://git-scm.com/downloads)
-- Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests** 
+- Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests**
 - Yarn (we recommend using yarn as a package manager) [Install Yarn](https://yarnpkg.com/en/)
 
 ## Want to be a mentor?
@@ -47,7 +47,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
   "avatar": "https://link-to-your/avatar.jpg",  // url, must start with https://
   "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
-  "country": "Sweden",                          // Full name. please avoid synonyms (check if it's not already exist)
+  "country": "SE",                              // Country code (link to the list below)
   "tags": [                                     // minItems: 1, maxItems: 5
     "nodejs", "webpack", "mongodb"              // please avoid synonyms
   ],
@@ -59,6 +59,10 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
   ]
 }
 ```
+
+#### Country codes
+
+https://github.com/hjnilsson/country-flags/blob/master/countries.json
 
 #### Channels
 

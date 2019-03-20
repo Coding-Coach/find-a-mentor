@@ -1,5 +1,6 @@
 import mentors from '../mentors.json';
 import Ajv from 'ajv';
+import countries from 'svg-country-flags/countries.json';
 
 expect.extend({
   toBeValid(isValid, errorMessage) {
@@ -77,6 +78,7 @@ const mentorSchema = {
       },
       "country": {
         "type": "string",
+        "enum": Object.keys(countries)
       },
       "tags": {
         "type": "array",

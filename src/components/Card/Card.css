@@ -1,0 +1,126 @@
+.card {
+  --avatar-offset: 54px;
+  --avatar-dim: 108px;
+
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  padding: 0 32px;
+  border-radius: 2px;
+  text-align: center;
+  position: relative;
+  border: 1px solid #ccc;
+  margin-top: calc(var(--avatar-offset) + 10px);
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.card .country {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.card .avatar {
+  width: var(--avatar-dim);
+  height: 118px;
+  margin: calc(var(--avatar-offset) * -1) auto 0;
+}
+
+.card .avatar i {
+  position: absolute;
+  font-size: var(--avatar-dim);
+  width: var(--avatar-dim);
+  height: var(--avatar-dim);
+  background: #fff;
+  color: rgb(155, 155, 155);
+  border-radius: 50%;
+  box-shadow: 0 0 10px 0;
+  display: block;
+}
+
+.card .avatar img {
+  display: block;
+  position: relative;
+  border-radius: 50%;
+  width: var(--avatar-dim);
+  height: var(--avatar-dim);
+}
+
+.card .name {
+  color: #4a4a4a;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.card .title {
+  color: #999;
+  margin-bottom: 5px;
+}
+
+.card .description {
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
+.card .tags {
+  margin-bottom: 10px;
+  margin: 10px -10px;
+}
+
+.card .tag {
+  color: #fff;
+  background: var(--tag-color);
+  border-radius: 20px;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 2.5px 5px;
+  line-height: 1;
+}
+
+.card .channels {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.card .channels .channel-inner {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  align-items: flex-end;
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+}
+
+.card .channels a {
+  color: #9b9b9b;
+}
+
+.card .channels a .icon {
+  transition: transform .3s ease;
+  transform-origin: 50%;
+}
+
+.card .channels a:hover .icon {
+  transform: rotate(45deg);
+}
+
+.card .channels a .type::first-letter {
+  text-transform: uppercase;
+}
+
+.card .like-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.card .like-button .liked,
+.card .like-button:hover i {
+  color: #db2828;
+}

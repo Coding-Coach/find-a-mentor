@@ -1,5 +1,6 @@
 'use strict';
 const inquirer = require('inquirer');
+const countries = require('svg-country-flags/countries.json');
 
 function validateEmail(value) {
   const pass = value.match(
@@ -46,7 +47,7 @@ const questionAvatar = {
   type: 'input',
   name: 'avatar',
   message: 'Please add your avatar url:',
-  validate: validateAvatar   
+  validate: validateAvatar
 };
 
 function validateTitle(value) {
@@ -84,20 +85,11 @@ const questionDescription = {
   validate: validateDescription
 };
 
-function validateCountry(value) {
-  const pass = value.match(
-    /^[A-Za-z].{2,}$/
-  )
-  if (pass) {
-    return true;
-  }
-  return 'Please enter a valid country. Minimum 3 characters.';
-}
 const questionCountry = {
-  type: 'input',
+  type: 'list',
   name: 'country',
   message: 'Please add your country:',
-  validate: validateCountry
+  choices: Object.values(countries),
 };
 
 function validateTags(value) {
@@ -198,11 +190,17 @@ const questions = [
   questionByChannel.twitter
 ];
 
+function getCountryCodeByName(country) {
+  return Object.keys(countries).find(key => countries[key].includes(country));
+}
+
 function convertAnswersToSchema(answers) {
   const choices = ['Email', 'Slack', 'Linkedin', 'Facebook', 'Twitter'];
   for (let answer in answers) {
     if (answer === 'tags') {
       answers[answer] = answers[answer].split(',').map(t => t.trim());
+    } else if (answer === 'country') {
+      answers[answer] = getCountryCodeByName(answers[answer]);
     } else if (choices.includes(answer)) {
       answers.channels.forEach((element, index) => {
         if (element === answer) {

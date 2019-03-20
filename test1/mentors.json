@@ -1591,7 +1591,7 @@
     ]
   },
   {
-    "id": "yusadolat@gmail.com",
+    "id": "yUnited Statesdolat@gmail.com",
     "name": "Yusuf Adeyemo",
     "avatar": "https://avatars0.githubusercontent.com/u/10975011?s=460&v=4",
     "title": "Front End Engineer at IderaOS",
@@ -1607,15 +1607,15 @@
     "channels": [
       {
         "type": "email",
-        "id": "yusadolat@gmail.com"
+        "id": "yUnited Statesdolat@gmail.com"
       },
       {
         "type": "slack",
-        "id": "yusadolat"
+        "id": "yUnited Statesdolat"
       },
       {
         "type": "twitter",
-        "id": "yusadolat"
+        "id": "yUnited Statesdolat"
       }
     ]
   },
@@ -1827,31 +1827,6 @@
       {
         "type": "twitter",
         "id": "iamMrDuncan"
-      }
-    ]
-  },
-  {
-    "id": "cdemars86@gmail.com",
-    "name": "Chris DeMars",
-    "avatar": "https://avatars0.githubusercontent.com/u/6799474?s=400&u=2e2a75c0fe9cb4abc00c22bde2b51257277e831c&v=4",
-    "title": "Front-End Developer",
-    "description": "",
-    "country": "US",
-    "tags": [
-      "Accessibility",
-      "CSS",
-      "UX",
-      "A11y",
-      "Performance"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "cdemars86@gmail.com"
-      },
-      {
-        "type": "twitter",
-        "id": "saltnburnem"
       }
     ]
   }
