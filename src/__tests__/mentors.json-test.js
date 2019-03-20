@@ -12,13 +12,37 @@ expect.extend({
 
 var ajv = new Ajv({ removeAdditional: false });
 
-const validate = function (schema, uri) {
-  validate.errors = [{keyword: 'secured', message: 'avatar url must be "https" schema', params: {keyword: 'secured'}}];
+const validateSecuredUrl = function (schema, uri) {
+  validateSecuredUrl.errors = [{keyword: 'secured', message: 'avatar url must be "https" schema', params: {keyword: 'secured'}}];
   return uri.indexOf('https://') === 0;
 };
 
+const validateDescription = function (schema, description) {
+  const minLength = 5;
+  const maxLength = 80;
+
+  let isValid = true;
+  let message = '';
+  if (description) {
+    if (description.length < minLength) {
+      isValid = false;
+      message = `should NOT be shorter than ${minLength} characters`;
+    } else if (description.length > maxLength) {
+      isValid = false;
+      message = `should NOT be longer than ${maxLength} characters`;
+    }
+  }
+  validateDescription.errors = [{keyword: 'description', message, params: {keyword: 'description'}}];
+  return isValid;
+};
+
 ajv.addKeyword('securedUrl', {
-  validate,
+  validate: validateSecuredUrl,
+  errors: true
+});
+
+ajv.addKeyword('suitableDescription', {
+  validate: validateDescription,
   errors: true
 });
 
@@ -47,8 +71,9 @@ const mentorSchema = {
       },
       "description": {
         "type": "string",
-        "minLength": 5,
-        "maxLength": 80
+        // "minLength": 5,
+        // "maxLength": 80,
+        "suitableDescription": true
       },
       "country": {
         "type": "string",
