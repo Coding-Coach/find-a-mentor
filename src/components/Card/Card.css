@@ -87,7 +87,7 @@
 
 .card .channels .channel-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding-bottom: 10px;
   align-items: flex-end;
   border-top: 1px solid #ccc;

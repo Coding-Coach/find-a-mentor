@@ -2015,6 +2015,59 @@
     ]
   },
   {
+    "id": "l.roettig@techdivision.com",
+    "name": "Lars Roettig",
+    "avatar": "https://secure.gravatar.com/avatar/7a9f9cde77cf47b315f59ed3ac5df12d",
+    "title": "PHP Developer ",
+    "description": "Maintainer Community Engineering Team @magento",
+    "country": "DE",
+    "tags": [
+      "php",
+      "magento",
+      "architecture",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "l.roettig@techdivision.com"
+      },
+      {
+        "type": "twitter",
+        "id": "larsroettig"
+      }
+    ]
+  },
+  {
+    "id": "mike.eling97@gmail.com",
+    "name": "Mike Eling",
+    "avatar": "https://pbs.twimg.com/profile_images/1099148291789545472/cazquMnr_400x400.jpg",
+    "title": "Front-End Developer",
+    "description": "Just converting pizza into code and trying not to overflow! Ready to help! 💖",
+    "country": "PL",
+    "tags": [
+      "JavaScript",
+      "C#",
+      "Lua",
+      "React",
+      "NodeJS"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mike.eling97@gmail.com"
+      },
+      {
+        "type": "facebook",
+        "id": "drfrost420"
+      },
+      {
+        "type": "twitter",
+        "id": "DRFR0ST"
+      }
+    ]
+  },
+  {
     "id": "vardhan.bhaskar@gmail.com",
     "name": "Bhaskar Gyan Vardhan",
     "avatar": "https://avatars3.githubusercontent.com/u/10504808?s=460&v=4",
