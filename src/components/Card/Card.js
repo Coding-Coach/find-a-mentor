@@ -22,11 +22,11 @@ const channelsList = channels =>
         href={url}
         target="_blank"
         rel="noopener noreferrer"
+        title={channel.type}
       >
         <div className="icon">
           <i className={`fa fa-${icon}`} />
         </div>
-        <div className="type">{channel.type}</div>
       </a>
     );
   });
@@ -51,6 +51,26 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
+const Info = ({mentor}) => {
+
+  // Don't show the description if it's not provided.
+  const description = mentor.description ? <div className="description">"{mentor.description}"</div> : <React.Fragment />;
+
+  return (
+    <React.Fragment>
+      <div className="name" id={`${mentor.name}-name`}>
+        {mentor.name}
+      </div>
+      <div className="title">{mentor.title}</div>
+      {description}
+      <div className="tags">{tagsList(mentor.tags)}</div>
+      <div className="channels">
+        <div className="channel-inner">{channelsList(mentor.channels)}</div>
+      </div>
+    </React.Fragment>
+  )
+};
+
 const Card = ({ mentor, onToggleFav, isFav }) => {
   const toggleFav = () => {
     isFav = !isFav;
@@ -66,15 +86,7 @@ const Card = ({ mentor, onToggleFav, isFav }) => {
         alt={countries[mentor.country]}
       />
       <Avatar mentor={mentor} />
-      <div className="name" id={`${mentor.name}-name`}>
-        {mentor.name}
-      </div>
-      <div className="title">{mentor.title}</div>
-      <div className="description">"{mentor.description}"</div>
-      <div className="tags">{tagsList(mentor.tags)}</div>
-      <div className="channels">
-        <div className="channel-inner">{channelsList(mentor.channels)}</div>
-      </div>
+      <Info mentor={mentor} />
     </div>
   );
 };
