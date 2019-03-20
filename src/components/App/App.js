@@ -5,7 +5,8 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import MentorsList from "../MentorsList/MentorsList";
 import Filter from "../Filter/Filter";
-import Header from "../Header/Header";
+import Logo from "../Logo";
+import SocialLinks from "../SocialLinks/SocialLinks";
 import shuffle from "lodash/shuffle";
 
 // const serverEndpoint = 'http://localhost:3001';
@@ -14,26 +15,26 @@ class App extends Component {
     mentors: shuffle(mentors)
   };
 
-  handleTagSelect = async ({value: tag}) => {
+  handleTagSelect = async ({ value: tag }) => {
     await scrollToTop();
     this.setState({
       tag
     });
   };
 
-  handleCountrySelect = async ({value: country}) => {
+  handleCountrySelect = async ({ value: country }) => {
     await scrollToTop();
     this.setState({
       country
     });
   };
 
-  handleNameSelect = async ({value: name}) => {
+  handleNameSelect = async ({ value: name }) => {
     await scrollToTop();
     this.setState({
       name
     });
-  }
+  };
 
   filterMentors = mentor => {
     const { tag, country, name } = this.state;
@@ -56,13 +57,20 @@ class App extends Component {
 
     return (
       <div className="app">
-        <Header />
         <main>
-          <Filter
-            onTagSelected={this.handleTagSelect}
-            onCountrySelected={this.handleCountrySelect}
-            onNameSelected={this.handleNameSelect}
-            onToggleFilter={this.toggleFields} />
+          <aside class="sidebar">
+            <a className="logo" href="/">
+              <Logo width={110} height={50} color="#68d5b1" />
+            </a>
+            <Filter
+              onTagSelected={this.handleTagSelect}
+              onCountrySelected={this.handleCountrySelect}
+              onNameSelected={this.handleNameSelect}
+              onToggleFilter={this.toggleFields}
+            />
+            <SocialLinks />
+          </aside>
+
           <MentorsList
             className={classNames({
               active: fieldsIsActive
@@ -71,9 +79,27 @@ class App extends Component {
           />
         </main>
         <footer>
-          <a rel="noopener noreferrer" href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/TermsAndConditions.md#terms-and-conditions" target="_blank">Terms & Conditions</a>
-          <a rel="noopener noreferrer" href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/CookiesPolicy.md#what-are-cookies" target="_blank">Cookies</a>
-          <a rel="noopener noreferrer" href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/PrivacyPolicy.md#effective-date-october-03-2018" target="_blank">Privacy Policy</a>
+          <a
+            rel="noopener noreferrer"
+            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/TermsAndConditions.md#terms-and-conditions"
+            target="_blank"
+          >
+            Terms & Conditions
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/CookiesPolicy.md#what-are-cookies"
+            target="_blank"
+          >
+            Cookies
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/PrivacyPolicy.md#effective-date-october-03-2018"
+            target="_blank"
+          >
+            Privacy Policy
+          </a>
         </footer>
       </div>
     );
@@ -86,14 +112,13 @@ function scrollToTop() {
   const scrollDuration = 200;
   return new Promise(resolve => {
     var scrollStep = -window.scrollY / (scrollDuration / 15),
-        scrollInterval = setInterval(function(){
-        if ( window.scrollY !== 0 ) {
-            window.scrollBy( 0, scrollStep );
-        }
-        else {
+      scrollInterval = setInterval(function() {
+        if (window.scrollY !== 0) {
+          window.scrollBy(0, scrollStep);
+        } else {
           clearInterval(scrollInterval);
           resolve();
         }
-    },15);
+      }, 15);
   });
 }
