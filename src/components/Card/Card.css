@@ -50,7 +50,7 @@
 .card .name {
   color: #4a4a4a;
   font-size: 20px;
-  margin: 5px 0 2px 0;
+  margin: 5px 0 2px;
 }
 
 .card .title {
@@ -82,10 +82,6 @@
 
   /** Prevent text selection */
   user-select: none;
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -o-user-select: none;
 }
 
 .card .channels {
