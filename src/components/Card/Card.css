@@ -106,7 +106,6 @@
 .card .channels a .icon {
   transition: transform .3s ease;
   transform-origin: 50%;
-  font-size: 17px;
 }
 
 .card .channels a:hover .icon {

@@ -22,11 +22,11 @@ const channelsList = channels =>
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        title={channel.type}
       >
         <div className="icon">
           <i className={`fa fa-${icon}`} />
         </div>
+        <div className="type">{channel.type}</div>
       </a>
     );
   });
