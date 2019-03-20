@@ -1829,5 +1829,30 @@
         "id": "iamMrDuncan"
       }
     ]
+  },
+  {
+    "id": "cdemars86@gmail.com",
+    "name": "Chris DeMars",
+    "avatar": "https://avatars0.githubusercontent.com/u/6799474?s=400&u=2e2a75c0fe9cb4abc00c22bde2b51257277e831c&v=4",
+    "title": "Front-End Developer",
+    "description": "",
+    "country": "USA",
+    "tags": [
+      "Accessibility",
+      "CSS",
+      "UX",
+      "A11y",
+      "Performance"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "cdemars86@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "saltnburnem"
+      }
+    ]
   }
 ]
