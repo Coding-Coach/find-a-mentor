@@ -67,7 +67,7 @@
     "tags": [
       "frontend",
       "javascript",
-      "react",
+      "reactjs",
       "native",
       "css"
     ],
@@ -91,7 +91,7 @@
     "country": "JO",
     "tags": [
       "javascript",
-      "react",
+      "reactjs",
       "web",
       "php"
     ],
@@ -148,8 +148,8 @@
     "country": "IN",
     "tags": [
       "javascript",
-      "react",
-      "node",
+      "reactjs",
+      "nodejs",
       "fp"
     ],
     "channels": [
@@ -175,7 +175,7 @@
     "description": "28-year career in software. Would love to share what I know.",
     "country": "US",
     "tags": [
-      "csharp",
+      "c#",
       "aspnet",
       "backend",
       "build",
@@ -207,7 +207,7 @@
       "reactjs",
       "firebase",
       "javascript",
-      "node",
+      "nodejs",
       "redux"
     ],
     "channels": [
@@ -264,7 +264,7 @@
     "tags": [
       "angular",
       "django",
-      "node",
+      "nodejs",
       "typescript",
       "javascript"
     ],
@@ -288,7 +288,7 @@
     "country": "US",
     "tags": [
       "javascript",
-      "react",
+      "reactjs",
       "redux"
     ],
     "channels": [
@@ -398,7 +398,7 @@
     "tags": [
       "frontend",
       "javascript",
-      "react",
+      "reactjs",
       "html",
       "css"
     ],
@@ -427,8 +427,8 @@
     "tags": [
       "frontend",
       "javascript",
-      "react",
-      "node",
+      "reactjs",
+      "nodejs",
       "redux"
     ],
     "channels": [
@@ -591,8 +591,8 @@
       "html",
       "css",
       "javascript",
-      "react",
-      "node"
+      "reactjs",
+      "nodejs"
     ],
     "channels": [
       {
@@ -677,7 +677,7 @@
     "tags": [
       "frontend",
       "javascript",
-      "react"
+      "reactjs"
     ],
     "channels": [
       {
@@ -839,9 +839,9 @@
     "description": "Feel free to ask me any question, big or small!",
     "country": "US",
     "tags": [
-      "react",
+      "reactjs",
       "angular",
-      "node"
+      "nodejs"
     ],
     "channels": [
       {
@@ -943,7 +943,7 @@
       "microservices",
       "kubernetes",
       "C#",
-      "react"
+      "reactjs"
     ],
     "channels": [
       {
@@ -998,8 +998,8 @@
     "country": "US",
     "tags": [
       "javascript",
-      "react",
-      "node",
+      "reactjs",
+      "nodejs",
       "fp"
     ],
     "channels": [
@@ -1022,7 +1022,7 @@
     "country": "AT",
     "tags": [
       "javascript",
-      "react",
+      "reactjs",
       "nodejs",
       "css",
       "frontend"
@@ -1232,7 +1232,7 @@
     "country": "GB",
     "tags": [
       "javascript",
-      "react",
+      "reactjs",
       "nodeJS",
       "serverless",
       "fullstack"
@@ -1487,8 +1487,8 @@
     "country": "DE",
     "tags": [
       "javascript",
-      "react",
-      "react-native",
+      "reactjs",
+      "react native",
       "nodejs",
       "graphql"
     ],
@@ -1654,7 +1654,7 @@
       "html",
       "css",
       "javascript",
-      "react",
+      "reactjs",
       "redux"
     ],
     "channels": [
@@ -1706,7 +1706,7 @@
     "country": "DE",
     "tags": [
       "Angular",
-      "Node",
+      "nodejs",
       "WebAssembly"
     ],
     "channels": [
@@ -1865,9 +1865,9 @@
     "tags": [
       "laravel",
       "vue",
-      "react",
+      "reactjs",
       "graphql",
-      "node"
+      "nodejs"
     ],
     "channels": [
       {
@@ -1958,6 +1958,83 @@
       {
         "type": "email",
         "id": "glenn.versweyveld@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "nothanks@email.com",
+    "name": "Erik Aybar",
+    "avatar": "https://pbs.twimg.com/profile_images/950028607606452226/o7rPOIoB_400x400.jpg",
+    "title": "Software Engineer (Frontend)",
+    "description": "8+ years focused mostly on Javascript/React. Happy to connect and help 😀",
+    "country": "US",
+    "tags": [
+      "Javascript",
+      "ReactJs",
+      "React Native",
+      "Remote Work",
+      "Frontend"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "erikaybar"
+      },
+      {
+        "type": "twitter",
+        "id": "erikaybar_"
+      }
+    ]
+  },
+  {
+    "id": "hello@peterberkenbosch.nl",
+    "name": "Peter Berkenbosch",
+    "avatar": "https://avatars1.githubusercontent.com/u/4252?s=460&v=4",
+    "title": "Independent Contractor",
+    "description": "OpenSource e-Commerce veteran working with Spree and Solidus",
+    "country": "NL",
+    "tags": [
+      "ruby",
+      "rails",
+      "spree",
+      "solidus"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@peterberkenbosch.nl"
+      },
+      {
+        "type": "linkedin",
+        "id": "peterberkenbosch"
+      },
+      {
+        "type": "twitter",
+        "id": "pberkenbosch"
+      }
+    ]
+  },
+  {
+    "id": "l.roettig@techdivision.com",
+    "name": "Lars Roettig",
+    "avatar": "https://secure.gravatar.com/avatar/7a9f9cde77cf47b315f59ed3ac5df12d",
+    "title": "PHP Developer ",
+    "description": "Maintainer Community Engineering Team @magento",
+    "country": "DE",
+    "tags": [
+      "php",
+      "magento",
+      "architecture",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "l.roettig@techdivision.com"
+      },
+      {
+        "type": "twitter",
+        "id": "larsroettig"
       }
     ]
   },

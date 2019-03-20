@@ -7,6 +7,10 @@ function mapToItem(label, value) {
   }
 }
 
+function sortByLabel(a, b) {
+  return a.label < b.label ? -1 : 1;
+}
+
 export function generateLists(mentors) {
   const json = {
     tags: [],
@@ -20,9 +24,9 @@ export function generateLists(mentors) {
     json.names.push(mentors[i].name);
   }
 
-  json.names = [...new Set(json.names)].map(mapToItem);
-  json.tags = [...new Set(json.tags.map(tag => tag.toLowerCase()))].map(mapToItem);
-  json.countries = [...new Set(json.countries)].map(country => mapToItem(countries[country], country));
+  json.names = [...new Set(json.names)].map(mapToItem).sort(sortByLabel);
+  json.tags = [...new Set(json.tags.map(tag => tag.toLowerCase()))].map(mapToItem).sort(sortByLabel);
+  json.countries = [...new Set(json.countries)].map(country => mapToItem(countries[country], country)).sort(sortByLabel);
 
   return json;
 }

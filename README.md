@@ -49,7 +49,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
   "country": "SE",                              // Country code (link to the list below)
   "tags": [                                     // minItems: 1, maxItems: 5
-    "nodejs", "webpack", "mongodb"              // please avoid synonyms
+    "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below)
   ],
   "channels": [                                 // minItems: 1, maxItems: 3
     {
@@ -59,6 +59,11 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
   ]
 }
 ```
+
+#### synonyms tags
+- nodejs: node, node.js
+- reactjs: react
+- react native: react-native
 
 #### Country codes
 
