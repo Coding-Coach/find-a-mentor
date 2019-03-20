@@ -1908,5 +1908,32 @@
         "id": "tankerxyz"
       }
     ]
+  },
+  {
+    "id": "glenn.versweyveld@gmail.com",
+    "name": "Glenn Versweyveld",
+    "avatar": "https://avatars2.githubusercontent.com/u/351693?s=400&v=4",
+    "title": "Mobile application developer",
+    "description": "Xamarin Forms mobile application developer, speaker and User group board member",
+    "country": "BE",
+    "tags": [
+      "C#",
+      "Xamarin Forms",
+      "XAML"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "depechie"
+      },
+      {
+        "type": "linkedin",
+        "id": "depechie"
+      },
+      {
+        "type": "email",
+        "id": "glenn.versweyveld@gmail.com"
+      }
+    ]
   }
 ]
