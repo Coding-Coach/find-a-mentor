@@ -101,6 +101,7 @@
 
 .card .channels a {
   color: #9b9b9b;
+  text-decoration: none;
 }
 
 .card .channels a .icon {
