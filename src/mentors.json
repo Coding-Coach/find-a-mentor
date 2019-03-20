@@ -1591,7 +1591,7 @@
     ]
   },
   {
-    "id": "yUnited Statesdolat@gmail.com",
+    "id": "yusadolat@gmail.com",
     "name": "Yusuf Adeyemo",
     "avatar": "https://avatars0.githubusercontent.com/u/10975011?s=460&v=4",
     "title": "Front End Engineer at IderaOS",
@@ -1607,15 +1607,15 @@
     "channels": [
       {
         "type": "email",
-        "id": "yUnited Statesdolat@gmail.com"
+        "id": "yusadolat@gmail.com"
       },
       {
         "type": "slack",
-        "id": "yUnited Statesdolat"
+        "id": "yusadolat"
       },
       {
         "type": "twitter",
-        "id": "yUnited Statesdolat"
+        "id": "yusadolat"
       }
     ]
   },
