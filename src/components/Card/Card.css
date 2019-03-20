@@ -6,11 +6,11 @@
   flex-direction: column;
   width: 280px;
   padding: 0 32px;
-  border-radius: 2px;
+  border-radius: 5px;
   text-align: center;
   position: relative;
   border: 1px solid #ccc;
-  margin-top: calc(var(--avatar-offset) + 10px);
+  margin-top: calc(var(--avatar-offset) + 20px);
   margin-right: 5px;
   margin-left: 5px;
 }
@@ -35,7 +35,7 @@
   background: #fff;
   color: rgb(155, 155, 155);
   border-radius: 50%;
-  box-shadow: 0 0 10px 0;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
   display: block;
 }
 
@@ -50,7 +50,7 @@
 .card .name {
   color: #4a4a4a;
   font-size: 20px;
-  margin-bottom: 5px;
+  margin: 5px 0 2px 0;
 }
 
 .card .title {
@@ -95,10 +95,9 @@
 .card .channels .channel-inner {
   display: flex;
   justify-content: space-between;
-  padding-bottom: 10px;
   align-items: flex-end;
   border-top: 1px solid #ccc;
-  padding-top: 10px;
+  padding: 10px;
 }
 
 .card .channels a {
