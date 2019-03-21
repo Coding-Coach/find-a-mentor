@@ -22,14 +22,15 @@ const synonymsTags = {
   '(node|node.js)': 'nodejs',
   'react': 'reactjs',
   'react-native': 'react native',
-  'csharp': 'c#'
+  'csharp': 'c#',
+  'front end': 'frontend'
 }
 
 const validateSynonymsTags = function (schema, tag) {
   let isValid = true;
   let message = '';
   Object.keys(synonymsTags).forEach(synonym => {
-    if (new RegExp(`^${synonym}$`).exec(tag)) {
+    if (new RegExp(`^${synonym}$`, 'i').exec(tag)) {
       message = `should NOT use "${tag}", should use the conventional name: "${synonymsTags[synonym]}"`
       isValid = false;
     }
