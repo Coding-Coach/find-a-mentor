@@ -2162,12 +2162,21 @@
     "description": "",
     "country": "CA",
     "tags": [
-      "5"
+      "JS",
+      "JSX",
+      "React",
+      "Java",
+      "C++",
+      "Python"
     ],
     "channels": [
       {
         "type": "email",
         "id": "reach.kkarthik@gmail.com"
+      },
+      {
+        "type": "linkedin",
+	"id": "karthikkalyanaraman"
       }
     ]
   }
