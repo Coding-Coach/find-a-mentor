@@ -2153,5 +2153,30 @@
         "id": "mfeshesmkda"
       }
     ]
+  },
+  {
+    "id": "reach.kkarthik@gmail.com",
+    "name": "Karthik Kalyan",
+    "avatar": "https://pbs.twimg.com/profile_images/1052412131449155586/X8xh7k-6_400x400.jpg",
+    "title": "Software Developer",
+    "description": "",
+    "country": "CA",
+    "tags": [
+      "JS",
+      "reactjs",
+      "Java",
+      "C++",
+      "Python"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "reach.kkarthik@gmail.com"
+      },
+      {
+        "type": "linkedin",
+	"id": "karthikkalyanaraman"
+      }
+    ]
   }
 ]
