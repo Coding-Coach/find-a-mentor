@@ -76,6 +76,7 @@
   padding: 5px 10px;
   margin: 0 2.5px 5px;
   line-height: 1;
+  text-transform: lowercase;
 }
 
 .card .channels {
