@@ -1829,5 +1829,29 @@
         "id": "iamMrDuncan"
       }
     ]
+  },
+  {
+    "id": "laurandidi21@gmail.com",
+    "name": "Egwuenu Gift",
+    "avatar": "https://res.cloudinary.com/lauragift/image/upload/v1544709063/IMG_3317_mn6nmj.jpg",
+    "title": "Software Engineer",
+    "description": "Software Engineer, Passionate about making the web accessible and Photography",
+    "country": "NG",
+    "tags": [
+      "css",
+      "javascript",
+      "vue",
+      "accessibility"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "laurandidi21@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "lauragift21"
+      }
+    ]
   }
 ]
