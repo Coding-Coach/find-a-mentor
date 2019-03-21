@@ -2124,5 +2124,34 @@
         "id": "Stephanvs"
       }
     ]
+  },
+  {
+    "id": "mahmoud.hesham.hussien@gmail.com",
+    "name": "Mahmoud Hesham",
+    "avatar": "https://pbs.twimg.com/profile_images/678695543380537344/wKCGBoJQ_400x400.jpg",
+    "title": "Android Engineer",
+    "description": "Hola, need help or learn android stuff, talk to me :) ",
+    "country": "EG",
+    "tags": [
+      "android",
+      "Kotlin",
+      "Java",
+      "nodejs",
+      "mobile"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "U6D37Q15H"
+      },
+      {
+        "type": "linkedin",
+        "id": "mahmoud-hesham-421b3270"
+      },
+      {
+        "type": "twitter",
+        "id": "mfeshesmkda"
+      }
+    ]
   }
 ]
