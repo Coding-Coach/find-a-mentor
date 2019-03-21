@@ -2049,7 +2049,7 @@
       "JavaScript",
       "C#",
       "Lua",
-      "React",
+      "reactjs",
       "NodeJS"
     ],
     "channels": [
@@ -2076,7 +2076,7 @@
     "country": "IN",
     "tags": [
       "Javascript",
-      "React",
+      "reactjs",
       "Html",
       "Css",
       "FrontEnd"

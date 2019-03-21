@@ -61,9 +61,14 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 ```
 
 #### synonyms tags
-- nodejs: node, node.js
-- reactjs: react
-- react native: react-native
+
+| Use          | Don't use     |
+|--------------|--------------:|
+| nodejs       | node, node.js |
+| reactjs      | react         |
+| react native | react-native  |
+| c#           | csharp        |
+| frontend     | front end     |
 
 #### Country codes
 
