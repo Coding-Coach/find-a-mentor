@@ -2230,5 +2230,34 @@
         "id": "RadiMustafa2"
       }
     ]
+  },
+  {
+    "id": "ngohungphuc95@gmail.com",
+    "name": "Ngô Hùng Phúc",
+    "avatar": "https://media.licdn.com/dms/image/C5603AQG5w2tKUSPQ-Q/profile-displayphoto-shrink_200_200/0?e=1558569600&v=beta&t=Qr91t-JkFuT6nWjqZefzTIigTxyVQe_-8zu1NyBYkrk",
+    "title": "Senior Fullstack Software Engineer",
+    "description": "Technical trainer for Angular and React. Specialized in ASP.Net, ASP.Net Core, MeanJs, Angular, React JS, Automation Test, Devops and Mobile",
+    "country": "VN",
+    "tags": [
+      "ASP.Net Core",
+      "Angular",
+      "reactjs",
+      "Mean Stack, PWA",
+      "DevOps"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ngohungphuc95@gmail.com"
+      },
+      {
+        "type": "linkedin",
+	      "id": "phuc-ngo-hung-tony-hudson-7b92a0107"
+      },
+      {
+        "type": "twitter",
+        "id": "ngohungphuc"
+      }
+    ]
   }
 ]
