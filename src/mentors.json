@@ -2208,13 +2208,15 @@
     "id": "navneetg-mentor@outlook.com",
     "name": "Navneet Gupta",
     "avatar": "https://secure.meetupstatic.com/photos/member/9/c/6/5/member_264400037.jpeg",
-    "title": "React+Redux developer",
+    "title": "Full stack developer",
     "description": "I am Navneet, and I will be glad to help.",
     "country": "US",
     "tags": [
       "reactjs",
       "redux",
-      "redux-dynamic-modules"
+      "redux-dynamic-modules",
+      "C#",
+      "SQL Server"
     ],
     "channels": [
       {
