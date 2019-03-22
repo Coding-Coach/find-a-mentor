@@ -62,7 +62,8 @@ class App extends Component {
             onTagSelected={this.handleTagSelect}
             onCountrySelected={this.handleCountrySelect}
             onNameSelected={this.handleNameSelect}
-            onToggleFilter={this.toggleFields} />
+            onToggleFilter={this.toggleFields}
+            mentorCount={mentorsInList.length} />
           <MentorsList
             className={classNames({
               active: fieldsIsActive
