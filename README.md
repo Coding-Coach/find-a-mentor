@@ -9,7 +9,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 ## Requirements
 - Git should be installed [Install Git](https://git-scm.com/downloads)
-- Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests** 
+- Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests**
 - Yarn (we recommend using yarn as a package manager) [Install Yarn](https://yarnpkg.com/en/)
 
 ## Want to be a mentor?
@@ -47,9 +47,9 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
   "avatar": "https://link-to-your/avatar.jpg",  // url, must start with https://
   "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
-  "country": "Israel",                          // Full name. please avoid synonyms (check if it's not already exist)
+  "country": "SE",                              // Country code (link to the list below)
   "tags": [                                     // minItems: 1, maxItems: 5
-    "nodejs", "webpack", "mongodb"              // please avoid synonyms
+    "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below)
   ],
   "channels": [                                 // minItems: 1, maxItems: 3
     {
@@ -59,6 +59,20 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
   ]
 }
 ```
+
+#### synonyms tags
+
+| Use          | Don't use     |
+|--------------|---------------|
+| nodejs       | node, node.js |
+| reactjs      | react         |
+| react native | react-native  |
+| c#           | csharp        |
+| frontend     | front end     |
+
+#### Country codes
+
+https://github.com/hjnilsson/country-flags/blob/master/countries.json
 
 #### Channels
 
@@ -80,7 +94,7 @@ Haven't time to code it? Please open an [issue](https://github.com/Coding-Coach/
 
 ## Slack
 
-Coding Coach is on Slack! [Click here](https://join.slack.com/t/coding-coach/shared_invite/enQtNTE2NDY4NTczNzE0LTMyOTAyZTFiYjE4OTUzYjgwYzk5MzlmYjgwNjUyNDZlZGY3NGVhYmU1NjdmZDQ3MmQ3YjRhYjJkMjM4OTYwNDA) to join.
+Coding Coach is on Slack! [Click here](https://coding-coach.slack.com/join/shared_invite/enQtNDYxNTcwMjk4MDcwLThiZjY1MTM2YTU1YzM2MGI1N2Y1NDI3ZGM1MGRhNjdiZjU0MzE1YjMxZjdlZmVlNDdhNmFhN2RhNGIxZmE1YTI) to join.
 
 ---
 
