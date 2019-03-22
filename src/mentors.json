@@ -2212,7 +2212,9 @@
     "description": "I am Navneet, and I will be glad to help.",
     "country": "US",
     "tags": [
-      "react redux"
+      "reactjs",
+      "redux",
+      "redux-dynamic-modules"
     ],
     "channels": [
       {
