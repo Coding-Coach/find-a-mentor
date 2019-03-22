@@ -2205,6 +2205,33 @@
     ]
   },
   {
+    "id": "mus.radi85@gmail.com",
+    "name": "Radi Mustafa",
+    "avatar": "https://avatars1.githubusercontent.com/u/25413382?s=400&u=5e1424b93b87e4e7014afa95c6f123be864bae52&v=4",
+    "title": "Backend Developer",
+    "description": "Self-taught, career switch (civil engineer), I love Python specially Django.",
+    "country": "DE",
+    "tags": [
+      "python",
+      "django",
+      "rest"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mus.radi85@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "radi-mustafa-32939a3b"
+      },
+      {
+        "type": "twitter",
+        "id": "RadiMustafa2"
+      }
+    ]
+  },
+  {
     "id": "navneetg-mentor@outlook.com",
     "name": "Navneet Gupta",
     "avatar": "https://secure.meetupstatic.com/photos/member/9/c/6/5/member_264400037.jpeg",
