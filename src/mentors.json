@@ -2175,7 +2175,7 @@
       },
       {
         "type": "linkedin",
-	"id": "karthikkalyanaraman"
+        "id": "karthikkalyanaraman"
       }
     ]
   },
@@ -2201,6 +2201,27 @@
       {
         "type": "twitter",
         "id": "3sanket3"
+      }
+    ]
+  },
+  {
+    "id": "navneetg-mentor@outlook.com",
+    "name": "Navneet Gupta",
+    "avatar": "https://secure.meetupstatic.com/photos/member/9/c/6/5/member_264400037.jpeg",
+    "title": "React+Redux developer",
+    "description": "I am Navneet, and I will be glad to help.",
+    "country": "US",
+    "tags": [
+      "react redux"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "navneetg-mentor@outlook.com"
+      },
+      {
+        "type": "twitter",
+        "id": "hellonavneet"
       }
     ]
   }
