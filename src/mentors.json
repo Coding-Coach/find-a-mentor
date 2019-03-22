@@ -2178,5 +2178,30 @@
 	"id": "karthikkalyanaraman"
       }
     ]
+  },
+  {
+    "id": "3sanket3@gmail.com",
+    "name": "Sanket Patel",
+    "avatar": "https://avatars1.githubusercontent.com/u/2539943",
+    "title": "Fullstack Developer",
+    "description": "Let's learn and grow together...",
+    "country": "IN",
+    "tags": [
+      "reactjs",
+      "firebase",
+      ".net",
+      "angular",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "3sanket3@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "3sanket3"
+      }
+    ]
   }
 ]
