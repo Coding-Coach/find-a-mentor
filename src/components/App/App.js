@@ -58,7 +58,7 @@ class App extends Component {
     return (
       <div className="app">
         <main>
-          <aside class="sidebar">
+          <aside className="sidebar">
             <a className="logo" href="/">
               <Logo width={110} height={50} color="#68d5b1" />
             </a>
