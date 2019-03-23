@@ -2346,5 +2346,29 @@
         "id": "mfahlandt"
       }
     ]
+  },
+  {
+    "id": "navneetg-mentor@outlook.com",
+    "name": "Navneet Gupta",
+    "avatar": "https://secure.meetupstatic.com/photos/member/9/c/6/5/member_264400037.jpeg",
+    "title": "Full stack developer",
+    "description": "I am Navneet, and I will be glad to help.",
+    "country": "US",
+    "tags": [
+      "reactjs",
+      "redux",
+      "C#",
+      "SQL Server"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "navneetg-mentor@outlook.com"
+      },
+      {
+        "type": "twitter",
+        "id": "hellonavneet"
+      }
+    ]
   }
 ]
