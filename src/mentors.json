@@ -67,7 +67,7 @@
     "tags": [
       "frontend",
       "javascript",
-      "react",
+      "reactjs",
       "native",
       "css"
     ],
@@ -91,7 +91,7 @@
     "country": "JO",
     "tags": [
       "javascript",
-      "react",
+      "reactjs",
       "web",
       "php"
     ],
@@ -148,8 +148,8 @@
     "country": "IN",
     "tags": [
       "javascript",
-      "react",
-      "node",
+      "reactjs",
+      "nodejs",
       "fp"
     ],
     "channels": [
@@ -175,7 +175,7 @@
     "description": "28-year career in software. Would love to share what I know.",
     "country": "US",
     "tags": [
-      "csharp",
+      "c#",
       "aspnet",
       "backend",
       "build",
@@ -207,7 +207,7 @@
       "reactjs",
       "firebase",
       "javascript",
-      "node",
+      "nodejs",
       "redux"
     ],
     "channels": [
@@ -264,7 +264,7 @@
     "tags": [
       "angular",
       "django",
-      "node",
+      "nodejs",
       "typescript",
       "javascript"
     ],
@@ -288,7 +288,7 @@
     "country": "US",
     "tags": [
       "javascript",
-      "react",
+      "reactjs",
       "redux"
     ],
     "channels": [
@@ -398,7 +398,7 @@
     "tags": [
       "frontend",
       "javascript",
-      "react",
+      "reactjs",
       "html",
       "css"
     ],
@@ -427,8 +427,8 @@
     "tags": [
       "frontend",
       "javascript",
-      "react",
-      "node",
+      "reactjs",
+      "nodejs",
       "redux"
     ],
     "channels": [
@@ -591,8 +591,8 @@
       "html",
       "css",
       "javascript",
-      "react",
-      "node"
+      "reactjs",
+      "nodejs"
     ],
     "channels": [
       {
@@ -677,7 +677,7 @@
     "tags": [
       "frontend",
       "javascript",
-      "react"
+      "reactjs"
     ],
     "channels": [
       {
@@ -839,9 +839,9 @@
     "description": "Feel free to ask me any question, big or small!",
     "country": "US",
     "tags": [
-      "react",
+      "reactjs",
       "angular",
-      "node"
+      "nodejs"
     ],
     "channels": [
       {
@@ -943,7 +943,7 @@
       "microservices",
       "kubernetes",
       "C#",
-      "react"
+      "reactjs"
     ],
     "channels": [
       {
@@ -998,8 +998,8 @@
     "country": "US",
     "tags": [
       "javascript",
-      "react",
-      "node",
+      "reactjs",
+      "nodejs",
       "fp"
     ],
     "channels": [
@@ -1022,7 +1022,7 @@
     "country": "AT",
     "tags": [
       "javascript",
-      "react",
+      "reactjs",
       "nodejs",
       "css",
       "frontend"
@@ -1232,7 +1232,7 @@
     "country": "GB",
     "tags": [
       "javascript",
-      "react",
+      "reactjs",
       "nodeJS",
       "serverless",
       "fullstack"
@@ -1487,8 +1487,8 @@
     "country": "DE",
     "tags": [
       "javascript",
-      "react",
-      "react-native",
+      "reactjs",
+      "react native",
       "nodejs",
       "graphql"
     ],
@@ -1654,7 +1654,7 @@
       "html",
       "css",
       "javascript",
-      "react",
+      "reactjs",
       "redux"
     ],
     "channels": [
@@ -1706,7 +1706,7 @@
     "country": "DE",
     "tags": [
       "Angular",
-      "Node",
+      "nodejs",
       "WebAssembly"
     ],
     "channels": [
@@ -1754,7 +1754,7 @@
     "avatar": "https://avatars3.githubusercontent.com/u/11775608?s=460&v=4",
     "title": "Interaction Developer",
     "description": "JavaScript wrangler and div slinger. Front end, UX and tinkering with stuff.",
-    "country": "AN",
+    "country": "NL",
     "tags": [
       "JavaScript",
       "HTML",
@@ -1865,9 +1865,9 @@
     "tags": [
       "laravel",
       "vue",
-      "react",
+      "reactjs",
       "graphql",
-      "node"
+      "nodejs"
     ],
     "channels": [
       {
@@ -1958,6 +1958,305 @@
       {
         "type": "email",
         "id": "glenn.versweyveld@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "nothanks@email.com",
+    "name": "Erik Aybar",
+    "avatar": "https://pbs.twimg.com/profile_images/950028607606452226/o7rPOIoB_400x400.jpg",
+    "title": "Software Engineer (Frontend)",
+    "description": "8+ years focused mostly on Javascript/React. Happy to connect and help 😀",
+    "country": "US",
+    "tags": [
+      "Javascript",
+      "ReactJs",
+      "React Native",
+      "Remote Work",
+      "Frontend"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "erikaybar"
+      },
+      {
+        "type": "twitter",
+        "id": "erikaybar_"
+      }
+    ]
+  },
+  {
+    "id": "hello@peterberkenbosch.nl",
+    "name": "Peter Berkenbosch",
+    "avatar": "https://avatars1.githubusercontent.com/u/4252?s=460&v=4",
+    "title": "Independent Contractor",
+    "description": "OpenSource e-Commerce veteran working with Spree and Solidus",
+    "country": "NL",
+    "tags": [
+      "ruby",
+      "rails",
+      "spree",
+      "solidus"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@peterberkenbosch.nl"
+      },
+      {
+        "type": "linkedin",
+        "id": "peterberkenbosch"
+      },
+      {
+        "type": "twitter",
+        "id": "pberkenbosch"
+      }
+    ]
+  },
+  {
+    "id": "l.roettig@techdivision.com",
+    "name": "Lars Roettig",
+    "avatar": "https://secure.gravatar.com/avatar/7a9f9cde77cf47b315f59ed3ac5df12d",
+    "title": "PHP Developer ",
+    "description": "Maintainer Community Engineering Team @magento",
+    "country": "DE",
+    "tags": [
+      "php",
+      "magento",
+      "architecture",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "l.roettig@techdivision.com"
+      },
+      {
+        "type": "twitter",
+        "id": "larsroettig"
+      }
+    ]
+  },
+  {
+    "id": "mike.eling97@gmail.com",
+    "name": "Mike Eling",
+    "avatar": "https://pbs.twimg.com/profile_images/1099148291789545472/cazquMnr_400x400.jpg",
+    "title": "Front-End Developer",
+    "description": "Just converting pizza into code and trying not to overflow! Ready to help! 💖",
+    "country": "PL",
+    "tags": [
+      "JavaScript",
+      "C#",
+      "Lua",
+      "reactjs",
+      "NodeJS"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mike.eling97@gmail.com"
+      },
+      {
+        "type": "facebook",
+        "id": "drfrost420"
+      },
+      {
+        "type": "twitter",
+        "id": "DRFR0ST"
+      }
+    ]
+  },
+  {
+    "id": "vardhan.bhaskar@gmail.com",
+    "name": "Bhaskar Gyan Vardhan",
+    "avatar": "https://avatars3.githubusercontent.com/u/10504808?s=460&v=4",
+    "title": "Technical Lead @ Walmart Labs",
+    "description": "UI guy with 7 years of Experience. Happy to help :)",
+    "country": "IN",
+    "tags": [
+      "Javascript",
+      "reactjs",
+      "Html",
+      "Css",
+      "FrontEnd"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vardhan.bhaskar@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "bhaskar-gyan-vardhan"
+      },
+      {
+        "type": "twitter",
+        "id": "anotherJsGuy"
+      }
+    ]
+  },
+  {
+    "id": "stephan@hayman.io",
+    "name": "Stephan van Stekelenburg",
+    "avatar": "https://avatars1.githubusercontent.com/u/375631?s=460&v=4",
+    "title": "Software Architect",
+    "description": "All round nice guy :-) 10+ years of experience in building things",
+    "country": "NL",
+    "tags": [
+      "C#",
+      "Microservices",
+      "Architecture",
+      "Cloud",
+      "Scalability"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "stephan@hayman.io"
+      },
+      {
+        "type": "linkedin",
+        "id": "stephanvanstekelenburg"
+      },
+      {
+        "type": "twitter",
+        "id": "Stephanvs"
+      }
+    ]
+  },
+  {
+    "id": "mahmoud.hesham.hussien@gmail.com",
+    "name": "Mahmoud Hesham",
+    "avatar": "https://pbs.twimg.com/profile_images/678695543380537344/wKCGBoJQ_400x400.jpg",
+    "title": "Android Engineer",
+    "description": "Hola, need help or learn android stuff, talk to me :) ",
+    "country": "EG",
+    "tags": [
+      "android",
+      "Kotlin",
+      "Java",
+      "nodejs",
+      "mobile"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "U6D37Q15H"
+      },
+      {
+        "type": "linkedin",
+        "id": "mahmoud-hesham-421b3270"
+      },
+      {
+        "type": "twitter",
+        "id": "mfeshesmkda"
+      }
+    ]
+  },
+  {
+    "id": "reach.kkarthik@gmail.com",
+    "name": "Karthik Kalyan",
+    "avatar": "https://pbs.twimg.com/profile_images/1052412131449155586/X8xh7k-6_400x400.jpg",
+    "title": "Software Developer",
+    "description": "",
+    "country": "CA",
+    "tags": [
+      "JS",
+      "reactjs",
+      "Java",
+      "C++",
+      "Python"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "reach.kkarthik@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "karthikkalyanaraman"
+      }
+    ]
+  },
+  {
+    "id": "3sanket3@gmail.com",
+    "name": "Sanket Patel",
+    "avatar": "https://avatars1.githubusercontent.com/u/2539943",
+    "title": "Fullstack Developer",
+    "description": "Let's learn and grow together...",
+    "country": "IN",
+    "tags": [
+      "reactjs",
+      "firebase",
+      ".net",
+      "angular",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "3sanket3@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "3sanket3"
+      }
+    ]
+  },
+  {
+    "id": "mus.radi85@gmail.com",
+    "name": "Radi Mustafa",
+    "avatar": "https://avatars1.githubusercontent.com/u/25413382?s=400&u=5e1424b93b87e4e7014afa95c6f123be864bae52&v=4",
+    "title": "Backend Developer",
+    "description": "Self-taught, career switch (civil engineer), I love Python specially Django.",
+    "country": "DE",
+    "tags": [
+      "python",
+      "django",
+      "rest"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mus.radi85@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "radi-mustafa-32939a3b"
+      },
+      {
+        "type": "twitter",
+        "id": "RadiMustafa2"
+      }
+    ]
+  },
+  {
+    "id": "ngohungphuc95@gmail.com",
+    "name": "Ngô Hùng Phúc",
+    "avatar": "https://media.licdn.com/dms/image/C5603AQG5w2tKUSPQ-Q/profile-displayphoto-shrink_200_200/0?e=1558569600&v=beta&t=Qr91t-JkFuT6nWjqZefzTIigTxyVQe_-8zu1NyBYkrk",
+    "title": "Senior Fullstack Software Engineer",
+    "description": "I'm specialize in Net Core, MeanJs, Angular, React, Auto Test, Devops, Mobile",
+    "country": "VN",
+    "tags": [
+      "ASP.Net Core",
+      "Angular",
+      "reactjs",
+      "Mean Stack, PWA",
+      "DevOps"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ngohungphuc95@gmail.com"
+      },
+      {
+        "type": "linkedin",
+	      "id": "phuc-ngo-hung-tony-hudson-7b92a0107"
+      },
+      {
+        "type": "twitter",
+        "id": "ngohungphuc"
       }
     ]
   }

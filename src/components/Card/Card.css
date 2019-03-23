@@ -79,9 +79,8 @@
   padding: 5px 10px;
   margin: 0 2.5px 5px;
   line-height: 1;
-
-  /** Prevent text selection */
   user-select: none;
+  text-transform: lowercase;
 }
 
 .card .channels {
@@ -93,7 +92,9 @@
 
 .card .channels .channel-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  padding-bottom: 10px;
+
   align-items: flex-end;
   border-top: 1px solid #ccc;
   padding: 10px;
