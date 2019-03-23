@@ -2259,5 +2259,34 @@
         "id": "ngohungphuc"
       }
     ]
+  },
+  {
+    "id": "gmleonr@gmail.com",
+    "name": "Gustavo Leon",
+    "avatar": "https://avatars2.githubusercontent.com/u/611699",
+    "title": "Full Stack Web Developer",
+    "description": "Happy to help you with Ruby / JavaScript questions :)",
+    "country": "PE",
+    "tags": [
+      "ruby",
+      "rails",
+      "javascript",
+      "reactjs",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gmleonr@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UH8TA5P6J"
+      },
+      {
+        "type": "twitter",
+        "id": "hpneo"
+      }
+    ]
   }
 ]
