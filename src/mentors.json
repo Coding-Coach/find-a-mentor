@@ -2288,5 +2288,34 @@
         "id": "hpneo"
       }
     ]
+  },
+  {
+    "id": "joao@antunes.dev",
+    "name": "João Antunes",
+    "avatar": "https://avatars0.githubusercontent.com/u/3763454?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Mostly focused on the backend, but with a view of the whole stack.",
+    "country": "PT",
+    "tags": [
+      "dotnet",
+      "aspnet",
+      "c#",
+      "backend",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "joao@antunes.dev"
+      },
+      {
+        "type": "slack",
+        "id": "UGRHWJSUX"
+      },
+      {
+        "type": "twitter",
+        "id": "joaofbantunes"
+      }
+    ]
   }
 ]
