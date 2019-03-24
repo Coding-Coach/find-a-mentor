@@ -2155,35 +2155,6 @@
     ]
   },
   {
-    "id": "vugman.ofer@gmail.com",
-    "name": "Ofer Vugman",
-    "avatar": "https://avatars1.githubusercontent.com/u/11426508",
-    "title": "Frontend Arch. @ Lemonade Inc",
-    "description": "Hi! I'm a frontend developer, driven by awesome UI/UX. Happy to help!",
-    "country": "IL",
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs",
-      "redux",
-      "architecture"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "vugman.ofer@gmail.com"
-      },
-      {
-        "type": "slack",
-        "id": "UH66QMN21"
-      },
-      {
-        "type": "twitter",
-        "id": "ofer_vugman"
-      }
-    ]
-  },
-  {
     "id": "reach.kkarthik@gmail.com",
     "name": "Karthik Kalyan",
     "avatar": "https://pbs.twimg.com/profile_images/1052412131449155586/X8xh7k-6_400x400.jpg",
@@ -2397,6 +2368,35 @@
       {
         "type": "twitter",
         "id": "hellonavneet"
+      }
+    ]
+  },
+  {
+    "id": "vugman.ofer@gmail.com",
+    "name": "Ofer Vugman",
+    "avatar": "https://avatars1.githubusercontent.com/u/11426508",
+    "title": "Frontend Arch. @ Lemonade Inc",
+    "description": "Hi! I'm a frontend developer, driven by awesome UI/UX. Happy to help!",
+    "country": "IL",
+    "tags": [
+      "frontend",
+      "javascript",
+      "reactjs",
+      "redux",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vugman.ofer@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UH66QMN21"
+      },
+      {
+        "type": "twitter",
+        "id": "ofer_vugman"
       }
     ]
   }
