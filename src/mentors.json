@@ -2252,7 +2252,7 @@
       },
       {
         "type": "linkedin",
-	      "id": "phuc-ngo-hung-tony-hudson-7b92a0107"
+        "id": "phuc-ngo-hung-tony-hudson-7b92a0107"
       },
       {
         "type": "twitter",
@@ -2397,6 +2397,35 @@
       {
         "type": "twitter",
         "id": "ofer_vugman"
+      }
+    ]
+  },
+  {
+    "id": "healeycodes@gmail.com",
+    "name": "Andrew Healey",
+    "avatar": "https://healeycodes.github.io/assets/avatar-v1.jpg",
+    "title": "Software Engineer",
+    "description": "Hello! I'm Andrew. Happy to help out in any way I can.",
+    "country": "GB",
+    "tags": [
+      "javascript",
+      "python",
+      "nodejs",
+      "css",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "healeycodes@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UH83ZA0EN"
+      },
+      {
+        "type": "twitter",
+        "id": "healeycodes"
       }
     ]
   }
