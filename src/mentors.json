@@ -2372,6 +2372,35 @@
     ]
   },
   {
+    "id": "vugman.ofer@gmail.com",
+    "name": "Ofer Vugman",
+    "avatar": "https://avatars1.githubusercontent.com/u/11426508",
+    "title": "Frontend Arch. @ Lemonade Inc",
+    "description": "Hi! I'm a frontend developer, driven by awesome UI/UX. Happy to help!",
+    "country": "IL",
+    "tags": [
+      "frontend",
+      "javascript",
+      "reactjs",
+      "redux",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vugman.ofer@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UH66QMN21"
+      },
+      {
+        "type": "twitter",
+        "id": "ofer_vugman"
+      }
+    ]
+  },
+  {
     "id": "healeycodes@gmail.com",
     "name": "Andrew Healey",
     "avatar": "https://healeycodes.github.io/assets/avatar-v1.jpg",

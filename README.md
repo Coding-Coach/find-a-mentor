@@ -83,6 +83,8 @@ https://github.com/hjnilsson/country-flags/blob/master/countries.json
 | linkedin | userId                                                                                                                  |
 | facebook | userId                                                                                                                  |
 | twitter  | userId                                                                                                                  |
+| github   | userId                                                                                                                  |
+| website  | link to your personal website without https                                                                             |
 
 ## Want to contribute this project?
 
