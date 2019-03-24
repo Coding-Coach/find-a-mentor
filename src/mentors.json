@@ -2182,5 +2182,222 @@
         "id": "ofer_vugman"
       }
     ]
+  },
+  {
+    "id": "reach.kkarthik@gmail.com",
+    "name": "Karthik Kalyan",
+    "avatar": "https://pbs.twimg.com/profile_images/1052412131449155586/X8xh7k-6_400x400.jpg",
+    "title": "Software Developer",
+    "description": "",
+    "country": "CA",
+    "tags": [
+      "JS",
+      "reactjs",
+      "Java",
+      "C++",
+      "Python"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "reach.kkarthik@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "karthikkalyanaraman"
+      }
+    ]
+  },
+  {
+    "id": "3sanket3@gmail.com",
+    "name": "Sanket Patel",
+    "avatar": "https://avatars1.githubusercontent.com/u/2539943",
+    "title": "Fullstack Developer",
+    "description": "Let's learn and grow together...",
+    "country": "IN",
+    "tags": [
+      "reactjs",
+      "firebase",
+      ".net",
+      "angular",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "3sanket3@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "3sanket3"
+      }
+    ]
+  },
+  {
+    "id": "mus.radi85@gmail.com",
+    "name": "Radi Mustafa",
+    "avatar": "https://avatars1.githubusercontent.com/u/25413382?s=400&u=5e1424b93b87e4e7014afa95c6f123be864bae52&v=4",
+    "title": "Backend Developer",
+    "description": "Self-taught, career switch (civil engineer), I love Python specially Django.",
+    "country": "DE",
+    "tags": [
+      "python",
+      "django",
+      "rest"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mus.radi85@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "radi-mustafa-32939a3b"
+      },
+      {
+        "type": "twitter",
+        "id": "RadiMustafa2"
+      }
+    ]
+  },
+  {
+    "id": "ngohungphuc95@gmail.com",
+    "name": "Ngô Hùng Phúc",
+    "avatar": "https://media.licdn.com/dms/image/C5603AQG5w2tKUSPQ-Q/profile-displayphoto-shrink_200_200/0?e=1558569600&v=beta&t=Qr91t-JkFuT6nWjqZefzTIigTxyVQe_-8zu1NyBYkrk",
+    "title": "Senior Fullstack Software Engineer",
+    "description": "I'm specialize in Net Core, MeanJs, Angular, React, Auto Test, Devops, Mobile",
+    "country": "VN",
+    "tags": [
+      "ASP.Net Core",
+      "Angular",
+      "reactjs",
+      "Mean Stack, PWA",
+      "DevOps"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ngohungphuc95@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "phuc-ngo-hung-tony-hudson-7b92a0107"
+      },
+      {
+        "type": "twitter",
+        "id": "ngohungphuc"
+      }
+    ]
+  },
+  {
+    "id": "gmleonr@gmail.com",
+    "name": "Gustavo Leon",
+    "avatar": "https://avatars2.githubusercontent.com/u/611699",
+    "title": "Full Stack Web Developer",
+    "description": "Happy to help you with Ruby / JavaScript questions :)",
+    "country": "PE",
+    "tags": [
+      "ruby",
+      "rails",
+      "javascript",
+      "reactjs",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gmleonr@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UH8TA5P6J"
+      },
+      {
+        "type": "twitter",
+        "id": "hpneo"
+      }
+    ]
+  },
+  {
+    "id": "joao@antunes.dev",
+    "name": "João Antunes",
+    "avatar": "https://avatars0.githubusercontent.com/u/3763454?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Mostly focused on the backend, but with a view of the whole stack.",
+    "country": "PT",
+    "tags": [
+      "dotnet",
+      "aspnet",
+      "c#",
+      "backend",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "joao@antunes.dev"
+      },
+      {
+        "type": "slack",
+        "id": "UGRHWJSUX"
+      },
+      {
+        "type": "twitter",
+        "id": "joaofbantunes"
+      }
+    ]
+  },
+  {
+    "id": "mfahlandt@pixel-haufen.de",
+    "name": "Mario Fahlandt",
+    "avatar": "https://avatars0.githubusercontent.com/u/5739844?s=400&u=5e1424b93b87e4e7014afa95c6f123be864bae52&v=4",
+    "title": "Software Architect",
+    "description": "Frontend, Backend, Infrastructure who loves community work. Oh and Bee keeping!",
+    "country": "DE",
+    "tags": [
+      "kubernetes",
+      "docker",
+      "devOps",
+      "nodeJs",
+      "cloud"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mfahlandt@pixel-haufen.de"
+      },
+      {
+        "type": "linkedin",
+        "id": "mario-fahlandt-80085386"
+      },
+      {
+        "type": "twitter",
+        "id": "mfahlandt"
+      }
+    ]
+  },
+  {
+    "id": "navneetg-mentor@outlook.com",
+    "name": "Navneet Gupta",
+    "avatar": "https://secure.meetupstatic.com/photos/member/9/c/6/5/member_264400037.jpeg",
+    "title": "Full stack developer",
+    "description": "I am Navneet, and I will be glad to help.",
+    "country": "US",
+    "tags": [
+      "reactjs",
+      "redux",
+      "C#",
+      "SQL Server"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "navneetg-mentor@outlook.com"
+      },
+      {
+        "type": "twitter",
+        "id": "hellonavneet"
+      }
+    ]
   }
 ]
