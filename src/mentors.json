@@ -2428,5 +2428,34 @@
         "id": "healeycodes"
       }
     ]
+  },
+  {
+    "id": "raffaele.pizzari@gmail.com",
+    "name": "Raffaele Pizzari",
+    "avatar": "https://raffaelepizzari.com/_nuxt/img/6e66349.jpg",
+    "title": "Front-End - JavaScript Dev",
+    "description": "Sharing knowledge enriches everyone.",
+    "country": "DE",
+    "tags": [
+      "JavaScript",
+      "FrontEnd",
+      "NodeJs",
+      "VueJs",
+      "Jest"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "pixari"
+      },
+      {
+        "type": "github",
+        "id": "pixari"
+      },
+      {
+        "type": "website",
+        "id": "www.raffaelepizzari.com"
+      }
+    ]
   }
 ]
