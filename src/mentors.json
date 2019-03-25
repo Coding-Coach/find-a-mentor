@@ -2428,5 +2428,34 @@
         "id": "healeycodes"
       }
     ]
+  },
+  {
+    "id": "mentor@jcpretorius.com",
+    "name": "Jacob Pretorius",
+    "avatar": "https://jcpretorius.com/share/jcp.jpg",
+    "title": "Full Stack .NET Developer",
+    "description": "Let's make something cool, I'm here to help.",
+    "country": "ZA",
+    "tags": [
+      ".net",
+      "fullstack",
+      "dotnet core",
+      "cloud",
+      "design"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "jacob_pretorius"
+      },
+      {
+        "type": "linkedin",
+        "id": "jacobpretorius"
+      },
+      {
+        "type": "email",
+        "id": "mentor@jcpretorius.com"
+      }
+    ]
   }
 ]
