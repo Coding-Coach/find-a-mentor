@@ -1780,10 +1780,11 @@
   {
     "id": "dimitri.ivashchuk@gmail.com",
     "name": "Dimitri",
-    "avatar": "https://res.cloudinary.com/dg7puxsai/image/upload/v1552986418/IMG_2759.heic",
+    "avatar": "https://res.cloudinary.com/dg7puxsai/image/upload/v1553242942/avatar.jpg",
     "title": "Frontend engineer",
     "description": "Hey! I would be happy to help you on your coding journey!",
     "country": "UA",
+
     "tags": [
       "javascript",
       "reactjs",
@@ -1800,6 +1801,7 @@
         "id": "divdev_"
       }
     ]
+
   },
   {
     "id": "shadow.codex01@gmail.com",
