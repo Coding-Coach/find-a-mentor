@@ -1425,11 +1425,21 @@
   {
     "id": "dimitri.ivashchuk@gmail.com",
     "name": "Dimitri",
-    "avatar": "https://res.cloudinary.com/dg7puxsai/image/upload/v1552986418/IMG_2759.heic",
+    "avatar": "https://res.cloudinary.com/dg7puxsai/image/upload/v1553242942/avatar.jpg",
     "title": "Frontend engineer",
     "description": "Hey! I would be happy to help you on your coding journey!",
     "country": "UA",
+<<<<<<< add-adekoya-damola-as-mentor
     "tags": ["javascript", "reactjs", "gatsby", "frontend"],
+=======
+
+    "tags": [
+      "javascript",
+      "reactjs",
+      "gatsby",
+      "frontend"
+    ],
+>>>>>>> master
     "channels": [
       {
         "type": "email",
@@ -1440,6 +1450,7 @@
         "id": "divdev_"
       }
     ]
+
   },
   {
     "id": "shadow.codex01@gmail.com",
@@ -1944,20 +1955,14 @@
       }
     ]
   },
-  {
+{
     "id": "adekoyafelix@gmail.com",
     "name": "Adekoya Damola",
     "avatar": "https://avatars3.githubusercontent.com/u/4117817?s=460&v=4",
     "title": "Software Engineer",
     "description": "Hello! I'm a Software Engineer, I will be glad to help you anytime",
     "country": "NG",
-    "tags": [
-      "javascript",
-      "php",
-      "css",
-      "C#",
-      "fullstack"
-    ],
+    "tags": ["php","css","C#","fullstack","javascript"],
     "channels": [
       {
         "type": "email",
@@ -1968,5 +1973,4 @@
         "id": "iamdammak"
       }
     ]
-  }
-]
+}
