@@ -2482,5 +2482,82 @@
         "id": "codeanit.com"
       }
     ]
+  },
+  {
+    "id": "raffaele.pizzari@gmail.com",
+    "name": "Raffaele Pizzari",
+    "avatar": "https://raffaelepizzari.com/_nuxt/img/6e66349.jpg",
+    "title": "Front-End - JavaScript Dev",
+    "description": "Sharing knowledge enriches everyone.",
+    "country": "DE",
+    "tags": [
+      "JavaScript",
+      "FrontEnd",
+      "NodeJs",
+      "VueJs",
+      "Jest"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "pixari"
+      },
+      {
+        "type": "github",
+        "id": "pixari"
+      },
+      {
+        "type": "website",
+        "id": "www.raffaelepizzari.com"
+      }
+    ]
+  },
+  {
+    "id": "vincent.desmares@gmail.com",
+    "name": "Vincent Desmares",
+    "avatar": "https://trello-attachments.s3.amazonaws.com/5b1f817feea80730d03e65c7/5b21313551871bf563cc51d2/5b6f62c2c848cb7fbe52de8e149efeee/Vincent.JPG",
+    "title": "CTO @teamstarter",
+    "description": "As much in love with UX/UI as programming.",
+    "country": "FR",
+    "tags": [
+      "Javascript",
+      "ReactJS",
+      "NodeJs",
+      "UX",
+      "UI"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vincent.desmares@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "vincentdesmares"
+      },
+      {
+        "type": "twitter",
+        "id": "cold_lestat"
+      }
+    ]
+  },
+  {
+    "id": "adekoyafelix@gmail.com",
+    "name": "Adekoya Damola",
+    "avatar": "https://avatars3.githubusercontent.com/u/4117817?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Hello! I'm a Software Engineer, I will be glad to help you anytime",
+    "country": "NG",
+    "tags": ["php","css","C#","fullstack","javascript"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "adekoyafelix@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "iamdammak"
+      }
+    ]
   }
 ]
