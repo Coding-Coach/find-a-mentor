@@ -18,6 +18,14 @@ const providers = {
   twitter: {
     icon: 'twitter',
     url: 'https://twitter.com/{id}'
+  },
+  github: {
+    icon: 'github',
+    url: 'https://github.com/{id}'
+  },
+  website: {
+    icon: 'globe',
+    url: 'https://{id}'
   }
 }
 
