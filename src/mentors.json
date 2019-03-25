@@ -1784,7 +1784,6 @@
     "title": "Frontend engineer",
     "description": "Hey! I would be happy to help you on your coding journey!",
     "country": "UA",
-
     "tags": [
       "javascript",
       "reactjs",
@@ -1801,7 +1800,6 @@
         "id": "divdev_"
       }
     ]
-
   },
   {
     "id": "shadow.codex01@gmail.com",
@@ -2457,6 +2455,31 @@
       {
         "type": "email",
         "id": "mentor@jcpretorius.com"
+      }
+    ]
+  },
+  {
+    "id": "codeanit@gmail.com",
+    "name": "Anit Shrestha Manandhar",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQEP4kkGw5yqoQ/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=sAr3N9thstf2mfkEWC1RB0V9WjvYzoE2mm_lc6-0dPo",
+    "title": "Software Engineer",
+    "description": "humble polyglot agile devops mindset backend focused fullstack software engineer",
+    "country": "NP",
+    "tags": [
+      "lead full stack developer",
+      "senior backend software development engineer",
+      "technical lead software developer",
+      "lead C# JAVA PHP Javascript programmer",
+      "principle software development engineer"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "codeanit@gmail.com"
+      },
+      {
+        "type": "website",
+        "id": "codeanit.com"
       }
     ]
   }
