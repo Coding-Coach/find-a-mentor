@@ -1784,6 +1784,7 @@
     "title": "Frontend engineer",
     "description": "Hey! I would be happy to help you on your coding journey!",
     "country": "UA",
+
     "tags": [
       "javascript",
       "reactjs",
@@ -1800,6 +1801,7 @@
         "id": "divdev_"
       }
     ]
+
   },
   {
     "id": "shadow.codex01@gmail.com",
@@ -2459,31 +2461,6 @@
     ]
   },
   {
-    "id": "codeanit@gmail.com",
-    "name": "Anit Shrestha Manandhar",
-    "avatar": "https://media.licdn.com/dms/image/C4D03AQEP4kkGw5yqoQ/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=sAr3N9thstf2mfkEWC1RB0V9WjvYzoE2mm_lc6-0dPo",
-    "title": "Full Stack Software Development Engineer",
-    "description": "#heretohelp Let us get the basics right and design think together.",
-    "country": "NP",
-    "tags": [
-      "c#",
-      "java",
-      "php",
-      "nodejs",
-      "backend"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "codeanit@gmail.com"
-      },
-      {
-        "type": "website",
-        "id": "codeanit.com"
-      }
-    ]
-  },
-  {
     "id": "raffaele.pizzari@gmail.com",
     "name": "Raffaele Pizzari",
     "avatar": "https://raffaelepizzari.com/_nuxt/img/6e66349.jpg",
@@ -2557,6 +2534,31 @@
       {
         "type": "twitter",
         "id": "iamdammak"
+      }
+    ]
+  },
+  {
+    "id": "codeanit@gmail.com",
+    "name": "Anit Shrestha Manandhar",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQEP4kkGw5yqoQ/profile-displayphoto-shrink_200_200/0?e=1559174400&v=beta&t=sAr3N9thstf2mfkEWC1RB0V9WjvYzoE2mm_lc6-0dPo",
+    "title": "Full Stack Software Development Engineer",
+    "description": "#heretohelp Let us get the basics right and design think together.",
+    "country": "NP",
+    "tags": [
+      "c#",
+      "java",
+      "php",
+      "nodejs",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "codeanit@gmail.com"
+      },
+      {
+        "type": "website",
+        "id": "codeanit.com"
       }
     ]
   }
