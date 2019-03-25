@@ -2488,5 +2488,34 @@
         "id": "www.raffaelepizzari.com"
       }
     ]
+  },
+  {
+    "id": "vincent.desmares@gmail.com",
+    "name": "Vincent Desmares",
+    "avatar": "https://trello-attachments.s3.amazonaws.com/5b1f817feea80730d03e65c7/5b21313551871bf563cc51d2/5b6f62c2c848cb7fbe52de8e149efeee/Vincent.JPG",
+    "title": "CTO @teamstarter",
+    "description": "As much in love with UX/UI as programming.",
+    "country": "FR",
+    "tags": [
+      "Javascript",
+      "ReactJS",
+      "NodeJs",
+      "UX",
+      "UI"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vincent.desmares@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "vincentdesmares"
+      },
+      {
+        "type": "twitter",
+        "id": "cold_lestat"
+      }
+    ]
   }
 ]
