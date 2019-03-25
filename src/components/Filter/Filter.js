@@ -45,7 +45,7 @@ export default class Filter extends Component {
     return (
       <aside aria-labelledby="filter">
         <h3 id="filter">
-          Filter
+          Filter <span id="mentorCount">{this.props.mentorCount} Mentors</span>
           <button className="toggle-filter" onClick={this.onToggleFilter}>
             <i className={classNames(['fa fa-angle-down', {'show-filters': showFilters}])} />
           </button>
