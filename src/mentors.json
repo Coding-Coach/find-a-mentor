@@ -2429,4 +2429,32 @@
       }
     ]
   }
+
+  {
+    "id": "adekoyafelix@gmail.com",
+    "name": "Adekoya Damola",
+    "avatar": "https://avatars3.githubusercontent.com/u/4117817?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Hello! I'm a Software Engineer, I will be glad to help you anytime",
+    "country": "NG",
+    "tags": [
+      "javascript",
+      "php",
+      "nodejs",
+      "css",
+      "C#",
+      "fullstack",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "adekoyafelix@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "iamdammak"
+      }
+    ]
+  }
 ]
