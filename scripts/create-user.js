@@ -89,7 +89,7 @@ const questionCountry = {
   type: 'list',
   name: 'country',
   message: 'Please add your country:',
-  choices: Object.values(countries),
+  choices: Object.values(countries).sort()
 };
 
 function validateTags(value) {
