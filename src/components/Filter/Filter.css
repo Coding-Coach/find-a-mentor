@@ -1,3 +1,9 @@
+#mentorCount {
+  font-size: 0.65em;
+  padding-left: 0.5em;
+  font-weight: 400;
+}
+
 #filter {
   background-color: rgba(105, 213, 177, 0.3);
   color: #4a4a4a;
@@ -14,7 +20,7 @@
 }
 
 .toggle-filter i {
-  transition: transform .15s ease;
+  transition: transform 0.15s ease;
 }
 
 .toggle-filter i.show-filters {
@@ -27,15 +33,12 @@
     left: 0;
     width: 100%;
   }
+  .filter-wrapper {
+    order: 2;
+  }
 }
 
 @media all and (min-width: 577px) {
-  aside {
-    position: fixed;
-    left: 0;
-    width: var(--filter-width);
-  }
-
   .toggle-filter {
     display: none;
   }

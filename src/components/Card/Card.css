@@ -50,12 +50,12 @@
 .card .name {
   color: #4a4a4a;
   font-size: 20px;
-  margin: 5px 0 2px;
+  margin: 0 0 5px;
 }
 
 .card .title {
   color: #999;
-  margin-bottom: 5px;
+  margin: 0 0 5px;
 }
 
 .card .description {
@@ -92,11 +92,9 @@
 
 .card .channels .channel-inner {
   display: flex;
-  justify-content: space-around;
-  padding-bottom: 10px;
-
-  align-items: flex-end;
+  justify-content: space-between;
   border-top: 1px solid #ccc;
+  align-items: center;
   padding: 10px;
 }
 
@@ -106,7 +104,7 @@
 }
 
 .card .channels a .icon {
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
   transform-origin: 50%;
 }
 
@@ -116,6 +114,20 @@
 
 .card .channels a .type::first-letter {
   text-transform: uppercase;
+}
+
+.card .channels a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card .channels .type {
+  margin: 5px 0px;
+}
+
+.channel-label {
+  text-decoration: none;
 }
 
 .card .like-button {

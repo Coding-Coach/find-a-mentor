@@ -125,7 +125,7 @@ const mentorSchema = {
           "properties": {
             "type": {
               "type": "string",
-              "enum": ["slack", "email", "linkedin", "facebook", "twitter"]
+              "enum": ["slack", "email", "linkedin", "facebook", "twitter", "github", "website"]
             }
           },
           "required": ["type", "id"]
@@ -136,7 +136,7 @@ const mentorSchema = {
   }
 }
 
-it('should mentors shema be valid', () => {
+it('should mentors schema be valid', () => {
   const valid = ajv.validate(mentorSchema, mentors);
   const errorMessage = (ajv.errors || []).map(error => {
     try {

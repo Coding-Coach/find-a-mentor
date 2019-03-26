@@ -3,7 +3,7 @@ import React from "react";
 import "./SocialLinks.css";
 
 const SocialLinks = () => (
-  <nav aria-label="Social Media">
+  <nav aria-label="Social Media" className="social-wrapper">
     <a
       href="https://github.com/Coding-Coach/find-a-mentor"
       className="social-link"
