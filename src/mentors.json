@@ -1784,7 +1784,6 @@
     "title": "Frontend engineer",
     "description": "Hey! I would be happy to help you on your coding journey!",
     "country": "UA",
-
     "tags": [
       "javascript",
       "reactjs",
@@ -1801,7 +1800,6 @@
         "id": "divdev_"
       }
     ]
-
   },
   {
     "id": "shadow.codex01@gmail.com",
@@ -2177,7 +2175,7 @@
       },
       {
         "type": "linkedin",
-      	"id": "karthikkalyanaraman"
+        "id": "karthikkalyanaraman"
       }
     ]
   },
@@ -2525,7 +2523,13 @@
     "title": "Software Engineer",
     "description": "Hello! I'm a Software Engineer, I will be glad to help you anytime",
     "country": "NG",
-    "tags": ["php","css","C#","fullstack","javascript"],
+    "tags": [
+      "php",
+      "css",
+      "C#",
+      "fullstack",
+      "javascript"
+    ],
     "channels": [
       {
         "type": "email",
@@ -2559,6 +2563,35 @@
       {
         "type": "website",
         "id": "codeanit.com"
+      }
+    ]
+  },
+  {
+    "id": "ben@benmallinson.me",
+    "name": "Ben Mallinson",
+    "avatar": "https://i.imgur.com/O1wzV5d.jpg",
+    "title": "Full Stack Web Developer",
+    "description": "I love building things with code and helping people learn.",
+    "country": "GB",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "php",
+      "laravel",
+      "testing"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ben@benmallinson.me"
+      },
+      {
+        "type": "twitter",
+        "id": "mallinsonben"
+      },
+      {
+        "type": "github",
+        "id": "benmallinson"
       }
     ]
   }
