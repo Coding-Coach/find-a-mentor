@@ -89,7 +89,7 @@ const questionCountry = {
   type: 'list',
   name: 'country',
   message: 'Please add your country:',
-  choices: Object.values(countries),
+  choices: Object.values(countries).sort()
 };
 
 function validateTags(value) {
@@ -135,6 +135,12 @@ const questionChannels = {
     },
     {
       name: 'Twitter'
+    },
+    {
+      name: 'Github'
+    },
+    {
+      name: 'Website'
     }
   ],
   validate: validateChannels
@@ -171,6 +177,18 @@ const questionByChannel = {
     name: 'Twitter',
     message: 'Please add your Twitter user id:',
     when: (answers) => answers.channels.find((channel) => channel === 'Twitter')
+  },
+  github: {
+    type: 'input',
+    name: 'Github',
+    message: 'Please add your Github user id:',
+    when: (answers) => answers.channels.find((channel) => channel === 'Github')
+  },
+  website: {
+    type: 'input',
+    name: 'Website',
+    message: 'Please add link to your personal website without https',
+    when: (answers) => answers.channels.find((channel) => channel === 'Website')
   }
 }
 
@@ -187,7 +205,9 @@ const questions = [
   questionByChannel.slack,
   questionByChannel.linkedin,
   questionByChannel.facebook,
-  questionByChannel.twitter
+  questionByChannel.twitter,
+  questionByChannel.github,
+  questionByChannel.website
 ];
 
 function getCountryCodeByName(country) {
@@ -195,7 +215,7 @@ function getCountryCodeByName(country) {
 }
 
 function convertAnswersToSchema(answers) {
-  const choices = ['Email', 'Slack', 'Linkedin', 'Facebook', 'Twitter'];
+  const choices = ['Email', 'Slack', 'Linkedin', 'Facebook', 'Twitter', 'Github', 'Website'];
   for (let answer in answers) {
     if (answer === 'tags') {
       answers[answer] = answers[answer].split(',').map(t => t.trim());

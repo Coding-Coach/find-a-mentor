@@ -1,15 +1,16 @@
 .mentors-wrapper {
-  padding-right: 10px;
-  padding-left: 10px;
-  flex-grow: 1;
+  padding-bottom: 30px;
 }
 
 @media all and (max-width: 576px) {
+  main {
+    flex-direction: column;
+  }
   .mentors-wrapper {
     position: relative;
     background: #fff;
     transform: translateY(0);
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
   }
 
   .mentors-wrapper.active {
@@ -22,6 +23,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  overflow: auto;
+  margin-top: 30px;
 }
 
 .nothing-to-show {
