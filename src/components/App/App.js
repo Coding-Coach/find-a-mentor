@@ -63,14 +63,13 @@ class App extends Component {
               <Logo width={110} height={50} color="#68d5b1" />
             </a>
             <Filter
-              onTagSelected={this.handleTagSelect}
-              onCountrySelected={this.handleCountrySelect}
-              onNameSelected={this.handleNameSelect}
-              onToggleFilter={this.toggleFields}
-            />
+            onTagSelected={this.handleTagSelect}
+            onCountrySelected={this.handleCountrySelect}
+            onNameSelected={this.handleNameSelect}
+            onToggleFilter={this.toggleFields}
+            mentorCount={mentorsInList.length} />
             <SocialLinks />
           </aside>
-
           <MentorsList
             className={classNames({
               active: fieldsIsActive

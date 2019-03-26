@@ -45,7 +45,7 @@ export default class Filter extends Component {
     return (
       <section aria-labelledby="filter" className="filter-wrapper">
         <h3 id="filter">
-          Filter
+          Filter <span id="mentorCount">{this.props.mentorCount} Mentors</span>
           <button className="toggle-filter" onClick={this.onToggleFilter}>
             <i
               className={classNames([
