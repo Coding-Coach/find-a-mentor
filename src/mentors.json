@@ -2594,5 +2594,34 @@
         "id": "benmallinson"
       }
     ]
+  },
+  {
+    "id": "hello@im5tu.io",
+    "name": "Stuart Blackler",
+    "avatar": "https://avatars1.githubusercontent.com/u/20248180?s=460&v=4",
+    "title": "Lead .Net Engineer/Architect",
+    "description": "Let's build/learn something cool together",
+    "country": "GB",
+    "tags": [
+      "dotnet",
+      "azure",
+      "architecture",
+      "software-design",
+      "best-practices"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@im5tu.io"
+      },
+      {
+        "type": "twitter",
+        "id": "im5tu"
+      },
+      {
+        "type": "github",
+        "id": "im5tu"
+      }
+    ]
   }
 ]
