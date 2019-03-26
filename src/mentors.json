@@ -2252,11 +2252,98 @@
       },
       {
         "type": "linkedin",
-	      "id": "phuc-ngo-hung-tony-hudson-7b92a0107"
+        "id": "phuc-ngo-hung-tony-hudson-7b92a0107"
       },
       {
         "type": "twitter",
         "id": "ngohungphuc"
+      }
+    ]
+  },
+  {
+    "id": "love2dishtech@gmail.com",
+    "name": "Love Hasija",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQF1iT_qHEbrRQ/profile-displayphoto-shrink_100_100/0?e=1559174400&v=beta&t=Hx8PEQA_3EM-b_0pHEN-_tq09Bkjo13cEWJKCZNpgjw",
+    "title": "Full Stack Engineer, Architect",
+    "description": "A full stack engineer with a decade of experience. Excited to help!",
+    "country": "IN",
+    "tags": [
+      "cloud",
+      "architecture",
+      "microservices",
+      "functional",
+      "scalability"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "love2dishtech@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "lovehasija"
+      },
+      {
+        "type": "twitter",
+        "id": "@LoveHasija"
+      }
+    ]
+  },
+  {
+    "id": "love2dishtech@gmail.com",
+    "name": "Love Hasija",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQF1iT_qHEbrRQ/profile-displayphoto-shrink_100_100/0?e=1559174400&v=beta&t=Hx8PEQA_3EM-b_0pHEN-_tq09Bkjo13cEWJKCZNpgjw",
+    "title": "Full Stack Engineer, Architect",
+    "description": "A Full Stack Engineer, Architect with 10+ yrs of exp. Happy to help!",
+    "country": "IN",
+    "tags": [
+      "fp",
+      "architecture",
+      "scalable",
+      "cloud",
+      "microservices"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "love2dishtech@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "lovehasija"
+      },
+      {
+        "type": "twitter",
+        "id": "@LoveHasija"
+      }
+    ]
+  },
+  {
+    "id": "love2dishtech@gmail.com",
+    "name": "Love Hasija",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQF1iT_qHEbrRQ/profile-displayphoto-shrink_100_100/0?e=1559174400&v=beta&t=Hx8PEQA_3EM-b_0pHEN-_tq09Bkjo13cEWJKCZNpgjw",
+    "title": "Full Stack Engineer, Architect",
+    "description": "A Full Stack Engineer, Architect with 10+ yrs of exp. Excited to help!",
+    "country": "IN",
+    "tags": [
+      "functional",
+      "scalability",
+      "microservices",
+      "cloud",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "love2dishtech@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "lovehasija"
+      },
+      {
+        "type": "twitter",
+        "id": "@LoveHasija"
       }
     ]
   }
