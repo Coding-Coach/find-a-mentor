@@ -2594,5 +2594,34 @@
         "id": "benmallinson"
       }
     ]
+  },
+  {
+    "id": "alxnder.kozlov@gmail.com",
+    "name": "Oleksandr Kozlov",
+    "avatar": "https://avatars3.githubusercontent.com/u/17703730?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Let's do interesting stuff together.",
+    "country": "UA",
+    "tags": [
+      "javascript",
+      "algorithms",
+      "web",
+      "python",
+      "programming"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alxnder.kozlov@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "oleksandr-kozlov-a1388a109"
+      },
+      {
+        "type": "github",
+        "id": "xilaraux"
+      }
+    ]
   }
 ]
