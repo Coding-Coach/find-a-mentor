@@ -1,10 +1,5 @@
 .social-link {
   margin: 0px 10px;
-  transition: opacity 255ms ease;
-}
-
-.social-link:hover {
-  opacity: .8;
 }
 
 @media all and (max-width: 576px) {
