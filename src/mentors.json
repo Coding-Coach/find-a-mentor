@@ -2652,5 +2652,34 @@
         "id": "im5tu"
       }
     ]
+  },
+  {
+    "id": "love2dishtech@gmail.com",
+    "name": "Love Hasija",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQF1iT_qHEbrRQ/profile-displayphoto-shrink_100_100/0?e=1559174400&v=beta&t=Hx8PEQA_3EM-b_0pHEN-_tq09Bkjo13cEWJKCZNpgjw",
+    "title": "Full Stack Engineer, Architect",
+    "description": "A full stack engineer with a decade of experience. Excited to help!",
+    "country": "IN",
+    "tags": [
+      "cloud",
+      "architecture",
+      "microservices",
+      "functional",
+      "scalability"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "love2dishtech@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "lovehasija"
+      },
+      {
+        "type": "twitter",
+        "id": "@LoveHasija"
+      }
+    ]
   }
 ]
