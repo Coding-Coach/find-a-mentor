@@ -1,5 +1,15 @@
 body {
   font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+}
+
+main {
+  display: flex;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
 }
 
 .app {
@@ -14,10 +24,11 @@ body {
   align-items: center;
 }
 
-.main-header .logo {
+.logo {
   display: flex;
   color: #a1a1a1;
   justify-content: space-between;
+  margin: 30px 30px;
 }
 
 .main-header h1 {
@@ -46,24 +57,9 @@ footer a:hover {
   text-decoration: underline;
 }
 
-@media all and (min-width: 577px) {
-  main {
-    padding-left: var(--filter-width);
-  }
-}
-
 @media all and (max-width: 576px) {
-  .main-header {
-    padding: 10px;
-  }
-
-  .main-header .logo svg {
-    width: 100px;
-    height: 58.333333333333336px;
-  }
-
-  .main-header nav svg {
-    width: 15px;
-    height: 15px;
+  .logo {
+    display: flex;
+    justify-content: center;
   }
 }
