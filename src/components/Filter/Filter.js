@@ -55,7 +55,7 @@ export default class Filter extends Component {
             />
           </button>
         </h3>
-        <div className="inputs">
+        <div className="inputs" aria-expanded={showFilters}>
           <Input id="language" label="Language or technology" key="language">
             <AutoComplete source={tags} onSelect={this.onTagSelect} />
           </Input>
