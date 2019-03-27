@@ -2710,5 +2710,34 @@
         "id": "_gmaiolo"
       }
     ]
+  },
+  {
+    "id": "alejonanez@gmail.com",
+    "name": "Alejandro Nanez",
+    "avatar": "https://www.dropbox.com/s/65pwdm2xh9gv928/profile.jpg",
+    "title": "Frontend engineer",
+    "description": "Frontend engineer, co-organizing React Medellin. Happy to help!",
+    "country": "CO",
+    "tags": [
+      "Javascript",
+      "Frontend",
+      "ReactJS",
+      "CSS",
+      "Redux"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "https://www.linkedin.com/in/alejandronanez/"
+      },
+      {
+        "type": "twitter",
+        "id": "https://www.twitter.com/alejandronanez"
+      },
+      {
+        "type": "github",
+        "id": "https://github.com/alejandronanez"
+      }
+    ]
   }
 ]
