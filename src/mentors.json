@@ -2681,5 +2681,34 @@
         "id": "@LoveHasija"
       }
     ]
+  },
+  {
+    "id": "guille.maiolo@gmail.com",
+    "name": "Guillermo Maiolo",
+    "avatar": "https://i.imgur.com/XS1EYdm.jpg",
+    "title": "Senior Software Developer",
+    "description": "I enjoy solving problems and writing software that does that.",
+    "country": "AR",
+    "tags": [
+      "javascript",
+      "vuejs",
+      "reactjs",
+      "nodejs",
+      "mongodb"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UH8A18MBJ"
+      },
+      {
+        "type": "linkedin",
+        "id": "guillermo-maiolo-a7a354a3"
+      },
+      {
+        "type": "twitter",
+        "id": "_gmaiolo"
+      }
+    ]
   }
 ]
