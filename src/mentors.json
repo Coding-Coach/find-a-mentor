@@ -2745,14 +2745,14 @@
     "name": "Jose Tobar",
     "avatar": "https://pbs.twimg.com/profile_images/1071576424794865664/r2rp7mRr_400x400.jpg",
     "title": "Full Stack Web Developer",
-    "description": "I've been into web dev for about 6 months. I am about t",
+    "description": "Full-Stack Web Dev currently attending bootcamp. I love JS!",
     "country": "US",
     "tags": [
-      "React",
+      "reactjs",
       "Redux",
       "Vue",
       "HTML & CSS",
-      "Node"
+      "nodejs"
     ],
     "channels": [
       {
@@ -2761,11 +2761,11 @@
       },
       {
         "type": "linkedin",
-        "id": "https://www.linkedin.com/in/josectobar/"
+        "id": "josectobar"
       },
       {
         "type": "twitter",
-        "id": "https://twitter.com/josectobar"
+        "id": "josectobar"
       }
     ]
   }
