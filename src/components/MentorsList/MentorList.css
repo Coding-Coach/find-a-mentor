@@ -19,7 +19,7 @@
     padding-bottom: 30px;
     margin-left: 276px;
   }
-  .mentors-wrapper>.mentors-cards {
+  .mentors-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
