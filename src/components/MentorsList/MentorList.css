@@ -14,7 +14,7 @@
   }
 }
 
-@media all and (min-width: 580px) {
+@media all and (min-width: 576px) {
   .mentors-wrapper {
     padding-bottom: 30px;
     margin-left: 276px;
