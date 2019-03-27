@@ -2739,5 +2739,34 @@
         "id": "alejandronanez"
       }
     ]
+  },
+  {
+    "id": "suprnova32@gmail.com",
+    "name": "Patricio Cano",
+    "avatar": "https://www.amazon.com/clouddrive/share/TwFSP4wXH1W2gtnv0oGPGWU4jgFk106dyt83u2g6AtW",
+    "title": "Senior Software Engineer",
+    "description": "I can help you with Software Design, Elixir, Ruby, and Rails.",
+    "country": "MX",
+    "tags": [
+      "Elixir",
+      "Ruby",
+      "Rails",
+      "Backend Development",
+      "PostgreSQL"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "suprnova32@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "suprnova32"
+      },
+      {
+        "type": "github",
+        "id": "supernova32"
+      }
+    ]
   }
 ]
