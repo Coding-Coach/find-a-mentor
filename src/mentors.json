@@ -2887,8 +2887,9 @@
     "description": "Coding since '03. Architecture. Fullstack. Problem solving.",
     "country": "SE",
     "tags": [
-      "software design",
-      "full stack",
+      "architecture",
+      "software-design",
+      "fullstack",
       "javascript",
       "database"
     ],
