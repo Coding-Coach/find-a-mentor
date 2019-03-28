@@ -2907,5 +2907,28 @@
         "id": "siowyisheng"
       }
     ]
+  },
+  {
+    "id": "tlakomy90@gmail.com",
+    "name": "Tomasz Łakomy",
+    "avatar": "https://i.imgur.com/YLCsW1b.jpg",
+    "title": "Senior Frontend Engineer",
+    "description": "Coding since 2012, always happy to help",
+    "country": "PL",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "jquery"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "tlakomy90@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "tlakomy"
+      }
+    ]
   }
 ]
