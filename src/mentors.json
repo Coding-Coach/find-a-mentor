@@ -2959,5 +2959,34 @@
         "id": "manojchandrashekar"
       }
     ]
+  },
+  {
+    "id": "josectobar@gmail.com",
+    "name": "Jose Tobar",
+    "avatar": "https://pbs.twimg.com/profile_images/1071576424794865664/r2rp7mRr_400x400.jpg",
+    "title": "Full Stack Web Developer",
+    "description": "Full-Stack Web Dev currently attending bootcamp. I love JS!",
+    "country": "US",
+    "tags": [
+      "reactjs",
+      "redux",
+      "vue",
+      "express",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UF212HBGF"
+      },
+      {
+        "type": "linkedin",
+        "id": "josectobar"
+      },
+      {
+        "type": "twitter",
+        "id": "josectobar"
+      }
+    ]
   }
 ]
