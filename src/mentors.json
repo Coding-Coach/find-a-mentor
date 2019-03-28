@@ -2877,9 +2877,9 @@
         "type": "github",
         "id": "jim-at-jibba"
       }
-    ]
-  },
-  {
+      ]
+    },
+    {
     "id": "siowyisheng@gmail.com",
     "name": "Yi Sheng Siow",
     "avatar": "https://lh3.googleusercontent.com/NHbGSz-R6myiq1kL-I8Y9EBRguthY9wrOGXu9WpYNfdWQbFPnMdBGG-RJFNZXX2SaEtKD18XcrWwQnCl8C0-45IMg2fZQeI2F1p8VgSybEZkzy2-Yi8gEjjCF0F9R9W0ByXhICrc1acB6Iq1SBO4cQ8mfXCCnNoooHj52CqfN39f_apdL6PM0C-2fG1I-BinFkw3Q-NETUGQ73Nlhgsw7PmsEwWUGH6C-TDiFvoP2yzXjk4rsnYBAt2thL4ogIWCl9rFqgln65Rmmb3mcHRFwoPqMEdHBxwKlzLkmWO9QXf6G8_fZ0r792ra_vmB5AKzqSagGPwBf0IbU1q6fHVZCtc6DbaXvzRTAJswrlRJKSDjJOrwUd_noWfZtKHIA6iWG0i0wwahDmz39hy9PiqO2IO30IUpElbPEFdU7FxkNUVH8KEtgClbwf-OuU3xJWsiXFjESj24jFB21Uu2Ig3KAqsC3gevPvKXKHojlmsLQwvy2LSWLyITyIUm9xzXOolQBAg1GhlHXhYnCQfwH-l0i6p_LsVYU3CVit3xNjxB8sVlExGcu260NftI2JSQhaXS65k6azWueCdvxgT6dpN5vkmGZOrOcexCZ1EV4L_MpBRBjV_WEWkIE7TXyFCYXmrzlmh7d0AzFN3Om_UH_zYo5rn3CCu_4XDA5WdrIev1FDiE3JPvA5qKJ1lVQiGL-IW-DTfuN6EiIoP-V4y-D9Df6JAq9g=s1426-no",
@@ -3015,6 +3015,92 @@
       {
         "type": "github",
         "id": "Sense"
+      }
+    ]
+  },
+  {
+    "id": "rexagod@gmail.com",
+    "name": "Pranshu Srivastava",
+    "avatar": "https://pbs.twimg.com/profile_images/1012749917733847040/BMvkekuT_400x400.jpg",
+    "title": "Fullstack Developer",
+    "description": "Eloquent JS is my jam!",
+    "country": "IN",
+    "tags": [
+      "JavaScript",
+      "ReactJS",
+      "NodeJS",
+      "Linux",
+      "FP"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rexagod@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rexagod"
+      },
+      {
+        "type": "website",
+        "id": "overreacted.now.sh"
+      }
+    ]
+  },
+  {
+    "id": "fa_gattal@esi.dz",
+    "name": "Abderraouf GATTAL",
+    "avatar": "https://avatars3.githubusercontent.com/Gattalraouf",
+    "title": "Software Engineering Student",
+    "description": "It's a fact that you have to start to be great, so why not start together.",
+    "country": "DZ",
+    "tags": [
+      "Android",
+      "Java",
+      "Kotlin",
+      "Reactjs"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UGW5R7371"
+      },
+      {
+        "type": "twitter",
+        "id": "GattalRaouf"
+      },
+      {
+        "type": "github",
+        "id": "GattalRaouf"
+      }
+    ]
+  },
+  {
+    "id": "saudtauqeer381@gmail.com",
+    "name": "Saud Tauqeer",
+    "avatar": "https://avatars3.githubusercontent.com/u/42393962?s=400&u=45c46df26fb13a3b154c5edc55a23be6fc13b25f&v=4",
+    "title": "Full-stack JavaScript developer",
+    "description": "Full-stack developer. I love React and Nodejs. Feel free to reach me!",
+    "country": "PK",
+    "tags": [
+      "Nodejs",
+      "Reactjs",
+      "MongoDB",
+      "GraphQL",
+      "Socket.io"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "saud-tauqeer"
+      },
+      {
+        "type": "twitter",
+        "id": "Saud_Tauqeer"
+      },
+      {
+        "type": "website",
+        "id": "saud-resume.netlify.com"
       }
     ]
   },
