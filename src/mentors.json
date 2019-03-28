@@ -2930,5 +2930,34 @@
         "id": "tlakomy"
       }
     ]
+  },
+  {
+    "id": "me@manoj.be",
+    "name": "Manoj Chandrashekar",
+    "avatar": "https://avatars0.githubusercontent.com/u/16372445",
+    "title": "Technical Architect",
+    "description": "Coding since '03. Architecture. Fullstack. Problem solving.",
+    "country": "SE",
+    "tags": [
+      "architecture",
+      "software-design",
+      "fullstack",
+      "javascript",
+      "database"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "_ManojC"
+      },
+      {
+        "type": "github",
+        "id": "manojchandrashekar"
+      },
+      {
+        "type": "linkedin",
+        "id": "manojchandrashekar"
+      }
+    ]
   }
 ]
