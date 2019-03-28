@@ -2889,7 +2889,7 @@
     "tags": [
       "python",
       "reactjs",
-      "full stack",
+      "fullstack",
       "webscraping",
       "data"
     ],
@@ -2986,6 +2986,35 @@
       {
         "type": "twitter",
         "id": "josectobar"
+      }
+    ]
+  },
+  {
+    "id": "jv.quilichini@gmail.com",
+    "name": "Jean-Vincent QUILICHINI",
+    "avatar": "https://cloudinary-a.akamaihd.net/hopwork/image/upload/h_360,w_360,c_thumb,g_face,z_0.4,q_auto,dpr_2.0/inxdc4oivbgexiyo7u4r.png",
+    "title": "Senior Fullstack Developer",
+    "description": "Hello 👋 ! Always here & happy to help 🤗",
+    "country": "EU",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "vuejs",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "jeanvincentquilichini"
+      },
+      {
+        "type": "twitter",
+        "id": "jvq_txt"
+      },
+      {
+        "type": "github",
+        "id": "Sense"
       }
     ]
   }
