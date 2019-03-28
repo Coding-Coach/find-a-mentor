@@ -2758,7 +2758,7 @@
         "type": "email",
         "id": "subhro.techinfo@gmail.com"
       },
-    {
+      {
         "type": "twitter",
         "id": "Subhro_techinfo"
       },
@@ -2793,6 +2793,31 @@
       {
         "type": "github",
         "id": "rbluethl"
+      }
+    ]
+  },
+  {
+    "id": "jonnygaten@gmail.com",
+    "name": "Jonny Gatenby",
+    "avatar": "https://avatars0.githubusercontent.com/u/3418483?s=460&v=4",
+    "title": "Senior Front End Developer",
+    "description": "Senior Developer, here to help!",
+    "country": "GB",
+    "tags": [
+      "php",
+      "frontend",
+      "javascript",
+      "html",
+      "css"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "jlgatenby"
+      },
+      {
+        "type": "email",
+        "id": "jonnygaten@gmail.com"
       }
     ]
   }
