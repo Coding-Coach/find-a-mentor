@@ -62,14 +62,14 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 #### synonyms tags
 
-| Use          | Don't use     |
-|--------------|---------------|
-| nodejs       | node, node.js |
-| reactjs      | react         |
-| react native | react-native  |
-| c#           | csharp        |
-| frontend     | front end     |
-| express      | expressjs     |
+| Use          | Don't use       |
+|--------------|-----------------|
+| nodejs       | node, node.js   |
+| reactjs      | react, react.js |
+| react native | react-native    |
+| c#           | csharp          |
+| frontend     | front end       |
+| express      | expressjs       |
 
 #### Country codes
 
