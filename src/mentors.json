@@ -2878,5 +2878,34 @@
         "id": "siowyisheng"
       }
     ]
+  },
+  {
+    "id": "saudtauqeer381@gmail.com",
+    "name": "Saud Tauqeer",
+    "avatar": "https://avatars3.githubusercontent.com/u/42393962?s=400&u=45c46df26fb13a3b154c5edc55a23be6fc13b25f&v=4",
+    "title": "Full-stack JavaScript developer",
+    "description": "Full-stack developer. I love React and Nodejs. Feel free to reach me!",
+    "country": "PK",
+    "tags": [
+      "Nodejs",
+      "React",
+      "MongoDB",
+      "GraphQL",
+      "Socket.io"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "https://www.linkedin.com/in/saud-tauqeer"
+      },
+      {
+        "type": "twitter",
+        "id": "https://twitter.com/@Saud_Tauqeer"
+      },
+      {
+        "type": "website",
+        "id": "saud-resume.netlify.com"
+      }
+    ]
   }
 ]
