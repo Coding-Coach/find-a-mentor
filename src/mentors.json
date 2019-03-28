@@ -2995,7 +2995,7 @@
     "avatar": "https://cloudinary-a.akamaihd.net/hopwork/image/upload/h_360,w_360,c_thumb,g_face,z_0.4,q_auto,dpr_2.0/inxdc4oivbgexiyo7u4r.png",
     "title": "Senior Fullstack Developer",
     "description": "Hello 👋 ! Always here & happy to help 🤗",
-    "country": "EU",
+    "country": "FR",
     "tags": [
       "javascript",
       "nodejs",
@@ -3015,6 +3015,120 @@
       {
         "type": "github",
         "id": "Sense"
+      }
+    ]
+  },
+  {
+    "id": "rexagod@gmail.com",
+    "name": "Pranshu Srivastava",
+    "avatar": "https://pbs.twimg.com/profile_images/1012749917733847040/BMvkekuT_400x400.jpg",
+    "title": "Fullstack Developer",
+    "description": "Eloquent JS is my jam!",
+    "country": "IN",
+    "tags": [
+      "JavaScript",
+      "ReactJS",
+      "NodeJS",
+      "Linux",
+      "FP"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rexagod@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rexagod"
+      },
+      {
+        "type": "website",
+        "id": "overreacted.now.sh"
+      }
+    ]
+  },
+  {
+    "id": "fa_gattal@esi.dz",
+    "name": "Abderraouf GATTAL",
+    "avatar": "https://avatars3.githubusercontent.com/Gattalraouf",
+    "title": "Software Engineering Student",
+    "description": "It's a fact that you have to start to be great, so why not start together.",
+    "country": "DZ",
+    "tags": [
+      "Android",
+      "Java",
+      "Kotlin",
+      "Reactjs"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UGW5R7371"
+      },
+      {
+        "type": "twitter",
+        "id": "GattalRaouf"
+      },
+      {
+        "type": "github",
+        "id": "GattalRaouf"
+      }
+    ]
+  },
+  {
+    "id": "saudtauqeer381@gmail.com",
+    "name": "Saud Tauqeer",
+    "avatar": "https://avatars3.githubusercontent.com/u/42393962?s=400&u=45c46df26fb13a3b154c5edc55a23be6fc13b25f&v=4",
+    "title": "Full-stack JavaScript developer",
+    "description": "Full-stack developer. I love React and Nodejs. Feel free to reach me!",
+    "country": "PK",
+    "tags": [
+      "Nodejs",
+      "Reactjs",
+      "MongoDB",
+      "GraphQL",
+      "Socket.io"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "saud-tauqeer"
+      },
+      {
+        "type": "twitter",
+        "id": "Saud_Tauqeer"
+      },
+      {
+        "type": "website",
+        "id": "saud-resume.netlify.com"
+      }
+    ]
+  },
+  {
+    "id": "ivanaveliskova@gmail.com",
+    "name": "Ivana Veliskova",
+    "avatar": "https://www.ivanaveliskova.com/images/Ivana_avatar.jpg",
+    "title": "Front End Software Engineer",
+    "description": "I work in CSS and React and really love all the quirks of JavaScript!",
+    "country": "US",
+    "tags": [
+      "JavaScript",
+      "ReactJS",
+      "CSS",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ivanaveliskova@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UHETEAB0E"
+      },
+      {
+        "type": "twitter",
+        "id": "ivanaveliskova"
       }
     ]
   },
