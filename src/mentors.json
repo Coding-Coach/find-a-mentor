@@ -2849,5 +2849,34 @@
         "id": "supernova32"
       }
     ]
+  },
+  {
+    "id": "jim@justjibba.net",
+    "name": "James Best",
+    "avatar": "https://avatars1.githubusercontent.com/u/7897877?v=4",
+    "title": "Full Stack Software Engineer",
+    "description": "I can help you with React, React Native, Node, AWS, Typescript, Graphql",
+    "country": "GB",
+    "tags": [
+      "reactjs",
+      "typescript",
+      "nodejs",
+      "react native",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "jimgbest"
+      },
+      {
+        "type": "email",
+        "id": "jim@justjibba.net"
+      },
+      {
+        "type": "github",
+        "id": "jim-at-jibba"
+      }
+    ]
   }
 ]
