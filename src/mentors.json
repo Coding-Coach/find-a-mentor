@@ -2849,5 +2849,34 @@
         "id": "supernova32"
       }
     ]
+  },
+  {
+    "id": "siowyisheng@gmail.com",
+    "name": "Yi Sheng Siow",
+    "avatar": "https://lh3.googleusercontent.com/NHbGSz-R6myiq1kL-I8Y9EBRguthY9wrOGXu9WpYNfdWQbFPnMdBGG-RJFNZXX2SaEtKD18XcrWwQnCl8C0-45IMg2fZQeI2F1p8VgSybEZkzy2-Yi8gEjjCF0F9R9W0ByXhICrc1acB6Iq1SBO4cQ8mfXCCnNoooHj52CqfN39f_apdL6PM0C-2fG1I-BinFkw3Q-NETUGQ73Nlhgsw7PmsEwWUGH6C-TDiFvoP2yzXjk4rsnYBAt2thL4ogIWCl9rFqgln65Rmmb3mcHRFwoPqMEdHBxwKlzLkmWO9QXf6G8_fZ0r792ra_vmB5AKzqSagGPwBf0IbU1q6fHVZCtc6DbaXvzRTAJswrlRJKSDjJOrwUd_noWfZtKHIA6iWG0i0wwahDmz39hy9PiqO2IO30IUpElbPEFdU7FxkNUVH8KEtgClbwf-OuU3xJWsiXFjESj24jFB21Uu2Ig3KAqsC3gevPvKXKHojlmsLQwvy2LSWLyITyIUm9xzXOolQBAg1GhlHXhYnCQfwH-l0i6p_LsVYU3CVit3xNjxB8sVlExGcu260NftI2JSQhaXS65k6azWueCdvxgT6dpN5vkmGZOrOcexCZ1EV4L_MpBRBjV_WEWkIE7TXyFCYXmrzlmh7d0AzFN3Om_UH_zYo5rn3CCu_4XDA5WdrIev1FDiE3JPvA5qKJ1lVQiGL-IW-DTfuN6EiIoP-V4y-D9Df6JAq9g=s1426-no",
+    "title": "Full Stack Pythonista Data Guy",
+    "description": "Second Career Developer working with Data and Web.",
+    "country": "SG",
+    "tags": [
+      "python",
+      "reactjs",
+      "full stack",
+      "webscraping",
+      "data"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "siowyisheng@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "siowyisheng"
+      },
+      {
+        "type": "github",
+        "id": "siowyisheng"
+      }
+    ]
   }
 ]
