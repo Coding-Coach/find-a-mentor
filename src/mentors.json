@@ -2971,7 +2971,7 @@
       "reactjs",
       "redux",
       "vue",
-      "expressjs",
+      "express",
       "nodejs"
     ],
     "channels": [
