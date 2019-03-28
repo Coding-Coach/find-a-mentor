@@ -2849,5 +2849,34 @@
         "id": "supernova32"
       }
     ]
+  },
+  {
+    "id": "halitguvenilir@gmail.com",
+    "name": "Halit Güvenilir",
+    "avatar": "https://avatars.githubusercontent.com/halitguvenilir",
+    "title": "Front end Developer",
+    "description": "Feel free to ask me any question, big or small!",
+    "country": "TR",
+    "tags": [
+      "Html",
+      "Css",
+      "Javascript",
+      "VueJs",
+      "NodeJs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "halitguvenilir@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "halitguvenilir"
+      },
+      {
+        "type": "twitter",
+        "id": "halitguvenilir"
+      }
+    ]
   }
 ]
