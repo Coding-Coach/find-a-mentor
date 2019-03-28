@@ -69,6 +69,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 | react native | react-native  |
 | c#           | csharp        |
 | frontend     | front end     |
+| express      | expressjs     |
 
 #### Country codes
 
@@ -143,4 +144,4 @@ Members who violate this code of conduct will be approached by someone of the Co
 
 If someone makes you or anyone else feel unsafe or unwelcome, please report it as soon as possible. To report an incident of harassment, anonymously or otherwise, please fill out our [report form](https://forms.gle/bcSWqNNcsdo3zDD17).
 
-Our primary goal is to support you. We will listen to you and then help you determine a course of action based on the situation. While harassment may not always result in that member being expelled from the group, depending on the type and severity of harassment. We want to make sure you have all the support you need no matter what that entails, including whether to stay anonymous or not. Whatever decision you make, our priority is your safety. 
+Our primary goal is to support you. We will listen to you and then help you determine a course of action based on the situation. While harassment may not always result in that member being expelled from the group, depending on the type and severity of harassment. We want to make sure you have all the support you need no matter what that entails, including whether to stay anonymous or not. Whatever decision you make, our priority is your safety.

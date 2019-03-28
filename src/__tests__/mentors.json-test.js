@@ -23,7 +23,8 @@ const synonymsTags = {
   'react': 'reactjs',
   'react-native': 'react native',
   'csharp': 'c#',
-  'front end': 'frontend'
+  'front end': 'frontend',
+  'expressjs': 'express',
 }
 
 const validateSynonymsTags = function (schema, tag) {
