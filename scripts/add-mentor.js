@@ -114,10 +114,10 @@ async function addToMentorsList(mentor) {
     await gitFunctions.branchProcess(answers);
     await gitFunctions.commitProcess(answers);
     await gitFunctions.pushProcess(answers);
-    console.log('\nMentor added.Please now create a PR for finish the process. Thanks!');
+    console.log('\nMentor added. Please create a PR to finish the process of adding a new mentor. Thanks!');
   } catch (error) {
     console.log('\x1b[31m%s\x1b[0m', error.message);
-    console.log('\x1b[36m%s\x1b[0m','If you know what is the issue about please open an Issue or Pull Request.\nYou still can use the manual process for being added as mentor');
+    console.log('\x1b[36m%s\x1b[0m','If you know what this issue is about please open an Issue or Pull Request.\nHowever, you can also use the manual process to add yourself as a mentor');
     process.exit();
   }
 })()
