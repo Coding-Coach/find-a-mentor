@@ -70,6 +70,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 | c#           | csharp          |
 | frontend     | front end       |
 | express      | expressjs       |
+| fullstack    | full stack      |
 
 #### Country codes
 

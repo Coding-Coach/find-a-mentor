@@ -25,6 +25,7 @@ const synonymsTags = {
   'csharp': 'c#',
   'front end': 'frontend',
   'expressjs': 'express',
+  'full stack': 'fullstack',
 }
 
 const validateSynonymsTags = function (schema, tag) {
