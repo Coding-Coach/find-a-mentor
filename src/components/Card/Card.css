@@ -1,7 +1,6 @@
 .card {
   --avatar-offset: 54px;
   --avatar-dim: 108px;
-
   display: flex;
   flex-direction: column;
   width: 280px;
@@ -135,7 +134,13 @@
   cursor: pointer;
 }
 
-.card .like-button .liked,
-.card .like-button:hover i {
+.card .liked, .card .like-button:hover i {
   color: #db2828;
+}
+
+@media all and (max-width: 575.98px) {
+  .card {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
