@@ -3103,5 +3103,33 @@
         "id": "saud-resume.netlify.com"
       }
     ]
+  },
+  {
+    "id": "ivanaveliskova@gmail.com",
+    "name": "Ivana Veliskova",
+    "avatar": "https://www.ivanaveliskova.com/images/Ivana_avatar.jpg",
+    "title": "Front End Software Engineer",
+    "description": "I work in CSS and React and really love all the quirks of JavaScript!",
+    "country": "US",
+    "tags": [
+      "JavaScript",
+      "ReactJS",
+      "CSS",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ivanaveliskova@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UHETEAB0E"
+      },
+      {
+        "type": "twitter",
+        "id": "ivanaveliskova"
+      }
+    ]
   }
 ]
