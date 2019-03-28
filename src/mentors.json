@@ -2878,5 +2878,33 @@
         "id": "siowyisheng"
       }
     ]
+  },
+  {
+    "id": "fa_gattal@esi.dz",
+    "name": "Abderraouf GATTAL",
+    "avatar": "https://avatars3.githubusercontent.com/Gattalraouf",
+    "title": "Software Engineering Student",
+    "description": "It's a fact that you have to start to be great, so why not start together.",
+    "country": "DZ",
+    "tags": [
+      "Android",
+      "Java",
+      "Kotlin",
+      "Reactjs"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UGW5R7371"
+      },
+      {
+        "type": "twitter",
+        "id": "3298365856"
+      },
+      {
+        "type": "github",
+        "id": "17548761"
+      }
+    ]
   }
 ]
