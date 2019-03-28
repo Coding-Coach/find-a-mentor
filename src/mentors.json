@@ -3160,5 +3160,34 @@
         "id": "overreacted.now.sh"
       }
     ]
+  },
+  {
+    "id": "sainathbanuru96@gmail.com",
+    "name": "sainath",
+    "avatar": "https://i.ibb.co/7KG4Rfq/profile.jpg",
+    "title": "Software Developer",
+    "description": "Mobile App Developer (React Native)",
+    "country": "IN",
+    "tags": [
+      "JavaScript",
+      "Reactjs",
+      "React Native",
+      "HTML",
+      "CSS"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sainathbanuru96@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "sainath-banuru-036b34b2"
+      },
+      {
+        "type": "github",
+        "id": "spyD1803"
+      }
+    ]
   }
 ]
