@@ -52,6 +52,26 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
+const Info = ({mentor}) => {
+
+  // Don't show the description if it's not provided.
+  const description = mentor.description ? <p className="description">"{mentor.description}"</p> : <React.Fragment />;
+
+  return (
+    <React.Fragment>
+      <h1 className="name" id={`${mentor.name}-name`}>
+        {mentor.name}
+      </h1>
+      <h4 className="title">{mentor.title}</h4>
+      {description}
+      <div className="tags">{tagsList(mentor.tags)}</div>
+      <div className="channels">
+        <div className="channel-inner">{channelsList(mentor.channels)}</div>
+      </div>
+    </React.Fragment>
+  )
+};
+
 const Card = ({ mentor, onFavMentor, isFav }) => {
   const toggleFav = () => {
     isFav = !isFav;
@@ -67,15 +87,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
         alt={countries[mentor.country]}
       />
       <Avatar mentor={mentor} />
-      <h1 className="name" id={`${mentor.name}-name`}>
-        {mentor.name}
-      </h1>
-      <h4 className="title">{mentor.title}</h4>
-      <p className="description">"{mentor.description}"</p>
-      <div className="tags">{tagsList(mentor.tags)}</div>
-      <div className="channels">
-        <div className="channel-inner">{channelsList(mentor.channels)}</div>
-      </div>
+      <Info mentor={mentor} />
     </div>
   );
 };

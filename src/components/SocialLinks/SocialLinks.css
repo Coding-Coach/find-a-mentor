@@ -2,6 +2,14 @@
   margin: 0px 10px;
 }
 
+.social-link svg path {
+  transition: fill 255ms ease;
+}
+
+.social-link:hover svg path {
+  fill: #65d6af;
+}
+
 .social-wrapper {
   align-self: center;
   margin-top: 30px;

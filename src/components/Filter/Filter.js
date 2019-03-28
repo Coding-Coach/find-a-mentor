@@ -55,7 +55,7 @@ export default class Filter extends Component {
       <section aria-labelledby="filter" className="filter-wrapper">
         <h3 id="filter">
           Filter <span id="mentorCount">{this.props.mentorCount} Mentors</span>
-          <button className="toggle-filter" onClick={this.onToggleFilter}>
+          <button className="toggle-filter" onClick={this.onToggleFilter} aria-label="Toggle filter">
             <i
               className={classNames([
                 "fa fa-angle-down",
@@ -64,7 +64,7 @@ export default class Filter extends Component {
             />
           </button>
         </h3>
-        <div className="inputs">
+        <div className="inputs" aria-expanded={showFilters}>
           <Input id="language" label="Language or technology" key="language">
             <AutoComplete source={tags} onSelect={this.onTagSelect} />
           </Input>
