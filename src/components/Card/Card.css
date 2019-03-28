@@ -43,6 +43,7 @@
   display: block;
   position: relative;
   border-radius: 50%;
+  object-fit: cover;
   width: var(--avatar-dim);
   height: var(--avatar-dim);
 }
