@@ -2767,5 +2767,33 @@
         "id": "subhrotechinfo"
       }
     ]
+  },
+  {
+    "id": "rbluethl@gmail.com",
+    "name": "Ronald Blüthl",
+    "avatar": "https://avatars0.githubusercontent.com/u/4116236?s=460&v=4",
+    "title": "Software Development Engineer",
+    "description": "Software architecture, clean code, web technologies. Ask me anything.",
+    "country": "AT",
+    "tags": [
+      "javascript",
+      "frontend",
+      "c#",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rbluethl@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rbluethl"
+      },
+      {
+        "type": "github",
+        "id": "rbluethl"
+      }
+    ]
   }
 ]
