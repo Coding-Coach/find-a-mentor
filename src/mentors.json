@@ -2714,7 +2714,7 @@
   {
     "id": "alejonanez@gmail.com",
     "name": "Alejandro Nanez",
-    "avatar": "https://www.dropbox.com/s/65pwdm2xh9gv928/profile.jpg",
+    "avatar": "https://avatars1.githubusercontent.com/u/464978?s=460&v=4",
     "title": "Frontend engineer",
     "description": "Frontend engineer, co-organizing React Medellin. Happy to help!",
     "country": "CO",
@@ -2737,6 +2737,87 @@
       {
         "type": "github",
         "id": "alejandronanez"
+      }
+    ]
+  },
+  {
+    "id": "subhro.techinfo@gmail.com",
+    "name": "Subhro Chatterjee",
+    "avatar": "https://s.gravatar.com/avatar/2b6f312a174bf24a2a887718125e1be7?s=80&r=g",
+    "title": "Mean Stack Developer",
+    "description": "Hello everyone, Subhro here , love coding & happy to help others!",
+    "country": "IN",
+    "tags": [
+      "java",
+      "angular",
+      "nodejs",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "subhro.techinfo@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "Subhro_techinfo"
+      },
+      {
+        "type": "linkedin",
+        "id": "subhrotechinfo"
+      }
+    ]
+  },
+  {
+    "id": "rbluethl@gmail.com",
+    "name": "Ronald Blüthl",
+    "avatar": "https://avatars0.githubusercontent.com/u/4116236?s=460&v=4",
+    "title": "Software Development Engineer",
+    "description": "Software architecture, clean code, web technologies. Ask me anything.",
+    "country": "AT",
+    "tags": [
+      "javascript",
+      "frontend",
+      "c#",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rbluethl@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rbluethl"
+      },
+      {
+        "type": "github",
+        "id": "rbluethl"
+      }
+    ]
+  },
+  {
+    "id": "jonnygaten@gmail.com",
+    "name": "Jonny Gatenby",
+    "avatar": "https://avatars0.githubusercontent.com/u/3418483?s=460&v=4",
+    "title": "Senior Front End Developer",
+    "description": "Senior Developer, here to help!",
+    "country": "GB",
+    "tags": [
+      "php",
+      "frontend",
+      "javascript",
+      "html",
+      "css"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "jlgatenby"
+      },
+      {
+        "type": "email",
+        "id": "jonnygaten@gmail.com"
       }
     ]
   },
