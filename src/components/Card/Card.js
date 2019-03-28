@@ -7,25 +7,22 @@ import countries from "svg-country-flags/countries.json";
 
 
 
-// Track Analytics Events on Mentors Page
-// Pass in Channel.type as variable
-
+// ========Track Analytics Events on Page =======
 function handleAnalytic(channelName) {
   console.log("I AM FIRING THIS FUNCTION")
   if (window && window.ga) {
     const { ga } = window
 
-      ga('send', 'event', {
-        eventCategory: 'Channel',
-        eventAction: 'click',
-        eventLabel: channelName,
-        transport: 'beacon'
+      ga('send', {
+          hitType: 'event',
+          eventCategory: 'Channel',
+          eventAction: 'click',
+          eventLabel: channelName,
+          transport: 'beacon'
       });
+
     }
   }
-
-
-
 
 
 const tagsList = tags =>
