@@ -2710,5 +2710,34 @@
         "id": "_gmaiolo"
       }
     ]
+  },
+  {
+    "id": "sainathbanuru96@gmail.com",
+    "name": "sainath",
+    "avatar": "https://drive.google.com/file/d/1msZYrGgj8s_tBbqy0P1aueU0NZGLVq7W/view?usp=sharing",
+    "title": "Software Developer",
+    "description": "",
+    "country": "IN",
+    "tags": [
+      "JavaScript",
+      "React.js",
+      "React Native",
+      "HTML",
+      "CSS"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sainathbanuru96@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "Sainath Banuru"
+      },
+      {
+        "type": "github",
+        "id": "spyD1803"
+      }
+    ]
   }
 ]
