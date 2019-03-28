@@ -1,8 +1,4 @@
-.mentors-wrapper {
-  padding-bottom: 30px;
-}
-
-@media all and (max-width: 576px) {
+@media all and (max-width: 575.98px) {
   main {
     flex-direction: column;
   }
@@ -12,19 +8,24 @@
     transform: translateY(0);
     transition: transform 0.3s ease;
   }
-
   .mentors-wrapper.active {
     transform: translateY(190px);
     margin-bottom: 50px;
   }
 }
 
-.mentors-wrapper > .mentors-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow: auto;
-  margin-top: 30px;
+@media all and (min-width: 576px) {
+  .mentors-wrapper {
+    padding-bottom: 30px;
+    margin-left: 276px;
+  }
+  .mentors-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-y: auto;
+    margin-top: 30px;
+  }
 }
 
 .nothing-to-show {
