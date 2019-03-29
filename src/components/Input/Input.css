@@ -1,0 +1,33 @@
+.label {
+  position: absolute;
+  top: -10px;
+  left: 25px;
+  background-color: #fff;
+  text-transform: uppercase;
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+.input-container {
+  position: relative;
+  margin-top: 20px;
+}
+
+.input {
+  width: 250px;
+  height: 40px;
+  background: none;
+  border: none;
+  border: 1px solid rgba(155, 155, 155, 0.5);
+  border-radius: 2px;
+  margin-left: var(--filter-input-offset);
+  padding-left: 10px;
+  color: var(--tag-color);
+}
+
+@media all and (max-width: 576px) {
+  .input {
+    width: calc(100% - var(--filter-input-offset) * 2);
+    font-size: 16px;
+  }
+}
