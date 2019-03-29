@@ -3217,5 +3217,34 @@
         "id": "s2b"
       }
     ]
+  },
+  {
+    "id": "swolf.dev@gmail.com",
+    "name": "Sascha Wolf",
+    "avatar": "https://www.gravatar.com/avatar/9095331a47468a6898495b05c49ee422?s=460",
+    "title": "DDD Fan // Fullstack Dev",
+    "description": "My heart beats for functional programming, DDD, TDD, automation and compassion",
+    "country": "DE",
+    "tags": [
+      "elixir",
+      "backend",
+      "FP",
+      "DDD",
+      "compassion"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UH5TP5E6M"
+      },
+      {
+        "type": "twitter",
+        "id": "wolf4earth"
+      },
+      {
+        "type": "website",
+        "id": "saschawolf.me"
+      }
+    ]
   }
 ]
