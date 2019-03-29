@@ -1,5 +1,6 @@
 import mentors from '../mentors.json';
 import Ajv from 'ajv';
+import { get as getPath } from 'object-path';
 import countries from 'svg-country-flags/countries.json';
 
 expect.extend({
@@ -143,8 +144,11 @@ it('should mentors schema be valid', () => {
   const valid = ajv.validate(mentorSchema, mentors);
   const errorMessage = (ajv.errors || []).map(error => {
     try {
-      const [, index, fieldName] = /\[(.*)\].(.*)/.exec(error.dataPath);
-      return `error with item #${index}'s field "${fieldName}". The error is: ${error.message}`;
+      const [, index, fieldName] = /\[(.*)\].(.*)/.exec(error.dataPath)
+      const mentor = mentors[index];
+      const fieldValue = getPath(mentor, fieldName.replace("[", ".").replace("]", ""));
+
+      return `error with mentor "${mentor.id}"'s (#${index}) field "${fieldName}"!\n  VALUE: ${fieldValue}\n  ERROR: ${error.message}`;;
     } catch (error) {
       return error.message;
     }
