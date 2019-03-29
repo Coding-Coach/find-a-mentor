@@ -44,7 +44,7 @@ class App extends Component {
       (!tag || mentor.tags.includes(tag)) &&
       (!country || mentor.country === country) &&
       (!name || mentor.name === name) && 
-      (!showFavorite || (showFavorite && favorites.indexOf(mentor.id) > -1))
+      (!showFavorite || (favorites.indexOf(mentor.id) > -1))
     );
   };
 
