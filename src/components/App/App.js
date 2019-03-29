@@ -9,10 +9,19 @@ import Logo from "../Logo";
 import SocialLinks from "../SocialLinks/SocialLinks";
 import shuffle from "lodash/shuffle";
 
+
+function downcaseTags(mentors) {
+  return mentors.map(mentor => {
+    mentor.tags = mentor.tags.map(tag => tag.toLowerCase())
+
+    return mentor
+  })
+}
+
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
-    mentors: shuffle(mentors)
+    mentors: shuffle(downcaseTags(mentors))
   };
 
   handleTagSelect = async ({ value: tag }) => {
