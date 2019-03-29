@@ -148,7 +148,11 @@ it('should mentors schema be valid', () => {
       const mentor = mentors[index];
       const fieldValue = getPath(mentor, fieldName.replace("[", ".").replace("]", ""));
 
-      return `error with mentor "${mentor.id}"'s (#${index}) field "${fieldName}"!\n  VALUE: ${fieldValue}\n  ERROR: ${error.message}`;;
+      return [
+        `error with mentor "${mentor.id}"'s (#${index}) field "${fieldName}"!`,
+        `  VALUE: ${fieldValue}`,
+        `  ERROR: ${error.message}`,
+      ].join('\n');
     } catch (error) {
       return error.message;
     }
