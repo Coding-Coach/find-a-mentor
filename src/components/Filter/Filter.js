@@ -15,8 +15,7 @@ export default class Filter extends Component {
     tag: "",
     country: "",
     name: "",
-    showFilters: false,
-    showFavs: false
+    showFilters: false
   };
 
   onTagSelect = tag => {
@@ -41,14 +40,8 @@ export default class Filter extends Component {
     this.props.onToggleFilter();
   };
 
-  onToggleSwitch = () => {
-    this.setState({
-      showFavs: !this.state.showFavs
-    });
-    this.props.onToggleSwitch(!this.state.showFavs);
-  };
-
   render() {
+    const { onToggleSwitch } = this.props;
     const { showFilters } = this.state;
 
     return (
@@ -74,8 +67,7 @@ export default class Filter extends Component {
           <Input id="name" label="Name" key="name">
             <AutoComplete source={names} onSelect={this.onNameSelect} />
           </Input>
-          <Switch id="fav" label="My Favorites" key="fav"
-              onToggle={this.onToggleSwitch} />
+          <Switch id="fav" label="My Favorites" onToggle={onToggleSwitch} />
         </div>
       </section>
     );
