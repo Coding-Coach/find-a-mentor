@@ -115,6 +115,7 @@ const mentorSchema = {
           "type": "string",
           "minLength": 1,
           "maxLength": 15,
+          "pattern": "^[^A-Z]*$",
           "synonymsTags": true
         }
       },
