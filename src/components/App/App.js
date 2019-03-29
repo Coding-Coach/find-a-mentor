@@ -12,7 +12,9 @@ import shuffle from "lodash/shuffle";
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
-    mentors: shuffle(mentors)
+    mentors: shuffle(mentors.filter((obj, pos, arr) => {
+      return arr.map(mapObj => mapObj['id']).indexOf(obj['id']) === pos;
+    }))
   };
 
   handleTagSelect = async ({ value: tag }) => {
@@ -63,11 +65,11 @@ class App extends Component {
               <Logo width={110} height={50} color="#68d5b1" />
             </a>
             <Filter
-            onTagSelected={this.handleTagSelect}
-            onCountrySelected={this.handleCountrySelect}
-            onNameSelected={this.handleNameSelect}
-            onToggleFilter={this.toggleFields}
-            mentorCount={mentorsInList.length} />
+              onTagSelected={this.handleTagSelect}
+              onCountrySelected={this.handleCountrySelect}
+              onNameSelected={this.handleNameSelect}
+              onToggleFilter={this.toggleFields}
+              mentorCount={mentorsInList.length} />
             <SocialLinks />
           </aside>
           <MentorsList
