@@ -3246,5 +3246,30 @@
         "id": "saschawolf.me"
       }
     ]
+  },
+  {
+    "id": "rafamp89@gmail.com",
+    "name": "Rafa Moral",
+    "avatar": "https://avatars1.githubusercontent.com/u/5390428?s=460&v=4",
+    "title": "Frontend Engineer at @Adevinta",
+    "description": "I am a self-taught person who never stop learning.",
+    "country": "ES",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "vue",
+      "css",
+      "performance"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rafamp89@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rmoralp"
+      }
+    ]
   }
 ]
