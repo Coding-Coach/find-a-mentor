@@ -3219,6 +3219,93 @@
     ]
   },
   {
+    "id": "swolf.dev@gmail.com",
+    "name": "Sascha Wolf",
+    "avatar": "https://www.gravatar.com/avatar/9095331a47468a6898495b05c49ee422?s=460",
+    "title": "DDD Fan // Fullstack Dev",
+    "description": "My heart beats for functional programming, DDD, TDD, automation and compassion",
+    "country": "DE",
+    "tags": [
+      "elixir",
+      "backend",
+      "FP",
+      "DDD",
+      "compassion"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UH5TP5E6M"
+      },
+      {
+        "type": "twitter",
+        "id": "wolf4earth"
+      },
+      {
+        "type": "website",
+        "id": "saschawolf.me"
+      }
+    ]
+  },
+  {
+    "id": "matthewbidewell@gmail.com",
+    "name": "Matt Bidewell",
+    "avatar": "https://i.imgur.com/uwbx2cN.png",
+    "title": "Software Engineer",
+    "description": "Developer based in London that's been coding for 10 years. Drop me a message!",
+    "country": "GB",
+    "tags": [
+      "nodejs",
+      "typescript",
+      "javascript",
+      "frontend",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "matthewbidewell@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "1101910325367058434"
+      },
+      {
+        "type": "github",
+        "id": "8826525"
+      }
+    ]
+  },
+  {
+    "id": "rafamp89@gmail.com",
+    "name": "Rafa Moral",
+    "avatar": "https://avatars1.githubusercontent.com/u/5390428?s=460&v=4",
+    "title": "Frontend Engineer at @Adevinta",
+    "description": "I am a self-taught person who never stop learning.",
+    "country": "ES",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "vue",
+      "css",
+      "performance"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rafamp89@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rmoralp"
+      },
+      {
+        "type": "website",
+        "id": "www.rmoral.com"
+      }
+    ]
+  },
+  {
     "id": "hello@samwho.dev",
     "name": "Sam Rose",
     "avatar": "https://en.gravatar.com/avatar/d59d071545ce94f768920c2c1b24548c?s=480",
