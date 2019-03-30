@@ -48,7 +48,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
   "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
   "country": "SE",                              // Country code (link to the list below)
-  "tags": [                                     // minItems: 1, maxItems: 5
+  "tags": [                                     // minItems: 1, maxItems: 5, only lowercase characters
     "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below)
   ],
   "channels": [                                 // minItems: 1, maxItems: 3

@@ -94,10 +94,10 @@ const Info = ({mentor}) => {
   )
 };
 
-const Card = ({ mentor, onToggleFav, isFav }) => {
+const Card = ({ mentor, onFavMentor, isFav }) => {
   const toggleFav = () => {
     isFav = !isFav;
-    onToggleFav(mentor);
+    onFavMentor(mentor);
   };
 
   return (

@@ -8,11 +8,13 @@ import Filter from "../Filter/Filter";
 import Logo from "../Logo";
 import SocialLinks from "../SocialLinks/SocialLinks";
 import shuffle from "lodash/shuffle";
+import { toggle, get } from "../../favoriteManager";
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
-    mentors: shuffle(mentors)
+    mentors: shuffle(mentors),
+    favorites: get()
   };
 
   handleTagSelect = async ({ value: tag }) => {
@@ -37,11 +39,12 @@ class App extends Component {
   };
 
   filterMentors = mentor => {
-    const { tag, country, name } = this.state;
+    const { tag, country, name, showFavorite, favorites } = this.state;
     return (
       (!tag || mentor.tags.includes(tag)) &&
       (!country || mentor.country === country) &&
-      (!name || mentor.name === name)
+      (!name || mentor.name === name) &&
+      (!showFavorite || (favorites.indexOf(mentor.id) > -1))
     );
   };
 
@@ -51,13 +54,26 @@ class App extends Component {
     });
   };
 
+  toggleSwitch = async (showFavorite) => {
+    await scrollToTop();
+    this.setState({
+      showFavorite
+    });
+  };
+
+  onFavMentor = mentor => {
+    const favorites = toggle(mentor);
+    this.setState({
+      favorites
+    });
+  };
   // Mount Analytics Tracking code here
     componentDidMount() {
       if (window && window.ga) {
         const { location, ga } = window;
           ga('set', 'page', location.href);
           ga('create', 'UA-133820299-2', 'auto');
-      } 
+      }
     }
 
   render() {
@@ -76,6 +92,7 @@ class App extends Component {
             onCountrySelected={this.handleCountrySelect}
             onNameSelected={this.handleNameSelect}
             onToggleFilter={this.toggleFields}
+            onToggleSwitch={this.toggleSwitch}
             mentorCount={mentorsInList.length} />
             <SocialLinks />
           </aside>
@@ -84,6 +101,8 @@ class App extends Component {
               active: fieldsIsActive
             })}
             mentors={mentorsInList}
+            favorites={this.state.favorites}
+            onFavMentor={this.onFavMentor}
           />
         </main>
         <footer>

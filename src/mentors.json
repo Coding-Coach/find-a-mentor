@@ -618,7 +618,7 @@
     "country": "IT",
     "tags": [
       "php",
-      "Symfony",
+      "symfony",
       "web",
       "html",
       "git"
@@ -647,7 +647,7 @@
     "country": "CH",
     "tags": [
       "php",
-      "Symfony",
+      "symfony",
       "opensource",
       "databases",
       "speaking"
@@ -942,7 +942,7 @@
       "nodejs",
       "microservices",
       "kubernetes",
-      "C#",
+      "c#",
       "reactjs"
     ],
     "channels": [
@@ -1133,11 +1133,11 @@
     "description": "Hi, My name is Ignacio, if you think I can help you, don't hesitate to tell me.",
     "country": "ES",
     "tags": [
-      "Performance",
-      "Web Typography",
-      "Accessibility",
-      "CSS",
-      "JavaScript"
+      "performance",
+      "web typography",
+      "accessibility",
+      "css",
+      "javascript"
     ],
     "channels": [
       {
@@ -1233,7 +1233,7 @@
     "tags": [
       "javascript",
       "reactjs",
-      "nodeJS",
+      "nodejs",
       "serverless",
       "fullstack"
     ],
@@ -1260,7 +1260,7 @@
     "description": "Hi, I'm a fullstack web developer.",
     "country": "UG",
     "tags": [
-      "JavaScript",
+      "javascript",
       "nodejs",
       "frontend"
     ],
@@ -1544,11 +1544,11 @@
     "description": "Full stack dev with 10+ years of experience in the game, mentor for 4+ years.",
     "country": "RO",
     "tags": [
-      "Javascript",
-      "Angular",
-      "VueJs",
+      "javascript",
+      "angular",
+      "vuejs",
       "dotnet",
-      "MSSQL"
+      "mssql"
     ],
     "channels": [
       {
@@ -1705,9 +1705,9 @@
     "description": "Hey, want to learn some crazy JavaScript stuff? Talk to me",
     "country": "DE",
     "tags": [
-      "Angular",
+      "angular",
       "nodejs",
-      "WebAssembly"
+      "webassembly"
     ],
     "channels": [
       {
@@ -1732,10 +1732,10 @@
     "description": "FOSS enthusiast, Speaker, Mozillian, Python & Rust developer",
     "country": "MX",
     "tags": [
-      "Python",
-      "Rust",
-      "Linux",
-      "OpenSource"
+      "python",
+      "rust",
+      "linux",
+      "opensource"
     ],
     "channels": [
       {
@@ -1756,11 +1756,11 @@
     "description": "JavaScript wrangler and div slinger. Front end, UX and tinkering with stuff.",
     "country": "NL",
     "tags": [
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "ReactJS",
-      "NodeJS"
+      "javascript",
+      "html",
+      "css",
+      "reactjs",
+      "nodejs"
     ],
     "channels": [
       {
@@ -1838,11 +1838,11 @@
     "description": "",
     "country": "US",
     "tags": [
-      "Accessibility",
-      "CSS",
-      "UX",
-      "A11y",
-      "Performance"
+      "accessibility",
+      "css",
+      "ux",
+      "a11y",
+      "performance"
     ],
     "channels": [
       {
@@ -1891,7 +1891,7 @@
       "javascript",
       "nodejs",
       "reactjs",
-      "3D",
+      "3d",
       "gamedev"
     ],
     "channels": [
@@ -1942,9 +1942,9 @@
     "description": "Xamarin Forms mobile application developer, speaker and User group board member",
     "country": "BE",
     "tags": [
-      "C#",
-      "Xamarin Forms",
-      "XAML"
+      "c#",
+      "xamarin forms",
+      "xaml"
     ],
     "channels": [
       {
@@ -1969,11 +1969,11 @@
     "description": "8+ years focused mostly on Javascript/React. Happy to connect and help 😀",
     "country": "US",
     "tags": [
-      "Javascript",
-      "ReactJs",
-      "React Native",
-      "Remote Work",
-      "Frontend"
+      "javascript",
+      "reactjs",
+      "react native",
+      "remote work",
+      "frontend"
     ],
     "channels": [
       {
@@ -2046,11 +2046,11 @@
     "description": "Just converting pizza into code and trying not to overflow! Ready to help! 💖",
     "country": "PL",
     "tags": [
-      "JavaScript",
-      "C#",
-      "Lua",
+      "javascript",
+      "c#",
+      "lua",
       "reactjs",
-      "NodeJS"
+      "nodejs"
     ],
     "channels": [
       {
@@ -2075,11 +2075,11 @@
     "description": "UI guy with 7 years of Experience. Happy to help :)",
     "country": "IN",
     "tags": [
-      "Javascript",
+      "javascript",
       "reactjs",
-      "Html",
-      "Css",
-      "FrontEnd"
+      "html",
+      "css",
+      "frontend"
     ],
     "channels": [
       {
@@ -2104,11 +2104,11 @@
     "description": "All round nice guy :-) 10+ years of experience in building things",
     "country": "NL",
     "tags": [
-      "C#",
-      "Microservices",
-      "Architecture",
-      "Cloud",
-      "Scalability"
+      "c#",
+      "microservices",
+      "architecture",
+      "cloud",
+      "scalability"
     ],
     "channels": [
       {
@@ -2134,8 +2134,8 @@
     "country": "EG",
     "tags": [
       "android",
-      "Kotlin",
-      "Java",
+      "kotlin",
+      "java",
       "nodejs",
       "mobile"
     ],
@@ -2162,11 +2162,11 @@
     "description": "",
     "country": "CA",
     "tags": [
-      "JS",
+      "js",
       "reactjs",
-      "Java",
-      "C++",
-      "Python"
+      "java",
+      "c++",
+      "python"
     ],
     "channels": [
       {
@@ -2239,11 +2239,11 @@
     "description": "I'm specialize in Net Core, MeanJs, Angular, React, Auto Test, Devops, Mobile",
     "country": "VN",
     "tags": [
-      "ASP.Net Core",
-      "Angular",
+      "asp.net core",
+      "angular",
       "reactjs",
-      "Mean Stack, PWA",
-      "DevOps"
+      "mean stack, pwa",
+      "devops"
     ],
     "channels": [
       {
@@ -2328,8 +2328,8 @@
     "tags": [
       "kubernetes",
       "docker",
-      "devOps",
-      "nodeJs",
+      "devops",
+      "nodejs",
       "cloud"
     ],
     "channels": [
@@ -2357,8 +2357,8 @@
     "tags": [
       "reactjs",
       "redux",
-      "C#",
-      "SQL Server"
+      "c#",
+      "sql server"
     ],
     "channels": [
       {
@@ -2466,11 +2466,11 @@
     "description": "Sharing knowledge enriches everyone.",
     "country": "DE",
     "tags": [
-      "JavaScript",
-      "FrontEnd",
-      "NodeJs",
-      "VueJs",
-      "Jest"
+      "javascript",
+      "frontend",
+      "nodejs",
+      "vuejs",
+      "jest"
     ],
     "channels": [
       {
@@ -2495,11 +2495,11 @@
     "description": "As much in love with UX/UI as programming.",
     "country": "FR",
     "tags": [
-      "Javascript",
-      "ReactJS",
-      "NodeJs",
-      "UX",
-      "UI"
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "ux",
+      "ui"
     ],
     "channels": [
       {
@@ -2526,7 +2526,7 @@
     "tags": [
       "php",
       "css",
-      "C#",
+      "c#",
       "fullstack",
       "javascript"
     ],
@@ -2829,11 +2829,11 @@
     "description": "I can help you with Software Design, Elixir, Ruby, and Rails.",
     "country": "MX",
     "tags": [
-      "Elixir",
-      "Ruby",
-      "Rails",
-      "Backend",
-      "PostgreSQL"
+      "elixir",
+      "ruby",
+      "rails",
+      "backend",
+      "postgresql"
     ],
     "channels": [
       {
@@ -2877,9 +2877,9 @@
         "type": "github",
         "id": "jim-at-jibba"
       }
-      ]
-    },
-    {
+    ]
+  },
+  {
     "id": "siowyisheng@gmail.com",
     "name": "Yi Sheng Siow",
     "avatar": "https://lh3.googleusercontent.com/NHbGSz-R6myiq1kL-I8Y9EBRguthY9wrOGXu9WpYNfdWQbFPnMdBGG-RJFNZXX2SaEtKD18XcrWwQnCl8C0-45IMg2fZQeI2F1p8VgSybEZkzy2-Yi8gEjjCF0F9R9W0ByXhICrc1acB6Iq1SBO4cQ8mfXCCnNoooHj52CqfN39f_apdL6PM0C-2fG1I-BinFkw3Q-NETUGQ73Nlhgsw7PmsEwWUGH6C-TDiFvoP2yzXjk4rsnYBAt2thL4ogIWCl9rFqgln65Rmmb3mcHRFwoPqMEdHBxwKlzLkmWO9QXf6G8_fZ0r792ra_vmB5AKzqSagGPwBf0IbU1q6fHVZCtc6DbaXvzRTAJswrlRJKSDjJOrwUd_noWfZtKHIA6iWG0i0wwahDmz39hy9PiqO2IO30IUpElbPEFdU7FxkNUVH8KEtgClbwf-OuU3xJWsiXFjESj24jFB21Uu2Ig3KAqsC3gevPvKXKHojlmsLQwvy2LSWLyITyIUm9xzXOolQBAg1GhlHXhYnCQfwH-l0i6p_LsVYU3CVit3xNjxB8sVlExGcu260NftI2JSQhaXS65k6azWueCdvxgT6dpN5vkmGZOrOcexCZ1EV4L_MpBRBjV_WEWkIE7TXyFCYXmrzlmh7d0AzFN3Om_UH_zYo5rn3CCu_4XDA5WdrIev1FDiE3JPvA5qKJ1lVQiGL-IW-DTfuN6EiIoP-V4y-D9Df6JAq9g=s1426-no",
@@ -3026,11 +3026,11 @@
     "description": "Eloquent JS is my jam!",
     "country": "IN",
     "tags": [
-      "JavaScript",
-      "ReactJS",
-      "NodeJS",
-      "Linux",
-      "FP"
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "linux",
+      "fp"
     ],
     "channels": [
       {
@@ -3055,10 +3055,10 @@
     "description": "It's a fact that you have to start to be great, so why not start together.",
     "country": "DZ",
     "tags": [
-      "Android",
-      "Java",
-      "Kotlin",
-      "Reactjs"
+      "android",
+      "java",
+      "kotlin",
+      "reactjs"
     ],
     "channels": [
       {
@@ -3083,11 +3083,11 @@
     "description": "Full-stack developer. I love React and Nodejs. Feel free to reach me!",
     "country": "PK",
     "tags": [
-      "Nodejs",
-      "Reactjs",
-      "MongoDB",
-      "GraphQL",
-      "Socket.io"
+      "nodejs",
+      "reactjs",
+      "mongodb",
+      "graphql",
+      "socket.io"
     ],
     "channels": [
       {
@@ -3112,9 +3112,9 @@
     "description": "I work in CSS and React and really love all the quirks of JavaScript!",
     "country": "US",
     "tags": [
-      "JavaScript",
-      "ReactJS",
-      "CSS",
+      "javascript",
+      "reactjs",
+      "css",
       "frontend"
     ],
     "channels": [
@@ -3140,11 +3140,11 @@
     "description": "Eloquent JS is my jam!",
     "country": "IN",
     "tags": [
-      "JavaScript",
-      "ReactJS",
-      "NodeJS",
-      "Linux",
-      "FP"
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "linux",
+      "fp"
     ],
     "channels": [
       {
@@ -3169,11 +3169,11 @@
     "description": "Mobile App Developer (React Native)",
     "country": "IN",
     "tags": [
-      "JavaScript",
-      "Reactjs",
-      "React Native",
-      "HTML",
-      "CSS"
+      "javascript",
+      "reactjs",
+      "react native",
+      "html",
+      "css"
     ],
     "channels": [
       {
@@ -3187,6 +3187,179 @@
       {
         "type": "github",
         "id": "spyD1803"
+      }
+    ]
+  },
+  {
+    "id": "simon@praetorius.me",
+    "name": "Simon Praetorius",
+    "avatar": "https://praetorius.me/files/mentor.jpg",
+    "title": "Senior TYPO3 Developer",
+    "description": "50% Developer, 20% Technical Lead, 20% Coaching, 10% DevOps, 100% variation",
+    "country": "DE",
+    "tags": [
+      "php",
+      "backend",
+      "devops",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "simon@praetorius.me"
+      },
+      {
+        "type": "twitter",
+        "id": "s2bproject"
+      },
+      {
+        "type": "github",
+        "id": "s2b"
+      }
+    ]
+  },
+  {
+    "id": "swolf.dev@gmail.com",
+    "name": "Sascha Wolf",
+    "avatar": "https://www.gravatar.com/avatar/9095331a47468a6898495b05c49ee422?s=460",
+    "title": "DDD Fan // Fullstack Dev",
+    "description": "My heart beats for functional programming, DDD, TDD, automation and compassion",
+    "country": "DE",
+    "tags": [
+      "elixir",
+      "backend",
+      "fp",
+      "ddd",
+      "compassion"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UH5TP5E6M"
+      },
+      {
+        "type": "twitter",
+        "id": "wolf4earth"
+      },
+      {
+        "type": "website",
+        "id": "saschawolf.me"
+      }
+    ]
+  },
+  {
+    "id": "matthewbidewell@gmail.com",
+    "name": "Matt Bidewell",
+    "avatar": "https://i.imgur.com/uwbx2cN.png",
+    "title": "Software Engineer",
+    "description": "Developer based in London that's been coding for 10 years. Drop me a message!",
+    "country": "GB",
+    "tags": [
+      "nodejs",
+      "typescript",
+      "javascript",
+      "frontend",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "matthewbidewell@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "1101910325367058434"
+      },
+      {
+        "type": "github",
+        "id": "8826525"
+      }
+    ]
+  },
+  {
+    "id": "rafamp89@gmail.com",
+    "name": "Rafa Moral",
+    "avatar": "https://avatars1.githubusercontent.com/u/5390428?s=460&v=4",
+    "title": "Frontend Engineer at @Adevinta",
+    "description": "I am a self-taught person who never stop learning.",
+    "country": "ES",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "vue",
+      "css",
+      "performance"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rafamp89@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rmoralp"
+      },
+      {
+        "type": "website",
+        "id": "www.rmoral.com"
+      }
+    ]
+  },
+  {
+    "id": "hello@samwho.dev",
+    "name": "Sam Rose",
+    "avatar": "https://en.gravatar.com/avatar/d59d071545ce94f768920c2c1b24548c?s=480",
+    "title": "Backend Developer",
+    "description": "Have worked in big and small companies, love API design and command line tools.",
+    "country": "GB",
+    "tags": [
+      "java",
+      "go",
+      "backend",
+      "command line",
+      "linux"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@samwho.dev"
+      },
+      {
+        "type": "twitter",
+        "id": "samwhoo"
+      },
+      {
+        "type": "github",
+        "id": "samwho"
+      }
+    ]
+  },
+  {
+    "id": "halitguvenilir@gmail.com",
+    "name": "Halit Güvenilir",
+    "avatar": "https://avatars.githubusercontent.com/halitguvenilir",
+    "title": "Front end Developer",
+    "description": "Feel free to ask me any question, big or small!",
+    "country": "TR",
+    "tags": [
+      "html",
+      "css",
+      "javascript",
+      "vuejs",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "halitguvenilir@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "halitguvenilir"
+      },
+      {
+        "type": "twitter",
+        "id": "halitguvenilir"
       }
     ]
   }
