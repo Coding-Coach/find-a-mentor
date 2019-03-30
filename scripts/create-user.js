@@ -93,13 +93,28 @@ const questionCountry = {
 };
 
 function validateTags(value) {
-  if (value) {
-    const array = value.split(',');
-    if (array.length > 0 && array.length < 6) {
-      return true;
-    }
+  const hasLessThanOneOrMoreThanFiveTags = (tags) => {
+    const count = tags.split(',').length
+
+    return count < 1 || count > 5
+  };
+  const hasUppercaseCharacters = (tags) => /[A-Z]/.test(tags);
+
+  let errors = [];
+
+  if (hasLessThanOneOrMoreThanFiveTags(value)) {
+    errors.push('between 1 and 5 tags');
   }
-  return 'Please enter valid tags. Between 1 and 5 tags.';
+
+  if (hasUppercaseCharacters(value)) {
+    errors.push('only lowercase characters');
+  }
+
+  if (errors.length > 0) {
+    return `Please enter valid tags: ${errors.join(', ')}.`;
+  }
+
+  return true;
 }
 const questionTags = {
   type: 'input',
