@@ -4,15 +4,13 @@ import React, { Component } from "react";
 
 import classNames from "classnames";
 import InfiniteScroll from "react-infinite-scroller";
-import { toggle, get } from "../../favoriteManager";
 import Card from "../Card/Card";
 
 const itemsInPage = 10;
 
 export default class MentorsLists extends Component {
   state = {
-    page: 1,
-    favs: get()
+    page: 1
   };
 
   loadMore = () => {
@@ -29,16 +27,9 @@ export default class MentorsLists extends Component {
     }
   }
 
-  onToggleFav = mentor => {
-    const favs = toggle(mentor);
-    this.setState({
-      favs
-    });
-  };
-
   render() {
-    const { mentors, className } = this.props;
-    const { page, favs } = this.state;
+    const { mentors, className, favorites, onFavMentor } = this.props;
+    const { page } = this.state;
 
     const mentorsInList = mentors.slice(0, page * itemsInPage);
 
@@ -53,8 +44,8 @@ export default class MentorsLists extends Component {
             <Card
               key={mentor.id}
               mentor={mentor}
-              onToggleFav={this.onToggleFav}
-              isFav={favs.indexOf(mentor.id) > -1}
+              onFavMentor={onFavMentor}
+              isFav={favorites.indexOf(mentor.id) > -1}
             />
           ))}
           {mentorsInList.length === 0 && (

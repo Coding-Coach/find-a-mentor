@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import AutoComplete from "../AutoComplete/AutoComplete";
 import Input from "../Input/Input";
+import Switch from "../Switch/Switch";
 
 import { generateLists } from "../../listsGenerator";
 const { tags, countries, names } = generateLists(mentors);
@@ -40,6 +41,7 @@ export default class Filter extends Component {
   };
 
   render() {
+    const { onToggleSwitch } = this.props;
     const { showFilters } = this.state;
 
     return (
@@ -65,6 +67,7 @@ export default class Filter extends Component {
           <Input id="name" label="Name" key="name">
             <AutoComplete source={names} onSelect={this.onNameSelect} />
           </Input>
+          <Switch id="fav" label="My Favorites" onToggle={onToggleSwitch} />
         </div>
       </section>
     );
