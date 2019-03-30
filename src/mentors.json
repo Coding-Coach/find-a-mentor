@@ -3362,5 +3362,34 @@
         "id": "halitguvenilir"
       }
     ]
+  },
+  {
+    "id": "matthewbidewell@gmail.com",
+    "name": "Matt Bidewell",
+    "avatar": "https://i.imgur.com/uwbx2cN.png",
+    "title": "Software Engineer",
+    "description": "Developer based in London that's been coding for 10 years. Drop me a message!",
+    "country": "GB",
+    "tags": [
+      "nodejs",
+      "typescript",
+      "javascript",
+      "frontend",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "matthewbidewell@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "mattydev_"
+      },
+      {
+        "type": "github",
+        "id": "mattbidewell"
+      }
+    ]
   }
 ]
