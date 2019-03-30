@@ -3304,5 +3304,34 @@
         "id": "www.rmoral.com"
       }
     ]
+  },
+  {
+    "id": "hello@samwho.dev",
+    "name": "Sam Rose",
+    "avatar": "https://en.gravatar.com/avatar/d59d071545ce94f768920c2c1b24548c?s=480",
+    "title": "Backend Developer",
+    "description": "Have worked in big and small companies, love API design and command line tools.",
+    "country": "GB",
+    "tags": [
+      "java",
+      "go",
+      "backend",
+      "command line",
+      "linux"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@samwho.dev"
+      },
+      {
+        "type": "twitter",
+        "id": "samwhoo"
+      },
+      {
+        "type": "github",
+        "id": "samwho"
+      }
+    ]
   }
 ]
