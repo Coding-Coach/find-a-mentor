@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import AutoComplete from "../AutoComplete/AutoComplete";
 import Input from "../Input/Input";
+import Switch from "../Switch/Switch";
 
 import { generateLists } from "../../listsGenerator";
 const { tags, countries, names } = generateLists(mentors);
@@ -40,13 +41,14 @@ export default class Filter extends Component {
   };
 
   render() {
+    const { onToggleSwitch } = this.props;
     const { showFilters } = this.state;
 
     return (
       <section aria-labelledby="filter" className="filter-wrapper">
         <h3 id="filter">
           Filter <span id="mentorCount">{this.props.mentorCount} Mentors</span>
-          <button className="toggle-filter" onClick={this.onToggleFilter}>
+          <button className="toggle-filter" onClick={this.onToggleFilter} aria-label="Toggle filter">
             <i
               className={classNames([
                 "fa fa-angle-down",
@@ -55,7 +57,7 @@ export default class Filter extends Component {
             />
           </button>
         </h3>
-        <div className="inputs">
+        <div className="inputs" aria-expanded={showFilters}>
           <Input id="language" label="Language or technology" key="language">
             <AutoComplete source={tags} onSelect={this.onTagSelect} />
           </Input>
@@ -65,6 +67,7 @@ export default class Filter extends Component {
           <Input id="name" label="Name" key="name">
             <AutoComplete source={names} onSelect={this.onNameSelect} />
           </Input>
+          <Switch id="fav" label="My Favorites" onToggle={onToggleSwitch} />
         </div>
       </section>
     );
