@@ -3133,35 +3133,6 @@
     ]
   },
   {
-    "id": "rexagod@gmail.com",
-    "name": "Pranshu Srivastava",
-    "avatar": "https://pbs.twimg.com/profile_images/1012749917733847040/BMvkekuT_400x400.jpg",
-    "title": "Fullstack Developer",
-    "description": "Eloquent JS is my jam!",
-    "country": "IN",
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "linux",
-      "fp"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "rexagod@gmail.com"
-      },
-      {
-        "type": "twitter",
-        "id": "rexagod"
-      },
-      {
-        "type": "website",
-        "id": "overreacted.now.sh"
-      }
-    ]
-  },
-  {
     "id": "sainathbanuru96@gmail.com",
     "name": "sainath",
     "avatar": "https://i.ibb.co/7KG4Rfq/profile.jpg",
@@ -3360,35 +3331,6 @@
       {
         "type": "twitter",
         "id": "halitguvenilir"
-      }
-    ]
-  },
-  {
-    "id": "matthewbidewell@gmail.com",
-    "name": "Matt Bidewell",
-    "avatar": "https://i.imgur.com/uwbx2cN.png",
-    "title": "Software Engineer",
-    "description": "Developer based in London that's been coding for 10 years. Drop me a message!",
-    "country": "GB",
-    "tags": [
-      "nodejs",
-      "typescript",
-      "javascript",
-      "frontend",
-      "backend"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "matthewbidewell@gmail.com"
-      },
-      {
-        "type": "twitter",
-        "id": "mattydev_"
-      },
-      {
-        "type": "github",
-        "id": "mattbidewell"
       }
     ]
   },
