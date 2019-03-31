@@ -3418,5 +3418,34 @@
         "id": "rodrigojuarez.com"
       }
     ]
+  },
+  {
+    "id": "webworker200@gmail.com",
+    "name": "Marvin Hockenjos",
+    "avatar": "https://www.marvhock.com/images/marvin-hockenjos.jpg",
+    "title": "Front-end Developer",
+    "description": "Hey! I help you on your front-end, UX and web development roadmap",
+    "country": "DE",
+    "tags": [
+      "css",
+      "html",
+      "javascript",
+      "ui",
+      "ux"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHGQ89DC5"
+      },
+      {
+        "type": "twitter",
+        "id": "marvhock"
+      },
+      {
+        "type": "website",
+        "id": "www.marvhock.com"
+      }
+    ]
   }
 ]
