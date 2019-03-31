@@ -3389,5 +3389,33 @@
         "id": "www.marvhock.com"
       }
     ]
+  },
+  {
+    "id": "raul@monteroc.com",
+    "name": "Raul Montero",
+    "avatar": "https://www.dropbox.com/s/0axje6jb13gcg4z/Dev%20profile%20picture.jpeg?dl=0",
+    "title": "Software Developer",
+    "description": "Hi! I'm an experienced xamarin/mobile developer. I'll be happy to help out.",
+    "country": "DO",
+    "tags": [
+      "xamarin",
+      "xamarin.forms",
+      "dotnet",
+      "dotnet core"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UDT8WCSA1"
+      },
+      {
+        "type": "twitter",
+        "id": "raulmonteroc"
+      },
+      {
+        "type": "website",
+        "id": "raulmonteroc.com"
+      }
+    ]
   }
 ]
