@@ -1,35 +1,34 @@
 body {
-  font-family: 'Lato', sans-serif;
-  background-color: #f8f8f8;
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
 }
 
-.device-desktop .filters-outer {
-  text-align: center;
+main {
+  display: flex;
 }
 
-.device-desktop .filters {
-  display: inline-block;
-  text-align: left;
+.sidebar {
+  display: flex;
+  flex-direction: column;
 }
 
-.device-mobile .filters {
-  padding: 0 20px;
+.app {
+  padding-bottom: 50px;
 }
 
 .main-header {
   padding: 30px;
-  max-width: 960px;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.device-mobile .main-header {
-  padding: 20px;
-}
-
-.main-header .logo {
+.logo {
   display: flex;
   color: #a1a1a1;
   justify-content: space-between;
+  margin: 30px 30px;
 }
 
 .main-header h1 {
@@ -38,4 +37,29 @@ body {
 
 .social {
   margin-top: 10px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background: #65d6af;
+  padding: 10px 0;
+  z-index: 100;
+}
+
+footer a,
+footer a:hover {
+  padding: 0 3px;
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media all and (max-width: 576px) {
+  .logo {
+    display: flex;
+    justify-content: center;
+  }
 }

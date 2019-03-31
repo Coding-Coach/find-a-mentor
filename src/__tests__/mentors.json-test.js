@@ -1,5 +1,7 @@
 import mentors from '../mentors.json';
 import Ajv from 'ajv';
+import { get as getPath } from 'object-path';
+import countries from 'svg-country-flags/countries.json';
 
 expect.extend({
   toBeValid(isValid, errorMessage) {
@@ -12,13 +14,67 @@ expect.extend({
 
 var ajv = new Ajv({ removeAdditional: false });
 
-const validate = function (schema, uri) {
-  validate.errors = [{keyword: 'secured', message: 'avatar url must be "https" schema', params: {keyword: 'secured'}}];
+const validateSecuredUrl = function (schema, uri) {
+  validateSecuredUrl.errors = [{keyword: 'secured', message: 'avatar url must be "https" schema', params: {keyword: 'secured'}}];
   return uri.indexOf('https://') === 0;
 };
 
+const synonymsTags = {
+  '(node|node.js)': 'nodejs',
+  '(react|React.js)': 'reactjs',
+  'vue': 'vuejs',
+  'react-native': 'react native',
+  'csharp': 'c#',
+  'front end': 'frontend',
+  'expressjs': 'express',
+  'full stack': 'fullstack',
+}
+
+const validateSynonymsTags = function (schema, tag) {
+  let isValid = true;
+  let message = '';
+  Object.keys(synonymsTags).forEach(synonym => {
+    if (new RegExp(`^${synonym}$`, 'i').exec(tag)) {
+      message = `should NOT use "${tag}", should use the conventional name: "${synonymsTags[synonym]}"`
+      isValid = false;
+    }
+  });
+
+  validateSynonymsTags.errors = [{keyword: 'synonymsTags', message, params: {keyword: 'synonymsTags'}}];
+  return isValid;
+};
+
+const validateDescription = function (schema, description) {
+  const minLength = 5;
+  const maxLength = 80;
+
+  let isValid = true;
+  let message = '';
+  if (description) {
+    if (description.length < minLength) {
+      isValid = false;
+      message = `should NOT be shorter than ${minLength} characters`;
+    } else if (description.length > maxLength) {
+      isValid = false;
+      message = `should NOT be longer than ${maxLength} characters`;
+    }
+  }
+  validateDescription.errors = [{keyword: 'description', message, params: {keyword: 'description'}}];
+  return isValid;
+};
+
 ajv.addKeyword('securedUrl', {
-  validate,
+  validate: validateSecuredUrl,
+  errors: true
+});
+
+ajv.addKeyword('suitableDescription', {
+  validate: validateDescription,
+  errors: true
+});
+
+ajv.addKeyword('synonymsTags', {
+  validate: validateSynonymsTags,
   errors: true
 });
 
@@ -47,11 +103,11 @@ const mentorSchema = {
       },
       "description": {
         "type": "string",
-        "minLength": 5,
-        "maxLength": 80
+        "suitableDescription": true
       },
       "country": {
         "type": "string",
+        "enum": Object.keys(countries)
       },
       "tags": {
         "type": "array",
@@ -60,7 +116,9 @@ const mentorSchema = {
         "items": {
           "type": "string",
           "minLength": 1,
-          "maxLength": 15
+          "maxLength": 15,
+          "pattern": "^[^A-Z]*$",
+          "synonymsTags": true
         }
       },
       "channels": {
@@ -72,7 +130,7 @@ const mentorSchema = {
           "properties": {
             "type": {
               "type": "string",
-              "enum": ["slack", "email", "linkedin", "facebook", "twitter"]
+              "enum": ["slack", "email", "linkedin", "facebook", "twitter", "github", "website"]
             }
           },
           "required": ["type", "id"]
@@ -83,12 +141,19 @@ const mentorSchema = {
   }
 }
 
-it('should mentors shema be valid', () => {
+it('should mentors schema be valid', () => {
   const valid = ajv.validate(mentorSchema, mentors);
   const errorMessage = (ajv.errors || []).map(error => {
     try {
-      const [, index, fieldName] = /\[(.*)\].(.*)/.exec(error.dataPath);
-      return `error with item #${index}'s field "${fieldName}". The error is: ${error.message}`;
+      const [, index, fieldName] = /\[(.*)\].(.*)/.exec(error.dataPath)
+      const mentor = mentors[index];
+      const fieldValue = getPath(mentor, fieldName.replace("[", ".").replace("]", ""));
+
+      return [
+        `error with mentor "${mentor.id}"'s (#${index}) field "${fieldName}"!`,
+        `  VALUE: ${fieldValue}`,
+        `  ERROR: ${error.message}`,
+      ].join('\n');
     } catch (error) {
       return error.message;
     }
