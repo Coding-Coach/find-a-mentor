@@ -71,6 +71,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 | frontend     | front end       |
 | express      | expressjs       |
 | fullstack    | full stack      |
+| vuejs        | vue             |
 
 #### Country codes
 

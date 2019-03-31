@@ -22,6 +22,7 @@ const validateSecuredUrl = function (schema, uri) {
 const synonymsTags = {
   '(node|node.js)': 'nodejs',
   '(react|React.js)': 'reactjs',
+  'vue': 'vuejs',
   'react-native': 'react native',
   'csharp': 'c#',
   'front end': 'frontend',

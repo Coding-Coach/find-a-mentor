@@ -1188,7 +1188,7 @@
     "country": "MX",
     "tags": [
       "javascript",
-      "vue",
+      "vuejs",
       "women"
     ],
     "channels": [
@@ -1210,7 +1210,7 @@
     "description": "Official Vue.js Community Partner. Google Developer Expert - Web Technologies.",
     "country": "US",
     "tags": [
-      "vue",
+      "vuejs",
       "html",
       "css",
       "javascript",
@@ -1682,7 +1682,7 @@
     "tags": [
       "laravel",
       "php",
-      "vue",
+      "vuejs",
       "docker",
       "architecture"
     ],
@@ -1864,7 +1864,7 @@
     "country": "FR",
     "tags": [
       "laravel",
-      "vue",
+      "vuejs",
       "reactjs",
       "graphql",
       "nodejs"
@@ -2970,7 +2970,7 @@
     "tags": [
       "reactjs",
       "redux",
-      "vue",
+      "vuejs",
       "express",
       "nodejs"
     ],
@@ -3286,7 +3286,7 @@
     "tags": [
       "javascript",
       "reactjs",
-      "vue",
+      "vuejs",
       "css",
       "performance"
     ],
