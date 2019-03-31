@@ -3391,5 +3391,32 @@
         "id": "mattbidewell"
       }
     ]
+  },
+  {
+    "id": "rodrigomjuarez@gmail.com",
+    "name": "Rodrigo Juarez",
+    "avatar": "https://i.imgur.com/arrI96P.png",
+    "title": "Xamarin.Forms developer",
+    "description": "",
+    "country": "AR",
+    "tags": [
+      "xamarin.forms",
+      "c#",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rodrigomjuarez@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rodrigojuarez"
+      },
+      {
+        "type": "website",
+        "id": "rodrigojuarez.com"
+      }
+    ]
   }
 ]
