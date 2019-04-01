@@ -3620,11 +3620,69 @@
     ]
   },
   {
+    "id": "hello@juno.codes",
+    "name": "Justin Juno",
+    "avatar": "https://avatars3.githubusercontent.com/u/29876915?s=460&v=4",
+    "title": "Javascript Developer",
+    "description": "Infinitely curious javascript developer and father of twins!",
+    "country": "US",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "graphql",
+      "gatsby"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "junocodes"
+      },
+      {
+        "type": "github",
+        "id": "junocodes"
+      },
+      {
+        "type": "email",
+        "id": "hello@juno.codes"
+       }
+     ]
+  },
+  {
+    "id": "code@erikostrom.com",
+    "name": "Erik Ostrom",
+    "avatar": "https://avatars0.githubusercontent.com/u/8683?s=460&v=4",
+    "title": "Web Spinner",
+    "description": "Head in code, heart in design. Debugging, refactoring, style.",
+    "country": "US",
+    "tags": [
+      "vuejs",
+      "css",
+      "frontend",
+      "ruby",
+      "rails"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHKB345GW"
+      },
+      {
+        "type": "linkedin",
+        "id": "eostrom"
+      },
+      {
+        "type": "website",
+        "id": "www.erikostrom.com"
+      }
+    ]
+  },
+  {
     "id": "mg@designomatt.com",
     "name": "Matthew Gallagher",
     "avatar": "https://scontent-mia3-1.cdninstagram.com/vp/6945f8c00f6ef0bb2b28a2c3b2edccd9/5D32F633/t51.2885-19/s320x320/41926970_1814094125376953_8360206914574876672_n.jpg?_nc_ht=scontent-mia3-1.cdninstagram.com",
     "title": "Designer",
-    "description": "I currently lead design teams on enterprise-level design and am happy to collaborate on design questions",
+    "description": "I currently lead design teams on enterprise-level design",
     "country": "US",
     "tags": [
       "ui", "ux", "visual design", "sketch", "adobe"
@@ -3645,10 +3703,10 @@
     "name": "Richard Toms",
     "avatar": "https://avatars0.githubusercontent.com/u/13962331?s=400&v=4",
     "title": "Senior Laravel API Developer",
-    "description": "I'm a senior PHP Laravel developer with knowledge of APIs and integrating software. I'd love to chat and share what I know!",
+    "description": "I'm a senior PHP Laravel developer",
     "country": "GB",
     "tags": [
-      "Laravel", "API", "PHP", "Integration", "Coding principles"
+      "laravel", "api", "php", "integration", "principles"
     ],
     "channels": [
       {
@@ -3673,7 +3731,7 @@
     "description": "Hi, I'm Ammad! Let me know if you need any help.",
     "country": "PK",
     "tags": [
-      ".net", "algorithms", "android", "C#", "backend", "ml"
+      ".net", "algorithms", "android", "c#", "backend"
     ],
     "channels": [
       {
@@ -3694,7 +3752,7 @@
     "description": "A self learned developer",
     "country": "IN",
     "tags": [
-      "Javascript", "Vuejs", "jQuery"
+      "javascript", "vuejs", "jquery"
     ],
     "channels": [
       {
@@ -3715,7 +3773,7 @@
     "description": "Lets help everyone to grow",
     "country": "IN",
     "tags": [
-      "php", "git", "mysql", "symfony", "codeigniter", "gitlab"
+      "php", "git", "mysql", "symfony", "codeigniter"
     ],
     "channels": [
       {
@@ -3733,10 +3791,10 @@
     "name": "Philipp Jardas",
     "avatar": "https://avatars2.githubusercontent.com/u/1437300?s=400&v=4",
     "title": "Full-stack Software Engineer",
-    "description": "Hey! I've been developing full-stack applications for over 20 years and have lots of experience in clean code, architecture, devops, accessibility and web development. I would be honored to give back to the community from which I've learned so much.",
+    "description": "Hey! I've been developing full-stack applications for over 20 years",
     "country": "DE",
     "tags": [
-      "javascript", "java", "web", "react", "docker", "html", "css"
+      "javascript", "java", "web", "reactjs", "docker"
     ],
     "channels": [
       {
@@ -3758,10 +3816,10 @@
     "name": "Ali Karim",
     "avatar": "https://pbs.twimg.com/profile_images/1055282567904194561/UsuHtNYl_400x400.jpg",
     "title": ".Net Front-End Developer",
-    "description": "Hi, I am a .Net Front-End Developer. I work with Umbraco CMS. Let me know if you want to have a chat.",
+    "description": "Hi, I am a .Net Front-End Developer. I work with Umbraco CMS.",
     "country": "GB",
     "tags": [
-      "Umbraco", "UI", "UX", ".NET", "design"
+      "umbraco", "ui", "ux", ".net", "design"
     ],
     "channels": [
       {
@@ -3786,7 +3844,7 @@
     "description": "A self trained php developer with a lots of love for Laravel",
     "country": "DE",
     "tags": [
-      "modern php", "laravel", "vue"
+      "modern php", "laravel", "vuejs"
     ],
     "channels": [
       {
@@ -3804,10 +3862,10 @@
     "name": "Haresh Ambaliya",
     "avatar": "https://pbs.twimg.com/profile_images/1457965822/haresh_400x400.png",
     "title": "Technical Architect ",
-    "description": "Hi, I am very good in Microsoft Technology including Azure. Don’t hesitate to ask any thing related.",
+    "description": "Hi, I am very good in Microsoft Technology including Azure.",
     "country": "IN",
     "tags": [
-      "Asp.Net", "C#", "SQL servers", "Azure", "Redis", "MongoDB"
+      "asp.net", "c#", "sql servers", "azure", "redis"
     ],
     "channels": [
       {
