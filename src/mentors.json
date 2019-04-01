@@ -3397,7 +3397,7 @@
     "name": "Rodrigo Juarez",
     "avatar": "https://i.imgur.com/arrI96P.png",
     "title": "Xamarin.Forms developer",
-    "description": "",
+    "description": "Just a programmer using Microsoft tools to create awesome apps!",
     "country": "AR",
     "tags": [
       "xamarin.forms",
@@ -3415,7 +3415,7 @@
       },
       {
         "type": "website",
-        "id": "rodrigojuarez.com"
+        "id": "dev.to/rodrigojuarez"
       }
     ]
   }
