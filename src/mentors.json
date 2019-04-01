@@ -3704,5 +3704,33 @@
         "id": "wes.dev"
       }
     ]
+  },
+  {
+    "id": "mathieu@dutour.me",
+    "name": "Mathieu Dutour",
+    "avatar": "https://avatars0.githubusercontent.com/u/3254314?s=460&v=4",
+    "title": "Design Technologist",
+    "description": "",
+    "country": "FR",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "sketch plugins",
+      "design systems"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "DHJ6PL0EQ"
+      },
+      {
+        "type": "twitter",
+        "id": "mathieudutour"
+      },
+      {
+        "type": "github",
+        "id": "mathieudutour"
+      }
+    ]
   }
 ]
