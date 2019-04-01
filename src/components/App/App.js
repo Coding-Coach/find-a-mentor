@@ -73,6 +73,7 @@ class App extends Component {
       const { location, ga } = window;
       ga('set', 'page', location.href);
       ga('create', 'UA-133820299-2', 'auto');
+      ga('send', 'pageview');
     }
   }
 
