@@ -36,7 +36,7 @@ const questionName = {
 
 function validateAvatar(value) {
   const pass = value.match(
-    /^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
+    /^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}(:[0-9]{1,5})?(\/.*)?$/
   )
   if (pass) {
     return true;
