@@ -67,7 +67,6 @@ class App extends Component {
       favorites,
     });
   };
-
   // Mount Analytics Tracking code here
     componentDidMount() {
       if (window && window.ga) {
