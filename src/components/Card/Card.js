@@ -5,25 +5,20 @@ import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import countries from 'svg-country-flags/countries.json';
 
-
-
-
 // ========Track Analytics Events on Page =======
 function handleAnalytic(channelName) {
   if (window && window.ga) {
-    const { ga } = window
+    const { ga } = window;
 
-      ga('send', {
-          hitType: 'event',
-          eventCategory: 'Channel',
-          eventAction: 'click',
-          eventLabel: channelName,
-          transport: 'beacon'
-      });
-
-    }
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Channel',
+      eventAction: 'click',
+      eventLabel: channelName,
+      transport: 'beacon',
+    });
   }
-
+}
 
 const tagsList = tags =>
   tags.map((tag, index) => {

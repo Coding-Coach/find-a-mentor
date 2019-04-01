@@ -68,13 +68,13 @@ class App extends Component {
     });
   };
   // Mount Analytics Tracking code here
-    componentDidMount() {
-      if (window && window.ga) {
-        const { location, ga } = window;
-          ga('set', 'page', location.href);
-          ga('create', 'UA-133820299-2', 'auto');
-      } 
+  componentDidMount() {
+    if (window && window.ga) {
+      const { location, ga } = window;
+      ga('set', 'page', location.href);
+      ga('create', 'UA-133820299-2', 'auto');
     }
+  }
 
   render() {
     const { mentors, fieldsIsActive } = this.state;
