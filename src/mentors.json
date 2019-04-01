@@ -3512,8 +3512,10 @@
     "country": "IT",
     "tags": [
       "javascript",
-      "node.js",
-      "vue"
+      "node",
+      "vuejs",
+      "express",
+      "fullstack"
     ],
     "channels": [
       {
