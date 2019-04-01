@@ -3502,5 +3502,34 @@
         "id": "Guizzo85"
       }
     ]
+  },
+  {
+    "id": "astorino.design@gmail.com",
+    "name": "Mattia Astorino",
+    "avatar": "https://avatars2.githubusercontent.com/u/10454741?s=460&v=4",
+    "title": "UI Enginner / Frontend Designer",
+    "description": "I can help building design systems, scalable and accessible UI components",
+    "country": "IT",
+    "tags": [
+      "html",
+      "css",
+      "js",
+      "stenciljs",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "equinusocio"
+      },
+      {
+        "type": "github",
+        "id": "equinusocio"
+      },
+      {
+        "type": "website",
+        "id": "equinsuocha.io"
+      }
+    ]
   }
 ]
