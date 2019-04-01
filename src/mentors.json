@@ -3417,5 +3417,34 @@
         "id": "raulmonteroc.com"
       }
     ]
+  },
+  {
+    "id": "paul@hanaoka.co",
+    "name": "Paul Hanaoka",
+    "avatar": "https://paul.hanaoka.co/assets/images/cool-guy.png",
+    "title": "Product Design Manager",
+    "description": "UX Designer, amateur react developer, CSS \"expert\", design tool aficionado ",
+    "country": "US",
+    "tags": [
+      "design",
+      "frontend",
+      "css",
+      "figma",
+      "ux/ui"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "paul@hanaoka.co"
+      },
+      {
+        "type": "twitter",
+        "id": "plhnk"
+      },
+      {
+        "type": "github",
+        "id": "plhnk"
+      }
+    ]
   }
 ]
