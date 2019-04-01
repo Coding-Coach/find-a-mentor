@@ -36,11 +36,15 @@ const channelsList = channels => {
 };
 
 const Avatar = ({ mentor }) => {
-  const mentorHtmlId =  mentor.name.replace(/\s/g, '-');
+  const mentorHtmlId = mentor.name.replace(/\s/g, '-');
   return (
     <div className="avatar">
       <i className="fa fa-user-circle" />
-      <img src={mentor.avatar} aria-labelledby={`${mentorHtmlId}-name`} alt="" />
+      <img
+        src={mentor.avatar}
+        aria-labelledby={`${mentorHtmlId}-name`}
+        alt=""
+      />
     </div>
   );
 };
@@ -57,7 +61,7 @@ const LikeButton = ({ onClick, liked }) => (
 );
 
 const Info = ({ mentor }) => {
-  const mentorHtmlId =  mentor.name.replace(/\s/g, '-');
+  const mentorHtmlId = mentor.name.replace(/\s/g, '-');
   // Don't show the description if it's not provided.
   const description = mentor.description ? (
     <p className="description">"{mentor.description}"</p>

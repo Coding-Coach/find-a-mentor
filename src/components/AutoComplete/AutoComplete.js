@@ -61,7 +61,7 @@ export default class AutoComplete extends Component {
           onSelect={this.onSelect}
           onChange={this.onChange}
           inputProps={{
-            id: id
+            id: id,
           }}
         />
       </div>
