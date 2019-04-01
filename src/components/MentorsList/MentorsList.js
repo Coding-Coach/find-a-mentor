@@ -1,28 +1,28 @@
-import "./MentorList.css";
+import './MentorList.css';
 
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import classNames from "classnames";
-import InfiniteScroll from "react-infinite-scroller";
-import Card from "../Card/Card";
+import classNames from 'classnames';
+import InfiniteScroll from 'react-infinite-scroller';
+import Card from '../Card/Card';
 
 const itemsInPage = 10;
 
 export default class MentorsLists extends Component {
   state = {
-    page: 1
+    page: 1,
   };
 
   loadMore = () => {
     this.setState({
-      page: this.state.page + 1
+      page: this.state.page + 1,
     });
   };
 
   componentWillReceiveProps(newProps) {
     if (newProps.mentors !== this.props.mentors) {
       this.setState({
-        page: 1
+        page: 1,
       });
     }
   }
@@ -34,7 +34,7 @@ export default class MentorsLists extends Component {
     const mentorsInList = mentors.slice(0, page * itemsInPage);
 
     return (
-      <section className={classNames(["mentors-wrapper", className])}>
+      <section className={classNames(['mentors-wrapper', className])}>
         <InfiniteScroll
           className="mentors-cards"
           loadMore={this.loadMore}

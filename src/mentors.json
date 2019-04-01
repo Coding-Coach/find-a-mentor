@@ -3475,6 +3475,122 @@
     ]
   },
   {
+    "id": "simonegizzi85@gmail.com",
+    "name": "Simone Gizzi",
+    "avatar": "https://media.licdn.com/dms/image/C4E03AQGsfACc6Y0cAA/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=Z1F26QYGxVW41CqZ5En81xiZEw1IQ1zKmWyiQCGXojA",
+    "title": "Fullstack Developer",
+    "description": "Passionate Fullstack Developer with a focus on Javascript world",
+    "country": "IT",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "fullstack",
+      "angular",
+      "sass"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "simonegizzi85@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "simonegizzi"
+      },
+      {
+        "type": "twitter",
+        "id": "Guizzo85"
+      }
+    ]
+  },
+  {
+    "id": "astorino.design@gmail.com",
+    "name": "Mattia Astorino",
+    "avatar": "https://avatars2.githubusercontent.com/u/10454741?s=460&v=4",
+    "title": "UI Enginner / Frontend Designer",
+    "description": "I can help building design systems, scalable and accessible UI components",
+    "country": "IT",
+    "tags": [
+      "html",
+      "css",
+      "js",
+      "stenciljs",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "equinusocio"
+      },
+      {
+        "type": "github",
+        "id": "equinusocio"
+      },
+      {
+        "type": "website",
+        "id": "equinsuocha.io"
+      }
+    ]
+  },
+  {
+    "id": "ciao@micheleriva.it",
+    "name": "Michele Riva",
+    "avatar": "https://avatars1.githubusercontent.com/u/14977595?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Passionate and experienced software engineer based in Monza, Italy.",
+    "country": "IT",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "vuejs",
+      "express",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "micheleriva95"
+      },
+      {
+        "type": "github",
+        "id": "micheleriva"
+      },
+      {
+        "type": "website",
+        "id": "www.micheleriva.it"
+      }
+    ]
+  },
+  {
+    "id": "jkan@futurice.com",
+    "name": "Jaakko Kangasharju",
+    "avatar": "https://s.gravatar.com/avatar/f0c8478aeeed4aaa0c6fb5089b510c2e",
+    "title": "Software Developer",
+    "description": "Experienced mobile developer, special interest in app architecture",
+    "country": "DE",
+    "tags": [
+      "ios",
+      "android",
+      "architecture",
+      "rx",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jkan@futurice.com"
+      },
+      {
+        "type": "twitter",
+        "id": "vorahsa"
+      },
+      {
+        "type": "github",
+        "id": "asharov"
+      }
+    ]
+  },
+  {
     "id": "islam.sayed8@gmail.com",
     "name": "Islam Sayed",
     "avatar": "https://lh3.googleusercontent.com/-291qbNOqe6w/XHJQECxfXwI/AAAAAAAAEac/qz3-o6CaigMkAGrdwUzMXmtrDLcN-7LlACEwYBhgL/w139-h140-p/FB_IMG_1527256632688.jpg",
