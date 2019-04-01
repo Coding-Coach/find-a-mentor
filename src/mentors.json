@@ -3417,5 +3417,32 @@
         "id": "raulmonteroc.com"
       }
     ]
+  },
+  {
+    "id": "rodrigomjuarez@gmail.com",
+    "name": "Rodrigo Juarez",
+    "avatar": "https://i.imgur.com/arrI96P.png",
+    "title": "Xamarin.Forms developer",
+    "description": "Just a programmer using Microsoft tools to create awesome apps!",
+    "country": "AR",
+    "tags": [
+      "xamarin.forms",
+      "c#",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rodrigomjuarez@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rodrigojuarez"
+      },
+      {
+        "type": "website",
+        "id": "dev.to/rodrigojuarez"
+      }
+    ]
   }
 ]
