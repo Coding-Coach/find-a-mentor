@@ -1,4 +1,5 @@
 import React from "react";
+import { orderBy } from "lodash";
 import "./Card.css";
 import { getChannelInfo } from "../../channelProvider";
 import classNames from "classnames";
@@ -13,8 +14,9 @@ const tagsList = tags =>
     );
   });
 
-const channelsList = channels =>
-  channels.map(channel => {
+const channelsList = channels => {
+  const orderedChannels = orderBy(channels, ["type"], ["asc"]);
+  return orderedChannels.map(channel => {
     const { icon, url } = getChannelInfo(channel);
     return (
       <a
@@ -31,6 +33,7 @@ const channelsList = channels =>
       </a>
     );
   });
+};
 
 const Avatar = ({ mentor }) => {
   return (
@@ -52,10 +55,13 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
-const Info = ({mentor}) => {
-
+const Info = ({ mentor }) => {
   // Don't show the description if it's not provided.
-  const description = mentor.description ? <p className="description">"{mentor.description}"</p> : <React.Fragment />;
+  const description = mentor.description ? (
+    <p className="description">"{mentor.description}"</p>
+  ) : (
+    <React.Fragment />
+  );
 
   return (
     <React.Fragment>
@@ -69,7 +75,7 @@ const Info = ({mentor}) => {
         <div className="channel-inner">{channelsList(mentor.channels)}</div>
       </div>
     </React.Fragment>
-  )
+  );
 };
 
 const Card = ({ mentor, onFavMentor, isFav }) => {
