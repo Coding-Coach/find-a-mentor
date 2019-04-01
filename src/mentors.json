@@ -3618,5 +3618,206 @@
         "id": "islam_sayed8"
       }
     ]
+  },
+  {
+    "id": "mg@designomatt.com",
+    "name": "Matthew Gallagher",
+    "avatar": "https://scontent-mia3-1.cdninstagram.com/vp/6945f8c00f6ef0bb2b28a2c3b2edccd9/5D32F633/t51.2885-19/s320x320/41926970_1814094125376953_8360206914574876672_n.jpg?_nc_ht=scontent-mia3-1.cdninstagram.com",
+    "title": "Designer",
+    "description": "I currently lead design teams on enterprise-level design and am happy to collaborate on design questions",
+    "country": "US",
+    "tags": [
+      "ui", "ux", "visual design", "sketch", "adobe"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "matthewgallagher"
+      },
+      {
+        "type": "twitter",
+        "id": "designomatt"
+      }
+    ]
+  },
+  {
+    "id": "Richard@toms.dev",
+    "name": "Richard Toms",
+    "avatar": "https://avatars0.githubusercontent.com/u/13962331?s=400&v=4",
+    "title": "Senior Laravel API Developer",
+    "description": "I'm a senior PHP Laravel developer with knowledge of APIs and integrating software. I'd love to chat and share what I know!",
+    "country": "GB",
+    "tags": [
+      "Laravel", "API", "PHP", "Integration", "Coding principles"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "Richard@toms.dev"
+      },
+      {
+        "type": "github",
+        "id": "RichToms"
+      },
+      {
+        "type": "twitter",
+        "id": "RichToms"
+      }
+    ]
+  },
+  {
+    "id": "ammadshakoor44@gmail.com",
+    "name": "Ammad Shakoor",
+    "avatar": "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/19424071_787418108105752_5458814460156781896_n.jpg?_nc_cat=103&_nc_ht=scontent-frt3-2.xx&oh=7d9325be6cc59f0d33675780b81b36ca&oe=5D0891BB",
+    "title": ".Net Developer",
+    "description": "Hi, I'm Ammad! Let me know if you need any help.",
+    "country": "PK",
+    "tags": [
+      ".net", "algorithms", "android", "C#", "backend", "ml"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "ammadshakoor1"
+      },
+      {
+        "type": "linkedin",
+        "id": "ammad-shakoor"
+      }
+    ]
+  },
+  {
+    "id": "fayazara@gmail.com",
+    "name": "Fayaz Ahmed",
+    "avatar": "https://avatars3.githubusercontent.com/u/15716057?s=400&v=4",
+    "title": "Frontend Engineer",
+    "description": "A self learned developer",
+    "country": "IN",
+    "tags": [
+      "Javascript", "Vuejs", "jQuery"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "fayazara"
+      },
+      {
+        "type": "twitter",
+        "id": "fayazara"
+      }
+    ]
+  },
+  {
+    "id": "sunilchhimpa92@gmail.com",
+    "name": "Sunil Kumar",
+    "avatar": "https://pbs.twimg.com/profile_images/1110749215720771584/6RGOn2T0_400x400.png",
+    "title": "Web Developer, Blogger",
+    "description": "Lets help everyone to grow",
+    "country": "IN",
+    "tags": [
+      "php", "git", "mysql", "symfony", "codeigniter", "gitlab"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "http://acmeextension.com"
+      },
+      {
+        "type": "twitter",
+        "id": "SunilChhimpa92"
+      }
+    ]
+  },
+  {
+    "id": "philipp@jardas.de",
+    "name": "Philipp Jardas",
+    "avatar": "https://avatars2.githubusercontent.com/u/1437300?s=400&v=4",
+    "title": "Full-stack Software Engineer",
+    "description": "Hey! I've been developing full-stack applications for over 20 years and have lots of experience in clean code, architecture, devops, accessibility and web development. I would be honored to give back to the community from which I've learned so much.",
+    "country": "DE",
+    "tags": [
+      "javascript", "java", "web", "react", "docker", "html", "css"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "https://jardas.de"
+      },
+      {
+        "type": "twitter",
+        "id": "phjardas"
+      },
+      {
+        "type": "github",
+        "id": "phjardas"
+      }
+    ]
+  },
+  {
+    "id": "alik@digintus.com",
+    "name": "Ali Karim",
+    "avatar": "https://pbs.twimg.com/profile_images/1055282567904194561/UsuHtNYl_400x400.jpg",
+    "title": ".Net Front-End Developer",
+    "description": "Hi, I am a .Net Front-End Developer. I work with Umbraco CMS. Let me know if you want to have a chat.",
+    "country": "GB",
+    "tags": [
+      "Umbraco", "UI", "UX", ".NET", "design"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alik@digintus.com"
+      },
+      {
+        "type": "slack",
+        "id": "UG088MG2C"
+      },
+      {
+        "type": "twitter",
+        "id": "thealikazai"
+      }
+    ]
+  },
+  {
+    "id": "manuel@christlieb.eu",
+    "name": "Manuel Christlieb",
+    "avatar": "https://www.team23.de/content/static/images/team/manuel_christlieb.jpg",
+    "title": "PHP Developer",
+    "description": "A self trained php developer with a lots of love for Laravel",
+    "country": "DE",
+    "tags": [
+      "modern php", "laravel", "vue"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "bambamboole1"
+      },
+      {
+        "type": "github",
+        "id": "bambamboole"
+      }
+    ]
+  },
+  {
+    "id": "hareshambaliya@gmail.com",
+    "name": "Haresh Ambaliya",
+    "avatar": "https://pbs.twimg.com/profile_images/1457965822/haresh_400x400.png",
+    "title": "Technical Architect ",
+    "description": "Hi, I am very good in Microsoft Technology including Azure. Don’t hesitate to ask any thing related.",
+    "country": "IN",
+    "tags": [
+      "Asp.Net", "C#", "SQL servers", "Azure", "Redis", "MongoDB"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "hareshambaliya"
+      },
+      {
+        "type": "website",
+        "id": "http://www.webstackgeek.com"
+      }
+    ]
   }
 ]
