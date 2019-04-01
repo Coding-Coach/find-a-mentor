@@ -3389,5 +3389,320 @@
         "id": "www.marvhock.com"
       }
     ]
+  },
+  {
+    "id": "raul@monteroc.com",
+    "name": "Raul Montero",
+    "avatar": "https://raulmonteroc.com/wp-content/uploads/2018/08/Dev-profile-picture.jpeg",
+    "title": "Software Developer",
+    "description": "Hi! I'm an experienced xamarin/mobile developer. I'll be happy to help out.",
+    "country": "DO",
+    "tags": [
+      "xamarin",
+      "xamarin.forms",
+      "dotnet",
+      "dotnet core"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UDT8WCSA1"
+      },
+      {
+        "type": "twitter",
+        "id": "raulmonteroc"
+      },
+      {
+        "type": "website",
+        "id": "raulmonteroc.com"
+      }
+    ]
+  },
+  {
+    "id": "rodrigomjuarez@gmail.com",
+    "name": "Rodrigo Juarez",
+    "avatar": "https://i.imgur.com/arrI96P.png",
+    "title": "Xamarin.Forms developer",
+    "description": "Just a programmer using Microsoft tools to create awesome apps!",
+    "country": "AR",
+    "tags": [
+      "xamarin.forms",
+      "c#",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rodrigomjuarez@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rodrigojuarez"
+      },
+      {
+        "type": "website",
+        "id": "dev.to/rodrigojuarez"
+      }
+    ]
+  },
+  {
+    "id": "paul@hanaoka.co",
+    "name": "Paul Hanaoka",
+    "avatar": "https://paul.hanaoka.co/assets/images/cool-guy.png",
+    "title": "Product Design Manager",
+    "description": "UX Designer, amateur react developer, CSS \"expert\", design tool aficionado ",
+    "country": "US",
+    "tags": [
+      "design",
+      "frontend",
+      "css",
+      "figma",
+      "user experience"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "paul@hanaoka.co"
+      },
+      {
+        "type": "twitter",
+        "id": "plhnk"
+      },
+      {
+        "type": "github",
+        "id": "plhnk"
+      }
+    ]
+  },
+  {
+    "id": "simonegizzi85@gmail.com",
+    "name": "Simone Gizzi",
+    "avatar": "https://media.licdn.com/dms/image/C4E03AQGsfACc6Y0cAA/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=Z1F26QYGxVW41CqZ5En81xiZEw1IQ1zKmWyiQCGXojA",
+    "title": "Fullstack Developer",
+    "description": "Passionate Fullstack Developer with a focus on Javascript world",
+    "country": "IT",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "fullstack",
+      "angular",
+      "sass"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "simonegizzi85@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "simonegizzi"
+      },
+      {
+        "type": "twitter",
+        "id": "Guizzo85"
+      }
+    ]
+  },
+  {
+    "id": "astorino.design@gmail.com",
+    "name": "Mattia Astorino",
+    "avatar": "https://avatars2.githubusercontent.com/u/10454741?s=460&v=4",
+    "title": "UI Enginner / Frontend Designer",
+    "description": "I can help building design systems, scalable and accessible UI components",
+    "country": "IT",
+    "tags": [
+      "html",
+      "css",
+      "js",
+      "stenciljs",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "equinusocio"
+      },
+      {
+        "type": "github",
+        "id": "equinusocio"
+      },
+      {
+        "type": "website",
+        "id": "equinsuocha.io"
+      }
+    ]
+  },
+  {
+    "id": "ciao@micheleriva.it",
+    "name": "Michele Riva",
+    "avatar": "https://avatars1.githubusercontent.com/u/14977595?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Passionate and experienced software engineer based in Monza, Italy.",
+    "country": "IT",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "vuejs",
+      "express",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "micheleriva95"
+      },
+      {
+        "type": "github",
+        "id": "micheleriva"
+      },
+      {
+        "type": "website",
+        "id": "www.micheleriva.it"
+      }
+    ]
+  },
+  {
+    "id": "jkan@futurice.com",
+    "name": "Jaakko Kangasharju",
+    "avatar": "https://s.gravatar.com/avatar/f0c8478aeeed4aaa0c6fb5089b510c2e",
+    "title": "Software Developer",
+    "description": "Experienced mobile developer, special interest in app architecture",
+    "country": "DE",
+    "tags": [
+      "ios",
+      "android",
+      "architecture",
+      "rx",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jkan@futurice.com"
+      },
+      {
+        "type": "twitter",
+        "id": "vorahsa"
+      },
+      {
+        "type": "github",
+        "id": "asharov"
+      }
+    ]
+  },
+  {
+    "id": "islam.sayed8@gmail.com",
+    "name": "Islam Sayed",
+    "avatar": "https://lh3.googleusercontent.com/-291qbNOqe6w/XHJQECxfXwI/AAAAAAAAEac/qz3-o6CaigMkAGrdwUzMXmtrDLcN-7LlACEwYBhgL/w139-h140-p/FB_IMG_1527256632688.jpg",
+    "title": "Front-end web developer",
+    "description": "I'm a freelance front-end, JavaScript developer, tutor, tech writer, and mentor.",
+    "country": "EG",
+    "tags": [
+      "html",
+      "css",
+      "javascript",
+      "reactjs",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "islam.sayed8@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGDA61GJV"
+      },
+      {
+        "type": "twitter",
+        "id": "islam_sayed8"
+      }
+    ]
+  },
+  {
+    "id": "hello@juno.codes",
+    "name": "Justin Juno",
+    "avatar": "https://avatars3.githubusercontent.com/u/29876915?s=460&v=4",
+    "title": "Javascript Developer",
+    "description": "Infinitely curious javascript developer and father of twins!",
+    "country": "US",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "graphql",
+      "gatsby"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "junocodes"
+      },
+      {
+        "type": "github",
+        "id": "junocodes"
+      },
+      {
+        "type": "email",
+        "id": "hello@juno.codes"
+      }
+    ]
+  },
+  {
+    "id": "code@erikostrom.com",
+    "name": "Erik Ostrom",
+    "avatar": "https://avatars0.githubusercontent.com/u/8683?s=460&v=4",
+    "title": "Web Spinner",
+    "description": "Head in code, heart in design. Debugging, refactoring, style.",
+    "country": "US",
+    "tags": [
+      "vuejs",
+      "css",
+      "frontend",
+      "ruby",
+      "rails"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHKB345GW"
+      },
+      {
+        "type": "linkedin",
+        "id": "eostrom"
+      },
+      {
+        "type": "website",
+        "id": "www.erikostrom.com"
+      }
+    ]
+  },
+  {
+    "id": "hey@wes.dev",
+    "name": "Wes Souza",
+    "avatar": "https://wes.dev/images/Wes-Square.jpg",
+    "title": "Senior Developer",
+    "description": "The web is the future. 🏳️‍🌈",
+    "country": "US",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "WesleydeSouza"
+      },
+      {
+        "type": "github",
+        "id": "WesSouza"
+      },
+      {
+        "type": "website",
+        "id": "wes.dev"
+      }
+    ]
   }
 ]
