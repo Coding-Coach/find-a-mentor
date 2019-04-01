@@ -3504,6 +3504,64 @@
     ]
   },
   {
+    "id": "astorino.design@gmail.com",
+    "name": "Mattia Astorino",
+    "avatar": "https://avatars2.githubusercontent.com/u/10454741?s=460&v=4",
+    "title": "UI Enginner / Frontend Designer",
+    "description": "I can help building design systems, scalable and accessible UI components",
+    "country": "IT",
+    "tags": [
+      "html",
+      "css",
+      "js",
+      "stenciljs",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "equinusocio"
+      },
+      {
+        "type": "github",
+        "id": "equinusocio"
+      },
+      {
+        "type": "website",
+        "id": "equinsuocha.io"
+      }
+    ]
+  },
+  {
+    "id": "ciao@micheleriva.it",
+    "name": "Michele Riva",
+    "avatar": "https://avatars1.githubusercontent.com/u/14977595?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Passionate and experienced software engineer based in Monza, Italy.",
+    "country": "IT",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "vuejs",
+      "express",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "micheleriva95"
+      },
+      {
+        "type": "github",
+        "id": "micheleriva"
+      },
+      {
+        "type": "website",
+        "id": "www.micheleriva.it"
+      }
+    ]
+  },
+  {
     "id": "jkan@futurice.com",
     "name": "Jaakko Kangasharju",
     "avatar": "https://s.gravatar.com/avatar/f0c8478aeeed4aaa0c6fb5089b510c2e",
