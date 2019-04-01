@@ -3620,6 +3620,35 @@
     ]
   },
   {
+    "id": "hello@juno.codes",
+    "name": "Justin Juno",
+    "avatar": "https://avatars3.githubusercontent.com/u/29876915?s=460&v=4",
+    "title": "Javascript Developer",
+    "description": "Infinitely curious javascript developer and father of twins!",
+    "country": "US",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "graphql",
+      "gatsby"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "junocodes"
+      },
+      {
+        "type": "github",
+        "id": "junocodes"
+      },
+      {
+        "type": "email",
+        "id": "hello@juno.codes"
+       }
+     ]
+  },
+  {
     "id": "code@erikostrom.com",
     "name": "Erik Ostrom",
     "avatar": "https://avatars0.githubusercontent.com/u/8683?s=460&v=4",
