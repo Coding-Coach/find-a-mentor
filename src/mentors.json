@@ -3502,5 +3502,32 @@
         "id": "Guizzo85"
       }
     ]
+  },
+  {
+    "id": "ciao@micheleriva.it",
+    "name": "Michele Riva",
+    "avatar": "https://avatars1.githubusercontent.com/u/14977595?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Passionate and experienced software engineer based in Monza, Italy.",
+    "country": "IT",
+    "tags": [
+      "javascript",
+      "node.js",
+      "vue"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "micheleriva95"
+      },
+      {
+        "type": "github",
+        "id": "micheleriva"
+      },
+      {
+        "type": "website",
+        "id": "www.micheleriva.it"
+      }
+    ]
   }
 ]
