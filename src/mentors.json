@@ -3706,3 +3706,37 @@
     ]
   }
 ]
+},
+  {
+    "id": "shodipovi@gmail.com",
+    "name": "Shodipo Ayomide",
+    "avatar": "https://pbs.twimg.com/profile_images/1095270390404923392/MjzonABt_400x400.jpg",
+    "title": "Developer Advocate and Software Engineer",
+    "description": "Developer Advocate, Software Engineer, Community Builder, Startup Founder and OSS",
+    "country": "NG",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "vuejs",
+      "angularjs",
+      "laravel",
+      "PWA",
+      "accessibility",
+      
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "developerayo"
+      },
+      {
+        "type": "github",
+        "id": "developerayo"
+      },
+      {
+        "type": "website",
+        "id": "shodipoayomide.com"
+      }
+    ]
+  }
+]
