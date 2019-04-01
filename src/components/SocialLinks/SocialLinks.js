@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./SocialLinks.css";
+import './SocialLinks.css';
 
 const SocialLinks = () => (
   <nav aria-label="Social Media" className="social-wrapper">

@@ -14,12 +14,13 @@ app.get('/get_mentors', (req, res) => {
   res.json([
     {
       name: 'Steve Sanders',
-      avatar: 'https://react.semantic-ui.com/images/avatar/large/steve.jpg'
+      avatar: 'https://react.semantic-ui.com/images/avatar/large/steve.jpg',
     },
-   {
-     name: 'Molly Thomas',
-     avatar: 'https://react.semantic-ui.com/images/avatar/large/molly.png'
-   }]);
+    {
+      name: 'Molly Thomas',
+      avatar: 'https://react.semantic-ui.com/images/avatar/large/molly.png',
+    },
+  ]);
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
