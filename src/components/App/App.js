@@ -1,53 +1,70 @@
-import "./App.css";
-import mentors from "../../mentors.json";
+import './App.css';
+import mentors from '../../mentors.json';
 
-import React, { Component } from "react";
-import classNames from "classnames";
-import MentorsList from "../MentorsList/MentorsList";
-import Filter from "../Filter/Filter";
-import Logo from "../Logo";
-import SocialLinks from "../SocialLinks/SocialLinks";
-import shuffle from "lodash/shuffle";
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import MentorsList from '../MentorsList/MentorsList';
+import Filter from '../Filter/Filter';
+import Logo from '../Logo';
+import SocialLinks from '../SocialLinks/SocialLinks';
+import shuffle from 'lodash/shuffle';
+import { toggle, get } from '../../favoriteManager';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
-    mentors: shuffle(mentors)
+    mentors: shuffle(mentors),
+    favorites: get(),
   };
 
   handleTagSelect = async ({ value: tag }) => {
     await scrollToTop();
     this.setState({
-      tag
+      tag,
     });
   };
 
   handleCountrySelect = async ({ value: country }) => {
     await scrollToTop();
     this.setState({
-      country
+      country,
     });
   };
 
   handleNameSelect = async ({ value: name }) => {
     await scrollToTop();
     this.setState({
-      name
+      name,
     });
   };
 
   filterMentors = mentor => {
-    const { tag, country, name } = this.state;
+    const { tag, country, name, showFavorite, favorites } = this.state;
     return (
       (!tag || mentor.tags.includes(tag)) &&
       (!country || mentor.country === country) &&
-      (!name || mentor.name === name)
+      (!name || mentor.name === name) &&
+      (!showFavorite || favorites.indexOf(mentor.id) > -1)
     );
   };
 
   toggleFields = () => {
     this.setState({
-      fieldsIsActive: !this.state.fieldsIsActive
+      fieldsIsActive: !this.state.fieldsIsActive,
+    });
+  };
+
+  toggleSwitch = async showFavorite => {
+    await scrollToTop();
+    this.setState({
+      showFavorite,
+    });
+  };
+
+  onFavMentor = mentor => {
+    const favorites = toggle(mentor);
+    this.setState({
+      favorites,
     });
   };
 
@@ -72,18 +89,22 @@ class App extends Component {
               <Logo width={110} height={50} color="#68d5b1" />
             </a>
             <Filter
-            onTagSelected={this.handleTagSelect}
-            onCountrySelected={this.handleCountrySelect}
-            onNameSelected={this.handleNameSelect}
-            onToggleFilter={this.toggleFields}
-            mentorCount={mentorsInList.length} />
+              onTagSelected={this.handleTagSelect}
+              onCountrySelected={this.handleCountrySelect}
+              onNameSelected={this.handleNameSelect}
+              onToggleFilter={this.toggleFields}
+              onToggleSwitch={this.toggleSwitch}
+              mentorCount={mentorsInList.length}
+            />
             <SocialLinks />
           </aside>
           <MentorsList
             className={classNames({
-              active: fieldsIsActive
+              active: fieldsIsActive,
             })}
             mentors={mentorsInList}
+            favorites={this.state.favorites}
+            onFavMentor={this.onFavMentor}
           />
         </main>
         <footer>

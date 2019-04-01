@@ -18,6 +18,7 @@
   .mentors-wrapper {
     padding-bottom: 30px;
     margin-left: 276px;
+    flex-grow: 1;
   }
   .mentors-cards {
     display: flex;
