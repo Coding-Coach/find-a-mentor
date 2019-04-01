@@ -3704,5 +3704,34 @@
         "id": "wes.dev"
       }
     ]
+  },
+  {
+    "id": "benjamin@lannonbr.com",
+    "name": "Benjamin Lannon",
+    "avatar": "https://avatars3.githubusercontent.com/u/3685876?s=460&v=4",
+    "title": "Web Developer",
+    "description": "Full Stack Developer & Advocate for Open Source",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "gatsby",
+      "css",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "benjamin@lannonbr.com"
+      },
+      {
+        "type": "twitter",
+        "id": "lannonbr"
+      },
+      {
+        "type": "github",
+        "id": "lannonbr"
+      }
+    ]
   }
 ]
