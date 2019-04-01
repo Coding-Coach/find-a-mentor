@@ -1,9 +1,9 @@
-import React from "react";
-import { orderBy } from "lodash";
-import "./Card.css";
-import { getChannelInfo } from "../../channelProvider";
-import classNames from "classnames";
-import countries from "svg-country-flags/countries.json";
+import React from 'react';
+import { orderBy } from 'lodash';
+import './Card.css';
+import { getChannelInfo } from '../../channelProvider';
+import classNames from 'classnames';
+import countries from 'svg-country-flags/countries.json';
 
 const tagsList = tags =>
   tags.map((tag, index) => {
@@ -15,7 +15,7 @@ const tagsList = tags =>
   });
 
 const channelsList = channels => {
-  const orderedChannels = orderBy(channels, ["type"], ["asc"]);
+  const orderedChannels = orderBy(channels, ['type'], ['asc']);
   return orderedChannels.map(channel => {
     const { icon, url } = getChannelInfo(channel);
     return (
@@ -48,8 +48,8 @@ const LikeButton = ({ onClick, liked }) => (
   <button onClick={onClick} className="like-button" aria-label="Save Mentor">
     <i
       className={classNames([
-        "fa",
-        { "liked fa-heart": liked, "fa-heart-o": !liked }
+        'fa',
+        { 'liked fa-heart': liked, 'fa-heart-o': !liked },
       ])}
     />
   </button>

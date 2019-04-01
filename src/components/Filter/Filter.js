@@ -1,21 +1,21 @@
-import "./Filter.css";
-import mentors from "../../mentors.json";
+import './Filter.css';
+import mentors from '../../mentors.json';
 
-import React, { Component } from "react";
-import classNames from "classnames";
-import AutoComplete from "../AutoComplete/AutoComplete";
-import Input from "../Input/Input";
-import Switch from "../Switch/Switch";
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import AutoComplete from '../AutoComplete/AutoComplete';
+import Input from '../Input/Input';
+import Switch from '../Switch/Switch';
 
-import { generateLists } from "../../listsGenerator";
+import { generateLists } from '../../listsGenerator';
 const { tags, countries, names } = generateLists(mentors);
 
 export default class Filter extends Component {
   state = {
-    tag: "",
-    country: "",
-    name: "",
-    showFilters: false
+    tag: '',
+    country: '',
+    name: '',
+    showFilters: false,
   };
 
   onTagSelect = tag => {
@@ -35,7 +35,7 @@ export default class Filter extends Component {
 
   onToggleFilter = () => {
     this.setState({
-      showFilters: !this.state.showFilters
+      showFilters: !this.state.showFilters,
     });
     this.props.onToggleFilter();
   };
@@ -48,11 +48,15 @@ export default class Filter extends Component {
       <section aria-labelledby="filter" className="filter-wrapper">
         <h3 id="filter">
           Filter <span id="mentorCount">{this.props.mentorCount} Mentors</span>
-          <button className="toggle-filter" onClick={this.onToggleFilter} aria-label="Toggle filter">
+          <button
+            className="toggle-filter"
+            onClick={this.onToggleFilter}
+            aria-label="Toggle filter"
+          >
             <i
               className={classNames([
-                "fa fa-angle-down",
-                { "show-filters": showFilters }
+                'fa fa-angle-down',
+                { 'show-filters': showFilters },
               ])}
             />
           </button>
