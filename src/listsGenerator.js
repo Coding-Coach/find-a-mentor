@@ -3,8 +3,8 @@ import countries from 'svg-country-flags/countries.json';
 function mapToItem(label, value) {
   return {
     label,
-    value: (typeof(value) === 'string' && value) || label
-  }
+    value: (typeof value === 'string' && value) || label,
+  };
 }
 
 function sortByLabel(a, b) {
@@ -16,7 +16,7 @@ export function generateLists(mentors) {
     tags: [],
     countries: [],
     names: [],
-  }
+  };
 
   for (let i = 0; i < mentors.length; i++) {
     json.tags.push(...(mentors[i].tags || []));
@@ -25,8 +25,12 @@ export function generateLists(mentors) {
   }
 
   json.names = [...new Set(json.names)].map(mapToItem).sort(sortByLabel);
-  json.tags = [...new Set(json.tags.map(tag => tag.toLowerCase()))].map(mapToItem).sort(sortByLabel);
-  json.countries = [...new Set(json.countries)].map(country => mapToItem(countries[country], country)).sort(sortByLabel);
+  json.tags = [...new Set(json.tags.map(tag => tag.toLowerCase()))]
+    .map(mapToItem)
+    .sort(sortByLabel);
+  json.countries = [...new Set(json.countries)]
+    .map(country => mapToItem(countries[country], country))
+    .sort(sortByLabel);
 
   return json;
 }

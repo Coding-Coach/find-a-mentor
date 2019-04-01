@@ -17,11 +17,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "yarn prettier && react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "add-user": "node scripts/add-mentor.js"
+    "add-user": "node scripts/add-mentor.js",
+    "prettier": "prettier \"**/*.{json,js}\" --check --loglevel error",
+    "prettier:fix": "prettier \"**/*.{json,js}\" --write"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,7 +41,8 @@
     "inquirer": "^6.2.2",
     "nodemon": "^1.18.9",
     "object-path": "^0.11.4",
-    "ora": "^3.2.0"
+    "ora": "^3.2.0",
+    "prettier": "1.16.4"
   },
   "homepage": "https://mentors.codingcoach.io",
   "license": "MIT"
