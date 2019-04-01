@@ -3560,5 +3560,34 @@
         "id": "www.micheleriva.it"
       }
     ]
+  },
+  {
+    "id": "jkan@futurice.com",
+    "name": "Jaakko Kangasharju",
+    "avatar": "https://s.gravatar.com/avatar/f0c8478aeeed4aaa0c6fb5089b510c2e",
+    "title": "Software Developer",
+    "description": "Experienced mobile developer, special interest in app architecture",
+    "country": "DE",
+    "tags": [
+      "ios",
+      "android",
+      "architecture",
+      "rx",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jkan@futurice.com"
+      },
+      {
+        "type": "twitter",
+        "id": "vorahsa"
+      },
+      {
+        "type": "github",
+        "id": "asharov"
+      }
+    ]
   }
 ]
