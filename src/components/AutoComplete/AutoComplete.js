@@ -45,8 +45,7 @@ export default class AutoComplete extends Component {
 
   render() {
     const { value } = this.state;
-    const { source } = this.props;
-
+    const { id, source } = this.props;
     return (
       <div className="ac">
         <Autocomplete
@@ -60,6 +59,9 @@ export default class AutoComplete extends Component {
           shouldItemRender={this.matchStateToTerm}
           onSelect={this.onSelect}
           onChange={this.onChange}
+          inputProps={{
+            id: id
+          }}
         />
       </div>
     )

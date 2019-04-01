@@ -59,13 +59,13 @@ export default class Filter extends Component {
         </h3>
         <div className="inputs" aria-expanded={showFilters}>
           <Input id="language" label="Language or technology" key="language">
-            <AutoComplete source={tags} onSelect={this.onTagSelect} />
+            <AutoComplete id="language" source={tags} onSelect={this.onTagSelect} />
           </Input>
           <Input id="country" label="Country" key="country">
-            <AutoComplete source={countries} onSelect={this.onCountrySelect} />
+            <AutoComplete id="country" source={countries} onSelect={this.onCountrySelect} />
           </Input>
           <Input id="name" label="Name" key="name">
-            <AutoComplete source={names} onSelect={this.onNameSelect} />
+            <AutoComplete id="name" source={names} onSelect={this.onNameSelect} />
           </Input>
           <Switch id="fav" label="My Favorites" onToggle={onToggleSwitch} />
         </div>
