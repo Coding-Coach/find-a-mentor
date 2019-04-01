@@ -3589,5 +3589,34 @@
         "id": "asharov"
       }
     ]
+  },
+  {
+    "id": "islam.sayed8@gmail.com",
+    "name": "Islam Sayed",
+    "avatar": "https://lh3.googleusercontent.com/-291qbNOqe6w/XHJQECxfXwI/AAAAAAAAEac/qz3-o6CaigMkAGrdwUzMXmtrDLcN-7LlACEwYBhgL/w139-h140-p/FB_IMG_1527256632688.jpg",
+    "title": "Front-end web developer",
+    "description": "I'm a freelance front-end, JavaScript developer, tutor, tech writer, and mentor.",
+    "country": "EG",
+    "tags": [
+      "html",
+      "css",
+      "javascript",
+      "reactjs",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "islam.sayed8@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UGDA61GJV"
+      },
+      {
+        "type": "twitter",
+        "id": "islam_sayed8"
+      }
+    ]
   }
 ]
