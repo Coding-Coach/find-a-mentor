@@ -3706,6 +3706,323 @@
     ]
   },
   {
+    "id": "hello@danilo.cc",
+    "name": "Danilo Lima",
+    "avatar": "https://avatars2.githubusercontent.com/u/5581367?s=460&v=4",
+    "title": "Solutions Architect",
+    "description": "Software Developer & Cloud Computing enthusiast",
+    "country": "BR",
+    "tags": [
+      "php",
+      "nodejs",
+      "javascript",
+      "java",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@danilo.cc"
+      },
+      {
+        "type": "linkedin",
+        "id": "danilodev"
+      },
+      {
+        "type": "website",
+        "id": "danilo.cc"
+      }
+    ]
+  },
+  {
+    "id": "mg@designomatt.com",
+    "name": "Matthew Gallagher",
+    "avatar": "https://scontent-mia3-1.cdninstagram.com/vp/6945f8c00f6ef0bb2b28a2c3b2edccd9/5D32F633/t51.2885-19/s320x320/41926970_1814094125376953_8360206914574876672_n.jpg?_nc_ht=scontent-mia3-1.cdninstagram.com",
+    "title": "Designer",
+    "description": "I currently lead design teams on enterprise-level design",
+    "country": "US",
+    "tags": [
+      "ui", "ux", "visual design", "sketch", "adobe"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "matthewgallagher"
+      },
+      {
+        "type": "twitter",
+        "id": "designomatt"
+      }
+    ]
+  },
+  {
+    "id": "Richard@toms.dev",
+    "name": "Richard Toms",
+    "avatar": "https://avatars0.githubusercontent.com/u/13962331?s=400&v=4",
+    "title": "Senior Laravel API Developer",
+    "description": "I'm a senior PHP Laravel developer",
+    "country": "GB",
+    "tags": [
+      "laravel", "api", "php", "integration", "principles"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "Richard@toms.dev"
+      },
+      {
+        "type": "github",
+        "id": "RichToms"
+      },
+      {
+        "type": "twitter",
+        "id": "RichToms"
+      }
+    ]
+  },
+  {
+    "id": "ammadshakoor44@gmail.com",
+    "name": "Ammad Shakoor",
+    "avatar": "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/19424071_787418108105752_5458814460156781896_n.jpg?_nc_cat=103&_nc_ht=scontent-frt3-2.xx&oh=7d9325be6cc59f0d33675780b81b36ca&oe=5D0891BB",
+    "title": ".Net Developer",
+    "description": "Hi, I'm Ammad! Let me know if you need any help.",
+    "country": "PK",
+    "tags": [
+      ".net", "algorithms", "android", "c#", "backend"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "ammadshakoor1"
+      },
+      {
+        "type": "linkedin",
+        "id": "ammad-shakoor"
+      }
+    ]
+  },
+  {
+    "id": "fayazara@gmail.com",
+    "name": "Fayaz Ahmed",
+    "avatar": "https://avatars3.githubusercontent.com/u/15716057?s=400&v=4",
+    "title": "Frontend Engineer",
+    "description": "A self learned developer",
+    "country": "IN",
+    "tags": [
+      "javascript", "vuejs", "jquery"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "fayazara"
+      },
+      {
+        "type": "twitter",
+        "id": "fayazara"
+      }
+    ]
+  },
+  {
+    "id": "sunilchhimpa92@gmail.com",
+    "name": "Sunil Kumar",
+    "avatar": "https://pbs.twimg.com/profile_images/1110749215720771584/6RGOn2T0_400x400.png",
+    "title": "Web Developer, Blogger",
+    "description": "Lets help everyone to grow",
+    "country": "IN",
+    "tags": [
+      "php", "git", "mysql", "symfony", "codeigniter"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "http://acmeextension.com"
+      },
+      {
+        "type": "twitter",
+        "id": "SunilChhimpa92"
+      }
+    ]
+  },
+  {
+    "id": "philipp@jardas.de",
+    "name": "Philipp Jardas",
+    "avatar": "https://avatars2.githubusercontent.com/u/1437300?s=400&v=4",
+    "title": "Full-stack Software Engineer",
+    "description": "Hey! I've been developing full-stack applications for over 20 years",
+    "country": "DE",
+    "tags": [
+      "javascript", "java", "web", "reactjs", "docker"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "https://jardas.de"
+      },
+      {
+        "type": "twitter",
+        "id": "phjardas"
+      },
+      {
+        "type": "github",
+        "id": "phjardas"
+      }
+    ]
+  },
+  {
+    "id": "alik@digintus.com",
+    "name": "Ali Karim",
+    "avatar": "https://pbs.twimg.com/profile_images/1055282567904194561/UsuHtNYl_400x400.jpg",
+    "title": ".Net Front-End Developer",
+    "description": "Hi, I am a .Net Front-End Developer. I work with Umbraco CMS.",
+    "country": "GB",
+    "tags": [
+      "umbraco", "ui", "ux", ".net", "design"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alik@digintus.com"
+      },
+      {
+        "type": "slack",
+        "id": "UG088MG2C"
+      },
+      {
+        "type": "twitter",
+        "id": "thealikazai"
+      }
+    ]
+  },
+  {
+    "id": "manuel@christlieb.eu",
+    "name": "Manuel Christlieb",
+    "avatar": "https://www.team23.de/content/static/images/team/manuel_christlieb.jpg",
+    "title": "PHP Developer",
+    "description": "A self trained php developer with a lots of love for Laravel",
+    "country": "DE",
+    "tags": [
+      "modern php", "laravel", "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "bambamboole1"
+      },
+      {
+        "type": "github",
+        "id": "bambamboole"
+      }
+    ]
+  },
+  {
+    "id": "hareshambaliya@gmail.com",
+    "name": "Haresh Ambaliya",
+    "avatar": "https://pbs.twimg.com/profile_images/1457965822/haresh_400x400.png",
+    "title": "Technical Architect ",
+    "description": "Hi, I am very good in Microsoft Technology including Azure.",
+    "country": "IN",
+    "tags": [
+      "asp.net", "c#", "sql servers", "azure", "redis"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "hareshambaliya"
+      },
+      {
+        "type": "website",
+        "id": "http://www.webstackgeek.com"
+      }
+    ]
+  },
+  {
+    "id": "jacobwgillespie@gmail.com",
+    "name": "Jacob Gillespie",
+    "avatar": "https://avatars1.githubusercontent.com/u/130874?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Happy to help with Node, React, TypeScript, or anything really!",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "typescript",
+      "backend",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jacobwgillespie@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "jacobwgillespie"
+      },
+      {
+        "type": "github",
+        "id": "jacobwgillespie"
+      }
+    ]
+  },
+  {
+    "id": "bogdan@thewindev.net",
+    "name": "Bogdan Bujdea",
+    "avatar": "https://thewindev.net/wp-content/uploads/2019/01/meetup-profile-pic.png",
+    "title": ".NET Developer",
+    "description": "I'm a jack of all trades but my passion remains C#. Happy to share my knowledge!",
+    "country": "RO",
+    "tags": [
+      "dotnet",
+      "c#",
+      "xamarin.forms",
+      "uwp",
+      "git"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "thewindev"
+      },
+      {
+        "type": "github",
+        "id": "thewindev"
+      },
+      {
+        "type": "website",
+        "id": "thewindev.net"
+      }
+    ]
+  },
+  {
+    "id": "benjamin@lannonbr.com",
+    "name": "Benjamin Lannon",
+    "avatar": "https://avatars3.githubusercontent.com/u/3685876?s=460&v=4",
+    "title": "Web Developer",
+    "description": "Full Stack Developer & Advocate for Open Source",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "gatsby",
+      "css",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "benjamin@lannonbr.com"
+      },
+      {
+        "type": "twitter",
+        "id": "lannonbr"
+      },
+      {
+        "type": "github",
+        "id": "lannonbr"
+      }
+    ]
+  },
+  {
     "id": "mathieu@dutour.me",
     "name": "Mathieu Dutour",
     "avatar": "https://avatars0.githubusercontent.com/u/3254314?s=460&v=4",
