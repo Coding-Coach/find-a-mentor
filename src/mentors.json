@@ -3704,5 +3704,34 @@
         "id": "wes.dev"
       }
     ]
+  },
+  {
+    "id": "hello@danilo.cc",
+    "name": "Danilo Lima",
+    "avatar": "https://avatars2.githubusercontent.com/u/5581367?s=460&v=4",
+    "title": "Solutions Architect",
+    "description": "Software Developer & Cloud Computing enthusiast",
+    "country": "BR",
+    "tags": [
+      "php",
+      "nodejs",
+      "javascript",
+      "java",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@danilo.cc"
+      },
+      {
+        "type": "linkedin",
+        "id": "danilodev"
+      },
+      {
+        "type": "website",
+        "id": "danilo.cc"
+      }
+    ]
   }
 ]
