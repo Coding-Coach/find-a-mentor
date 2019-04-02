@@ -3704,5 +3704,34 @@
         "id": "wes.dev"
       }
     ]
+  },
+  {
+    "id": "jacobwgillespie@gmail.com",
+    "name": "Jacob Gillespie",
+    "avatar": "https://avatars1.githubusercontent.com/u/130874?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Happy to help with Node, React, TypeScript, or anything really!",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "typescript",
+      "backend",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jacobwgillespie@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "jacobwgillespie"
+      },
+      {
+        "type": "github",
+        "id": "jacobwgillespie"
+      }
+    ]
   }
 ]
