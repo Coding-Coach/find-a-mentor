@@ -5,6 +5,7 @@ import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import countries from 'svg-country-flags/countries.json';
 
+const generateMentorId = (name) => {return name.replace(/\s/g, '-')}
 const tagsList = tags =>
   tags.map((tag, index) => {
     return (
@@ -36,13 +37,12 @@ const channelsList = channels => {
 };
 
 const Avatar = ({ mentor }) => {
-  const mentorHtmlId = mentor.name.replace(/\s/g, '-');
   return (
     <div className="avatar">
       <i className="fa fa-user-circle" />
       <img
         src={mentor.avatar}
-        aria-labelledby={`${mentorHtmlId}-name`}
+        aria-labelledby={`${generateMentorId(mentor.name)}-name`}
         alt=""
       />
     </div>
@@ -61,7 +61,6 @@ const LikeButton = ({ onClick, liked }) => (
 );
 
 const Info = ({ mentor }) => {
-  const mentorHtmlId = mentor.name.replace(/\s/g, '-');
   // Don't show the description if it's not provided.
   const description = mentor.description ? (
     <p className="description">"{mentor.description}"</p>
@@ -71,7 +70,7 @@ const Info = ({ mentor }) => {
 
   return (
     <React.Fragment>
-      <h1 className="name" id={`${mentorHtmlId}-name`}>
+      <h1 className="name" id={`${generateMentorId(mentor.name)}-name`}>
         {mentor.name}
       </h1>
       <h4 className="title">{mentor.title}</h4>
