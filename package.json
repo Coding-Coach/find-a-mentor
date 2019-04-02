@@ -22,7 +22,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "add-user": "node scripts/add-mentor.js",
-    "prettier": "prettier \"**/*.{json,js}\" --check --loglevel error",
+    "prettier": "prettier \"**/*.{json,js}\" --check --loglevel log",
     "prettier:fix": "prettier \"**/*.{json,js}\" --write"
   },
   "eslintConfig": {
