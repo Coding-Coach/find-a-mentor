@@ -5,6 +5,10 @@ import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import countries from 'svg-country-flags/countries.json';
 
+const generateMentorId = name => {
+  return name.replace(/\s/g, '-');
+};
+
 function handleAnalytic(channelName) {
   if (window && window.ga) {
     const { ga } = window;
@@ -54,7 +58,11 @@ const Avatar = ({ mentor }) => {
   return (
     <div className="avatar">
       <i className="fa fa-user-circle" />
-      <img src={mentor.avatar} aria-labelledby={`${mentor.name}-name`} alt="" />
+      <img
+        src={mentor.avatar}
+        aria-labelledby={`${generateMentorId(mentor.name)}-name`}
+        alt=""
+      />
     </div>
   );
 };
@@ -80,7 +88,7 @@ const Info = ({ mentor }) => {
 
   return (
     <React.Fragment>
-      <h1 className="name" id={`${mentor.name}-name`}>
+      <h1 className="name" id={`${generateMentorId(mentor.name)}-name`}>
         {mentor.name}
       </h1>
       <h4 className="title">{mentor.title}</h4>
