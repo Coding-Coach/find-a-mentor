@@ -3742,7 +3742,11 @@
     "description": "I currently lead design teams on enterprise-level design",
     "country": "US",
     "tags": [
-      "ui", "ux", "visual design", "sketch", "adobe"
+      "ui",
+      "ux",
+      "visual design",
+      "sketch",
+      "adobe"
     ],
     "channels": [
       {
@@ -3763,7 +3767,11 @@
     "description": "I'm a senior PHP Laravel developer",
     "country": "GB",
     "tags": [
-      "laravel", "api", "php", "integration", "principles"
+      "laravel",
+      "api",
+      "php",
+      "integration",
+      "principles"
     ],
     "channels": [
       {
@@ -3788,7 +3796,11 @@
     "description": "Hi, I'm Ammad! Let me know if you need any help.",
     "country": "PK",
     "tags": [
-      ".net", "algorithms", "android", "c#", "backend"
+      ".net",
+      "algorithms",
+      "android",
+      "c#",
+      "backend"
     ],
     "channels": [
       {
@@ -3809,7 +3821,9 @@
     "description": "A self learned developer",
     "country": "IN",
     "tags": [
-      "javascript", "vuejs", "jquery"
+      "javascript",
+      "vuejs",
+      "jquery"
     ],
     "channels": [
       {
@@ -3830,7 +3844,11 @@
     "description": "Lets help everyone to grow",
     "country": "IN",
     "tags": [
-      "php", "git", "mysql", "symfony", "codeigniter"
+      "php",
+      "git",
+      "mysql",
+      "symfony",
+      "codeigniter"
     ],
     "channels": [
       {
@@ -3851,7 +3869,11 @@
     "description": "Hey! I've been developing full-stack applications for over 20 years",
     "country": "DE",
     "tags": [
-      "javascript", "java", "web", "reactjs", "docker"
+      "javascript",
+      "java",
+      "web",
+      "reactjs",
+      "docker"
     ],
     "channels": [
       {
@@ -3876,7 +3898,11 @@
     "description": "Hi, I am a .Net Front-End Developer. I work with Umbraco CMS.",
     "country": "GB",
     "tags": [
-      "umbraco", "ui", "ux", ".net", "design"
+      "umbraco",
+      "ui",
+      "ux",
+      ".net",
+      "design"
     ],
     "channels": [
       {
@@ -3901,7 +3927,9 @@
     "description": "A self trained php developer with a lots of love for Laravel",
     "country": "DE",
     "tags": [
-      "modern php", "laravel", "vuejs"
+      "modern php",
+      "laravel",
+      "vuejs"
     ],
     "channels": [
       {
@@ -3922,7 +3950,11 @@
     "description": "Hi, I am very good in Microsoft Technology including Azure.",
     "country": "IN",
     "tags": [
-      "asp.net", "c#", "sql servers", "azure", "redis"
+      "asp.net",
+      "c#",
+      "sql servers",
+      "azure",
+      "redis"
     ],
     "channels": [
       {
@@ -4049,7 +4081,7 @@
         "id": "mathieudutour"
       }
     ]
-  }, 
+  },
   {
     "id": "brockmdavis@outlook.com",
     "name": "Brock Davis",
@@ -4076,6 +4108,35 @@
       {
         "type": "linkedin",
         "id": "brockneedscoffee"
+      }
+    ]
+  },
+  {
+    "id": "quentin.desrame@gmail.com",
+    "name": "Quentin Desramé",
+    "avatar": "https://www.gravatar.com/avatar/c90e5130e5a7f2d605fa60d642ebda4e?s=1200",
+    "title": "R&D Full Stack Software Engineer",
+    "description": "Hi, i'm Passionate and experienced software engineer based in France",
+    "country": "FR",
+    "tags": [
+      "java",
+      "golang",
+      "nodejs",
+      "angular",
+      "php"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHK6088CU"
+      },
+      {
+        "type": "linkedin",
+        "id": "quentin-desrame"
+      },
+      {
+        "type": "twitter",
+        "id": "qdesrame"
       }
     ]
   }
