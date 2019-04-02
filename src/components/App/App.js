@@ -68,6 +68,14 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    if (window && window.ga) {
+      const { location, ga } = window;
+      ga('set', 'page', location.href);
+      ga('send', 'pageview');
+    }
+  }
+
   render() {
     const { mentors, fieldsIsActive } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);

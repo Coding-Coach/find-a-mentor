@@ -8,6 +8,21 @@ import countries from 'svg-country-flags/countries.json';
 const generateMentorId = name => {
   return name.replace(/\s/g, '-');
 };
+
+function handleAnalytic(channelName) {
+  if (window && window.ga) {
+    const { ga } = window;
+
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Channel',
+      eventAction: 'click',
+      eventLabel: channelName,
+      transport: 'beacon',
+    });
+  }
+}
+
 const tagsList = tags =>
   tags.map((tag, index) => {
     return (
@@ -28,6 +43,7 @@ const channelsList = channels => {
         target="_blank"
         rel="noopener noreferrer"
         className="channel-label"
+        onClick={() => handleAnalytic(`${channel.type}`)}
       >
         <div className="icon">
           <i className={`fa fa-${icon} fa-lg`} />
