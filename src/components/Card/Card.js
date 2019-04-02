@@ -5,7 +5,6 @@ import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import countries from 'svg-country-flags/countries.json';
 
-// ========Track Analytics Events on Page =======
 function handleAnalytic(channelName) {
   if (window && window.ga) {
     const { ga } = window;
