@@ -4049,5 +4049,34 @@
         "id": "mathieudutour"
       }
     ]
+  }, 
+  {
+    "id": "brockmdavis@outlook.com",
+    "name": "Brock Davis",
+    "avatar": "https://avatars0.githubusercontent.com/brockmdavis",
+    "title": "Applications Architect @ Turner",
+    "description": "Full Stack Developer, ready to help when and where I can!",
+    "country": "US",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "c#",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "brockmdavis"
+      },
+      {
+        "type": "slack",
+        "id": "UCBKN6XEY"
+      },
+      {
+        "type": "linkedin",
+        "id": "brockneedscoffee"
+      }
+    ]
   }
 ]
