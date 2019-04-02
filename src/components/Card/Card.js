@@ -5,7 +5,9 @@ import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import countries from 'svg-country-flags/countries.json';
 
-const generateMentorId = (name) => {return name.replace(/\s/g, '-')}
+const generateMentorId = name => {
+  return name.replace(/\s/g, '-');
+};
 const tagsList = tags =>
   tags.map((tag, index) => {
     return (
