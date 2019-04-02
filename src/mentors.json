@@ -3963,5 +3963,34 @@
         "id": "jacobwgillespie"
       }
     ]
+  },
+  {
+    "id": "bogdan@thewindev.net",
+    "name": "Bogdan Bujdea",
+    "avatar": "https://thewindev.net/wp-content/uploads/2019/01/meetup-profile-pic.png",
+    "title": ".NET Developer",
+    "description": "I'm a jack of all trades but my passion remains C#. Happy to share my knowledge!",
+    "country": "RO",
+    "tags": [
+      "dotnet",
+      "c#",
+      "xamarin.forms",
+      "uwp",
+      "git"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "thewindev"
+      },
+      {
+        "type": "github",
+        "id": "thewindev"
+      },
+      {
+        "type": "website",
+        "id": "thewindev.net"
+      }
+    ]
   }
 ]
