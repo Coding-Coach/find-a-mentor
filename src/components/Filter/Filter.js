@@ -46,8 +46,8 @@ export default class Filter extends Component {
   setPermalinkParams = (param, value) => {
     let permalink = new URLSearchParams(window.location.search);
     value.length ? permalink.set(param, value) : permalink.delete(param);
-    window.history.pushState({}, null, "?" + permalink.toString());
-  }
+    window.history.pushState({}, null, '?' + permalink.toString());
+  };
 
   render() {
     const { onToggleSwitch } = this.props;

@@ -51,8 +51,10 @@ export default class AutoComplete extends Component {
   getPermalinkParams() {
     const permalink = new URLSearchParams(window.location.search);
     const paramValue = permalink.get(this.props.id);
-    const paramItem = this.props.source.filter(item => item.value === paramValue);
-    if(paramItem.length) {
+    const paramItem = this.props.source.filter(
+      item => item.value === paramValue
+    );
+    if (paramItem.length) {
       this.setState({ value: paramItem[0].label, label: paramValue });
       this.props.onSelect({ value: paramValue, label: paramItem[0].label });
     }
