@@ -3019,6 +3019,35 @@
     ]
   },
   {
+    "id": "rexagod@gmail.com",
+    "name": "Pranshu Srivastava",
+    "avatar": "https://pbs.twimg.com/profile_images/1012749917733847040/BMvkekuT_400x400.jpg",
+    "title": "Fullstack Developer",
+    "description": "Eloquent JS is my jam!",
+    "country": "IN",
+    "tags": [
+      "JavaScript",
+      "ReactJS",
+      "NodeJS",
+      "Linux",
+      "FP"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rexagod@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "rexagod"
+      },
+      {
+        "type": "website",
+        "id": "overreacted.now.sh"
+      }
+    ]
+  },
+  {
     "id": "fa_gattal@esi.dz",
     "name": "Abderraouf GATTAL",
     "avatar": "https://avatars3.githubusercontent.com/Gattalraouf",
