@@ -118,7 +118,7 @@ function validateTags(value) {
   const hasLessThanOneOrMoreThanFiveTags = tags => {
     const count = tags.split(',').length;
 
-    return count < 1 || count > 5;
+    return !tags || count > 5;
   };
   const hasUppercaseCharacters = tags => /[A-Z]/.test(tags);
 
