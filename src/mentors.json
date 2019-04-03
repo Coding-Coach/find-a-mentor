@@ -4112,5 +4112,28 @@
         "id": "qdesrame"
       }
     ]
+  },
+  {
+    "id": "grebonato@outlook.ie",
+    "name": "Giacomo Rebonato",
+    "avatar": "https://secure.gravatar.com/avatar/b5e2b9ab04e9fa5710c3fd325c554ba7?size=800",
+    "title": "Software Engineer",
+    "description": "JS and web enthusiast",
+    "country": "GB-NIR",
+    "tags": [
+      "js",
+      "react",
+      "node"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "grebonato@outlook.ie"
+      },
+      {
+        "type": "twitter",
+        "id": "GiacomoRebonato"
+      }
+    ]
   }
 ]
