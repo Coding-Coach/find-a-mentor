@@ -1,4 +1,5 @@
 import React from 'react';
+import Obfuscate from 'react-obfuscate';
 import { orderBy } from 'lodash';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
@@ -36,21 +37,36 @@ const channelsList = channels => {
   const orderedChannels = orderBy(channels, ['type'], ['asc']);
   return orderedChannels.map(channel => {
     const { icon, url } = getChannelInfo(channel);
-    return (
-      <a
-        key={channel.type}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="channel-label"
-        onClick={() => handleAnalytic(`${channel.type}`)}
-      >
-        <div className="icon">
-          <i className={`fa fa-${icon} fa-lg`} />
-        </div>
-        <p className="type">{channel.type}</p>
-      </a>
-    );
+    if (channel.type === 'email') {
+      return (
+        <Obfuscate
+          email={url.substring('mailto:'.length)}
+          linkText=""
+          onClick={() => handleAnalytic(`${channel.type}`)}
+        >
+          <div className="icon">
+            <i className={`fa fa-${icon} fa-lg`} />
+          </div>
+          <p className="type">{channel.type}</p>
+        </Obfuscate>
+      );
+    } else {
+      return (
+        <a
+          key={channel.type}
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="channel-label"
+          onClick={() => handleAnalytic(`${channel.type}`)}
+        >
+          <div className="icon">
+            <i className={`fa fa-${icon} fa-lg`} />
+          </div>
+          <p className="type">{channel.type}</p>
+        </a>
+      );
+    }
   });
 };
 
