@@ -164,9 +164,13 @@ const mentorSchema = {
 
 it('should not have duplicated Id', () => {
   const mentorsId = _.map(mentors, 'id');
-  const duplicatedEmails = _.transform(_.countBy(mentorsId), (result, count, value) => {
-    if (count > 1) result.push(value);
-  }, []);
+  const duplicatedEmails = _.transform(
+    _.countBy(mentorsId),
+    (result, count, value) => {
+      if (count > 1) result.push(value);
+    },
+    []
+  );
   const errorMessage = `Duplicated mentor ID ${duplicatedEmails}`;
   const valid = duplicatedEmails.length > 0 ? false : true;
   expect(valid).toBeValid(errorMessage);
