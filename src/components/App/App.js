@@ -12,9 +12,7 @@ import shuffle from "lodash/shuffle";
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
-    mentors: shuffle(mentors.filter((obj, pos, arr) => {
-      return arr.map(mapObj => mapObj['id']).indexOf(obj['id']) === pos;
-    }))
+    mentors: shuffle(mentors)
   };
 
   handleTagSelect = async ({ value: tag }) => {
