@@ -1,6 +1,7 @@
 import mentors from '../mentors.json';
 import Ajv from 'ajv';
 import countries from 'svg-country-flags/countries.json';
+import _ from 'lodash';
 
 expect.extend({
   toBeValid(isValid, errorMessage) {
@@ -137,6 +138,16 @@ const mentorSchema = {
     "required": ["id", "name", "avatar", "title", "country", "tags", "channels"]
   }
 }
+
+it('should not have duplicated Id', () => {
+  const mentorsId = _.map(mentors, 'id');
+  const duplicatedEmails = _.transform(_.countBy(mentorsId), (result, count, value) => {
+    if (count > 1) result.push(value);
+  }, []);
+  const errorMessage = `Duplicated mentor ID ${duplicatedEmails}`;
+  const valid = duplicatedEmails.length > 0 ? false : true;
+  expect(valid).toBeValid(errorMessage);
+});
 
 it('should mentors schema be valid', () => {
   const valid = ajv.validate(mentorSchema, mentors);
