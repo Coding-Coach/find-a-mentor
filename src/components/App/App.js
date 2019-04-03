@@ -67,7 +67,9 @@ class App extends Component {
               onCountrySelected={this.handleCountrySelect}
               onNameSelected={this.handleNameSelect}
               onToggleFilter={this.toggleFields}
-              mentorCount={mentorsInList.length} />
+              onToggleSwitch={this.toggleSwitch}
+              mentorCount={mentorsInList.length}
+            />
             <SocialLinks />
           </aside>
           <MentorsList
