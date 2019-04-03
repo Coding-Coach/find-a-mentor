@@ -4114,6 +4114,31 @@
     ]
   },
   {
+    "id": "alon.shmiel@gmail.com",
+    "name": "Alon Shmiel",
+    "avatar": "https://avatars0.githubusercontent.com/u/1051603?s=400&u=5d1534c982dfe7a467dda26a25eeb92657501705&v=4",
+    "title": "Frontend developer",
+    "description": "I will help you to get the right way :)",
+    "country": "IL",
+    "tags": [
+      "angularjs",
+      "javascript",
+      "html",
+      "css",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "alonshmiel"
+      },
+      {
+        "type": "email",
+        "id": "alon.shmiel@gmail.com"
+      }
+    ]
+  },
+  {
     "id": "grebonato@outlook.ie",
     "name": "Giacomo Rebonato",
     "avatar": "https://secure.gravatar.com/avatar/b5e2b9ab04e9fa5710c3fd325c554ba7?size=800",
