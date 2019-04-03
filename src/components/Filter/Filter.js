@@ -20,16 +20,19 @@ export default class Filter extends Component {
   onTagSelect = tag => {
     this.setState({ tag });
     this.props.onTagSelected(tag);
+    this.setPermalink('tech', tag.value);
   };
 
   onCountrySelect = country => {
     this.setState({ country });
     this.props.onCountrySelected(country);
+    this.setPermalink('country', country.value);
   };
 
   onNameSelect = name => {
     this.setState({ name });
     this.props.onNameSelected(name);
+    this.setPermalink('name', name.value);
   };
 
   onToggleFilter = () => {
@@ -38,6 +41,12 @@ export default class Filter extends Component {
     });
     this.props.onToggleFilter();
   };
+
+  setPermalink = (param, value) => {
+    let permalink = new URLSearchParams(window.location.search);
+    value.length ? permalink.set(param, value) : permalink.delete(param);
+    window.history.pushState({}, null, "?" + permalink.toString());
+  }
 
   render() {
     const { showFilters } = this.state;
