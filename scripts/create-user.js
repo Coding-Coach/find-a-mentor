@@ -87,6 +87,34 @@ const questionCountry = {
 };
 
 function validateTags(value) {
+  const synonymsTags = {
+    '(node|node.js)': 'nodejs',
+    '(react|React.js)': 'reactjs',
+    vue: 'vuejs',
+    'react-native': 'react native',
+    csharp: 'c#',
+    'front end': 'frontend',
+    expressjs: 'express',
+    'full stack': 'fullstack',
+  };
+
+  const hasSynonymsErrors = tags => {
+    const tagsArray = tags.split(',');
+    let errors = [];
+    tagsArray.forEach(tag => {
+      Object.keys(synonymsTags).forEach(synonym => {
+        if (new RegExp(`^${synonym}$`, 'i').exec(tag)) {
+          errors.push(
+            `should NOT use "${tag}", should use the conventional name: "${
+              synonymsTags[synonym]
+            }"`
+          );
+        }
+      });
+    });
+    return errors;
+  };
+
   const hasLessThanOneOrMoreThanFiveTags = tags => {
     const count = tags.split(',').length;
 
@@ -96,6 +124,10 @@ function validateTags(value) {
 
   let errors = [];
 
+  const synonymErrors = hasSynonymsErrors(value);
+  if (synonymErrors.length) {
+    errors = [...errors, ...synonymErrors];
+  }
   if (hasLessThanOneOrMoreThanFiveTags(value)) {
     errors.push('between 1 and 5 tags');
   }
@@ -105,7 +137,7 @@ function validateTags(value) {
   }
 
   if (errors.length > 0) {
-    return `Please enter valid tags: ${errors.join(', ')}.`;
+    return `Please enter valid tags:\n- ${errors.join(';\n- ')}.`;
   }
 
   return true;
