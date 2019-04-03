@@ -15,13 +15,11 @@ const questionEmail = {
   type: 'input',
   name: 'id',
   message: 'Please add your email:',
-  validate: validateEmail
+  validate: validateEmail,
 };
 
 function validateName(value) {
-  const pass = value.match(
-    /^[A-Za-z].{1,}$/
-  );
+  const pass = value.match(/^[A-Za-z].{1,}$/);
   if (pass) {
     return true;
   }
@@ -31,13 +29,13 @@ const questionName = {
   type: 'input',
   name: 'name',
   message: 'Please add your name:',
-  validate: validateName
+  validate: validateName,
 };
 
 function validateAvatar(value) {
   const pass = value.match(
-    /^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/
-  )
+    /^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}(:[0-9]{1,5})?(\/.*)?$/
+  );
   if (pass) {
     return true;
   }
@@ -47,13 +45,11 @@ const questionAvatar = {
   type: 'input',
   name: 'avatar',
   message: 'Please add your avatar url:',
-  validate: validateAvatar
+  validate: validateAvatar,
 };
 
 function validateTitle(value) {
-  const pass = value.match(
-    /^[A-Za-z].{1,30}$/
-  )
+  const pass = value.match(/^[A-Za-z].{1,30}$/);
   if (pass) {
     return true;
   }
@@ -63,14 +59,12 @@ const questionTitle = {
   type: 'input',
   name: 'title',
   message: 'Please add your title:',
-  validate: validateTitle
+  validate: validateTitle,
 };
 
 function validateDescription(value) {
   if (value) {
-    const pass = value.match(
-      /^[A-Za-z].{4,80}$/
-    )
+    const pass = value.match(/^[A-Za-z].{4,80}$/);
     if (pass) {
       return true;
     }
@@ -82,37 +76,52 @@ const questionDescription = {
   type: 'input',
   name: 'description',
   message: 'Please add your description: (optional)',
-  validate: validateDescription
+  validate: validateDescription,
 };
 
 const questionCountry = {
   type: 'list',
   name: 'country',
   message: 'Please add your country:',
-  choices: Object.values(countries).sort()
+  choices: Object.values(countries).sort(),
 };
 
 function validateTags(value) {
-  if (value) {
-    const array = value.split(',');
-    if (array.length > 0 && array.length < 6) {
-      return true;
-    }
+  const hasLessThanOneOrMoreThanFiveTags = tags => {
+    const count = tags.split(',').length;
+
+    return count < 1 || count > 5;
+  };
+  const hasUppercaseCharacters = tags => /[A-Z]/.test(tags);
+
+  let errors = [];
+
+  if (hasLessThanOneOrMoreThanFiveTags(value)) {
+    errors.push('between 1 and 5 tags');
   }
-  return 'Please enter valid tags. Between 1 and 5 tags.';
+
+  if (hasUppercaseCharacters(value)) {
+    errors.push('only lowercase characters');
+  }
+
+  if (errors.length > 0) {
+    return `Please enter valid tags: ${errors.join(', ')}.`;
+  }
+
+  return true;
 }
 const questionTags = {
   type: 'input',
   name: 'tags',
   message: 'Please add your tags: (Separate by commas)',
-  validate: validateTags
+  validate: validateTags,
 };
 
 function validateChannels(answer) {
   if (answer.length < 1) {
     return 'You must choose at least one option.';
   } else if (answer.length > 3) {
-    return 'You must choose maximum three options'
+    return 'You must choose maximum three options';
   }
   return true;
 }
@@ -122,28 +131,28 @@ const questionChannels = {
   message: 'Please add your channels:',
   choices: [
     {
-      name: 'Email'
+      name: 'Email',
     },
     {
-      name: 'Slack'
+      name: 'Slack',
     },
     {
-      name: 'Linkedin'
+      name: 'Linkedin',
     },
     {
-      name: 'Facebook'
+      name: 'Facebook',
     },
     {
-      name: 'Twitter'
+      name: 'Twitter',
     },
     {
-      name: 'Github'
+      name: 'Github',
     },
     {
-      name: 'Website'
-    }
+      name: 'Website',
+    },
   ],
-  validate: validateChannels
+  validate: validateChannels,
 };
 
 const questionByChannel = {
@@ -152,45 +161,45 @@ const questionByChannel = {
     name: 'Email',
     message: 'Please add your contact email:',
     validate: validateEmail,
-    when: (answers) => answers.channels.find((channel) => channel === 'Email')
+    when: answers => answers.channels.find(channel => channel === 'Email'),
   },
   slack: {
     type: 'input',
     name: 'Slack',
     message: 'Please add your Slack member id:',
-    when: (answers) => answers.channels.find((channel) => channel === 'Slack')
+    when: answers => answers.channels.find(channel => channel === 'Slack'),
   },
   linkedin: {
     type: 'input',
     name: 'Linkedin',
     message: 'Please add your Linkedin user id:',
-    when: (answers) => answers.channels.find((channel) => channel === 'Linkedin')
+    when: answers => answers.channels.find(channel => channel === 'Linkedin'),
   },
   facebook: {
     type: 'input',
     name: 'Facebook',
     message: 'Please add your Facebook user id:',
-    when: (answers) => answers.channels.find((channel) => channel === 'Facebook')
+    when: answers => answers.channels.find(channel => channel === 'Facebook'),
   },
   twitter: {
     type: 'input',
     name: 'Twitter',
     message: 'Please add your Twitter user id:',
-    when: (answers) => answers.channels.find((channel) => channel === 'Twitter')
+    when: answers => answers.channels.find(channel => channel === 'Twitter'),
   },
   github: {
     type: 'input',
     name: 'Github',
     message: 'Please add your Github user id:',
-    when: (answers) => answers.channels.find((channel) => channel === 'Github')
+    when: answers => answers.channels.find(channel => channel === 'Github'),
   },
   website: {
     type: 'input',
     name: 'Website',
     message: 'Please add link to your personal website without https',
-    when: (answers) => answers.channels.find((channel) => channel === 'Website')
-  }
-}
+    when: answers => answers.channels.find(channel => channel === 'Website'),
+  },
+};
 
 const questions = [
   questionEmail,
@@ -207,7 +216,7 @@ const questions = [
   questionByChannel.facebook,
   questionByChannel.twitter,
   questionByChannel.github,
-  questionByChannel.website
+  questionByChannel.website,
 ];
 
 function getCountryCodeByName(country) {
@@ -215,7 +224,15 @@ function getCountryCodeByName(country) {
 }
 
 function convertAnswersToSchema(answers) {
-  const choices = ['Email', 'Slack', 'Linkedin', 'Facebook', 'Twitter', 'Github', 'Website'];
+  const choices = [
+    'Email',
+    'Slack',
+    'Linkedin',
+    'Facebook',
+    'Twitter',
+    'Github',
+    'Website',
+  ];
   for (let answer in answers) {
     if (answer === 'tags') {
       answers[answer] = answers[answer].split(',').map(t => t.trim());
@@ -226,10 +243,10 @@ function convertAnswersToSchema(answers) {
         if (element === answer) {
           answers.channels[index] = {
             type: answer.toLowerCase(),
-            id: answers[answer]
-          }
+            id: answers[answer],
+          };
         }
-      })
+      });
       delete answers[answer];
     }
   }
@@ -237,7 +254,10 @@ function convertAnswersToSchema(answers) {
 }
 
 async function main() {
-  console.log('\x1b[36m%s\x1b[0m','\nHi, Welcome aboard!\nPlease answer the following questions\n');
+  console.log(
+    '\x1b[36m%s\x1b[0m',
+    '\nHi, Welcome aboard!\nPlease answer the following questions\n'
+  );
   const answers = await inquirer.prompt(questions);
   const schema = convertAnswersToSchema(answers);
   return schema;

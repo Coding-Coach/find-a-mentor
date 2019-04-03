@@ -1,20 +1,21 @@
-import "./Filter.css";
-import mentors from "../../mentors.json";
+import './Filter.css';
+import mentors from '../../mentors.json';
 
-import React, { Component } from "react";
-import classNames from "classnames";
-import AutoComplete from "../AutoComplete/AutoComplete";
-import Input from "../Input/Input";
+import React, { Component } from 'react';
+import classNames from 'classnames';
+import AutoComplete from '../AutoComplete/AutoComplete';
+import Input from '../Input/Input';
+import Switch from '../Switch/Switch';
 
-import { generateLists } from "../../listsGenerator";
+import { generateLists } from '../../listsGenerator';
 const { tags, countries, names } = generateLists(mentors);
 
 export default class Filter extends Component {
   state = {
-    tag: "",
-    country: "",
-    name: "",
-    showFilters: false
+    tag: '',
+    country: '',
+    name: '',
+    showFilters: false,
   };
 
   onTagSelect = tag => {
@@ -37,7 +38,7 @@ export default class Filter extends Component {
 
   onToggleFilter = () => {
     this.setState({
-      showFilters: !this.state.showFilters
+      showFilters: !this.state.showFilters,
     });
     this.props.onToggleFilter();
   };
@@ -49,31 +50,49 @@ export default class Filter extends Component {
   }
 
   render() {
+    const { onToggleSwitch } = this.props;
     const { showFilters } = this.state;
 
     return (
       <section aria-labelledby="filter" className="filter-wrapper">
         <h3 id="filter">
           Filter <span id="mentorCount">{this.props.mentorCount} Mentors</span>
-          <button className="toggle-filter" onClick={this.onToggleFilter} aria-label="Toggle filter">
+          <button
+            className="toggle-filter"
+            onClick={this.onToggleFilter}
+            aria-label="Toggle filter"
+          >
             <i
               className={classNames([
-                "fa fa-angle-down",
-                { "show-filters": showFilters }
+                'fa fa-angle-down',
+                { 'show-filters': showFilters },
               ])}
             />
           </button>
         </h3>
         <div className="inputs" aria-expanded={showFilters}>
           <Input id="language" label="Language or technology" key="language">
-            <AutoComplete source={tags} onSelect={this.onTagSelect} />
+            <AutoComplete
+              id="language"
+              source={tags}
+              onSelect={this.onTagSelect}
+            />
           </Input>
           <Input id="country" label="Country" key="country">
-            <AutoComplete source={countries} onSelect={this.onCountrySelect} />
+            <AutoComplete
+              id="country"
+              source={countries}
+              onSelect={this.onCountrySelect}
+            />
           </Input>
           <Input id="name" label="Name" key="name">
-            <AutoComplete source={names} onSelect={this.onNameSelect} />
+            <AutoComplete
+              id="name"
+              source={names}
+              onSelect={this.onNameSelect}
+            />
           </Input>
+          <Switch id="fav" label="My Favorites" onToggle={onToggleSwitch} />
         </div>
       </section>
     );

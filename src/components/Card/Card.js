@@ -1,8 +1,27 @@
-import React from "react";
-import "./Card.css";
-import { getChannelInfo } from "../../channelProvider";
-import classNames from "classnames";
-import countries from "svg-country-flags/countries.json";
+import React from 'react';
+import { orderBy } from 'lodash';
+import './Card.css';
+import { getChannelInfo } from '../../channelProvider';
+import classNames from 'classnames';
+import countries from 'svg-country-flags/countries.json';
+
+const generateMentorId = name => {
+  return name.replace(/\s/g, '-');
+};
+
+function handleAnalytic(channelName) {
+  if (window && window.ga) {
+    const { ga } = window;
+
+    ga('send', {
+      hitType: 'event',
+      eventCategory: 'Channel',
+      eventAction: 'click',
+      eventLabel: channelName,
+      transport: 'beacon',
+    });
+  }
+}
 
 const tagsList = tags =>
   tags.map((tag, index) => {
@@ -13,8 +32,9 @@ const tagsList = tags =>
     );
   });
 
-const channelsList = channels =>
-  channels.map(channel => {
+const channelsList = channels => {
+  const orderedChannels = orderBy(channels, ['type'], ['asc']);
+  return orderedChannels.map(channel => {
     const { icon, url } = getChannelInfo(channel);
     return (
       <a
@@ -23,6 +43,7 @@ const channelsList = channels =>
         target="_blank"
         rel="noopener noreferrer"
         className="channel-label"
+        onClick={() => handleAnalytic(`${channel.type}`)}
       >
         <div className="icon">
           <i className={`fa fa-${icon} fa-lg`} />
@@ -31,12 +52,17 @@ const channelsList = channels =>
       </a>
     );
   });
+};
 
 const Avatar = ({ mentor }) => {
   return (
     <div className="avatar">
       <i className="fa fa-user-circle" />
-      <img src={mentor.avatar} aria-labelledby={`${mentor.name}-name`} alt="" />
+      <img
+        src={mentor.avatar}
+        aria-labelledby={`${generateMentorId(mentor.name)}-name`}
+        alt=""
+      />
     </div>
   );
 };
@@ -45,21 +71,24 @@ const LikeButton = ({ onClick, liked }) => (
   <button onClick={onClick} className="like-button" aria-label="Save Mentor">
     <i
       className={classNames([
-        "fa",
-        { "liked fa-heart": liked, "fa-heart-o": !liked }
+        'fa',
+        { 'liked fa-heart': liked, 'fa-heart-o': !liked },
       ])}
     />
   </button>
 );
 
-const Info = ({mentor}) => {
-
+const Info = ({ mentor }) => {
   // Don't show the description if it's not provided.
-  const description = mentor.description ? <p className="description">"{mentor.description}"</p> : <React.Fragment />;
+  const description = mentor.description ? (
+    <p className="description">"{mentor.description}"</p>
+  ) : (
+    <React.Fragment />
+  );
 
   return (
     <React.Fragment>
-      <h1 className="name" id={`${mentor.name}-name`}>
+      <h1 className="name" id={`${generateMentorId(mentor.name)}-name`}>
         {mentor.name}
       </h1>
       <h4 className="title">{mentor.title}</h4>
@@ -69,13 +98,13 @@ const Info = ({mentor}) => {
         <div className="channel-inner">{channelsList(mentor.channels)}</div>
       </div>
     </React.Fragment>
-  )
+  );
 };
 
-const Card = ({ mentor, onToggleFav, isFav }) => {
+const Card = ({ mentor, onFavMentor, isFav }) => {
   const toggleFav = () => {
     isFav = !isFav;
-    onToggleFav(mentor);
+    onFavMentor(mentor);
   };
 
   return (
