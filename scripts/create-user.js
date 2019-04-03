@@ -104,13 +104,15 @@ function validateTags(value) {
     tagsArray.forEach(tag => {
       Object.keys(synonymsTags).forEach(synonym => {
         if (new RegExp(`^${synonym}$`, 'i').exec(tag)) {
-          errors.push(`should NOT use "${tag}", should use the conventional name: "${
-            synonymsTags[synonym]
-          }"`);
+          errors.push(
+            `should NOT use "${tag}", should use the conventional name: "${
+              synonymsTags[synonym]
+            }"`
+          );
         }
       });
-    })
-    return errors
+    });
+    return errors;
   };
 
   const hasLessThanOneOrMoreThanFiveTags = tags => {
@@ -123,7 +125,7 @@ function validateTags(value) {
   let errors = [];
 
   const synonymErrors = hasSynonymsErrors(value);
-  if(synonymErrors.length) {
+  if (synonymErrors.length) {
     errors = [...errors, ...synonymErrors];
   }
   if (hasLessThanOneOrMoreThanFiveTags(value)) {
