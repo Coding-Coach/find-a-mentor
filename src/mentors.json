@@ -4218,5 +4218,34 @@
         "id": "peanutcoder"
       }
     ]
+  },
+  {
+    "id": "moin@frot.io",
+    "name": "Florian Gössele",
+    "avatar": "https://frot.io/wp/wp-content/uploads/2019/04/bike_sun.jpg",
+    "title": "Frontend Developer and Trainer",
+    "description": "Diversity is what makes us strong! Coaching preferably for women, PoC...",
+    "country": "DE",
+    "tags": [
+      "angular",
+      "frontend",
+      "scrum",
+      "typescript",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "moin@frot.io"
+      },
+      {
+        "type": "twitter",
+        "id": "frot-io"
+      },
+      {
+        "type": "github",
+        "id": "frot-io"
+      }
+    ]
   }
 ]
