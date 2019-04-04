@@ -4160,5 +4160,34 @@
         "id": "GiacomoRebonato"
       }
     ]
+  },
+  {
+    "id": "paramanantham@live.com",
+    "name": "Paramanantham Harrison",
+    "avatar": "https://pbs.twimg.com/profile_images/821854289274486784/HrH2nsge_400x400.jpg",
+    "title": "Full stack developer",
+    "description": "",
+    "country": "IN",
+    "tags": [
+      "reactjs",
+      "javascript",
+      "css-in-js",
+      "graphql",
+      "gatsby"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "paramanantham"
+      },
+      {
+        "type": "twitter",
+        "id": "learnwithparam"
+      },
+      {
+        "type": "website",
+        "id": "learnwithparam.com"
+      }
+    ]
   }
 ]
