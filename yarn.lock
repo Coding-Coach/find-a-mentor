@@ -8291,6 +8291,11 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.4.tgz#90f336a68c3a29a096a3d648ab80e87ec61482a2"
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
 
+react-obfuscate@3.3.1:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/react-obfuscate/-/react-obfuscate-3.3.1.tgz#9b2376b17ad2d0c610c7177bd58ff07232ea89c4"
+  integrity sha512-8dnoqXEn7ZLahzKTiIjhj2iflLDQfyrR4ebl+kO1pDR38voCD04zI04Gcs2tNGa0fKTLfGVBAlq/HIY8Q8Dw4A==
+
 react-scripts@2.1.3:
   version "2.1.3"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-2.1.3.tgz#6e49be279f4039fb9f330d2b3529b933b8e90945"
