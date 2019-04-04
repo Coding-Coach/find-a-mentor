@@ -4189,5 +4189,35 @@
         "id": "learnwithparam.com"
       }
     ]
+  },
+  {
+    "id": "khumarmusaeva@gmail.com",
+    "name": "Khumar Musayeva",
+    "avatar": "https://avatars0.githubusercontent.com/u/26343870?s=460&v=4",
+    "title": "Frontend Developer",
+    "description": "I love to help people!",
+    "country": "AZ",
+    "tags": [
+      "html",
+      "css",
+      "sass",
+      "pug",
+      "webpack",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "khumarmusaeva@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "khumar-musayeva-720969100"
+      },
+      {
+        "type": "twitter",
+        "id": "peanutcoder"
+      }
+    ]
   }
 ]
