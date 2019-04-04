@@ -1,5 +1,7 @@
 .social-link {
   margin: 0px 10px;
+  width: 25px;
+  height: 25px;
 }
 
 .social-link svg path {

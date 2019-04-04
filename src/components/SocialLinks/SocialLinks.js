@@ -79,6 +79,24 @@ const SocialLinks = () => (
         />
       </svg>
     </a>
+    <a
+      href="https://www.patreon.com/codingcoach_io"
+      className="social-link"
+      aria-label="Patreon"
+      target="blank"
+    >
+    <svg 
+      xmlns="http://www.w3.org/2000/svg"
+      width="25" height="25" viewBox="0 0 100 96"
+    >
+      <g id="Alpha-Iteration-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Patreon_Mark_Black" fill="#9B9B9B">
+              <path d="M64.1102,0.1004 C44.259,0.1004 28.1086,16.2486 28.1086,36.0986 C28.1086,55.8884 44.259,71.989 64.1102,71.989 C83.9,71.989 100,55.8884 100,36.0986 C100,16.2486 83.9,0.1004 64.1102,0.1004" id="Path"></path>
+              <polygon id="Path" points="0.012 95.988 17.59 95.988 17.59 0.1 0.012 0.1"></polygon>
+          </g>
+      </g>
+    </svg>
+    </a>
   </nav>
 );
 
