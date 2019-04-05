@@ -100,7 +100,8 @@ class App extends Component {
               href="https://www.patreon.com/codingcoach_io"
               className="patreon-link"
               aria-label="Patreon"
-              target="blank"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <img
                 src={`${
