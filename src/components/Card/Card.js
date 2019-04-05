@@ -40,6 +40,7 @@ const channelsList = channels => {
     if (channel.type === 'email') {
       return (
         <Obfuscate
+          key={channel.type}
           email={url.substring('mailto:'.length)}
           linkText=""
           onClick={() => handleAnalytic(`${channel.type}`)}
