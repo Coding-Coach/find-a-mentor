@@ -1,6 +1,7 @@
 'use strict';
 const inquirer = require('inquirer');
 const countries = require('svg-country-flags/countries.json');
+const checkSynonyms = require('../src/checkSynonymsTags');
 
 function validateEmail(value) {
   const pass = value.match(
@@ -87,30 +88,14 @@ const questionCountry = {
 };
 
 function validateTags(value) {
-  const synonymsTags = {
-    '(node|node.js)': 'nodejs',
-    '(react|React.js)': 'reactjs',
-    vue: 'vuejs',
-    'react-native': 'react native',
-    csharp: 'c#',
-    'front end': 'frontend',
-    expressjs: 'express',
-    'full stack': 'fullstack',
-  };
-
   const hasSynonymsErrors = tags => {
     const tagsArray = tags.split(',');
     let errors = [];
     tagsArray.forEach(tag => {
-      Object.keys(synonymsTags).forEach(synonym => {
-        if (new RegExp(`^${synonym}$`, 'i').exec(tag)) {
-          errors.push(
-            `should NOT use "${tag}", should use the conventional name: "${
-              synonymsTags[synonym]
-            }"`
-          );
-        }
-      });
+      const synonymError = checkSynonyms(tag);
+      if (synonymError) {
+        errors.push(synonymError);
+      }
     });
     return errors;
   };
