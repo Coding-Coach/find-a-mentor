@@ -1,6 +1,8 @@
 'use strict';
 const inquirer = require('inquirer');
 const countries = require('svg-country-flags/countries.json');
+const https = require('https');
+var imageType = require('image-type');
 
 function validateEmail(value) {
   const pass = value.match(
@@ -32,12 +34,28 @@ const questionName = {
   validate: validateName,
 };
 
-function validateAvatar(value) {
+async function validateAvatar(value) {
   const pass = value.match(
     /^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}(:[0-9]{1,5})?(\/.*)?$/
   );
   if (pass) {
-    return true;
+    let isImage = null;
+    await new Promise(function(resolve, reject) {
+      https.get(value, function(request) {
+        request.once('data', function(chunk) {
+          isImage = imageType(chunk) ? true : false;
+          request.destroy();
+          resolve();
+        });
+        request.on('error', function(err) {
+          reject();
+        });
+      });
+    });
+    if (isImage) {
+      return true;
+    }
+    return 'Please enter a valid avatar url. Must return a valid image';
   }
   return 'Please enter a valid avatar url. Must start with "https://"';
 }
