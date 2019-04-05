@@ -4276,5 +4276,33 @@
         "id": "codingmatty"
       }
     ]
+  },
+  {
+    "id": "ysoni96@gmail.com",
+    "name": "Yash Soni",
+    "avatar": "https://cdn-images-1.medium.com/fit/c/150/150/1*wAzu9YxUdm0s71CRHGGlmw.jpeg",
+    "title": "Software Engineer",
+    "description": "MAJOR: Android Development. MINOR: React-Native, Nodejs, NoSQL databases.",
+    "country": "IN",
+    "tags": [
+      "android",
+      "nodejs",
+      "nosql",
+      "react-native"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHEK6T0TB"
+      },
+      {
+        "type": "linkedin",
+        "id": "yash-soni-63845aa8"
+      },
+      {
+        "type": "twitter",
+        "id": "iYash_Soni"
+      }
+    ]
   }
 ]
