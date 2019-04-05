@@ -4304,5 +4304,99 @@
         "id": "iYash_Soni"
       }
     ]
+  },
+  {
+    "id": "praveen@praveen.science",
+    "name": "Praveen Kumar Purushothaman",
+    "avatar": "https://pbs.twimg.com/profile_images/1152565550/PraveenAvatar_400x400.jpg",
+    "title": "React JS Architect",
+    "description": "Full Stack Developer, LAMP / MERN Stack specialising in UX & Front End Technologies.",
+    "country": "GB",
+    "tags": [
+      "accessibility",
+      "api",
+      "api-design",
+      "architecture",
+      "aws",
+      "azure",
+      "backend",
+      "best-practices",
+      "career",
+      "cloud",
+      "command line",
+      "css",
+      "css-in-js",
+      "database",
+      "data",
+      "databases",
+      "design",
+      "design systems",
+      "devops",
+      "dotnet",
+      "user experience",
+      "ecommerce",
+      "express",
+      "front-end",
+      "frontend",
+      "fullstack",
+      "git",
+      "graphql",
+      "html",
+      "javascript",
+      "jest",
+      "jquery",
+      "js",
+      "leadership",
+      "linux",
+      "mobile",
+      "mongodb",
+      "mysql",
+      "nodejs",
+      "opensource",
+      "php",
+      "postgresql",
+      "programming",
+      "reactjs",
+      "redux",
+      "remote work",
+      "scrum",
+      "socket.io",
+      "software-design",
+      "speaker",
+      "speaking",
+      "sql",
+      "ui",
+      "ux",
+      "visual design",
+      "web",
+      "web typography",
+      "web-apis"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHQEFUB3R"
+      },
+      {
+        "type": "linkedin",
+        "id": "praveentech"
+      },
+      {
+        "type": "twitter",
+        "id": "praveenscience"
+      },
+      {
+        "type": "facebook",
+        "id": "praveenscience"
+      },
+      {
+        "type": "github",
+        "id": "praveenscience"
+      },
+      {
+        "type": "website",
+        "id": "praveen.science"
+      }
+    ]
   }
 ]
