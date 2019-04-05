@@ -73,4 +73,8 @@ footer a:hover {
     display: flex;
     justify-content: center;
   }
+  .patreon-link {
+    margin: 25px auto;
+    max-width: 130px;
+  }
 }
