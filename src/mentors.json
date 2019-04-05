@@ -3735,5 +3735,284 @@
         "id": "shodipoayomide.com"
       }
     ]
+  },
+  {
+    "id": "benjamin@lannonbr.com",
+    "name": "Benjamin Lannon",
+    "avatar": "https://avatars3.githubusercontent.com/u/3685876?s=460&v=4",
+    "title": "Web Developer",
+    "description": "Full Stack Developer & Advocate for Open Source",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "gatsby",
+      "css",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "benjamin@lannonbr.com"
+      },
+      {
+        "type": "twitter",
+        "id": "lannonbr"
+      },
+      {
+        "type": "github",
+        "id": "lannonbr"
+      }
+    ]
+  },
+  {
+    "id": "mathieu@dutour.me",
+    "name": "Mathieu Dutour",
+    "avatar": "https://avatars0.githubusercontent.com/u/3254314?s=460&v=4",
+    "title": "Design Technologist",
+    "description": "",
+    "country": "FR",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "sketch plugins",
+      "design systems"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "DHJ6PL0EQ"
+      },
+      {
+        "type": "twitter",
+        "id": "mathieudutour"
+      },
+      {
+        "type": "github",
+        "id": "mathieudutour"
+      }
+    ]
+  },
+  {
+    "id": "brockmdavis@outlook.com",
+    "name": "Brock Davis",
+    "avatar": "https://avatars0.githubusercontent.com/brockmdavis",
+    "title": "Applications Architect @ Turner",
+    "description": "Full Stack Developer, ready to help when and where I can!",
+    "country": "US",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "c#",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "brockmdavis"
+      },
+      {
+        "type": "slack",
+        "id": "UCBKN6XEY"
+      },
+      {
+        "type": "linkedin",
+        "id": "brockneedscoffee"
+      }
+    ]
+  },
+  {
+    "id": "quentin.desrame@gmail.com",
+    "name": "Quentin Desramé",
+    "avatar": "https://www.gravatar.com/avatar/c90e5130e5a7f2d605fa60d642ebda4e?s=1200",
+    "title": "R&D Full Stack Software Engineer",
+    "description": "Hi, i'm Passionate and experienced software engineer based in France",
+    "country": "FR",
+    "tags": [
+      "java",
+      "golang",
+      "nodejs",
+      "angular",
+      "php"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHK6088CU"
+      },
+      {
+        "type": "linkedin",
+        "id": "quentin-desrame"
+      },
+      {
+        "type": "twitter",
+        "id": "qdesrame"
+      }
+    ]
+  },
+  {
+    "id": "alon.shmiel@gmail.com",
+    "name": "Alon Shmiel",
+    "avatar": "https://avatars0.githubusercontent.com/u/1051603?s=400&u=5d1534c982dfe7a467dda26a25eeb92657501705&v=4",
+    "title": "Frontend developer",
+    "description": "I will help you to get the right way :)",
+    "country": "IL",
+    "tags": [
+      "angularjs",
+      "javascript",
+      "html",
+      "css",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "alonshmiel"
+      },
+      {
+        "type": "email",
+        "id": "alon.shmiel@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "grebonato@outlook.ie",
+    "name": "Giacomo Rebonato",
+    "avatar": "https://secure.gravatar.com/avatar/b5e2b9ab04e9fa5710c3fd325c554ba7?size=800",
+    "title": "Full stack web developer",
+    "description": "JS and web enthusiast",
+    "country": "IE",
+    "tags": [
+      "js",
+      "reactjs",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "grebonato@outlook.ie"
+      },
+      {
+        "type": "twitter",
+        "id": "GiacomoRebonato"
+      }
+    ]
+  },
+  {
+    "id": "paramanantham@live.com",
+    "name": "Paramanantham Harrison",
+    "avatar": "https://pbs.twimg.com/profile_images/821854289274486784/HrH2nsge_400x400.jpg",
+    "title": "Full stack developer",
+    "description": "I help people to learn web and mobile technologies.",
+    "country": "IN",
+    "tags": [
+      "reactjs",
+      "javascript",
+      "css-in-js",
+      "graphql",
+      "gatsby"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "paramanantham"
+      },
+      {
+        "type": "twitter",
+        "id": "learnwithparam"
+      },
+      {
+        "type": "website",
+        "id": "learnwithparam.com"
+      }
+    ]
+  },
+  {
+    "id": "khumarmusaeva@gmail.com",
+    "name": "Khumar Musayeva",
+    "avatar": "https://avatars0.githubusercontent.com/u/26343870?s=460&v=4",
+    "title": "Frontend Developer",
+    "description": "I love to help people!",
+    "country": "AZ",
+    "tags": [
+      "html",
+      "css",
+      "sass",
+      "pug",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "khumarmusaeva@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "khumar-musayeva-720969100"
+      },
+      {
+        "type": "twitter",
+        "id": "peanutcoder"
+      }
+    ]
+  },
+  {
+    "id": "moin@frot.io",
+    "name": "Florian Gössele",
+    "avatar": "https://frot.io/wp/wp-content/uploads/2019/04/bike_sun.jpg",
+    "title": "Frontend Developer and Trainer",
+    "description": "Diversity is what makes us strong! Coaching preferably for women, PoC...",
+    "country": "DE",
+    "tags": [
+      "angular",
+      "frontend",
+      "scrum",
+      "typescript",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "moin@frot.io"
+      },
+      {
+        "type": "twitter",
+        "id": "frot-io"
+      },
+      {
+        "type": "github",
+        "id": "frot-io"
+      }
+    ]
+  },
+  {
+    "id": "codingmatty@gmail.com",
+    "name": "Matthew Jacobs",
+    "avatar": "https://gravatar.com/avatar/64d17886f3dfee1ff211f1596a4ff9f2",
+    "title": "Frontend Focused Full-stack Dev",
+    "description": "Years of experience. Excited to help passionate learners reach the next level.",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "express",
+      "graphql",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "codingmatty@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "codingmatty"
+      },
+      {
+        "type": "github",
+        "id": "codingmatty"
+      }
+    ]
   }
 ]
