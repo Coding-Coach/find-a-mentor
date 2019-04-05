@@ -96,6 +96,19 @@ class App extends Component {
               mentorCount={mentorsInList.length}
             />
             <SocialLinks />
+            <a
+              href="https://www.patreon.com/codingcoach_io"
+              className="patreon-link"
+              aria-label="Patreon"
+              target="blank"
+            >
+              <img
+                src={`${
+                  process.env.PUBLIC_URL
+                }/images/coding-coach-patron-button.jpg`}
+                alt="Become a Patron"
+              />
+            </a>
           </aside>
           <MentorsList
             className={classNames({
