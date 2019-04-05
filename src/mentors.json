@@ -4247,5 +4247,34 @@
         "id": "frot-io"
       }
     ]
+  },
+  {
+    "id": "codingmatty@gmail.com",
+    "name": "Matthew Jacobs",
+    "avatar": "https://gravatar.com/avatar/64d17886f3dfee1ff211f1596a4ff9f2",
+    "title": "Frontend Focused Full-stack Dev",
+    "description": "Years of experience. Excited to help passionate learners reach the next level.",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "express",
+      "graphql",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "codingmatty@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "codingmatty"
+      },
+      {
+        "type": "github",
+        "id": "codingmatty"
+      }
+    ]
   }
 ]
