@@ -44,6 +44,7 @@
     "nodemon": "^1.18.9",
     "object-path": "^0.11.4",
     "ora": "^3.2.0",
+    "image-type": "^4.0.0",
     "prettier": "1.16.4"
   },
   "homepage": "https://mentors.codingcoach.io",
