@@ -4333,5 +4333,31 @@
         "id": "praveen.science"
       }
     ]
+  },
+  {
+    "id": "subramaniyanan176@gmail.com",
+    "name": "Subramaniyan Annamalai",
+    "avatar": "https://pbs.twimg.com/profile_images/1114632753713156097/DE-vzbbh_bigger.png",
+    "title": "Software Developer",
+    "description": "Full Stack Developer focussing on Angular / Asp.net core",
+    "country": "US",
+    "tags": [
+      "https://twitter.com/subramaniyan176",
+      "https://www.linkedin.com/in/subramaniyanannamalai"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "subramaniyanan176@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "subramaniyanannamalai"
+      },
+      {
+        "type": "twitter",
+        "id": "subramaniyanan176"
+      }
+    ]
   }
 ]
