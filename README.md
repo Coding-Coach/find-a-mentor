@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/Coding-Coach/find-a-mentor.svg?branch=master)](https://travis-ci.com/Coding-Coach/find-a-mentor)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
 
-<a href="https://patreon.com/codingcoach_io"><img src="https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.herokuapp.com%2Fendel&style=for-the-badge" alt="Patreon donate button" /> </a>
+<a href="https://patreon.com/codingcoach_io"><img src="https://img.shields.io/endpoint.svg?url=https://shieldsio-patreon.herokuapp.com/codingcoach_io&style=for-the-badge" alt="Patreon donate button" /> </a>
 
 
 Pre-release version of Coding Coach.
