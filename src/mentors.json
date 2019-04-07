@@ -4361,5 +4361,34 @@
         "id": "subramaniyanan176"
       }
     ]
+  },
+  {
+    "id": "hello@andymacdroo.me",
+    "name": "Andy Macdonald",
+    "avatar": "https://andymacdroo.github.io/images/andy.png",
+    "title": "Full Stack Software Engineer",
+    "description": "Happy to help you with Java, Spring, JavaScript, React, AWS and Docker :)",
+    "country": "GB",
+    "tags": [
+      "java",
+      "reactjs",
+      "spring",
+      "javascript",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@andymacdroo.me"
+      },
+      {
+        "type": "twitter",
+        "id": "AndyMacDroo"
+      },
+      {
+        "type": "github",
+        "id": "AndyMacDroo"
+      }
+    ]
   }
 ]
