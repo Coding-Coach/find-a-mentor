@@ -1324,12 +1324,12 @@
         "id": "molly_struve"
       },
       {
-        "type": "linkedin",
-        "id": "mollystruve"
+        "type": "slack",
+        "id": "DGTS6T0LA"
       },
       {
         "type": "email",
-        "id": "molly.struve@gmail.com"
+        "id": "molly.struve+mentor@gmail.com"
       }
     ]
   },
@@ -3479,8 +3479,8 @@
   {
     "id": "astorino.design@gmail.com",
     "name": "Mattia Astorino",
-    "avatar": "https://avatars2.githubusercontent.com/u/10454741?s=460&v=4",
-    "title": "UI Enginner / Frontend Designer",
+    "avatar": "https://pbs.twimg.com/profile_images/1103221171326197761/AEdaPJQz_400x400.png",
+    "title": "UI Engineer / Frontend Designer",
     "description": "I can help building design systems, scalable and accessible UI components",
     "country": "IT",
     "tags": [
@@ -4274,6 +4274,120 @@
       {
         "type": "github",
         "id": "codingmatty"
+      }
+    ]
+  },
+  {
+    "id": "ysoni96@gmail.com",
+    "name": "Yash Soni",
+    "avatar": "https://cdn-images-1.medium.com/fit/c/150/150/1*wAzu9YxUdm0s71CRHGGlmw.jpeg",
+    "title": "Software Engineer",
+    "description": "MAJOR: Android Development. MINOR: React-Native, Nodejs, NoSQL databases.",
+    "country": "IN",
+    "tags": [
+      "android",
+      "nodejs",
+      "nosql",
+      "react native"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHEK6T0TB"
+      },
+      {
+        "type": "linkedin",
+        "id": "yash-soni-63845aa8"
+      },
+      {
+        "type": "twitter",
+        "id": "iYash_Soni"
+      }
+    ]
+  },
+  {
+    "id": "praveen@praveen.science",
+    "name": "Praveen Kumar Purushothaman",
+    "avatar": "https://pbs.twimg.com/profile_images/1152565550/PraveenAvatar_400x400.jpg",
+    "title": "React JS Architect",
+    "description": "Full Stack Developer, LAMP / MERN Stack specialising in UX & Front End Tech.",
+    "country": "GB",
+    "tags": [
+      "frontend",
+      "reactjs",
+      "api-design",
+      "nodejs",
+      "php"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHQEFUB3R"
+      },
+      {
+        "type": "linkedin",
+        "id": "praveentech"
+      },
+      {
+        "type": "website",
+        "id": "praveen.science"
+      }
+    ]
+  },
+  {
+    "id": "subramaniyanan176@gmail.com",
+    "name": "Subramaniyan Annamalai",
+    "avatar": "https://pbs.twimg.com/profile_images/1114632753713156097/DE-vzbbh_bigger.png",
+    "title": "Software Developer",
+    "description": "Full Stack Developer (Angular & ASP.NET Core), happy to help",
+    "country": "US",
+    "tags": [
+      "reactjs",
+      "angular",
+      "aspnetcore",
+      "architect"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "subramaniyanan176@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "subramaniyanannamalai"
+      },
+      {
+        "type": "twitter",
+        "id": "subramaniyanan176"
+      }
+    ]
+  },
+  {
+    "id": "hello@andymacdroo.me",
+    "name": "Andy Macdonald",
+    "avatar": "https://andymacdroo.github.io/images/andy.png",
+    "title": "Full Stack Software Engineer",
+    "description": "Happy to help you with Java, Spring, JavaScript, React, AWS and Docker :)",
+    "country": "GB",
+    "tags": [
+      "java",
+      "reactjs",
+      "spring",
+      "javascript",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@andymacdroo.me"
+      },
+      {
+        "type": "twitter",
+        "id": "AndyMacDroo"
+      },
+      {
+        "type": "github",
+        "id": "AndyMacDroo"
       }
     ]
   }
