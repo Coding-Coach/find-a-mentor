@@ -4376,7 +4376,11 @@
     "description": "Hi, I am a full stack developer with some elegant skill on Javasript framework.",
     "country": "IN",
     "tags": [
-      "nodejs", "reactjs", "angular", "aws", "docker"
+      "nodejs",
+      "reactjs",
+      "angular",
+      "aws",
+      "docker"
     ],
     "channels": [
       {
@@ -4390,6 +4394,35 @@
       {
         "type": "github",
         "id": "radhey113"
+      }
+    ]
+  },
+  {
+    "id": "jason@wilsons.io",
+    "name": "Jason Wilson",
+    "avatar": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/623880/WILSON_CV_Profile_Crop.jpeg",
+    "title": "Frontend Engineer",
+    "description": "Frontend tinkerer since 1999, FullStack dabbler since 2007.",
+    "country": "CH",
+    "tags": [
+      "frontend",
+      "fullstack",
+      "nodejs",
+      "express",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jason@wilsons.io"
+      },
+      {
+        "type": "slack",
+        "id": "U3DKH863V"
+      },
+      {
+        "type": "github",
+        "id": "sgiobairog"
       }
     ]
   }
