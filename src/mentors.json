@@ -4425,5 +4425,34 @@
         "id": "sgiobairog"
       }
     ]
+  },
+  {
+    "id": "roman.glushko.m@gmail.com",
+    "name": "Roman Glushko",
+    "avatar": "https://pbs.twimg.com/profile_images/1094873945474510853/CL-24FIe_400x400.jpg",
+    "title": "Magento 2 Developer - Tech Lead",
+    "description": "",
+    "country": "UA",
+    "tags": [
+      "ecommerce",
+      "magento",
+      "php",
+      "automation",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "roman.glushko.m@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "roma_glushko"
+      },
+      {
+        "type": "github",
+        "id": "roma-glushko"
+      }
+    ]
   }
 ]
