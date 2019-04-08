@@ -60,12 +60,11 @@ footer a:hover {
 .patreon-link {
   display: block;
   margin: 20px auto 0;
-  max-width: 150px;
+  width: 150px;
 }
 
 .patreon-link img {
-  width: 100%;
-  height: auto;
+  max-width: 100%;
 }
 
 @media all and (max-width: 576px) {

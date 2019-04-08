@@ -99,7 +99,7 @@ class App extends Component {
             <a
               href="https://www.patreon.com/codingcoach_io"
               className="patreon-link"
-              aria-label="Patreon"
+              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
               rel="noopener noreferrer"
               target="_blank"
             >
