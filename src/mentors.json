@@ -4450,5 +4450,34 @@
         "id": "roma-glushko"
       }
     ]
+  },
+  {
+    "id": "dan.manies@gmail.com",
+    "name": "Dan Maniés",
+    "avatar": "https://dysanio.com/static/images/tile-about.png",
+    "title": "User Experience Designer",
+    "description": "I have a coding background and would love to help you with your UX issues.",
+    "country": "DE",
+    "tags": [
+      "ux",
+      "ui",
+      "wireframing",
+      "prototyping",
+      "sketch"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "dan"
+      },
+      {
+        "type": "linkedin",
+        "id": "danielmanies"
+      },
+      {
+        "type": "twitter",
+        "id": "dysanio"
+      }
+    ]
   }
 ]
