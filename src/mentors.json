@@ -4431,7 +4431,7 @@
     "name": "Roman Glushko",
     "avatar": "https://pbs.twimg.com/profile_images/1094873945474510853/CL-24FIe_400x400.jpg",
     "title": "Magento 2 Developer - Tech Lead",
-    "description": "",
+    "description": "EcommerceSpecialist, WebDev and NewTechnologyResearcher. Driven by GreatIdeas",
     "country": "UA",
     "tags": [
       "ecommerce",
@@ -4441,10 +4441,6 @@
       "architecture"
     ],
     "channels": [
-      {
-        "type": "email",
-        "id": "roman.glushko.m@gmail.com"
-      },
       {
         "type": "twitter",
         "id": "roma_glushko"
