@@ -4367,5 +4367,30 @@
         "id": "AndyMacDroo"
       }
     ]
+  },
+  {
+    "id": "radheyg11@gmail.com",
+    "name": "Radhey Shyam",
+    "avatar": "https://s.gravatar.com/avatar/7828aa43901a1e589053b2067602109e?s=130",
+    "title": "MEAN/MERN Stack Developer",
+    "description": "Hi, I am a full stack developer with some elegant skill on Javasript framework.",
+    "country": "IN",
+    "tags": [
+      "nodejs", "reactjs", "angular", "aws", "docker"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "radheyg11@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "radhey-shyam-426919144"
+      },
+      {
+        "type": "github",
+        "id": "radhey113"
+      }
+    ]
   }
 ]
