@@ -1,68 +1,80 @@
 import './App.css';
 import mentors from '../../mentors.json';
-import lists from '../../lists.json';
 
 import React, { Component } from 'react';
-import { Header, Button, Icon } from 'semantic-ui-react';
 import classNames from 'classnames';
-import AutoComplete from '../AutoComplete/AutoComplete';
 import MentorsList from '../MentorsList/MentorsList';
+import Filter from '../Filter/Filter';
 import Logo from '../Logo';
+import SocialLinks from '../SocialLinks/SocialLinks';
 import shuffle from 'lodash/shuffle';
-
-const { tags, countries } = lists;
-const mapToDropdown = item => ({title: item})
-const tagsSource = tags.map(mapToDropdown);
-const countriesSource = countries.map(mapToDropdown);
+import { toggle, get } from '../../favoriteManager';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
-    mentors: shuffle(mentors)
-  }
+    mentors: shuffle(mentors),
+    favorites: get(),
+  };
 
-  handleTagSelect = (result) => {
+  handleTagSelect = async ({ value: tag }) => {
+    await scrollToTop();
     this.setState({
-      tag: result.title
-    })
-  }
-
-  handleCountrySelect = (result) => {
-    this.setState({
-      country: result.title
-    })
-  }
-
-  filterMentors = mentor =>  {
-    const { tag, country } = this.state;
-    return (!tag || mentor.tags.includes(tag)) &&
-           (!country || mentor.country === country);
-  }
-
-  resetTag = () => {
-    this.setState({
-      tag: '',
+      tag,
     });
-  }
+  };
 
-  resetCountry = () => {
+  handleCountrySelect = async ({ value: country }) => {
+    await scrollToTop();
     this.setState({
-      country: ''
+      country,
     });
-  }
+  };
+
+  handleNameSelect = async ({ value: name }) => {
+    await scrollToTop();
+    this.setState({
+      name,
+    });
+  };
+
+  filterMentors = mentor => {
+    const { tag, country, name, showFavorite, favorites } = this.state;
+    return (
+      (!tag || mentor.tags.includes(tag)) &&
+      (!country || mentor.country === country) &&
+      (!name || mentor.name === name) &&
+      (!showFavorite || favorites.indexOf(mentor.id) > -1)
+    );
+  };
 
   toggleFields = () => {
     this.setState({
-      fieldsIsActive: !this.state.fieldsIsActive
-    })
-  }
+      fieldsIsActive: !this.state.fieldsIsActive,
+    });
+  };
 
-  // async componentDidMount() {
-  //   const mentors = await fetch(`${serverEndpoint}/get_mentors`).then(res => res.json());
-  //   this.setState({
-  //     mentors
-  //   })
-  // }
+  toggleSwitch = async showFavorite => {
+    await scrollToTop();
+    this.setState({
+      showFavorite,
+    });
+  };
+
+  onFavMentor = mentor => {
+    const favorites = toggle(mentor);
+    this.setState({
+      favorites,
+    });
+  };
+
+  componentDidMount() {
+    if (window && window.ga) {
+      const { location, ga } = window;
+      ga('set', 'page', location.href);
+      ga('send', 'pageview');
+    }
+  }
 
   render() {
     const { mentors, fieldsIsActive } = this.state;
@@ -70,57 +82,85 @@ class App extends Component {
 
     return (
       <div className="app">
-        <header className="main-header">
-          <a className="logo" href="/">
-            <Logo
-              width={110}
-              height={50}
-              color="#68d5b1" />
-            <span>CODING COACH ALPHA</span>
+        <main>
+          <aside className="sidebar">
+            <a className="logo" href="/">
+              <Logo width={110} height={50} color="#68d5b1" />
+            </a>
+            <Filter
+              onTagSelected={this.handleTagSelect}
+              onCountrySelected={this.handleCountrySelect}
+              onNameSelected={this.handleNameSelect}
+              onToggleFilter={this.toggleFields}
+              onToggleSwitch={this.toggleSwitch}
+              mentorCount={mentorsInList.length}
+            />
+            <SocialLinks />
+            <a
+              href="https://www.patreon.com/codingcoach_io"
+              className="patreon-link"
+              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                src={`${
+                  process.env.PUBLIC_URL
+                }/images/coding-coach-patron-button.jpg`}
+                alt="Become a Patron"
+              />
+            </a>
+          </aside>
+          <MentorsList
+            className={classNames({
+              active: fieldsIsActive,
+            })}
+            mentors={mentorsInList}
+            favorites={this.state.favorites}
+            onFavMentor={this.onFavMentor}
+          />
+        </main>
+        <footer>
+          <a
+            rel="noopener noreferrer"
+            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/TermsAndConditions.md#terms-and-conditions"
+            target="_blank"
+          >
+            Terms & Conditions
           </a>
-          <div className="social">
-            <Button role="link" circular size="mini" as="a" icon="github" color="black" href="https://github.com/Coding-Coach/find-a-mentor" target="_blank" />
-            <Button role="link" circular size="mini" as="a" icon="twitter" color="twitter" href="https://twitter.com/codingcoach_io" target="_blank" />
-            <Button role="link" circular size="mini" as="a" icon="facebook" color="facebook" href="https://www.facebook.com/codingcoachio/" target="_blank" />
-            <Button role="link" circular size="mini" as="a" icon="slack" color="purple" href="https://coding-coach.slack.com/join/shared_invite/enQtNTE2NDY4NTczNzE0LTMyOTAyZTFiYjE4OTUzYjgwYzk5MzlmYjgwNjUyNDZlZGY3NGVhYmU1NjdmZDQ3MmQ3YjRhYjJkMjM4OTYwNDA" target="_blank" />
-          </div>
-        </header>
-        <div className="filters-outer">
-          <div className="filters">
-            <Header as='h1'>
-              <div>
-                Find a mentor
-                <Button size="huge" floated='right' className="tertiary mobile" icon onClick={this.toggleFields}>
-                  <Icon name="filter" />
-                </Button>
-              </div>
-              <Header.Subheader>{mentors.length} mentors available</Header.Subheader>
-            </Header>
-            <div className="fields">
-              <AutoComplete
-                placeholder="Language or Technology"
-                source={tagsSource}
-                handleResultSelect={this.handleTagSelect}
-                onReset={this.resetTag}
-              />
-              <AutoComplete
-                placeholder="Country"
-                source={countriesSource}
-                handleResultSelect={this.handleCountrySelect}
-                onReset={this.resetCountry}
-              />
-            </div>
-          </div>
-        </div>
-        <MentorsList
-          className={classNames({
-            'active': fieldsIsActive
-          })}
-          mentors={mentorsInList}
-        />
+          <a
+            rel="noopener noreferrer"
+            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/CookiesPolicy.md#what-are-cookies"
+            target="_blank"
+          >
+            Cookies
+          </a>
+          <a
+            rel="noopener noreferrer"
+            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/PrivacyPolicy.md#effective-date-october-03-2018"
+            target="_blank"
+          >
+            Privacy Policy
+          </a>
+        </footer>
       </div>
     );
   }
 }
 
 export default App;
+
+function scrollToTop() {
+  const scrollDuration = 200;
+  return new Promise(resolve => {
+    var scrollStep = -window.scrollY / (scrollDuration / 15),
+      scrollInterval = setInterval(function() {
+        if (window.scrollY !== 0) {
+          window.scrollBy(0, scrollStep);
+        } else {
+          clearInterval(scrollInterval);
+          resolve();
+        }
+      }, 15);
+  });
+}
