@@ -4537,5 +4537,34 @@
         "id": "masihtak.com/portfolio/"
       }
     ]
+  },
+  {
+    "id": "dutchr@live.fr",
+    "name": "rodolphe",
+    "avatar": "https://avatars2.githubusercontent.com/u/2312400?s=460&v=4",
+    "title": "Fullstack developer",
+    "description": "Tech Enthisiast & bad humorist",
+    "country": "FR",
+    "tags": [
+      "reactjs",
+      "angular",
+      "nodejs",
+      "scrum",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "dutchr@live.fr"
+      },
+      {
+        "type": "slack",
+        "id": "UH0GS8UAG"
+      },
+      {
+        "type": "twitter",
+        "id": "_notbu7ch"
+      }
+    ]
   }
 ]
