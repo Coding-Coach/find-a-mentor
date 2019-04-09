@@ -68,6 +68,14 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    if (window && window.ga) {
+      const { location, ga } = window;
+      ga('set', 'page', location.href);
+      ga('send', 'pageview');
+    }
+  }
+
   render() {
     const { mentors, fieldsIsActive } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
@@ -88,6 +96,20 @@ class App extends Component {
               mentorCount={mentorsInList.length}
             />
             <SocialLinks />
+            <a
+              href="https://www.patreon.com/codingcoach_io"
+              className="patreon-link"
+              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                src={`${
+                  process.env.PUBLIC_URL
+                }/images/coding-coach-patron-button.jpg`}
+                alt="Become a Patron"
+              />
+            </a>
           </aside>
           <MentorsList
             className={classNames({

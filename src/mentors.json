@@ -176,7 +176,7 @@
     "country": "US",
     "tags": [
       "c#",
-      "aspnet",
+      "asp.net",
       "backend",
       "build",
       "powershell"
@@ -1180,29 +1180,6 @@
     ]
   },
   {
-    "id": "marina@mosti.com.mx",
-    "name": "Marina Mosti",
-    "avatar": "https://pbs.twimg.com/profile_images/1105963507026141185/y6t9AHL2_400x400.jpg",
-    "title": "Senior FE Engineer",
-    "description": "Currently only mentoring women, sorry bois <3",
-    "country": "MX",
-    "tags": [
-      "javascript",
-      "vuejs",
-      "women"
-    ],
-    "channels": [
-      {
-        "type": "twitter",
-        "id": "marinamosti"
-      },
-      {
-        "type": "slack",
-        "id": "UE7Q65YU8"
-      }
-    ]
-  },
-  {
     "id": "bencodezen@gmail.com",
     "name": "Ben Hong",
     "avatar": "https://pbs.twimg.com/profile_images/1007989522058108930/TqUpZKuh_400x400.jpg",
@@ -1324,12 +1301,12 @@
         "id": "molly_struve"
       },
       {
-        "type": "linkedin",
-        "id": "mollystruve"
+        "type": "slack",
+        "id": "DGTS6T0LA"
       },
       {
         "type": "email",
-        "id": "molly.struve@gmail.com"
+        "id": "molly.struve+mentor@gmail.com"
       }
     ]
   },
@@ -2298,7 +2275,7 @@
     "country": "PT",
     "tags": [
       "dotnet",
-      "aspnet",
+      "asp.net",
       "c#",
       "backend",
       "architecture"
@@ -2824,7 +2801,7 @@
   {
     "id": "suprnova32@gmail.com",
     "name": "Patricio Cano",
-    "avatar": "https://www.amazon.com/clouddrive/share/TwFSP4wXH1W2gtnv0oGPGWU4jgFk106dyt83u2g6AtW",
+    "avatar": "https://avatars2.githubusercontent.com/u/723365?s=88&v=6",
     "title": "Senior Software Engineer",
     "description": "I can help you with Software Design, Elixir, Ruby, and Rails.",
     "country": "MX",
@@ -3335,33 +3312,6 @@
     ]
   },
   {
-    "id": "rodrigomjuarez@gmail.com",
-    "name": "Rodrigo Juarez",
-    "avatar": "https://i.imgur.com/arrI96P.png",
-    "title": "Xamarin.Forms developer",
-    "description": "",
-    "country": "AR",
-    "tags": [
-      "xamarin.forms",
-      "c#",
-      "fullstack"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "rodrigomjuarez@gmail.com"
-      },
-      {
-        "type": "twitter",
-        "id": "rodrigojuarez"
-      },
-      {
-        "type": "website",
-        "id": "rodrigojuarez.com"
-      }
-    ]
-  },
-  {
     "id": "webworker200@gmail.com",
     "name": "Marvin Hockenjos",
     "avatar": "https://www.marvhock.com/images/marvin-hockenjos.jpg",
@@ -3506,8 +3456,8 @@
   {
     "id": "astorino.design@gmail.com",
     "name": "Mattia Astorino",
-    "avatar": "https://avatars2.githubusercontent.com/u/10454741?s=460&v=4",
-    "title": "UI Enginner / Frontend Designer",
+    "avatar": "https://pbs.twimg.com/profile_images/1103221171326197761/AEdaPJQz_400x400.png",
+    "title": "UI Engineer / Frontend Designer",
     "description": "I can help building design systems, scalable and accessible UI components",
     "country": "IT",
     "tags": [
@@ -3702,6 +3652,947 @@
       {
         "type": "website",
         "id": "wes.dev"
+      }
+    ]
+  },
+  {
+    "id": "hello@danilo.cc",
+    "name": "Danilo Lima",
+    "avatar": "https://avatars2.githubusercontent.com/u/5581367?s=460&v=4",
+    "title": "Solutions Architect",
+    "description": "Software Developer & Cloud Computing enthusiast",
+    "country": "BR",
+    "tags": [
+      "php",
+      "nodejs",
+      "javascript",
+      "java",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@danilo.cc"
+      },
+      {
+        "type": "linkedin",
+        "id": "danilodev"
+      },
+      {
+        "type": "website",
+        "id": "danilo.cc"
+      }
+    ]
+  },
+  {
+    "id": "mg@designomatt.com",
+    "name": "Matthew Gallagher",
+    "avatar": "https://scontent-mia3-1.cdninstagram.com/vp/6945f8c00f6ef0bb2b28a2c3b2edccd9/5D32F633/t51.2885-19/s320x320/41926970_1814094125376953_8360206914574876672_n.jpg?_nc_ht=scontent-mia3-1.cdninstagram.com",
+    "title": "Designer",
+    "description": "I currently lead design teams on enterprise-level design",
+    "country": "US",
+    "tags": [
+      "ui",
+      "ux",
+      "visual design",
+      "sketch",
+      "adobe"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "matthewgallagher"
+      },
+      {
+        "type": "twitter",
+        "id": "designomatt"
+      }
+    ]
+  },
+  {
+    "id": "Richard@toms.dev",
+    "name": "Richard Toms",
+    "avatar": "https://avatars0.githubusercontent.com/u/13962331?s=400&v=4",
+    "title": "Senior Laravel API Developer",
+    "description": "I'm a senior PHP Laravel developer",
+    "country": "GB",
+    "tags": [
+      "laravel",
+      "api",
+      "php",
+      "integration",
+      "principles"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "Richard@toms.dev"
+      },
+      {
+        "type": "github",
+        "id": "RichToms"
+      },
+      {
+        "type": "twitter",
+        "id": "RichToms"
+      }
+    ]
+  },
+  {
+    "id": "ammadshakoor44@gmail.com",
+    "name": "Ammad Shakoor",
+    "avatar": "https://scontent-frt3-2.xx.fbcdn.net/v/t1.0-9/19424071_787418108105752_5458814460156781896_n.jpg?_nc_cat=103&_nc_ht=scontent-frt3-2.xx&oh=7d9325be6cc59f0d33675780b81b36ca&oe=5D0891BB",
+    "title": ".Net Developer",
+    "description": "Hi, I'm Ammad! Let me know if you need any help.",
+    "country": "PK",
+    "tags": [
+      ".net",
+      "algorithms",
+      "android",
+      "c#",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "ammadshakoor1"
+      },
+      {
+        "type": "linkedin",
+        "id": "ammad-shakoor"
+      }
+    ]
+  },
+  {
+    "id": "fayazara@gmail.com",
+    "name": "Fayaz Ahmed",
+    "avatar": "https://avatars3.githubusercontent.com/u/15716057?s=400&v=4",
+    "title": "Frontend Engineer",
+    "description": "A self learned developer",
+    "country": "IN",
+    "tags": [
+      "javascript",
+      "vuejs",
+      "jquery"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "fayazara"
+      },
+      {
+        "type": "twitter",
+        "id": "fayazara"
+      }
+    ]
+  },
+  {
+    "id": "sunilchhimpa92@gmail.com",
+    "name": "Sunil Kumar",
+    "avatar": "https://pbs.twimg.com/profile_images/1110749215720771584/6RGOn2T0_400x400.png",
+    "title": "Web Developer, Blogger",
+    "description": "Lets help everyone to grow",
+    "country": "IN",
+    "tags": [
+      "php",
+      "git",
+      "mysql",
+      "symfony",
+      "codeigniter"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "http://acmeextension.com"
+      },
+      {
+        "type": "twitter",
+        "id": "SunilChhimpa92"
+      }
+    ]
+  },
+  {
+    "id": "philipp@jardas.de",
+    "name": "Philipp Jardas",
+    "avatar": "https://avatars2.githubusercontent.com/u/1437300?s=400&v=4",
+    "title": "Full-stack Software Engineer",
+    "description": "Hey! I've been developing full-stack applications for over 20 years",
+    "country": "DE",
+    "tags": [
+      "javascript",
+      "java",
+      "web",
+      "reactjs",
+      "docker"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "https://jardas.de"
+      },
+      {
+        "type": "twitter",
+        "id": "phjardas"
+      },
+      {
+        "type": "github",
+        "id": "phjardas"
+      }
+    ]
+  },
+  {
+    "id": "alik@digintus.com",
+    "name": "Ali Karim",
+    "avatar": "https://pbs.twimg.com/profile_images/1055282567904194561/UsuHtNYl_400x400.jpg",
+    "title": ".Net Front-End Developer",
+    "description": "Hi, I am a .Net Front-End Developer. I work with Umbraco CMS.",
+    "country": "GB",
+    "tags": [
+      "umbraco",
+      "ui",
+      "ux",
+      ".net",
+      "design"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alik@digintus.com"
+      },
+      {
+        "type": "slack",
+        "id": "UG088MG2C"
+      },
+      {
+        "type": "twitter",
+        "id": "thealikazai"
+      }
+    ]
+  },
+  {
+    "id": "manuel@christlieb.eu",
+    "name": "Manuel Christlieb",
+    "avatar": "https://www.team23.de/content/static/images/team/manuel_christlieb.jpg",
+    "title": "PHP Developer",
+    "description": "A self trained php developer with a lots of love for Laravel",
+    "country": "DE",
+    "tags": [
+      "modern php",
+      "laravel",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "bambamboole1"
+      },
+      {
+        "type": "github",
+        "id": "bambamboole"
+      }
+    ]
+  },
+  {
+    "id": "hareshambaliya@gmail.com",
+    "name": "Haresh Ambaliya",
+    "avatar": "https://pbs.twimg.com/profile_images/1457965822/haresh_400x400.png",
+    "title": "Technical Architect ",
+    "description": "Hi, I am very good in Microsoft Technology including Azure.",
+    "country": "IN",
+    "tags": [
+      "asp.net",
+      "c#",
+      "sql servers",
+      "azure",
+      "redis"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "hareshambaliya"
+      },
+      {
+        "type": "website",
+        "id": "http://www.webstackgeek.com"
+      }
+    ]
+  },
+  {
+    "id": "jacobwgillespie@gmail.com",
+    "name": "Jacob Gillespie",
+    "avatar": "https://avatars1.githubusercontent.com/u/130874?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Happy to help with Node, React, TypeScript, or anything really!",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "typescript",
+      "backend",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jacobwgillespie@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "jacobwgillespie"
+      },
+      {
+        "type": "github",
+        "id": "jacobwgillespie"
+      }
+    ]
+  },
+  {
+    "id": "bogdan@thewindev.net",
+    "name": "Bogdan Bujdea",
+    "avatar": "https://s.gravatar.com/avatar/40c1b091b8344305f5d6e84eb51f46af?s=300",
+    "title": ".NET Developer",
+    "description": "I'm a jack of all trades but my passion remains C#. Happy to share my knowledge!",
+    "country": "RO",
+    "tags": [
+      "dotnet",
+      "c#",
+      "xamarin.forms",
+      "uwp",
+      "git"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "thewindev"
+      },
+      {
+        "type": "github",
+        "id": "thewindev"
+      },
+      {
+        "type": "website",
+        "id": "thewindev.net"
+      }
+    ]
+  },
+  {
+    "id": "benjamin@lannonbr.com",
+    "name": "Benjamin Lannon",
+    "avatar": "https://avatars3.githubusercontent.com/u/3685876?s=460&v=4",
+    "title": "Web Developer",
+    "description": "Full Stack Developer & Advocate for Open Source",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "gatsby",
+      "css",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "benjamin@lannonbr.com"
+      },
+      {
+        "type": "twitter",
+        "id": "lannonbr"
+      },
+      {
+        "type": "github",
+        "id": "lannonbr"
+      }
+    ]
+  },
+  {
+    "id": "mathieu@dutour.me",
+    "name": "Mathieu Dutour",
+    "avatar": "https://avatars0.githubusercontent.com/u/3254314?s=460&v=4",
+    "title": "Design Technologist",
+    "description": "",
+    "country": "FR",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "sketch plugins",
+      "design systems"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "DHJ6PL0EQ"
+      },
+      {
+        "type": "twitter",
+        "id": "mathieudutour"
+      },
+      {
+        "type": "github",
+        "id": "mathieudutour"
+      }
+    ]
+  },
+  {
+    "id": "brockmdavis@outlook.com",
+    "name": "Brock Davis",
+    "avatar": "https://avatars0.githubusercontent.com/brockmdavis",
+    "title": "Applications Architect @ Turner",
+    "description": "Full Stack Developer, ready to help when and where I can!",
+    "country": "US",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "c#",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "brockmdavis"
+      },
+      {
+        "type": "slack",
+        "id": "UCBKN6XEY"
+      },
+      {
+        "type": "linkedin",
+        "id": "brockneedscoffee"
+      }
+    ]
+  },
+  {
+    "id": "quentin.desrame@gmail.com",
+    "name": "Quentin Desramé",
+    "avatar": "https://www.gravatar.com/avatar/c90e5130e5a7f2d605fa60d642ebda4e?s=1200",
+    "title": "R&D Full Stack Software Engineer",
+    "description": "Hi, i'm Passionate and experienced software engineer based in France",
+    "country": "FR",
+    "tags": [
+      "java",
+      "golang",
+      "nodejs",
+      "angular",
+      "php"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHK6088CU"
+      },
+      {
+        "type": "linkedin",
+        "id": "quentin-desrame"
+      },
+      {
+        "type": "twitter",
+        "id": "qdesrame"
+      }
+    ]
+  },
+  {
+    "id": "alon.shmiel@gmail.com",
+    "name": "Alon Shmiel",
+    "avatar": "https://avatars0.githubusercontent.com/u/1051603?s=400&u=5d1534c982dfe7a467dda26a25eeb92657501705&v=4",
+    "title": "Frontend developer",
+    "description": "I will help you to get the right way :)",
+    "country": "IL",
+    "tags": [
+      "angularjs",
+      "javascript",
+      "html",
+      "css",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "alonshmiel"
+      },
+      {
+        "type": "email",
+        "id": "alon.shmiel@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "grebonato@outlook.ie",
+    "name": "Giacomo Rebonato",
+    "avatar": "https://secure.gravatar.com/avatar/b5e2b9ab04e9fa5710c3fd325c554ba7?size=800",
+    "title": "Full stack web developer",
+    "description": "JS and web enthusiast",
+    "country": "IE",
+    "tags": [
+      "js",
+      "reactjs",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "grebonato@outlook.ie"
+      },
+      {
+        "type": "twitter",
+        "id": "GiacomoRebonato"
+      }
+    ]
+  },
+  {
+    "id": "paramanantham@live.com",
+    "name": "Paramanantham Harrison",
+    "avatar": "https://pbs.twimg.com/profile_images/821854289274486784/HrH2nsge_400x400.jpg",
+    "title": "Full stack developer",
+    "description": "I help people to learn web and mobile technologies.",
+    "country": "IN",
+    "tags": [
+      "reactjs",
+      "javascript",
+      "css-in-js",
+      "graphql",
+      "gatsby"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "paramanantham"
+      },
+      {
+        "type": "twitter",
+        "id": "learnwithparam"
+      },
+      {
+        "type": "website",
+        "id": "learnwithparam.com"
+      }
+    ]
+  },
+  {
+    "id": "khumarmusaeva@gmail.com",
+    "name": "Khumar Musayeva",
+    "avatar": "https://avatars0.githubusercontent.com/u/26343870?s=460&v=4",
+    "title": "Frontend Developer",
+    "description": "I love to help people!",
+    "country": "AZ",
+    "tags": [
+      "html",
+      "css",
+      "sass",
+      "pug",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "khumarmusaeva@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "khumar-musayeva-720969100"
+      },
+      {
+        "type": "twitter",
+        "id": "peanutcoder"
+      }
+    ]
+  },
+  {
+    "id": "moin@frot.io",
+    "name": "Florian Gössele",
+    "avatar": "https://frot.io/wp/wp-content/uploads/2019/04/bike_sun.jpg",
+    "title": "Frontend Developer and Trainer",
+    "description": "Diversity is what makes us strong! Coaching preferably for women, PoC...",
+    "country": "DE",
+    "tags": [
+      "angular",
+      "frontend",
+      "scrum",
+      "typescript",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "moin@frot.io"
+      },
+      {
+        "type": "twitter",
+        "id": "frot-io"
+      },
+      {
+        "type": "github",
+        "id": "frot-io"
+      }
+    ]
+  },
+  {
+    "id": "codingmatty@gmail.com",
+    "name": "Matthew Jacobs",
+    "avatar": "https://gravatar.com/avatar/64d17886f3dfee1ff211f1596a4ff9f2",
+    "title": "Frontend Focused Full-stack Dev",
+    "description": "Years of experience. Excited to help passionate learners reach the next level.",
+    "country": "US",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "express",
+      "graphql",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "codingmatty@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "codingmatty"
+      },
+      {
+        "type": "github",
+        "id": "codingmatty"
+      }
+    ]
+  },
+  {
+    "id": "ysoni96@gmail.com",
+    "name": "Yash Soni",
+    "avatar": "https://cdn-images-1.medium.com/fit/c/150/150/1*wAzu9YxUdm0s71CRHGGlmw.jpeg",
+    "title": "Software Engineer",
+    "description": "MAJOR: Android Development. MINOR: React-Native, Nodejs, NoSQL databases.",
+    "country": "IN",
+    "tags": [
+      "android",
+      "nodejs",
+      "nosql",
+      "react native"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHEK6T0TB"
+      },
+      {
+        "type": "linkedin",
+        "id": "yash-soni-63845aa8"
+      },
+      {
+        "type": "twitter",
+        "id": "iYash_Soni"
+      }
+    ]
+  },
+  {
+    "id": "praveen@praveen.science",
+    "name": "Praveen Kumar Purushothaman",
+    "avatar": "https://pbs.twimg.com/profile_images/1152565550/PraveenAvatar_400x400.jpg",
+    "title": "React JS Architect",
+    "description": "Full Stack Developer, LAMP / MERN Stack specialising in UX & Front End Tech.",
+    "country": "GB",
+    "tags": [
+      "frontend",
+      "reactjs",
+      "api-design",
+      "nodejs",
+      "php"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHQEFUB3R"
+      },
+      {
+        "type": "linkedin",
+        "id": "praveentech"
+      },
+      {
+        "type": "website",
+        "id": "praveen.science"
+      }
+    ]
+  },
+  {
+    "id": "subramaniyanan176@gmail.com",
+    "name": "Subramaniyan Annamalai",
+    "avatar": "https://pbs.twimg.com/profile_images/1114632753713156097/DE-vzbbh_bigger.png",
+    "title": "Software Developer",
+    "description": "Full Stack Developer (Angular & ASP.NET Core), happy to help",
+    "country": "US",
+    "tags": [
+      "reactjs",
+      "angular",
+      "asp.net core",
+      "architect"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "subramaniyanan176@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "subramaniyanannamalai"
+      },
+      {
+        "type": "twitter",
+        "id": "subramaniyanan176"
+      }
+    ]
+  },
+  {
+    "id": "hello@andymacdroo.me",
+    "name": "Andy Macdonald",
+    "avatar": "https://andymacdroo.github.io/images/andy.png",
+    "title": "Full Stack Software Engineer",
+    "description": "Happy to help you with Java, Spring, JavaScript, React, AWS and Docker :)",
+    "country": "GB",
+    "tags": [
+      "java",
+      "reactjs",
+      "spring",
+      "javascript",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@andymacdroo.me"
+      },
+      {
+        "type": "twitter",
+        "id": "AndyMacDroo"
+      },
+      {
+        "type": "github",
+        "id": "AndyMacDroo"
+      }
+    ]
+  },
+  {
+    "id": "radheyg11@gmail.com",
+    "name": "Radhey Shyam",
+    "avatar": "https://s.gravatar.com/avatar/7828aa43901a1e589053b2067602109e?s=130",
+    "title": "MEAN/MERN Stack Developer",
+    "description": "Hi, I am a full stack developer with some elegant skill on Javasript framework.",
+    "country": "IN",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "angular",
+      "aws",
+      "docker"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "radheyg11@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "radhey-shyam-426919144"
+      },
+      {
+        "type": "github",
+        "id": "radhey113"
+      }
+    ]
+  },
+  {
+    "id": "jason@wilsons.io",
+    "name": "Jason Wilson",
+    "avatar": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/623880/WILSON_CV_Profile_Crop.jpeg",
+    "title": "Frontend Engineer",
+    "description": "Frontend tinkerer since 1999, FullStack dabbler since 2007.",
+    "country": "CH",
+    "tags": [
+      "frontend",
+      "fullstack",
+      "nodejs",
+      "express",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jason@wilsons.io"
+      },
+      {
+        "type": "slack",
+        "id": "U3DKH863V"
+      },
+      {
+        "type": "github",
+        "id": "sgiobairog"
+      }
+    ]
+  },
+  {
+    "id": "roman.glushko.m@gmail.com",
+    "name": "Roman Glushko",
+    "avatar": "https://pbs.twimg.com/profile_images/1094873945474510853/CL-24FIe_400x400.jpg",
+    "title": "Magento 2 Developer - Tech Lead",
+    "description": "EcommerceSpecialist, WebDev and NewTechnologyResearcher. Driven by GreatIdeas🎉",
+    "country": "UA",
+    "tags": [
+      "ecommerce",
+      "magento",
+      "php",
+      "automation",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "roma_glushko"
+      },
+      {
+        "type": "github",
+        "id": "roma-glushko"
+      }
+    ]
+  },
+  {
+    "id": "dan.manies@gmail.com",
+    "name": "Dan Maniés",
+    "avatar": "https://dysanio.com/static/images/tile-about.png",
+    "title": "User Experience Designer",
+    "description": "I have a coding background and would love to help you with your UX issues.",
+    "country": "DE",
+    "tags": [
+      "ux",
+      "ui",
+      "wireframing",
+      "prototyping",
+      "sketch"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UHPJD6WCC"
+      },
+      {
+        "type": "linkedin",
+        "id": "danielmanies"
+      },
+      {
+        "type": "twitter",
+        "id": "dysanio"
+      }
+    ]
+  },
+  {
+    "id": "shodipovi@gmail.com",
+    "name": "Shodipo Ayomide",
+    "avatar": "https://pbs.twimg.com/profile_images/1095270390404923392/MjzonABt_400x400.jpg",
+    "title": "Dev Advocate and Software Engineer",
+    "description": "Dev Advocate, Software Engineer, Community Builder, Startup Founder and OSS",
+    "country": "NG",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "vuejs",
+      "angularjs",
+      "accessibility"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "developerayo"
+      },
+      {
+        "type": "github",
+        "id": "developerayo"
+      },
+      {
+        "type": "website",
+        "id": "shodipoayomide.com"
+      }
+    ]
+  },
+  {
+    "id": "masihtak@outlook.com",
+    "name": "Masih Abjadi",
+    "avatar": "https://en.gravatar.com/userimage/80410122/b62de6f1d6c4d3f58593454ca2b76b46.jpg?size=200",
+    "title": "Full-Stack Developer",
+    "description": "I'm mostly self-taught, a full-stack developer with 5 years experince.",
+    "country": "IT",
+    "tags": [
+      "frontend",
+      "e6",
+      "nodejs",
+      "sysadmin",
+      "linux"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "masihtak"
+      },
+      {
+        "type": "github",
+        "id": "masihtak"
+      },
+      {
+        "type": "website",
+        "id": "masihtak.com/portfolio/"
+      }
+    ]
+  },
+  {
+    "id": "charrx97@gmail.com",
+    "name": "Lea Nygaard Sømod Jensen",
+    "avatar": "https://i.imgur.com/GitBWi0.jpg",
+    "title": "Full Stack Web Developer",
+    "description": "Hi there! I am an aspiring dev with flair for Web Development.",
+    "country": "DK",
+    "tags": [
+      "angular",
+      "javascript",
+      "nodejs",
+      "express",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "lunarcharrx"
+      },
+      {
+        "type": "linkedin",
+        "id": "leanygaard"
+      },
+      {
+        "type": "email",
+        "id": "charrx97@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "dutchr@live.fr",
+    "name": "rodolphe",
+    "avatar": "https://avatars2.githubusercontent.com/u/2312400?s=460&v=4",
+    "title": "Fullstack developer",
+    "description": "Tech Enthisiast & bad humorist",
+    "country": "FR",
+    "tags": [
+      "reactjs",
+      "angular",
+      "nodejs",
+      "scrum",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "dutchr@live.fr"
+      },
+      {
+        "type": "slack",
+        "id": "UH0GS8UAG"
+      },
+      {
+        "type": "twitter",
+        "id": "_notbu7ch"
       }
     ]
   }

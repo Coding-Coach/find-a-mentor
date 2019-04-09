@@ -1,6 +1,9 @@
 [![Build Status](https://travis-ci.com/Coding-Coach/find-a-mentor.svg?branch=master)](https://travis-ci.com/Coding-Coach/find-a-mentor)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
 
+<a href="https://patreon.com/codingcoach_io"><img src="https://img.shields.io/endpoint.svg?url=https://shieldsio-patreon.herokuapp.com/codingcoach_io&style=for-the-badge" alt="Patreon donate button" /> </a>
+
+
 Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
@@ -72,6 +75,8 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 | express      | expressjs       |
 | fullstack    | full stack      |
 | vuejs        | vue             |
+| asp.net      | aspnet          |
+| asp.net core | aspnetcore      |
 
 #### Country codes
 
@@ -147,3 +152,6 @@ Members who violate this code of conduct will be approached by someone of the Co
 If someone makes you or anyone else feel unsafe or unwelcome, please report it as soon as possible. To report an incident of harassment, anonymously or otherwise, please fill out our [report form](https://forms.gle/bcSWqNNcsdo3zDD17).
 
 Our primary goal is to support you. We will listen to you and then help you determine a course of action based on the situation. While harassment may not always result in that member being expelled from the group, depending on the type and severity of harassment. We want to make sure you have all the support you need no matter what that entails, including whether to stay anonymous or not. Whatever decision you make, our priority is your safety.
+
+# Support Coding Coach
+Our goal is to keep Coding Coach a free platform because we believe that mentorship should be free and accessible for all users. However, there are some costs incurred with creating a platform. We could use your help! If you're just as passionate about Coding Coach as we are, we'd appreciate your support on [Patreon](https://www.patreon.com/codingcoach_io). Here, you can sign up to be a member and help support our mission.
