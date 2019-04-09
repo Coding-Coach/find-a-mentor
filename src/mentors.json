@@ -4508,5 +4508,34 @@
         "id": "shodipoayomide.com"
       }
     ]
+  },
+  {
+    "id": "masihtak@outlook.com",
+    "name": "Masih Abjadi",
+    "avatar": "https://en.gravatar.com/userimage/80410122/b62de6f1d6c4d3f58593454ca2b76b46.jpg?size=200",
+    "title": "Full-Stack Developer",
+    "description": "I'm mostly self-taught, a full-stack developer with 5 years experince.",
+    "country": "IT",
+    "tags": [
+      "frondend",
+      "es6",
+      "nodejs",
+      "sysadmin",
+      "linux"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "masihtak"
+      },
+      {
+        "type": "github",
+        "id": "masihtak"
+      },
+      {
+        "type": "website",
+        "id": "masihtak.com/portfolio/"
+      }
+    ]
   }
 ]
