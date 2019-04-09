@@ -68,10 +68,10 @@ class App extends Component {
     });
   };
 
-  handleTagClick = async selectedTag => {
+  handleTagClick = async clickedTag => {
     await scrollToTop();
     this.setState({
-      selectedTag,
+      clickedTag,
     });
   };
 
@@ -84,7 +84,7 @@ class App extends Component {
   }
 
   render() {
-    const { mentors, fieldsIsActive, selectedTag } = this.state;
+    const { mentors, fieldsIsActive, clickedTag } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
@@ -101,7 +101,7 @@ class App extends Component {
               onToggleFilter={this.toggleFields}
               onToggleSwitch={this.toggleSwitch}
               mentorCount={mentorsInList.length}
-              selectedTag={selectedTag}
+              clickedTag={clickedTag}
             />
             <SocialLinks />
             <a
