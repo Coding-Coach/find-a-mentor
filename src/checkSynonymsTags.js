@@ -7,6 +7,8 @@ const synonymsTags = {
   'front end': 'frontend',
   expressjs: 'express',
   'full stack': 'fullstack',
+  aspnet: 'asp.net',
+  aspnetcore: 'asp.net core'
 };
 
 module.exports = function(tag) {

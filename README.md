@@ -75,6 +75,8 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 | express      | expressjs       |
 | fullstack    | full stack      |
 | vuejs        | vue             |
+| asp.net      | aspnet          |
+| asp.net core | aspnetcore      |
 
 #### Country codes
 

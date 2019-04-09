@@ -176,7 +176,7 @@
     "country": "US",
     "tags": [
       "c#",
-      "aspnet",
+      "asp.net",
       "backend",
       "build",
       "powershell"
@@ -2275,7 +2275,7 @@
     "country": "PT",
     "tags": [
       "dotnet",
-      "aspnet",
+      "asp.net",
       "c#",
       "backend",
       "architecture"
@@ -4321,7 +4321,7 @@
     "tags": [
       "reactjs",
       "angular",
-      "aspnetcore",
+      "asp.net core",
       "architect"
     ],
     "channels": [
