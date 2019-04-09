@@ -4508,5 +4508,35 @@
         "id": "shodipoayomide.com"
       }
     ]
+  },
+  {
+    "id": "charrx97@gmail.com",
+    "name": "Lea Nygaard Sømod Jensen",
+    "avatar": "https://i.imgur.com/GitBWi0.jpg",
+    "title": "Full Stack Web Developer",
+    "description": "Hi there! I am an aspiring dev with flair for Web Development. Feel free to contact me!",
+    "country": "DK",
+    "tags": [
+      "angular",
+      "javascript",
+      "nodejs",
+      "express",
+      "frontend",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "lunarcharrx"
+      },
+      {
+        "type": "linkedin",
+        "id": "leanygaard"
+      },
+      {
+        "type": "email",
+        "id": "charrx97@gmail.com"
+      }
+    ]
   }
 ]
