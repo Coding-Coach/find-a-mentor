@@ -68,6 +68,13 @@ class App extends Component {
     });
   };
 
+  handleTagClick = async selectedTag => {
+    await scrollToTop();
+    this.setState({
+      selectedTag,
+    });
+  };
+
   componentDidMount() {
     if (window && window.ga) {
       const { location, ga } = window;
@@ -77,7 +84,7 @@ class App extends Component {
   }
 
   render() {
-    const { mentors, fieldsIsActive } = this.state;
+    const { mentors, fieldsIsActive, selectedTag } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
@@ -94,6 +101,7 @@ class App extends Component {
               onToggleFilter={this.toggleFields}
               onToggleSwitch={this.toggleSwitch}
               mentorCount={mentorsInList.length}
+              selectedTag={selectedTag}
             />
             <SocialLinks />
             <a
@@ -118,6 +126,7 @@ class App extends Component {
             mentors={mentorsInList}
             favorites={this.state.favorites}
             onFavMentor={this.onFavMentor}
+            handleTagClick={this.handleTagClick}
           />
         </main>
         <footer>
