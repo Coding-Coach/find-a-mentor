@@ -5,16 +5,24 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import MentorsList from '../MentorsList/MentorsList';
 import Filter from '../Filter/Filter';
+import Content from '../Content/Content';
 import Logo from '../Logo';
 import SocialLinks from '../SocialLinks/SocialLinks';
+import Modal from '../Modal/Modal';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
+
+
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
     mentors: shuffle(mentors),
     favorites: get(),
+    modal: {
+      content: null,
+      onClose: null
+    }
   };
 
   handleTagSelect = async ({ value: tag }) => {
@@ -68,6 +76,23 @@ class App extends Component {
     });
   };
 
+  openModal = (content, onClose) => {
+    this.setState({
+      modal: {
+        content,
+        onClose
+      }
+    })
+  }
+
+  closeModal = () => {
+    const { modal: { onClose } } = this.state;
+
+    if (typeof onClose === 'function') {
+      onClose();
+    }
+  }
+
   componentDidMount() {
     if (window && window.ga) {
       const { location, ga } = window;
@@ -77,11 +102,14 @@ class App extends Component {
   }
 
   render() {
-    const { mentors, fieldsIsActive } = this.state;
+    const { mentors, fieldsIsActive, modal } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
       <div className="app">
+        <Modal onClose={this.closeModal}>
+          {modal.content}
+        </Modal>
         <main>
           <aside className="sidebar">
             <a className="logo" href="/">
@@ -96,6 +124,20 @@ class App extends Component {
               mentorCount={mentorsInList.length}
             />
             <SocialLinks />
+            <ul className="sidebar-nav">
+              <li onClick={()=>this.openModal(<Content topic="cookies-policy" />)}>
+                Cookies Policy
+              </li>
+              <li onClick={()=>this.openModal(<Content topic="code-conduct" />)}>
+                Code of Conduct
+              </li>
+              <li onClick={()=>this.openModal(<Content topic="terms-conditions" />)}>
+                Terms & Conditions
+              </li>
+              <li onClick={()=>this.openModal(<Content topic="privacy-policy" />)}>
+                Privacy Statement
+              </li>
+            </ul>
           </aside>
           <MentorsList
             className={classNames({
@@ -106,29 +148,6 @@ class App extends Component {
             onFavMentor={this.onFavMentor}
           />
         </main>
-        <footer>
-          <a
-            rel="noopener noreferrer"
-            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/TermsAndConditions.md#terms-and-conditions"
-            target="_blank"
-          >
-            Terms & Conditions
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/CookiesPolicy.md#what-are-cookies"
-            target="_blank"
-          >
-            Cookies
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/PrivacyPolicy.md#effective-date-october-03-2018"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>
-        </footer>
       </div>
     );
   }

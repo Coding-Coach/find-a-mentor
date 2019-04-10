@@ -1,0 +1,49 @@
+.modal-container {
+  background: rgba(100,100,100,0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: -1;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.modal-container.active {
+  opacity: 1;
+  z-index: 999;
+  pointer-events: auto;
+}
+
+.modal-container .modal-box {
+  background: #fff;
+  width: 780px;
+  min-height: 100px;
+  border-radius: 5px;
+  margin: 300px auto;
+  opacity: 0;
+  padding: 25px;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+}
+
+.modal-container.active .modal-box {
+  margin: 100px auto;
+  opacity: 1;
+}
+
+.modal-container .modal-box .close {
+  border: none;
+  background: #ddd;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  color: #000;
+  font-size: 15px;
+  cursor: pointer;
+}
