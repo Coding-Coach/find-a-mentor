@@ -44,6 +44,15 @@ export default class AutoComplete extends Component {
     return state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
   }
 
+  componentDidUpdate(prevProps) {
+    const { clickedTag: value } = this.props;
+
+    if (prevProps.clickedTag !== this.props.clickedTag) {
+      this.setState({ value });
+      this.props.onSelect({ value });
+    }
+  }
+
   render() {
     const { value } = this.state;
     const { id, source } = this.props;

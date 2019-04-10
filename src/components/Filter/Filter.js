@@ -41,7 +41,7 @@ export default class Filter extends Component {
   };
 
   render() {
-    const { onToggleSwitch } = this.props;
+    const { onToggleSwitch, clickedTag } = this.props;
     const { showFilters } = this.state;
 
     return (
@@ -67,6 +67,7 @@ export default class Filter extends Component {
               id="language"
               source={tags}
               onSelect={this.onTagSelect}
+              clickedTag={clickedTag}
             />
           </Input>
           <Input id="country" label="Country" key="country">

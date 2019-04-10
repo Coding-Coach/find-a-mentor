@@ -28,7 +28,13 @@ export default class MentorsLists extends Component {
   }
 
   render() {
-    const { mentors, className, favorites, onFavMentor } = this.props;
+    const {
+      mentors,
+      className,
+      favorites,
+      onFavMentor,
+      handleTagClick,
+    } = this.props;
     const { page } = this.state;
 
     const mentorsInList = mentors.slice(0, page * itemsInPage);
@@ -46,6 +52,7 @@ export default class MentorsLists extends Component {
               mentor={mentor}
               onFavMentor={onFavMentor}
               isFav={favorites.indexOf(mentor.id) > -1}
+              handleTagClick={handleTagClick}
             />
           ))}
           {mentorsInList.length === 0 && (
