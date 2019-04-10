@@ -25,7 +25,6 @@
   border-radius: 5px;
   margin: 300px auto;
   opacity: 0;
-  padding: 25px;
   position: relative;
   transition: all 0.4s ease-in-out;
 }
@@ -39,12 +38,26 @@
   border: none;
   background: #ddd;
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 20px;
+  right: 20px;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   color: #000;
-  font-size: 15px;
+  font-size: 20px;
   cursor: pointer;
+}
+
+.modal-container .modal-box .modal-head {
+  border-bottom: 1px solid #e8e7e7;
+}
+.modal-container .modal-box .modal-head h2 {
+  color: #00bc89;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 25px;
+  margin: 0px;
+}
+.modal-container .modal-box .modal-content {
+  padding: 15px 25px;
 }

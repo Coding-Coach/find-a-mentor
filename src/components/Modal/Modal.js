@@ -33,13 +33,14 @@ export default class Modal extends Component {
 
   render() {
     const { isActive } = this.state;
-    const { children } = this.props;
+    const { children, title } = this.props;
 
     return (
       <div className={`modal-container ${isActive ? 'active' : ''}`}>
         <div className="modal-box">
           <button className="close" onClick={this.handleClose}>x</button>
-          {children || ''}
+          <div className="modal-head"><h2>{title || ''}</h2></div>
+          <div className="modal-content">{children || ''}</div>
         </div>
       </div>
     );

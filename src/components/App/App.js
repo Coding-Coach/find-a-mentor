@@ -20,6 +20,7 @@ class App extends Component {
     mentors: shuffle(mentors),
     favorites: get(),
     modal: {
+      title: null,
       content: null,
       onClose: null
     }
@@ -76,9 +77,10 @@ class App extends Component {
     });
   };
 
-  openModal = (content, onClose) => {
+  openModal = (title, content, onClose) => {
     this.setState({
       modal: {
+        title,
         content,
         onClose
       }
@@ -107,7 +109,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <Modal onClose={this.closeModal}>
+        <Modal onClose={this.closeModal} title={modal.title}>
           {modal.content}
         </Modal>
         <main>
@@ -125,16 +127,16 @@ class App extends Component {
             />
             <SocialLinks />
             <ul className="sidebar-nav">
-              <li onClick={()=>this.openModal(<Content topic="cookies-policy" />)}>
+              <li onClick={()=>this.openModal('Cookies Policy', <Content topic="cookies-policy" />)}>
                 Cookies Policy
               </li>
-              <li onClick={()=>this.openModal(<Content topic="code-conduct" />)}>
+              <li onClick={()=>this.openModal('Code of Conduct', <Content topic="code-conduct" />)}>
                 Code of Conduct
               </li>
-              <li onClick={()=>this.openModal(<Content topic="terms-conditions" />)}>
+              <li onClick={()=>this.openModal('Terms & Conditions', <Content topic="terms-conditions" />)}>
                 Terms & Conditions
               </li>
-              <li onClick={()=>this.openModal(<Content topic="privacy-policy" />)}>
+              <li onClick={()=>this.openModal('Privacy Statement', <Content topic="privacy-policy" />)}>
                 Privacy Statement
               </li>
             </ul>
