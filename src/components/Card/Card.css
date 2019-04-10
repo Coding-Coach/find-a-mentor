@@ -75,6 +75,7 @@
 .card .tag {
   color: #fff;
   background: var(--tag-color);
+  border: 0;
   border-radius: 20px;
   display: inline-block;
   padding: 5px 10px;

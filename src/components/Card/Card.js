@@ -27,14 +27,14 @@ function handleAnalytic(channelName) {
 const tagsList = (tags, handleTagClick) =>
   tags.map((tag, index) => {
     return (
-      <div
+      <button
         className="tag"
         key={index}
         tabIndex={0}
         onClick={handleTagClick.bind(null, tag)}
       >
         {tag}
-      </div>
+      </button>
     );
   });
 
