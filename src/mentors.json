@@ -4595,5 +4595,30 @@
         "id": "_notbu7ch"
       }
     ]
+  },
+  {
+    "id": "info@iamstratos.com",
+    "name": "Stratos Iordanidis",
+    "avatar": "https://avatars3.githubusercontent.com/u/5058640",
+    "title": "Frontend Engineer",
+    "description": "I'm into Javascript and User Interfaces!",
+    "country": "GR",
+    "tags": [
+      "reactjs", "frontend", "javascript", "graphql", "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "info@iamstratos.com"
+      },
+      {
+        "type": "slack",
+        "id": "UHANGKHFA"
+      },
+      {
+        "type": "twitter",
+        "id": "iam_stratos"
+      }
+    ]
   }
 ]
