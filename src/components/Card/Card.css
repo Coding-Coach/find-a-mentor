@@ -34,7 +34,8 @@
   background: #fff;
   color: rgb(155, 155, 155);
   border-radius: 50%;
-  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+    0 1px 10px 0 rgba(0, 0, 0, 0.12);
   display: block;
 }
 
@@ -60,7 +61,7 @@
 
 .card .description {
   font-style: italic;
-  background: rgba(21,21,21,.01);
+  background: rgba(21, 21, 21, 0.01);
   margin-bottom: 5px;
   padding: 5px 2.5px;
   border-radius: 10px;
@@ -74,6 +75,7 @@
 .card .tag {
   color: #fff;
   background: var(--tag-color);
+  border: 0;
   border-radius: 20px;
   display: inline-block;
   padding: 5px 10px;
@@ -81,6 +83,10 @@
   line-height: 1;
   user-select: none;
   text-transform: lowercase;
+}
+
+.card .tag:hover {
+  cursor: pointer;
 }
 
 .card .channels {
@@ -139,7 +145,8 @@
   cursor: pointer;
 }
 
-.card .liked, .card .like-button:hover i {
+.card .liked,
+.card .like-button:hover i {
   color: #db2828;
 }
 

@@ -24,12 +24,17 @@ function handleAnalytic(channelName) {
   }
 }
 
-const tagsList = tags =>
+const tagsList = (tags, handleTagClick) =>
   tags.map((tag, index) => {
     return (
-      <div className="tag" key={index}>
+      <button
+        className="tag"
+        key={index}
+        tabIndex={0}
+        onClick={handleTagClick.bind(null, tag)}
+      >
         {tag}
-      </div>
+      </button>
     );
   });
 
@@ -95,7 +100,7 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
-const Info = ({ mentor }) => {
+const Info = ({ mentor, handleTagClick }) => {
   // Don't show the description if it's not provided.
   const description = mentor.description ? (
     <p className="description">"{mentor.description}"</p>
@@ -110,7 +115,7 @@ const Info = ({ mentor }) => {
       </h1>
       <h4 className="title">{mentor.title}</h4>
       {description}
-      <div className="tags">{tagsList(mentor.tags)}</div>
+      <div className="tags">{tagsList(mentor.tags, handleTagClick)}</div>
       <div className="channels">
         <div className="channel-inner">{channelsList(mentor.channels)}</div>
       </div>
@@ -118,7 +123,7 @@ const Info = ({ mentor }) => {
   );
 };
 
-const Card = ({ mentor, onFavMentor, isFav }) => {
+const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
   const toggleFav = () => {
     isFav = !isFav;
     onFavMentor(mentor);
@@ -133,7 +138,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
         alt={countries[mentor.country]}
       />
       <Avatar mentor={mentor} />
-      <Info mentor={mentor} />
+      <Info mentor={mentor} handleTagClick={handleTagClick} />
     </div>
   );
 };
