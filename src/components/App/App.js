@@ -140,6 +140,20 @@ class App extends Component {
                 Privacy Statement
               </li>
             </ul>
+            <a
+              href="https://www.patreon.com/codingcoach_io"
+              className="patreon-link"
+              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                src={`${
+                  process.env.PUBLIC_URL
+                }/images/coding-coach-patron-button.jpg`}
+                alt="Become a Patron"
+              />
+            </a>
           </aside>
           <MentorsList
             className={classNames({

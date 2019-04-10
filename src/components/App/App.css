@@ -81,9 +81,23 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.patreon-link {
+  display: block;
+  margin: 20px auto 0;
+  width: 150px;
+}
+
+.patreon-link img {
+  max-width: 100%;
+}
+
 @media all and (max-width: 576px) {
   .logo {
     display: flex;
     justify-content: center;
+  }
+  .patreon-link {
+    margin: 25px auto;
+    width: 130px;
   }
 }
