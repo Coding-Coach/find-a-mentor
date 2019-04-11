@@ -31,7 +31,7 @@ export default class AutoComplete extends Component {
   onSelect = (value, item) => {
     this.setState({ value });
     this.props.onSelect(item);
-    this.setPermalinkParams(this.props.id, value)
+    this.setPermalinkParams(this.props.id, value);
   };
 
   onChange = (event, value) => {
@@ -39,7 +39,7 @@ export default class AutoComplete extends Component {
     if (!value) {
       this.props.onSelect({ value: '', label: '' });
     }
-    this.setPermalinkParams(this.props.id, value)
+    this.setPermalinkParams(this.props.id, value);
   };
 
   matchStateToTerm(state, value) {
@@ -79,6 +79,7 @@ export default class AutoComplete extends Component {
     if (prevProps.clickedTag !== this.props.clickedTag) {
       this.setState({ value });
       this.props.onSelect({ value });
+      this.setPermalinkParams(this.props.id, value);
     }
   }
 
