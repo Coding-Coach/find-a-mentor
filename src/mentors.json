@@ -4604,7 +4604,11 @@
     "description": "I'm into Javascript and User Interfaces!",
     "country": "GR",
     "tags": [
-      "reactjs", "frontend", "javascript", "graphql", "vuejs"
+      "reactjs",
+      "frontend",
+      "javascript",
+      "graphql",
+      "vuejs"
     ],
     "channels": [
       {
@@ -4618,6 +4622,35 @@
       {
         "type": "twitter",
         "id": "iam_stratos"
+      }
+    ]
+  },
+  {
+    "id": "philipp@jardas.de",
+    "name": "Philipp Jardas",
+    "avatar": "https://avatars3.githubusercontent.com/u/1437300",
+    "title": "Full-Stack Developer",
+    "description": "I'd love to help you learn React, JavaScript, GraphQL and architecture.",
+    "country": "DE",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "fullstack",
+      "javascript",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "philipp@jardas.de"
+      },
+      {
+        "type": "twitter",
+        "id": "phjardas"
+      },
+      {
+        "type": "github",
+        "id": "phjardas"
       }
     ]
   }
