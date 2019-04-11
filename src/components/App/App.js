@@ -94,6 +94,12 @@ class App extends Component {
       onClose();
     }
   }
+  handleTagClick = async clickedTag => {
+    await scrollToTop();
+    this.setState({
+      clickedTag,
+    });
+  };
 
   componentDidMount() {
     if (window && window.ga) {
@@ -104,7 +110,7 @@ class App extends Component {
   }
 
   render() {
-    const { mentors, fieldsIsActive, modal } = this.state;
+    const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
@@ -124,6 +130,7 @@ class App extends Component {
               onToggleFilter={this.toggleFields}
               onToggleSwitch={this.toggleSwitch}
               mentorCount={mentorsInList.length}
+              clickedTag={clickedTag}
             />
             <SocialLinks />
             <nav className="sidebar-nav">
@@ -162,6 +169,7 @@ class App extends Component {
             mentors={mentorsInList}
             favorites={this.state.favorites}
             onFavMentor={this.onFavMentor}
+            handleTagClick={this.handleTagClick}
           />
         </main>
       </div>
