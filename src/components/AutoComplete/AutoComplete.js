@@ -31,6 +31,7 @@ export default class AutoComplete extends Component {
   onSelect = (value, item) => {
     this.setState({ value });
     this.props.onSelect(item);
+    this.setPermalinkParams(this.props.id, value);
   };
 
   onChange = (event, value) => {
@@ -38,10 +39,38 @@ export default class AutoComplete extends Component {
     if (!value) {
       this.props.onSelect({ value: '', label: '' });
     }
+    this.setPermalinkParams(this.props.id, value);
   };
 
   matchStateToTerm(state, value) {
     return state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+  }
+
+  getPermalinkParams() {
+    const permalink = new URLSearchParams(window.location.search);
+    const paramValue = permalink.get(this.props.id);
+    const paramItem = this.props.source.filter(
+      item => item.value === paramValue
+    );
+    if (paramItem.length) {
+      this.setState({ value: paramItem[0].label, label: paramValue });
+      this.props.onSelect({ value: paramValue, label: paramItem[0].label });
+    }
+  }
+
+  setPermalinkParams = (param, value) => {
+    const permalink = new URLSearchParams(window.location.search);
+    const paramItem = this.props.source.filter(item => item.label === value);
+    if(paramItem.length && value.length) {
+      permalink.set(param, paramItem[0].value);
+    } else if (!value.length) {
+      permalink.delete(param);
+    }
+    window.history.pushState({}, null, "?" + permalink.toString());
+  }
+  
+  componentDidMount() {
+    this.getPermalinkParams();
   }
 
   componentDidUpdate(prevProps) {
@@ -50,12 +79,14 @@ export default class AutoComplete extends Component {
     if (prevProps.clickedTag !== this.props.clickedTag) {
       this.setState({ value });
       this.props.onSelect({ value });
+      this.setPermalinkParams(this.props.id, value);
     }
   }
 
   render() {
     const { value } = this.state;
     const { id, source } = this.props;
+
     return (
       <div className="ac">
         <Autocomplete

@@ -75,12 +75,29 @@ class App extends Component {
     });
   };
 
+  getPermalinkParams() {
+    const permalink = new URLSearchParams(window.location.search);
+
+    if(permalink.get('language') !== null) {
+      this.setState({ tag : permalink.get('language') });
+    }
+
+    if(permalink.get('country') !== null) {
+      this.setState({ country : permalink.get('country') });
+    }
+
+    if(permalink.get('name') !== null) {
+      this.setState({ name: permalink.get('name') });
+    }
+  }
+  
   componentDidMount() {
     if (window && window.ga) {
       const { location, ga } = window;
       ga('set', 'page', location.href);
       ga('send', 'pageview');
     }
+    this.getPermalinkParams();
   }
 
   render() {
