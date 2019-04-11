@@ -1,6 +1,15 @@
 'use strict';
 const inquirer = require('inquirer');
 const countries = require('svg-country-flags/countries.json');
+const checkSynonyms = require('../src/checkSynonymsTags');
+const https = require('https');
+var imageType = require('image-type');
+
+// Added for the country list filtering
+inquirer.registerPrompt(
+  'autocomplete',
+  require('inquirer-autocomplete-prompt')
+);
 
 function validateEmail(value) {
   const pass = value.match(
@@ -32,19 +41,35 @@ const questionName = {
   validate: validateName,
 };
 
-function validateAvatar(value) {
+async function validateAvatar(value) {
   const pass = value.match(
     /^(https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,6}(:[0-9]{1,5})?(\/.*)?$/
   );
   if (pass) {
-    return true;
+    let isImage = null;
+    await new Promise(function(resolve, reject) {
+      https.get(value, function(request) {
+        request.once('data', function(chunk) {
+          isImage = imageType(chunk) ? true : false;
+          request.destroy();
+          resolve();
+        });
+        request.on('error', function(err) {
+          reject();
+        });
+      });
+    });
+    if (isImage) {
+      return true;
+    }
+    return 'Please enter a valid avatar url. Must return a valid image';
   }
   return 'Please enter a valid avatar url. Must start with "https://"';
 }
 const questionAvatar = {
   type: 'input',
   name: 'avatar',
-  message: 'Please add your avatar url:',
+  message: 'Please add your avatar url (must be secure):',
   validate: validateAvatar,
 };
 
@@ -58,7 +83,7 @@ function validateTitle(value) {
 const questionTitle = {
   type: 'input',
   name: 'title',
-  message: 'Please add your title:',
+  message: 'Please add your title (2 - 30 characters):',
   validate: validateTitle,
 };
 
@@ -75,27 +100,46 @@ function validateDescription(value) {
 const questionDescription = {
   type: 'input',
   name: 'description',
-  message: 'Please add your description: (optional)',
+  message: 'Please add your description: (5 - 80 characters, optional)',
   validate: validateDescription,
 };
 
 const questionCountry = {
-  type: 'list',
+  type: 'autocomplete',
   name: 'country',
   message: 'Please add your country:',
-  choices: Object.values(countries).sort(),
+  source: async (answers, input = '') =>
+    Object.values(countries)
+      .filter(country => country.toLowerCase().startsWith(input.toLowerCase()))
+      .sort(),
 };
 
 function validateTags(value) {
+  const hasSynonymsErrors = tags => {
+    const tagsArray = tags.split(',');
+    let errors = [];
+    tagsArray.forEach(tag => {
+      const synonymError = checkSynonyms(tag);
+      if (synonymError) {
+        errors.push(synonymError);
+      }
+    });
+    return errors;
+  };
+
   const hasLessThanOneOrMoreThanFiveTags = tags => {
     const count = tags.split(',').length;
 
-    return count < 1 || count > 5;
+    return !tags || count > 5;
   };
   const hasUppercaseCharacters = tags => /[A-Z]/.test(tags);
 
   let errors = [];
 
+  const synonymErrors = hasSynonymsErrors(value);
+  if (synonymErrors.length) {
+    errors = [...errors, ...synonymErrors];
+  }
   if (hasLessThanOneOrMoreThanFiveTags(value)) {
     errors.push('between 1 and 5 tags');
   }
@@ -105,7 +149,7 @@ function validateTags(value) {
   }
 
   if (errors.length > 0) {
-    return `Please enter valid tags: ${errors.join(', ')}.`;
+    return `Please enter valid tags:\n- ${errors.join(';\n- ')}.`;
   }
 
   return true;
@@ -113,7 +157,7 @@ function validateTags(value) {
 const questionTags = {
   type: 'input',
   name: 'tags',
-  message: 'Please add your tags: (Separate by commas)',
+  message: 'Please add your tags: (1 - 5 tags, separate by commas)',
   validate: validateTags,
 };
 
@@ -128,7 +172,7 @@ function validateChannels(answer) {
 const questionChannels = {
   type: 'checkbox',
   name: 'channels',
-  message: 'Please add your channels:',
+  message: 'Please add your channels (1 - 3 choices):',
   choices: [
     {
       name: 'Email',

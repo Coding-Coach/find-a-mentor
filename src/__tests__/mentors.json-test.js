@@ -2,6 +2,8 @@ import mentors from '../mentors.json';
 import Ajv from 'ajv';
 import { get as getPath } from 'object-path';
 import countries from 'svg-country-flags/countries.json';
+import _ from 'lodash';
+import checkSynonyms from '../checkSynonymsTags';
 
 expect.extend({
   toBeValid(isValid, errorMessage) {
@@ -25,28 +27,15 @@ const validateSecuredUrl = function(schema, uri) {
   return uri.indexOf('https://') === 0;
 };
 
-const synonymsTags = {
-  '(node|node.js)': 'nodejs',
-  '(react|React.js)': 'reactjs',
-  vue: 'vuejs',
-  'react-native': 'react native',
-  csharp: 'c#',
-  'front end': 'frontend',
-  expressjs: 'express',
-  'full stack': 'fullstack',
-};
-
 const validateSynonymsTags = function(schema, tag) {
   let isValid = true;
   let message = '';
-  Object.keys(synonymsTags).forEach(synonym => {
-    if (new RegExp(`^${synonym}$`, 'i').exec(tag)) {
-      message = `should NOT use "${tag}", should use the conventional name: "${
-        synonymsTags[synonym]
-      }"`;
-      isValid = false;
-    }
-  });
+  const synonymError = checkSynonyms(tag);
+
+  if (synonymError) {
+    message = synonymError;
+    isValid = false;
+  }
 
   validateSynonymsTags.errors = [
     { keyword: 'synonymsTags', message, params: { keyword: 'synonymsTags' } },
@@ -160,6 +149,20 @@ const mentorSchema = {
     required: ['id', 'name', 'avatar', 'title', 'country', 'tags', 'channels'],
   },
 };
+
+it('should not have duplicated Id', () => {
+  const mentorsId = _.map(mentors, 'id');
+  const duplicatedEmails = _.transform(
+    _.countBy(mentorsId),
+    (result, count, value) => {
+      if (count > 1) result.push(value);
+    },
+    []
+  );
+  const errorMessage = `Duplicated mentor ID ${duplicatedEmails}`;
+  const valid = duplicatedEmails.length > 0 ? false : true;
+  expect(valid).toBeValid(errorMessage);
+});
 
 it('should mentors schema be valid', () => {
   const valid = ajv.validate(mentorSchema, mentors);

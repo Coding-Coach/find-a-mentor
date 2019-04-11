@@ -28,10 +28,6 @@ export default class AutoComplete extends Component {
     value: '',
   };
 
-  componentDidMount() {
-    this.getPermalinkParams();
-  }
-
   onSelect = (value, item) => {
     this.setState({ value });
     this.props.onSelect(item);
@@ -71,6 +67,19 @@ export default class AutoComplete extends Component {
       permalink.delete(param);
     }
     window.history.pushState({}, null, "?" + permalink.toString());
+  }
+  
+  componentDidMount() {
+    this.getPermalinkParams();
+  }
+
+  componentDidUpdate(prevProps) {
+    const { clickedTag: value } = this.props;
+
+    if (prevProps.clickedTag !== this.props.clickedTag) {
+      this.setState({ value });
+      this.props.onSelect({ value });
+    }
   }
 
   render() {

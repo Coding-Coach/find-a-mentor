@@ -68,14 +68,12 @@ class App extends Component {
     });
   };
 
-  componentDidMount() {
-    if (window && window.ga) {
-      const { location, ga } = window;
-      ga('set', 'page', location.href);
-      ga('send', 'pageview');
-    }
-    this.getPermalinkParams();
-  }
+  handleTagClick = async clickedTag => {
+    await scrollToTop();
+    this.setState({
+      clickedTag,
+    });
+  };
 
   getPermalinkParams() {
     const permalink = new URLSearchParams(window.location.search);
@@ -92,9 +90,18 @@ class App extends Component {
       this.setState({ name: permalink.get('name') });
     }
   }
+  
+  componentDidMount() {
+    if (window && window.ga) {
+      const { location, ga } = window;
+      ga('set', 'page', location.href);
+      ga('send', 'pageview');
+    }
+    this.getPermalinkParams();
+  }
 
   render() {
-    const { mentors, fieldsIsActive } = this.state;
+    const { mentors, fieldsIsActive, clickedTag } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
@@ -111,8 +118,23 @@ class App extends Component {
               onToggleFilter={this.toggleFields}
               onToggleSwitch={this.toggleSwitch}
               mentorCount={mentorsInList.length}
+              clickedTag={clickedTag}
             />
             <SocialLinks />
+            <a
+              href="https://www.patreon.com/codingcoach_io"
+              className="patreon-link"
+              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                src={`${
+                  process.env.PUBLIC_URL
+                }/images/coding-coach-patron-button.jpg`}
+                alt="Become a Patron"
+              />
+            </a>
           </aside>
           <MentorsList
             className={classNames({
@@ -121,6 +143,7 @@ class App extends Component {
             mentors={mentorsInList}
             favorites={this.state.favorites}
             onFavMentor={this.onFavMentor}
+            handleTagClick={this.handleTagClick}
           />
         </main>
         <footer>
