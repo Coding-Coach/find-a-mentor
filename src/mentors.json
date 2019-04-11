@@ -6,6 +6,9 @@
     "title": "Platform Engineer at Postman",
     "description": "Product Engineer, Writer and Speaker",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "android",
       "reactjs",
@@ -35,6 +38,9 @@
     "title": "Frontend at @wix",
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "IL",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -64,6 +70,9 @@
     "title": "Sr. Engineer at @invisionapp",
     "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -89,6 +98,9 @@
     "title": "co-CEO @RelativelyFund",
     "description": "Passionate coder and tech advisor",
     "country": "JO",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -117,6 +129,9 @@
     "title": "JavaScript Web Developer",
     "description": "I'm a JavaScript Web Developer. Ask me any questions that you have.",
     "country": "ZA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -146,6 +161,9 @@
     "title": "Software Engineer",
     "description": "Hi! I am BD. Would love to help in any way 🙂",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -174,6 +192,9 @@
     "title": "Full Stack .NET Web Developer",
     "description": "28-year career in software. Would love to share what I know.",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "c#",
       "asp.net",
@@ -203,6 +224,9 @@
     "title": "Developer at @wallplaynetwork",
     "description": "Hola ! Let's solve some problems.",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs",
       "firebase",
@@ -232,6 +256,9 @@
     "title": "Software Developer at @sendboxng",
     "description": "When the journey looks rough, I promise you won't have to do it alone",
     "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -261,6 +288,9 @@
     "title": "Full Stack Web Developer / Designer",
     "description": "23 year web development veteran specializing in Angular, Node and TypeScript",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "angular",
       "django",
@@ -286,6 +316,9 @@
     "title": "CTO @ Catalytic DS",
     "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -313,6 +346,9 @@
     "title": "Software Engineer",
     "description": "Open web enthusiast. Come explore the various corners of the internet with me!",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "css",
@@ -338,6 +374,9 @@
     "title": "Senior Software Engineer @ValueLabs",
     "description": "Hi, I'm Kirankumar Ambati! Let me know if you need any help.👨‍💻",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -367,6 +406,9 @@
     "title": "Generalist; Python/Ruby/Web",
     "description": "Hi! Here for general help; specialise in Python, Ruby/Rails, and web projects.",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "python",
       "ruby",
@@ -395,6 +437,9 @@
     "title": "Frontend Engineer at @Schibsted",
     "description": "Pragmatic, efficient and happy to help😀. Focus on one thing at the time🤓.",
     "country": "ES",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -424,6 +469,9 @@
     "title": "Product Engineer at @whitepanda",
     "description": "Hi, I'm Prateek. I mostly code in JavaScript. Shoot your queries at me.",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -453,6 +501,9 @@
     "title": "Front End at Digial Air Strike",
     "description": "Hi! Happy to help you level up 🤠",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -474,6 +525,9 @@
     "title": "Full stack developer",
     "description": "Hey there! Happy to help in whatever aspect is needed!",
     "country": "NZ",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "a11y",
@@ -503,6 +557,9 @@
     "title": "Software Developer",
     "description": "Hi, I'm Vinamra and I am excited to help you !",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "java",
       "android",
@@ -530,6 +587,9 @@
     "title": "Full Stack Developer",
     "description": "We can learn together, just ask or suggest.",
     "country": "TZ",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "nodejs",
@@ -559,6 +619,9 @@
     "title": "Staff Software Engineer",
     "description": "Hi, I'm Gulshan and I am happy to share my knowledge!",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -587,6 +650,9 @@
     "title": "Software Developer",
     "description": "Hola, I'm Cristian and I'm happy to help!",
     "country": "SE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "html",
       "css",
@@ -616,6 +682,9 @@
     "title": "PHP/Symfony Developer",
     "description": "I am an enthusiastic PHP/Symfony developer and trainer.",
     "country": "IT",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "symfony",
@@ -645,6 +714,9 @@
     "title": "PHP/Symfony Developer",
     "description": "PHP since 1998, co-RM for PHP 5.3, Symfony core team/lead diversity initiative.",
     "country": "CH",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "symfony",
@@ -674,6 +746,9 @@
     "title": "Software Developer at AND Digital",
     "description": "Hi, I am a front-end developer. Let me know if you want to have a chat.",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -697,6 +772,9 @@
     "title": "Senior Fullstack Developer @Globant",
     "description": "Hi, I am Gerson and I'll be happy to learn with you.",
     "country": "PE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "javascript",
@@ -726,6 +804,9 @@
     "title": "Full Stack Cloud Developer at @IBM",
     "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",
     "country": "UY",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "watson",
@@ -755,6 +836,9 @@
     "title": "Full Stack Web Developer",
     "description": "Hi, I'm AdroitCode! Let me know if you need any help.",
     "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "frontend",
@@ -784,6 +868,9 @@
     "title": "Full Stack Developer @Sparkbox",
     "description": "Hi! I'm happy to help in anyway I can. Ask me anything! 👩‍💻",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "sass",
@@ -809,6 +896,9 @@
     "title": "Team Leader at QuickTech.no",
     "description": "Hey! Let me know if you need any help.",
     "country": "BR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "ionic",
       "react native",
@@ -838,6 +928,9 @@
     "title": "Full Stack Developer",
     "description": "Feel free to ask me any question, big or small!",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs",
       "angular",
@@ -861,6 +954,9 @@
     "title": "Software Engineer @Jump360",
     "description": "Hi, I'm Jabbar and I will be happy to solve your {bug}",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "backend",
       "javascript",
@@ -890,6 +986,9 @@
     "title": "Backend Developer",
     "description": "Hello, I'm a backend developer interested in all things Javascript!",
     "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "javascript",
@@ -915,6 +1014,9 @@
     "title": "Fullstack Developer",
     "description": "Hi, am leveling up on Angular and Nodejs :)",
     "country": "KE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "javascript",
@@ -938,6 +1040,9 @@
     "title": "Lead Fullstack Javascript Developer",
     "description": "I'm a lead developer and budding architect. I love talking about tech!",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "microservices",
@@ -967,6 +1072,9 @@
     "title": "Programmer, Writer, Monster Slayer",
     "description": "I'm an adventurous programmer with an extensive range of experience.",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "programming",
       "ux",
@@ -996,6 +1104,9 @@
     "title": "Javascript developer",
     "description": "Hi! Here to relieve you of your Javascript woes",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -1020,6 +1131,9 @@
     "title": "Web Developer @ blue-tomato.com",
     "description": "self-taught, daughter-driven programmer - had a career switch (former marketeer)",
     "country": "AT",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -1049,6 +1163,9 @@
     "title": "Co-Founder @ Proximity Insight",
     "description": "10 years and counting working on Salesforce.com and with JavaScript",
     "country": "AU",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "salesforce",
       "javascript",
@@ -1074,6 +1191,9 @@
     "title": "Fullstack Developer",
     "description": "Hi, I am an experienced fullstack web developer. Happy to help.",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "javascript",
@@ -1103,6 +1223,9 @@
     "title": "Backend Developer",
     "description": "Hi, My name is Carlos, if you need some help just ask me.",
     "country": "ES",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "dotnet",
       "azure",
@@ -1132,6 +1255,9 @@
     "title": "Frontend Dev. at @PlainConcepts",
     "description": "Hi, My name is Ignacio, if you think I can help you, don't hesitate to tell me.",
     "country": "ES",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "performance",
       "web typography",
@@ -1157,6 +1283,9 @@
     "title": "Senior Backend Engineer",
     "description": "Self-taught developer, 8+ years experience, entertainment & food tech.",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "python",
       "rest",
@@ -1186,6 +1315,9 @@
     "title": "Senior Frontend Engineer @GitLab",
     "description": "Official Vue.js Community Partner. Google Developer Expert - Web Technologies.",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "vuejs",
       "html",
@@ -1207,6 +1339,9 @@
     "title": "Full Stack Software Developer",
     "description": "I build React UIs and serverless NodeJS backends. Excited to help!",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -1236,6 +1371,9 @@
     "title": "Fullstack Developer",
     "description": "Hi, I'm a fullstack web developer.",
     "country": "UG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "nodejs",
@@ -1259,6 +1397,9 @@
     "title": "Senior UI Developer @iamcloud",
     "description": "UI veteran looking to help those starting out. Let's build all the things!",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -1288,6 +1429,9 @@
     "title": "Lead Site Reliability Engineer",
     "description": "I'm a self taught dev who wants to help others break into this amazing field!",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "elasticsearch",
       "ruby",
@@ -1317,6 +1461,9 @@
     "title": "JavaScript & C# Developer",
     "description": "Been writing code for over 10 years on many platforms. Excited to help!",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "nodejs",
@@ -1346,6 +1493,9 @@
     "title": "Fullstack Developer/Entrepreneur",
     "description": "Hi, I'm Andrew and I love help growing those around me!",
     "country": "CA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "vuejs",
       "css",
@@ -1375,6 +1525,9 @@
     "title": "Software Architect",
     "description": "Coding embedded systems to mainframes and everything in between since 1985.",
     "country": "ZA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "java",
       "spring",
@@ -1404,6 +1557,9 @@
     "title": "Software Developer",
     "description": "I do frontend Web development most of the time. Don't hesitate to ask! 👋",
     "country": "PH",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "nodejs",
@@ -1433,6 +1589,9 @@
     "title": "Staff Software Engineer",
     "description": "Full-stack developer, working on projects in Algolia. Feel free to reach out!",
     "country": "CZ",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "backend",
@@ -1462,6 +1621,9 @@
     "title": "Software Developer @P7S1",
     "description": "JavaScript & Java Developer working with react, react-native, GraphQL, ...",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -1491,6 +1653,9 @@
     "title": "Architect @Comparethemarket.com",
     "description": "Working with AWS, KUBERNETES, DevOps + Architecture",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "devops",
       "kubernetes",
@@ -1520,6 +1685,9 @@
     "title": "Senior Full Stack Engineer",
     "description": "Full stack dev with 10+ years of experience in the game, mentor for 4+ years.",
     "country": "RO",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "angular",
@@ -1545,6 +1713,9 @@
     "title": "Backend Security Engineer",
     "description": "Building and pushing secure software to the cloud. Just ask me anything",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "java",
       "spring",
@@ -1574,6 +1745,9 @@
     "title": "Front End Engineer at IderaOS",
     "description": "Hey, Yusuf here! Fullstack JS Dev, Let me know if you need any help.",
     "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -1603,6 +1777,9 @@
     "title": "Software developer",
     "description": "Software developer, Creative Technologist and speaker",
     "country": "AU",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "nodejs",
@@ -1627,6 +1804,9 @@
     "title": "UX Engineer",
     "description": "Software Engineer turned UX Engineer",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "html",
       "css",
@@ -1656,6 +1836,9 @@
     "title": "Fullstack developer",
     "description": "I code because I can action the changes and ideas I want to see in the world.",
     "country": "ZA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "laravel",
       "php",
@@ -1681,6 +1864,9 @@
     "title": "Senior Software Engineer",
     "description": "Hey, want to learn some crazy JavaScript stuff? Talk to me",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "angular",
       "nodejs",
@@ -1708,6 +1894,9 @@
     "title": "Software Developer",
     "description": "FOSS enthusiast, Speaker, Mozillian, Python & Rust developer",
     "country": "MX",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "python",
       "rust",
@@ -1732,6 +1921,9 @@
     "title": "Interaction Developer",
     "description": "JavaScript wrangler and div slinger. Front end, UX and tinkering with stuff.",
     "country": "NL",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "html",
@@ -1761,6 +1953,9 @@
     "title": "Frontend engineer",
     "description": "Hey! I would be happy to help you on your coding journey!",
     "country": "UA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -1785,6 +1980,9 @@
     "title": "VP of Dev @halo_platform",
     "description": "Fullstack Dev. Leading teams & architecture at Halo Platform.",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "leadership",
       "javascript",
@@ -1814,6 +2012,9 @@
     "title": "Front-End Developer",
     "description": "",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "accessibility",
       "css",
@@ -1839,6 +2040,9 @@
     "title": "Full-stack developer",
     "description": "Developer learning how to free himself from traditional 9-5",
     "country": "FR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "laravel",
       "vuejs",
@@ -1864,6 +2068,9 @@
     "title": "Senior Fullstack developer",
     "description": "If you treat programming as an art, write to me I will help you ;)",
     "country": "UA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "nodejs",
@@ -1893,6 +2100,9 @@
     "title": "Full-Stack Web Developer",
     "description": "In love with JavaScript, Vue.js, Python, Startups and Communities ecosystem.",
     "country": "ES",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -1918,6 +2128,9 @@
     "title": "Mobile application developer",
     "description": "Xamarin Forms mobile application developer, speaker and User group board member",
     "country": "BE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "c#",
       "xamarin forms",
@@ -1945,6 +2158,9 @@
     "title": "Software Engineer (Frontend)",
     "description": "8+ years focused mostly on Javascript/React. Happy to connect and help 😀",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -1970,6 +2186,9 @@
     "title": "Independent Contractor",
     "description": "OpenSource e-Commerce veteran working with Spree and Solidus",
     "country": "NL",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "ruby",
       "rails",
@@ -1998,6 +2217,9 @@
     "title": "PHP Developer ",
     "description": "Maintainer Community Engineering Team @magento",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "magento",
@@ -2022,6 +2244,9 @@
     "title": "Front-End Developer",
     "description": "Just converting pizza into code and trying not to overflow! Ready to help! 💖",
     "country": "PL",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "c#",
@@ -2051,6 +2276,9 @@
     "title": "Technical Lead @ Walmart Labs",
     "description": "UI guy with 7 years of Experience. Happy to help :)",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -2080,6 +2308,9 @@
     "title": "Software Architect",
     "description": "All round nice guy :-) 10+ years of experience in building things",
     "country": "NL",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "c#",
       "microservices",
@@ -2109,6 +2340,9 @@
     "title": "Android Engineer",
     "description": "Hola, need help or learn android stuff, talk to me :) ",
     "country": "EG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "android",
       "kotlin",
@@ -2138,6 +2372,9 @@
     "title": "Software Developer",
     "description": "",
     "country": "CA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "js",
       "reactjs",
@@ -2163,6 +2400,9 @@
     "title": "Fullstack Developer",
     "description": "Let's learn and grow together...",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs",
       "firebase",
@@ -2188,6 +2428,9 @@
     "title": "Backend Developer",
     "description": "Self-taught, career switch (civil engineer), I love Python specially Django.",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "python",
       "django",
@@ -2215,6 +2458,9 @@
     "title": "Senior Fullstack Software Engineer",
     "description": "I'm specialize in Net Core, MeanJs, Angular, React, Auto Test, Devops, Mobile",
     "country": "VN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "asp.net core",
       "angular",
@@ -2244,6 +2490,9 @@
     "title": "Full Stack Web Developer",
     "description": "Happy to help you with Ruby / JavaScript questions :)",
     "country": "PE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "ruby",
       "rails",
@@ -2273,6 +2522,9 @@
     "title": "Software Engineer",
     "description": "Mostly focused on the backend, but with a view of the whole stack.",
     "country": "PT",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "dotnet",
       "asp.net",
@@ -2302,6 +2554,9 @@
     "title": "Software Architect",
     "description": "Frontend, Backend, Infrastructure who loves community work. Oh and Bee keeping!",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "kubernetes",
       "docker",
@@ -2331,6 +2586,9 @@
     "title": "Full stack developer",
     "description": "I am Navneet, and I will be glad to help.",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs",
       "redux",
@@ -2355,6 +2613,9 @@
     "title": "Frontend Arch. @ Lemonade Inc",
     "description": "Hi! I'm a frontend developer, driven by awesome UI/UX. Happy to help!",
     "country": "IL",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "javascript",
@@ -2384,6 +2645,9 @@
     "title": "Software Engineer",
     "description": "Hello! I'm Andrew. Happy to help out in any way I can.",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "python",
@@ -2413,6 +2677,9 @@
     "title": "Full Stack .NET Developer",
     "description": "Let's make something cool, I'm here to help.",
     "country": "ZA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       ".net",
       "fullstack",
@@ -2442,6 +2709,9 @@
     "title": "Front-End - JavaScript Dev",
     "description": "Sharing knowledge enriches everyone.",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "frontend",
@@ -2471,6 +2741,9 @@
     "title": "CTO @teamstarter",
     "description": "As much in love with UX/UI as programming.",
     "country": "FR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -2500,6 +2773,9 @@
     "title": "Software Engineer",
     "description": "Hello! I'm a Software Engineer, I will be glad to help you anytime",
     "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "css",
@@ -2525,6 +2801,9 @@
     "title": "Full Stack Software Engineer",
     "description": "#heretohelp Let us get the basics right and design think together.",
     "country": "NP",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "c#",
       "java",
@@ -2550,6 +2829,9 @@
     "title": "Full Stack Web Developer",
     "description": "I love building things with code and helping people learn.",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -2579,6 +2861,9 @@
     "title": "Software Engineer",
     "description": "Let's do interesting stuff together.",
     "country": "UA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "algorithms",
@@ -2608,6 +2893,9 @@
     "title": "Lead .Net Engineer/Architect",
     "description": "Let's build/learn something cool together",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "dotnet",
       "azure",
@@ -2637,6 +2925,9 @@
     "title": "Full Stack Engineer, Architect",
     "description": "A full stack engineer with a decade of experience. Excited to help!",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "cloud",
       "architecture",
@@ -2666,6 +2957,9 @@
     "title": "Senior Software Developer",
     "description": "I enjoy solving problems and writing software that does that.",
     "country": "AR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "vuejs",
@@ -2695,6 +2989,9 @@
     "title": "Frontend engineer",
     "description": "Frontend engineer, co-organizing React Medellin. Happy to help!",
     "country": "CO",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "frontend",
@@ -2724,6 +3021,9 @@
     "title": "Mean Stack Developer",
     "description": "Hello everyone, Subhro here , love coding & happy to help others!",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "java",
       "angular",
@@ -2752,6 +3052,9 @@
     "title": "Software Development Engineer",
     "description": "Software architecture, clean code, web technologies. Ask me anything.",
     "country": "AT",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "frontend",
@@ -2780,6 +3083,9 @@
     "title": "Senior Front End Developer",
     "description": "Senior Developer, here to help!",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "frontend",
@@ -2805,6 +3111,9 @@
     "title": "Senior Software Engineer",
     "description": "I can help you with Software Design, Elixir, Ruby, and Rails.",
     "country": "MX",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "elixir",
       "ruby",
@@ -2834,6 +3143,9 @@
     "title": "Full Stack Software Engineer",
     "description": "I can help you with React, React Native, Node, AWS, Typescript, Graphql",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs",
       "typescript",
@@ -2863,6 +3175,9 @@
     "title": "Full Stack Pythonista Data Guy",
     "description": "Second Career Developer working with Data and Web.",
     "country": "SG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "python",
       "reactjs",
@@ -2892,6 +3207,9 @@
     "title": "Senior Frontend Engineer",
     "description": "Coding since 2012, always happy to help",
     "country": "PL",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -2915,6 +3233,9 @@
     "title": "Technical Architect",
     "description": "Coding since '03. Architecture. Fullstack. Problem solving.",
     "country": "SE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "architecture",
       "software-design",
@@ -2944,6 +3265,9 @@
     "title": "Full Stack Web Developer",
     "description": "Full-Stack Web Dev currently attending bootcamp. I love JS!",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs",
       "redux",
@@ -2973,6 +3297,9 @@
     "title": "Senior Fullstack Developer",
     "description": "Hello 👋 ! Always here & happy to help 🤗",
     "country": "FR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "nodejs",
@@ -3002,6 +3329,9 @@
     "title": "Fullstack Developer",
     "description": "Eloquent JS is my jam!",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -3031,6 +3361,9 @@
     "title": "Software Engineering Student",
     "description": "It's a fact that you have to start to be great, so why not start together.",
     "country": "DZ",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "android",
       "java",
@@ -3059,6 +3392,9 @@
     "title": "Full-stack JavaScript developer",
     "description": "Full-stack developer. I love React and Nodejs. Feel free to reach me!",
     "country": "PK",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "reactjs",
@@ -3088,6 +3424,9 @@
     "title": "Front End Software Engineer",
     "description": "I work in CSS and React and really love all the quirks of JavaScript!",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -3116,6 +3455,9 @@
     "title": "Software Developer",
     "description": "Mobile App Developer (React Native)",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -3145,6 +3487,9 @@
     "title": "Senior TYPO3 Developer",
     "description": "50% Developer, 20% Technical Lead, 20% Coaching, 10% DevOps, 100% variation",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "backend",
@@ -3173,6 +3518,9 @@
     "title": "DDD Fan // Fullstack Dev",
     "description": "My heart beats for functional programming, DDD, TDD, automation and compassion",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "elixir",
       "backend",
@@ -3202,6 +3550,9 @@
     "title": "Software Engineer",
     "description": "Developer based in London that's been coding for 10 years. Drop me a message!",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "typescript",
@@ -3231,6 +3582,9 @@
     "title": "Frontend Engineer at @Adevinta",
     "description": "I am a self-taught person who never stop learning.",
     "country": "ES",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -3260,6 +3614,9 @@
     "title": "Backend Developer",
     "description": "Have worked in big and small companies, love API design and command line tools.",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "java",
       "go",
@@ -3289,6 +3646,9 @@
     "title": "Front end Developer",
     "description": "Feel free to ask me any question, big or small!",
     "country": "TR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "html",
       "css",
@@ -3318,6 +3678,9 @@
     "title": "Front-end Developer",
     "description": "Hey! I help you on your front-end, UX and web development roadmap",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "css",
       "html",
@@ -3347,6 +3710,9 @@
     "title": "Software Developer",
     "description": "Hi! I'm an experienced xamarin/mobile developer. I'll be happy to help out.",
     "country": "DO",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "xamarin",
       "xamarin.forms",
@@ -3375,6 +3741,9 @@
     "title": "Xamarin.Forms developer",
     "description": "Just a programmer using Microsoft tools to create awesome apps!",
     "country": "AR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "xamarin.forms",
       "c#",
@@ -3402,6 +3771,9 @@
     "title": "Product Design Manager",
     "description": "UX Designer, amateur react developer, CSS \"expert\", design tool aficionado ",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "design",
       "frontend",
@@ -3431,6 +3803,9 @@
     "title": "Fullstack Developer",
     "description": "Passionate Fullstack Developer with a focus on Javascript world",
     "country": "IT",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "nodejs",
@@ -3460,6 +3835,9 @@
     "title": "UI Engineer / Frontend Designer",
     "description": "I can help building design systems, scalable and accessible UI components",
     "country": "IT",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "html",
       "css",
@@ -3489,6 +3867,9 @@
     "title": "Software Engineer",
     "description": "Passionate and experienced software engineer based in Monza, Italy.",
     "country": "IT",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "nodejs",
@@ -3518,6 +3899,9 @@
     "title": "Software Developer",
     "description": "Experienced mobile developer, special interest in app architecture",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "ios",
       "android",
@@ -3547,6 +3931,9 @@
     "title": "Front-end web developer",
     "description": "I'm a freelance front-end, JavaScript developer, tutor, tech writer, and mentor.",
     "country": "EG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "html",
       "css",
@@ -3576,6 +3963,9 @@
     "title": "Javascript Developer",
     "description": "Infinitely curious javascript developer and father of twins!",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -3605,6 +3995,9 @@
     "title": "Web Spinner",
     "description": "Head in code, heart in design. Debugging, refactoring, style.",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "vuejs",
       "css",
@@ -3634,6 +4027,9 @@
     "title": "Senior Developer",
     "description": "The web is the future. 🏳️‍🌈",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -3662,6 +4058,9 @@
     "title": "Solutions Architect",
     "description": "Software Developer & Cloud Computing enthusiast",
     "country": "BR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "nodejs",
@@ -3691,6 +4090,9 @@
     "title": "Designer",
     "description": "I currently lead design teams on enterprise-level design",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "ui",
       "ux",
@@ -3716,6 +4118,9 @@
     "title": "Senior Laravel API Developer",
     "description": "I'm a senior PHP Laravel developer",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "laravel",
       "api",
@@ -3745,6 +4150,9 @@
     "title": ".Net Developer",
     "description": "Hi, I'm Ammad! Let me know if you need any help.",
     "country": "PK",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       ".net",
       "algorithms",
@@ -3770,6 +4178,9 @@
     "title": "Frontend Engineer",
     "description": "A self learned developer",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "vuejs",
@@ -3793,6 +4204,9 @@
     "title": "Web Developer, Blogger",
     "description": "Lets help everyone to grow",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "php",
       "git",
@@ -3818,6 +4232,9 @@
     "title": "Full-stack Software Engineer",
     "description": "Hey! I've been developing full-stack applications for over 20 years",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "java",
@@ -3847,6 +4264,9 @@
     "title": ".Net Front-End Developer",
     "description": "Hi, I am a .Net Front-End Developer. I work with Umbraco CMS.",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "umbraco",
       "ui",
@@ -3876,6 +4296,9 @@
     "title": "PHP Developer",
     "description": "A self trained php developer with a lots of love for Laravel",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "modern php",
       "laravel",
@@ -3899,6 +4322,9 @@
     "title": "Technical Architect ",
     "description": "Hi, I am very good in Microsoft Technology including Azure.",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "asp.net",
       "c#",
@@ -3924,6 +4350,9 @@
     "title": "Software Engineer",
     "description": "Happy to help with Node, React, TypeScript, or anything really!",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "reactjs",
@@ -3953,6 +4382,9 @@
     "title": ".NET Developer",
     "description": "I'm a jack of all trades but my passion remains C#. Happy to share my knowledge!",
     "country": "RO",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "dotnet",
       "c#",
@@ -3982,6 +4414,9 @@
     "title": "Web Developer",
     "description": "Full Stack Developer & Advocate for Open Source",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "reactjs",
@@ -4011,6 +4446,9 @@
     "title": "Design Technologist",
     "description": "",
     "country": "FR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "reactjs",
@@ -4039,6 +4477,9 @@
     "title": "Applications Architect @ Turner",
     "description": "Full Stack Developer, ready to help when and where I can!",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -4068,6 +4509,9 @@
     "title": "R&D Full Stack Software Engineer",
     "description": "Hi, i'm Passionate and experienced software engineer based in France",
     "country": "FR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "java",
       "golang",
@@ -4097,6 +4541,9 @@
     "title": "Frontend developer",
     "description": "I will help you to get the right way :)",
     "country": "IL",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "angularjs",
       "javascript",
@@ -4122,6 +4569,9 @@
     "title": "Full stack web developer",
     "description": "JS and web enthusiast",
     "country": "IE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "js",
       "reactjs",
@@ -4145,6 +4595,9 @@
     "title": "Full stack developer",
     "description": "I help people to learn web and mobile technologies.",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs",
       "javascript",
@@ -4174,6 +4627,9 @@
     "title": "Frontend Developer",
     "description": "I love to help people!",
     "country": "AZ",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "html",
       "css",
@@ -4203,6 +4659,9 @@
     "title": "Frontend Developer and Trainer",
     "description": "Diversity is what makes us strong! Coaching preferably for women, PoC...",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "angular",
       "frontend",
@@ -4232,6 +4691,9 @@
     "title": "Frontend Focused Full-stack Dev",
     "description": "Years of experience. Excited to help passionate learners reach the next level.",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "reactjs",
@@ -4261,6 +4723,9 @@
     "title": "Software Engineer",
     "description": "MAJOR: Android Development. MINOR: React-Native, Nodejs, NoSQL databases.",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "android",
       "nodejs",
@@ -4289,6 +4754,9 @@
     "title": "React JS Architect",
     "description": "Full Stack Developer, LAMP / MERN Stack specialising in UX & Front End Tech.",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "reactjs",
@@ -4318,6 +4786,9 @@
     "title": "Software Developer",
     "description": "Full Stack Developer (Angular & ASP.NET Core), happy to help",
     "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs",
       "angular",
@@ -4346,6 +4817,9 @@
     "title": "Full Stack Software Engineer",
     "description": "Happy to help you with Java, Spring, JavaScript, React, AWS and Docker :)",
     "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "java",
       "reactjs",
@@ -4375,6 +4849,9 @@
     "title": "MEAN/MERN Stack Developer",
     "description": "Hi, I am a full stack developer with some elegant skill on Javasript framework.",
     "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "nodejs",
       "reactjs",
@@ -4404,6 +4881,9 @@
     "title": "Frontend Engineer",
     "description": "Frontend tinkerer since 1999, FullStack dabbler since 2007.",
     "country": "CH",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "fullstack",
@@ -4433,6 +4913,9 @@
     "title": "Magento 2 Developer - Tech Lead",
     "description": "EcommerceSpecialist, WebDev and NewTechnologyResearcher. Driven by GreatIdeas🎉",
     "country": "UA",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "ecommerce",
       "magento",
@@ -4458,6 +4941,9 @@
     "title": "User Experience Designer",
     "description": "I have a coding background and would love to help you with your UX issues.",
     "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "ux",
       "ui",
@@ -4487,6 +4973,9 @@
     "title": "Dev Advocate and Software Engineer",
     "description": "Dev Advocate, Software Engineer, Community Builder, Startup Founder and OSS",
     "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "javascript",
       "reactjs",
@@ -4516,6 +5005,9 @@
     "title": "Full-Stack Developer",
     "description": "I'm mostly self-taught, a full-stack developer with 5 years experince.",
     "country": "IT",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "frontend",
       "e6",
@@ -4545,6 +5037,9 @@
     "title": "Full Stack Web Developer",
     "description": "Hi there! I am an aspiring dev with flair for Web Development.",
     "country": "DK",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "angular",
       "javascript",
@@ -4574,6 +5069,9 @@
     "title": "Fullstack developer",
     "description": "Tech Enthisiast & bad humorist",
     "country": "FR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs",
       "angular",
@@ -4603,6 +5101,9 @@
     "title": "Frontend Engineer",
     "description": "I'm into Javascript and User Interfaces!",
     "country": "GR",
+    "spokenLanguages": [
+      "en"
+    ],
     "tags": [
       "reactjs", "frontend", "javascript", "graphql", "vuejs"
     ],
