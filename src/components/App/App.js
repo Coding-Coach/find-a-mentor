@@ -74,6 +74,23 @@ class App extends Component {
       ga('set', 'page', location.href);
       ga('send', 'pageview');
     }
+    this.getPermalinkParams();
+  }
+
+  getPermalinkParams() {
+    const permalink = new URLSearchParams(window.location.search);
+
+    if(permalink.get('language') !== null) {
+      this.setState({ tag : permalink.get('language') });
+    }
+
+    if(permalink.get('country') !== null) {
+      this.setState({ country : permalink.get('country') });
+    }
+
+    if(permalink.get('name') !== null) {
+      this.setState({ name: permalink.get('name') });
+    }
   }
 
   render() {
