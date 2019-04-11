@@ -1,3 +1,7 @@
+.is-modal {
+  overflow: hidden;
+}
+
 .modal-container {
   background: rgba(100,100,100,0.8);
   width: 100%;

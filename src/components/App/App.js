@@ -126,7 +126,7 @@ class App extends Component {
               mentorCount={mentorsInList.length}
             />
             <SocialLinks />
-            <ul className="sidebar-nav">
+            <nav className="sidebar-nav">
               <li onClick={()=>this.openModal('Cookies Policy', <Content topic="cookies-policy" />)}>
                 Cookies Policy
               </li>
@@ -139,7 +139,7 @@ class App extends Component {
               <li onClick={()=>this.openModal('Privacy Statement', <Content topic="privacy-policy" />)}>
                 Privacy Statement
               </li>
-            </ul>
+            </nav>
             <a
               href="https://www.patreon.com/codingcoach_io"
               className="patreon-link"
