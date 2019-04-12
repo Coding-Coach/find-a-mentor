@@ -5105,7 +5105,11 @@
       "en"
     ],
     "tags": [
-      "reactjs", "frontend", "javascript", "graphql", "vuejs"
+      "reactjs",
+      "frontend",
+      "javascript",
+      "graphql",
+      "vuejs"
     ],
     "channels": [
       {
@@ -5133,7 +5137,11 @@
       "en"
     ],
     "tags": [
-      "java", "kotlin", "javascript", "swift", "react native"
+      "java",
+      "kotlin",
+      "javascript",
+      "swift",
+      "react native"
     ],
     "channels": [
       {
@@ -5143,6 +5151,35 @@
       {
         "type": "twitter",
         "id": "divyajain2405"
+      }
+    ]
+  },
+  {
+    "id": "ahmadjelmasri@gmail.com",
+    "name": "Ahmad El Masri",
+    "avatar": "https://amasri.com/profile-picture/ahmad-elmasri-2018.jpeg",
+    "title": "Software Engineer",
+    "description": "Experienced software engineer with a demonstrated history of working in IT.",
+    "country": "LB",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "c-sharp",
+      "front-end",
+      "angularjs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ahmadjelmasri@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "amasri"
+      },
+      {
+        "type": "github",
+        "id": "elmasria"
       }
     ]
   }
