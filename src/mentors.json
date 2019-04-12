@@ -5121,5 +5121,29 @@
         "id": "iam_stratos"
       }
     ]
+  },
+  {
+    "id": "divyajain2405@gmail.com",
+    "name": "Divya Jain",
+    "avatar": "https://github.com/djain2405/personal/blob/master/mypic.png",
+    "title": "Mobile Developer",
+    "description": "Happy to help with any app dev concepts & issues, always up for tech discussion!",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "java", "kotlin", "javascript", "swift", "react native"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "divyajain2405@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "divyajain2405"
+      }
+    ]
   }
 ]
