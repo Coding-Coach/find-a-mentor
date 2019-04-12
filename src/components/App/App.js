@@ -5,16 +5,25 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import MentorsList from '../MentorsList/MentorsList';
 import Filter from '../Filter/Filter';
+import Content from '../Content/Content';
 import Logo from '../Logo';
 import SocialLinks from '../SocialLinks/SocialLinks';
+import Modal from '../Modal/Modal';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
+
+
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
     mentors: shuffle(mentors),
     favorites: get(),
+    modal: {
+      title: null,
+      content: null,
+      onClose: null
+    }
   };
 
   handleTagSelect = async ({ value: tag }) => {
@@ -68,6 +77,16 @@ class App extends Component {
     });
   };
 
+  openModal = (title, content, onClose) => {
+    this.setState({
+      modal: {
+        title,
+        content,
+        onClose
+      }
+    })
+  }
+
   handleTagClick = async clickedTag => {
     await scrollToTop();
     this.setState({
@@ -101,11 +120,14 @@ class App extends Component {
   }
 
   render() {
-    const { mentors, fieldsIsActive, clickedTag } = this.state;
+    const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
       <div className="app">
+        <Modal onClose={this.closeModal} title={modal.title}>
+          {modal.content}
+        </Modal>
         <main>
           <aside className="sidebar">
             <a className="logo" href="/">
@@ -121,6 +143,20 @@ class App extends Component {
               clickedTag={clickedTag}
             />
             <SocialLinks />
+            <nav className="sidebar-nav">
+              <li onClick={()=>this.openModal('Cookies Policy', <Content topic="cookies-policy" />)}>
+                Cookies Policy
+              </li>
+              <li onClick={()=>this.openModal('Code of Conduct', <Content topic="code-conduct" />)}>
+                Code of Conduct
+              </li>
+              <li onClick={()=>this.openModal('Terms & Conditions', <Content topic="terms-conditions" />)}>
+                Terms & Conditions
+              </li>
+              <li onClick={()=>this.openModal('Privacy Statement', <Content topic="privacy-policy" />)}>
+                Privacy Statement
+              </li>
+            </nav>
             <a
               href="https://www.patreon.com/codingcoach_io"
               className="patreon-link"
@@ -146,29 +182,6 @@ class App extends Component {
             handleTagClick={this.handleTagClick}
           />
         </main>
-        <footer>
-          <a
-            rel="noopener noreferrer"
-            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/TermsAndConditions.md#terms-and-conditions"
-            target="_blank"
-          >
-            Terms & Conditions
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/CookiesPolicy.md#what-are-cookies"
-            target="_blank"
-          >
-            Cookies
-          </a>
-          <a
-            rel="noopener noreferrer"
-            href="https://github.com/Coding-Coach/coding-coach/blob/develop/src/pages/static/PrivacyPolicy.md#effective-date-october-03-2018"
-            target="_blank"
-          >
-            Privacy Policy
-          </a>
-        </footer>
       </div>
     );
   }

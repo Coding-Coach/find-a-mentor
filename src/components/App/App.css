@@ -39,6 +39,30 @@ main {
   margin-top: 10px;
 }
 
+.sidebar-nav {
+  list-style: none;
+  padding-left: 20px;
+  position: fixed;
+  bottom: 0px;
+}
+
+.sidebar-nav li {
+  margin-bottom: 10px;
+  color: #015d3e;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media all and (max-width: 576px) {
+  .sidebar-nav {
+    position: relative;
+    display: flex;
+    padding: 0px;
+    justify-content: space-evenly;
+    margin-top: 30px;
+  }
+}
+
 footer {
   position: fixed;
   bottom: 0;
