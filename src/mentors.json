@@ -5105,7 +5105,11 @@
       "en"
     ],
     "tags": [
-      "reactjs", "frontend", "javascript", "graphql", "vuejs"
+      "reactjs",
+      "frontend",
+      "javascript",
+      "graphql",
+      "vuejs"
     ],
     "channels": [
       {
@@ -5133,7 +5137,11 @@
       "en"
     ],
     "tags": [
-      "java", "kotlin", "javascript", "swift", "react native"
+      "java",
+      "kotlin",
+      "javascript",
+      "swift",
+      "react native"
     ],
     "channels": [
       {
@@ -5143,6 +5151,35 @@
       {
         "type": "twitter",
         "id": "divyajain2405"
+      }
+    ]
+  },
+  {
+    "id": "karadumanhakan1@gmail.com",
+    "name": "Hakan Karaduman",
+    "avatar": "https://en.gravatar.com/userimage/6253596/d2988cfdeddcd6a1b02bd39047a0efce?size=300",
+    "title": "React Developer",
+    "description": "",
+    "country": "TR",
+    "tags": [
+      "reactjs",
+      "javascript",
+      "nodejs",
+      "unity",
+      "c#"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "karadumanhakan1@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "hakankaraduman"
+      },
+      {
+        "type": "twitter",
+        "id": "hakankaraduman_"
       }
     ]
   }
