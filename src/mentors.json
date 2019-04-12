@@ -5155,6 +5155,35 @@
     ]
   },
   {
+    "id": "karadumanhakan1@gmail.com",
+    "name": "Hakan Karaduman",
+    "avatar": "https://en.gravatar.com/userimage/6253596/d2988cfdeddcd6a1b02bd39047a0efce?size=300",
+    "title": "React Developer",
+    "description": "React, JavaScript, Node developer. Also with 4 years of Unity and C# experience.",
+    "country": "TR",
+    "tags": [
+      "reactjs",
+      "javascript",
+      "nodejs",
+      "unity",
+      "c#"
+      ],
+    "channels": [
+      {
+        "type": "email",
+          "id": "karadumanhakan1@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "hakankaraduman"
+      },
+      {
+        "type": "twitter",
+        "id": "hakankaraduman_"
+        }
+    ]
+  },
+  {
     "id": "ahmadjelmasri@gmail.com",
     "name": "Ahmad El Masri",
     "avatar": "https://amasri.com/profile-picture/ahmad-elmasri-2018.jpeg",
