@@ -87,13 +87,6 @@ class App extends Component {
     })
   }
 
-  closeModal = () => {
-    const { modal: { onClose } } = this.state;
-
-    if (typeof onClose === 'function') {
-      onClose();
-    }
-  }
   handleTagClick = async clickedTag => {
     await scrollToTop();
     this.setState({

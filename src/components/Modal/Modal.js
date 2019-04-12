@@ -11,12 +11,11 @@ export default class Modal extends Component {
     this.setState({
       isActive: true
     });
-    document.body.className += ' is-modal';
+    document.body.classList.add('is-modal');
   }
 
   handleClose = () => {
     const { onClose } = this.props;
-    const className = document.body.className.split(' ');
 
     this.setState({
       isActive: false
@@ -25,7 +24,7 @@ export default class Modal extends Component {
     if (typeof onClose === 'function') {
       onClose();
     }
-    document.body.className = className.filter(x => x.trim() !== 'is-modal').join(' ');
+    document.body.classList.remove('is-modal');
   }
 
   componentWillReceiveProps(nextProps) {
