@@ -51,11 +51,15 @@ class MobileNavigationWrapper extends Component {
 }
 
 export default class Header extends Component {
-  state = {
-    isOpen: false,
-    isDesktop: false,
-    isMobile: true
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      isOpen: false,
+      isDesktop: false,
+      isMobile: true,
+      viewport: null
+    };
+  }
 
   _handleOpen = () => {
     this.setState({ isOpen: true });
@@ -67,17 +71,24 @@ export default class Header extends Component {
 
   componentDidMount() {
     this._defineViewport()
+    window.addEventListener('resize', this._defineViewport)
   }
 
-  _defineViewport() {
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._defineViewport)
+  }
+  
+
+  _defineViewport = () => {
     this.setState({
       isDesktop: window.innerWidth > 567,
-      isMobile: window.innerWidth < 567
+      isMobile: window.innerWidth < 567,
     })
   }
 
   render() {
     const { isDesktop, isMobile, isOpen } = this.state
+    console.log("ICA ANS SEE STATE ---", this.state)
     return (
       <>
       { isDesktop && !isMobile ? 
