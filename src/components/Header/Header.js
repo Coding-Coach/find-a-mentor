@@ -65,6 +65,17 @@ export default class Header extends Component {
     this.setState({ isOpen: false });
   };
 
+  componentDidMount() {
+    this._defineViewport()
+  }
+
+  _defineViewport() {
+    this.setState({
+      isDesktop: window.innerWidth > 567,
+      isMobile: window.innerWidth < 567
+    })
+  }
+
   render() {
     const { isDesktop, isMobile, isOpen } = this.state
     return (
