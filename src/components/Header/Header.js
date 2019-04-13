@@ -81,7 +81,7 @@ export default class Header extends Component {
   _defineViewport = () => {
     this.setState({
       isDesktop: window.innerWidth > 567,
-      isMobile: window.innerWidth < 567,
+      isMobile: window.innerWidth <= 567,
     });
   };
 
