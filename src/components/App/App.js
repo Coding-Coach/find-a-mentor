@@ -130,8 +130,8 @@ class App extends Component {
           {modal.content}
         </Modal>
 
-        <Header />
         <main>
+        <Header />
           <aside className="sidebar">
             <a className="logo" href="/">
               <Logo width={110} height={50} color="#68d5b1" />

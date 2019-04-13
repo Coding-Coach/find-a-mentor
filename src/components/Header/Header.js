@@ -54,7 +54,7 @@ export default class Header extends Component {
   state = {
     isOpen: false,
     isDesktop: false,
-    isMobile: false
+    isMobile: true
   };
 
   _handleOpen = () => {
@@ -66,25 +66,26 @@ export default class Header extends Component {
   };
 
   render() {
-    // const { navClass, navMenuClass } = this.props
+    const { isDesktop, isMobile, isOpen } = this.state
     return (
       <>
+      { isDesktop && !isMobile ? 
+      <Navigation navClass={"d-header-nav"} navMenuClass={"d-header-nav__menu"} /> :
         <i
           className="fa fa-bars m-header-nav__open"
           aria-hidden="true"
           id="menu-button"
           aria-label="Menu"
           aria-controls="menu"
-          aria-expanded={this.state.isOpen}
+          aria-expanded={isOpen}
           onClick={this._handleOpen}
         >
           {' '}
         </i>
-
-        <Navigation navClass={""} navMenuClass={""}/>
+      }
 
           <OffCanvas
-            isOpen={this.state.isOpen}
+            isOpen={isOpen}
             onClose={this._handleClose}
             labelledby="menu-button"
             width="100%"
