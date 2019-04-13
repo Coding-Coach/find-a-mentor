@@ -131,13 +131,21 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
 
   return (
     <div className="card" aria-label="Mentor card">
-      <LikeButton onClick={toggleFav} liked={isFav} />
-      <img
-        className="country"
-        src={`https://www.countryflags.io/${mentor.country}/flat/32.png`}
-        alt={countries[mentor.country]}
-      />
-      <Avatar mentor={mentor} />
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <div className="country">
+          <i style={{ marginRight: '5px' }} className={'fa fa-map-marker'} />
+          <p style={{ margin: '0' }}>{mentor.country}</p>
+        </div>
+
+        <Avatar mentor={mentor} />
+        <LikeButton onClick={toggleFav} liked={isFav} />
+      </div>
       <Info mentor={mentor} handleTagClick={handleTagClick} />
     </div>
   );
