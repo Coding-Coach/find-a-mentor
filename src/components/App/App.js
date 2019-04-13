@@ -5,26 +5,30 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import MentorsList from '../MentorsList/MentorsList';
 import Filter from '../Filter/Filter';
-import Content from '../Content/Content';
 import Logo from '../Logo';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
+import ModalContent from '../Modal/ModalContent';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
-  state = {
-    mentors: shuffle(mentors),
-    favorites: get(),
-    modal: {
-      title: null,
-      content: null,
-      onClose: null,
-    },
-  };
-
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      mentors: shuffle(mentors),
+      favorites: get(),
+      modal: {
+        title: null,
+        content: null,
+        onClose: null,
+      },
+    };
+  }
+    
   handleTagSelect = async ({ value: tag }) => {
     await scrollToTop();
     this.setState({
@@ -76,15 +80,15 @@ class App extends Component {
     });
   };
 
-  openModal = (title, content, onClose) => {
-    this.setState({
-      modal: {
-        title,
-        content,
-        onClose,
-      },
-    });
-  };
+  // openModal = (title, content, onClose) => {
+  //   this.setState({
+  //     modal: {
+  //       title,
+  //       content,
+  //       onClose,
+  //     },
+  //   });
+  // };
 
   handleTagClick = async clickedTag => {
     await scrollToTop();
@@ -118,9 +122,26 @@ class App extends Component {
     this.getPermalinkParams();
   }
 
+  handleModal = (ix, value) => {
+    console.log('FUNCTION WITHIN', ix, value)
+    return (
+
+    <Modal onClose={this.closeModal} title={ix}>
+    {value}
+  </Modal>
+      )
+  }
+
+  // componentWillReceiveProps(prev, next) {
+  //   console.log('here prev ---', next)
+  // }
+
   render() {
     const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
+
+    console.log("PROPS YOU", this.props.children)
+    console.log("APP STATE YOU", this.state)
 
     return (
       <div className="app">
@@ -144,48 +165,16 @@ class App extends Component {
               clickedTag={clickedTag}
             />
             <SocialLinks />
-            <nav className="sidebar-nav">
-              <li
-                onClick={() =>
-                  this.openModal(
-                    'Cookies Policy',
-                    <Content topic="cookies-policy" />
-                  )
-                }
-              >
-                Cookies Policy
-              </li>
-              <li
-                onClick={() =>
-                  this.openModal(
-                    'Code of Conduct',
-                    <Content topic="code-conduct" />
-                  )
-                }
-              >
-                Code of Conduct
-              </li>
-              <li
-                onClick={() =>
-                  this.openModal(
-                    'Terms & Conditions',
-                    <Content topic="terms-conditions" />
-                  )
-                }
-              >
-                Terms & Conditions
-              </li>
-              <li
-                onClick={() =>
-                  this.openModal(
-                    'Privacy Statement',
-                    <Content topic="privacy-policy" />
-                  )
-                }
-              >
-                Privacy Statement
-              </li>
-            </nav>
+
+          <nav className="sidebar-nav">
+            <ModalContent policyTitle={'Cookies policy'} content={"cookies-policy"} handleModal={(ix, value) => this.handleModal(ix, value)} />
+            <ModalContent policyTitle={'Code of Conduct'} content={"code-conduct"} handleModal={(ix, value) => this.handleModal(ix, value)} />
+            <ModalContent policyTitle={'Terms & Conditions'} content={"terms-condition"} handleModal={(ix, value) => this.handleModal(ix, value)} />
+            <ModalContent policyTitle={'Privacy Statement'} content={"privacy-statement"} handleModal={(ix, value) => this.handleModal(ix, value)} />
+          </nav>
+
+          
+
             <a
               href="https://www.patreon.com/codingcoach_io"
               className="patreon-link"
