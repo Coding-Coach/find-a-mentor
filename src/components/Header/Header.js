@@ -9,16 +9,16 @@ class Navigation extends PureComponent {
       <nav id="menu" className="header-nav">
     <ul>
       <li>
-        <a href="#m-i-1">Home</a>
+        <a href="https://mentors.codingcoach.io/">Home</a>
       </li>
       <li>
-        <a href="#m-i-2">About</a>
+        <a href="https://codingcoach.io/">About</a>
       </li>
       <li>
-        <a href="#m-i-3">How it works</a>
+        <a href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit?usp=sharing">How it works</a>
       </li>
       <li>
-        <a href="#m-i-4">Become a Mentor</a>
+        <a href="https://github.com/Coding-Coach/find-a-mentor">Become a Mentor</a>
       </li>
     </ul>
   </nav>
