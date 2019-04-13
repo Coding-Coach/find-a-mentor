@@ -5211,5 +5211,28 @@
         "id": "elmasria"
       }
     ]
+  },
+  {
+    "id": "karl@karlworks.com",
+    "name": "Karl Castillo",
+    "avatar": "https://avatars1.githubusercontent.com/u/558200",
+    "title": "Frontend Developer and Designer",
+    "description": "Frontend Developr with an eye in graphic design!",
+    "country": "CA",
+    "tags": ["reactjs", "frontend", "javascript", "nodejs"],
+    "channels": [
+      {
+        "type": "email",
+        "id": "karl@karlworks.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "khcastillo"
+      },
+      {
+        "type": "website",
+        "id": "www.karlworks.com"
+      }
+    ]
   }
 ]
