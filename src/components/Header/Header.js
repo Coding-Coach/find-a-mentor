@@ -56,8 +56,7 @@ export default class Header extends Component {
     super(props);
     this.state = {
       isOpen: false,
-      isDesktop: false,
-      isMobile: true
+      isDesktop: false
     };
   }
 
@@ -87,10 +86,9 @@ export default class Header extends Component {
 
   render() {
     const { isDesktop, isMobile, isOpen } = this.state;
-    console.log(this.state)
     return (
       <>
-        {isDesktop && !isMobile ? (
+        {isDesktop ? (
           <Navigation
             navClass={'d-header-nav'}
             navMenuClass={'d-header-nav__menu'}
