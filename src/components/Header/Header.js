@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import OffCanvas from 'react-aria-offcanvas';
+import debounce from 'lodash/debounce'
 import './Header.css';
 
 class Navigation extends Component {
@@ -56,8 +57,7 @@ export default class Header extends Component {
     this.state = {
       isOpen: false,
       isDesktop: false,
-      isMobile: true,
-      viewport: null,
+      isMobile: true
     };
   }
 
@@ -71,7 +71,7 @@ export default class Header extends Component {
 
   componentDidMount() {
     this._defineViewport();
-    window.addEventListener('resize', this._defineViewport);
+    window.addEventListener('resize', debounce(this._defineViewport, 250));
   }
 
   componentWillUnmount() {
@@ -87,6 +87,7 @@ export default class Header extends Component {
 
   render() {
     const { isDesktop, isMobile, isOpen } = this.state;
+    console.log(this.state)
     return (
       <>
         {isDesktop && !isMobile ? (
