@@ -4,5 +4,77 @@
     transition: transform 0.25s ease-out 0s;  
     visibility: visible;
     color: white;
+  }
+  
+  .header-nav__open {
+    font-size: 38px;
+    color: #05345e;
+    /* border: 1px solid #b1becb; */
+    padding: 10px 15px 0px 15px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+  }
+  
+  .header-nav__open:hover {
+    color: #69d5b1;
+  }
+  
+  
+  .header-nav__close {
+    font-size: 38px;
+    color: #ffffff;
+    padding: 10px 15px 0px 15px;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+  }
+  
+  .header-nav__close:hover {
+    color: #05345e;
+  }
+  
+  
+  .header-nav {
+    margin-top: 6rem;
+    line-height: 2rem;
+    
+}
+  
+  .header-nav__modal {
+    list-style: none;
+    position: absolute;
+    bottom: 1rem;
+    left: inherit;
+   
+}
+  
+  .header-nav__menu {
+    list-style: none;
+    line-height: 4rem;
+    color: #ffffff;
+    
+  }
+  
+  .header-nav__menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+    width: 100%;
+    display: block;
+
+}
+
+  .header-nav__menu li:hover {
+    background: rgba(255, 255, 255, 0.96);
+    text-decoration: none;
+    font-size: 24px;
+    margin-left: -40px;
+    border-left: 6px solid #05345e;
+
+}
+  .header-nav__menu a:hover {
+    color: #00e5b3;
+    padding-left: 34px;
 
 }
