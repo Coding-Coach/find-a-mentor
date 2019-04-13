@@ -9,23 +9,23 @@ export default class Modal extends Component {
 
   handleOpen = () => {
     this.setState({
-      isActive: true
+      isActive: true,
     });
     document.body.classList.add('is-modal');
-  }
+  };
 
   handleClose = () => {
     const { onClose } = this.props;
 
     this.setState({
-      isActive: false
+      isActive: false,
     });
 
     if (typeof onClose === 'function') {
       onClose();
     }
     document.body.classList.remove('is-modal');
-  }
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.children !== this.props.children) {
@@ -40,8 +40,12 @@ export default class Modal extends Component {
     return (
       <div className={`modal-container ${isActive ? 'active' : ''}`}>
         <div className="modal-box">
-          <button className="close" onClick={this.handleClose}>x</button>
-          <div className="modal-head"><h2>{title || ''}</h2></div>
+          <button className="close" onClick={this.handleClose}>
+            x
+          </button>
+          <div className="modal-head">
+            <h2>{title || ''}</h2>
+          </div>
           <div className="modal-content">{children || ''}</div>
         </div>
       </div>

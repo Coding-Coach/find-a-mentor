@@ -12,8 +12,6 @@ import Modal from '../Modal/Modal';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 
-
-
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
@@ -22,8 +20,8 @@ class App extends Component {
     modal: {
       title: null,
       content: null,
-      onClose: null
-    }
+      onClose: null,
+    },
   };
 
   handleTagSelect = async ({ value: tag }) => {
@@ -82,10 +80,10 @@ class App extends Component {
       modal: {
         title,
         content,
-        onClose
-      }
-    })
-  }
+        onClose,
+      },
+    });
+  };
 
   handleTagClick = async clickedTag => {
     await scrollToTop();
@@ -97,19 +95,19 @@ class App extends Component {
   getPermalinkParams() {
     const permalink = new URLSearchParams(window.location.search);
 
-    if(permalink.get('language') !== null) {
-      this.setState({ tag : permalink.get('language') });
+    if (permalink.get('language') !== null) {
+      this.setState({ tag: permalink.get('language') });
     }
 
-    if(permalink.get('country') !== null) {
-      this.setState({ country : permalink.get('country') });
+    if (permalink.get('country') !== null) {
+      this.setState({ country: permalink.get('country') });
     }
 
-    if(permalink.get('name') !== null) {
+    if (permalink.get('name') !== null) {
       this.setState({ name: permalink.get('name') });
     }
   }
-  
+
   componentDidMount() {
     if (window && window.ga) {
       const { location, ga } = window;
@@ -144,16 +142,44 @@ class App extends Component {
             />
             <SocialLinks />
             <nav className="sidebar-nav">
-              <li onClick={()=>this.openModal('Cookies Policy', <Content topic="cookies-policy" />)}>
+              <li
+                onClick={() =>
+                  this.openModal(
+                    'Cookies Policy',
+                    <Content topic="cookies-policy" />
+                  )
+                }
+              >
                 Cookies Policy
               </li>
-              <li onClick={()=>this.openModal('Code of Conduct', <Content topic="code-conduct" />)}>
+              <li
+                onClick={() =>
+                  this.openModal(
+                    'Code of Conduct',
+                    <Content topic="code-conduct" />
+                  )
+                }
+              >
                 Code of Conduct
               </li>
-              <li onClick={()=>this.openModal('Terms & Conditions', <Content topic="terms-conditions" />)}>
+              <li
+                onClick={() =>
+                  this.openModal(
+                    'Terms & Conditions',
+                    <Content topic="terms-conditions" />
+                  )
+                }
+              >
                 Terms & Conditions
               </li>
-              <li onClick={()=>this.openModal('Privacy Statement', <Content topic="privacy-policy" />)}>
+              <li
+                onClick={() =>
+                  this.openModal(
+                    'Privacy Statement',
+                    <Content topic="privacy-policy" />
+                  )
+                }
+              >
                 Privacy Statement
               </li>
             </nav>
