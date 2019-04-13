@@ -2,12 +2,9 @@ import React, { Component, Fragment } from 'react';
 import OffCanvas from 'react-aria-offcanvas';
 import './Header.css';
 
-
-
-
 class Navigation extends Component {
   render() {
-    const { navClass, navMenuClass } = this.props
+    const { navClass, navMenuClass } = this.props;
     return (
       <nav id="menu" className={navClass}>
         <ul className={navMenuClass}>
@@ -37,7 +34,10 @@ class MobileNavigationWrapper extends Component {
   render() {
     return (
       <Fragment>
-        <Navigation navClass={"m-header-nav"} navMenuClass={"m-header-nav__menu"}/>
+        <Navigation
+          navClass={'m-header-nav'}
+          navMenuClass={'m-header-nav__menu'}
+        />
 
         <ul className="m-header-nav__modal">
           <li>Cookies Policy</li>
@@ -52,12 +52,12 @@ class MobileNavigationWrapper extends Component {
 
 export default class Header extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isOpen: false,
       isDesktop: false,
       isMobile: true,
-      viewport: null
+      viewport: null,
     };
   }
 
@@ -70,58 +70,61 @@ export default class Header extends Component {
   };
 
   componentDidMount() {
-    this._defineViewport()
-    window.addEventListener('resize', this._defineViewport)
+    this._defineViewport();
+    window.addEventListener('resize', this._defineViewport);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this._defineViewport)
+    window.removeEventListener('resize', this._defineViewport);
   }
-  
 
   _defineViewport = () => {
     this.setState({
       isDesktop: window.innerWidth > 567,
       isMobile: window.innerWidth < 567,
-    })
-  }
+    });
+  };
 
   render() {
-    const { isDesktop, isMobile, isOpen } = this.state
-    console.log("ICA ANS SEE STATE ---", this.state)
+    const { isDesktop, isMobile, isOpen } = this.state;
+    console.log('ICA ANS SEE STATE ---', this.state);
     return (
       <>
-      { isDesktop && !isMobile ? 
-      <Navigation navClass={"d-header-nav"} navMenuClass={"d-header-nav__menu"} /> :
-        <i
-          className="fa fa-bars m-header-nav__open"
-          aria-hidden="true"
-          id="menu-button"
-          aria-label="Menu"
-          aria-controls="menu"
-          aria-expanded={isOpen}
-          onClick={this._handleOpen}
-        >
-          {' '}
-        </i>
-      }
-
-          <OffCanvas
-            isOpen={isOpen}
-            onClose={this._handleClose}
-            labelledby="menu-button"
-            width="100%"
-            height="100%"
-            className="header-offcanvas"
+        {isDesktop && !isMobile ? (
+          <Navigation
+            navClass={'d-header-nav'}
+            navMenuClass={'d-header-nav__menu'}
+          />
+        ) : (
+          <i
+            className="fa fa-bars m-header-nav__open"
+            aria-hidden="true"
+            id="menu-button"
+            aria-label="Menu"
+            aria-controls="menu"
+            aria-expanded={isOpen}
+            onClick={this._handleOpen}
           >
-            <i
-              className="fa fa-times m-header-nav__close"
-              aria-hidden="true"
-              onClick={this._handleClose}
-              aria-label="Close"
-            />
-            <MobileNavigationWrapper />
-          </OffCanvas>
+            {' '}
+          </i>
+        )}
+
+        <OffCanvas
+          isOpen={isOpen}
+          onClose={this._handleClose}
+          labelledby="menu-button"
+          width="100%"
+          height="100%"
+          className="header-offcanvas"
+        >
+          <i
+            className="fa fa-times m-header-nav__close"
+            aria-hidden="true"
+            onClick={this._handleClose}
+            aria-label="Close"
+          />
+          <MobileNavigationWrapper />
+        </OffCanvas>
       </>
     );
   }

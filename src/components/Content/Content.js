@@ -4,14 +4,13 @@ import termsAndConditions from '../../contents/termsAndConditions';
 import privacyPolicy from '../../contents/privacyPolicy';
 import codeOfConduct from '../../contents/codeOfConduct.js';
 
-
 import './Content.css';
 
 const Contents = {
   'cookies-policy': cookiesPolicy,
   'terms-conditions': termsAndConditions,
   'privacy-policy': privacyPolicy,
-  'code-conduct': codeOfConduct
+  'code-conduct': codeOfConduct,
 };
 
 export default class Content extends Component {
@@ -21,7 +20,7 @@ export default class Content extends Component {
 
     return (
       <div className="page-content">
-        <div dangerouslySetInnerHTML={{__html: html}} />
+        <div dangerouslySetInnerHTML={{ __html: html }} />
       </div>
     );
   }
