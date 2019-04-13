@@ -87,7 +87,6 @@ export default class Header extends Component {
 
   render() {
     const { isDesktop, isMobile, isOpen } = this.state;
-    console.log('ICA ANS SEE STATE ---', this.state);
     return (
       <>
         {isDesktop && !isMobile ? (
