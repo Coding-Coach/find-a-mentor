@@ -4,9 +4,17 @@
     transition: transform 0.25s ease-out 0s;  
     visibility: visible;
     color: white;
+    display: block;
+    -webkit-overflow-scrolling: touch;
+    will-change: transform;
+    backface-visibility: hidden;
+    transition-duration: 0.2s !important;
+    transition-property: -ms-transform, transform, transform ;
+    transition-timing-function: ease-out;
+    transform: translateY(0px);
   }
   
-  .header-nav__open {
+  .m-header-nav__open {
     font-size: 38px;
     color: #05345e;
     /* border: 1px solid #b1becb; */
@@ -14,34 +22,42 @@
     position: absolute;
     top: 25px;
     left: 0;
+    z-index: 100;
   }
   
-  .header-nav__open:hover {
+  .m-header-nav__open:hover {
     color: #69d5b1;
+    transition-duration: 0.2s;
+    transition-property: -ms-transform, transform, transform ;
+    transition-timing-function: ease-out;
   }
   
   
-  .header-nav__close {
+  .m-header-nav__close {
     font-size: 38px;
     color: #ffffff;
     padding: 10px 15px 0px 15px;
     position: absolute;
+    display: block;
     top: 15px;
     right: 25px;
   }
   
-  .header-nav__close:hover {
+  .m-header-nav__close:hover {
     color: #05345e;
+    transition-duration: 0.2s;
+    transition-property: -ms-transform, transform, transform ;
+    transition-timing-function: ease-out;
   }
   
   
-  .header-nav {
+  .m-header-nav {
     margin-top: 6rem;
-    line-height: 2rem;
     
-}
+  }
   
-  .header-nav__modal {
+  .m-header-nav__modal {
+    line-height: 2rem;
     list-style: none;
     position: absolute;
     bottom: 1rem;
@@ -49,14 +65,14 @@
    
 }
   
-  .header-nav__menu {
+  .m-header-nav__menu {
     list-style: none;
     line-height: 4rem;
     color: #ffffff;
     
   }
   
-  .header-nav__menu a {
+  .m-header-nav__menu a {
     color: #ffffff;
     text-decoration: none;
     font-size: 24px;
@@ -65,15 +81,18 @@
 
 }
 
-  .header-nav__menu li:hover {
+  .m-header-nav__menu li:hover {
     background: rgba(255, 255, 255, 0.96);
     text-decoration: none;
     font-size: 24px;
     margin-left: -40px;
     border-left: 6px solid #05345e;
+    transition-duration: 0.2s;
+    transition-property: -ms-transform, transform, transform ;
+    transition-timing-function: ease-out;
 
 }
-  .header-nav__menu a:hover {
+  .m-header-nav__menu a:hover {
     color: #00e5b3;
     padding-left: 34px;
 

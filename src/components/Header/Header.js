@@ -1,21 +1,16 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component, Fragment } from 'react';
 import OffCanvas from 'react-aria-offcanvas';
 import './Header.css';
 
-class Navigation extends PureComponent {
-  openModal = (title, content, onClose) => {
-    this.setState({
-      modal: {
-        title,
-        content,
-        onClose,
-      },
-    });
-  };
+
+
+
+class Navigation extends Component {
   render() {
+    const { navClass, navMenuClass } = this.props
     return (
-      <nav id="menu" className="header-nav">
-        <ul className="header-nav__menu">
+      <nav id="menu" className={navClass}>
+        <ul className={navMenuClass}>
           <li>
             <a href="https://mentors.codingcoach.io/">Home</a>
           </li>
@@ -33,14 +28,24 @@ class Navigation extends PureComponent {
             </a>
           </li>
         </ul>
+      </nav>
+    );
+  }
+}
 
-        <ul className="header-nav__modal">
+class MobileNavigationWrapper extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Navigation navClass={"m-header-nav"} navMenuClass={"m-header-nav__menu"}/>
+
+        <ul className="m-header-nav__modal">
           <li>Cookies Policy</li>
           <li>Code of Conduct</li>
           <li>Terms & Conditions</li>
           <li>Privacy Statement</li>
         </ul>
-      </nav>
+      </Fragment>
     );
   }
 }
@@ -48,6 +53,8 @@ class Navigation extends PureComponent {
 export default class Header extends Component {
   state = {
     isOpen: false,
+    isDesktop: false,
+    isMobile: false
   };
 
   _handleOpen = () => {
@@ -59,10 +66,11 @@ export default class Header extends Component {
   };
 
   render() {
+    // const { navClass, navMenuClass } = this.props
     return (
       <>
         <i
-          className="fa fa-bars header-nav__open"
+          className="fa fa-bars m-header-nav__open"
           aria-hidden="true"
           id="menu-button"
           aria-label="Menu"
@@ -73,23 +81,24 @@ export default class Header extends Component {
           {' '}
         </i>
 
-        <OffCanvas
-          isOpen={this.state.isOpen}
-          onClose={this._handleClose}
-          labelledby="menu-button"
-          width="100vw"
-          height="100vh"
-          className="header-offcanvas"
-        >
-          <i
-            className="fa fa-times header-nav__close"
-            aria-hidden="true"
-            onClick={this._handleClose}
-            aria-label="Close"
-          />
+        <Navigation navClass={""} navMenuClass={""}/>
 
-          <Navigation />
-        </OffCanvas>
+          <OffCanvas
+            isOpen={this.state.isOpen}
+            onClose={this._handleClose}
+            labelledby="menu-button"
+            width="100%"
+            height="100%"
+            className="header-offcanvas"
+          >
+            <i
+              className="fa fa-times m-header-nav__close"
+              aria-hidden="true"
+              onClick={this._handleClose}
+              aria-label="Close"
+            />
+            <MobileNavigationWrapper />
+          </OffCanvas>
       </>
     );
   }
