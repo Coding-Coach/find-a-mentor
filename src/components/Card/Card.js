@@ -4,7 +4,6 @@ import { orderBy } from 'lodash';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
-import countries from 'svg-country-flags/countries.json';
 
 const generateMentorId = name => {
   return name.replace(/\s/g, '-');
@@ -136,11 +135,12 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
+          fontSize: '17px',
         }}
       >
         <div className="country">
           <i style={{ marginRight: '5px' }} className={'fa fa-map-marker'} />
-          <p style={{ margin: '0' }}>{mentor.country}</p>
+          <p style={{ margin: '0', marginTop: '2px' }}>{mentor.country}</p>
         </div>
 
         <Avatar mentor={mentor} />

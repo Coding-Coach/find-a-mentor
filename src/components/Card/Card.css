@@ -15,7 +15,6 @@
 }
 
 .card .country {
-  padding-top: 10px;
   color: #4a4a4a;
   display: flex;
   flex-direction: row;
@@ -59,11 +58,14 @@
 .card .title {
   color: #999;
   margin: 0 0 5px;
+  font-weight: 400;
 }
 
 .card .description {
   font-style: italic;
-  background: rgba(21, 21, 21, 0.01);
+
+  color: #16385c;
+  font-weight: 600;
   margin-bottom: 5px;
   padding: 5px 2.5px;
   border-radius: 10px;
@@ -76,7 +78,7 @@
 
 .card .tag {
   color: #fff;
-  background: var(--tag-color);
+  background: #16385c;
   border: 0;
   border-radius: 20px;
   display: inline-block;
@@ -101,13 +103,14 @@
 .card .channels .channel-inner {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid #ccc;
+
+  background-color: #d0f8ef;
   align-items: center;
   padding: 10px;
 }
 
 .card .channels a {
-  color: #9b9b9b;
+  color: #16385c;
   text-decoration: none;
 }
 
