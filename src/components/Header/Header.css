@@ -1,0 +1,8 @@
+.header-offcanvas {
+    outline: currentcolor none 0px;
+    background: #00e5b3;
+    transition: transform 0.25s ease-out 0s;  
+    visibility: visible;
+    color: white;
+
+}

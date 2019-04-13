@@ -8,6 +8,7 @@ import Filter from '../Filter/Filter';
 import Content from '../Content/Content';
 import Logo from '../Logo';
 import SocialLinks from '../SocialLinks/SocialLinks';
+import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
@@ -128,6 +129,8 @@ class App extends Component {
         <Modal onClose={this.closeModal} title={modal.title}>
           {modal.content}
         </Modal>
+
+        <Header />
         <main>
           <aside className="sidebar">
             <a className="logo" href="/">
