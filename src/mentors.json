@@ -5234,5 +5234,34 @@
         "id": "www.karlworks.com"
       }
     ]
+  },
+  {
+    "id": "drm3107@me.com",
+    "name": "Daniel Marlow",
+    "avatar": "https://avatars2.githubusercontent.com/u/7894023",
+    "title": "Software Developer",
+    "description": "Tech lead and senior developer with 20 years of experience.",
+    "country": "GB",
+    "tags": [
+      "dotnet",
+      "java",
+      "architecture",
+      "cloud",
+      "software-design"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "drm3107@me.com"
+      },
+      {
+        "type": "twitter",
+        "id": "drm317"
+      },
+      {
+        "type": "github",
+        "id": "drm317"
+      }
+    ]
   }
 ]
