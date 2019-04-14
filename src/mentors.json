@@ -5167,11 +5167,11 @@
       "nodejs",
       "unity",
       "c#"
-      ],
+    ],
     "channels": [
       {
         "type": "email",
-          "id": "karadumanhakan1@gmail.com"
+        "id": "karadumanhakan1@gmail.com"
       },
       {
         "type": "linkedin",
@@ -5180,7 +5180,7 @@
       {
         "type": "twitter",
         "id": "hakankaraduman_"
-        }
+      }
     ]
   },
   {
@@ -5219,7 +5219,12 @@
     "title": "Frontend Developer and Designer",
     "description": "Frontend Developr with an eye in graphic design!",
     "country": "CA",
-    "tags": ["reactjs", "frontend", "javascript", "nodejs"],
+    "tags": [
+      "reactjs",
+      "frontend",
+      "javascript",
+      "nodejs"
+    ],
     "channels": [
       {
         "type": "email",
@@ -5261,6 +5266,33 @@
       {
         "type": "github",
         "id": "drm317"
+      }
+    ]
+  },
+  {
+    "id": "sfarouk298@gmail.com",
+    "name": "Farouk Sabiou",
+    "avatar": "https://avatars3.githubusercontent.com/u/25927652?s=460&v=4",
+    "title": "Android Developer @Dikalo",
+    "description": "Let's learn together",
+    "country": "NE",
+    "tags": [
+      "android",
+      "kotlin",
+      "java"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sfarouk298@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "sabiiou"
+      },
+      {
+        "type": "github",
+        "id": "sabiou"
       }
     ]
   }
