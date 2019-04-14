@@ -95,9 +95,19 @@ footer a:hover {
   .logo {
     display: flex;
     justify-content: center;
+    margin: 10px;
   }
+
+  .logo svg {
+    height: 80px;
+  }
+
   .patreon-link {
-    margin: 25px auto;
+    margin: 5px auto 10px;
     width: 130px;
+  }
+
+  .patreon-link img {
+    display: block;
   }
 }
