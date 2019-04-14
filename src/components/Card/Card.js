@@ -115,6 +115,7 @@ const Info = ({ mentor, handleTagClick }) => {
       <h4 className="title">{mentor.title}</h4>
       {description}
       <div className="tags">{tagsList(mentor.tags, handleTagClick)}</div>
+      <div className="wave" />
       <div className="channels">
         <div className="channel-inner">{channelsList(mentor.channels)}</div>
       </div>

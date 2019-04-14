@@ -72,6 +72,7 @@
 }
 
 .card .tags {
+  z-index: 2;
   margin-bottom: 10px;
   margin: 10px -10px;
 }
@@ -107,6 +108,18 @@
   background-color: #d0f8ef;
   align-items: center;
   padding: 10px;
+  margin-right: -20px;
+  margin-left: -20px;
+}
+.card .wave {
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  background-color: white;
+  height: 30px;
+  width: 100%;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
 }
 
 .card .channels a {
