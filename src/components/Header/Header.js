@@ -1,7 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import OffCanvas from 'react-aria-offcanvas';
 import debounce from 'lodash/debounce'
+import ModalContent from '../Modal/ModalContent'
 import './Header.css';
+import Modal from '../Modal/Modal';
 
 class Navigation extends Component {
   render() {
@@ -32,19 +34,42 @@ class Navigation extends Component {
 }
 
 class MobileNavigationWrapper extends Component {
+
+  state = {
+    modal: {
+      title: null,
+      content: null,
+      onClose: null,
+    },
+  };
+
+  handleModal = (title, content, onClose) => {
+    this.setState({
+    modal: {
+      title,
+      content,
+      onClose
+    },
+  });
+}
   render() {
+    const { modal } = this.state;
     return (
       <Fragment>
+        <Modal onClose={this.closeModal} title={modal.title}>
+          {modal.content}
+        </Modal>
+
         <Navigation
           navClass={'m-header-nav'}
           navMenuClass={'m-header-nav__menu'}
         />
 
         <ul className="m-header-nav__modal">
-          <li>Cookies Policy</li>
-          <li>Code of Conduct</li>
-          <li>Terms & Conditions</li>
-          <li>Privacy Statement</li>
+          <ModalContent policyTitle={'Cookies policy'} content={"cookies-policy"} handleModal={(title, content) => this.handleModal(title, content)} />
+          <ModalContent policyTitle={'Code of Conduct'} content={"code-conduct"} handleModal={(title, content) => this.handleModal(title, content)} />
+          <ModalContent policyTitle={'Terms & Conditions'} content={"terms-conditions"} handleModal={(title, content) => this.handleModal(title, content)} />
+          <ModalContent policyTitle={'Privacy Statement'} content={"privacy-policy"} handleModal={(title, content) => this.handleModal(title, content)} />
         </ul>
       </Fragment>
     );
@@ -103,7 +128,7 @@ export default class Header extends Component {
             aria-expanded={isOpen}
             onClick={this._handleOpen}
           >
-            {' '}
+          Menu
           </i>
         )}
 

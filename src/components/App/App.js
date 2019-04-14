@@ -15,10 +15,7 @@ import { toggle, get } from '../../favoriteManager';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
-  constructor(props) {
-    super(props);
-    
-    this.state = {
+    state = {
       mentors: shuffle(mentors),
       favorites: get(),
       modal: {
@@ -27,7 +24,6 @@ class App extends Component {
         onClose: null,
       },
     };
-  }
     
   handleTagSelect = async ({ value: tag }) => {
     await scrollToTop();
@@ -80,6 +76,7 @@ class App extends Component {
     });
   };
 
+
   handleTagClick = async clickedTag => {
     await scrollToTop();
     this.setState({
@@ -112,46 +109,25 @@ class App extends Component {
     this.getPermalinkParams();
   }
 
-  // handleModal = (title, content, onClose) => {
-  //   let result = {
-  //     title,
-  //     content,
-  //     onClose
-  //   }
-  //   console.log(result)
-  //   return result
-
-
-  //   //   this.setState({
-  //   //   modal: {
-  //   //     title,
-  //   //     content,
-  //   //     onClose
-  //   //   },
-  //   // });
-  // }
+  handleModal = (title, content, onClose) => {
+      this.setState({
+      modal: {
+        title,
+        content,
+        onClose
+      },
+    });
+  }
 
   render() {
     const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
-    const renderModal = (title, content, onClose) => {
-      console.log(content)
-      return (
-        <Modal onClose={this.closeModal} title={title}>
-        {content}
-      </Modal>
-      )
-
-    }
 
     return (
       <div className="app">
-
-        {/* <Modal onClose={this.closeModal} title={modal.title}>
+        <Modal onClose={this.closeModal} title={modal.title}>
           {modal.content}
-        </Modal> */}
-
-        {renderModal}
+        </Modal>
 
         <main>
           <Header />
@@ -171,7 +147,7 @@ class App extends Component {
             <SocialLinks />
 
           <nav className="sidebar-nav">
-            <ModalContent policyTitle={'Cookies policy'} content={"cookies-policy"} handleModal={(title, content) => renderModal(title, content)} />
+            <ModalContent policyTitle={'Cookies policy'} content={"cookies-policy"} handleModal={(title, content) => this.handleModal(title, content)} />
             <ModalContent policyTitle={'Code of Conduct'} content={"code-conduct"} handleModal={(title, content) => this.handleModal(title, content)} />
             <ModalContent policyTitle={'Terms & Conditions'} content={"terms-conditions"} handleModal={(title, content) => this.handleModal(title, content)} />
             <ModalContent policyTitle={'Privacy Statement'} content={"privacy-policy"} handleModal={(title, content) => this.handleModal(title, content)} />

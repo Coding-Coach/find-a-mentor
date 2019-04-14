@@ -56,7 +56,7 @@ main {
 @media all and (max-width: 576px) {
   .sidebar-nav {
     position: relative;
-    display: flex;
+    display: none;
     padding: 0px;
     justify-content: space-evenly;
     margin-top: 30px;

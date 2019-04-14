@@ -56,15 +56,6 @@
     
   }
   
-  .m-header-nav__modal {
-    line-height: 2rem;
-    list-style: none;
-    position: absolute;
-    bottom: 1rem;
-    left: inherit;
-   
-}
-  
   .m-header-nav__menu {
     list-style: none;
     line-height: 4rem;
@@ -133,4 +124,25 @@
   transition-property: -ms-transform, transform, transform ;
   transition-timing-function: ease-out;
   transform: translateY(0px);
+}
+
+
+/* Mobile Header Modal */
+
+.m-header-nav__modal {
+  line-height: 3rem;
+  font-size: 16px;
+  list-style: none;
+  position: absolute;
+  bottom: 1rem;
+  left: inherit;
+  cursor: pointer;
+ 
+}
+
+.m-header-nav__modal__item:hover {
+  color: #073964a6;
+  transition-duration: 0.2s;
+  transition-property: -ms-transform, transform, transform ;
+  transition-timing-function: ease-out;  
 }
