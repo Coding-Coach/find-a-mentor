@@ -5355,5 +5355,34 @@
         "id": "srijanparmeshwar"
       }
     ]
+  },
+  {
+    "id": "heberqc@gmail.com",
+    "name": "Heber Quequejana",
+    "avatar": "https://avatars1.githubusercontent.com/u/5299310",
+    "title": "Web Developer",
+    "description": "I like helping people and learn new topics of computing",
+    "country": "PE",
+    "tags": [
+      "css",
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "python"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "heberqc@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UFA764JKU"
+      },
+      {
+        "type": "twitter",
+        "id": "275623179"
+      }
+    ]
   }
 ]
