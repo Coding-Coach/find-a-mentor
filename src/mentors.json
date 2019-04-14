@@ -5327,5 +5327,33 @@
         "id": "priyank.srivastava1990@gmail.com"
       }
     ]
+  },
+  {
+    "id": "srijan.parmeshwar@gmail.com",
+    "name": "Srijan Parmeshwar",
+    "avatar": "https://pbs.twimg.com/profile_images/1102709502158221313/_guuI7C0_400x400.jpg",
+    "title": "Research Engineer",
+    "description": "",
+    "country": "GB",
+    "tags": [
+      "c++",
+      "python",
+      "java",
+      "tensorflow"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "srijan.parmeshwar@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UHZLUP66S"
+      },
+      {
+        "type": "linkedin",
+        "id": "srijanparmeshwar"
+      }
+    ]
   }
 ]
