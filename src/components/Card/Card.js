@@ -131,17 +131,10 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
 
   return (
     <div className="card" aria-label="Mentor card">
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          fontSize: '17px',
-        }}
-      >
-        <div className="country">
-          <i style={{ marginRight: '5px' }} className={'fa fa-map-marker'} />
-          <p style={{ margin: '0', marginTop: '2px' }}>{mentor.country}</p>
+      <div className="header">
+        <div className="country location">
+          <i className={'fa fa-map-marker'} />
+          <p>{mentor.country}</p>
         </div>
 
         <Avatar mentor={mentor} />
