@@ -80,16 +80,6 @@ class App extends Component {
     });
   };
 
-  // openModal = (title, content, onClose) => {
-  //   this.setState({
-  //     modal: {
-  //       title,
-  //       content,
-  //       onClose,
-  //     },
-  //   });
-  // };
-
   handleTagClick = async clickedTag => {
     await scrollToTop();
     this.setState({
@@ -122,32 +112,46 @@ class App extends Component {
     this.getPermalinkParams();
   }
 
-  handleModal = (ix, value) => {
-    console.log('FUNCTION WITHIN', ix, value)
-    return (
+  // handleModal = (title, content, onClose) => {
+  //   let result = {
+  //     title,
+  //     content,
+  //     onClose
+  //   }
+  //   console.log(result)
+  //   return result
 
-    <Modal onClose={this.closeModal} title={ix}>
-    {value}
-  </Modal>
-      )
-  }
 
-  // componentWillReceiveProps(prev, next) {
-  //   console.log('here prev ---', next)
+  //   //   this.setState({
+  //   //   modal: {
+  //   //     title,
+  //   //     content,
+  //   //     onClose
+  //   //   },
+  //   // });
   // }
 
   render() {
     const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
+    const renderModal = (title, content, onClose) => {
+      console.log(content)
+      return (
+        <Modal onClose={this.closeModal} title={title}>
+        {content}
+      </Modal>
+      )
 
-    console.log("PROPS YOU", this.props.children)
-    console.log("APP STATE YOU", this.state)
+    }
 
     return (
       <div className="app">
-        <Modal onClose={this.closeModal} title={modal.title}>
+
+        {/* <Modal onClose={this.closeModal} title={modal.title}>
           {modal.content}
-        </Modal>
+        </Modal> */}
+
+        {renderModal}
 
         <main>
           <Header />
@@ -167,10 +171,10 @@ class App extends Component {
             <SocialLinks />
 
           <nav className="sidebar-nav">
-            <ModalContent policyTitle={'Cookies policy'} content={"cookies-policy"} handleModal={(ix, value) => this.handleModal(ix, value)} />
-            <ModalContent policyTitle={'Code of Conduct'} content={"code-conduct"} handleModal={(ix, value) => this.handleModal(ix, value)} />
-            <ModalContent policyTitle={'Terms & Conditions'} content={"terms-condition"} handleModal={(ix, value) => this.handleModal(ix, value)} />
-            <ModalContent policyTitle={'Privacy Statement'} content={"privacy-statement"} handleModal={(ix, value) => this.handleModal(ix, value)} />
+            <ModalContent policyTitle={'Cookies policy'} content={"cookies-policy"} handleModal={(title, content) => renderModal(title, content)} />
+            <ModalContent policyTitle={'Code of Conduct'} content={"code-conduct"} handleModal={(title, content) => this.handleModal(title, content)} />
+            <ModalContent policyTitle={'Terms & Conditions'} content={"terms-conditions"} handleModal={(title, content) => this.handleModal(title, content)} />
+            <ModalContent policyTitle={'Privacy Statement'} content={"privacy-policy"} handleModal={(title, content) => this.handleModal(title, content)} />
           </nav>
 
           

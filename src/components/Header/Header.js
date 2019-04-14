@@ -92,6 +92,7 @@ export default class Header extends Component {
             navClass={'d-header-nav'}
             navMenuClass={'d-header-nav__menu'}
           />
+          
         ) : (
           <i
             className="fa fa-bars m-header-nav__open"
