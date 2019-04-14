@@ -8,11 +8,10 @@
   border-radius: 5px;
   text-align: center;
   position: relative;
-  border: 1px solid #ccc;
   margin-top: calc(var(--avatar-offset) + 20px);
   margin-right: 5px;
   margin-left: 5px;
-  box-shadow: -1px 2px 5px 0 rgba(95, 95, 95, 0.2);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 
 .card .country {
@@ -67,7 +66,8 @@
 
   color: #16385c;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-top: 0;
+  margin-bottom: 30px;
   padding: 5px 2.5px;
   border-radius: 10px;
 }
@@ -75,7 +75,6 @@
 .card .tags {
   z-index: 2;
   margin-bottom: 10px;
-  margin: 10px -10px;
 }
 
 .card .tag {
