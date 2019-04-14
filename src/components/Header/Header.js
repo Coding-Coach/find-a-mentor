@@ -128,7 +128,6 @@ export default class Header extends Component {
             aria-expanded={isOpen}
             onClick={this._handleOpen}
           >
-          Menu
           </i>
         )}
 
