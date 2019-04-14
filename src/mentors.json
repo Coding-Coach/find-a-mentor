@@ -5295,5 +5295,37 @@
         "id": "sabiou"
       }
     ]
+  },
+  {
+    "id": "priyank.srivastava1990@gmail.com",
+    "name": "Priyank Srivastava",
+    "avatar": "https://avatars3.githubusercontent.com/u/34641210?s=460&v=4",
+    "title": "Senior Software Engineer (backend)",
+    "description": "6+ years of learning and practising software. Feel free to reach out, cheers!",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "java",
+      "spring",
+      "backend",
+      "architecture",
+      "kafka"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "priyank-sriv"
+      },
+      {
+        "type": "linkedin",
+        "id": "sriv-priyank"
+      },
+      {
+        "type": "email",
+        "id": "priyank.srivastava1990@gmail.com"
+      }
+    ]
   }
 ]
