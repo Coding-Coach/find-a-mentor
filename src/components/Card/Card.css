@@ -12,6 +12,7 @@
   margin-top: calc(var(--avatar-offset) + 20px);
   margin-right: 5px;
   margin-left: 5px;
+  box-shadow: -1px 2px 5px 0 rgba(95, 95, 95, 0.2);
 }
 
 .card .country {
