@@ -4217,7 +4217,7 @@
     "channels": [
       {
         "type": "website",
-        "id": "http://acmeextension.com"
+        "id": "acmeextension.com"
       },
       {
         "type": "twitter",
@@ -4245,7 +4245,7 @@
     "channels": [
       {
         "type": "website",
-        "id": "https://jardas.de"
+        "id": "jardas.de"
       },
       {
         "type": "twitter",
@@ -4339,7 +4339,7 @@
       },
       {
         "type": "website",
-        "id": "http://www.webstackgeek.com"
+        "id": "www.webstackgeek.com"
       }
     ]
   },
