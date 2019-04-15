@@ -5384,5 +5384,34 @@
         "id": "heberqc"
       }
     ]
+  },
+  {
+    "id": "jamesgeorge2021@cs.ajce.in",
+    "name": "James George",
+    "avatar": "https://avatars2.githubusercontent.com/u/25279263?s=400&v=4",
+    "title": "Full Stack Developer",
+    "description": "CTO @mad-hacks | Full Stack Web Dev | Mobile Dev | JavaScript heart",
+    "country": "IN",
+    "tags": [
+      "javascript",
+      "php",
+      "python",
+      "golang",
+      "nosql"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "jamesgeorge007"
+      },
+      {
+        "type": "twitter",
+        "id": "james_madhacks"
+      },
+      {
+        "type": "github",
+        "id": "jamesgeorge007"
+      }
+    ]
   }
 ]
