@@ -111,3 +111,9 @@ footer a:hover {
     display: block;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  .logo {
+    margin: 10px auto;
+  }
+}
