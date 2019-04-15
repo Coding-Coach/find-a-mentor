@@ -5384,5 +5384,34 @@
         "id": "heberqc"
       }
     ]
+  },
+  {
+    "id": "sangeet.manghnani@gmail.com",
+    "name": "Sangeet Manghnani",
+    "avatar": "https://i.imgur.com/PnAFAw1.jpg",
+    "title": "Frontend Engineer.",
+    "description": "I love building great first impressions! Happy to help with ^(front-end)!",
+    "country": "IN",
+    "tags": [
+      "reactjs",
+      "react native",
+      "frontend",
+      "nodejs",
+      "webpack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sangeet.manghnani@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "Sangeet Manghnani"
+      },
+      {
+        "type": "twitter",
+        "id": "sang33t"
+      }
+    ]
   }
 ]
