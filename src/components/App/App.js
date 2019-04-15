@@ -15,16 +15,16 @@ import { toggle, get } from '../../favoriteManager';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
-    state = {
-      mentors: shuffle(mentors),
-      favorites: get(),
-      modal: {
-        title: null,
-        content: null,
-        onClose: null,
-      },
-    };
-    
+  state = {
+    mentors: shuffle(mentors),
+    favorites: get(),
+    modal: {
+      title: null,
+      content: null,
+      onClose: null,
+    },
+  };
+
   handleTagSelect = async ({ value: tag }) => {
     await scrollToTop();
     this.setState({
@@ -76,7 +76,6 @@ class App extends Component {
     });
   };
 
-
   handleTagClick = async clickedTag => {
     await scrollToTop();
     this.setState({
@@ -110,14 +109,14 @@ class App extends Component {
   }
 
   handleModal = (title, content, onClose) => {
-      this.setState({
+    this.setState({
       modal: {
         title,
         content,
-        onClose
+        onClose,
       },
     });
-  }
+  };
 
   render() {
     const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
@@ -146,14 +145,36 @@ class App extends Component {
             />
             <SocialLinks />
 
-          <nav className="sidebar-nav">
-            <ModalContent policyTitle={'Cookies policy'} content={"cookies-policy"} handleModal={(title, content) => this.handleModal(title, content)} />
-            <ModalContent policyTitle={'Code of Conduct'} content={"code-conduct"} handleModal={(title, content) => this.handleModal(title, content)} />
-            <ModalContent policyTitle={'Terms & Conditions'} content={"terms-conditions"} handleModal={(title, content) => this.handleModal(title, content)} />
-            <ModalContent policyTitle={'Privacy Statement'} content={"privacy-policy"} handleModal={(title, content) => this.handleModal(title, content)} />
-          </nav>
-
-          
+            <nav className="sidebar-nav">
+              <ModalContent
+                policyTitle={'Cookies policy'}
+                content={'cookies-policy'}
+                handleModal={(title, content) =>
+                  this.handleModal(title, content)
+                }
+              />
+              <ModalContent
+                policyTitle={'Code of Conduct'}
+                content={'code-conduct'}
+                handleModal={(title, content) =>
+                  this.handleModal(title, content)
+                }
+              />
+              <ModalContent
+                policyTitle={'Terms & Conditions'}
+                content={'terms-conditions'}
+                handleModal={(title, content) =>
+                  this.handleModal(title, content)
+                }
+              />
+              <ModalContent
+                policyTitle={'Privacy Statement'}
+                content={'privacy-policy'}
+                handleModal={(title, content) =>
+                  this.handleModal(title, content)
+                }
+              />
+            </nav>
 
             <a
               href="https://www.patreon.com/codingcoach_io"

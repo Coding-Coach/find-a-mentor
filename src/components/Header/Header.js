@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import OffCanvas from 'react-aria-offcanvas';
-import debounce from 'lodash/debounce'
-import ModalContent from '../Modal/ModalContent'
+import debounce from 'lodash/debounce';
+import ModalContent from '../Modal/ModalContent';
 import './Header.css';
 import Modal from '../Modal/Modal';
 
@@ -34,7 +34,6 @@ class Navigation extends Component {
 }
 
 class MobileNavigationWrapper extends Component {
-
   state = {
     modal: {
       title: null,
@@ -45,13 +44,13 @@ class MobileNavigationWrapper extends Component {
 
   handleModal = (title, content, onClose) => {
     this.setState({
-    modal: {
-      title,
-      content,
-      onClose
-    },
-  });
-}
+      modal: {
+        title,
+        content,
+        onClose,
+      },
+    });
+  };
   render() {
     const { modal } = this.state;
     return (
@@ -66,10 +65,26 @@ class MobileNavigationWrapper extends Component {
         />
 
         <ul className="m-header-nav__modal">
-          <ModalContent policyTitle={'Cookies policy'} content={"cookies-policy"} handleModal={(title, content) => this.handleModal(title, content)} />
-          <ModalContent policyTitle={'Code of Conduct'} content={"code-conduct"} handleModal={(title, content) => this.handleModal(title, content)} />
-          <ModalContent policyTitle={'Terms & Conditions'} content={"terms-conditions"} handleModal={(title, content) => this.handleModal(title, content)} />
-          <ModalContent policyTitle={'Privacy Statement'} content={"privacy-policy"} handleModal={(title, content) => this.handleModal(title, content)} />
+          <ModalContent
+            policyTitle={'Cookies policy'}
+            content={'cookies-policy'}
+            handleModal={(title, content) => this.handleModal(title, content)}
+          />
+          <ModalContent
+            policyTitle={'Code of Conduct'}
+            content={'code-conduct'}
+            handleModal={(title, content) => this.handleModal(title, content)}
+          />
+          <ModalContent
+            policyTitle={'Terms & Conditions'}
+            content={'terms-conditions'}
+            handleModal={(title, content) => this.handleModal(title, content)}
+          />
+          <ModalContent
+            policyTitle={'Privacy Statement'}
+            content={'privacy-policy'}
+            handleModal={(title, content) => this.handleModal(title, content)}
+          />
         </ul>
       </Fragment>
     );
@@ -81,7 +96,7 @@ export default class Header extends Component {
     super(props);
     this.state = {
       isOpen: false,
-      isDesktop: false
+      isDesktop: false,
     };
   }
 
@@ -104,7 +119,7 @@ export default class Header extends Component {
 
   _defineViewport = () => {
     this.setState({
-      isDesktop: window.innerWidth >= 567
+      isDesktop: window.innerWidth >= 567,
     });
   };
 
@@ -117,7 +132,6 @@ export default class Header extends Component {
             navClass={'d-header-nav'}
             navMenuClass={'d-header-nav__menu'}
           />
-          
         ) : (
           <i
             className="fa fa-bars m-header-nav__open"
@@ -127,8 +141,7 @@ export default class Header extends Component {
             aria-controls="menu"
             aria-expanded={isOpen}
             onClick={this._handleOpen}
-          >
-          </i>
+          />
         )}
 
         <OffCanvas
