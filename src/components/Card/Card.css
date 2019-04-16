@@ -103,6 +103,7 @@
   line-height: 1;
   user-select: none;
   text-transform: lowercase;
+  font-family: monospace;
 }
 
 .card .tag:hover {
