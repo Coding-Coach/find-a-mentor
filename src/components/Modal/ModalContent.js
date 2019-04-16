@@ -11,23 +11,33 @@ export default class ModalContent extends Component {
   };
 
   render() {
-    const { content, onClose, policyTitle, handleModal } = this.props
+    const { content, onClose, policyTitle, handleModal } = this.props;
     return (
       <div>
-        <li onClick={() => {
-          this.setState({
-            modal: {
-              title : policyTitle,
-              content : <Content topic={content} />,
-              onClose
-            }
-          }, () => {
-            handleModal && handleModal(policyTitle, <Content topic={content} />, onClose)
-          })
-        }}>
-        {policyTitle}
+        <li
+          onClick={() => {
+            this.setState(
+              {
+                modal: {
+                  title: policyTitle,
+                  content: <Content topic={content} />,
+                  onClose,
+                },
+              },
+              () => {
+                handleModal &&
+                  handleModal(
+                    policyTitle,
+                    <Content topic={content} />,
+                    onClose
+                  );
+              }
+            );
+          }}
+        >
+          {policyTitle}
         </li>
       </div>
-    )
+    );
   }
 }

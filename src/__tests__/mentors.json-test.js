@@ -190,3 +190,16 @@ it('should mentors schema be valid', () => {
     .join('\n');
   expect(valid).toBeValid(errorMessage);
 });
+
+it('should follow website format', () => {
+  const pattern = /^((http|https):\/\/)/;
+  mentors.forEach(m => {
+    m.channels.forEach(c => {
+      if (c.type == 'website') {
+        expect(pattern.test(c.id)).toBeFalsy();
+      }
+    });
+  });
+  expect(pattern.test('http://wrong-url.format')).toBeTruthy();
+  expect(pattern.test('https://wrong-url.format')).toBeTruthy();
+});
