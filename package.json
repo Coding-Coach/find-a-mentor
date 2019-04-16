@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "node scripts/pre-build.js && react-scripts build",
     "test": "yarn prettier:fix && react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
