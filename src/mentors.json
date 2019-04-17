@@ -5413,5 +5413,34 @@
         "id": "jamesgeorge007"
       }
     ]
+  },
+  {
+    "id": "kcowley1988@gmail.com",
+    "name": "Kasey Cowley",
+    "avatar": "https://pbs.twimg.com/profile_images/1083957489362599936/Rh2LMa9I_400x400.jpg",
+    "title": "Remote Full-Stack Developer",
+    "description": "Remote, full-stack developer w/ 6+ yrs experience wanting to help others.",
+    "country": "US",
+    "tags": [
+      "reactjs",
+      "react native",
+      "javascript",
+      "css",
+      "full-stack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "kcowley1988@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "kaseyjcowley"
+      },
+      {
+        "type": "twitter",
+        "id": "kcjcow"
+      }
+    ]
   }
 ]
