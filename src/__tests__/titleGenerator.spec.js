@@ -27,7 +27,7 @@ describe.only('title generator', () => {
   });
 
   it(`should be country's mentors if country supplied`, () => {
-  const title = generate({
+    const title = generate({
       country,
     });
 
@@ -45,7 +45,7 @@ describe.only('title generator', () => {
   it(`should country's mentors if country supplied`, () => {
     const title = generate({
       country,
-      tag
+      tag,
     });
 
     expect(title).toBe(`${prefix} | ${tag} mentors from ${USA}`);
