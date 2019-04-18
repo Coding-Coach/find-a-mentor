@@ -12,6 +12,7 @@ import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
+import { set } from '../../titleGenerator';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -97,6 +98,10 @@ class App extends Component {
     if (permalink.get('name') !== null) {
       this.setState({ name: permalink.get('name') });
     }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    set(nextState);
   }
 
   componentDidMount() {
