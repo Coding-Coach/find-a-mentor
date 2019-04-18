@@ -28,3 +28,5 @@ package-lock.json
 #editors
 .idea
 .vscode
+
+public/sitemap.xml
