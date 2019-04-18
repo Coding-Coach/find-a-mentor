@@ -5466,5 +5466,30 @@
         "id": "ignazioc"
       }
     ]
+  },
+  {
+    "id": "moaaz_bs@yahoo.com",
+    "name": "Moaaz Bhnas",
+    "avatar": "https://i.ibb.co/crRDHM0/quicksquare-201891731148824.jpg",
+    "title": "Front-End Developer",
+    "description": "Problem-solving lover. Specialized in React.js and web accessibility.",
+    "country": "EG",
+    "tags": [
+      "a11y",
+      "html",
+      "css",
+      "javascript",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "moaaz-bhnas"
+      },
+      {
+        "type": "website",
+        "id": "moaaz-bhnas.github.io/portfolio/"
+      }
+    ]
   }
 ]
