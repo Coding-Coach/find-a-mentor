@@ -5442,5 +5442,29 @@
         "id": "kcjcow"
       }
     ]
+  },
+  {
+    "id": "ignazioc@gmail.com",
+    "name": "Ignazio Calo'",
+    "avatar": "https://avatars3.githubusercontent.com/u/645715?s=400&v=4",
+    "title": "Senior iOS Developer",
+    "description": "10 Years of experience with iOS. Smaller experiences with FE/BE/SiteOps.",
+    "country": "IT",
+    "tags": [
+      "ios",
+      "mobile",
+      "swift",
+      "objc"
+    ],
+    "channels": [
+      {
+        "type": "facebook",
+        "id": "i.calo.fmail"
+      },
+      {
+        "type": "github",
+        "id": "ignazioc"
+      }
+    ]
   }
 ]
