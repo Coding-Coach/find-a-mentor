@@ -5491,5 +5491,34 @@
         "id": "moaaz-bhnas.github.io/portfolio/"
       }
     ]
+  },
+  {
+    "id": "mail@luismerino.name",
+    "name": "Luis Merino",
+    "avatar": "https://avatars2.githubusercontent.com/u/61776?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "I am a self-taught coder, love all things the web-related.",
+    "country": "DE",
+    "tags": [
+      "reactjs",
+      "grapqhl",
+      "javascript",
+      "php",
+      "git"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "codementor@luismerino.name"
+      },
+      {
+        "type": "twitter",
+        "id": "Rendez"
+      },
+      {
+        "type": "github",
+        "id": "Rendez"
+      }
+    ]
   }
 ]
