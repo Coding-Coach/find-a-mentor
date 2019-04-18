@@ -31,6 +31,7 @@ class App extends Component {
     this.setState({
       tag,
     });
+    window.ga('send', 'event', 'Filter', 'tag', tag);
   };
 
   handleCountrySelect = async ({ value: country }) => {
@@ -38,6 +39,7 @@ class App extends Component {
     this.setState({
       country,
     });
+    window.ga('send', 'event', 'Filter', 'country', country);
   };
 
   handleNameSelect = async ({ value: name }) => {
@@ -45,6 +47,7 @@ class App extends Component {
     this.setState({
       name,
     });
+    window.ga('send', 'event', 'Filter', 'name', 'name');
   };
 
   filterMentors = mentor => {
@@ -68,6 +71,7 @@ class App extends Component {
     this.setState({
       showFavorite,
     });
+    window.ga('send', 'event', 'Show Favorite', 'switch', showFavorite);
   };
 
   onFavMentor = mentor => {
@@ -75,6 +79,7 @@ class App extends Component {
     this.setState({
       favorites,
     });
+    window.ga('send', 'event', 'Favorite');
   };
 
   handleTagClick = async clickedTag => {
@@ -82,6 +87,7 @@ class App extends Component {
     this.setState({
       clickedTag,
     });
+    window.ga('send', 'event', 'Filter', 'click', 'tag', clickedTag);
   };
 
   getPermalinkParams() {
@@ -115,6 +121,7 @@ class App extends Component {
         onClose,
       },
     });
+    window.ga('send', 'event', 'Modal', 'open', title);
   };
 
   render() {
