@@ -5520,5 +5520,30 @@
         "id": "Rendez"
       }
     ]
+  },
+  {
+    "id": "jpggvilaca@gmail.com",
+    "name": "Joao Vilaca",
+    "avatar": "https://avatars1.githubusercontent.com/u/8736279?v=4",
+    "title": "reactjs developer",
+    "description": "Software engineer, focusing on React for the last 3 years.",
+    "country": "PT",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "frontend",
+      "html",
+      "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jpggvilaca@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "jpggvilaca"
+      }
+    ]
   }
 ]
