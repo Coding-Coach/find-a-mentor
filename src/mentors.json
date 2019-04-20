@@ -5545,5 +5545,33 @@
         "id": "jpggvilaca"
       }
     ]
+  },
+  {
+    "id": "alessapereyra@gmail.com",
+    "name": "Alessandra Pereyra",
+    "avatar": "https://scontent.flim5-4.fna.fbcdn.net/v/t1.0-9/44862278_10155808085639599_372883876613193728_n.jpg?_nc_cat=108&_nc_ht=scontent.flim5-4.fna&oh=8c8bb117611a9844d2321fb1f998aa56&oe=5D3D46F1",
+    "title": "Product/Full-stack Dev",
+    "description": "Over 20 years of dev experience and about 10 in product and team building!",
+    "country": "PE",
+    "tags": [
+      "fullstack",
+      "rails",
+      "ruby",
+      "product"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alessapereyra@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "yaraher"
+      },
+      {
+        "type": "github",
+        "id": "alessandrapereyra"
+      }
+    ]
   }
 ]
