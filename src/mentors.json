@@ -5602,5 +5602,34 @@
         "id": "alessandrapereyra"
       }
     ]
+  },
+  {
+    "id": "contact@alexandregomes.fr",
+    "name": "Alexandre Gomes",
+    "avatar": "https://pbs.twimg.com/profile_images/1080572274795786249/SWSvSi7r_400x400.jpg",
+    "title": "Full-Stack JavaScript Developer",
+    "description": "I'm a JS dev. Ask me anything Node/JS, React, flow, TypeScript etc !",
+    "country": "FR",
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "express",
+      "typescript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "contact@alexandregomes.fr"
+      },
+      {
+        "type": "linkedin",
+        "id": "alexandre-gomes-a762b8102"
+      },
+      {
+        "type": "twitter",
+        "id": "alexgomesdev"
+      }
+    ]
   }
 ]
