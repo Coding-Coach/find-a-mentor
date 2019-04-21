@@ -141,7 +141,7 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
     );
   };
 
-  const Header = () => {
+  const CardHeader = () => {
     return (
       <div className="header">
         <div className="country location">
@@ -156,7 +156,7 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
   };
   return (
     <div className="card" aria-label="Mentor card">
-      <Header />
+      <CardHeader />
       <MentorInfo />
       <SkillsTags />
       <CardFooter />
