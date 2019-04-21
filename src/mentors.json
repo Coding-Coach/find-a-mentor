@@ -5631,5 +5631,34 @@
         "id": "alexgomesdev"
       }
     ]
+  },
+  {
+    "id": "pruett.kevin@gmail.com",
+    "name": "Kevin Pruett",
+    "avatar": "https://pbs.twimg.com/profile_images/1120059295926587392/sFSo4AWz_400x400.png",
+    "title": "Frontend Developer",
+    "description": "All things web development / UI / UX",
+    "country": "US",
+    "tags": [
+      "frontend",
+      "javascript",
+      "typescript",
+      "reactjs",
+      "elm"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "pruett"
+      },
+      {
+        "type": "twitter",
+        "id": "pruett"
+      },
+      {
+        "type": "github",
+        "id": "pruett"
+      }
+    ]
   }
 ]
