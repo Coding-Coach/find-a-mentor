@@ -48,3 +48,9 @@
     position: fixed;
   }
 }
+
+@media screen and (max-width: 1280px) {
+  #filter {
+    padding: 5px 0px 5px 30px;
+  }
+}
