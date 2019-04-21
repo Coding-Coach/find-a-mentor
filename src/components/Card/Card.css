@@ -12,6 +12,8 @@
   margin-right: 5px;
   margin-left: 5px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-auto-rows: 80px minmax(140px, auto) minmax(80px, auto) 80px;
 }
 .card .header {
   display: flex;
@@ -82,7 +84,6 @@
   color: #16385c;
   font-weight: 600;
   margin-top: 0;
-  margin-bottom: 30px;
   padding: 5px 2.5px;
   border-radius: 10px;
 }
