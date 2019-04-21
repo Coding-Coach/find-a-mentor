@@ -13,7 +13,7 @@
   margin-left: 5px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   display: grid;
-  grid-auto-rows: 80px minmax(140px, auto) minmax(80px, auto) 80px;
+  grid-auto-rows: 80px minmax(140px, auto) minmax(60px, auto) 80px;
 }
 .card .header {
   display: flex;
@@ -90,7 +90,6 @@
 
 .card .tags {
   z-index: 2;
-  margin-bottom: 10px;
 }
 
 .card .tag {

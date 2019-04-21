@@ -99,8 +99,13 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
-const CardBody = ({ mentor, handleTagClick }) => {
-  // Don't show the description if it's not provided.
+const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
+  const toggleFav = () => {
+    isFav = !isFav;
+    onFavMentor(mentor);
+  };
+
+  // don't show the description if it's not provided
   const description = mentor.description ? (
     <p className="description">"{mentor.description}"</p>
   ) : (
@@ -136,21 +141,6 @@ const CardBody = ({ mentor, handleTagClick }) => {
     );
   };
 
-  return (
-    <>
-      <MentorInfo />
-      <SkillsTags />
-      <CardFooter />
-    </>
-  );
-};
-
-const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
-  const toggleFav = () => {
-    isFav = !isFav;
-    onFavMentor(mentor);
-  };
-
   const Header = () => {
     return (
       <div className="header">
@@ -167,7 +157,9 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
   return (
     <div className="card" aria-label="Mentor card">
       <Header />
-      <CardBody mentor={mentor} handleTagClick={handleTagClick} />
+      <MentorInfo />
+      <SkillsTags />
+      <CardFooter />
     </div>
   );
 };
