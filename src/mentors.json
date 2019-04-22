@@ -5687,5 +5687,30 @@
         "id": "oldboycd.com"
       }
     ]
+  },
+  {
+    "id": "nevillekb@gmail.com",
+    "name": "Neville Bokdawalla",                        
+    "avatar": "https://avatars0.githubusercontent.com/u/5323192?s=460&v=4", 
+    "title": "Software Devloper",                 
+    "description": "A self taught programmer, i work as a backend engineer.",
+    "country": "IN",                             
+    "tags": [                                    
+      "c#", "golang", "nodejs", "mongodb", "asp.net"           
+    ],
+    "channels": [                                
+      {
+        "type": "email",                         
+        "id": "nevillekb@gmail.com"                  
+      },
+      {
+        "type": "twitter",
+        "id": "skywalker2909"
+      },
+      {
+        "type": "linkedin",
+        "id": "nkb29"
+      }
+    ]
   }
 ]
