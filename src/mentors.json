@@ -5660,5 +5660,32 @@
         "id": "pruett"
       }
     ]
+  },
+  {
+    "id": "dpolan@oldboycd.com",
+    "name": "David González",
+    "avatar": "https://oldboycd.com/images/people/david.jpg",
+    "title": "Front-End Developer @oldboycd",
+    "description": "In love with web technologies. AMA!",
+    "country": "ES",
+    "tags": [
+      "nodejs",
+      "frontend",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "dpolan@oldboycd.com"
+      },
+      {
+        "type": "twitter",
+        "id": "dpolan"
+      },
+      {
+        "type": "website",
+        "id": "oldboycd.com"
+      }
+    ]
   }
 ]
