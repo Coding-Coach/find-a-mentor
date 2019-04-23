@@ -5712,5 +5712,37 @@
         "id": "nkb29"
       }
     ]
+  },
+  {
+    "id": "cse_shohel@yahoo.com",
+    "name": "Shohel Rana",
+    "avatar": "https://avatars2.githubusercontent.com/u/6725033?s=400&u=c556cb7abe2e610fe87e87f5b356ce05883da7ee&v=4",
+    "title": "Software Engineer",
+    "description": "Software Engineer, Writer and Speaker",
+    "country": "BD",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "fullstack",     
+      "angular",
+      "reactjs",      
+      "java",
+      "mysql"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "mdshohelrana85"
+      },
+      {
+        "type": "linkedin",
+        "id": "mdshohelrana"
+      },
+      {
+        "type": "email",
+        "id": "cse_shohel@yahoo.com"
+      }
+    ]
   }
 ]
