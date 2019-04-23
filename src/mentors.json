@@ -5690,18 +5690,22 @@
   },
   {
     "id": "nevillekb@gmail.com",
-    "name": "Neville Bokdawalla",                        
-    "avatar": "https://avatars0.githubusercontent.com/u/5323192?s=460&v=4", 
-    "title": "Software Devloper",                 
+    "name": "Neville Bokdawalla",
+    "avatar": "https://avatars0.githubusercontent.com/u/5323192?s=460&v=4",
+    "title": "Software Devloper",
     "description": "A self taught programmer, i work as a backend engineer.",
-    "country": "IN",                             
-    "tags": [                                    
-      "c#", "golang", "nodejs", "mongodb", "asp.net"           
+    "country": "IN",
+    "tags": [
+      "c#",
+      "golang",
+      "nodejs",
+      "mongodb",
+      "asp.net"
     ],
-    "channels": [                                
+    "channels": [
       {
-        "type": "email",                         
-        "id": "nevillekb@gmail.com"                  
+        "type": "email",
+        "id": "nevillekb@gmail.com"
       },
       {
         "type": "twitter",
@@ -5710,6 +5714,31 @@
       {
         "type": "linkedin",
         "id": "nkb29"
+      }
+    ]
+  },
+  {
+    "id": "jake@jakerobers.com",
+    "name": "Jake Robers",
+    "avatar": "https://www.jakerobers.com/assets/profile.jpg",
+    "title": "Full-Stack Software Engineer",
+    "description": "Hello. My name is Jake. I'm happy to help you learn about software development.",
+    "country": "US",
+    "tags": [
+      "python",
+      "javascript",
+      "fullstack",
+      "devops",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jake@jakerobers.com"
+      },
+      {
+        "type": "twitter",
+        "id": "@Jake_Robers"
       }
     ]
   }
