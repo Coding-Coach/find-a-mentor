@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
 import Card from '../Card/Card';
 
-const itemsInPage = 10;
+const itemsInPage = 20;
 
 export default class MentorsLists extends Component {
   state = {
