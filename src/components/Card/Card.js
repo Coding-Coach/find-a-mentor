@@ -4,7 +4,6 @@ import { orderBy } from 'lodash';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
-import countries from 'svg-country-flags/countries.json';
 
 const generateMentorId = name => {
   return name.replace(/\s/g, '-');
@@ -100,45 +99,67 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
-const Info = ({ mentor, handleTagClick }) => {
-  // Don't show the description if it's not provided.
-  const description = mentor.description ? (
-    <p className="description">"{mentor.description}"</p>
-  ) : (
-    <React.Fragment />
-  );
-
-  return (
-    <React.Fragment>
-      <h1 className="name" id={`${generateMentorId(mentor.name)}-name`}>
-        {mentor.name}
-      </h1>
-      <h4 className="title">{mentor.title}</h4>
-      {description}
-      <div className="tags">{tagsList(mentor.tags, handleTagClick)}</div>
-      <div className="channels">
-        <div className="channel-inner">{channelsList(mentor.channels)}</div>
-      </div>
-    </React.Fragment>
-  );
-};
-
 const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
   const toggleFav = () => {
     isFav = !isFav;
     onFavMentor(mentor);
   };
 
+  // don't show the description if it's not provided
+  const description = mentor.description ? (
+    <p className="description">"{mentor.description}"</p>
+  ) : (
+    <React.Fragment />
+  );
+
+  const MentorInfo = () => {
+    return (
+      <>
+        <div>
+          <h1 className="name" id={`${generateMentorId(mentor.name)}-name`}>
+            {mentor.name}
+          </h1>
+          <h4 className="title">{mentor.title}</h4>
+          {description}
+        </div>
+      </>
+    );
+  };
+
+  const SkillsTags = () => {
+    return <div className="tags">{tagsList(mentor.tags, handleTagClick)}</div>;
+  };
+
+  const CardFooter = () => {
+    return (
+      <>
+        <div className="wave" />
+        <div className="channels">
+          <div className="channel-inner">{channelsList(mentor.channels)}</div>
+        </div>
+      </>
+    );
+  };
+
+  const CardHeader = () => {
+    return (
+      <div className="header">
+        <div className="country location">
+          <i className={'fa fa-map-marker'} />
+          <p>{mentor.country}</p>
+        </div>
+
+        <Avatar mentor={mentor} />
+        <LikeButton onClick={toggleFav} liked={isFav} />
+      </div>
+    );
+  };
   return (
     <div className="card" aria-label="Mentor card">
-      <LikeButton onClick={toggleFav} liked={isFav} />
-      <img
-        className="country"
-        src={`https://www.countryflags.io/${mentor.country}/flat/32.png`}
-        alt={countries[mentor.country]}
-      />
-      <Avatar mentor={mentor} />
-      <Info mentor={mentor} handleTagClick={handleTagClick} />
+      <CardHeader />
+      <MentorInfo />
+      <SkillsTags />
+      <CardFooter />
     </div>
   );
 };
