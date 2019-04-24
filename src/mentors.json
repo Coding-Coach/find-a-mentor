@@ -5729,7 +5729,11 @@
     "description": "A self taught programmer, i work as a backend engineer.",
     "country": "IN",
     "tags": [
-      "c#", "golang", "nodejs", "mongodb", "asp.net"
+      "c#",
+      "golang",
+      "nodejs",
+      "mongodb",
+      "asp.net"
     ],
     "channels": [
       {
@@ -5800,6 +5804,35 @@
       {
         "type": "twitter",
         "id": "@Jake_Robers"
+      }
+    ]
+  },
+  {
+    "id": "fodylarsen@gmail.com",
+    "name": "Nick Larsen",
+    "avatar": "https://cultureofdevelopment.com/img/nick-larsen.jpg",
+    "title": "Software Engineer",
+    "description": "Self taught and then formally trained, strong fundamentals and loves mentoring",
+    "country": "US",
+    "tags": [
+      "algorithms",
+      "ai",
+      "performance",
+      "web",
+      "interviews"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "fodylarsen@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "fody"
+      },
+      {
+        "type": "website",
+        "id": "cultureofdevelopment.com"
       }
     ]
   }
