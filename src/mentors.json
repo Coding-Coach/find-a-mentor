@@ -5835,5 +5835,34 @@
         "id": "cultureofdevelopment.com"
       }
     ]
+  },
+  {
+    "id": "dev@jordypereira.be",
+    "name": "Jordy Pereira",
+    "avatar": "https://avatars1.githubusercontent.com/u/14983205?v=4",
+    "title": "Frontend Developer",
+    "description": "Hi shoot questions at me and we'll solve them together.",
+    "country": "BE",
+    "tags": [
+      "html",
+      "css",
+      "vuejs",
+      "nodejs",
+      "tailwind"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "_perjor"
+      },
+      {
+        "type": "github",
+        "id": "perjor"
+      },
+      {
+        "type": "website",
+        "id": "jordypereira.be"
+      }
+    ]
   }
 ]
