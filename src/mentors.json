@@ -5545,5 +5545,30 @@
         "id": "jpggvilaca"
       }
     ]
+  },
+  {
+    "id": "gregpalmer@gmail.com",
+    "name": "Greg Palmer",
+    "avatar": "https://avatars0.githubusercontent.com/u/65900?s=400&u=c6d78a067ee9a94ce47352bcad02ce1555458638&v=4",
+    "title": "Senior Software Engineer",
+    "description": "Hello! Solving complex problems with code (Since 2002). Happy to help",
+    "country": "US",
+    "tags": [
+      "java",
+      "kotlin",
+      "vuejs",
+      "architecture",
+      "aws"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gregpalmer@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "gmpalmer"
+      }
+    ]
   }
 ]
