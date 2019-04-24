@@ -45,7 +45,9 @@ export default class Modal extends Component {
           <div className="modal-head">
             <h2>{title || ''}</h2>
           </div>
-          <div className="modal-content">{children || ''}</div>
+          <div className="scroll-helper">
+            <div className="modal-content">{children || ''}</div>
+          </div>
         </div>
       </div>
     );
