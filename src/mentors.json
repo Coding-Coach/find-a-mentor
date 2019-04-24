@@ -1,4 +1,33 @@
-[
+[  
+  {
+    "id": "paulfitz99@gmail.com",
+    "name": "Paul Fiitzgerald",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQFh38XOCJUahw/profile-displayphoto-shrink_200_200/0?e=1561593600&v=beta&t=qvn8ke275AH9xX6O0Lk2V9aBDegoA23qk07FiKnRRVY",
+    "title": "React, React Native, Node dev",
+    "country": "IE",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "nodejs",
+      "react native"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "paulf1tzgerald"
+      },
+      {
+        "type": "github",
+        "id": "Pau1fitz"
+      },
+      {
+        "type": "email",
+        "id": "paulfitz99@gmail.com"
+      }
+    ]
+  },
   {
     "id": "yashish.dua@gmail.com",
     "name": "Yashish Dua",
