@@ -1,4 +1,4 @@
-[  
+[
   {
     "id": "paulfitz99@gmail.com",
     "name": "Paul Fitzgerald",
@@ -1281,8 +1281,8 @@
     "id": "ignaciodenuevo@posteo.net",
     "name": "Ignacio Villanueva",
     "avatar": "https://avatars.githubusercontent.com/ignaciodenuevo",
-    "title": "Frontend Dev. at @PlainConcepts",
-    "description": "Hi, My name is Ignacio, if you think I can help you, don't hesitate to tell me.",
+    "title": "Frontend Developer",
+    "description": "If you think I can help you, don't hesitate to tell me.",
     "country": "ES",
     "spokenLanguages": [
       "en"
@@ -1298,6 +1298,10 @@
       {
         "type": "twitter",
         "id": "ignaciodenuevo"
+      },
+      {
+        "type": "website",
+        "id": "ignaciodenuevo.com/"
       },
       {
         "type": "email",
