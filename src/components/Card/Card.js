@@ -4,10 +4,7 @@ import { orderBy } from 'lodash';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
-
-const generateMentorId = name => {
-  return name.replace(/\s/g, '-');
-};
+import helpers from '../../helpers';
 
 function handleAnalytic(channelName) {
   if (window && window.ga) {
@@ -75,14 +72,14 @@ const channelsList = channels => {
   });
 };
 
-const Avatar = ({ mentor }) => {
+const Avatar = ({ mentor, id }) => {
   return (
     <div className="avatar">
       <i className="fa fa-user-circle" />
       <img
         src={mentor.avatar}
-        aria-labelledby={`${generateMentorId(mentor.name)}-name`}
-        alt=""
+        aria-labelledby={`${id}`}
+        alt={`${mentor.name}`}
       />
     </div>
   );
@@ -112,11 +109,13 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
     <React.Fragment />
   );
 
+  const mentorId = helpers.generateMentorId();
+
   const MentorInfo = () => {
     return (
       <>
         <div>
-          <h1 className="name" id={`${generateMentorId(mentor.name)}-name`}>
+          <h1 className="name" id={`${mentorId}`}>
             {mentor.name}
           </h1>
           <h4 className="title">{mentor.title}</h4>
@@ -149,7 +148,7 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
           <p>{mentor.country}</p>
         </div>
 
-        <Avatar mentor={mentor} />
+        <Avatar mentor={mentor} id={mentorId} />
         <LikeButton onClick={toggleFav} liked={isFav} />
       </div>
     );
