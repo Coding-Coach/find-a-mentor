@@ -5862,7 +5862,7 @@
       {
         "type": "website",
         "id": "jordypereira.be"
-      }   
+      }
     ]
   },
   {
@@ -5914,6 +5914,35 @@
       {
         "type": "twitter",
         "id": "@josheriff"
+      }
+    ]
+  },
+  {
+    "id": "fobabs2win@rocketmail.com",
+    "name": "Francis Babalola",
+    "avatar": "https://hropperm-cdn.sirv.com/images/about.jpg",
+    "title": "Software Developer",
+    "description": "Hi, I specialize in MERN stack and JAMstack applications.",
+    "country": "NG",
+    "tags": [
+      "javascript",
+      "mongodb",
+      "expressjs",
+      "reactjs",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "https://linkedin.com/in/fobabs"
+      },
+      {
+        "type": "twitter",
+        "id": "https://twitter.com/fobabs"
+      },
+      {
+        "type": "website",
+        "id": "fobabs.com"
       }
     ]
   }
