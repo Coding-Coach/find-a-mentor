@@ -1491,9 +1491,9 @@
     "id": "brian@brianmorrison.me",
     "name": "Brian Morrison II",
     "avatar": "https://brianmorrison.me/wp-content/uploads/2019/03/personal-profile-image-sq.png",
-    "title": "JavaScript & C# Developer",
-    "description": "Been writing code for over 10 years on many platforms. Excited to help!",
-    "country": "GB",
+    "title": "Software Engineer & Dev Advocate",
+    "description": "Self-taught developer, 10+ years exp. Excited to help others learn & grow!",
+    "country": "US",
     "spokenLanguages": [
       "en"
     ],
@@ -1511,7 +1511,7 @@
       },
       {
         "type": "twitter",
-        "id": "brianmorrisonme"
+        "id": "bmorrisondev"
       },
       {
         "type": "slack",
