@@ -5889,5 +5889,32 @@
         "id": "gmpalmer"
       }
     ]
+  },
+  {
+    "id": "jakermater@gmail.com",
+    "name": "Josheriff",
+    "avatar": "https://pbs.twimg.com/profile_images/996769389683859458/nxGJlLEp_400x400.jpg",
+    "title": "Developer",
+    "description": "Self-taught develope Can help mostly with Python and TDD",
+    "country": "EU",
+    "tags": [
+      "python",
+      "tdd",
+      "career advice"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jakermater@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "josé-manuel-gallego-chamorro-249658a4"
+      },
+      {
+        "type": "twitter",
+        "id": "@josheriff"
+      }
+    ]
   }
 ]
