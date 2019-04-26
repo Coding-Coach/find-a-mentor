@@ -5925,7 +5925,9 @@
     "description": "Making things with React and Node",
     "country": "ES",
     "tags": [
-      "nodejs"
+      "nodejs",
+      "reactjs",
+      "frontend"
     ],
     "channels": [
       {
