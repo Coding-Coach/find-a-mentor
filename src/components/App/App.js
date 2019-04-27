@@ -137,9 +137,7 @@ class App extends Component {
         <main>
           <Header />
           <aside className="sidebar">
-            <a className="logo" href="/">
-              <Logo width={110} height={50} color="#68d5b1" />
-            </a>
+            <Logo width={110} height={50} color="#68d5b1" />
             <Filter
               onTagSelected={this.handleTagSelect}
               onCountrySelected={this.handleCountrySelect}

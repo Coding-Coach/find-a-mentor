@@ -8,6 +8,7 @@ const Logo = props => {
       height="105"
       viewBox="0 0 180 105"
       title="Coding Coach"
+      className="logo"
     >
       <g fill="none" fillRule="evenodd">
         <g fillRule="nonzero">
