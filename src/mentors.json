@@ -5211,5 +5211,30 @@
         "id": "elmasria"
       }
     ]
+  },
+  {
+    "id": "mannuel@themwebs.me",
+    "name": "Mannuel Ferreira",
+    "avatar": "https://themwebs.me/images/mannuel_ferreira_web.jpg",
+    "title": "Software Engineer",
+    "description": "I'm an engineer I specialise in front end. I love designing & buidling web appllications.",
+    "country": "ZA",
+    "tags": [
+      "javascript", "vuejs", "php", "html", "css", "front-end"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "mannuelf"
+      },
+      {
+        "type": "twitter",
+        "id": "manidf"
+      },
+      {
+        "type": "website",
+        "id": "mannuelferreira.com"
+      }
+    ]
   }
 ]
