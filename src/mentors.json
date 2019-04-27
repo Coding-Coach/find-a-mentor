@@ -5862,7 +5862,7 @@
       {
         "type": "website",
         "id": "jordypereira.be"
-      }   
+      }
     ]
   },
   {
@@ -5914,6 +5914,33 @@
       {
         "type": "twitter",
         "id": "@josheriff"
+      }
+    ]
+  },
+  {
+    "id": "sergiozamarro@hotmail.com",
+    "name": "Sergio Zamarro",
+    "avatar": "https://pbs.twimg.com/profile_images/1097088970771628032/lAcUoD9r_bigger.jpg",
+    "title": "I ❤️  Javascript",
+    "description": "Making things with React and Node",
+    "country": "ES",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sergiozamarro@hotmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "zamarrowski"
+      },
+      {
+        "type": "github",
+        "id": "zamarrowski"
       }
     ]
   }
