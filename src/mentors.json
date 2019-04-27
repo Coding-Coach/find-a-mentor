@@ -5220,7 +5220,12 @@
     "description": "I'm an engineer I specialise in front end. I love designing & buidling web appllications.",
     "country": "ZA",
     "tags": [
-      "javascript", "vuejs", "php", "html", "css", "front-end"
+      "javascript",
+      "vuejs",
+      "php",
+      "html",
+      "css",
+      "front-end"
     ],
     "channels": [
       {
