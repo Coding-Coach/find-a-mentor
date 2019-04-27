@@ -5943,5 +5943,32 @@
         "id": "zamarrowski"
       }
     ]
+  },
+  {
+    "id": "ganeshmani009@gmail.com",
+    "name": "GaneshMani",
+    "avatar": "https://media.licdn.com/dms/image/C5103AQEKmscjGu8cFQ/profile-displayphoto-shrink_200_200/0?e=1561593600&v=beta&t=cowU1PqI2HENJLdG0p2bTZsXkjTLD7gX-rkOggNDTlo",
+    "title": "FullStack Developer",
+    "description": "developer who is interested in web and mobile applications",
+    "country": "IN",
+    "tags": [
+      "reactjs",
+      "nodejs",
+      "devops"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ganeshmani009@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "ganesh-mani-396b9792"
+      },
+      {
+        "type": "twitter",
+        "id": "ganeshmani009"
+      }
+    ]
   }
 ]
