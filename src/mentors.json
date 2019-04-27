@@ -699,8 +699,8 @@
         "id": "cecheverri4"
       },
       {
-        "type": "linkedin",
-        "id": "cristian-echeverria-martinez"
+        "type": "slack",
+        "id": "UGU73B6UV"
       }
     ]
   },
@@ -1333,7 +1333,7 @@
       },
       {
         "type": "email",
-        "id": "codingcoach@@mbrenner24.33mail.com"
+        "id": "codingcoach@mbrenner24.33mail.com"
       },
       {
         "type": "slack",
@@ -5914,6 +5914,33 @@
       {
         "type": "twitter",
         "id": "@josheriff"
+      }
+    ]
+  },
+  {
+    "id": "sergiozamarro@hotmail.com",
+    "name": "Sergio Zamarro",
+    "avatar": "https://pbs.twimg.com/profile_images/1097088970771628032/lAcUoD9r_bigger.jpg",
+    "title": "I ❤️  Javascript",
+    "description": "Making things with React and Node",
+    "country": "ES",
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sergiozamarro@hotmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "zamarrowski"
+      },
+      {
+        "type": "github",
+        "id": "zamarrowski"
       }
     ]
   },
