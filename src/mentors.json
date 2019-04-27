@@ -5999,5 +5999,34 @@
         "id": "270725696"
       }
     ]
+  },
+  {
+    "id": "mannuel@themwebs.me",
+    "name": "Mannuel Ferreira",
+    "avatar": "https://themwebs.me/images/mannuel_ferreira_web.jpg",
+    "title": "Software Engineer",
+    "description": "I'm an engineer specialising in front end. Happy to help.",
+    "country": "ZA",
+    "tags": [
+      "javascript",
+      "vuejs",
+      "html",
+      "css",
+      "front-end"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "mannuelf"
+      },
+      {
+        "type": "twitter",
+        "id": "manidf"
+      },
+      {
+        "type": "website",
+        "id": "mannuelferreira.com"
+      }
+    ]
   }
 ]
