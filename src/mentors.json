@@ -5862,7 +5862,7 @@
       {
         "type": "website",
         "id": "jordypereira.be"
-      }   
+      }
     ]
   },
   {
@@ -5914,6 +5914,35 @@
       {
         "type": "twitter",
         "id": "@josheriff"
+      }
+    ]
+  },
+  {
+    "id": "neelanjan.sen@gmail.com",
+    "name": "Neelanjan Sen",
+    "avatar": "https://i.imgur.com/UnoE0j6.jpg",
+    "title": "Software Developer",
+    "description": "Fullstack Engineer mentoring at Immersive Coding Bootcamps",
+    "country": "IN",
+    "tags": [
+      "javascript",
+      "react",
+      "angular",
+      "node",
+      "serverless"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "neelanjan.sen@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "DJ7P08KJQ"
+      },
+      {
+        "type": "twitter",
+        "id": "270725696"
       }
     ]
   }
