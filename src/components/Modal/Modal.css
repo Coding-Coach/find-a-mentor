@@ -24,13 +24,26 @@
 
 .modal-container .modal-box {
   background: #fff;
-  width: 780px;
+  max-width: 780px;
+  width: 95%;
   min-height: 100px;
   border-radius: 5px;
   margin: 300px auto;
   opacity: 0;
   position: relative;
   transition: all 0.4s ease-in-out;
+}
+
+@media all and (max-width: 576px) {
+  .modal-container .modal-box {
+    background: #fff;
+    width: 99vw;
+    min-height: 100px;
+    border-radius: 5px;
+    margin: 10px auto;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
 }
 
 .modal-container.active .modal-box {
@@ -64,4 +77,21 @@
 }
 .modal-container .modal-box .modal-content {
   padding: 15px 25px;
+  color: #000022;
+}
+
+
+@media all and (max-width: 800px) {
+  .modal-container .modal-box {
+    padding: 5px;
+  }
+  .modal-container.active .modal-box {
+    margin: 5px auto;
+  }
+  .modal-container .modal-box .modal-head h2 {
+    padding: 15px;
+  }
+  .modal-container .modal-box .modal-content {
+    padding: 5px 15px;
+  }
 }

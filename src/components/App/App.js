@@ -5,14 +5,14 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import MentorsList from '../MentorsList/MentorsList';
 import Filter from '../Filter/Filter';
-import Content from '../Content/Content';
 import Logo from '../Logo';
 import SocialLinks from '../SocialLinks/SocialLinks';
+import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
+import ModalContent from '../Modal/ModalContent';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
-
-
+import { set } from '../../titleGenerator';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -22,8 +22,8 @@ class App extends Component {
     modal: {
       title: null,
       content: null,
-      onClose: null
-    }
+      onClose: null,
+    },
   };
 
   handleTagSelect = async ({ value: tag }) => {
@@ -31,6 +31,7 @@ class App extends Component {
     this.setState({
       tag,
     });
+    window.ga('send', 'event', 'Filter', 'tag', tag);
   };
 
   handleCountrySelect = async ({ value: country }) => {
@@ -38,6 +39,7 @@ class App extends Component {
     this.setState({
       country,
     });
+    window.ga('send', 'event', 'Filter', 'country', country);
   };
 
   handleNameSelect = async ({ value: name }) => {
@@ -45,6 +47,7 @@ class App extends Component {
     this.setState({
       name,
     });
+    window.ga('send', 'event', 'Filter', 'name', 'name');
   };
 
   filterMentors = mentor => {
@@ -68,6 +71,7 @@ class App extends Component {
     this.setState({
       showFavorite,
     });
+    window.ga('send', 'event', 'Show Favorite', 'switch', showFavorite);
   };
 
   onFavMentor = mentor => {
@@ -75,41 +79,31 @@ class App extends Component {
     this.setState({
       favorites,
     });
+    window.ga('send', 'event', 'Favorite');
   };
-
-  openModal = (title, content, onClose) => {
-    this.setState({
-      modal: {
-        title,
-        content,
-        onClose
-      }
-    })
-  }
 
   handleTagClick = async clickedTag => {
     await scrollToTop();
     this.setState({
       clickedTag,
     });
+    window.ga('send', 'event', 'Filter', 'click', 'tag', clickedTag);
   };
 
   getPermalinkParams() {
     const permalink = new URLSearchParams(window.location.search);
 
-    if(permalink.get('language') !== null) {
-      this.setState({ tag : permalink.get('language') });
-    }
-
-    if(permalink.get('country') !== null) {
-      this.setState({ country : permalink.get('country') });
-    }
-
-    if(permalink.get('name') !== null) {
-      this.setState({ name: permalink.get('name') });
-    }
+    this.setState({
+      tag: permalink.get('technology'),
+      country: permalink.get('country'),
+      name: permalink.get('name'),
+    });
   }
-  
+
+  componentWillUpdate(nextProps, nextState) {
+    set(nextState);
+  }
+
   componentDidMount() {
     if (window && window.ga) {
       const { location, ga } = window;
@@ -118,6 +112,17 @@ class App extends Component {
     }
     this.getPermalinkParams();
   }
+
+  handleModal = (title, content, onClose) => {
+    this.setState({
+      modal: {
+        title,
+        content,
+        onClose,
+      },
+    });
+    window.ga('send', 'event', 'Modal', 'open', title);
+  };
 
   render() {
     const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
@@ -128,11 +133,11 @@ class App extends Component {
         <Modal onClose={this.closeModal} title={modal.title}>
           {modal.content}
         </Modal>
+
         <main>
+          <Header />
           <aside className="sidebar">
-            <a className="logo" href="/">
-              <Logo width={110} height={50} color="#68d5b1" />
-            </a>
+            <Logo width={110} height={50} color="#68d5b1" />
             <Filter
               onTagSelected={this.handleTagSelect}
               onCountrySelected={this.handleCountrySelect}
@@ -143,20 +148,38 @@ class App extends Component {
               clickedTag={clickedTag}
             />
             <SocialLinks />
+
             <nav className="sidebar-nav">
-              <li onClick={()=>this.openModal('Cookies Policy', <Content topic="cookies-policy" />)}>
-                Cookies Policy
-              </li>
-              <li onClick={()=>this.openModal('Code of Conduct', <Content topic="code-conduct" />)}>
-                Code of Conduct
-              </li>
-              <li onClick={()=>this.openModal('Terms & Conditions', <Content topic="terms-conditions" />)}>
-                Terms & Conditions
-              </li>
-              <li onClick={()=>this.openModal('Privacy Statement', <Content topic="privacy-policy" />)}>
-                Privacy Statement
-              </li>
+              <ModalContent
+                policyTitle={'Cookies policy'}
+                content={'cookies-policy'}
+                handleModal={(title, content) =>
+                  this.handleModal(title, content)
+                }
+              />
+              <ModalContent
+                policyTitle={'Code of Conduct'}
+                content={'code-conduct'}
+                handleModal={(title, content) =>
+                  this.handleModal(title, content)
+                }
+              />
+              <ModalContent
+                policyTitle={'Terms & Conditions'}
+                content={'terms-conditions'}
+                handleModal={(title, content) =>
+                  this.handleModal(title, content)
+                }
+              />
+              <ModalContent
+                policyTitle={'Privacy Statement'}
+                content={'privacy-policy'}
+                handleModal={(title, content) =>
+                  this.handleModal(title, content)
+                }
+              />
             </nav>
+
             <a
               href="https://www.patreon.com/codingcoach_io"
               className="patreon-link"

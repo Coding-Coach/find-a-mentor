@@ -64,6 +64,16 @@ const validateDescription = function(schema, description) {
   return isValid;
 };
 
+const validateWebsite = function(schema, website) {
+  const pattern = /^((http|https):\/\/)/;
+  const message = 'should not contain http/s';
+
+  validateWebsite.errors = [
+    { keyword: 'website', message, params: { keyword: 'website' } },
+  ];
+  return !pattern.test(website);
+};
+
 ajv.addKeyword('securedUrl', {
   validate: validateSecuredUrl,
   errors: true,
@@ -76,6 +86,11 @@ ajv.addKeyword('suitableDescription', {
 
 ajv.addKeyword('synonymsTags', {
   validate: validateSynonymsTags,
+  errors: true,
+});
+
+ajv.addKeyword('validWebsite', {
+  validate: validateWebsite,
   errors: true,
 });
 
@@ -142,6 +157,16 @@ const mentorSchema = {
               ],
             },
           },
+          if: {
+            properties: {
+              type: { enum: ['website'] },
+            },
+          },
+          then: {
+            properties: {
+              id: { validWebsite: true },
+            },
+          },
           required: ['type', 'id'],
         },
       },
@@ -189,4 +214,17 @@ it('should mentors schema be valid', () => {
     })
     .join('\n');
   expect(valid).toBeValid(errorMessage);
+});
+
+it('should follow website format', () => {
+  const pattern = /^((http|https):\/\/)/;
+  mentors.forEach(m => {
+    m.channels.forEach(c => {
+      if (c.type == 'website') {
+        expect(pattern.test(c.id)).toBeFalsy();
+      }
+    });
+  });
+  expect(pattern.test('http://wrong-url.format')).toBeTruthy();
+  expect(pattern.test('https://wrong-url.format')).toBeTruthy();
 });
