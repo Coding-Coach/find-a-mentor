@@ -1,8 +1,3 @@
-.is-modal {
-  overflow-y: scroll;
-  position: fixed;
-}
-
 .modal-container {
   display: flex;
   flex-direction: column;
