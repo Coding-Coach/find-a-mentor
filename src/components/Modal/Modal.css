@@ -1,5 +1,6 @@
 .is-modal {
-  overflow: hidden;
+  overflow-y: scroll;
+  position: fixed;
 }
 
 .modal-container {
