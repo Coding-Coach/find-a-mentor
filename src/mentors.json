@@ -2694,12 +2694,12 @@
         "id": "healeycodes@gmail.com"
       },
       {
-        "type": "slack",
-        "id": "UH83ZA0EN"
-      },
-      {
         "type": "twitter",
         "id": "healeycodes"
+      },
+      {
+        "type": "website",
+        "id": "healeycodes.github.io"
       }
     ]
   },
