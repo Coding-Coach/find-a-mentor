@@ -8,13 +8,14 @@ import Input from '../Input/Input';
 import Switch from '../Switch/Switch';
 
 import { generateLists } from '../../listsGenerator';
-const { tags, countries, names } = generateLists(mentors);
+const { tags, countries, names, languages } = generateLists(mentors);
 
 export default class Filter extends Component {
   state = {
     tag: '',
     country: '',
     name: '',
+    language: '',
     showFilters: false,
   };
 
@@ -31,6 +32,11 @@ export default class Filter extends Component {
   onNameSelect = name => {
     this.setState({ name });
     this.props.onNameSelected(name);
+  };
+
+  onLanguageSelect = language => {
+    this.setState({ language });
+    this.props.onLanguageSelected(language);
   };
 
   onToggleFilter = () => {
@@ -82,6 +88,13 @@ export default class Filter extends Component {
               id="name"
               source={names}
               onSelect={this.onNameSelect}
+            />
+          </Input>
+          <Input id="language" label="Language" key="language">
+            <AutoComplete
+              id="language"
+              source={languages}
+              onSelect={this.onLanguageSelect}
             />
           </Input>
           <Switch id="fav" label="My Favorites" onToggle={onToggleSwitch} />

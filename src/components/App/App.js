@@ -50,12 +50,21 @@ class App extends Component {
     window.ga('send', 'event', 'Filter', 'name', 'name');
   };
 
+  handleLanguageSelect = async ({ value: language }) => {
+    await scrollToTop();
+    this.setState({
+      language,
+    });
+    window.ga('send', 'event', 'Filter', 'language', language);
+  }
+
   filterMentors = mentor => {
-    const { tag, country, name, showFavorite, favorites } = this.state;
+    const { tag, country, name, language, showFavorite, favorites } = this.state;
     return (
       (!tag || mentor.tags.includes(tag)) &&
       (!country || mentor.country === country) &&
       (!name || mentor.name === name) &&
+      (!language || (mentor.spokenLanguages && mentor.spokenLanguages.includes(language))) &&
       (!showFavorite || favorites.indexOf(mentor.id) > -1)
     );
   };
@@ -97,6 +106,7 @@ class App extends Component {
       tag: permalink.get('technology'),
       country: permalink.get('country'),
       name: permalink.get('name'),
+      language: permalink.get('language')
     });
   }
 
@@ -142,6 +152,7 @@ class App extends Component {
               onTagSelected={this.handleTagSelect}
               onCountrySelected={this.handleCountrySelect}
               onNameSelected={this.handleNameSelect}
+              onLanguageSelected={this.handleLanguageSelect}
               onToggleFilter={this.toggleFields}
               onToggleSwitch={this.toggleSwitch}
               mentorCount={mentorsInList.length}
