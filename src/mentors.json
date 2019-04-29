@@ -6057,5 +6057,34 @@
         "id": "mannuelferreira.com"
       }
     ]
+  },
+  {
+    "id": "kevin.kipp@gmail.com",
+    "name": "Kevin Kipp",
+    "avatar": "https://pbs.twimg.com/profile_images/931552869915926528/sBpw-pNh_400x400.jpg",
+    "title": "Systems Engineer",
+    "description": "Front End Specialist & Functional Programming Enthusiast",
+    "country": "US",
+    "tags": [
+      "frontend",
+      "javascript",
+      "typescript",
+      "reactjs",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "kevin.kipp@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "kevin_kipp"
+      },
+      {
+        "type": "github",
+        "id": "third774"
+      }
+    ]
   }
 ]
