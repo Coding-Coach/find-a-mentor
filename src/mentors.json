@@ -6086,5 +6086,34 @@
         "id": "third774"
       }
     ]
+  },
+  {
+    "id": "hi@ronanc.xyz",
+    "name": "Ronan Connolly",
+    "avatar": "https://pbs.twimg.com/profile_images/1080492291356278784/rleGX-fa_400x400.jpg",
+    "title": "Front-End Software Engineer",
+    "description": "Front-End Software Engineer, UI Designer, Entrepreneur, and Outdoor Adventurer.",
+    "country": "GB-NIR",
+    "tags": [
+      "javascript",
+      "angular",
+      "typescript",
+      "rxjs",
+      "sass"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "ronanconnolly"
+      },
+      {
+        "type": "twitter",
+        "id": "_RonanC"
+      },
+      {
+        "type": "website",
+        "id": "ronanc.xyz"
+      }
+    ]
   }
 ]
