@@ -90,6 +90,14 @@ class App extends Component {
     window.ga('send', 'event', 'Filter', 'click', 'tag', clickedTag);
   };
 
+  handleCountryClick = async clickedCountry => {
+    await scrollToTop();
+    this.setState({
+      clickedCountry,
+    });
+    window.ga('send', 'event', 'Filter', 'click', 'country', clickedCountry);
+  };
+
   getPermalinkParams() {
     const permalink = new URLSearchParams(window.location.search);
 
@@ -125,7 +133,13 @@ class App extends Component {
   };
 
   render() {
-    const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
+    const {
+      mentors,
+      fieldsIsActive,
+      modal,
+      clickedTag,
+      clickedCountry,
+    } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
@@ -146,6 +160,7 @@ class App extends Component {
               onToggleSwitch={this.toggleSwitch}
               mentorCount={mentorsInList.length}
               clickedTag={clickedTag}
+              clickedCountry={clickedCountry}
             />
             <SocialLinks />
 
@@ -203,6 +218,7 @@ class App extends Component {
             favorites={this.state.favorites}
             onFavMentor={this.onFavMentor}
             handleTagClick={this.handleTagClick}
+            handleCountryClick={this.handleCountryClick}
           />
         </main>
       </div>

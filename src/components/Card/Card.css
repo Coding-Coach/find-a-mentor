@@ -32,10 +32,17 @@
 }
 
 .card .country {
+  background: transparent;
+  border: none;
+  cursor: pointer;
   color: hsl(0, 0%, 29%);
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.card .country:hover {
+  color: var(--tag-color);
 }
 
 .card .avatar {

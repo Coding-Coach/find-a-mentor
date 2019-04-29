@@ -34,6 +34,7 @@ export default class MentorsLists extends Component {
       favorites,
       onFavMentor,
       handleTagClick,
+      handleCountryClick,
     } = this.props;
     const { page } = this.state;
 
@@ -53,6 +54,7 @@ export default class MentorsLists extends Component {
               onFavMentor={onFavMentor}
               isFav={favorites.indexOf(mentor.id) > -1}
               handleTagClick={handleTagClick}
+              handleCountryClick={handleCountryClick}
             />
           ))}
           {mentorsInList.length === 0 && (

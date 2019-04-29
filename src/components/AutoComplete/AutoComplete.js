@@ -60,12 +60,21 @@ export default class AutoComplete extends Component {
 
   setPermalinkParams = (param, value) => {
     const permalink = new URLSearchParams(window.location.search);
-    const paramItem = this.props.source.filter(item => item.label === value);
-    if (paramItem.length && value.length) {
-      permalink.set(param, paramItem[0].value);
-    } else if (!value.length) {
-      permalink.delete(param);
+
+    switch (param) {
+      case 'language':
+        const paramItem = this.props.source.find(item => item.label === value);
+        if (paramItem && value.length) {
+          permalink.set(param, paramItem.value);
+        } else if (!value.length) {
+          permalink.delete(param);
+        }
+        break;
+      default:
+        permalink.set(param, value);
+        break;
     }
+
     window.history.pushState({}, null, '?' + permalink.toString());
   };
 
