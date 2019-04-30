@@ -5504,7 +5504,7 @@
     "id": "moaaz_bs@yahoo.com",
     "name": "Moaaz Bhnas",
     "avatar": "https://i.ibb.co/crRDHM0/quicksquare-201891731148824.jpg",
-    "title": "Front-End Developer",
+    "title": "Front-End Developer at NasNav",
     "description": "Problem-solving lover. Specialized in React.js and web accessibility.",
     "country": "EG",
     "tags": [
@@ -5515,6 +5515,10 @@
       "reactjs"
     ],
     "channels": [
+      {
+        "type": "email",
+        "id": "moaaz_bs@yahoo.com"
+      },
       {
         "type": "linkedin",
         "id": "moaaz-bhnas"
