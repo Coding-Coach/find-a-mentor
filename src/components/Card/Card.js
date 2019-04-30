@@ -96,7 +96,13 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
-const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
+const Card = ({
+  mentor,
+  onFavMentor,
+  isFav,
+  handleTagClick,
+  handleCountryClick,
+}) => {
   const toggleFav = () => {
     isFav = !isFav;
     onFavMentor(mentor);
@@ -143,10 +149,13 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
   const CardHeader = () => {
     return (
       <div className="header">
-        <div className="country location">
+        <button
+          className="country location"
+          onClick={handleCountryClick.bind(null, mentor.country)}
+        >
           <i className={'fa fa-map-marker'} />
           <p>{mentor.country}</p>
-        </div>
+        </button>
 
         <Avatar mentor={mentor} id={mentorId} />
         <LikeButton onClick={toggleFav} liked={isFav} />
