@@ -60,21 +60,12 @@ export default class AutoComplete extends Component {
 
   setPermalinkParams = (param, value) => {
     const permalink = new URLSearchParams(window.location.search);
-
-    switch (param) {
-      case 'language':
-        const paramItem = this.props.source.find(item => item.label === value);
-        if (paramItem && value.length) {
-          permalink.set(param, paramItem.value);
-        } else if (!value.length) {
-          permalink.delete(param);
-        }
-        break;
-      default:
-        permalink.set(param, value);
-        break;
+    const paramItem = this.props.source.filter(item => item.label === value);
+    if (paramItem.length && value.length) {
+      permalink.set(param, paramItem[0].value);
+    } else if (!value.length) {
+      permalink.delete(param);
     }
-
     window.history.pushState({}, null, '?' + permalink.toString());
   };
 
@@ -83,12 +74,22 @@ export default class AutoComplete extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { clickedTag: value } = this.props;
+    const { clickedTag: value, clickedCountry } = this.props;
 
     if (prevProps.clickedTag !== this.props.clickedTag) {
       this.setState({ value });
       this.props.onSelect({ value });
       this.setPermalinkParams(this.props.id, value);
+    }
+
+    if (prevProps.clickedCountry !== clickedCountry) {
+      const code = this.props.source.find(
+        item => item.value === clickedCountry
+      );
+
+      this.setState({ value: code.label });
+      this.props.onSelect({ value: code.value });
+      this.setPermalinkParams(this.props.id, code.label);
     }
   }
 

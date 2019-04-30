@@ -75,7 +75,7 @@ export default class Filter extends Component {
               id="country"
               source={countries}
               onSelect={this.onCountrySelect}
-              clickedTag={clickedCountry}
+              clickedCountry={clickedCountry}
             />
           </Input>
           <Input id="name" label="Name" key="name">
