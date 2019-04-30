@@ -1,5 +1,5 @@
 import countries from 'svg-country-flags/countries.json';
-import ISO6391 from 'iso-639-1/src/index';
+import ISO6391 from 'iso-639-1';
 
 function mapToItem(label, value) {
   return {
