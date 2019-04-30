@@ -10,7 +10,6 @@ export default class Modal extends Component {
     this.setState({
       isActive: true,
     });
-    document.body.classList.add('is-modal');
   };
 
   handleClose = () => {
@@ -23,7 +22,6 @@ export default class Modal extends Component {
     if (typeof onClose === 'function') {
       onClose();
     }
-    document.body.classList.remove('is-modal');
   };
 
   componentWillReceiveProps(nextProps) {
@@ -45,7 +43,9 @@ export default class Modal extends Component {
           <div className="modal-head">
             <h2>{title || ''}</h2>
           </div>
-          <div className="modal-content">{children || ''}</div>
+          <div className="scroll-helper">
+            <div className="modal-content">{children || ''}</div>
+          </div>
         </div>
       </div>
     );
