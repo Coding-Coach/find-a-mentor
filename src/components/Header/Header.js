@@ -12,9 +12,6 @@ class Navigation extends Component {
       <nav id="menu" className={navClass}>
         <ul className={navMenuClass}>
           <li>
-            <a href="https://mentors.codingcoach.io/">Home</a>
-          </li>
-          <li>
             <a href="https://codingcoach.io/">About</a>
           </li>
           <li>

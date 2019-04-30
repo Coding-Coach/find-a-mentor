@@ -4,11 +4,7 @@ import { orderBy } from 'lodash';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
-import countries from 'svg-country-flags/countries.json';
-
-const generateMentorId = name => {
-  return name.replace(/\s/g, '-');
-};
+import helpers from '../../helpers';
 
 function handleAnalytic(channelName) {
   if (window && window.ga) {
@@ -76,14 +72,14 @@ const channelsList = channels => {
   });
 };
 
-const Avatar = ({ mentor }) => {
+const Avatar = ({ mentor, id }) => {
   return (
     <div className="avatar">
       <i className="fa fa-user-circle" />
       <img
         src={mentor.avatar}
-        aria-labelledby={`${generateMentorId(mentor.name)}-name`}
-        alt=""
+        aria-labelledby={`${id}`}
+        alt={`${mentor.name}`}
       />
     </div>
   );
@@ -100,45 +96,78 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
-const Info = ({ mentor, handleTagClick }) => {
-  // Don't show the description if it's not provided.
+const Card = ({
+  mentor,
+  onFavMentor,
+  isFav,
+  handleTagClick,
+  handleCountryClick,
+}) => {
+  const toggleFav = () => {
+    isFav = !isFav;
+    onFavMentor(mentor);
+  };
+
+  // don't show the description if it's not provided
   const description = mentor.description ? (
     <p className="description">"{mentor.description}"</p>
   ) : (
     <React.Fragment />
   );
 
-  return (
-    <React.Fragment>
-      <h1 className="name" id={`${generateMentorId(mentor.name)}-name`}>
-        {mentor.name}
-      </h1>
-      <h4 className="title">{mentor.title}</h4>
-      {description}
-      <div className="tags">{tagsList(mentor.tags, handleTagClick)}</div>
-      <div className="channels">
-        <div className="channel-inner">{channelsList(mentor.channels)}</div>
-      </div>
-    </React.Fragment>
-  );
-};
+  const mentorId = helpers.generateMentorId();
 
-const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
-  const toggleFav = () => {
-    isFav = !isFav;
-    onFavMentor(mentor);
+  const MentorInfo = () => {
+    return (
+      <>
+        <div>
+          <h1 className="name" id={`${mentorId}`}>
+            {mentor.name}
+          </h1>
+          <h4 className="title">{mentor.title}</h4>
+          {description}
+        </div>
+      </>
+    );
   };
 
+  const SkillsTags = () => {
+    return <div className="tags">{tagsList(mentor.tags, handleTagClick)}</div>;
+  };
+
+  const CardFooter = () => {
+    return (
+      <>
+        <div className="wave" />
+        <div className="channels">
+          <div className="channel-inner">{channelsList(mentor.channels)}</div>
+        </div>
+      </>
+    );
+  };
+
+  const CardHeader = () => {
+    return (
+      <div className="header">
+        <button
+          className="country location"
+          onClick={handleCountryClick.bind(null, mentor.country)}
+        >
+          <i className={'fa fa-map-marker'} />
+          <p>{mentor.country}</p>
+        </button>
+
+        <Avatar mentor={mentor} id={mentorId} />
+        <LikeButton onClick={toggleFav} liked={isFav} />
+      </div>
+    );
+  };
   return (
     <div className="card" aria-label="Mentor card">
-      <LikeButton onClick={toggleFav} liked={isFav} />
-      <img
-        className="country"
-        src={`https://www.countryflags.io/${mentor.country}/flat/32.png`}
-        alt={countries[mentor.country]}
-      />
-      <Avatar mentor={mentor} />
-      <Info mentor={mentor} handleTagClick={handleTagClick} />
+      <CardHeader />
+      <MentorInfo />
+      <SkillsTags />
+      <CardFooter />
     </div>
   );
 };

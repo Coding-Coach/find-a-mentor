@@ -1,5 +1,5 @@
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   overflow-x: hidden;
 }
 
@@ -25,9 +25,6 @@ main {
 }
 
 .logo {
-  display: flex;
-  color: #a1a1a1;
-  justify-content: space-between;
   margin: 30px 30px;
 }
 
@@ -93,8 +90,6 @@ footer a:hover {
 
 @media all and (max-width: 576px) {
   .logo {
-    display: flex;
-    justify-content: center;
     margin: 10px;
   }
 
@@ -109,5 +104,11 @@ footer a:hover {
 
   .patreon-link img {
     display: block;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .logo {
+    margin: 10px auto;
   }
 }

@@ -64,6 +64,16 @@ const validateDescription = function(schema, description) {
   return isValid;
 };
 
+const validateWebsite = function(schema, website) {
+  const pattern = /^((http|https):\/\/)/;
+  const message = 'should not contain http/s';
+
+  validateWebsite.errors = [
+    { keyword: 'website', message, params: { keyword: 'website' } },
+  ];
+  return !pattern.test(website);
+};
+
 ajv.addKeyword('securedUrl', {
   validate: validateSecuredUrl,
   errors: true,
@@ -76,6 +86,11 @@ ajv.addKeyword('suitableDescription', {
 
 ajv.addKeyword('synonymsTags', {
   validate: validateSynonymsTags,
+  errors: true,
+});
+
+ajv.addKeyword('validWebsite', {
+  validate: validateWebsite,
   errors: true,
 });
 
@@ -140,6 +155,16 @@ const mentorSchema = {
                 'github',
                 'website',
               ],
+            },
+          },
+          if: {
+            properties: {
+              type: { enum: ['website'] },
+            },
+          },
+          then: {
+            properties: {
+              id: { validWebsite: true },
             },
           },
           required: ['type', 'id'],

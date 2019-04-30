@@ -12,6 +12,7 @@ import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
+import { set } from '../../titleGenerator';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
     this.setState({
       tag,
     });
+    window.ga('send', 'event', 'Filter', 'tag', tag);
   };
 
   handleCountrySelect = async ({ value: country }) => {
@@ -37,6 +39,7 @@ class App extends Component {
     this.setState({
       country,
     });
+    window.ga('send', 'event', 'Filter', 'country', country);
   };
 
   handleNameSelect = async ({ value: name }) => {
@@ -44,6 +47,7 @@ class App extends Component {
     this.setState({
       name,
     });
+    window.ga('send', 'event', 'Filter', 'name', 'name');
   };
 
   filterMentors = mentor => {
@@ -67,6 +71,7 @@ class App extends Component {
     this.setState({
       showFavorite,
     });
+    window.ga('send', 'event', 'Show Favorite', 'switch', showFavorite);
   };
 
   onFavMentor = mentor => {
@@ -74,6 +79,7 @@ class App extends Component {
     this.setState({
       favorites,
     });
+    window.ga('send', 'event', 'Favorite');
   };
 
   handleTagClick = async clickedTag => {
@@ -81,22 +87,29 @@ class App extends Component {
     this.setState({
       clickedTag,
     });
+    window.ga('send', 'event', 'Filter', 'click', 'tag', clickedTag);
+  };
+
+  handleCountryClick = async clickedCountry => {
+    await scrollToTop();
+    this.setState({
+      clickedCountry,
+    });
+    window.ga('send', 'event', 'Filter', 'click', 'country', clickedCountry);
   };
 
   getPermalinkParams() {
     const permalink = new URLSearchParams(window.location.search);
 
-    if (permalink.get('language') !== null) {
-      this.setState({ tag: permalink.get('language') });
-    }
+    this.setState({
+      tag: permalink.get('technology'),
+      country: permalink.get('country'),
+      name: permalink.get('name'),
+    });
+  }
 
-    if (permalink.get('country') !== null) {
-      this.setState({ country: permalink.get('country') });
-    }
-
-    if (permalink.get('name') !== null) {
-      this.setState({ name: permalink.get('name') });
-    }
+  componentWillUpdate(nextProps, nextState) {
+    set(nextState);
   }
 
   componentDidMount() {
@@ -116,10 +129,17 @@ class App extends Component {
         onClose,
       },
     });
+    window.ga('send', 'event', 'Modal', 'open', title);
   };
 
   render() {
-    const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
+    const {
+      mentors,
+      fieldsIsActive,
+      modal,
+      clickedTag,
+      clickedCountry,
+    } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
@@ -131,9 +151,7 @@ class App extends Component {
         <main>
           <Header />
           <aside className="sidebar">
-            <a className="logo" href="/">
-              <Logo width={110} height={50} color="#68d5b1" />
-            </a>
+            <Logo width={110} height={50} color="#68d5b1" />
             <Filter
               onTagSelected={this.handleTagSelect}
               onCountrySelected={this.handleCountrySelect}
@@ -142,6 +160,7 @@ class App extends Component {
               onToggleSwitch={this.toggleSwitch}
               mentorCount={mentorsInList.length}
               clickedTag={clickedTag}
+              clickedCountry={clickedCountry}
             />
             <SocialLinks />
 
@@ -199,6 +218,7 @@ class App extends Component {
             favorites={this.state.favorites}
             onFavMentor={this.onFavMentor}
             handleTagClick={this.handleTagClick}
+            handleCountryClick={this.handleCountryClick}
           />
         </main>
       </div>

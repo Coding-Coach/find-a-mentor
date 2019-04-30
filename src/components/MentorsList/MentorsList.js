@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
 import Card from '../Card/Card';
 
-const itemsInPage = 10;
+const itemsInPage = 20;
 
 export default class MentorsLists extends Component {
   state = {
@@ -34,6 +34,7 @@ export default class MentorsLists extends Component {
       favorites,
       onFavMentor,
       handleTagClick,
+      handleCountryClick,
     } = this.props;
     const { page } = this.state;
 
@@ -53,6 +54,7 @@ export default class MentorsLists extends Component {
               onFavMentor={onFavMentor}
               isFav={favorites.indexOf(mentor.id) > -1}
               handleTagClick={handleTagClick}
+              handleCountryClick={handleCountryClick}
             />
           ))}
           {mentorsInList.length === 0 && (
