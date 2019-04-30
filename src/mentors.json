@@ -6144,5 +6144,32 @@
         "id": "sto3psl"
       }
     ]
+  },
+  {
+    "id": "reem.tare2.93@gmail.com",
+    "name": "Reem Tariq",
+    "avatar": "https://avatars1.githubusercontent.com/u/37483473?s=400&u=7c7c55ef2e3a0991d6609252d2011f7b6f2e428f&v=4",
+    "title": "Software Engineer ",
+    "description": "I can help in js and react",
+    "country": "EG",
+    "tags": [
+      "reactjs",
+      "js",
+      "redux"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "reem-tariq"
+      },
+      {
+        "type": "twitter",
+        "id": "Reem_Tariq_"
+      },
+      {
+        "type": "github",
+        "id": "reemtariqq"
+      }
+    ]
   }
 ]
