@@ -6203,5 +6203,34 @@
         "id": "devkisslist.com"
       }
     ]
+  },
+  {
+    "id": "wmoreiradev@gmail.com",
+    "name": "wagner Moreira",
+    "avatar": "https://i.imgur.com/Va3O35p.jpg",
+    "title": "Senior Front-end Developer",
+    "description": "Passionate about learning and helping others",
+    "country": "CA",
+    "tags": [
+      "js",
+      "angular2",
+      "css",
+      "ngrx",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "wmoreiradev@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "wmoreiradev"
+      },
+      {
+        "type": "twitter",
+        "id": "jsemotionz"
+      }
+    ]
   }
 ]
