@@ -6175,5 +6175,33 @@
         "id": "reemtariqq"
       }
     ]
+  },
+  {
+    "id": "omarld@hotmail.com",
+    "name": "Omar Duarte",
+    "avatar": "https://s.gravatar.com/avatar/ebefcd7785948ac255bc0b33fa00cbc3?s=80",
+    "title": "Software Developer",
+    "description": "Passionate about helping others and learning.",
+    "country": "US",
+    "tags": [
+      "javascript",
+      "nodejs",
+      "web",
+      "web-development"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "omar-duarte-291b714"
+      },
+      {
+        "type": "twitter",
+        "id": "@duartod"
+      },
+      {
+        "type": "website",
+        "id": "devkisslist.com"
+      }
+    ]
   }
 ]
