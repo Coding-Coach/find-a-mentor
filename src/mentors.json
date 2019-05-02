@@ -6232,5 +6232,40 @@
         "id": "jsemotionz"
       }
     ]
+  },
+  {
+    "id": "bhalaniabhishek@gmail.com",
+    "name": "Abhishek B.",
+    "avatar": "https://secure.gravatar.com/avatar/8d8694c024ed709ce1f32688070c22e2?size=400",
+    "title": "Project Manager at SSC",
+    "description": "Software Consultant, Architecture,Software Engineer, Project Manager",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      ".netcore",
+      "backend",
+      "mssql",
+      "angular",
+      "c#",
+	  "asp.net core",
+	  "jquery",
+	  "restapi"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "abhishekbhalani"
+      },
+      {
+        "type": "linkedin",
+        "id": "bhalaniabhishek/"
+      },
+      {
+        "type": "email",
+        "id": "bhalaniabhishek@gmail.com"
+      }
+    ]
   }
 ]
