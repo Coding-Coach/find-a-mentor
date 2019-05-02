@@ -122,7 +122,7 @@ const questionCountry = {
 
 const questionSpokenLanguages = {
   type: 'checkbox-plus',
-  name: 'languages',
+  name: 'spokenLanguages',
   message: 'Please add your spoken languages: (type to search, use space to select multiple languages, enter to submit)',
   pageSize: 10,
   highlight: true,
