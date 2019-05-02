@@ -18,6 +18,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 ## Want to be a mentor?
 
 1. Fork
+1. Clone your fork (if you use passphrase, please clone with the HTTPS approach)
 1. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
 
 ### CLI Geek?
