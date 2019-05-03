@@ -6246,9 +6246,9 @@
     "tags": [
       ".netcore",
       "c#",
-	  "asp.net core",
-	  "jquery",
-	  "restapi"
+      "asp.net core",
+      "jquery",
+      "restapi"
     ],
     "channels": [
       {
@@ -6262,6 +6262,39 @@
       {
         "type": "email",
         "id": "bhalaniabhishek@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "nyandiekafelix@gmail.com",
+    "name": "Felix Nyandieka",
+    "avatar": "https://avatars1.githubusercontent.com/u/15908547?s=400&u=602349c84445e3ad78e7a73bd8c468bbd60719d1&v=4",
+    "title": "Software Developer",
+    "description": "Full-stack developer focused on Python & the JavaScript ecosystem",
+    "country": "KE",
+    "spokenLanguages": [
+      "en",
+      "sw"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "graphql",
+      "python"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UFKEEUVUK"
+      },
+      {
+        "type": "linkedin",
+        "id": "nyandieka-f-330046115"
+      },
+      {
+        "type": "github",
+        "id": "nyandiekafelix"
       }
     ]
   }
