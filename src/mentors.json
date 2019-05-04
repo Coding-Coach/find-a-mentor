@@ -6297,5 +6297,37 @@
         "id": "nyandiekafelix"
       }
     ]
+  },
+  {
+    "id": "brentmclark@gmail.com",
+    "name": "Brent M Clark",
+    "avatar": "https://s.gravatar.com/avatar/2a2d22c34d297073e37687d3a846de47?s=80",
+    "title": "Sr. Software Engineer",
+    "description": "",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "html",
+      "css",
+      "python",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "brentclarkit"
+      },
+      {
+        "type": "twitter",
+        "id": "brent_m_clark"
+      },
+      {
+        "type": "github",
+        "id": "brentmclark"
+      }
+    ]
   }
 ]
