@@ -73,6 +73,10 @@
   height: var(--avatar-dim);
 }
 
+.card .avatar img.broken {
+  display: none !important;
+}
+
 .card .name {
   color: hsl(0, 0%, 29%);
   font-size: 20px;

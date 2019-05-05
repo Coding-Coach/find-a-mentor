@@ -80,6 +80,7 @@ const Avatar = ({ mentor, id }) => {
         src={mentor.avatar}
         aria-labelledby={`${id}`}
         alt={`${mentor.name}`}
+        onError={e => e.currentTarget.classList.add('broken')}
       />
     </div>
   );
