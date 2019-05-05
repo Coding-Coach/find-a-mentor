@@ -6329,5 +6329,39 @@
         "id": "brentmclark"
       }
     ]
+  },
+  {
+    "id": "ravirajthedeveloper@gmail.com",
+    "name": "Raviraj Subramanian",
+    "avatar": "https://avatars1.githubusercontent.com/u/14974095?s=460&v=4",
+    "title": "Developer Advocate",
+    "description": "Dev advocate, JavaScript developer and Blogger",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "ta",
+      "es"
+    ],
+    "tags": [
+      "frontend",
+      "backend",
+      "javascript",
+      "nodejs",
+      "git"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ravirajthedeveloper@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "ThisIsRaviraj"
+      },
+      {
+        "type": "website",
+        "id": "about.me/ravirajsubramanian"
+      }
+    ]
   }
 ]
