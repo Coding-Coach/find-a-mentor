@@ -1,6 +1,7 @@
 'use strict';
 const inquirer = require('inquirer');
 const countries = require('svg-country-flags/countries.json');
+const ISO6391 = require('iso-639-1');
 const checkSynonyms = require('../src/checkSynonymsTags');
 const https = require('https');
 var imageType = require('image-type');
@@ -9,6 +10,11 @@ var imageType = require('image-type');
 inquirer.registerPrompt(
   'autocomplete',
   require('inquirer-autocomplete-prompt')
+);
+
+inquirer.registerPrompt(
+  'checkbox-plus',
+  require('inquirer-checkbox-plus-prompt')
 );
 
 function validateEmail(value) {
@@ -113,6 +119,22 @@ const questionCountry = {
       .filter(country => country.toLowerCase().startsWith(input.toLowerCase()))
       .sort(),
 };
+
+const questionSpokenLanguages = {
+  type: 'checkbox-plus',
+  name: 'spokenLanguages',
+  message: 'Please add your spoken languages: (type to search, use space to select multiple languages, enter to submit)',
+  pageSize: 10,
+  highlight: true,
+  searchable: true,
+  default: ['English'],
+  source: async (answers, input) => {
+     input = input || ''
+     var data = ISO6391.getAllNames()
+     var results = data.filter(language => language.toLowerCase().startsWith(input.toLowerCase()))
+     return results
+  }
+}
 
 function validateTags(value) {
   const hasSynonymsErrors = tags => {
@@ -252,6 +274,7 @@ const questions = [
   questionTitle,
   questionDescription,
   questionCountry,
+  questionSpokenLanguages,
   questionTags,
   questionChannels,
   questionByChannel.email,
@@ -292,6 +315,8 @@ function convertAnswersToSchema(answers) {
         }
       });
       delete answers[answer];
+    } else if (answer === 'spokenLanguages') {
+      answers[answer] = answers[answer].map((answer) => ISO6391.getCode(answer))
     }
   }
   return answers;

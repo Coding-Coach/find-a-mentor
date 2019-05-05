@@ -6097,7 +6097,7 @@
     "avatar": "https://pbs.twimg.com/profile_images/1080492291356278784/rleGX-fa_400x400.jpg",
     "title": "Front-End Software Engineer",
     "description": "Front-End Software Engineer, UI Designer, Entrepreneur, and Outdoor Adventurer.",
-    "country": "GB-NIR",
+    "country": "IE",
     "tags": [
       "javascript",
       "angular",
@@ -6201,6 +6201,166 @@
       {
         "type": "website",
         "id": "devkisslist.com"
+      }
+    ]
+  },
+  {
+    "id": "wmoreiradev@gmail.com",
+    "name": "wagner Moreira",
+    "avatar": "https://i.imgur.com/Va3O35p.jpg",
+    "title": "Senior Front-end Developer",
+    "description": "Passionate about learning and helping others",
+    "country": "CA",
+    "tags": [
+      "js",
+      "angular2",
+      "css",
+      "ngrx",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "wmoreiradev@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "wmoreiradev"
+      },
+      {
+        "type": "twitter",
+        "id": "jsemotionz"
+      }
+    ]
+  },
+  {
+    "id": "bhalaniabhishek@gmail.com",
+    "name": "Abhishek B.",
+    "avatar": "https://secure.gravatar.com/avatar/8d8694c024ed709ce1f32688070c22e2?size=400",
+    "title": "Project Manager at SSC",
+    "description": "Software Consultant, Architecture,Software Engineer, Project Manager",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      ".netcore",
+      "c#",
+      "asp.net core",
+      "jquery",
+      "restapi"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "abhishekbhalani"
+      },
+      {
+        "type": "linkedin",
+        "id": "bhalaniabhishek/"
+      },
+      {
+        "type": "email",
+        "id": "bhalaniabhishek@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "nyandiekafelix@gmail.com",
+    "name": "Felix Nyandieka",
+    "avatar": "https://avatars1.githubusercontent.com/u/15908547?s=400&u=602349c84445e3ad78e7a73bd8c468bbd60719d1&v=4",
+    "title": "Software Developer",
+    "description": "Full-stack developer focused on Python & the JavaScript ecosystem",
+    "country": "KE",
+    "spokenLanguages": [
+      "en",
+      "sw"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "graphql",
+      "python"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UFKEEUVUK"
+      },
+      {
+        "type": "linkedin",
+        "id": "nyandieka-f-330046115"
+      },
+      {
+        "type": "github",
+        "id": "nyandiekafelix"
+      }
+    ]
+  },
+  {
+    "id": "brentmclark@gmail.com",
+    "name": "Brent M Clark",
+    "avatar": "https://s.gravatar.com/avatar/2a2d22c34d297073e37687d3a846de47?s=80",
+    "title": "Sr. Software Engineer",
+    "description": "",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "html",
+      "css",
+      "python",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "brentclarkit"
+      },
+      {
+        "type": "twitter",
+        "id": "brent_m_clark"
+      },
+      {
+        "type": "github",
+        "id": "brentmclark"
+      }
+    ]
+  },
+  {
+    "id": "ravirajthedeveloper@gmail.com",
+    "name": "Raviraj Subramanian",
+    "avatar": "https://avatars1.githubusercontent.com/u/14974095?s=460&v=4",
+    "title": "Developer Advocate",
+    "description": "Dev advocate, JavaScript developer and Blogger",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "ta",
+      "es"
+    ],
+    "tags": [
+      "frontend",
+      "backend",
+      "javascript",
+      "nodejs",
+      "git"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ravirajthedeveloper@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "ThisIsRaviraj"
+      },
+      {
+        "type": "website",
+        "id": "about.me/ravirajsubramanian"
       }
     ]
   },

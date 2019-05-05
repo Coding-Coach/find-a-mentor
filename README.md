@@ -18,6 +18,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 ## Want to be a mentor?
 
 1. Fork
+1. Clone your fork (if you use passphrase, please clone with the HTTPS approach)
 1. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
 
 ### CLI Geek?
@@ -51,6 +52,9 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
   "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
   "country": "SE",                              // Country code (link to the list below)
+  "spokenLanguages": [                          // ISO language code (link to list below)
+    "en", "fr", "zh"
+  ],
   "tags": [                                     // minItems: 1, maxItems: 5, only lowercase characters
     "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below)
   ],
@@ -81,6 +85,9 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 #### Country codes
 
 https://github.com/hjnilsson/country-flags/blob/master/countries.json
+
+#### Spoken language ISO codes
+https://github.com/meikidd/iso-639-1/blob/master/src/data.js
 
 #### Channels
 
