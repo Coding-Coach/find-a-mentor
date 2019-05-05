@@ -6363,5 +6363,34 @@
         "id": "about.me/ravirajsubramanian"
       }
     ]
+  },
+  {
+    "id": "hello@joaovanzuita.me",
+    "name": "João Vanzuita",
+    "avatar": "https://avatars3.githubusercontent.com/u/188671?s=460&v=4",
+    "title": "Full Stack Developer",
+    "description": "Enabling the future with software",
+    "country": "BR",
+    "tags": [
+      "linux",
+      "javascript",
+      "reactjs",
+      "testing",
+      "python"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@joaovanzuita.me"
+      },
+      {
+        "type": "github",
+        "id": "converge"
+      },
+      {
+        "type": "website",
+        "id": "www.joaovanzuita.me"
+      }
+    ]
   }
 ]
