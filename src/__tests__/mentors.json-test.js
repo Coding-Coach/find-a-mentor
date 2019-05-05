@@ -2,7 +2,7 @@ import mentors from '../mentors.json';
 import Ajv from 'ajv';
 import { get as getPath } from 'object-path';
 import countries from 'svg-country-flags/countries.json';
-import ISO6391 from 'iso-639-1'
+import ISO6391 from 'iso-639-1';
 import _ from 'lodash';
 import checkSynonyms from '../checkSynonymsTags';
 

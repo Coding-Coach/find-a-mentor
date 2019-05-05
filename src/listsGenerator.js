@@ -36,6 +36,6 @@ export function generateLists(mentors) {
     .sort(sortByLabel);
   json.languages = [...new Set(json.languages)]
     .map(language => mapToItem(ISO6391.getName(language), language))
-    .sort(sortByLabel)
+    .sort(sortByLabel);
   return json;
 }

@@ -123,18 +123,21 @@ const questionCountry = {
 const questionSpokenLanguages = {
   type: 'checkbox-plus',
   name: 'spokenLanguages',
-  message: 'Please add your spoken languages: (type to search, use space to select multiple languages, enter to submit)',
+  message:
+    'Please add your spoken languages: (type to search, use space to select multiple languages, enter to submit)',
   pageSize: 10,
   highlight: true,
   searchable: true,
   default: ['English'],
   source: async (answers, input) => {
-     input = input || ''
-     var data = ISO6391.getAllNames()
-     var results = data.filter(language => language.toLowerCase().startsWith(input.toLowerCase()))
-     return results
-  }
-}
+    input = input || '';
+    var data = ISO6391.getAllNames();
+    var results = data.filter(language =>
+      language.toLowerCase().startsWith(input.toLowerCase())
+    );
+    return results;
+  },
+};
 
 function validateTags(value) {
   const hasSynonymsErrors = tags => {
@@ -316,7 +319,7 @@ function convertAnswersToSchema(answers) {
       });
       delete answers[answer];
     } else if (answer === 'spokenLanguages') {
-      answers[answer] = answers[answer].map((answer) => ISO6391.getCode(answer))
+      answers[answer] = answers[answer].map(answer => ISO6391.getCode(answer));
     }
   }
   return answers;
