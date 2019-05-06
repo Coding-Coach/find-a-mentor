@@ -5,7 +5,7 @@ import Autocomplete from 'react-autocomplete';
 import classNames from 'classnames';
 
 function renderInput(props) {
-  return <input {...props} className="input" />;
+  return <input {...props} className="input" autoComplete="off" />;
 }
 
 function renderItem(item, isHighlighted) {
@@ -95,7 +95,9 @@ export default class AutoComplete extends Component {
 
   render() {
     const { value } = this.state;
-    const { id, source } = this.props;
+    const { source } = this.props;
+    let { id } = this.props;
+    id = `${id}-${Math.random()}`;
 
     return (
       <div className="ac">
