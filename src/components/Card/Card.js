@@ -5,19 +5,10 @@ import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import helpers from '../../helpers';
+import { report } from '../../ga';
 
 function handleAnalytic(channelName) {
-  if (window && window.ga) {
-    const { ga } = window;
-
-    ga('send', {
-      hitType: 'event',
-      eventCategory: 'Channel',
-      eventAction: 'click',
-      eventLabel: channelName,
-      transport: 'beacon',
-    });
-  }
+  report('Channel', 'click', channelName);
 }
 
 const tagsList = (tags, handleTagClick) =>

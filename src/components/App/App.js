@@ -13,6 +13,7 @@ import ModalContent from '../Modal/ModalContent';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
+import { report } from '../../ga';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -31,7 +32,7 @@ class App extends Component {
     this.setState({
       tag,
     });
-    window.ga('send', 'event', 'Filter', 'tag', tag);
+    report('Filter', 'tag', tag);
   };
 
   handleCountrySelect = async ({ value: country }) => {
@@ -39,7 +40,7 @@ class App extends Component {
     this.setState({
       country,
     });
-    window.ga('send', 'event', 'Filter', 'country', country);
+    report('Filter', 'country', country);
   };
 
   handleNameSelect = async ({ value: name }) => {
@@ -47,7 +48,7 @@ class App extends Component {
     this.setState({
       name,
     });
-    window.ga('send', 'event', 'Filter', 'name', 'name');
+    report('Filter', 'name', 'name');
   };
 
   handleLanguageSelect = async ({ value: language }) => {
@@ -55,7 +56,7 @@ class App extends Component {
     this.setState({
       language,
     });
-    window.ga('send', 'event', 'Filter', 'language', language);
+    report('Filter', 'language', language);
   };
 
   filterMentors = mentor => {
@@ -89,7 +90,7 @@ class App extends Component {
     this.setState({
       showFavorite,
     });
-    window.ga('send', 'event', 'Show Favorite', 'switch', showFavorite);
+    report('Show Favorite', 'switch', showFavorite);
   };
 
   onFavMentor = mentor => {
@@ -97,7 +98,7 @@ class App extends Component {
     this.setState({
       favorites,
     });
-    window.ga('send', 'event', 'Favorite');
+    report('Favorite');
   };
 
   handleTagClick = async clickedTag => {
@@ -105,7 +106,7 @@ class App extends Component {
     this.setState({
       clickedTag,
     });
-    window.ga('send', 'event', 'Filter', 'click', 'tag', clickedTag);
+    report('Filter', 'tag', clickedTag);
   };
 
   handleCountryClick = async clickedCountry => {
@@ -113,7 +114,7 @@ class App extends Component {
     this.setState({
       clickedCountry,
     });
-    window.ga('send', 'event', 'Filter', 'click', 'country', clickedCountry);
+    report('Filter', 'country', clickedCountry);
   };
 
   getPermalinkParams() {
@@ -148,7 +149,7 @@ class App extends Component {
         onClose,
       },
     });
-    window.ga('send', 'event', 'Modal', 'open', title);
+    report('Modal', 'open', title);
   };
 
   render() {
