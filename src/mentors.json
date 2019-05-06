@@ -68,7 +68,8 @@
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "IL",
     "spokenLanguages": [
-      "en"
+      "en",
+      "he"
     ],
     "tags": [
       "frontend",
