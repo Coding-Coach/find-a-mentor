@@ -5251,7 +5251,7 @@
     "name": "Karl Castillo",
     "avatar": "https://avatars1.githubusercontent.com/u/558200",
     "title": "Frontend Developer and Designer",
-    "description": "Frontend Developr with an eye in graphic design!",
+    "description": "Frontend Developer with an eye in graphic design!",
     "country": "CA",
     "tags": [
       "reactjs",
@@ -5269,8 +5269,8 @@
         "id": "khcastillo"
       },
       {
-        "type": "website",
-        "id": "www.karlworks.com"
+        "type": "twitter",
+        "id": "koralarts"
       }
     ]
   },
