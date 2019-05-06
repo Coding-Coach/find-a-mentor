@@ -6393,5 +6393,34 @@
         "id": "www.joaovanzuita.me"
       }
     ]
+  },
+  {
+    "id": "daniel.trautmann@shift-ahoy.com",
+    "name": "Daniel Trautmann",
+    "avatar": "https://gravatar.com/avatar/fbe6d9bd45d072f0fdc3a5873ecc239b?s=400",
+    "title": "DevOps-Engineer",
+    "description": "Self-taught developer and systems architect with 10+ yrs experience.",
+    "country": "DE",
+    "tags": [
+      "devops",
+      "go",
+      "cloud",
+      "architecture",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "daniel.trautmann@shift-ahoy.com"
+      },
+      {
+        "type": "github",
+        "id": "danieltrautmann"
+      },
+      {
+        "type": "twitter",
+        "id": "ShiftAhoy"
+      }
+    ]
   }
 ]
