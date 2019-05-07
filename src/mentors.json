@@ -1345,9 +1345,9 @@
   {
     "id": "bencodezen@gmail.com",
     "name": "Ben Hong",
-    "avatar": "https://pbs.twimg.com/profile_images/1007989522058108930/TqUpZKuh_400x400.jpg",
+    "avatar": "https://avatars.githubusercontent.com/bencodezen",
     "title": "Senior Frontend Engineer @GitLab",
-    "description": "Official Vue.js Community Partner. Google Developer Expert - Web Technologies.",
+    "description": "Vue.js Community Partner. Google Developer Expert. MozTechSpeaker.",
     "country": "US",
     "spokenLanguages": [
       "en"
@@ -1361,9 +1361,14 @@
     ],
     "channels": [
       {
+        "type": "github",
+        "id": "bencodezen"
+      },
+      {
         "type": "twitter",
         "id": "bencodezen"
       }
+      
     ]
   },
   {
