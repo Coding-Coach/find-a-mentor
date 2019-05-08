@@ -4793,7 +4793,9 @@
     "description": "Full Stack Developer, LAMP / MERN Stack specialising in UX & Front End Tech.",
     "country": "GB",
     "spokenLanguages": [
-      "en"
+      "en",
+      "ta",
+      "te"
     ],
     "tags": [
       "frontend",
