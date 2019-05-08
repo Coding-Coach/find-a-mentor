@@ -1368,7 +1368,6 @@
         "type": "twitter",
         "id": "bencodezen"
       }
-      
     ]
   },
   {
@@ -6425,6 +6424,38 @@
       {
         "type": "twitter",
         "id": "ShiftAhoy"
+      }
+    ]
+  },
+  {
+    "id": "eddie.moore@gmail.com",
+    "name": "Ed Moore",
+    "avatar": "https://pbs.twimg.com/profile_images/1026268586183032832/xXlXrd_0_400x400.jpg",
+    "title": "Lead Frontend Engineer",
+    "description": "Feel free to ask anything! 12+ years and counting",
+    "country": "AU",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "css",
+      "html",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "eddie.moore@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UHEUC7L48"
+      },
+      {
+        "type": "twitter",
+        "id": "_edmoore"
       }
     ]
   }
