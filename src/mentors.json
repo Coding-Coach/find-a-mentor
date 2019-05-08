@@ -6460,5 +6460,37 @@
         "id": "_edmoore"
       }
     ]
+  },
+  {
+    "id": "daniel@dslemay.com",
+    "name": "Daniel Lemay",
+    "avatar": "https://www.dslemay.com/avatar.jpg",
+    "title": "Frontend Developer",
+    "description": "Self-taught dev. Focused on JavaScript, React, and Accessibility.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "accessibility",
+      "reactjs",
+      "career",
+      "tooling",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "daniel@dslemay.com"
+      },
+      {
+        "type": "slack",
+        "id": "UJAGSFBG9"
+      },
+      {
+        "type": "twitter",
+        "id": "dslemay"
+      }
+    ]
   }
 ]
