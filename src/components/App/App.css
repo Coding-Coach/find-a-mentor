@@ -50,6 +50,16 @@ main {
   cursor: pointer;
 }
 
+@media screen and (max-height: 750px) {
+    .sidebar-nav {
+        margin-top: 15px;
+        position: static;
+    }
+    .sidebar {
+        overflow: auto;
+    }
+}
+
 @media all and (max-width: 576px) {
   .sidebar-nav {
     position: relative;
