@@ -6492,5 +6492,38 @@
         "id": "dslemay"
       }
     ]
+  },
+  {
+    "id": "tomk32@tomk32.e",
+    "name": "Thomas R. Koll",
+    "avatar": "https://tomk32.de/assets/tomk32.jpg",
+    "title": "Senior Ruby on Rails dev",
+    "description": "Fullstack, Hacker, Sailor, Dad",
+    "country": "AT",
+    "spokenLanguages": [
+      "de",
+      "en"
+    ],
+    "tags": [
+      "rails",
+      "mongodb",
+      "stimulusjs",
+      "bootstrap",
+      "growth hacking"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "tomk32@tomk32.de"
+      },
+      {
+        "type": "github",
+        "id": "TomK32"
+      },
+      {
+        "type": "website",
+        "id": "tomk32.de"
+      }
+    ]
   }
 ]
