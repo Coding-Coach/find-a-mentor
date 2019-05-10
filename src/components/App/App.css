@@ -53,7 +53,7 @@ main {
 @media screen and (max-height: 750px) {
     .sidebar-nav {
         margin-top: 15px;
-        position: static;
+        position: relative;
     }
     .sidebar {
         overflow: auto;
