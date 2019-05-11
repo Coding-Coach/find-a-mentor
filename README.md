@@ -78,7 +78,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 | frontend     | front end       |
 | express      | expressjs       |
 | fullstack    | full stack      |
-| vuejs        | vue             |
+| vuejs        | vue, vue.js     |
 | asp.net      | aspnet          |
 | asp.net core | aspnetcore      |
 

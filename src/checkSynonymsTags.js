@@ -1,7 +1,7 @@
 const synonymsTags = {
   '(node|node.js)': 'nodejs',
   '(react|React.js)': 'reactjs',
-  vue: 'vuejs',
+  '(vue|vue.js)': 'vuejs',
   'react-native': 'react native',
   csharp: 'c#',
   'front end': 'frontend',
