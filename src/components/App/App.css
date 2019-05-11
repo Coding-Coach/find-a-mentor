@@ -56,7 +56,7 @@ main {
         position: relative;
     }
     .sidebar {
-        overflow: auto;
+        overflow-y: auto;
     }
 }
 
