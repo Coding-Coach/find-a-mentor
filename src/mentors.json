@@ -6558,5 +6558,37 @@
         "id": "michaeljamie.com"
       }
     ]
+  },
+  {
+    "id": "cedpoilly@gmail.com",
+    "name": "Cedric Poilly",
+    "avatar": "https://secure.gravatar.com/avatar/09a9ef27f5102e0ee1cfd71bfd72d585",
+    "title": "Freelance Web Dev",
+    "description": "",
+    "country": "MU",
+    "spokenLanguages": [
+      "fr",
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "front-end",
+      "vue.js",
+      "electron.js"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "cedpoilly@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "cedpoilly"
+      },
+      {
+        "type": "github",
+        "id": "cedpoilly"
+      }
+    ]
   }
 ]
