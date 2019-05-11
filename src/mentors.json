@@ -6590,5 +6590,38 @@
         "id": "cedpoilly"
       }
     ]
+  },
+  {
+    "id": "nima@lighthouselabs.com",
+    "name": "Nima Boscarino",
+    "avatar": "https://pbs.twimg.com/profile_images/825435933889564672/q-wAMGBI_400x400.jpg",
+    "title": "Lead Instructor, Bootcamp",
+    "description": "Instructor at Lighthouse Labs, a Canadian web development bootcamp",
+    "country": "CA",
+    "spokenLanguages": [
+      "en",
+      "it"
+    ],
+    "tags": [
+      "reactjs",
+      "web dev",
+      "teaching",
+      "intro",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "nima@lighthouselabs.com"
+      },
+      {
+        "type": "twitter",
+        "id": "NimaBoscarino"
+      },
+      {
+        "type": "github",
+        "id": "NimaBoscarino"
+      }
+    ]
   }
 ]
