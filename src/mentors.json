@@ -6590,5 +6590,33 @@
         "id": "cedpoilly"
       }
     ]
+  },
+  {
+    "id": "anmol01shukla@gmail.com",
+    "name": "Anmol Shukla",
+    "avatar": "https://raw.githubusercontent.com/Cazaimi/Cazaimi.github.io/develop/assets/images/pictures/displayPicture0.jpg",
+    "title": "Backend developer at Postman",
+    "description": "I love open source and solving problems using models and design patterns.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en", "hi"
+    ],
+    "tags": [
+      "nodejs", "express", "api-design", "javascript"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "cazaimi.tech"
+      },
+      {
+        "type": "github",
+        "id": "Cazaimi"
+      },
+      {
+        "type": "twitter",
+        "id": "opiumanmol"
+      }
+    ]
   }
 ]
