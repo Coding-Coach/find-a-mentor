@@ -6622,5 +6622,37 @@
         "id": "NimaBoscarino"
       }
     ]
+  },
+  {
+    "id": "danknewton@hotmail.com",
+    "name": "Dan Newton",
+    "avatar": "https://media.licdn.com/dms/image/C5603AQGRgT0UFzrs4Q/profile-displayphoto-shrink_200_200/0?e=1563408000&v=beta&t=44Vj7bItr6qtnkMyDA2XhEZlM0vLJ2zECsX3K0MU7Sg",
+    "title": "Platform Engineer at r3",
+    "description": "Probably best suited to helping new/early devs in their software journey 👩‍💻",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "java",
+      "kotlin",
+      "backend",
+      "intro",
+      "blogging"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "danknewton@hotmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "LankyDanDev"
+      },
+      {
+        "type": "website",
+        "id": "lankydan.dev"
+      }
+    ]
   }
 ]
