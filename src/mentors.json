@@ -5537,35 +5537,6 @@
     ]
   },
   {
-    "id": "mail@luismerino.name",
-    "name": "Luis Merino",
-    "avatar": "https://avatars2.githubusercontent.com/u/61776?s=460&v=4",
-    "title": "Software Engineer",
-    "description": "I am a self-taught coder, love all things web-related.",
-    "country": "DE",
-    "tags": [
-      "reactjs",
-      "grapqhl",
-      "javascript",
-      "php",
-      "git"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "codementor@luismerino.name"
-      },
-      {
-        "type": "twitter",
-        "id": "Rendez"
-      },
-      {
-        "type": "github",
-        "id": "Rendez"
-      }
-    ]
-  },
-  {
     "id": "jpggvilaca@gmail.com",
     "name": "Joao Vilaca",
     "avatar": "https://avatars1.githubusercontent.com/u/8736279?v=4",
