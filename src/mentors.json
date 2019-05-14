@@ -6570,10 +6570,14 @@
     "description": "I love open source and solving problems using models and design patterns.",
     "country": "IN",
     "spokenLanguages": [
-      "en", "hi"
+      "en",
+      "hi"
     ],
     "tags": [
-      "nodejs", "express", "api-design", "javascript"
+      "nodejs",
+      "express",
+      "api-design",
+      "javascript"
     ],
     "channels": [
       {
@@ -6652,6 +6656,38 @@
       {
         "type": "website",
         "id": "lankydan.dev"
+      }
+    ]
+  },
+  {
+    "id": "stan.boyet@gmail.com",
+    "name": "Stan",
+    "avatar": "https://fr.gravatar.com/userimage/37307370/f4634d856ecc68a01fb19a45a348ad59.png?size=400",
+    "title": "CTO",
+    "description": "Ruby backend dev turned CTO",
+    "country": "BE",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "ruby",
+      "rails",
+      "backend",
+      "leadership"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "stan.boyet@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "U03E836SN"
+      },
+      {
+        "type": "twitter",
+        "id": "stanboyet"
       }
     ]
   }
