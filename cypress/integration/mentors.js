@@ -12,6 +12,7 @@ describe('Mentor Filtering', () => {
             .get('[data-testid=mentors-wrapper] .mentors-cards')
             .should('have.length', 1)
     })
+    
     it('can filter by country', () => {
         cy.visit('http://localhost:3001')
         .get('[data-testid=name-filter-autocomplete]')
@@ -23,6 +24,7 @@ describe('Mentor Filtering', () => {
             .get('[data-testid=mentors-wrapper] .mentors-cards')
             .should('have.length', 1)
     })
+
     it('can filter by name', () => {
         cy.visit('http://localhost:3001')
             .get('[data-testid=name-filter-autocomplete]')
@@ -31,6 +33,7 @@ describe('Mentor Filtering', () => {
             .get('[data-testid=mentors-wrapper] .mentors-cards')
             .should('have.length', 1)
     })
+
     it('can filter by language', () => {
         cy.visit('http://localhost:3001')
             .get('[data-testid=name-filter-autocomplete]')
