@@ -2,7 +2,7 @@ const { cy } = global;
 
 describe('Mentor Filtering', () => {
   it('can filter by technology', () => {
-    cy.visit('http://localhost:3001')
+    cy.visit('/')
       .get('[data-testid=name-filter-autocomplete]')
       .type('Brent M Clark')
       .type('{enter}')
@@ -14,7 +14,7 @@ describe('Mentor Filtering', () => {
   });
 
   it('can filter by country', () => {
-    cy.visit('http://localhost:3001')
+    cy.visit('/')
       .get('[data-testid=name-filter-autocomplete]')
       .type('Brent M Clark')
       .type('{enter}')
@@ -26,7 +26,7 @@ describe('Mentor Filtering', () => {
   });
 
   it('can filter by name', () => {
-    cy.visit('http://localhost:3001')
+    cy.visit('/')
       .get('[data-testid=name-filter-autocomplete]')
       .type('Brent M Clark')
       .type('{enter}')
@@ -35,7 +35,7 @@ describe('Mentor Filtering', () => {
   });
 
   it('can filter by language', () => {
-    cy.visit('http://localhost:3001')
+    cy.visit('/')
       .get('[data-testid=name-filter-autocomplete]')
       .type('Brent M Clark')
       .type('{enter}')
