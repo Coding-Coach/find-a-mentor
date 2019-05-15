@@ -89,6 +89,7 @@ export default class Filter extends Component {
               id="name"
               source={names}
               onSelect={this.onNameSelect}
+              data-testid="name-filter-autocomplete"
             />
           </Input>
           <Input id="language" label="Language" key="language">
