@@ -95,7 +95,7 @@ export default class AutoComplete extends Component {
 
   render() {
     const { value } = this.state;
-    const { source } = this.props;
+    const { source, 'data-testid' : testid } = this.props;
     let { id } = this.props;
     id = `${id}-${Math.random()}`;
 
@@ -114,6 +114,7 @@ export default class AutoComplete extends Component {
           onChange={this.onChange}
           inputProps={{
             id,
+            'data-testid': testid
           }}
         />
       </div>
