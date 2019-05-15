@@ -6690,5 +6690,38 @@
         "id": "stanboyet"
       }
     ]
+  },
+  {
+    "id": "jochen.zehnder@gmail.com",
+    "name": "Jochen Zehnder",
+    "avatar": "https://avatars0.githubusercontent.com/u/2915576?v=4",
+    "title": "Head of Engineering",
+    "description": "Systems and Software Engineer! Happy to help and learn along the way!",
+    "country": "CH",
+    "spokenLanguages": [
+      "de",
+      "en"
+    ],
+    "tags": [
+      "java",
+      "linux",
+      "automation",
+      "cloud",
+      "scrum"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jochen.zehnder@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UJD5S3P34"
+      },
+      {
+        "type": "twitter",
+        "id": "elft3r"
+      }
+    ]
   }
 ]
