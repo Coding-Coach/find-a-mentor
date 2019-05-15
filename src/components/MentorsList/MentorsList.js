@@ -41,7 +41,10 @@ export default class MentorsLists extends Component {
     const mentorsInList = mentors.slice(0, page * itemsInPage);
 
     return (
-      <section className={classNames(['mentors-wrapper', className])} data-testid="mentors-wrapper">
+      <section
+        className={classNames(['mentors-wrapper', className])}
+        data-testid="mentors-wrapper"
+      >
         <InfiniteScroll
           className="mentors-cards"
           loadMore={this.loadMore}
