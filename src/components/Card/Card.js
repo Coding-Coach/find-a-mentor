@@ -155,7 +155,7 @@ const Card = ({
     );
   };
   return (
-    <div className="card" aria-label="Mentor card">
+    <div className="card" aria-label="Mentor card" data-testid="mentor-card">
       <CardHeader />
       <MentorInfo />
       <SkillsTags />

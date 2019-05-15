@@ -9,7 +9,7 @@ describe('Mentor Filtering', () => {
       .getByTestId('technology-filter-autocomplete')
       .type('reactjs')
       .type('{enter}')
-      .get('.mentors-cards')
+      .getByTestId('mentor-card')
       .should('have.length', 1);
   });
 
@@ -21,7 +21,7 @@ describe('Mentor Filtering', () => {
       .getByTestId('country-filter-autocomplete')
       .type('United States')
       .type('{enter}')
-      .get('.mentors-cards')
+      .getByTestId('mentor-card')
       .should('have.length', 1);
   });
 
@@ -30,7 +30,7 @@ describe('Mentor Filtering', () => {
       .getByTestId('name-filter-autocomplete')
       .type('Brent M Clark')
       .type('{enter}')
-      .get('.mentors-cards')
+      .getByTestId('mentor-card')
       .should('have.length', 1);
   });
 
@@ -42,7 +42,7 @@ describe('Mentor Filtering', () => {
       .getByTestId('language-filter-autocomplete')
       .type('English')
       .type('{enter}')
-      .get('.mentors-cards')
+      .getByTestId('mentor-card')
       .should('have.length', 1);
   });
 });
