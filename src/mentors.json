@@ -6723,5 +6723,37 @@
         "id": "elft3r"
       }
     ]
+  },
+  {
+    "id": "hi@suhailpatel.com",
+    "name": "Suhail Patel",
+    "avatar": "https://suhailpatel.com/images/myself512.png",
+    "title": "Backend Engineer at Monzo",
+    "description": "I work on infrastructure and distributed systems. Always happy to help ✨",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "platform",
+      "devops",
+      "go",
+      "python",
+      "kubernetes"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hi@suhailpatel.com"
+      },
+      {
+        "type": "twitter",
+        "id": "suhailpatel"
+      },
+      {
+        "type": "website",
+        "id": "suhailpatel.com"
+      }
+    ]
   }
 ]
