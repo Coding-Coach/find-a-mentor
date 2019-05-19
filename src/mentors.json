@@ -2861,38 +2861,6 @@
     ]
   },
   {
-    "id": "ben@benmallinson.me",
-    "name": "Ben Mallinson",
-    "avatar": "https://i.imgur.com/O1wzV5d.jpg",
-    "title": "Full Stack Web Developer",
-    "description": "I love building things with code and helping people learn.",
-    "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "php",
-      "laravel",
-      "testing"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "ben@benmallinson.me"
-      },
-      {
-        "type": "twitter",
-        "id": "mallinsonben"
-      },
-      {
-        "type": "github",
-        "id": "benmallinson"
-      }
-    ]
-  },
-  {
     "id": "alxnder.kozlov@gmail.com",
     "name": "Oleksandr Kozlov",
     "avatar": "https://avatars3.githubusercontent.com/u/17703730?s=460&v=4",
