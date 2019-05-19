@@ -2561,7 +2561,8 @@
     "description": "Mostly focused on the backend, but with a view of the whole stack.",
     "country": "PT",
     "spokenLanguages": [
-      "en", "pt"
+      "en",
+      "pt"
     ],
     "tags": [
       "dotnet",
@@ -6721,6 +6722,38 @@
       {
         "type": "website",
         "id": "suhailpatel.com"
+      }
+    ]
+  },
+  {
+    "id": "mailtobolaji@gmail.com",
+    "name": "Bolaji Ayodeji",
+    "avatar": "https://res.cloudinary.com/iambeejayayo/image/upload/v1558299935/bolaji.jpg",
+    "title": "Front-end Dev & Technical Writer",
+    "description": "I'm a JAMstack enthusiast [a11y & m16y], Technical Writer and OSS Advocate.",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "jamstack",
+      "hugo",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "bolajiayodeji"
+      },
+      {
+        "type": "twitter",
+        "id": "iambolajiayo"
+      },
+      {
+        "type": "website",
+        "id": "bolajiayodeji.com"
       }
     ]
   }
