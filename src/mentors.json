@@ -2561,7 +2561,7 @@
     "description": "Mostly focused on the backend, but with a view of the whole stack.",
     "country": "PT",
     "spokenLanguages": [
-      "en"
+      "en", "pt"
     ],
     "tags": [
       "dotnet",
