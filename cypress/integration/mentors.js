@@ -3,9 +3,7 @@ const { cy } = global;
 describe('Mentor Filtering', () => {
   it('can filter by technology', () => {
     cy.visit('/')
-      .getByTestId('name-filter-autocomplete')
-      .type('Brent M Clark')
-      .type('{enter}')
+      .filterByName('Brent M Clark')
       .getByTestId('technology-filter-autocomplete')
       .type('reactjs')
       .type('{enter}')
@@ -15,9 +13,7 @@ describe('Mentor Filtering', () => {
 
   it('can filter by country', () => {
     cy.visit('/')
-      .getByTestId('name-filter-autocomplete')
-      .type('Brent M Clark')
-      .type('{enter}')
+      .filterByName('Brent M Clark')
       .getByTestId('country-filter-autocomplete')
       .type('United States')
       .type('{enter}')
@@ -27,18 +23,14 @@ describe('Mentor Filtering', () => {
 
   it('can filter by name', () => {
     cy.visit('/')
-      .getByTestId('name-filter-autocomplete')
-      .type('Brent M Clark')
-      .type('{enter}')
+      .filterByName('Brent M Clark')
       .getByTestId('mentor-card')
       .should('have.length', 1);
   });
 
   it('can filter by language', () => {
     cy.visit('/')
-      .getByTestId('name-filter-autocomplete')
-      .type('Brent M Clark')
-      .type('{enter}')
+      .filterByName('Brent M Clark')
       .getByTestId('language-filter-autocomplete')
       .type('English')
       .type('{enter}')
