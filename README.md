@@ -136,7 +136,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `yarn test:e2e`
 
-Launches the Cypress test runner _and_ the app.  Must run on port `3000`.
+Launches the `Cypress` test runner _and_ the app; must run on port `3000`.  Learn more about `Cypress` [on their website](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell).
 
 # Code of Conduct
 At Coding Coach, we value all our mentors, mentees, and contributors. Our goal is to make this a safe space where new and experienced developers can connect and learn from one another. Therefore, we do not tolerate any form of harassment or prejudice. This Code of Conduct applies to all Coding Coach spaces including but not limited to slack, email correspondence, and social media.
