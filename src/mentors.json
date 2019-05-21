@@ -6756,5 +6756,37 @@
         "id": "bolajiayodeji.com"
       }
     ]
+  },
+  {
+    "id": "kyle90adam@hotmail.com",
+    "name": "Kyle Harrison",
+    "avatar": "https://avatars0.githubusercontent.com/u/1443700",
+    "title": "Senior Software Engineer",
+    "description": "I build React and Python web apps on AWS. AMA!",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "python",
+      "aws",
+      "reactjs",
+      "docker",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "apoclyps"
+      },
+      {
+        "type": "github",
+        "id": "apoclyps"
+      },
+      {
+        "type": "website",
+        "id": "www.kyleharrison.co.uk"
+      }
+    ]
   }
 ]
