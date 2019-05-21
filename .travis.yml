@@ -1,14 +1,14 @@
 language: node_js
 install:
-- npm ci
+- yarn
 node_js:
   - v11.6.0
 cache:
   directories:
-  - "$HOME/.npm"
+  - "$HOME/.yarn-cache"
 script:
-  - npm test
-  - npm run predeploy
+  - yarn test
+  - yarn predeploy
 deploy:
   provider: pages
   skip_cleanup: true
