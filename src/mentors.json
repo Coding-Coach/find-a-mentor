@@ -6788,5 +6788,37 @@
         "id": "www.kyleharrison.co.uk"
       }
     ]
+  },
+  {
+    "id": "aurore.trunelle@digitaledawn.co.uk",
+    "name": "Aurore Trunelle",
+    "avatar": "https://avatars0.githubusercontent.com/u/17130395?s=460&v=4",
+    "title": "Senior Front Engineer @ SamKnows",
+    "description": "Happy to help on all front end things related!",
+    "country": "GB",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "html",
+      "css",
+      "javascript",
+      "vuejs"
+    ],
+    "channels": [
+       {
+        "type": "email",
+        "id": "aurore.trunelle@digitaledawn.co.uk"
+      },
+      {
+        "type": "twitter",
+        "id": "digitaledawn"
+      },
+      {
+        "type": "github",
+        "id": "atrunelle"
+      }
+    ]
   }
 ]
