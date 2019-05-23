@@ -50,6 +50,13 @@ main {
   cursor: pointer;
 }
 
+.auth {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
 @media all and (max-width: 576px) {
   .sidebar-nav {
     position: relative;
