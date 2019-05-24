@@ -6865,7 +6865,7 @@
       "en", "hi"
     ],
     "tags": [
-      "nodejs", "flask", "C++", "Java", "Python", "Ruby-on-rails", "css", "api-design", "javascript"
+      "nodejs", "fullstack", "frontend"
     ],
     "channels": [
       {
@@ -6877,8 +6877,8 @@
         "id": "__Vaibhavi"
       },
       {
-        "type": "website",
-        "id": "https://www.linkedin.com/in/vaibhavi-singh-45619a138/"
+        "type": "linkedin",
+        "id": "vaibhavi-singh-45619a138"
       }      
     ]
   }
