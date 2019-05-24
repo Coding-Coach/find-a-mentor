@@ -6807,7 +6807,7 @@
       "vuejs"
     ],
     "channels": [
-       {
+      {
         "type": "email",
         "id": "aurore.trunelle@digitaledawn.co.uk"
       },
@@ -6818,6 +6818,39 @@
       {
         "type": "github",
         "id": "atrunelle"
+      }
+    ]
+  },
+  {
+    "id": "hello@maxpou.fr",
+    "name": "Maxence Poutord",
+    "avatar": "https://avatars2.githubusercontent.com/u/6160970?s=400&u=e60d0a62b77380cb2b63eeaed9a8bcd9b8936619&v=4",
+    "title": "Senior Frontend Engineer",
+    "description": "Engineer, speaker and blogger. Always happy to helps!",
+    "country": "EU",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "vuejs",
+      "javascript",
+      "frontend",
+      "remote work",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "_maxpou"
+      },
+      {
+        "type": "github",
+        "id": "maxpou"
+      },
+      {
+        "type": "website",
+        "id": "www.maxpou.fr"
       }
     ]
   }
