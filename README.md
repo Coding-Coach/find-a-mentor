@@ -41,6 +41,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 1. Please double check your details. It’s important that the data scheme remains the same; just replace the details with your values. If you change the data architecture, it will cause errors.
 2. In order to avoid merge conflicts, please fetch the changes on master before pushing.
+3. By adding yourself as a mentor, you give us permission to send you emails. Don't worry, we'll not spam you, just for welcome you nicely and make sure you will get updates about the project.
 
 ### Mentor schema
 
