@@ -6853,5 +6853,33 @@
         "id": "www.maxpou.fr"
       }
     ]
+  },
+  {
+    "id": "vaibhavisingh2402@gmail.com",
+    "name": "Vaibhavi Singh",
+    "avatar": "https://avatars1.githubusercontent.com/u/32491912?s=400&u=9de134b25fa9230b3c146adcb8f5e8b8b8edf85b&v=4",
+    "title": "Full-stack web and C++ developer",
+    "description": "Engineer, writer, speaker",
+    "country": "IN",
+    "spokenLanguages": [
+      "en", "hi"
+    ],
+    "tags": [
+      "nodejs", "fullstack", "frontend"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "Vaibhavi24"
+      },
+      {
+        "type": "twitter",
+        "id": "__Vaibhavi"
+      },
+      {
+        "type": "linkedin",
+        "id": "vaibhavi-singh-45619a138"
+      }      
+    ]
   }
 ]
