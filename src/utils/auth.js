@@ -3,7 +3,7 @@ import Constants from '../config/constants';
 
 const storageKey = 'auth-data';
 
-export default class Auth {
+class Auth {
   accessToken;
 
   idToken;
@@ -74,17 +74,22 @@ export default class Auth {
       this.idToken = session.idToken;
       this.expiresAt = session.expiresAt;
     }
+
+    return this;
   }
 
   renewSession() {
-    this.auth0.checkSession({}, (err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-      } else if (err) {
-        this.logout();
-        console.log(err);
-      }
-    });
+    return new Promise(resolve => {
+      this.auth0.checkSession({}, (err, authResult) => {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          this.setSession(authResult);
+        } else if (err) {
+          this.logout();
+          console.log(err);
+        }
+        resolve();
+      });
+    })
   }
 
   logout = () => {
@@ -104,3 +109,5 @@ export default class Auth {
     return new Date().getTime() < expiresAt;
   }
 }
+
+export default new Auth().loadSession();

@@ -14,12 +14,8 @@ import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report } from '../../ga';
-import Auth from '../../utils/auth'
+import MemberArea from '../MemberArea/MemberArea';
 
-const auth = new Auth();
-auth.loadSession();
-
-// const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
     mentors: shuffle(mentors),
@@ -29,7 +25,6 @@ class App extends Component {
       content: null,
       onClose: null,
     },
-    isAuthenticated: auth.isAuthenticated()
   };
 
   handleTagSelect = async ({ value: tag }) => {
@@ -137,26 +132,13 @@ class App extends Component {
     set(nextState);
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     if (window && window.ga) {
       const { location, ga } = window;
       ga('set', 'page', location.href);
       ga('send', 'pageview');
     }
     this.getPermalinkParams();
-    await auth.handleAuthentication()
-    this.refreshAuthState();
-  }
-
-  refreshAuthState = () => {
-    this.setState({
-      isAuthenticated: auth.isAuthenticated()
-    })
-  }
-
-  logout = () => {
-    auth.logout();
-    this.refreshAuthState();
   }
 
   handleModal = (title, content, onClose) => {
@@ -177,7 +159,6 @@ class App extends Component {
       modal,
       clickedTag,
       clickedCountry,
-      isAuthenticated,
     } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
@@ -188,13 +169,7 @@ class App extends Component {
         </Modal>
 
         <main>
-          <div className="auth">
-            {
-              isAuthenticated ?
-              <button onClick={this.logout}>Logout</button> :
-              <button onClick={() => auth.login()}>Login</button>
-            }
-          </div>
+          <MemberArea />
           <Header />
           <aside className="sidebar">
             <Logo width={110} height={50} color="#68d5b1" />

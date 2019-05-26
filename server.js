@@ -1,12 +1,32 @@
 const express = require('express');
+const fetch = require('node-fetch');
+var cors = require('cors')
+
 const app = express();
-const port = 3001;
+const port = 3002;
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
 
   next();
+});
+
+app.use('/api', cors(), function(req, res) {
+  const url = 'http://api.codingcoach.io/users' + req.url;
+  const { method, body, headers } = req;
+  fetch(url, {
+    method,
+    body,
+    headers
+  }).then(data => data.text()).then(data => {
+    res.contentType = 'application/json';
+    res.send(data);
+  }).catch(e => {
+    res.send({
+      message: e
+    })
+  })
 });
 
 app.get('/', (req, res) => res.send('Hello World!'));
