@@ -8764,10 +8764,10 @@ react-app-polyfill@^0.2.0:
     raf "3.4.0"
     whatwg-fetch "3.0.0"
 
-react-aria-offcanvas@^1.1.10:
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/react-aria-offcanvas/-/react-aria-offcanvas-1.1.10.tgz#302c199a17096b90ab1e2f54d5eeb0d6dc4fe78c"
-  integrity sha512-pSTrVxujIh725hi7rHe2OkFaAIkSimJGK4Yf0jLSiyrX93Iormgoj9rXrfOC6m3dUHw2zFCNJ52IGVvYxxc8KA==
+react-aria-offcanvas@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-aria-offcanvas/-/react-aria-offcanvas-1.2.1.tgz#81497555b16366003ef8e9314fac0ce7f2629561"
+  integrity sha512-qOZIQ/Bjm6Cwl5bgmV8NTrfQYoP91IfzO3yV07FaEu9r559YsYNVjeC3ykkCIpxx0O4+PeRfZ7acZ+IkJSwW4g==
   dependencies:
     prop-types "^15.6.1"
     run-event-handler-once "^1.0.0"

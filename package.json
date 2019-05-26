@@ -10,7 +10,7 @@
     "iso-639-1": "^2.0.5",
     "lodash": "^4.17.11",
     "react": "^16.7.0",
-    "react-aria-offcanvas": "^1.1.10",
+    "react-aria-offcanvas": "^1.2.1",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.7.0",
     "react-infinite-scroll-component": "^4.3.0",
