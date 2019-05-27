@@ -12,7 +12,6 @@ async function makeApiCall(path, body, method) {
       'Authorization': `Bearer ${auth.getIdToken()}`
     }
   };
-  console.log(url, options);
   const data = await fetch(url, options);
   try {
     return await data.json();
@@ -24,4 +23,9 @@ async function makeApiCall(path, body, method) {
 export async function getCurrentUser() {
   const res = await makeApiCall('/current');
   return res.user;
+}
+
+export async function getMentors() {
+  const res = await makeApiCall('/');
+  return res.users;
 }

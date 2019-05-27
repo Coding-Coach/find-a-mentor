@@ -10,15 +10,15 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
-import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report } from '../../ga';
 import MemberArea from '../MemberArea/MemberArea';
+import { getMentors } from '../../api';
 
 class App extends Component {
   state = {
-    mentors: shuffle(mentors),
+    mentors: [],
     favorites: get(),
     modal: {
       title: null,
@@ -132,13 +132,17 @@ class App extends Component {
     set(nextState);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     if (window && window.ga) {
       const { location, ga } = window;
       ga('set', 'page', location.href);
       ga('send', 'pageview');
     }
     this.getPermalinkParams();
+    const mentors = await getMentors();
+    this.setState({
+      mentors
+    })
   }
 
   handleModal = (title, content, onClose) => {
