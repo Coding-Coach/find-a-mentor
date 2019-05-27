@@ -6862,10 +6862,13 @@
     "description": "Engineer, writer, speaker",
     "country": "IN",
     "spokenLanguages": [
-      "en", "hi"
+      "en",
+      "hi"
     ],
     "tags": [
-      "nodejs", "fullstack", "frontend"
+      "nodejs",
+      "fullstack",
+      "frontend"
     ],
     "channels": [
       {
@@ -6879,7 +6882,40 @@
       {
         "type": "linkedin",
         "id": "vaibhavi-singh-45619a138"
-      }      
+      }
+    ]
+  },
+  {
+    "id": "danielcorner7@gmail.com",
+    "name": "Daniel Corner",
+    "avatar": "https://avatars2.githubusercontent.com/u/9141196?s=460&v=4",
+    "title": "Front-end Developer (React)",
+    "description": "Hiya! I'll gladly lend a hand with HTML/CSS/JS and frameworks like React.",
+    "country": "CA",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "frontend",
+      "reactjs",
+      "css",
+      "html",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "danielcorner7@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "daniel-corner-16a3835b"
+      },
+      {
+        "type": "twitter",
+        "id": "dcorn068"
+      }
     ]
   }
 ]
