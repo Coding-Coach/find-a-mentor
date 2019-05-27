@@ -18,9 +18,10 @@ app.use('/api', cors(), function(req, res) {
   fetch(url, {
     method,
     body,
-    headers
-  }).then(data => data.text()).then(data => {
-    res.contentType = 'application/json';
+    headers: {
+      Authorization: headers.authorization
+    }
+  }).then(data => data.json()).then(data => {
     res.send(data);
   }).catch(e => {
     res.send({

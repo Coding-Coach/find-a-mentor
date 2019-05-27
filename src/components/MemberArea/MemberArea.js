@@ -8,7 +8,6 @@ export default class MemberArea extends Component {
   }
 
   refreshAuthState = (currentUser) => {
-    debugger;
     this.setState({
       isAuthenticated: auth.isAuthenticated(),
       currentUser
