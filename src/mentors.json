@@ -6917,5 +6917,38 @@
         "id": "dcorn068"
       }
     ]
+  },
+  {
+    "id": "code@dominik-hanke.de",
+    "name": "Dominik Hanke",
+    "avatar": "https://share.dominik-hanke.de/photos/dominik/dominik-hanke-hoodie.jpg",
+    "title": "Full-Stack Developer",
+    "description": "",
+    "country": "DE",
+    "spokenLanguages": [
+      "de",
+      "en"
+    ],
+    "tags": [
+      "fullstack",
+      "vuejs",
+      "php",
+      "javascript",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "code@dominik-hanke.de"
+      },
+      {
+        "type": "linkedin",
+        "id": "dominik-hanke"
+      },
+      {
+        "type": "website",
+        "id": "www.dominik-hanke.de"
+      }
+    ]
   }
 ]
