@@ -6950,5 +6950,46 @@
         "id": "www.dominik-hanke.de"
       }
     ]
+  },
+  {
+    "id": "varlyanijatin88@gmail.com",
+    "name": "Jatin Varlyani",
+    "avatar": "https://avatars2.githubusercontent.com/u/34777376?v=4",
+    "title": "Full Stack WebDeveloper",
+    "description": "Hi, I am Jatin and I'll be happy to Help & Learn with you",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "fullstack",
+      "nodejs",
+      "reactjs",
+      "frontend",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "varlyanijatin88@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "jatin-varlyani"
+      },
+      {
+        "type": "github",
+        "id": "Jatin-8898"
+      },
+      {
+        "type": "twitter",
+        "id": "Jatin_8898"
+      },
+      {
+        "type": "website",
+        "id": "https://jatin-8898.github.io/"
+      }
+    ]
   }
 ]
