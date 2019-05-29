@@ -6950,5 +6950,38 @@
         "id": "www.dominik-hanke.de"
       }
     ]
+  },
+  {
+    "id": "marcelo.ogeda@gmail.com",
+    "name": "Marcelo Ogeda",
+    "avatar": "https://secure.gravatar.com/avatar/6c25101e1cefdd3a50de1c3c32939d8a",
+    "title": "Software Engineer",
+    "description": "",
+    "country": "BR",
+    "spokenLanguages": [
+      "en",
+      "pt"
+    ],
+    "tags": [
+      "fullstack",
+      "nodejs",
+      "reactjs",
+      "react native",
+      "serverless"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "DCS1N1Z96"
+      },
+      {
+        "type": "linkedin",
+        "id": "marceloogeda"
+      },
+      {
+        "type": "github",
+        "id": "marceloogeda"
+      }
+    ]
   }
 ]
