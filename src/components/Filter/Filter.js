@@ -7,9 +7,6 @@ import AutoComplete from '../AutoComplete/AutoComplete';
 import Input from '../Input/Input';
 import Switch from '../Switch/Switch';
 
-import { generateLists } from '../../listsGenerator';
-const { tags, countries, names, languages } = generateLists(mentors);
-
 export default class Filter extends Component {
   state = {
     tag: '',
@@ -47,7 +44,13 @@ export default class Filter extends Component {
   };
 
   render() {
-    const { onToggleSwitch, clickedTag, clickedCountry } = this.props;
+    const {
+      onToggleSwitch,
+      clickedCountry,
+      countries,
+      names,
+      languages,
+    } = this.props;
     const { showFilters } = this.state;
 
     return (
@@ -68,15 +71,6 @@ export default class Filter extends Component {
           </button>
         </h3>
         <div className="inputs" aria-expanded={showFilters}>
-          <Input id="technology" label="Technology" key="technology">
-            <AutoComplete
-              id="technology"
-              source={tags}
-              onSelect={this.onTagSelect}
-              clickedTag={clickedTag}
-              data-testid="technology-filter-autocomplete"
-            />
-          </Input>
           <Input id="country" label="Country" key="country">
             <AutoComplete
               id="country"

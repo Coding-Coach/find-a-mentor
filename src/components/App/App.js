@@ -10,10 +10,15 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
+import Input from '../Input/Input';
+import AutoComplete from '../AutoComplete/AutoComplete';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report } from '../../ga';
+
+import { generateLists } from '../../listsGenerator';
+const { tags, countries, names, languages } = generateLists(mentors);
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -182,6 +187,9 @@ class App extends Component {
               mentorCount={mentorsInList.length}
               clickedTag={clickedTag}
               clickedCountry={clickedCountry}
+              countries={countries}
+              names={names}
+              languages={languages}
             />
             <SocialLinks />
 
@@ -231,16 +239,34 @@ class App extends Component {
               />
             </a>
           </aside>
-          <MentorsList
-            className={classNames({
-              active: fieldsIsActive,
-            })}
-            mentors={mentorsInList}
-            favorites={this.state.favorites}
-            onFavMentor={this.onFavMentor}
-            handleTagClick={this.handleTagClick}
-            handleCountryClick={this.handleCountryClick}
-          />
+
+          <section
+            className={classNames([
+              'mentors-wrapper',
+              {
+                active: fieldsIsActive,
+              },
+            ])}
+            data-testid="mentors-wrapper"
+          >
+            <Input id="technology" label="Technology" key="technology">
+              <AutoComplete
+                id="technology"
+                source={tags}
+                onSelect={this.handleTagSelect}
+                clickedTag={clickedTag}
+                data-testid="technology-filter-autocomplete"
+              />
+            </Input>
+
+            <MentorsList
+              mentors={mentorsInList}
+              favorites={this.state.favorites}
+              onFavMentor={this.onFavMentor}
+              handleTagClick={this.handleTagClick}
+              handleCountryClick={this.handleCountryClick}
+            />
+          </section>
         </main>
       </div>
     );
