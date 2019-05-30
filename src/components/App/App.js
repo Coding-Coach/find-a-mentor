@@ -132,7 +132,7 @@ class App extends Component {
     set(nextState);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     reportPageView();
     this.getPermalinkParams();
     const mentors = await getMentors();
@@ -154,7 +154,7 @@ class App extends Component {
 
   render() {
     const {
-      mentors,
+      mentors = [],
       fieldsIsActive,
       modal,
       clickedTag,
@@ -169,7 +169,9 @@ class App extends Component {
         </Modal>
 
         <main>
-          <MemberArea />
+          <MemberArea
+            onEditProfile={(title, content) => this.handleModal(title, content)}
+          />
           <Header />
           <aside className="sidebar">
             <Logo width={110} height={50} color="#68d5b1" />

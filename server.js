@@ -5,6 +5,7 @@ var cors = require('cors')
 const app = express();
 const port = 3002;
 
+app.use(express.json());
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -17,9 +18,11 @@ app.use('/api', cors(), function(req, res) {
   const { method, body, headers } = req;
   fetch(url, {
     method,
-    body,
+    body: method === 'GET' ? undefined : JSON.stringify(body),
     headers: {
-      Authorization: headers.authorization
+      Authorization: headers.authorization,
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
     }
   }).then(data => data.json()).then(data => {
     res.send(data);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getCurrentUser } from '../../api';
 import auth from '../../utils/auth'
+import EditProfile from './EditProfile';
 
 export default class MemberArea extends Component {
   state = {
@@ -29,9 +30,21 @@ export default class MemberArea extends Component {
     }
   }
 
+  openProfile = () => {
+    const { onEditProfile } = this.props;
+    onEditProfile(
+      'Edit Your Pofile',
+      <EditProfile
+        user={this.state.currentUser}
+      />
+    )
+  }
+
   loggedIn() {
     return <>
-      Current user: {this.state.currentUser && this.state.currentUser.email}
+      Current user: {this.state.currentUser &&
+        <a href="javascript:void(0)" onClick={this.openProfile}>{this.state.currentUser.email}</a>
+      }
       <button onClick={this.logout}>Logout</button>
     </>;
   }
