@@ -24,7 +24,10 @@ app.use('/api', cors(), function(req, res) {
       Accept: 'application/json',
       'Content-Type': 'application/json'
     }
-  }).then(data => data.json()).then(data => {
+  }).then(data => {
+    res.status(data.status);
+    return data.json();
+  }).then(data => {
     res.send(data);
   }).catch(e => {
     res.send({
