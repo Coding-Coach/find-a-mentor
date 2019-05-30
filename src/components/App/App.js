@@ -13,7 +13,7 @@ import ModalContent from '../Modal/ModalContent';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
-import { report } from '../../ga';
+import { report, reportPageView } from '../../ga';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -133,11 +133,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (window && window.ga) {
-      const { location, ga } = window;
-      ga('set', 'page', location.href);
-      ga('send', 'pageview');
-    }
+    reportPageView();
     this.getPermalinkParams();
   }
 
