@@ -1345,9 +1345,9 @@
   {
     "id": "bencodezen@gmail.com",
     "name": "Ben Hong",
-    "avatar": "https://pbs.twimg.com/profile_images/1007989522058108930/TqUpZKuh_400x400.jpg",
+    "avatar": "https://avatars.githubusercontent.com/bencodezen",
     "title": "Senior Frontend Engineer @GitLab",
-    "description": "Official Vue.js Community Partner. Google Developer Expert - Web Technologies.",
+    "description": "Vue.js Community Partner. Google Developer Expert. MozTechSpeaker.",
     "country": "US",
     "spokenLanguages": [
       "en"
@@ -1360,6 +1360,10 @@
       "career"
     ],
     "channels": [
+      {
+        "type": "github",
+        "id": "bencodezen"
+      },
       {
         "type": "twitter",
         "id": "bencodezen"
@@ -2557,7 +2561,8 @@
     "description": "Mostly focused on the backend, but with a view of the whole stack.",
     "country": "PT",
     "spokenLanguages": [
-      "en"
+      "en",
+      "pt"
     ],
     "tags": [
       "dotnet",
@@ -2853,38 +2858,6 @@
       {
         "type": "website",
         "id": "codeanit.com"
-      }
-    ]
-  },
-  {
-    "id": "ben@benmallinson.me",
-    "name": "Ben Mallinson",
-    "avatar": "https://i.imgur.com/O1wzV5d.jpg",
-    "title": "Full Stack Web Developer",
-    "description": "I love building things with code and helping people learn.",
-    "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "php",
-      "laravel",
-      "testing"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "ben@benmallinson.me"
-      },
-      {
-        "type": "twitter",
-        "id": "mallinsonben"
-      },
-      {
-        "type": "github",
-        "id": "benmallinson"
       }
     ]
   },
@@ -4789,7 +4762,9 @@
     "description": "Full Stack Developer, LAMP / MERN Stack specialising in UX & Front End Tech.",
     "country": "GB",
     "spokenLanguages": [
-      "en"
+      "en",
+      "ta",
+      "te"
     ],
     "tags": [
       "frontend",
@@ -5504,9 +5479,9 @@
   {
     "id": "moaaz_bs@yahoo.com",
     "name": "Moaaz Bhnas",
-    "avatar": "https://i.ibb.co/crRDHM0/quicksquare-201891731148824.jpg",
-    "title": "Front-End Developer at NasNav",
-    "description": "Problem-solving lover. Specialized in React.js and web accessibility.",
+    "avatar": "https://i.ibb.co/xJtDKw1/quicksquarenew-201951194458545.jpg",
+    "title": "Front-End Developer at @NasNav",
+    "description": "CSS geek :D.",
     "country": "EG",
     "tags": [
       "a11y",
@@ -5527,35 +5502,6 @@
       {
         "type": "website",
         "id": "moaaz-bhnas.github.io/portfolio/"
-      }
-    ]
-  },
-  {
-    "id": "mail@luismerino.name",
-    "name": "Luis Merino",
-    "avatar": "https://avatars2.githubusercontent.com/u/61776?s=460&v=4",
-    "title": "Software Engineer",
-    "description": "I am a self-taught coder, love all things web-related.",
-    "country": "DE",
-    "tags": [
-      "reactjs",
-      "grapqhl",
-      "javascript",
-      "php",
-      "git"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "codementor@luismerino.name"
-      },
-      {
-        "type": "twitter",
-        "id": "Rendez"
-      },
-      {
-        "type": "github",
-        "id": "Rendez"
       }
     ]
   },
@@ -6420,6 +6366,621 @@
       {
         "type": "twitter",
         "id": "ShiftAhoy"
+      }
+    ]
+  },
+  {
+    "id": "eddie.moore@gmail.com",
+    "name": "Ed Moore",
+    "avatar": "https://pbs.twimg.com/profile_images/1026268586183032832/xXlXrd_0_400x400.jpg",
+    "title": "Lead Frontend Engineer",
+    "description": "Feel free to ask anything! 12+ years and counting",
+    "country": "AU",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "css",
+      "html",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "eddie.moore@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UHEUC7L48"
+      },
+      {
+        "type": "twitter",
+        "id": "_edmoore"
+      }
+    ]
+  },
+  {
+    "id": "daniel@dslemay.com",
+    "name": "Daniel Lemay",
+    "avatar": "https://www.dslemay.com/avatar.jpg",
+    "title": "Frontend Developer",
+    "description": "Self-taught dev. Focused on JavaScript, React, and Accessibility.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "accessibility",
+      "reactjs",
+      "career",
+      "tooling",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "daniel@dslemay.com"
+      },
+      {
+        "type": "slack",
+        "id": "UJAGSFBG9"
+      },
+      {
+        "type": "twitter",
+        "id": "dslemay"
+      }
+    ]
+  },
+  {
+    "id": "tomk32@tomk32.e",
+    "name": "Thomas R. Koll",
+    "avatar": "https://tomk32.de/assets/tomk32.jpg",
+    "title": "Senior Ruby on Rails dev",
+    "description": "Fullstack, Hacker, Sailor, Dad",
+    "country": "AT",
+    "spokenLanguages": [
+      "de",
+      "en"
+    ],
+    "tags": [
+      "rails",
+      "mongodb",
+      "stimulusjs",
+      "bootstrap",
+      "growth hacking"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "tomk32@tomk32.de"
+      },
+      {
+        "type": "github",
+        "id": "TomK32"
+      },
+      {
+        "type": "website",
+        "id": "tomk32.de"
+      }
+    ]
+  },
+  {
+    "id": "michaeljamiejohnston@gmail.com",
+    "name": "Michael Johnston",
+    "avatar": "https://media.licdn.com/dms/image/C5603AQFA4TjeE9_hog/profile-displayphoto-shrink_200_200/0?e=1562803200&v=beta&t=quKEgDoY3eTOqDcAOn9Nd_DFPEs0xZngfq7QWqBiPgs",
+    "title": "Software Engineer at Noke",
+    "description": "I'm a full-stack developer able to help with anything Javascript!",
+    "country": "US",
+    "spokenLanguages": [
+      "en",
+      "da"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "vuejs",
+      "frontend",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "michaeljamiejohnston"
+      },
+      {
+        "type": "github",
+        "id": "michaeljamie"
+      },
+      {
+        "type": "website",
+        "id": "michaeljamie.com"
+      }
+    ]
+  },
+  {
+    "id": "cedpoilly@gmail.com",
+    "name": "Cedric Poilly",
+    "avatar": "https://secure.gravatar.com/avatar/09a9ef27f5102e0ee1cfd71bfd72d585",
+    "title": "Freelance Web Dev",
+    "description": "",
+    "country": "MU",
+    "spokenLanguages": [
+      "fr",
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "front-end",
+      "vuejs",
+      "electron.js"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "cedpoilly@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "cedpoilly"
+      },
+      {
+        "type": "github",
+        "id": "cedpoilly"
+      }
+    ]
+  },
+  {
+    "id": "anmol01shukla@gmail.com",
+    "name": "Anmol Shukla",
+    "avatar": "https://raw.githubusercontent.com/Cazaimi/Cazaimi.github.io/develop/assets/images/pictures/displayPicture0.jpg",
+    "title": "Backend developer at Postman",
+    "description": "I love open source and solving problems using models and design patterns.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "nodejs",
+      "express",
+      "api-design",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "cazaimi.tech"
+      },
+      {
+        "type": "github",
+        "id": "Cazaimi"
+      },
+      {
+        "type": "twitter",
+        "id": "opiumanmol"
+      }
+    ]
+  },
+  {
+    "id": "nima@lighthouselabs.com",
+    "name": "Nima Boscarino",
+    "avatar": "https://pbs.twimg.com/profile_images/825435933889564672/q-wAMGBI_400x400.jpg",
+    "title": "Lead Instructor, Bootcamp",
+    "description": "Instructor at Lighthouse Labs, a Canadian web development bootcamp",
+    "country": "CA",
+    "spokenLanguages": [
+      "en",
+      "it"
+    ],
+    "tags": [
+      "reactjs",
+      "web dev",
+      "teaching",
+      "intro",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "nima@lighthouselabs.com"
+      },
+      {
+        "type": "twitter",
+        "id": "NimaBoscarino"
+      },
+      {
+        "type": "github",
+        "id": "NimaBoscarino"
+      }
+    ]
+  },
+  {
+    "id": "danknewton@hotmail.com",
+    "name": "Dan Newton",
+    "avatar": "https://media.licdn.com/dms/image/C5603AQGRgT0UFzrs4Q/profile-displayphoto-shrink_200_200/0?e=1563408000&v=beta&t=44Vj7bItr6qtnkMyDA2XhEZlM0vLJ2zECsX3K0MU7Sg",
+    "title": "Platform Engineer at r3",
+    "description": "Probably best suited to helping new/early devs in their software journey 👩‍💻",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "java",
+      "kotlin",
+      "backend",
+      "intro",
+      "blogging"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "danknewton@hotmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "LankyDanDev"
+      },
+      {
+        "type": "website",
+        "id": "lankydan.dev"
+      }
+    ]
+  },
+  {
+    "id": "stan.boyet@gmail.com",
+    "name": "Stan",
+    "avatar": "https://fr.gravatar.com/userimage/37307370/f4634d856ecc68a01fb19a45a348ad59.png?size=400",
+    "title": "CTO",
+    "description": "Ruby backend dev turned CTO",
+    "country": "BE",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "ruby",
+      "rails",
+      "backend",
+      "leadership"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "stan.boyet@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "U03E836SN"
+      },
+      {
+        "type": "twitter",
+        "id": "stanboyet"
+      }
+    ]
+  },
+  {
+    "id": "jochen.zehnder@gmail.com",
+    "name": "Jochen Zehnder",
+    "avatar": "https://avatars0.githubusercontent.com/u/2915576?v=4",
+    "title": "Head of Engineering",
+    "description": "Systems and Software Engineer! Happy to help and learn along the way!",
+    "country": "CH",
+    "spokenLanguages": [
+      "de",
+      "en"
+    ],
+    "tags": [
+      "java",
+      "linux",
+      "automation",
+      "cloud",
+      "scrum"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jochen.zehnder@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UJD5S3P34"
+      },
+      {
+        "type": "twitter",
+        "id": "elft3r"
+      }
+    ]
+  },
+  {
+    "id": "hi@suhailpatel.com",
+    "name": "Suhail Patel",
+    "avatar": "https://suhailpatel.com/images/myself512.png",
+    "title": "Backend Engineer at Monzo",
+    "description": "I work on infrastructure and distributed systems. Always happy to help ✨",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "platform",
+      "devops",
+      "go",
+      "python",
+      "kubernetes"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hi@suhailpatel.com"
+      },
+      {
+        "type": "twitter",
+        "id": "suhailpatel"
+      },
+      {
+        "type": "website",
+        "id": "suhailpatel.com"
+      }
+    ]
+  },
+  {
+    "id": "mailtobolaji@gmail.com",
+    "name": "Bolaji Ayodeji",
+    "avatar": "https://res.cloudinary.com/iambeejayayo/image/upload/v1558299935/bolaji.jpg",
+    "title": "Front-end Dev & Technical Writer",
+    "description": "I'm a JAMstack enthusiast [a11y & m16y], Technical Writer and OSS Advocate.",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "jamstack",
+      "hugo",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "bolajiayodeji"
+      },
+      {
+        "type": "twitter",
+        "id": "iambolajiayo"
+      },
+      {
+        "type": "website",
+        "id": "bolajiayodeji.com"
+      }
+    ]
+  },
+  {
+    "id": "kyle90adam@hotmail.com",
+    "name": "Kyle Harrison",
+    "avatar": "https://avatars0.githubusercontent.com/u/1443700",
+    "title": "Senior Software Engineer",
+    "description": "I build React and Python web apps on AWS. AMA!",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "python",
+      "aws",
+      "reactjs",
+      "docker",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "apoclyps"
+      },
+      {
+        "type": "github",
+        "id": "apoclyps"
+      },
+      {
+        "type": "website",
+        "id": "www.kyleharrison.co.uk"
+      }
+    ]
+  },
+  {
+    "id": "aurore.trunelle@digitaledawn.co.uk",
+    "name": "Aurore Trunelle",
+    "avatar": "https://avatars0.githubusercontent.com/u/17130395?s=460&v=4",
+    "title": "Senior Front Engineer @ SamKnows",
+    "description": "Happy to help on all front end things related!",
+    "country": "GB",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "html",
+      "css",
+      "javascript",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "aurore.trunelle@digitaledawn.co.uk"
+      },
+      {
+        "type": "twitter",
+        "id": "digitaledawn"
+      },
+      {
+        "type": "github",
+        "id": "atrunelle"
+      }
+    ]
+  },
+  {
+    "id": "hello@maxpou.fr",
+    "name": "Maxence Poutord",
+    "avatar": "https://avatars2.githubusercontent.com/u/6160970?s=400&u=e60d0a62b77380cb2b63eeaed9a8bcd9b8936619&v=4",
+    "title": "Senior Frontend Engineer",
+    "description": "Engineer and occasional speaker/blogger. Always happy to help!",
+    "country": "EU",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "vuejs",
+      "javascript",
+      "frontend",
+      "remote work",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "_maxpou"
+      },
+      {
+        "type": "github",
+        "id": "maxpou"
+      },
+      {
+        "type": "website",
+        "id": "www.maxpou.fr"
+      }
+    ]
+  },
+  {
+    "id": "vaibhavisingh2402@gmail.com",
+    "name": "Vaibhavi Singh",
+    "avatar": "https://avatars1.githubusercontent.com/u/32491912?s=400&u=9de134b25fa9230b3c146adcb8f5e8b8b8edf85b&v=4",
+    "title": "Full-stack web and C++ developer",
+    "description": "Engineer, writer, speaker",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "nodejs",
+      "fullstack",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "Vaibhavi24"
+      },
+      {
+        "type": "twitter",
+        "id": "__Vaibhavi"
+      },
+      {
+        "type": "linkedin",
+        "id": "vaibhavi-singh-45619a138"
+      }
+    ]
+  },
+  {
+    "id": "danielcorner7@gmail.com",
+    "name": "Daniel Corner",
+    "avatar": "https://avatars2.githubusercontent.com/u/9141196?s=460&v=4",
+    "title": "Front-end Developer (React)",
+    "description": "Hiya! I'll gladly lend a hand with HTML/CSS/JS and frameworks like React.",
+    "country": "CA",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "frontend",
+      "reactjs",
+      "css",
+      "html",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "danielcorner7@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "daniel-corner-16a3835b"
+      },
+      {
+        "type": "twitter",
+        "id": "dcorn068"
+      }
+    ]
+  },
+  {
+    "id": "code@dominik-hanke.de",
+    "name": "Dominik Hanke",
+    "avatar": "https://share.dominik-hanke.de/photos/dominik/dominik-hanke-hoodie.jpg",
+    "title": "Full-Stack Developer",
+    "description": "15+ years of experience and happy to boost your skills or career.",
+    "country": "DE",
+    "spokenLanguages": [
+      "de",
+      "en"
+    ],
+    "tags": [
+      "fullstack",
+      "vuejs",
+      "php",
+      "javascript",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "code@dominik-hanke.de"
+      },
+      {
+        "type": "linkedin",
+        "id": "dominik-hanke"
+      },
+      {
+        "type": "website",
+        "id": "www.dominik-hanke.de"
+      }
+    ]
+  },
+  {
+    "id": "marcelo.ogeda@gmail.com",
+    "name": "Marcelo Ogeda",
+    "avatar": "https://secure.gravatar.com/avatar/6c25101e1cefdd3a50de1c3c32939d8a",
+    "title": "Software Engineer",
+    "description": "",
+    "country": "BR",
+    "spokenLanguages": [
+      "en",
+      "pt"
+    ],
+    "tags": [
+      "fullstack",
+      "nodejs",
+      "reactjs",
+      "react native",
+      "serverless"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "DCS1N1Z96"
+      },
+      {
+        "type": "linkedin",
+        "id": "marceloogeda"
+      },
+      {
+        "type": "github",
+        "id": "marceloogeda"
       }
     ]
   }

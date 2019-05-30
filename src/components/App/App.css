@@ -57,6 +57,16 @@ main {
   z-index: 1;
 }
 
+@media screen and (max-height: 750px) {
+    .sidebar-nav {
+        margin-top: 15px;
+        position: relative;
+    }
+    .sidebar {
+        overflow-y: auto;
+    }
+}
+
 @media all and (max-width: 576px) {
   .sidebar-nav {
     position: relative;

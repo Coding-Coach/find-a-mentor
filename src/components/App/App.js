@@ -12,7 +12,7 @@ import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
-import { report } from '../../ga';
+import { report, reportPageView } from '../../ga';
 import MemberArea from '../MemberArea/MemberArea';
 import { getMentors } from '../../api';
 
@@ -132,12 +132,8 @@ class App extends Component {
     set(nextState);
   }
 
-  async componentDidMount() {
-    if (window && window.ga) {
-      const { location, ga } = window;
-      ga('set', 'page', location.href);
-      ga('send', 'pageview');
-    }
+  componentDidMount() {
+    reportPageView();
     this.getPermalinkParams();
     const mentors = await getMentors();
     this.setState({
