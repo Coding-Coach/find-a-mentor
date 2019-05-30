@@ -1,0 +1,8 @@
+.edit-profile .select__control {
+  background: none;
+  border: none;
+}
+
+.edit-profile .select__value-container {
+  padding-left: 0;
+}
