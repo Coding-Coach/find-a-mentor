@@ -65,7 +65,7 @@ main {
       margin-top: 10px !important;
     }
 }
-@media screen and (max-height: 750px) {
+@media screen and (max-height: 677px) {
     .sidebar-nav {
         margin-top: 5px;
         position: relative;
@@ -80,7 +80,7 @@ main {
       margin: 5px auto 0;
     }
     .logo {
-      margin: 10px 30px;
+      margin: 5px 30px;
     }
 }
 
