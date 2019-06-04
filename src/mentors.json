@@ -2132,34 +2132,6 @@
     ]
   },
   {
-    "id": "ruben.valseca@gmail.com",
-    "name": "Rubén Valseca",
-    "avatar": "https://i.postimg.cc/0NpLKTSN/ruben.jpg",
-    "title": "Full-Stack Web Developer",
-    "description": "In love with JavaScript, Vue.js, Python, Startups and Communities ecosystem.",
-    "country": "ES",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "vuejs",
-      "python",
-      "django"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "ruben.valseca@gmail.com"
-      },
-      {
-        "type": "twitter",
-        "id": "rubnvp"
-      }
-    ]
-  },
-  {
     "id": "glenn.versweyveld@gmail.com",
     "name": "Glenn Versweyveld",
     "avatar": "https://avatars2.githubusercontent.com/u/351693?s=400&v=4",
