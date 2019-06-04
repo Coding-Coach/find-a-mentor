@@ -6955,5 +6955,39 @@
         "id": "marceloogeda"
       }
     ]
+  },
+  {
+    "id": "tejpartapsingh91@gmail.com",
+    "name": "Tej",
+    "avatar": "https://tpkahlon.github.io/portfolio/myself.jpg",
+    "title": "Front End Developer",
+    "description": "My interests are JavaScript, React, CSS Grid, Flexbox.",
+    "country": "CA",
+    "spokenLanguages": [
+      "en",
+      "hi",
+      "pa"
+    ],
+    "tags": [
+      "javascript",
+      "es6",
+      "react",
+      "css",
+      "vue"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "kahlontej"
+      },
+      {
+        "type": "github",
+        "id": "tpkahlon"
+      },
+      {
+        "type": "website",
+        "id": "tpkahlon.github.io/portfolio"
+      }
+    ]
   }
 ]
