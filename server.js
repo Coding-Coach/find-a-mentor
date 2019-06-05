@@ -14,7 +14,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api', cors(), function(req, res) {
-  const url = 'http://api.codingcoach.io/users' + req.url;
+  const url = 'http://api.codingcoach.io' + req.url;
   const { method, body, headers } = req;
   fetch(url, {
     method,

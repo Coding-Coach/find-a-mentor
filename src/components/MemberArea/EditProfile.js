@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Input from '../Input/Input';
-import { updateMentor } from '../../api';
+import { updateMentor, deleteMentor } from '../../api';
 import model from './model';
 import Select from 'react-select';
 import './EditProfile.css'
+
 export default class EditProfile extends Component {
   state = {
     user: this.fromMtoVM(this.props.user)
@@ -29,6 +30,12 @@ export default class EditProfile extends Component {
     const result = await updateMentor(this.fromVMtoM(this.state.user));
     if (result) {
       this.setState({disabled: false});
+    }
+  }
+
+  onDelete = () => {
+    if (window.confirm('Are you sure you want to delete your account?')) {
+      deleteMentor(this.state.user);
     }
   }
 
@@ -79,13 +86,16 @@ export default class EditProfile extends Component {
   render() {
     const { disabled } = this.state;
     return (
-      <form onSubmit={this.onSubmit} className="edit-profile">
-        {Object.keys(model).map(field => (
-            this.formField(field, model[field])
-          ))
-        }
-        <button disabled={disabled}>Submit</button>
-      </form>
+      <>
+        <button onClick={this.onDelete}>Delete account</button>
+        <form onSubmit={this.onSubmit} className="edit-profile">
+          {Object.keys(model).map(field => (
+              this.formField(field, model[field])
+            ))
+          }
+          <button disabled={disabled}>Submit</button>
+        </form>
+      </>
     );
   }
 }

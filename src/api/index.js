@@ -1,6 +1,6 @@
 import auth from '../utils/auth';
 
-const apiHost = window.location.href.includes('localhost') ? 'http://localhost:3002/api' : 'http://api.codingcoach.io/users';
+const apiHost = window.location.href.includes('localhost') ? 'http://localhost:3002/api' : 'http://api.codingcoach.io/';
 let currentUser;
 
 export async function makeApiCall(path, body, method) {
@@ -25,17 +25,22 @@ export async function makeApiCall(path, body, method) {
 
 export async function getCurrentUser() {
   if (!currentUser) {
-    currentUser = await makeApiCall('/current').then(data => data.user);
+    currentUser = await makeApiCall('/users/current').then(data => data.user);
   }
   return currentUser;
 }
 
 export async function getMentors() {
-  const res = await makeApiCall('/');
+  const res = await makeApiCall('/mentors');
   return res.users;
 }
 
 export async function updateMentor(mentor) {
-  const res = await makeApiCall(`/${mentor.id}`, mentor, 'PUT');
+  const res = await makeApiCall(`/users/${mentor.id}`, mentor, 'PUT');
+  return res.success;
+}
+
+export async function deleteMentor(mentor) {
+  const res = await makeApiCall(`/users/${mentor.id}`, null, 'DELETE');
   return res.success;
 }
