@@ -57,16 +57,14 @@ main {
   z-index: 1;
 }
 
-@media screen and (max-height: 750px) {
-  .patreon-link {
-    display: block;
-    margin: 20px auto 0;
-    width: 150px;
-  }
+.patreon-link {
+  display: block;
+  margin: 20px auto 0;
+  width: 150px;
+}
 
-  .patreon-link img {
-    max-width: 100%;
-  }
+.patreon-link img {
+  max-width: 100%;
 }
 
 @media screen and (max-height: 650px) {
