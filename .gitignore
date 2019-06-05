@@ -30,3 +30,7 @@ package-lock.json
 .vscode
 
 public/sitemap.xml
+
+# Cypress
+cypress/videos
+cypress/screenshots
