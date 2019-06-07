@@ -25,6 +25,10 @@
   color: var(--tag-color);
 }
 
+.input.input-extended {
+  width: 100%;
+}
+
 @media all and (max-width: 576px) {
   .input {
     width: calc(100% - var(--filter-input-offset) * 2);

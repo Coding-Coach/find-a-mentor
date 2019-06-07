@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-js": "^9.10.3",
     "classnames": "^2.2.6",
     "express": "^4.16.4",
     "inquirer-autocomplete-prompt": "^1.0.1",
@@ -17,10 +18,13 @@
     "react-infinite-scroller": "^1.2.4",
     "react-obfuscate": "3.3.1",
     "react-scripts": "2.1.3",
+    "react-select": "^3.0.3",
     "svg-country-flags": "^1.2.6"
   },
   "scripts": {
     "start": "react-scripts start",
+    "start:all": "npm-run-all --parallel start start:server",
+    "start:server": "nodemon server.js",
     "build": "node scripts/pre-build.js && react-scripts build",
     "test": "yarn prettier:fix && react-scripts test && yarn test:e2e:run",
     "eject": "react-scripts eject",
@@ -47,6 +51,7 @@
   ],
   "devDependencies": {
     "ajv": "^6.8.1",
+    "cors": "^2.8.5",
     "cypress": "^3.2.0",
     "cypress-testing-library": "^3.0.1",
     "execa": "^1.0.0",
@@ -54,7 +59,9 @@
     "image-type": "^4.0.0",
     "inquirer": "^6.2.2",
     "is-ci-cli": "^1.1.1",
+    "node-fetch": "^2.6.0",
     "nodemon": "^1.18.9",
+    "npm-run-all": "^4.1.5",
     "object-path": "^0.11.4",
     "ora": "^3.2.0",
     "prettier": "1.16.4",

@@ -10,15 +10,15 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
-import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
+import MemberArea from '../MemberArea/MemberArea';
+import { getMentors } from '../../api';
 
-// const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
   state = {
-    mentors: shuffle(mentors),
+    mentors: [],
     favorites: get(),
     modal: {
       title: null,
@@ -132,9 +132,13 @@ class App extends Component {
     set(nextState);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     reportPageView();
     this.getPermalinkParams();
+    const mentors = await getMentors();
+    this.setState({
+      mentors
+    })
   }
 
   handleModal = (title, content, onClose) => {
@@ -150,7 +154,7 @@ class App extends Component {
 
   render() {
     const {
-      mentors,
+      mentors = [],
       fieldsIsActive,
       modal,
       clickedTag,
@@ -165,6 +169,9 @@ class App extends Component {
         </Modal>
 
         <main>
+          <MemberArea
+            onEditProfile={(title, content) => this.handleModal(title, content)}
+          />
           <Header />
           <aside className="sidebar">
             <Logo width={110} height={50} color="#68d5b1" />

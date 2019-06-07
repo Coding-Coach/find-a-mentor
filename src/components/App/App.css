@@ -50,6 +50,13 @@ main {
   cursor: pointer;
 }
 
+.auth {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
 .patreon-link {
   display: block;
   margin: 20px auto 0;
