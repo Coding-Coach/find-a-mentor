@@ -25,14 +25,14 @@ export async function makeApiCall(path, body, method) {
 
 export async function getCurrentUser() {
   if (!currentUser) {
-    currentUser = await makeApiCall('/users/current').then(data => data.user);
+    currentUser = await makeApiCall('/users/current').then(res => res.data);
   }
   return currentUser;
 }
 
 export async function getMentors() {
   const res = await makeApiCall('/mentors');
-  return res.users;
+  return res.data;
 }
 
 export async function updateMentor(mentor) {
