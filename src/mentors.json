@@ -6989,11 +6989,45 @@
     ]
   },
   {
+    "id": "d.g.g69@me.com",
+    "name": "Daniel González",
+    "avatar": "https://pbs.twimg.com/profile_images/559241153355464704/oxJ1g__U_400x400.jpeg",
+    "title": "Frontend Engineer",
+    "description": "Blending Functionallity and Artistry to Create Spectacular Websites",
+    "country": "MX",
+    "spokenLanguages": [
+      "en",
+      "es",
+      "pt"
+    ],
+    "tags": [
+      "frontend",
+      "product",
+      "design system",
+      "css",
+      "js"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "danielgonzalezg"
+      },
+      {
+        "type": "twitter",
+        "id": "metal_gogo"
+      },
+      {
+        "type": "github",
+        "id": "metal-gogo"
+      }
+    ]
+  },
+  {
     "id": "shawn@mccarthysoftware.com",
     "name": "Shawn McCarthy",
     "avatar": "https://media.licdn.com/dms/image/C4D03AQH7cCDViG53QA/profile-displayphoto-shrink_200_200/0?e=1565827200&v=beta&t=9Z4ZH41y_vOfyYvfS6Nkw6XccEO6GMpfFMoLLGHAcRo",
     "title": "Managing Director",
-    "description": "My passions include teaching (@ University of Colorado) and inspiring growth.",
+    "description": "My passions include teaching (@ University of Colorado) and inspiring growth.",
     "country": "US",
     "spokenLanguages": [
       "en"
