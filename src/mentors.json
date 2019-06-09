@@ -6987,5 +6987,39 @@
         "id": "tpkahlon.github.io/portfolio"
       }
     ]
+  },
+  {
+    "id": "d.g.g69@me.com",
+    "name": "Daniel González",
+    "avatar": "https://pbs.twimg.com/profile_images/559241153355464704/oxJ1g__U_400x400.jpeg",
+    "title": "Frontend Engineer",
+    "description": "Blending Functionallity and Artistry to Create Spectacular Websites",
+    "country": "MX",
+    "spokenLanguages": [
+      "en",
+      "es",
+      "pt"
+    ],
+    "tags": [
+      "frontend",
+      "product",
+      "design system",
+      "css",
+      "js"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "danielgonzalezg"
+      },
+      {
+        "type": "twitter",
+        "id": "metal_gogo"
+      },
+      {
+        "type": "github",
+        "id": "metal-gogo"
+      }
+    ]
   }
 ]
