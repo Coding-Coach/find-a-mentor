@@ -83,6 +83,10 @@ class Auth {
       this.auth0.checkSession({}, (err, authResult) => {
         if (authResult && authResult.accessToken && authResult.idToken) {
           this.setSession(authResult);
+          if (window.location.hash) {
+            // clean the hash
+            window.history.replaceState(null, null, window.location.href.split('#')[0]);
+          }
         } else if (err) {
           this.logout();
           console.log(err);
@@ -101,6 +105,13 @@ class Auth {
     // Remove token from localStorage
     localStorage.removeItem(storageKey);
   };
+
+  doLogout = () => {
+    this.logout();
+    this.auth0.logout({
+      returnTo: window.location.href
+    });
+  }
 
   isAuthenticated() {
     // Check whether the current time is past the
