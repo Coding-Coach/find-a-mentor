@@ -6987,5 +6987,37 @@
         "id": "tpkahlon.github.io/portfolio"
       }
     ]
+  },
+  {
+    "id": "shawn@mccarthysoftware.com",
+    "name": "Shawn McCarthy",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQH7cCDViG53QA/profile-displayphoto-shrink_200_200/0?e=1565827200&v=beta&t=9Z4ZH41y_vOfyYvfS6Nkw6XccEO6GMpfFMoLLGHAcRo",
+    "title": "Managing Director",
+    "description": "My passions include teaching (@ University of Colorado) and inspiring growth.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "express",
+      "reactjs",
+      "api",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "shawn@mccarthysoftware.com"
+      },
+      {
+        "type": "slack",
+        "id": "UKDLVAYVB"
+      },
+      {
+        "type": "linkedin",
+        "id": "shawnemccarthy"
+      }
+    ]
   }
 ]
