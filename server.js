@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use('/api', cors(), function(req, res) {
+app.use('/', cors(), function(req, res) {
   const url = 'http://api.codingcoach.io' + req.url;
   const { method, body, headers } = req;
   fetch(url, {
@@ -36,7 +36,6 @@ app.use('/api', cors(), function(req, res) {
   })
 });
 
-app.get('/', (req, res) => res.send('Hello World!'));
 app.get('/get_mentors', (req, res) => {
   res.json([
     {
