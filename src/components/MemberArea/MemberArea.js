@@ -43,7 +43,7 @@ export default class MemberArea extends Component {
   loggedIn() {
     return <>
       Current user: {this.state.currentUser &&
-        <a href="javascript:void(0)" onClick={this.openProfile}>{this.state.currentUser.email}</a>
+        <span role="button" onClick={this.openProfile}>{this.state.currentUser.email}</span>
       }
       <button onClick={this.logout}>Logout</button>
     </>;
