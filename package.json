@@ -23,8 +23,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:all": "npm-run-all --parallel start start:server",
-    "start:server": "nodemon server.js",
     "build": "node scripts/pre-build.js && react-scripts build",
     "test": "yarn prettier:fix && react-scripts test && yarn test:e2e:run",
     "eject": "react-scripts eject",
