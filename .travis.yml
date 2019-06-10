@@ -10,8 +10,8 @@ script:
   - yarn test
   - yarn predeploy
 env:
-  - PUBLIC_URL=https://mentors.codingcoach.io
-  - NODE_ENV=production
+  - PUBLIC_URL=https://mentors.codingcoach.io NODE_ENV=production
+
 deploy:
   provider: pages
   skip_cleanup: true
