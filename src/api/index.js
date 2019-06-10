@@ -4,7 +4,7 @@ const paths = {
   USERS: '/users'
 }
 
-const apiHost = window.location.href.includes('localhost') ? 'http://localhost:3002/api' : 'http://api.codingcoach.io/';
+const apiHost = window.location.href.includes('localhost') ? 'https://api-staging.codingcoach.io' : 'http://api.codingcoach.io/';
 let currentUser;
 
 export async function makeApiCall(path, body, method) {
