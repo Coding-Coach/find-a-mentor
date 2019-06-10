@@ -16,7 +16,7 @@ export default class MemberArea extends Component {
   }
 
   logout = () => {
-    auth.logout();
+    auth.doLogout();
     this.refreshAuthState();
   }
 

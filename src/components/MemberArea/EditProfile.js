@@ -1,36 +1,28 @@
 import React, { Component } from 'react';
 import Input from '../Input/Input';
-import { updateMentor, deleteMentor } from '../../api';
+import { updateMentor, deleteMentor, createApplication } from '../../api';
 import model from './model';
 import Select from 'react-select';
 import './EditProfile.css'
+import { isMentor, fromMtoVM } from '../../helpers/user';
 
 export default class EditProfile extends Component {
   state = {
-    user: this.fromMtoVM(this.props.user)
-  }
-
-  fromVMtoM(user) {
-    return {
-      ...user,
-      tags: user.tags.map(i => i.value)
-    }
-  }
-
-  fromMtoVM(user) {
-    return {
-      ...user,
-      tags: user.tags.map(i => ({label: i, value: i}))
-    }
+    user: fromMtoVM(this.props.user)
   }
 
   onSubmit = async e => {
+    const { user } = this.state;
     e.preventDefault();
     this.setState({disabled: true});
-    const result = await updateMentor(this.fromVMtoM(this.state.user));
-    if (result) {
-      this.setState({disabled: false});
+    const updateMentorResult = await updateMentor(fromMtoVM(user));
+    if (updateMentorResult && !isMentor(user)) {
+      const createApplicationResult = await createApplication();
+      if (!createApplicationResult.success) {
+        alert(createApplicationResult.message);
+      }
     }
+    this.setState({disabled: false});
   }
 
   onDelete = () => {
@@ -85,6 +77,7 @@ export default class EditProfile extends Component {
 
   render() {
     const { disabled } = this.state;
+    const { user } = this.props;
     return (
       <>
         <button onClick={this.onDelete}>Delete account</button>
@@ -93,7 +86,13 @@ export default class EditProfile extends Component {
               this.formField(field, model[field])
             ))
           }
-          <button disabled={disabled}>Submit</button>
+          <button disabled={disabled}>
+            {
+              user.roles.includes('MENTOR') ?
+              'Save' :
+              'Become a Mentor'
+            }
+          </button>
         </form>
       </>
     );

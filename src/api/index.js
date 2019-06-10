@@ -1,4 +1,8 @@
 import auth from '../utils/auth';
+const paths = {
+  MENTORS: '/mentors',
+  USERS: '/users'
+}
 
 const apiHost = window.location.href.includes('localhost') ? 'http://localhost:3002/api' : 'http://api.codingcoach.io/';
 let currentUser;
@@ -15,32 +19,46 @@ export async function makeApiCall(path, body, method) {
       'Content-Type': 'application/json'
     }
   };
-  const data = await fetch(url, options);
   try {
-    return await data.json();
+    const data = await fetch(url, options).catch(error => {
+      console.error(error);
+    });
+    const res = await data.json();
+    if (res.statusCode >= 400) {
+      return {
+        success: false,
+        message: res.message
+      }
+    }
+    return res;
   } catch (error) {
-    return await data.text();
+    console.error(error);
   }
 }
 
 export async function getCurrentUser() {
   if (!currentUser) {
-    currentUser = await makeApiCall('/users/current').then(data => data.user);
+    currentUser = await makeApiCall(`${paths.USERS}/current`).then(res => res.data);
   }
   return currentUser;
 }
 
 export async function getMentors() {
-  const res = await makeApiCall('/mentors');
-  return res.users;
+  const res = await makeApiCall(paths.MENTORS);
+  return res.data;
+}
+
+export async function createApplication() {
+  const res = await makeApiCall(`${paths.MENTORS}/applications`, {reason: 'why not?'}, 'POST');
+  return res;
 }
 
 export async function updateMentor(mentor) {
-  const res = await makeApiCall(`/users/${mentor.id}`, mentor, 'PUT');
+  const res = await makeApiCall(`${paths.USERS}/${mentor.id}`, mentor, 'PUT');
   return res.success;
 }
 
 export async function deleteMentor(mentor) {
-  const res = await makeApiCall(`/users/${mentor.id}`, null, 'DELETE');
+  const res = await makeApiCall(`${paths.USERS}/${mentor.id}`, null, 'DELETE');
   return res.success;
 }
