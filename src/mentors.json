@@ -7053,5 +7053,37 @@
         "id": "shawnemccarthy"
       }
     ]
+  },
+  {
+    "id": "mjs@emjayess.rocks",
+    "name": "Matthew J. Sorenson",
+    "avatar": "https://gitlab.com/uploads/-/system/user/avatar/82305/avatar.png",
+    "title": "Senior Web Developer, Artisan",
+    "description": "Rejoice in what you learn, and spray it. Forward pay it. ",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "php",
+      "laravel",
+      "vuejs",
+      "git"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mjs@emjayess.net"
+      },
+      {
+        "type": "twitter",
+        "id": "emjayess"
+      },
+      {
+        "type": "github",
+        "id": "emjayess"
+      }
+    ]
   }
 ]
