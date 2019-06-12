@@ -2132,34 +2132,6 @@
     ]
   },
   {
-    "id": "ruben.valseca@gmail.com",
-    "name": "Rubén Valseca",
-    "avatar": "https://i.postimg.cc/0NpLKTSN/ruben.jpg",
-    "title": "Full-Stack Web Developer",
-    "description": "In love with JavaScript, Vue.js, Python, Startups and Communities ecosystem.",
-    "country": "ES",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "vuejs",
-      "python",
-      "django"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "ruben.valseca@gmail.com"
-      },
-      {
-        "type": "twitter",
-        "id": "rubnvp"
-      }
-    ]
-  },
-  {
     "id": "glenn.versweyveld@gmail.com",
     "name": "Glenn Versweyveld",
     "avatar": "https://avatars2.githubusercontent.com/u/351693?s=400&v=4",
@@ -6948,6 +6920,169 @@
       {
         "type": "website",
         "id": "www.dominik-hanke.de"
+      }
+    ]
+  },
+  {
+    "id": "marcelo.ogeda@gmail.com",
+    "name": "Marcelo Ogeda",
+    "avatar": "https://secure.gravatar.com/avatar/6c25101e1cefdd3a50de1c3c32939d8a",
+    "title": "Software Engineer",
+    "description": "",
+    "country": "BR",
+    "spokenLanguages": [
+      "en",
+      "pt"
+    ],
+    "tags": [
+      "fullstack",
+      "nodejs",
+      "reactjs",
+      "react native",
+      "serverless"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "DCS1N1Z96"
+      },
+      {
+        "type": "linkedin",
+        "id": "marceloogeda"
+      },
+      {
+        "type": "github",
+        "id": "marceloogeda"
+      }
+    ]
+  },
+  {
+    "id": "tejpartapsingh91@gmail.com",
+    "name": "Tej",
+    "avatar": "https://tpkahlon.github.io/portfolio/myself.jpg",
+    "title": "Front End Developer",
+    "description": "My interests are JavaScript, React, CSS Grid, Flexbox.",
+    "country": "CA",
+    "spokenLanguages": [
+      "en",
+      "hi",
+      "pa"
+    ],
+    "tags": [
+      "frontend",
+      "reactjs",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "kahlontej"
+      },
+      {
+        "type": "github",
+        "id": "tpkahlon"
+      },
+      {
+        "type": "website",
+        "id": "tpkahlon.github.io/portfolio"
+      }
+    ]
+  },
+  {
+    "id": "d.g.g69@me.com",
+    "name": "Daniel González",
+    "avatar": "https://pbs.twimg.com/profile_images/559241153355464704/oxJ1g__U_400x400.jpeg",
+    "title": "Frontend Engineer",
+    "description": "Blending Functionallity and Artistry to Create Spectacular Websites",
+    "country": "MX",
+    "spokenLanguages": [
+      "en",
+      "es",
+      "pt"
+    ],
+    "tags": [
+      "frontend",
+      "product",
+      "design system",
+      "css",
+      "js"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "danielgonzalezg"
+      },
+      {
+        "type": "twitter",
+        "id": "metal_gogo"
+      },
+      {
+        "type": "github",
+        "id": "metal-gogo"
+      }
+    ]
+  },
+  {
+    "id": "shawn@mccarthysoftware.com",
+    "name": "Shawn McCarthy",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQH7cCDViG53QA/profile-displayphoto-shrink_200_200/0?e=1565827200&v=beta&t=9Z4ZH41y_vOfyYvfS6Nkw6XccEO6GMpfFMoLLGHAcRo",
+    "title": "Managing Director",
+    "description": "My passions include teaching (@ University of Colorado) and inspiring growth.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "express",
+      "reactjs",
+      "api",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "shawn@mccarthysoftware.com"
+      },
+      {
+        "type": "slack",
+        "id": "UKDLVAYVB"
+      },
+      {
+        "type": "linkedin",
+        "id": "shawnemccarthy"
+      }
+    ]
+  },
+  {
+    "id": "mjs@emjayess.rocks",
+    "name": "Matthew J. Sorenson",
+    "avatar": "https://gitlab.com/uploads/-/system/user/avatar/82305/avatar.png",
+    "title": "Senior Web Developer, Artisan",
+    "description": "Rejoice in what you learn, and spray it. Forward pay it. ",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "php",
+      "laravel",
+      "vuejs",
+      "git"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mjs@emjayess.net"
+      },
+      {
+        "type": "twitter",
+        "id": "emjayess"
+      },
+      {
+        "type": "github",
+        "id": "emjayess"
       }
     ]
   }

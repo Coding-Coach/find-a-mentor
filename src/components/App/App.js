@@ -14,7 +14,7 @@ import TechnologyInput from '../TechnologyInput/TechnologyInput';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
-import { report } from '../../ga';
+import { report, reportPageView } from '../../ga';
 
 import { generateLists } from '../../listsGenerator';
 const { tags: allTags, countries, names, languages } = generateLists(mentors);
@@ -192,11 +192,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (window && window.ga) {
-      const { location, ga } = window;
-      ga('set', 'page', location.href);
-      ga('send', 'pageview');
-    }
+    reportPageView();
     this.getPermalinkParams();
   }
 

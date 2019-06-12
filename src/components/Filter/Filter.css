@@ -12,6 +12,11 @@
   padding: 15px 0px 15px 30px;
   margin: 0;
 }
+@media screen and (max-height: 677px) {
+  #filter {
+    padding: 10px 0px 10px 30px;
+  }
+}
 
 .toggle-filter {
   float: right;
