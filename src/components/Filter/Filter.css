@@ -39,6 +39,11 @@
     left: 0;
     width: 100%;
   }
+
+  .inputs[aria-expanded="false"] {
+    display: none;
+  }
+
   .filter-wrapper {
     order: 2;
   }
@@ -48,6 +53,7 @@
   .toggle-filter {
     display: none;
   }
+
   .sidebar {
     order: 2;
     position: fixed;
