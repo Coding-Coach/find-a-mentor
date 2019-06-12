@@ -7085,5 +7085,38 @@
         "id": "emjayess"
       }
     ]
+  },
+  {
+    "id": "xixon.sound@gmail.com",
+    "name": "Ivan Gonzalez",
+    "avatar": "https://avatars2.githubusercontent.com/u/4928335?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "I love to share my knowledge while I learn from others. Let's learn together!",
+    "country": "ES",
+    "spokenLanguages": [
+      "es",
+      "en"
+    ],
+    "tags": [
+      "elixir",
+      "phoenix fwk",
+      "ruby",
+      "ruby on rails",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "xixon.sound@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "dreamingechoes"
+      },
+      {
+        "type": "github",
+        "id": "dreamingechoes"
+      }
+    ]
   }
 ]
