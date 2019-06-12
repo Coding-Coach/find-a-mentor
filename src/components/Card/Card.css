@@ -103,24 +103,6 @@
   z-index: 2;
 }
 
-.card .tag {
-  color: hsl(0, 0%, 100%);
-  background: #16385c;
-  border: 0;
-  border-radius: 20px;
-  display: inline-block;
-  padding: 5px 10px;
-  margin: 0 2.5px 5px;
-  line-height: 1;
-  user-select: none;
-  text-transform: lowercase;
-  font-family: monospace;
-}
-
-.card .tag:hover {
-  cursor: pointer;
-}
-
 .card .channels {
   display: flex;
   flex-direction: column;

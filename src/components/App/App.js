@@ -10,15 +10,14 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
-import Input from '../Input/Input';
-import AutoComplete from '../AutoComplete/AutoComplete';
+import TechnologyInput from '../TechnologyInput/TechnologyInput';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report } from '../../ga';
 
 import { generateLists } from '../../listsGenerator';
-const { tags, countries, names, languages } = generateLists(mentors);
+const { tags: allTags, countries, names, languages } = generateLists(mentors);
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -30,14 +29,32 @@ class App extends Component {
       content: null,
       onClose: null,
     },
+    tags: new Set(),
+    technology: '',
+    country: '',
+    name: '',
+    language: '',
   };
 
   handleTagSelect = async ({ value: tag }) => {
     await scrollToTop();
-    this.setState({
-      tag,
-    });
+    this.setState(state => ({
+      tags: new Set(state.tags).add(tag),
+      technology: '',
+    }));
+    this.setPermalinkParams('technology', tag);
     report('Filter', 'tag', tag);
+  };
+
+  handleTagRemove = ({ value: tag }) => {
+    this.setState(state => {
+      const newTags = new Set(state.tags);
+      newTags.delete(tag);
+      return {
+        tags: newTags,
+      };
+    });
+    this.setPermalinkParams('technology', tag);
   };
 
   handleCountrySelect = async ({ value: country }) => {
@@ -45,6 +62,7 @@ class App extends Component {
     this.setState({
       country,
     });
+    this.setPermalinkParams('country', country);
     report('Filter', 'country', country);
   };
 
@@ -53,6 +71,7 @@ class App extends Component {
     this.setState({
       name,
     });
+    this.setPermalinkParams('name', name);
     report('Filter', 'name', 'name');
   };
 
@@ -61,12 +80,13 @@ class App extends Component {
     this.setState({
       language,
     });
+    this.setPermalinkParams('language', language);
     report('Filter', 'language', language);
   };
 
   filterMentors = mentor => {
     const {
-      tag,
+      tags,
       country,
       name,
       language,
@@ -74,7 +94,8 @@ class App extends Component {
       favorites,
     } = this.state;
     return (
-      (!tag || mentor.tags.includes(tag)) &&
+      (!tags.size ||
+        mentor.tags.filter(mentorTag => tags.has(mentorTag)).length > 0) &&
       (!country || mentor.country === country) &&
       (!name || mentor.name === name) &&
       (!language ||
@@ -111,6 +132,7 @@ class App extends Component {
     this.setState({
       clickedTag,
     });
+    this.setPermalinkParams('technology', clickedTag);
     report('Filter', 'tag', clickedTag);
   };
 
@@ -119,19 +141,51 @@ class App extends Component {
     this.setState({
       clickedCountry,
     });
+    this.setPermalinkParams('country', clickedCountry);
     report('Filter', 'country', clickedCountry);
   };
 
   getPermalinkParams() {
     const permalink = new URLSearchParams(window.location.search);
 
+    const technologies = permalink.get('technology') || '';
+
     this.setState({
-      tag: permalink.get('technology'),
-      country: permalink.get('country'),
-      name: permalink.get('name'),
-      language: permalink.get('language'),
+      tags: new Set(technologies ? technologies.split(',') : null),
+      country: permalink.get('country') || '',
+      name: permalink.get('name') || '',
+      language: permalink.get('language') || '',
     });
   }
+
+  setPermalinkParams = (param, value) => {
+    const sources = {
+      technology: allTags,
+      name: names,
+      language: languages,
+      country: countries,
+    };
+    const source = sources[param];
+
+    const permalink = new URLSearchParams(window.location.search);
+    const paramItem = source.filter(item => item.label === value);
+    if (paramItem.length && value.length) {
+      // Special case for "technology" because of multiple inputs available
+      if (param === 'technology') {
+        const technologies = Array.from(this.state.tags).join(',');
+        // let newParam = `${permalink.get('technology') || ''},${
+        //   paramItem[0].value
+        // }`;
+        // if (newParam[0] === ',') newParam = newParam.slice(1);
+        permalink.set(param, technologies);
+      } else {
+        permalink.set(param, paramItem[0].value);
+      }
+    } else if (!value.length) {
+      permalink.delete(param);
+    }
+    window.history.pushState({}, null, '?' + permalink.toString());
+  };
 
   componentWillUpdate(nextProps, nextState) {
     set(nextState);
@@ -159,11 +213,16 @@ class App extends Component {
 
   render() {
     const {
+      tags,
       mentors,
       fieldsIsActive,
       modal,
       clickedTag,
       clickedCountry,
+      technology,
+      country,
+      language,
+      name,
     } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
@@ -172,23 +231,29 @@ class App extends Component {
         <Modal onClose={this.closeModal} title={modal.title}>
           {modal.content}
         </Modal>
-
         <main>
           <Header />
           <aside className="sidebar">
             <Logo width={110} height={50} color="#68d5b1" />
             <Filter
-              onTagSelected={this.handleTagSelect}
               onCountrySelected={this.handleCountrySelect}
+              onCountryChanged={e => this.setState({ country: e.target.value })}
               onNameSelected={this.handleNameSelect}
+              onNameChanged={e => this.setState({ name: e.target.value })}
               onLanguageSelected={this.handleLanguageSelect}
+              onLanguageChanged={e =>
+                this.setState({ language: e.target.value })
+              }
               onToggleFilter={this.toggleFields}
               onToggleSwitch={this.toggleSwitch}
               mentorCount={mentorsInList.length}
               clickedTag={clickedTag}
               clickedCountry={clickedCountry}
+              country={country}
               countries={countries}
+              name={name}
               names={names}
+              language={language}
               languages={languages}
             />
             <SocialLinks />
@@ -249,15 +314,15 @@ class App extends Component {
             ])}
             data-testid="mentors-wrapper"
           >
-            <Input id="technology" label="Technology" key="technology">
-              <AutoComplete
-                id="technology"
-                source={tags}
-                onSelect={this.handleTagSelect}
-                clickedTag={clickedTag}
-                data-testid="technology-filter-autocomplete"
-              />
-            </Input>
+            <TechnologyInput
+              tags={allTags}
+              clickedTag={clickedTag}
+              selectedTags={Array.from(tags)}
+              value={technology}
+              onTagChanged={e => this.setState({ technology: e.target.value })}
+              onTagSelected={this.handleTagSelect}
+              onTagRemoved={this.handleTagRemove}
+            />
 
             <MentorsList
               mentors={mentorsInList}

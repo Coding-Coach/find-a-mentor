@@ -1,0 +1,22 @@
+.technology-input {
+  display: flex;
+
+  grid-gap: 20px;
+  margin-right: 100px;
+  min-width: 300px;
+}
+
+.technology-input > *:first-child {
+  flex: 1;
+}
+
+.technology-input > button {
+  cursor: pointer;
+  align-self: end;
+  color: #fff;
+  background: #00bc89;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  height: 40px;
+}

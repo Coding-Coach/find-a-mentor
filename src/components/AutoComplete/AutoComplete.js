@@ -4,10 +4,6 @@ import React, { Component } from 'react';
 import Autocomplete from 'react-autocomplete';
 import classNames from 'classnames';
 
-function renderInput(props) {
-  return <input {...props} className="input" autoComplete="off" />;
-}
-
 function renderItem(item, isHighlighted) {
   return (
     <div
@@ -24,62 +20,38 @@ function renderMenu(items, value, style) {
 }
 
 export default class AutoComplete extends Component {
-  state = {
-    value: '',
-  };
-
   onSelect = (value, item) => {
-    this.setState({ value });
     this.props.onSelect(item);
-    this.setPermalinkParams(this.props.id, value);
+    // TODO: Set permalink param here
   };
 
   onChange = (event, value) => {
-    this.setState({ value });
     if (!value) {
       this.props.onSelect({ value: '', label: '' });
     }
-    this.setPermalinkParams(this.props.id, value);
+    this.props.onChange(event);
+    // TODO: Set permalink param here
   };
 
   matchStateToTerm(state, value) {
     return state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
   }
 
-  getPermalinkParams() {
-    const permalink = new URLSearchParams(window.location.search);
-    const paramValue = permalink.get(this.props.id);
-    const paramItem = this.props.source.filter(
-      item => item.value === paramValue
+  renderInput(props) {
+    return (
+      <input
+        {...props}
+        className={classNames('input', { full: this.props.fullWidth })}
+        autoComplete="off"
+      />
     );
-    if (paramItem.length) {
-      this.setState({ value: paramItem[0].label, label: paramValue });
-      this.props.onSelect({ value: paramValue, label: paramItem[0].label });
-    }
-  }
-
-  setPermalinkParams = (param, value) => {
-    const permalink = new URLSearchParams(window.location.search);
-    const paramItem = this.props.source.filter(item => item.label === value);
-    if (paramItem.length && value.length) {
-      permalink.set(param, paramItem[0].value);
-    } else if (!value.length) {
-      permalink.delete(param);
-    }
-    window.history.pushState({}, null, '?' + permalink.toString());
-  };
-
-  componentDidMount() {
-    this.getPermalinkParams();
   }
 
   componentDidUpdate(prevProps) {
     const { clickedTag: value, clickedCountry } = this.props;
 
     if (prevProps.clickedTag !== this.props.clickedTag) {
-      this.setState({ value });
       this.props.onSelect({ value });
-      this.setPermalinkParams(this.props.id, value);
     }
 
     if (prevProps.clickedCountry !== clickedCountry) {
@@ -87,15 +59,13 @@ export default class AutoComplete extends Component {
         item => item.value === clickedCountry
       );
 
-      this.setState({ value: code.label });
       this.props.onSelect({ value: code.value });
-      this.setPermalinkParams(this.props.id, code.label);
+      // this.setPermalinkParams(this.props.id, code.label);
     }
   }
 
   render() {
-    const { value } = this.state;
-    const { source, 'data-testid': testid } = this.props;
+    const { value, source, 'data-testid': testid } = this.props;
     let { id } = this.props;
     id = `${id}-${Math.random()}`;
 
@@ -106,7 +76,7 @@ export default class AutoComplete extends Component {
           items={source}
           renderItem={renderItem}
           renderMenu={renderMenu}
-          renderInput={renderInput}
+          renderInput={this.renderInput.bind(this)}
           wrapperStyle={{}}
           getItemValue={item => item.label}
           shouldItemRender={this.matchStateToTerm}

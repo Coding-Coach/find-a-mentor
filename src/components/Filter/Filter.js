@@ -9,31 +9,7 @@ import Switch from '../Switch/Switch';
 
 export default class Filter extends Component {
   state = {
-    tag: '',
-    country: '',
-    name: '',
-    language: '',
     showFilters: false,
-  };
-
-  onTagSelect = tag => {
-    this.setState({ tag });
-    this.props.onTagSelected(tag);
-  };
-
-  onCountrySelect = country => {
-    this.setState({ country });
-    this.props.onCountrySelected(country);
-  };
-
-  onNameSelect = name => {
-    this.setState({ name });
-    this.props.onNameSelected(name);
-  };
-
-  onLanguageSelect = language => {
-    this.setState({ language });
-    this.props.onLanguageSelected(language);
   };
 
   onToggleFilter = () => {
@@ -47,8 +23,11 @@ export default class Filter extends Component {
     const {
       onToggleSwitch,
       clickedCountry,
+      country,
       countries,
+      name,
       names,
+      language,
       languages,
     } = this.props;
     const { showFilters } = this.state;
@@ -75,7 +54,9 @@ export default class Filter extends Component {
             <AutoComplete
               id="country"
               source={countries}
-              onSelect={this.onCountrySelect}
+              value={country}
+              onChange={this.props.onCountryChanged}
+              onSelect={this.props.onCountrySelected}
               clickedCountry={clickedCountry}
               data-testid="country-filter-autocomplete"
             />
@@ -84,7 +65,9 @@ export default class Filter extends Component {
             <AutoComplete
               id="name"
               source={names}
-              onSelect={this.onNameSelect}
+              value={name}
+              onChange={this.props.onNameChanged}
+              onSelect={this.props.onNameSelected}
               data-testid="name-filter-autocomplete"
             />
           </Input>
@@ -92,7 +75,9 @@ export default class Filter extends Component {
             <AutoComplete
               id="language"
               source={languages}
-              onSelect={this.onLanguageSelect}
+              value={language}
+              onChange={this.props.onLanguageChanged}
+              onSelect={this.props.onLanguageSelected}
               data-testid="language-filter-autocomplete"
             />
           </Input>

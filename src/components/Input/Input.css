@@ -31,3 +31,7 @@
     font-size: 16px;
   }
 }
+
+.input.full {
+  width: 100%;
+}

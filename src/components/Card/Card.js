@@ -6,6 +6,7 @@ import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import helpers from '../../helpers';
 import { report } from '../../ga';
+import Tag from '../Tag/Tag';
 
 function handleAnalytic(channelName) {
   report('Channel', 'click', channelName);
@@ -14,14 +15,9 @@ function handleAnalytic(channelName) {
 const tagsList = (tags, handleTagClick) =>
   tags.map((tag, index) => {
     return (
-      <button
-        className="tag"
-        key={index}
-        tabIndex={0}
-        onClick={handleTagClick.bind(null, tag)}
-      >
+      <Tag key={index} tabIndex={0} onClick={handleTagClick.bind(null, tag)}>
         {tag}
-      </button>
+      </Tag>
     );
   });
 
