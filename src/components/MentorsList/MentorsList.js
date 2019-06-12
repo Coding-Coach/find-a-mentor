@@ -2,7 +2,6 @@ import './MentorList.css';
 
 import React, { Component } from 'react';
 
-import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
 import Card from '../Card/Card';
 
