@@ -1,5 +1,4 @@
 import './App.css';
-import mentors from '../../mentors.json';
 
 import React, { Component } from 'react';
 import classNames from 'classnames';
