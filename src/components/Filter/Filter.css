@@ -35,13 +35,19 @@
 
 @media all and (max-width: 575.98px) {
   .inputs {
-    position: absolute;
     left: 0;
+    opacity: 1;
+    padding: 0 10px;
+    position: absolute;
     width: 100%;
   }
 
   .inputs[aria-expanded="false"] {
-    display: none;
+    opacity: 0;
+  }
+
+  .inputs[aria-expanded="true"] {
+    transition: opacity 0.5s ease-in-out;
   }
 
   .filter-wrapper {
