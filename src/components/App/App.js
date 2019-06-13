@@ -169,7 +169,7 @@ class App extends Component {
 
         <main>
           <MemberArea
-            onEditProfile={(title, content) => this.handleModal(title, content)}
+            onOpenModal={(title, content) => this.handleModal(title, content)}
           />
           <Header />
           <aside className="sidebar">

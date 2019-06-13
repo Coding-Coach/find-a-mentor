@@ -54,11 +54,21 @@ export async function createApplication() {
 }
 
 export async function updateMentor(mentor) {
-  const res = await makeApiCall(`${paths.USERS}/${mentor.id}`, mentor, 'PUT');
+  const res = await makeApiCall(`${paths.USERS}/${mentor._id}`, mentor, 'PUT');
   return res.success;
 }
 
 export async function deleteMentor(mentor) {
-  const res = await makeApiCall(`${paths.USERS}/${mentor.id}`, null, 'DELETE');
+  const res = await makeApiCall(`${paths.USERS}/${mentor._id}`, null, 'DELETE');
+  return res.success;
+}
+
+export async function getPendingApplications() {
+  const res = await makeApiCall(`${paths.MENTORS}/applications?status=pending`, null, 'GET');
+  return res.data;
+}
+
+export async function approveApplication(mentor) {
+  const res = await makeApiCall(`${paths.MENTORS}/applications/${mentor._id}`, null, 'PUT');
   return res.success;
 }

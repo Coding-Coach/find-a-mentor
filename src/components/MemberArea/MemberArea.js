@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getCurrentUser } from '../../api';
 import auth from '../../utils/auth'
 import EditProfile from './EditProfile';
+import PendingApplications from './PendingApplications';
 
 export default class MemberArea extends Component {
   state = {
@@ -31,8 +32,8 @@ export default class MemberArea extends Component {
   }
 
   openProfile = () => {
-    const { onEditProfile } = this.props;
-    onEditProfile(
+    const { onOpenModal } = this.props;
+    onOpenModal(
       'Edit Your Pofile',
       <EditProfile
         user={this.state.currentUser}
@@ -40,10 +41,22 @@ export default class MemberArea extends Component {
     )
   }
 
+  openPendingApplications = () => {
+    const { onOpenModal } = this.props;
+    onOpenModal(
+      'Pending Applications',
+      <PendingApplications />
+    )
+  }
+
   loggedIn() {
+    const { currentUser } = this.state;
     return <>
-      Current user: {this.state.currentUser &&
-        <span role="button" onClick={this.openProfile}>{this.state.currentUser.email}</span>
+      Current user: {currentUser &&
+        <span role="button" onClick={this.openProfile}>{currentUser.email} </span>
+      }
+      {
+        currentUser && currentUser.roles.includes('Admin') && <span role="button" onClick={this.openPendingApplications}>Open pending applications</span>
       }
       <button onClick={this.logout}>Logout</button>
     </>;
