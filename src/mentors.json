@@ -7150,5 +7150,37 @@
         "id": "emmajam0"
       }
     ]
+  },
+  {
+    "id": "josh.christensen2@gmail.com",
+    "name": "Josh Christensen",
+    "avatar": "https://avatars1.githubusercontent.com/u/1078765",
+    "title": "Frontend Developer",
+    "description": "",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "js",
+      "vue",
+      "css",
+      "html"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "josh.christensen2@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "ethikz"
+      },
+      {
+        "type": "github",
+        "id": "ethikz"
+      }
+    ]
   }
 ]
