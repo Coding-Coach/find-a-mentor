@@ -7118,5 +7118,37 @@
         "id": "dreamingechoes"
       }
     ]
+  },
+  {
+    "id": "ejamieson19@gmail.com",
+    "name": "Emma Jamieson",
+    "avatar": "https://media.licdn.com/dms/image/C5603AQE-7mtq6FWVxA/profile-displayphoto-shrink_200_200/0?e=1565827200&v=beta&t=J2CXb3gMc3ZqTa8IsAmfKRss6Nc9Vu2gaBfZWIzoVBU",
+    "title": "React Native Engineer",
+    "description": "Hello! I am a React Native and React Engineer, happy to help with any questions!",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "react native",
+      "react",
+      "frontend",
+      "mobile",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ejamieson19@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "emma-jamieson-89b23298"
+      },
+      {
+        "type": "twitter",
+        "id": "emmajam0"
+      }
+    ]
   }
 ]
