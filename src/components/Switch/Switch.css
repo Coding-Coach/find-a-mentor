@@ -2,8 +2,14 @@
   position: relative;
   margin-top: 20px;
   display: flex;
-  padding: 0 15px;
+  padding-left: 18px;
   justify-content: space-between;
+}
+
+@media all and (max-width: 576px) {
+  .switch-container {
+    padding: 0 15px;
+  }
 }
 
 .switch-container > label {
