@@ -6,6 +6,12 @@
   justify-content: space-between;
 }
 
+@media all and (max-width: 576px) {
+  .switch-container {
+    padding: 0 15px;
+  }
+}
+
 .switch-container > label {
   background-color: #fff;
   text-transform: uppercase;
