@@ -1,12 +1,16 @@
 language: node_js
+install:
+- yarn
 node_js:
   - v11.6.0
 cache:
   directories:
-  - node_modules
+  - "$HOME/.yarn-cache"
 script:
-  - npm test
-  - npm run predeploy
+  - yarn test
+  - NODE_ENV=production yarn predeploy
+env:
+  - PUBLIC_URL=https://mentors.codingcoach.io 
 deploy:
   provider: pages
   skip_cleanup: true

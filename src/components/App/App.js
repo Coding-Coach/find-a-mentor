@@ -13,6 +13,7 @@ import ModalContent from '../Modal/ModalContent';
 import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
+import { report, reportPageView } from '../../ga';
 
 // const serverEndpoint = 'http://localhost:3001';
 class App extends Component {
@@ -31,7 +32,7 @@ class App extends Component {
     this.setState({
       tag,
     });
-    window.ga('send', 'event', 'Filter', 'tag', tag);
+    report('Filter', 'tag', tag);
   };
 
   handleCountrySelect = async ({ value: country }) => {
@@ -39,7 +40,7 @@ class App extends Component {
     this.setState({
       country,
     });
-    window.ga('send', 'event', 'Filter', 'country', country);
+    report('Filter', 'country', country);
   };
 
   handleNameSelect = async ({ value: name }) => {
@@ -47,15 +48,33 @@ class App extends Component {
     this.setState({
       name,
     });
-    window.ga('send', 'event', 'Filter', 'name', 'name');
+    report('Filter', 'name', 'name');
+  };
+
+  handleLanguageSelect = async ({ value: language }) => {
+    await scrollToTop();
+    this.setState({
+      language,
+    });
+    report('Filter', 'language', language);
   };
 
   filterMentors = mentor => {
-    const { tag, country, name, showFavorite, favorites } = this.state;
+    const {
+      tag,
+      country,
+      name,
+      language,
+      showFavorite,
+      favorites,
+    } = this.state;
     return (
       (!tag || mentor.tags.includes(tag)) &&
       (!country || mentor.country === country) &&
       (!name || mentor.name === name) &&
+      (!language ||
+        (mentor.spokenLanguages &&
+          mentor.spokenLanguages.includes(language))) &&
       (!showFavorite || favorites.indexOf(mentor.id) > -1)
     );
   };
@@ -71,7 +90,7 @@ class App extends Component {
     this.setState({
       showFavorite,
     });
-    window.ga('send', 'event', 'Show Favorite', 'switch', showFavorite);
+    report('Show Favorite', 'switch', showFavorite);
   };
 
   onFavMentor = mentor => {
@@ -79,7 +98,7 @@ class App extends Component {
     this.setState({
       favorites,
     });
-    window.ga('send', 'event', 'Favorite');
+    report('Favorite');
   };
 
   handleTagClick = async clickedTag => {
@@ -87,7 +106,15 @@ class App extends Component {
     this.setState({
       clickedTag,
     });
-    window.ga('send', 'event', 'Filter', 'click', 'tag', clickedTag);
+    report('Filter', 'tag', clickedTag);
+  };
+
+  handleCountryClick = async clickedCountry => {
+    await scrollToTop();
+    this.setState({
+      clickedCountry,
+    });
+    report('Filter', 'country', clickedCountry);
   };
 
   getPermalinkParams() {
@@ -97,6 +124,7 @@ class App extends Component {
       tag: permalink.get('technology'),
       country: permalink.get('country'),
       name: permalink.get('name'),
+      language: permalink.get('language'),
     });
   }
 
@@ -105,11 +133,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if (window && window.ga) {
-      const { location, ga } = window;
-      ga('set', 'page', location.href);
-      ga('send', 'pageview');
-    }
+    reportPageView();
     this.getPermalinkParams();
   }
 
@@ -121,11 +145,17 @@ class App extends Component {
         onClose,
       },
     });
-    window.ga('send', 'event', 'Modal', 'open', title);
+    report('Modal', 'open', title);
   };
 
   render() {
-    const { mentors, fieldsIsActive, modal, clickedTag } = this.state;
+    const {
+      mentors,
+      fieldsIsActive,
+      modal,
+      clickedTag,
+      clickedCountry,
+    } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
@@ -142,10 +172,12 @@ class App extends Component {
               onTagSelected={this.handleTagSelect}
               onCountrySelected={this.handleCountrySelect}
               onNameSelected={this.handleNameSelect}
+              onLanguageSelected={this.handleLanguageSelect}
               onToggleFilter={this.toggleFields}
               onToggleSwitch={this.toggleSwitch}
               mentorCount={mentorsInList.length}
               clickedTag={clickedTag}
+              clickedCountry={clickedCountry}
             />
             <SocialLinks />
 
@@ -203,6 +235,7 @@ class App extends Component {
             favorites={this.state.favorites}
             onFavMentor={this.onFavMentor}
             handleTagClick={this.handleTagClick}
+            handleCountryClick={this.handleCountryClick}
           />
         </main>
       </div>

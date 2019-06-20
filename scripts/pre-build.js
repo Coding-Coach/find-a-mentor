@@ -2,19 +2,22 @@ const fs = require('fs');
 
 const mentors = require('../src/mentors.json');
 const json = {
-  language: [],
+  technology: [],
   country: [],
   name: [],
+  language: [],
 };
 
 for (let i = 0; i < mentors.length; i++) {
-  json.language.push(...(mentors[i].tags || []));
+  json.technology.push(...(mentors[i].tags || []));
   json.country.push(mentors[i].country);
   json.name.push(mentors[i].name);
+  json.language.push(...(mentors[i].spokenLanguages || []));
 }
 
-json.language = [...new Set(json.language)];
+json.technology = [...new Set(json.technology)];
 json.country = [...new Set(json.country)];
+json.language = [...new Set(json.language)];
 
 const breaklink = '\n\t';
 const createUrl = (key, value) =>

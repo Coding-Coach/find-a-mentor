@@ -50,6 +50,40 @@ main {
   cursor: pointer;
 }
 
+.patreon-link {
+  display: block;
+  margin: 20px auto 0;
+  width: 150px;
+}
+
+.patreon-link img {
+  max-width: 100%;
+}
+
+@media screen and (max-height: 650px) {
+    .social-wrapper {
+      margin-top: 10px !important;
+    }
+}
+@media screen and (max-height: 677px) {
+    .sidebar-nav {
+        margin-top: 5px;
+        position: relative;
+    }
+    .sidebar-nav li {
+      margin-bottom: 5px;
+    }
+    .sidebar {
+        overflow-y: auto;
+    }
+    .patreon-link {
+      margin: 5px auto 0;
+    }
+    .logo {
+      margin: 5px 30px;
+    }
+}
+
 @media all and (max-width: 576px) {
   .sidebar-nav {
     position: relative;
@@ -76,16 +110,6 @@ footer a:hover {
   padding: 0 3px;
   color: #fff;
   text-decoration: underline;
-}
-
-.patreon-link {
-  display: block;
-  margin: 20px auto 0;
-  width: 150px;
-}
-
-.patreon-link img {
-  max-width: 100%;
 }
 
 @media all and (max-width: 576px) {

@@ -4,23 +4,11 @@ import { orderBy } from 'lodash';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
-
-const generateMentorId = name => {
-  return name.replace(/\s/g, '-');
-};
+import helpers from '../../helpers';
+import { report } from '../../ga';
 
 function handleAnalytic(channelName) {
-  if (window && window.ga) {
-    const { ga } = window;
-
-    ga('send', {
-      hitType: 'event',
-      eventCategory: 'Channel',
-      eventAction: 'click',
-      eventLabel: channelName,
-      transport: 'beacon',
-    });
-  }
+  report('Channel', 'click', channelName);
 }
 
 const tagsList = (tags, handleTagClick) =>
@@ -75,14 +63,15 @@ const channelsList = channels => {
   });
 };
 
-const Avatar = ({ mentor }) => {
+const Avatar = ({ mentor, id }) => {
   return (
     <div className="avatar">
       <i className="fa fa-user-circle" />
       <img
         src={mentor.avatar}
-        aria-labelledby={`${generateMentorId(mentor.name)}-name`}
-        alt=""
+        aria-labelledby={`${id}`}
+        alt={`${mentor.name}`}
+        onError={e => e.currentTarget.classList.add('broken')}
       />
     </div>
   );
@@ -99,7 +88,13 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
-const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
+const Card = ({
+  mentor,
+  onFavMentor,
+  isFav,
+  handleTagClick,
+  handleCountryClick,
+}) => {
   const toggleFav = () => {
     isFav = !isFav;
     onFavMentor(mentor);
@@ -112,11 +107,13 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
     <React.Fragment />
   );
 
+  const mentorId = helpers.generateMentorId();
+
   const MentorInfo = () => {
     return (
       <>
         <div>
-          <h1 className="name" id={`${generateMentorId(mentor.name)}-name`}>
+          <h1 className="name" id={`${mentorId}`}>
             {mentor.name}
           </h1>
           <h4 className="title">{mentor.title}</h4>
@@ -144,18 +141,21 @@ const Card = ({ mentor, onFavMentor, isFav, handleTagClick }) => {
   const CardHeader = () => {
     return (
       <div className="header">
-        <div className="country location">
+        <button
+          className="country location"
+          onClick={handleCountryClick.bind(null, mentor.country)}
+        >
           <i className={'fa fa-map-marker'} />
           <p>{mentor.country}</p>
-        </div>
+        </button>
 
-        <Avatar mentor={mentor} />
+        <Avatar mentor={mentor} id={mentorId} />
         <LikeButton onClick={toggleFav} liked={isFav} />
       </div>
     );
   };
   return (
-    <div className="card" aria-label="Mentor card">
+    <div className="card" aria-label="Mentor card" data-testid="mentor-card">
       <CardHeader />
       <MentorInfo />
       <SkillsTags />

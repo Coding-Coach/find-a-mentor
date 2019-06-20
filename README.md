@@ -18,6 +18,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 ## Want to be a mentor?
 
 1. Fork
+1. Clone your fork (if you use passphrase, please clone with the HTTPS approach)
 1. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
 
 ### CLI Geek?
@@ -40,6 +41,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 1. Please double check your details. It’s important that the data scheme remains the same; just replace the details with your values. If you change the data architecture, it will cause errors.
 2. In order to avoid merge conflicts, please fetch the changes on master before pushing.
+3. By adding yourself as a mentor, you give us permission to send you emails. Don't worry, we'll not spam you, just for welcome you nicely and make sure you will get updates about the project.
 
 ### Mentor schema
 
@@ -51,6 +53,9 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
   "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
   "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
   "country": "SE",                              // Country code (link to the list below)
+  "spokenLanguages": [                          // ISO language code (link to list below)
+    "en", "fr", "zh"
+  ],
   "tags": [                                     // minItems: 1, maxItems: 5, only lowercase characters
     "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below)
   ],
@@ -74,13 +79,16 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 | frontend     | front end       |
 | express      | expressjs       |
 | fullstack    | full stack      |
-| vuejs        | vue             |
+| vuejs        | vue, vue.js     |
 | asp.net      | aspnet          |
 | asp.net core | aspnetcore      |
 
 #### Country codes
 
 https://github.com/hjnilsson/country-flags/blob/master/countries.json
+
+#### Spoken language ISO codes
+https://github.com/meikidd/iso-639-1/blob/master/src/data.js
 
 #### Channels
 
@@ -126,6 +134,10 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.<br>
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `yarn test:e2e`
+
+Launches the `Cypress` test runner _and_ the app; must run on port `3000`.  Learn more about `Cypress` [on their website](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell).
 
 # Code of Conduct
 At Coding Coach, we value all our mentors, mentees, and contributors. Our goal is to make this a safe space where new and experienced developers can connect and learn from one another. Therefore, we do not tolerate any form of harassment or prejudice. This Code of Conduct applies to all Coding Coach spaces including but not limited to slack, email correspondence, and social media.

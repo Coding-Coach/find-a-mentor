@@ -6,9 +6,11 @@
     "classnames": "^2.2.6",
     "express": "^4.16.4",
     "inquirer-autocomplete-prompt": "^1.0.1",
+    "inquirer-checkbox-plus-prompt": "^1.0.1",
+    "iso-639-1": "^2.0.5",
     "lodash": "^4.17.11",
     "react": "^16.7.0",
-    "react-aria-offcanvas": "^1.1.10",
+    "react-aria-offcanvas": "^1.2.1",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.7.0",
     "react-infinite-scroll-component": "^4.3.0",
@@ -20,13 +22,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "node scripts/pre-build.js && react-scripts build",
-    "test": "yarn prettier:fix && react-scripts test",
+    "test": "yarn prettier:fix && react-scripts test && yarn test:e2e:run",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
+    "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "add-user": "node scripts/add-mentor.js",
     "prettier": "prettier \"**/*.{json,js}\" --check --loglevel log",
-    "prettier:fix": "prettier \"**/*.{json,js}\" --write"
+    "prettier:fix": "prettier \"**/*.{json,js}\" --write",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test:e2e": "is-ci \"test:e2e:run\" \"test:e2e:dev\"",
+    "pretest:e2e:run": "yarn run build",
+    "test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
+    "test:e2e:dev": "start-server-and-test start http://localhost:3000 cy:open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,15 +47,18 @@
   ],
   "devDependencies": {
     "ajv": "^6.8.1",
+    "cypress": "^3.2.0",
+    "cypress-testing-library": "^3.0.1",
     "execa": "^1.0.0",
     "gh-pages": "^2.0.1",
     "image-type": "^4.0.0",
     "inquirer": "^6.2.2",
+    "is-ci-cli": "^1.1.1",
     "nodemon": "^1.18.9",
     "object-path": "^0.11.4",
     "ora": "^3.2.0",
-    "prettier": "1.16.4"
+    "prettier": "1.16.4",
+    "start-server-and-test": "^1.9.0"
   },
-  "homepage": "https://mentors.codingcoach.io",
   "license": "MIT"
 }

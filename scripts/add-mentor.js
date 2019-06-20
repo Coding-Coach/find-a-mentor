@@ -10,9 +10,6 @@ const Ora = require('ora');
 
 const createUser = require('./create-user');
 
-const spinnerPull = new Ora({
-  text: 'Retrieving most recent changes',
-});
 const spinnerMerge = new Ora({
   text: 'Adding to mentors list',
 });
@@ -25,10 +22,6 @@ const spinnerCommit = new Ora({
 const spinnerPush = new Ora({
   text: 'Publishing to Github',
 });
-
-async function gitPull() {
-  await execa('git', ['pull']);
-}
 
 async function gitBranch(name) {
   await execa('git', ['checkout', '-b', `add-${name}-as-mentor`]);
@@ -49,17 +42,6 @@ async function gitPush(name) {
 }
 
 const gitFunctions = {
-  pullProcess: async () => {
-    spinnerPull.start();
-    try {
-      await gitPull();
-      spinnerPull.succeed();
-    } catch (error) {
-      spinnerPull.fail();
-      console.error('\x1b[31m%s\x1b[0m', 'Error: ' + error.message);
-      throw new Error('There is a problem with the git pull process');
-    }
-  },
   branchProcess: async answers => {
     spinnerBranch.start();
     try {
@@ -117,7 +99,6 @@ async function addToMentorsList(mentor) {
 
 (async () => {
   try {
-    await gitFunctions.pullProcess();
     const answers = await createUser();
     await addToMentorsList(answers);
     await gitFunctions.branchProcess(answers);
