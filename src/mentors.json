@@ -1461,38 +1461,6 @@
     ]
   },
   {
-    "id": "molly.struve@gmail.com",
-    "name": "Molly Struve",
-    "avatar": "https://avatars3.githubusercontent.com/u/1813380?s=460&v=4",
-    "title": "Lead Site Reliability Engineer",
-    "description": "I'm a self taught dev who wants to help others break into this amazing field!",
-    "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "elasticsearch",
-      "ruby",
-      "backend",
-      "devops",
-      "career"
-    ],
-    "channels": [
-      {
-        "type": "twitter",
-        "id": "molly_struve"
-      },
-      {
-        "type": "slack",
-        "id": "DGTS6T0LA"
-      },
-      {
-        "type": "email",
-        "id": "molly.struve+mentor@gmail.com"
-      }
-    ]
-  },
-  {
     "id": "brian@brianmorrison.me",
     "name": "Brian Morrison II",
     "avatar": "https://brianmorrison.me/wp-content/uploads/2019/03/personal-profile-image-sq.png",
