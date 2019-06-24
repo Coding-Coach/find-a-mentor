@@ -7252,7 +7252,10 @@
     "title": "Frontend Developer",
     "description": "Creating products that users love and experiences that help people grow!",
     "country": "PL",
-    "spokenLanguages": ["en", "pl"],
+    "spokenLanguages": [
+      "en",
+      "pl"
+    ],
     "tags": [
       "reactjs",
       "javascript",
@@ -7272,6 +7275,26 @@
       {
         "type": "github",
         "id": "klubiniecki"
+      }
+    ]
+  },
+  {
+    "id": "guptab3@gmail.com",
+    "name": "Bhaskar Gupta",
+    "avatar": "https://avatars3.githubusercontent.com/u/24912498?s=400&v=4/24912498.png",
+    "title": "Java Dev",
+    "description": "Java Dev for JBoss Community",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "java"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "guptab3@gmail.com"
       }
     ]
   }
