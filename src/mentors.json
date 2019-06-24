@@ -7182,6 +7182,38 @@
     ]
   },
   {
+    "id": "contact@michaeldavidfriedman.com",
+    "name": "Michael David Friedman",
+    "avatar": "https://avatars1.githubusercontent.com/u/17555926?s=460&v=4",
+    "title": "Software Developer",
+    "description": "Happy to help with React / Node.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "react native",
+      "nodejs",
+      "javascript",
+      "nextjs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "contact@michaeldavidfriedman.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "michaeldavidfriedman"
+      },
+      {
+        "type": "twitter",
+        "id": "ui_engineer"
+      }
+    ]
+  },
+  {
     "id": "iamuchejude@gmail.com",
     "name": "Uche Jude",
     "avatar": "https://pbs.twimg.com/profile_images/1071765718805417985/pGDGPVOY_400x400.jpg",
