@@ -7212,5 +7212,37 @@
         "id": "ui_engineer"
       }
     ]
+  },
+  {
+    "id": "iamuchejude@gmail.com",
+    "name": "Uche Jude",
+    "avatar": "https://pbs.twimg.com/profile_images/1071765718805417985/pGDGPVOY_400x400.jpg",
+    "title": "Software Engineer",
+    "description": "I am really passionate about JavaScript on the web",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "php",
+      "web"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "iamuchejude"
+      },
+      {
+        "type": "github",
+        "id": "iamuchejude"
+      },
+      {
+        "type": "website",
+        "id": "iamuchejude.com"
+      }
+    ]
   }
 ]
