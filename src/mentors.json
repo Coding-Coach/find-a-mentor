@@ -7252,7 +7252,7 @@
     "title": "Frontend Developer",
     "description": "Creating products that users love and experiences that help people grow!",
     "country": "PL",
-    "spokenLanguages": [],
+    "spokenLanguages": ["en", "pl"],
     "tags": [
       "reactjs",
       "javascript",
