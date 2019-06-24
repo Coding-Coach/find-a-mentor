@@ -7244,5 +7244,35 @@
         "id": "iamuchejude.com"
       }
     ]
+  },
+  {
+    "id": "klubiniecki@gmail.com",
+    "name": "Kris Lubiniecki",
+    "avatar": "https://avatars1.githubusercontent.com/u/22548703?s=460&v=4",
+    "title": "Frontend Developer",
+    "description": "Creating products that users love and experiences that help people grow!",
+    "country": "PL",
+    "spokenLanguages": ["en", "pl"],
+    "tags": [
+      "reactjs",
+      "javascript",
+      "ux/ui",
+      "typescript",
+      "education"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "klubiniecki@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "lubiniecki"
+      },
+      {
+        "type": "github",
+        "id": "klubiniecki"
+      }
+    ]
   }
 ]
