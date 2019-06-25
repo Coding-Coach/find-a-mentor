@@ -7299,3 +7299,24 @@
     ]
   }
 ]
+{
+    "id": "deepanshu1422@gmail.com",
+    "name": "Deepanshu Udhwani",
+    "avatar": "",
+    "title": "Technical Writer",
+    "description": "Technical writer / developer",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "c++","java","writer"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "deepanshu1422@gmail.com"
+      }
+    ]
+  }
+]
