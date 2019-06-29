@@ -7297,5 +7297,30 @@
         "id": "guptab3@gmail.com"
       }
     ]
+  },
+  {
+    "id": "isbkch@gmail.com",
+    "name": "ilyas bakouch",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQGCC8PCmlRLWA/profile-displayphoto-shrink_200_200/0?e=1567036800&v=beta&t=KQhOLDxZeL-wKTlT-bK7EXxhSpPS_1wGR92C_DBcB_0",
+    "title": "Cloud & Solutions Architect",
+    "description": "Cloud Architecture/AWS - LEMP/MEAN stack - Solidity & Blockchain",
+    "country": "CA",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "aws",
+      "cloud",
+      "scala",
+      "laravel",
+      "blockchain"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "57628569"
+      }
+    ]
   }
 ]
