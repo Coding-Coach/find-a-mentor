@@ -141,7 +141,7 @@ const mentorSchema = {
         items: {
           type: 'string',
           minLength: 1,
-          maxLength: 15,
+          maxLength: 20,
           pattern: '^[^A-Z]*$',
           synonymsTags: true,
         },
