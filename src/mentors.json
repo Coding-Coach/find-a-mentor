@@ -7322,5 +7322,37 @@
         "id": "57628569"
       }
     ]
+  },
+  {
+    "id": "talina.shrotriya@gmail.com",
+    "name": "Talina Shrotriya",
+    "avatar": "https://avatars2.githubusercontent.com/u/5362897?s=460&v=4",
+    "title": "Site Reliability Engineering",
+    "description": "Distributed systems, computer networks and loves a coding challenge.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "golang",
+      "linux",
+      "python",
+      "data structures",
+      "distributed systems"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "talina.shrotriya@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "talina692"
+      },
+      {
+        "type": "github",
+        "id": "talina06"
+      }
+    ]
   }
 ]
