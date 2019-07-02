@@ -7354,5 +7354,37 @@
         "id": "talina06"
       }
     ]
+  },
+  {
+    "id": "mail@joelibaceta.com",
+    "name": "Joel Ibaceta",
+    "avatar": "https://avatars2.githubusercontent.com/u/864790?s=460&v=4",
+    "title": "Ruby Developer",
+    "description": "Hi, I speak Python and Ruby ...\"",
+    "country": "AR",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "ruby",
+      "python",
+      "php",
+      "golang",
+      "c#"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mail@joelibaceta.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "https://www.linkedin.com/in/joelibaceta/"
+      },
+      {
+        "type": "github",
+        "id": "joelibaceta"
+      }
+    ]
   }
 ]
