@@ -7411,5 +7411,29 @@
         "id": "i"
       }
     ]
+  },
+  {
+    "id": "johnboscoobiejesi@gmail.com",
+    "name": "Jude Chinwike Obiejesi",
+    "avatar": "https://pbs.twimg.com/profile_images/1115179633081815040/H7m30Dph_400x400.jpg",
+    "title": "Front-end Dev/Technical writer",
+    "description": "Technology Enthusiast, come let's build together",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "javascript",
+      "wordpress",
+      "jamstack",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "facebook",
+        "id": "obiejesi.johnbosco"
+      }
+    ]
   }
 ]
