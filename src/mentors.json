@@ -7419,5 +7419,38 @@
         "id": "jaybeeclassical"
       }
     ]
+  },
+  {
+    "id": "carloscorrea.dev@gmail.com",
+    "name": "Jose Carlos Correa",
+    "avatar": "https://pbs.twimg.com/profile_images/1146839624855298053/5uyuVA4n_400x400.png",
+    "title": "Lead Teacher",
+    "description": "",
+    "country": "MX",
+    "spokenLanguages": [
+      "en",
+      "es"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "express",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "jossdz"
+      },
+      {
+        "type": "twitter",
+        "id": "jossdz"
+      },
+      {
+        "type": "github",
+        "id": "jossdz"
+      }
+    ]
   }
 ]
