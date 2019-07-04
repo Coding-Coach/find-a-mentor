@@ -7363,7 +7363,8 @@
     "description": "Hi, I speak Python and Ruby ...\"",
     "country": "AR",
     "spokenLanguages": [
-      "en", "es"
+      "en",
+      "es"
     ],
     "tags": [
       "ruby",
@@ -7384,6 +7385,39 @@
       {
         "type": "github",
         "id": "joelibaceta"
+      }
+    ]
+  },
+  {
+    "id": "praveenkrsaini0@gmail.com",
+    "name": "Praveen Kumar Saini",
+    "avatar": "https://res.cloudinary.com/praveen-me/image/upload/v1562228139/avatar-photo/DSC04017.jpg",
+    "title": "React Developer",
+    "description": "Hello, I'm Praveen. Happy to help you in any king of JavaScript Environment stuff",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "react-native",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "praveenkrsaini0@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "praveen-me"
+      },
+      {
+        "type": "twitter",
+        "id": "am_pra_veen"
       }
     ]
   }
