@@ -4632,38 +4632,6 @@
     ]
   },
   {
-    "id": "codingmatty@gmail.com",
-    "name": "Matthew Jacobs",
-    "avatar": "https://gravatar.com/avatar/64d17886f3dfee1ff211f1596a4ff9f2",
-    "title": "Frontend Focused Full-stack Dev",
-    "description": "Years of experience. Excited to help passionate learners reach the next level.",
-    "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "express",
-      "graphql",
-      "javascript"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "codingmatty@gmail.com"
-      },
-      {
-        "type": "twitter",
-        "id": "codingmatty"
-      },
-      {
-        "type": "github",
-        "id": "codingmatty"
-      }
-    ]
-  },
-  {
     "id": "ysoni96@gmail.com",
     "name": "Yash Soni",
     "avatar": "https://cdn-images-1.medium.com/fit/c/150/150/1*wAzu9YxUdm0s71CRHGGlmw.jpeg",
@@ -7385,6 +7353,71 @@
       {
         "type": "github",
         "id": "joelibaceta"
+      }
+    ]
+  },
+  {
+    "id": "johnboscoobiejesi@gmail.com",
+    "name": "Jude Chinwike Obiejesi",
+    "avatar": "https://pbs.twimg.com/profile_images/1115179633081815040/H7m30Dph_400x400.jpg",
+    "title": "Front-end Dev/Technical writer",
+    "description": "Technology Enthusiast, come let's build together",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "javascript",
+      "wordpress",
+      "jamstack",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "johnboscoobiejesi@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "chinweike_dev"
+      },
+      {
+        "type": "github",
+        "id": "jaybeeclassical"
+      }
+    ]
+  },
+  {
+    "id": "carloscorrea.dev@gmail.com",
+    "name": "Jose Carlos Correa",
+    "avatar": "https://pbs.twimg.com/profile_images/1146839624855298053/5uyuVA4n_400x400.png",
+    "title": "Lead Teacher",
+    "description": "Fullstack dev, Teacher at Ironhack, Teacher at Platzi, jamstack, reactjs lover.",
+    "country": "MX",
+    "spokenLanguages": [
+      "en",
+      "es"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "express",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "jossdz"
+      },
+      {
+        "type": "twitter",
+        "id": "jossdz"
+      },
+      {
+        "type": "github",
+        "id": "jossdz"
       }
     ]
   },
