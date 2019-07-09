@@ -7486,5 +7486,37 @@
         "id": "robinz.in"
       }
     ]
+  },
+  {
+    "id": "mentor@joe.gl",
+    "name": "Joe Glombek",
+    "avatar": "https://s.gravatar.com/avatar/355437240dfd58d6f981252376d6eeba?s=432",
+    "title": "Senior Developer at Etch",
+    "description": "Weekdays I work with Umbraco CMS, weekends are for wilderness!",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "c#",
+      "umbraco",
+      "asp.net",
+      "tsql",
+      ".net"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UL913MSVB"
+      },
+      {
+        "type": "twitter",
+        "id": "joeglombek"
+      },
+      {
+        "type": "website",
+        "id": "joe.gl/ombek"
+      }
+    ]
   }
 ]
