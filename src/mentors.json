@@ -7518,5 +7518,38 @@
         "id": "joe.gl/ombek"
       }
     ]
+  },
+  {
+    "id": "smhatre59@gmail.com",
+    "name": "Saurabh Mhatre",
+    "avatar": "https://res.cloudinary.com/dk22rcdch/image/upload/v1562688743/Blogimages/profilepic_z0p1u6.jpg",
+    "title": "Frontend Developer",
+    "description": "Skilled in React.js/Javascript.Can help you in learning frontend development.AMA",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi",
+      "mr"
+    ],
+    "tags": [
+      "reactjs",
+      "nodejs",
+      "frontend",
+      "websitedevelopment"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "saurabh-mhatre"
+      },
+      {
+        "type": "twitter",
+        "id": "codeclassifiers"
+      },
+      {
+        "type": "website",
+        "id": "medium.com/@smhatre59"
+      }
+    ]
   }
 ]
