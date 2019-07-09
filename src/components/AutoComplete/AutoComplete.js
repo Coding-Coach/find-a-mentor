@@ -68,6 +68,7 @@ export default class AutoComplete extends Component {
     const { value, source, 'data-testid': testid } = this.props;
     let { id } = this.props;
     id = `${id}-${Math.random()}`;
+    console.log(source.length);
 
     return (
       <div className="ac">

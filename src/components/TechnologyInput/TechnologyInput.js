@@ -14,13 +14,14 @@ const TechnologyInput = ({
   onTagSelected,
   onTagRemoved,
 }) => {
+  console.log(tags.length);
   return (
     <div>
       <div className="technology-input">
         <Input id="technology" label="Technology" key="technology">
           <AutoComplete
             id="technology"
-            source={tags}
+            source={tags.filter(tag => !selectedTags.includes(tag.value))}
             value={value}
             onSelect={selected => selected.value && onTagSelected(selected)}
             onChange={onTagChanged}
@@ -42,6 +43,16 @@ const TechnologyInput = ({
               className="filter"
             >
               {tag}
+
+              <svg viewBox="0 0 43 43" width={30} height={30}>
+                <g fill="none" fillRule="evenodd">
+                  <polygon
+                    fill="#FFF"
+                    points="15 1.5 13.5 0 7.5 6 1.5 0 0 1.5 6 7.5 0 13.5 1.5 15 7.5 9 13.5 15 15 13.5 9 7.5"
+                    transform="translate(14 14)"
+                  />
+                </g>
+              </svg>
             </Tag>
           ))}
         </div>

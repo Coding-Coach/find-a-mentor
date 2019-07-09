@@ -1461,38 +1461,6 @@
     ]
   },
   {
-    "id": "molly.struve@gmail.com",
-    "name": "Molly Struve",
-    "avatar": "https://avatars3.githubusercontent.com/u/1813380?s=460&v=4",
-    "title": "Lead Site Reliability Engineer",
-    "description": "I'm a self taught dev who wants to help others break into this amazing field!",
-    "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "elasticsearch",
-      "ruby",
-      "backend",
-      "devops",
-      "career"
-    ],
-    "channels": [
-      {
-        "type": "twitter",
-        "id": "molly_struve"
-      },
-      {
-        "type": "slack",
-        "id": "DGTS6T0LA"
-      },
-      {
-        "type": "email",
-        "id": "molly.struve+mentor@gmail.com"
-      }
-    ]
-  },
-  {
     "id": "brian@brianmorrison.me",
     "name": "Brian Morrison II",
     "avatar": "https://brianmorrison.me/wp-content/uploads/2019/03/personal-profile-image-sq.png",
@@ -4664,38 +4632,6 @@
     ]
   },
   {
-    "id": "codingmatty@gmail.com",
-    "name": "Matthew Jacobs",
-    "avatar": "https://gravatar.com/avatar/64d17886f3dfee1ff211f1596a4ff9f2",
-    "title": "Frontend Focused Full-stack Dev",
-    "description": "Years of experience. Excited to help passionate learners reach the next level.",
-    "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "express",
-      "graphql",
-      "javascript"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "codingmatty@gmail.com"
-      },
-      {
-        "type": "twitter",
-        "id": "codingmatty"
-      },
-      {
-        "type": "github",
-        "id": "codingmatty"
-      }
-    ]
-  },
-  {
     "id": "ysoni96@gmail.com",
     "name": "Yash Soni",
     "avatar": "https://cdn-images-1.medium.com/fit/c/150/150/1*wAzu9YxUdm0s71CRHGGlmw.jpeg",
@@ -5844,7 +5780,7 @@
     "id": "fobabs2win@rocketmail.com",
     "name": "Francis Babalola",
     "avatar": "https://hropperm-cdn.sirv.com/images/about.jpg",
-    "title": "Software Developer",
+    "title": "Web Developer",
     "description": "Hi, I specialize in MERN stack and JAMstack applications.",
     "country": "NG",
     "tags": [
@@ -7083,6 +7019,438 @@
       {
         "type": "github",
         "id": "emjayess"
+      }
+    ]
+  },
+  {
+    "id": "xixon.sound@gmail.com",
+    "name": "Ivan Gonzalez",
+    "avatar": "https://avatars2.githubusercontent.com/u/4928335?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "I love to share my knowledge while I learn from others. Let's learn together!",
+    "country": "ES",
+    "spokenLanguages": [
+      "es",
+      "en"
+    ],
+    "tags": [
+      "elixir",
+      "phoenix fwk",
+      "ruby",
+      "ruby on rails",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "xixon.sound@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "dreamingechoes"
+      },
+      {
+        "type": "github",
+        "id": "dreamingechoes"
+      }
+    ]
+  },
+  {
+    "id": "ejamieson19@gmail.com",
+    "name": "Emma Jamieson",
+    "avatar": "https://media.licdn.com/dms/image/C5603AQE-7mtq6FWVxA/profile-displayphoto-shrink_200_200/0?e=1565827200&v=beta&t=J2CXb3gMc3ZqTa8IsAmfKRss6Nc9Vu2gaBfZWIzoVBU",
+    "title": "React Native Engineer",
+    "description": "Hello! I am a React Native and React Engineer, happy to help with any questions!",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "react native",
+      "reactjs",
+      "frontend",
+      "mobile",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ejamieson19@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "emma-jamieson-89b23298"
+      },
+      {
+        "type": "twitter",
+        "id": "emmajam0"
+      }
+    ]
+  },
+  {
+    "id": "josh.christensen2@gmail.com",
+    "name": "Josh Christensen",
+    "avatar": "https://avatars1.githubusercontent.com/u/1078765",
+    "title": "Frontend Developer",
+    "description": "",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "js",
+      "vuejs",
+      "css",
+      "html"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "josh.christensen2@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "ethikz"
+      },
+      {
+        "type": "github",
+        "id": "ethikz"
+      }
+    ]
+  },
+  {
+    "id": "rameshvishnoi90904@gmail.com",
+    "name": "Ramesh Vishnoi",
+    "avatar": "https://media.licdn.com/dms/image/C5103AQEOwdSoNM6JWg/profile-displayphoto-shrink_200_200/0?e=1566432000&v=beta&t=BrgIhaIY-rfJNbUh2jKasfSXCgBVnbyIGDpC07k_RVU",
+    "title": "Software Developer",
+    "description": "Experienced Software developer. Skilled in React, ReactNative and Vuejs",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "react native",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "rameshvishnoi90904@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "ramesh-vishnoi-3490b5b4"
+      },
+      {
+        "type": "twitter",
+        "id": "vishnoi_ramesh"
+      }
+    ]
+  },
+  {
+    "id": "contact@michaeldavidfriedman.com",
+    "name": "Michael David Friedman",
+    "avatar": "https://avatars1.githubusercontent.com/u/17555926?s=460&v=4",
+    "title": "Software Developer",
+    "description": "Happy to help with React / Node.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "react native",
+      "nodejs",
+      "javascript",
+      "nextjs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "contact@michaeldavidfriedman.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "michaeldavidfriedman"
+      },
+      {
+        "type": "twitter",
+        "id": "ui_engineer"
+      }
+    ]
+  },
+  {
+    "id": "iamuchejude@gmail.com",
+    "name": "Uche Jude",
+    "avatar": "https://pbs.twimg.com/profile_images/1071765718805417985/pGDGPVOY_400x400.jpg",
+    "title": "Software Engineer",
+    "description": "I am really passionate about JavaScript on the web",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "php",
+      "web"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "iamuchejude"
+      },
+      {
+        "type": "github",
+        "id": "iamuchejude"
+      },
+      {
+        "type": "website",
+        "id": "iamuchejude.com"
+      }
+    ]
+  },
+  {
+    "id": "klubiniecki@gmail.com",
+    "name": "Kris Lubiniecki",
+    "avatar": "https://avatars1.githubusercontent.com/u/22548703?s=460&v=4",
+    "title": "Frontend Developer",
+    "description": "Creating products that users love and experiences that help people grow!",
+    "country": "PL",
+    "spokenLanguages": [
+      "en",
+      "pl"
+    ],
+    "tags": [
+      "reactjs",
+      "javascript",
+      "ux/ui",
+      "typescript",
+      "education"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "klubiniecki@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "lubiniecki"
+      },
+      {
+        "type": "github",
+        "id": "klubiniecki"
+      }
+    ]
+  },
+  {
+    "id": "guptab3@gmail.com",
+    "name": "Bhaskar Gupta",
+    "avatar": "https://avatars3.githubusercontent.com/u/24912498?s=400&v=4/24912498.png",
+    "title": "Java Dev",
+    "description": "Java Dev for JBoss Community",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "java"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "guptab3@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "isbkch@gmail.com",
+    "name": "ilyas bakouch",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQGCC8PCmlRLWA/profile-displayphoto-shrink_200_200/0?e=1567036800&v=beta&t=KQhOLDxZeL-wKTlT-bK7EXxhSpPS_1wGR92C_DBcB_0",
+    "title": "Cloud & Solutions Architect",
+    "description": "Cloud Architecture/AWS - LEMP/MEAN stack - Solidity & Blockchain",
+    "country": "CA",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "aws",
+      "cloud",
+      "scala",
+      "laravel",
+      "blockchain"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "57628569"
+      }
+    ]
+  },
+  {
+    "id": "talina.shrotriya@gmail.com",
+    "name": "Talina Shrotriya",
+    "avatar": "https://avatars2.githubusercontent.com/u/5362897?s=460&v=4",
+    "title": "Site Reliability Engineering",
+    "description": "Distributed systems, computer networks and loves a coding challenge.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "golang",
+      "linux",
+      "python",
+      "data structures",
+      "distributed systems"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "talina.shrotriya@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "talina692"
+      },
+      {
+        "type": "github",
+        "id": "talina06"
+      }
+    ]
+  },
+  {
+    "id": "mail@joelibaceta.com",
+    "name": "Joel Ibaceta",
+    "avatar": "https://avatars2.githubusercontent.com/u/864790?s=460&v=4",
+    "title": "Ruby Developer",
+    "description": "Hi, I speak Python and Ruby ...\"",
+    "country": "AR",
+    "spokenLanguages": [
+      "en",
+      "es"
+    ],
+    "tags": [
+      "ruby",
+      "python",
+      "php",
+      "golang",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mail@joelibaceta.com"
+      },
+      {
+        "type": "twitter",
+        "id": "joelibaceta"
+      },
+      {
+        "type": "github",
+        "id": "joelibaceta"
+      }
+    ]
+  },
+  {
+    "id": "johnboscoobiejesi@gmail.com",
+    "name": "Jude Chinwike Obiejesi",
+    "avatar": "https://pbs.twimg.com/profile_images/1115179633081815040/H7m30Dph_400x400.jpg",
+    "title": "Front-end Dev/Technical writer",
+    "description": "Technology Enthusiast, come let's build together",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "javascript",
+      "wordpress",
+      "jamstack",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "johnboscoobiejesi@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "chinweike_dev"
+      },
+      {
+        "type": "github",
+        "id": "jaybeeclassical"
+      }
+    ]
+  },
+  {
+    "id": "carloscorrea.dev@gmail.com",
+    "name": "Jose Carlos Correa",
+    "avatar": "https://pbs.twimg.com/profile_images/1146839624855298053/5uyuVA4n_400x400.png",
+    "title": "Lead Teacher",
+    "description": "Fullstack dev, Teacher at Ironhack, Teacher at Platzi, jamstack, reactjs lover.",
+    "country": "MX",
+    "spokenLanguages": [
+      "en",
+      "es"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "express",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "jossdz"
+      },
+      {
+        "type": "twitter",
+        "id": "jossdz"
+      },
+      {
+        "type": "github",
+        "id": "jossdz"
+      }
+    ]
+  },
+  {
+    "id": "praveenkrsaini0@gmail.com",
+    "name": "Praveen Kumar Saini",
+    "avatar": "https://res.cloudinary.com/praveen-me/image/upload/v1562228139/avatar-photo/DSC04017.jpg",
+    "title": "React Developer",
+    "description": "Hello, I'm Praveen. Happy to help in any kind of JavaScript Environment stuff.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "react native",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "praveenkrsaini0@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "praveen-me"
+      },
+      {
+        "type": "twitter",
+        "id": "am_pra_veen"
       }
     ]
   }

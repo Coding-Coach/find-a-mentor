@@ -18,4 +18,6 @@
 
 .tag.filter {
   background: #6ad4b0;
+  display: inline-flex;
+  align-items: center;
 }

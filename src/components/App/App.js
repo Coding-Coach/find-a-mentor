@@ -47,14 +47,16 @@ class App extends Component {
   };
 
   handleTagRemove = ({ value: tag }) => {
-    this.setState(state => {
-      const newTags = new Set(state.tags);
-      newTags.delete(tag);
-      return {
-        tags: newTags,
-      };
-    });
-    this.setPermalinkParams('technology', tag);
+    this.setState(
+      state => {
+        const newTags = new Set(state.tags);
+        newTags.delete(tag);
+        return {
+          tags: newTags,
+        };
+      },
+      () => this.setPermalinkParams('technology', tag)
+    );
   };
 
   handleCountrySelect = async ({ value: country }) => {
@@ -169,15 +171,14 @@ class App extends Component {
 
     const permalink = new URLSearchParams(window.location.search);
     const paramItem = source.filter(item => item.label === value);
+
     if (paramItem.length && value.length) {
       // Special case for "technology" because of multiple inputs available
       if (param === 'technology') {
         const technologies = Array.from(this.state.tags).join(',');
-        // let newParam = `${permalink.get('technology') || ''},${
-        //   paramItem[0].value
-        // }`;
-        // if (newParam[0] === ',') newParam = newParam.slice(1);
-        permalink.set(param, technologies);
+
+        if (!technologies) permalink.delete(param);
+        else permalink.set(param, technologies);
       } else {
         permalink.set(param, paramItem[0].value);
       }

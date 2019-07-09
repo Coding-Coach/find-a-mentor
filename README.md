@@ -57,7 +57,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
     "en", "fr", "zh"
   ],
   "tags": [                                     // minItems: 1, maxItems: 5, only lowercase characters
-    "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below)
+    "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below) tag's maxLength: 20 characters
   ],
   "channels": [                                 // minItems: 1, maxItems: 3
     {

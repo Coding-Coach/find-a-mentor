@@ -1,13 +1,14 @@
-import './MentorList.css';
-
 import React, { Component } from 'react';
 
 import InfiniteScroll from 'react-infinite-scroller';
+
 import Card from '../Card/Card';
+
+import './MentorList.css';
 
 const itemsInPage = 20;
 
-export default class MentorsLists extends Component {
+export default class MentorsList extends Component {
   state = {
     page: 1,
   };
