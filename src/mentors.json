@@ -7455,6 +7455,39 @@
     ]
   },
   {
+    "id": "hi@robinz.in",
+    "name": "Robin C Samuel",
+    "avatar": "https://robinz.in/content/images/0B5AqUhidAqc2VEV6azZTdnpZNFU.png",
+    "title": "Full Stack Developer/Tech Lead",
+    "description": "Full stack developer, Tech lead, focusing on javascript, node.js, python, php.",
+    "country": "IN",
+    "spokenLanguages": [
+      "ml",
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "python",
+      "php",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "robincsamuel"
+      },
+      {
+        "type": "github",
+        "id": "robincsamuel"
+      },
+      {
+        "type": "website",
+        "id": "robinz.in"
+      }
+    ]
+  },
+  {
     "id": "mentor@joe.gl",
     "name": "Joe Glombek",
     "avatar": "https://s.gravatar.com/avatar/355437240dfd58d6f981252376d6eeba?s=432",
