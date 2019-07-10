@@ -7583,5 +7583,35 @@
         "id": "calebmer"
       }
     ]
+  },
+  {
+    "id": "sharmaravi0518@gmail.com",
+    "name": "Ravindra Sharma",
+    "avatar": "https://res.cloudinary.com/dyfwkm7qq/image/upload/v1562701959/Profile.jpg",
+    "title": "Lead Quality Engineer",
+    "description": "Hello, I'm Ravindra. Happy to help in Selenium, Web Automation and Automation frameworks",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "selenium",
+      "web automation"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "ravindra-sharma-24347932"
+      },
+      {
+        "type": "twitter",
+        "id": "sharma_ravi10"
+      },
+      {
+        "type": "slack",
+        "id": "UKXRK6S4A"
+      }
+    ]
   }
 ]
