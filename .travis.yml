@@ -8,6 +8,7 @@ cache:
   - "$HOME/.yarn-cache"
   - "$HOME/travis/.cache/Cypress"
 script:
+  - cypress install
   - yarn test
   - NODE_ENV=production yarn predeploy
 env:
