@@ -7551,5 +7551,37 @@
         "id": "medium.com/@smhatre59"
       }
     ]
+  },
+  {
+    "id": "calebmeredith8@gmail.com",
+    "name": "Caleb Meredith",
+    "avatar": "https://calebmer.com/assets/images/profile-pic.jpeg",
+    "title": "Product Engineer",
+    "description": "I build React apps, product APIs, and compilers.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "performance",
+      "typescript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "calebmeredith8@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UKYANA2R1"
+      },
+      {
+        "type": "twitter",
+        "id": "calebmer"
+      }
+    ]
   }
 ]
