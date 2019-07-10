@@ -6,11 +6,12 @@ node_js:
 cache:
   directories:
   - "$HOME/.yarn-cache"
+  - "$HOME/travis/.cache/Cypress"
 script:
   - yarn test
   - NODE_ENV=production yarn predeploy
 env:
-  - PUBLIC_URL=https://mentors.codingcoach.io 
+  - PUBLIC_URL=https://mentors.codingcoach.io
 deploy:
   provider: pages
   skip_cleanup: true
