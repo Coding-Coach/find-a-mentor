@@ -6,7 +6,7 @@ node_js:
 cache:
   yarn: true
   directories:
-    - "$HOME/.yarn-cache"
+    - node_modules
     - /home/travis/.cache/Cypress
 script:
   - yarn test
