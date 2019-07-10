@@ -7587,7 +7587,7 @@
   {
     "id": "sandip.sandip.das5@gmail.com",
     "name": "Sandip Das",
-    "avatar": "https://scontent.fnag1-1.fna.fbcdn.net/v/t1.0-9/58669613_2258801964163337_2592722970338131968_o.jpg?_nc_cat=107&_nc_oc=AQluye7BhkiiptOVkofHw8R1Nz8_usJjlc8qLbJlJa-PHYMEu8syASfLhnqjG8BYskc&_nc_ht=scontent.fnag1-1.fna&oh=751e9c1d0bb9d5da715909b297b934cc&oe=5DBD9EBF",
+    "avatar": "https://avatars3.githubusercontent.com/u/6078551?s=460&v=4",
     "title": "Sr. Javascript Developer",
     "description": "Happy to help junior programmers",
     "country": "IN",
@@ -7605,6 +7605,14 @@
       {
         "type": "email",
         "id": "sandip.sandip.das5@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "sandip-das-developer"
+      },
+      {
+        "type": "twitter",
+        "id": "techie_sandy"
       }
     ]
   }
