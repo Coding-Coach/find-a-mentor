@@ -6,6 +6,7 @@ node_js:
 cache:
   directories:
   - "$HOME/.yarn-cache"
+  - "$HOME/travis/.cache/Cypress"
 script:
   - yarn test
   - NODE_ENV=production yarn predeploy
