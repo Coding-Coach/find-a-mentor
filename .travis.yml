@@ -4,11 +4,11 @@ install:
 node_js:
   - v11.6.0
 cache:
-  yarn: true
   directories:
-    - node_modules
-    - /home/travis/.cache/Cypress
+  - "$HOME/.yarn-cache"
+  - "$HOME/travis/.cache/Cypress"
 script:
+  - cypress install
   - yarn test
   - NODE_ENV=production yarn predeploy
 env:
