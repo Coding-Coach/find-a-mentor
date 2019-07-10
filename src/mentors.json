@@ -7583,5 +7583,39 @@
         "id": "calebmer"
       }
     ]
+  },
+  {
+    "id": "vladimino@gmail.com",
+    "name": "Vlad Bilokur",
+    "avatar": "https://avatars3.githubusercontent.com/u/63159?s=460&v=4",
+    "title": "Lead PHP Developer",
+    "description": "Backend Team Lead with a passion for state-of-the-art technologies.",
+    "country": "DE",
+    "spokenLanguages": [
+      "en",
+      "ru",
+      "uk"
+    ],
+    "tags": [
+      "php",
+      "backend",
+      "software-design",
+      "best-practices",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vladimino@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "vladimino"
+      },
+      {
+        "type": "github",
+        "id": "vladimino"
+      }
+    ]
   }
 ]
