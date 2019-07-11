@@ -7673,5 +7673,38 @@
         "id": "gajendrajena"
       }
     ]
+  },
+  {
+    "id": "ah.kabbany@gmail.com",
+    "name": "Ahmed Elkabbany",
+    "avatar": "https://avatars2.githubusercontent.com/u/5136725",
+    "title": "Senior Software Engineer",
+    "description": "Web development is my technical expertise, more focused on frontend development",
+    "country": "DE",
+    "spokenLanguages": [
+      "en",
+      "ar",
+      "fr"
+    ],
+    "tags": [
+      "reactjs",
+      "frontend",
+      "fullstack",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ah.kabbany@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "akabbany"
+      },
+      {
+        "type": "twitter",
+        "id": "kabbany15"
+      }
+    ]
   }
 ]
