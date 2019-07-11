@@ -7769,5 +7769,33 @@
         "id": "wendelladriel.com"
       }
     ]
+  },
+  {
+    "id": "nunes.melissa.m@gmail.com",
+    "name": "Melissa Nunes",
+    "avatar": "https://www.gravatar.com/avatar/1d157966f52eb06a4853618994261400",
+    "title": "Front-end developer",
+    "description": "Frontend specialist, fullstack generalist, interested in functional programming.",
+    "country": "CA",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [                                     
+      "javascript", "typescript", "angular"
+    ],
+    "channels": [
+      {
+        "type": "email",                          
+        "id": "nunes.melissa.m@gmail.com"                   
+      },
+      {
+        "type": "github",
+        "id": "https://github.com/mmnoo"
+      },
+      {
+        "type": "linkedin",
+        "id": "melissa-nunes-3a563974"
+      }
+    ]
   }
 ]
