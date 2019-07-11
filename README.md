@@ -41,7 +41,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 1. Please double check your details. It’s important that the data scheme remains the same; just replace the details with your values. If you change the data architecture, it will cause errors.
 2. In order to avoid merge conflicts, please fetch the changes on master before pushing.
-3. By adding yourself as a mentor, you give us permission to send you emails. Don't worry, we'll not spam you, just for welcome you nicely and make sure you will get updates about the project.
+3. By adding yourself as a mentor, you give us permission to send you emails. Don't worry, we'll not spam you, just to welcome you nicely and make sure you will get updates about the project.
 
 ### Mentor schema
 
@@ -57,7 +57,7 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
     "en", "fr", "zh"
   ],
   "tags": [                                     // minItems: 1, maxItems: 5, only lowercase characters
-    "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below)
+    "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below) tag's maxLength: 20 characters
   ],
   "channels": [                                 // minItems: 1, maxItems: 3
     {

@@ -4632,38 +4632,6 @@
     ]
   },
   {
-    "id": "codingmatty@gmail.com",
-    "name": "Matthew Jacobs",
-    "avatar": "https://gravatar.com/avatar/64d17886f3dfee1ff211f1596a4ff9f2",
-    "title": "Frontend Focused Full-stack Dev",
-    "description": "Years of experience. Excited to help passionate learners reach the next level.",
-    "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "express",
-      "graphql",
-      "javascript"
-    ],
-    "channels": [
-      {
-        "type": "email",
-        "id": "codingmatty@gmail.com"
-      },
-      {
-        "type": "twitter",
-        "id": "codingmatty"
-      },
-      {
-        "type": "github",
-        "id": "codingmatty"
-      }
-    ]
-  },
-  {
     "id": "ysoni96@gmail.com",
     "name": "Yash Soni",
     "avatar": "https://cdn-images-1.medium.com/fit/c/150/150/1*wAzu9YxUdm0s71CRHGGlmw.jpeg",
@@ -7334,7 +7302,7 @@
       "en"
     ],
     "tags": [
-      "golang",
+      "go",
       "linux",
       "python",
       "data structures",
@@ -7352,6 +7320,390 @@
       {
         "type": "github",
         "id": "talina06"
+      }
+    ]
+  },
+  {
+    "id": "mail@joelibaceta.com",
+    "name": "Joel Ibaceta",
+    "avatar": "https://avatars2.githubusercontent.com/u/864790?s=460&v=4",
+    "title": "Ruby Developer",
+    "description": "Hi, I speak Python and Ruby ...\"",
+    "country": "AR",
+    "spokenLanguages": [
+      "en",
+      "es"
+    ],
+    "tags": [
+      "ruby",
+      "python",
+      "php",
+      "golang",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mail@joelibaceta.com"
+      },
+      {
+        "type": "twitter",
+        "id": "joelibaceta"
+      },
+      {
+        "type": "github",
+        "id": "joelibaceta"
+      }
+    ]
+  },
+  {
+    "id": "johnboscoobiejesi@gmail.com",
+    "name": "Jude Chinwike Obiejesi",
+    "avatar": "https://pbs.twimg.com/profile_images/1115179633081815040/H7m30Dph_400x400.jpg",
+    "title": "Front-end Dev/Technical writer",
+    "description": "Technology Enthusiast, come let's build together",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "javascript",
+      "wordpress",
+      "jamstack",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "johnboscoobiejesi@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "chinweike_dev"
+      },
+      {
+        "type": "github",
+        "id": "jaybeeclassical"
+      }
+    ]
+  },
+  {
+    "id": "carloscorrea.dev@gmail.com",
+    "name": "Jose Carlos Correa",
+    "avatar": "https://pbs.twimg.com/profile_images/1146839624855298053/5uyuVA4n_400x400.png",
+    "title": "Lead Teacher",
+    "description": "Fullstack dev, Teacher at Ironhack, Teacher at Platzi, jamstack, reactjs lover.",
+    "country": "MX",
+    "spokenLanguages": [
+      "en",
+      "es"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "express",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "jossdz"
+      },
+      {
+        "type": "twitter",
+        "id": "jossdz"
+      },
+      {
+        "type": "github",
+        "id": "jossdz"
+      }
+    ]
+  },
+  {
+    "id": "praveenkrsaini0@gmail.com",
+    "name": "Praveen Kumar Saini",
+    "avatar": "https://res.cloudinary.com/praveen-me/image/upload/v1562228139/avatar-photo/DSC04017.jpg",
+    "title": "React Developer",
+    "description": "Hello, I'm Praveen. Happy to help in any kind of JavaScript Environment stuff.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "react native",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "praveenkrsaini0@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "praveen-me"
+      },
+      {
+        "type": "twitter",
+        "id": "am_pra_veen"
+      }
+    ]
+  },
+  {
+    "id": "hi@robinz.in",
+    "name": "Robin C Samuel",
+    "avatar": "https://robinz.in/content/images/0B5AqUhidAqc2VEV6azZTdnpZNFU.png",
+    "title": "Full Stack Developer/Tech Lead",
+    "description": "Full stack developer, Tech lead, focusing on javascript, node.js, python, php.",
+    "country": "IN",
+    "spokenLanguages": [
+      "ml",
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "python",
+      "php",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "robincsamuel"
+      },
+      {
+        "type": "github",
+        "id": "robincsamuel"
+      },
+      {
+        "type": "website",
+        "id": "robinz.in"
+      }
+    ]
+  },
+  {
+    "id": "mentor@joe.gl",
+    "name": "Joe Glombek",
+    "avatar": "https://s.gravatar.com/avatar/355437240dfd58d6f981252376d6eeba?s=432",
+    "title": "Senior Developer at Etch",
+    "description": "Weekdays I work with Umbraco CMS, weekends are for wilderness!",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "c#",
+      "umbraco",
+      "asp.net",
+      "tsql",
+      ".net"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UL913MSVB"
+      },
+      {
+        "type": "twitter",
+        "id": "joeglombek"
+      },
+      {
+        "type": "website",
+        "id": "joe.gl/ombek"
+      }
+    ]
+  },
+  {
+    "id": "smhatre59@gmail.com",
+    "name": "Saurabh Mhatre",
+    "avatar": "https://res.cloudinary.com/dk22rcdch/image/upload/v1562688743/Blogimages/profilepic_z0p1u6.jpg",
+    "title": "Frontend Developer",
+    "description": "Skilled in React.js/Javascript.Can help you in learning frontend development.AMA",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi",
+      "mr"
+    ],
+    "tags": [
+      "reactjs",
+      "nodejs",
+      "frontend",
+      "websitedevelopment"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "saurabh-mhatre"
+      },
+      {
+        "type": "twitter",
+        "id": "codeclassifiers"
+      },
+      {
+        "type": "website",
+        "id": "medium.com/@smhatre59"
+      }
+    ]
+  },
+  {
+    "id": "calebmeredith8@gmail.com",
+    "name": "Caleb Meredith",
+    "avatar": "https://calebmer.com/assets/images/profile-pic.jpeg",
+    "title": "Product Engineer",
+    "description": "I build React apps, product APIs, and compilers.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "reactjs",
+      "performance",
+      "typescript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "calebmeredith8@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UKYANA2R1"
+      },
+      {
+        "type": "twitter",
+        "id": "calebmer"
+      }
+    ]
+  },
+  {
+    "id": "vladimino@gmail.com",
+    "name": "Vlad Bilokur",
+    "avatar": "https://avatars3.githubusercontent.com/u/63159?s=460&v=4",
+    "title": "Lead PHP Developer",
+    "description": "Backend Team Lead with a passion for state-of-the-art technologies.",
+    "country": "DE",
+    "spokenLanguages": [
+      "en",
+      "ru",
+      "uk"
+    ],
+    "tags": [
+      "php",
+      "backend",
+      "software-design",
+      "best-practices",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vladimino@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "vladimino"
+      },
+      {
+        "type": "github",
+        "id": "vladimino"
+      }
+    ]
+  },
+  {
+    "id": "sharmaravi0518@gmail.com",
+    "name": "Ravindra Sharma",
+    "avatar": "https://res.cloudinary.com/dyfwkm7qq/image/upload/v1562701959/Profile.jpg",
+    "title": "Lead Quality Engineer",
+    "description": "Hello, I'm Ravindra. Happy to help in Selenium and Web Automation.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "selenium",
+      "web automation"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "ravindra-sharma-24347932"
+      },
+      {
+        "type": "twitter",
+        "id": "sharma_ravi10"
+      },
+      {
+        "type": "slack",
+        "id": "UKXRK6S4A"
+      }
+    ]
+  },
+  {
+    "id": "gaju.mca@gmail.com",
+    "name": "Gajendra Jena",
+    "avatar": "https://secure.gravatar.com/avatar/b4cff03b048738f763b031a065a2cec4",
+    "title": "Mr",
+    "description": "Full Stack Web Developer",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "ruby",
+      "rails",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gaju.mca@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "gajendrajena"
+      }
+    ]
+  },
+  {
+    "id": "ah.kabbany@gmail.com",
+    "name": "Ahmed Elkabbany",
+    "avatar": "https://avatars2.githubusercontent.com/u/5136725",
+    "title": "Senior Software Engineer",
+    "description": "Web development is my technical expertise, more focused on frontend development",
+    "country": "DE",
+    "spokenLanguages": [
+      "en",
+      "ar",
+      "fr"
+    ],
+    "tags": [
+      "reactjs",
+      "frontend",
+      "fullstack",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ah.kabbany@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "akabbany"
+      },
+      {
+        "type": "twitter",
+        "id": "kabbany15"
       }
     ]
   }
