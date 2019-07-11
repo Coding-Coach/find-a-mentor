@@ -7745,7 +7745,7 @@
     "description": "Always eager to learn and share",
     "country": "IN",
     "spokenLanguages": [
-      "en"
+      "en", "hi", "mr"
     ],
     "tags": [
       "nodejs",
