@@ -7706,5 +7706,33 @@
         "id": "kabbany15"
       }
     ]
+  },
+  {
+    "id": "jordanmccann64@outlook.com",
+    "name": "Jordan McCann",                          
+    "avatar": "https://avatars2.githubusercontent.com/u/11492379?s=400&u=5d896133c4c7459aef3388893e40e86d4fbccb73&v=4",  
+    "title": "Game Developer",                  
+    "description": "Passionate Software & Game Developer currently finishing his degree.",    
+    "country": "GB",                              
+    "spokenLanguages": [                          
+      "en"
+    ],
+    "tags": [                                     
+      "C#", "asp.net", "nodejs"              
+    ],
+    "channels": [                                 
+      {
+        "type": "email",                          
+        "id": "jordanmccann64@outlook.com"                    
+      },
+      {
+        "type": "twitter",                          
+        "id": "InfiniteShockz"                    
+      },
+      {
+        "type": "linkedin",
+        "id": "jordan-mccann-b808b4156"
+      }
+    ]
   }
 ]
