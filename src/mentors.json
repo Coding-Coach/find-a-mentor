@@ -7709,29 +7709,64 @@
   },
   {
     "id": "jordanmccann64@outlook.com",
-    "name": "Jordan McCann",                          
-    "avatar": "https://avatars2.githubusercontent.com/u/11492379?s=400&u=5d896133c4c7459aef3388893e40e86d4fbccb73&v=4",  
-    "title": "Game Developer",                  
-    "description": "Passionate Software & Game Developer currently finishing his degree.",    
-    "country": "GB",                              
-    "spokenLanguages": [                          
+    "name": "Jordan McCann",
+    "avatar": "https://avatars2.githubusercontent.com/u/11492379?s=400&u=5d896133c4c7459aef3388893e40e86d4fbccb73&v=4",
+    "title": "Game Developer",
+    "description": "Passionate Software & Game Developer currently finishing his degree.",
+    "country": "GB",
+    "spokenLanguages": [
       "en"
     ],
-    "tags": [                                     
-      "c#", "c++", "nodejs"            
+    "tags": [
+      "c#",
+      "c++",
+      "nodejs"
     ],
-    "channels": [                                 
+    "channels": [
       {
-        "type": "email",                          
-        "id": "jordanmccann64@outlook.com"                    
+        "type": "email",
+        "id": "jordanmccann64@outlook.com"
       },
       {
-        "type": "twitter",                          
-        "id": "InfiniteShockz"                    
+        "type": "twitter",
+        "id": "InfiniteShockz"
       },
       {
         "type": "linkedin",
         "id": "jordan-mccann-b808b4156"
+      }
+    ]
+  },
+  {
+    "id": "wendelladriel.ti@gmail.com",
+    "name": "Wendell Adriel",
+    "avatar": "https://www.gravatar.com/avatar/d36a082aacb53b6f76869748fb4b81d4?s=500",
+    "title": "Software Engineer",
+    "description": "Speaker, Writer, PHP/JS/Go/Open Source lover, Dungeon Master, Gamer",
+    "country": "PT",
+    "spokenLanguages": [
+      "en",
+      "pt"
+    ],
+    "tags": [
+      "php",
+      "javascript",
+      "vuejs",
+      "fullstack",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "wendell_adriel"
+      },
+      {
+        "type": "github",
+        "id": "WendellAdriel"
+      },
+      {
+        "type": "website",
+        "id": "wendelladriel.com"
       }
     ]
   }
