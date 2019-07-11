@@ -7647,5 +7647,31 @@
         "id": "UKXRK6S4A"
       }
     ]
+  },
+  {
+    "id": "gaju.mca@gmail.com",
+    "name": "Gajendra Jena",
+    "avatar": "https://secure.gravatar.com/avatar/b4cff03b048738f763b031a065a2cec4",
+    "title": "Mr",
+    "description": "Full Stack Web Developer",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "ruby",
+      "rails",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gaju.mca@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "gajendrajena"
+      }
+    ]
   }
 ]
