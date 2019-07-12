@@ -7780,13 +7780,15 @@
     "spokenLanguages": [
       "en"
     ],
-    "tags": [                                     
-      "javascript", "typescript", "angular"
+    "tags": [
+      "javascript",
+      "typescript",
+      "angular"
     ],
     "channels": [
       {
-        "type": "email",                          
-        "id": "nunes.melissa.m@gmail.com"                   
+        "type": "email",
+        "id": "nunes.melissa.m@gmail.com"
       },
       {
         "type": "github",
@@ -7795,6 +7797,39 @@
       {
         "type": "linkedin",
         "id": "melissa-nunes-3a563974"
+      }
+    ]
+  },
+  {
+    "id": "barmat90@gmail.com",
+    "name": "Matteo Barone",
+    "avatar": "https://matteobarone.github.io/img/about-img.jpg",
+    "title": "Frontend developer",
+    "description": "Developer frontend with a strong passion of Javascript",
+    "country": "IT",
+    "spokenLanguages": [
+      "en",
+      "it"
+    ],
+    "tags": [
+      "javascript",
+      "typescript",
+      "angular",
+      "html",
+      "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "barmat90@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": ""
+      },
+      {
+        "type": "github",
+        "id": "matteobarone"
       }
     ]
   }
