@@ -7832,5 +7832,35 @@
         "id": "matteobarone"
       }
     ]
+  },
+  {
+    "id": "sgavhane70@gmail.com",
+    "name": "Sagar Gavhane",
+    "avatar": "https://avatars1.githubusercontent.com/u/33308798?s=460&v=4",
+    "title": "Senior Software Engineer",
+    "description": "Passionate software engineer with 2.4 years of experience building products",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "nodejs",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "sagar_dev44"
+      },
+      {
+        "type": "github",
+        "id": "sagar-gavhane"
+      },
+      {
+        "type": "website",
+        "id": "www.sagar-gavhane.com/"
+      }
+    ]
   }
 ]
