@@ -7801,6 +7801,39 @@
     ]
   },
   {
+    "id": "barmat90@gmail.com",
+    "name": "Matteo Barone",
+    "avatar": "https://matteobarone.github.io/img/about-img.jpg",
+    "title": "Frontend developer",
+    "description": "Developer frontend with a strong passion of Javascript",
+    "country": "IT",
+    "spokenLanguages": [
+      "en",
+      "it"
+    ],
+    "tags": [
+      "javascript",
+      "typescript",
+      "angular",
+      "html",
+      "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "barmat90@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "matteo-barone-61285561"
+      },
+      {
+        "type": "github",
+        "id": "matteobarone"
+      }
+    ]
+  },
+  {
     "id": "sgavhane70@gmail.com",
     "name": "Sagar Gavhane",
     "avatar": "https://avatars1.githubusercontent.com/u/33308798?s=460&v=4",
