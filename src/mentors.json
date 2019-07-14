@@ -7881,8 +7881,20 @@
     ],
     "channels": [
       {
+        "type": "website",
+        "id": "blog.gyanmoti.in"
+      },
+      {
+        "type": "twitter",
+        "id": "nirmal_kumar"
+      },
+      {
         "type": "email",
         "id": "kumar.nirmal.v@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "nirmalweb"
       }
     ]
   }
