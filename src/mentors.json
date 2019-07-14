@@ -7894,5 +7894,38 @@
         "id": "tsreamDOTh"
       }
     ]
+  },
+  {
+    "id": "wuilliam321@gmail.com",
+    "name": "Wuilliam Lacruz",
+    "avatar": "https://pbs.twimg.com/profile_images/1133016984608825344/SVfgN9Ov_400x400.jpg",
+    "title": "Fullstack Developer",
+    "description": "Passionate Software Developer",
+    "country": "VE",
+    "spokenLanguages": [
+      "en",
+      "es"
+    ],
+    "tags": [
+      "angular",
+      "react",
+      "javascript",
+      "rails",
+      "python"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "wlacruz"
+      },
+      {
+        "type": "twitter",
+        "id": "wuilliam321"
+      },
+      {
+        "type": "github",
+        "id": "wuilliam321"
+      }
+    ]
   }
 ]
