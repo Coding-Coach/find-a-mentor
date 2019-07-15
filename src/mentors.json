@@ -7996,7 +7996,7 @@
     "name": "Kamran Hamid",
     "avatar": "https://media.licdn.com/dms/image/C4E03AQHtFOvjcBmF6Q/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=3ce0oXUGZNKXUeDk31qMjl1xEFltGqJuXVJwM2RmPis",
     "title": "Senior Software Engineer",
-    "description": "Hi! i will love to help you with your javascript related queries.",
+    "description": "Hi! i would love to help you with your javascript related queries.",
     "country": "PK",
     "spokenLanguages": [
       "en",
@@ -8012,10 +8012,6 @@
       {
         "type": "email",
         "id": "mkamranhamid@gmail.com"
-      },
-      {
-        "type": "slack",
-        "id": "DL2LXELUB"
       },
       {
         "type": "linkedin",
