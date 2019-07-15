@@ -7960,5 +7960,35 @@
         "id": "wchad"
       }
     ]
+  },
+  {
+    "id": "shlbnsl843@gmail.com",
+    "name": "Sahil Bansal",
+    "avatar": "https://avatars2.githubusercontent.com/u/19902688?s=460&v=4",
+    "title": "Sport Programmer",
+    "description": "I take part in coding contests a lot and happy to help you with problem solving.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "data structures",
+      "algorithms",
+      "c++"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "sahilbansal17"
+      },
+      {
+        "type": "linkedin",
+        "id": "sahilbansal17"
+      },
+      {
+        "type": "github",
+        "id": "sahilbansal17"
+      }
+    ]
   }
 ]
