@@ -7927,5 +7927,38 @@
         "id": "wuilliam321"
       }
     ]
+  },
+  {
+    "id": "wsilva.emp@gmail.com",
+    "name": "Walace Silva",
+    "avatar": "https://avatars1.githubusercontent.com/u/3987798?s=460&v=4",
+    "title": "Full Stack Developer",
+    "description": "I can help you build something that the people will go to use",
+    "country": "BR",
+    "spokenLanguages": [
+      "en",
+      "pt"
+    ],
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "ruby on rails",
+      "kotlin",
+      "php"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "walacesilva"
+      },
+      {
+        "type": "twitter",
+        "id": "wsilvaemp"
+      },
+      {
+        "type": "github",
+        "id": "wchad"
+      }
+    ]
   }
 ]
