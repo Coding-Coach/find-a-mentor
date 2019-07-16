@@ -8163,5 +8163,36 @@
         "id": "guglielmino"
       }
     ]
+  },
+  {
+    "id": "benhartouzmohamed@gmail.com",
+    "name": "Ben hartouz mohamed",
+    "avatar": "https://benhartouz.com/static/logo.b7123127.jpeg",
+    "title": "Full-Stack JavaScript Developer",
+    "description": "I'm a 💻Web /📱Mobile application developer currently obsessed with Javascript.",
+    "country": "MA",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "react native"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "mohamed-benhartouz-01593498"
+      },
+      {
+        "type": "github",
+        "id": "benhartouz"
+      },
+      {
+        "type": "website",
+        "id": "benhartouz.com"
+      }
+    ]
   }
 ]
