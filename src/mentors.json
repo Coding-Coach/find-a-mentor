@@ -8025,6 +8025,34 @@
     ]
   },
   {
+    "id": "mkamranhamid@gmail.com",
+    "name": "Kamran Hamid",
+    "avatar": "https://media.licdn.com/dms/image/C4E03AQHtFOvjcBmF6Q/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=3ce0oXUGZNKXUeDk31qMjl1xEFltGqJuXVJwM2RmPis",
+    "title": "Senior Software Engineer",
+    "description": "Hi! i would love to help you with your javascript related queries.",
+    "country": "PK",
+    "spokenLanguages": [
+      "en",
+      "ur"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "frontend",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mkamranhamid@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "mkamranhamid"
+      }
+    ]
+  },
+  {
     "id": "sarah@grefalda.com",
     "name": "Sarah Grefalda",
     "avatar": "https://media.licdn.com/dms/image/C4D03AQGP5mh-SBZpTw/profile-displayphoto-shrink_100_100/0?e=1568851200&v=beta&t=5qXpC_TcSjfxs8_Fo3Z-ONuSMH8-QDIrEqLzwDsuX_Q",
