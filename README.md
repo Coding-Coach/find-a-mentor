@@ -30,6 +30,8 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 1. Step 2 will push the required changes to a branch `add-{your-name}-as-mentor` so you just need to create a PR.
 
 ### Like to do it manually?
+1. Fork
+1. Clone your fork (if you use passphrase, please clone with the HTTPS approach)
 1. **Create a branch** "add-{your-name}-as-mentor"
 1. Add your details in `src/mentors.json` file (check the below schema for requirements).
 1. Run `yarn test` to validate that the details is following the right schema (carelfully read the output to see what needs to be fixed)

@@ -7992,6 +7992,39 @@
     ]
   },
   {
+    "id": "faith.morante@gmail.com",
+    "name": "Faith Morante",
+    "avatar": "https://avatars3.githubusercontent.com/u/29911508?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Full Stack Web and Mobile Hybrid Developer",
+    "country": "PH",
+    "spokenLanguages": [
+      "tl",
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "nodejs",
+      "fullstack",
+      "express",
+      "react native"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "faith.morante@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "idiglove"
+      },
+      {
+        "type": "website",
+        "id": "faithmorante.netlify.com"
+      }
+    ]
+  },
+  {
     "id": "mkamranhamid@gmail.com",
     "name": "Kamran Hamid",
     "avatar": "https://media.licdn.com/dms/image/C4E03AQHtFOvjcBmF6Q/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=3ce0oXUGZNKXUeDk31qMjl1xEFltGqJuXVJwM2RmPis",
@@ -8019,4 +8052,5 @@
       }
     ]
   }
+  
 ]
