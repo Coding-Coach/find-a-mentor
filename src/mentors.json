@@ -8078,5 +8078,31 @@
         "id": "ULBFQ3RNK"
       }
     ]
+  },
+  {
+    "id": "vedgar@gmail.com",
+    "name": "Vedran Čačić - Veky",
+    "avatar": "https://thepracticaldev.s3.amazonaws.com/uploads/user/profile_image/92573/4747cb2e-07dd-47d8-a027-c3978c7dd7be.jpg",
+    "title": "Fundamental programmer",
+    "description": "I teach Computability, I write compilers for fun, and I coded a bank in Python.",
+    "country": "HR",
+    "spokenLanguages": [
+      "hr", "en"
+    ],
+    "tags": [
+      "computability",
+      "python",
+      "c"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vedgar@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "vedgar"
+      }
+    ]
   }
 ]
