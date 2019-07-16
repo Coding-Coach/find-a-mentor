@@ -6,6 +6,7 @@ import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import helpers from '../../helpers';
 import { report } from '../../ga';
+import LazyLoad from 'react-lazyload';
 
 function handleAnalytic(channelName) {
   report('Channel', 'click', channelName);
@@ -155,12 +156,14 @@ const Card = ({
     );
   };
   return (
-    <div className="card" aria-label="Mentor card" data-testid="mentor-card">
-      <CardHeader />
-      <MentorInfo />
-      <SkillsTags />
-      <CardFooter />
-    </div>
+    <LazyLoad height={200}>
+      <div className="card" aria-label="Mentor card" data-testid="mentor-card">
+        <CardHeader />
+        <MentorInfo />
+        <SkillsTags />
+        <CardFooter />
+      </div>
+    </LazyLoad>
   );
 };
 

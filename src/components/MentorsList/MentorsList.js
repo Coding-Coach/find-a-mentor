@@ -49,6 +49,7 @@ export default class MentorsList extends Component {
           className="mentors-cards"
           loadMore={this.loadMore}
           hasMore={mentorsInList.length < mentors.length}
+          threshold={1000}
         >
           {mentorsInList.map(mentor => (
             <Card
