@@ -7992,6 +7992,94 @@
     ]
   },
   {
+    "id": "faith.morante@gmail.com",
+    "name": "Faith Morante",
+    "avatar": "https://avatars3.githubusercontent.com/u/29911508?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Full Stack Web and Mobile Hybrid Developer",
+    "country": "PH",
+    "spokenLanguages": [
+      "tl",
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "nodejs",
+      "fullstack",
+      "express",
+      "react native"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "faith.morante@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "idiglove"
+      },
+      {
+        "type": "website",
+        "id": "faithmorante.netlify.com"
+      }
+    ]
+  },
+  {
+    "id": "mkamranhamid@gmail.com",
+    "name": "Kamran Hamid",
+    "avatar": "https://media.licdn.com/dms/image/C4E03AQHtFOvjcBmF6Q/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=3ce0oXUGZNKXUeDk31qMjl1xEFltGqJuXVJwM2RmPis",
+    "title": "Senior Software Engineer",
+    "description": "Hi! i would love to help you with your javascript related queries.",
+    "country": "PK",
+    "spokenLanguages": [
+      "en",
+      "ur"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "frontend",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mkamranhamid@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "mkamranhamid"
+      }
+    ]
+  },
+  {
+    "id": "sarah@grefalda.com",
+    "name": "Sarah Grefalda",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQGP5mh-SBZpTw/profile-displayphoto-shrink_100_100/0?e=1568851200&v=beta&t=5qXpC_TcSjfxs8_Fo3Z-ONuSMH8-QDIrEqLzwDsuX_Q",
+    "title": "Full stack developer",
+    "description": "I'm self-taught and enjoy the quirks and challenges of front end dev",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "typescript",
+      "frontend",
+      "angular"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sarah@grefalda.com"
+      },
+      {
+        "type": "slack",
+        "id": "ULBFQ3RNK"
+      }
+    ]
+  },
+  {
     "id": "vedgar@gmail.com",
     "name": "Vedran Čačić - Veky",
     "avatar": "https://thepracticaldev.s3.amazonaws.com/uploads/user/profile_image/92573/4747cb2e-07dd-47d8-a027-c3978c7dd7be.jpg",
