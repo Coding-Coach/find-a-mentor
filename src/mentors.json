@@ -8087,7 +8087,8 @@
     "description": "I teach Computability, I write compilers for fun, and I coded a bank in Python.",
     "country": "HR",
     "spokenLanguages": [
-      "hr", "en"
+      "hr",
+      "en"
     ],
     "tags": [
       "computability",
@@ -8130,6 +8131,36 @@
       {
         "type": "twitter",
         "id": "mkhy_19"
+      }
+    ]
+  },
+  {
+    "id": "guglielmino@gmail.com",
+    "name": "Fabrizio Guglielmino",
+    "avatar": "https://www.gravatar.com/avatar/ad7fe7dc16940c4b9f0b4b1baafc0353",
+    "title": "Software Architect",
+    "description": "",
+    "country": "IT",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "mongodb",
+      "c#"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "guglielmino@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UDG2NB6BC"
+      },
+      {
+        "type": "github",
+        "id": "guglielmino"
       }
     ]
   }
