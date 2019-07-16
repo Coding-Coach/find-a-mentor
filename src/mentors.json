@@ -7775,7 +7775,7 @@
     "name": "Melissa Nunes",
     "avatar": "https://www.gravatar.com/avatar/1d157966f52eb06a4853618994261400",
     "title": "Front-end developer",
-    "description": "Frontend specialist, fullstack generalist, interested in functional programming.",
+    "description": "Frontend specialist, fullstack able. Seeking code review exchanges (all levels).",
     "country": "CA",
     "spokenLanguages": [
       "en"
@@ -7783,7 +7783,8 @@
     "tags": [
       "javascript",
       "typescript",
-      "angular"
+      "angular",
+      "unit testing"
     ],
     "channels": [
       {
