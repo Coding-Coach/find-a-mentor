@@ -8195,5 +8195,28 @@
         "id": "benhartouz.com"
       }
     ]
+  },
+  {
+    "id": "giubueno@gmail.com",
+    "name": "Giulliano Bueno",
+    "avatar": "https://giulliano.me/assets/avatar.png",
+    "title": "Software Engineer",
+    "description": "Passionate programmer",
+    "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "ruby",
+      "javascript",
+      "golang",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "giullianobueno"
+      }
+    ]
   }
 ]
