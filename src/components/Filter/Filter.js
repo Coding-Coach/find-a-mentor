@@ -74,6 +74,7 @@ export default class Filter extends Component {
               source={tags}
               onSelect={this.onTagSelect}
               clickedTag={clickedTag}
+              clearButton={true}
               data-testid="technology-filter-autocomplete"
             />
           </Input>
@@ -83,6 +84,7 @@ export default class Filter extends Component {
               source={countries}
               onSelect={this.onCountrySelect}
               clickedCountry={clickedCountry}
+              clearButton={true}
               data-testid="country-filter-autocomplete"
             />
           </Input>
@@ -91,6 +93,7 @@ export default class Filter extends Component {
               id="name"
               source={names}
               onSelect={this.onNameSelect}
+              clearButton={true}
               data-testid="name-filter-autocomplete"
             />
           </Input>
@@ -99,6 +102,7 @@ export default class Filter extends Component {
               id="language"
               source={languages}
               onSelect={this.onLanguageSelect}
+              clearButton={true}
               data-testid="language-filter-autocomplete"
             />
           </Input>
