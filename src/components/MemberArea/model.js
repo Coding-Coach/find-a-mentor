@@ -33,11 +33,11 @@ export default {
     options: [
       { value: 'chocolate', label: 'Chocolate' },
       { value: 'strawberry', label: 'Strawberry' },
-      { value: 'vanilla', label: 'Vanilla' }
-    ]
+      { value: 'vanilla', label: 'Vanilla' },
+    ],
   },
   roles: {
     type: 'text',
     defaultValue: '',
   },
-}
+};

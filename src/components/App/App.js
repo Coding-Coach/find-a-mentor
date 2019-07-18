@@ -136,8 +136,8 @@ class App extends Component {
     this.getPermalinkParams();
     const mentors = await getMentors();
     this.setState({
-      mentors
-    })
+      mentors,
+    });
   }
 
   handleModal = (title, content, onClose) => {
@@ -226,9 +226,7 @@ class App extends Component {
               target="_blank"
             >
               <img
-                src={`${
-                  process.env.PUBLIC_URL
-                }/images/coding-coach-patron-button.jpg`}
+                src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
                 alt="Become a Patron"
               />
             </a>
