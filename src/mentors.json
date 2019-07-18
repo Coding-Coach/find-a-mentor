@@ -8224,7 +8224,7 @@
     "name": "Tuan Phung",
     "avatar": "https://media.licdn.com/dms/image/C4D03AQHHbswRg5q7ew/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=-3FUQJvmNGF02BT6igSjulO4f3LQz6HvlSo3fajEFn0",
     "title": "Frontend developer",
-    "description": "A self taught developer. Let me know if you need help :)",
+    "description": "A self taught developer. Let me know if you need any help :)",
     "country": "CZ",
     "spokenLanguages": [
       "en",
@@ -8232,7 +8232,10 @@
       "vi"
     ],
     "tags": [
-      "javascript frontend reactjs redux"
+      "javascript",
+      "frontend",
+      "reactjs",
+      "redux"
     ],
     "channels": [
       {
