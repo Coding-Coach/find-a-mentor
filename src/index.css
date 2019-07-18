@@ -3,8 +3,8 @@
   --tag-color: #6ad4b0;
   --filter-width: 265px;
 
-  --mq-mobile: 576px;
-  --mq-desktop: 577px;
+  --mq-mobile: 800px;
+  --mq-desktop: 801px;
 }
 
 html {

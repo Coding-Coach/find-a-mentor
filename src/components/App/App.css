@@ -3,13 +3,10 @@ body {
   overflow-x: hidden;
 }
 
-main {
-  display: flex;
-}
-
 .sidebar {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 .app {
@@ -50,13 +47,6 @@ main {
   cursor: pointer;
 }
 
-.auth {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-}
-
 .patreon-link {
   display: block;
   margin: 20px auto 0;
@@ -91,7 +81,7 @@ main {
     }
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 800px) {
   .sidebar-nav {
     position: relative;
     display: none;
@@ -119,7 +109,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 800px) {
   .logo {
     margin: 10px;
   }

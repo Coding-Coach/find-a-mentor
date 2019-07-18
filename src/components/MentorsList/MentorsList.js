@@ -50,9 +50,9 @@ export default class MentorsLists extends Component {
           loadMore={this.loadMore}
           hasMore={mentorsInList.length < mentors.length}
         >
-          {mentorsInList.map(mentor => (
+          {mentorsInList.map((mentor, index) => (
             <Card
-              key={mentor.id}
+              key={`${mentor.id}-${index}`}
               mentor={mentor}
               onFavMentor={onFavMentor}
               isFav={favorites.indexOf(mentor.id) > -1}

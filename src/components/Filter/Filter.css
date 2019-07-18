@@ -33,7 +33,7 @@
   transform: rotateZ(90deg);
 }
 
-@media all and (max-width: 575.98px) {
+@media all and (max-width: 800px) {
   .inputs {
     position: absolute;
     left: 0;
@@ -44,13 +44,12 @@
   }
 }
 
-@media all and (min-width: 576px) {
+@media all and (min-width: 800px) {
   .toggle-filter {
     display: none;
   }
   .sidebar {
-    order: 2;
-    position: fixed;
+    max-width: 265px;
   }
 }
 
