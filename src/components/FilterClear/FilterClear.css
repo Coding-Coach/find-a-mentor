@@ -1,0 +1,9 @@
+.clear {
+  font-size: 12px;
+  padding: 5px;
+}
+
+.clear:hover {
+  color: var(--tag-color);
+  cursor: pointer;
+}
