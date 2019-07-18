@@ -3,6 +3,7 @@ import './AutoComplete.css';
 import React, { Component } from 'react';
 import Autocomplete from 'react-autocomplete';
 import classNames from 'classnames';
+import FilterClear from '../FilterClear/FilterClear';
 
 function renderInput(props) {
   return <input {...props} className="input" autoComplete="off" />;
@@ -40,6 +41,10 @@ export default class AutoComplete extends Component {
       this.props.onSelect({ value: '', label: '' });
     }
     this.setPermalinkParams(this.props.id, value);
+  };
+
+  onClear = event => {
+    this.onChange(event, '');
   };
 
   matchStateToTerm(state, value) {
@@ -117,6 +122,11 @@ export default class AutoComplete extends Component {
             'data-testid': testid,
           }}
         />
+        {value && (
+          <div className={'clear-btn'}>
+            <FilterClear onClear={this.onClear} />
+          </div>
+        )}
       </div>
     );
   }
