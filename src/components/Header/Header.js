@@ -1,34 +1,15 @@
 import React, { Component, Fragment } from 'react';
+import styled from 'styled-components';
 import OffCanvas from 'react-aria-offcanvas';
 import debounce from 'lodash/debounce';
 import ModalContent from '../Modal/ModalContent';
 import './Header.css';
 import Modal from '../Modal/Modal';
-
-class Navigation extends Component {
-  render() {
-    const { navClass, navMenuClass } = this.props;
-    return (
-      <nav id="menu" className={navClass}>
-        <ul className={navMenuClass}>
-          <li>
-            <a href="https://codingcoach.io/">About</a>
-          </li>
-          <li>
-            <a href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit?usp=sharing">
-              How it works
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/Coding-Coach/find-a-mentor">
-              Become a Mentor
-            </a>
-          </li>
-        </ul>
-      </nav>
-    );
-  }
-}
+import MemberArea from '../MemberArea/MemberArea';
+import { report } from '../../ga';
+import Logo from '../Logo';
+import Title from '../SiteTitle';
+import Navigation from './Navigation';
 
 class MobileNavigationWrapper extends Component {
   state = {
@@ -48,6 +29,7 @@ class MobileNavigationWrapper extends Component {
       },
     });
   };
+
   render() {
     const { modal } = this.state;
     return (
@@ -56,10 +38,7 @@ class MobileNavigationWrapper extends Component {
           {modal.content}
         </Modal>
 
-        <Navigation
-          navClass={'m-header-nav'}
-          navMenuClass={'m-header-nav__menu'}
-        />
+        <Navigation />
 
         <ul className="m-header-nav__modal">
           <ModalContent
@@ -88,14 +67,30 @@ class MobileNavigationWrapper extends Component {
   }
 }
 
-export default class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isOpen: false,
       isDesktop: false,
+      modal: {
+        title: null,
+        content: null,
+        onClose: null,
+      },
     };
   }
+
+  handleModal = (title, content, onClose) => {
+    this.setState({
+      modal: {
+        title,
+        content,
+        onClose,
+      },
+    });
+    report('Modal', 'open', title);
+  };
 
   _handleOpen = () => {
     this.setState({ isOpen: true });
@@ -115,49 +110,98 @@ export default class Header extends Component {
   }
 
   _defineViewport = () => {
-    this.setState({
-      isDesktop: window.innerWidth >= 567,
-    });
+    if (window) {
+      this.setState({
+        isDesktop: window.innerWidth >= 800,
+      });
+    }
   };
 
   render() {
     const { isDesktop, isOpen } = this.state;
     return (
-      <>
+      <HeaderWrapper>
+        <LogoTitleWrapper>
+          <LogoWrapper>
+            <Logo />
+          </LogoWrapper>
+          {isDesktop && (
+            <TitleWrapper>
+              <Title />
+            </TitleWrapper>
+          )}
+        </LogoTitleWrapper>
+
         {isDesktop ? (
-          <Navigation
-            navClass={'d-header-nav'}
-            navMenuClass={'d-header-nav__menu'}
-          />
+          <>
+            <Navigation />
+          </>
         ) : (
-          <i
-            className="fa fa-bars m-header-nav__open"
-            aria-hidden="true"
-            id="menu-button"
-            aria-label="Menu"
-            aria-controls="menu"
-            aria-expanded={isOpen}
-            onClick={this._handleOpen}
-          />
+          <>
+            <i
+              className="fa fa-bars m-header-nav__open"
+              aria-hidden="true"
+              id="menu-button"
+              aria-label="Menu"
+              aria-controls="menu"
+              aria-expanded={isOpen}
+              onClick={this._handleOpen}
+            />
+            <OffCanvas
+              isOpen={isOpen}
+              onClose={this._handleClose}
+              labelledby="menu-button"
+              width="100%"
+              height="100%"
+              className="header-offcanvas"
+            >
+              <i
+                className="fa fa-times m-header-nav__close"
+                aria-hidden="true"
+                onClick={this._handleClose}
+                aria-label="Close"
+              />
+              <MobileNavigationWrapper />
+            </OffCanvas>
+          </>
         )}
 
-        <OffCanvas
-          isOpen={isOpen}
-          onClose={this._handleClose}
-          labelledby="menu-button"
-          width="100%"
-          height="100%"
-          className="header-offcanvas"
-        >
-          <i
-            className="fa fa-times m-header-nav__close"
-            aria-hidden="true"
-            onClick={this._handleClose}
-            aria-label="Close"
-          />
-          <MobileNavigationWrapper />
-        </OffCanvas>
-      </>
+        <MemberArea
+          onOpenModal={(title, content) => this.handleModal(title, content)}
+        />
+        <Modal onClose={this.closeModal} title={this.state.modal.title}>
+          {this.state.modal.content}
+        </Modal>
+      </HeaderWrapper>
     );
   }
 }
+
+const HeaderWrapper = styled.header`
+  position: sticky;
+  top: 0;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dadada;
+`;
+
+const LogoTitleWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+`;
+
+const TitleWrapper = styled.div`
+  width: 100px;
+  margin-top: -15px;
+  margin-left: -30px;
+`;
+
+const LogoWrapper = styled.div`
+  width: 180px;
+  margin-left: -30px;
+`;
+
+export default Header;
