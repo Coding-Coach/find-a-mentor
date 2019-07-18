@@ -14,7 +14,7 @@
   border-top: 0;
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 800px) {
   .ac .ac-menu {
     width: calc(100% - var(--filter-input-offset) * 2);
   }

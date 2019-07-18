@@ -34,7 +34,7 @@
   overflow: hidden;
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 800px) {
   .modal-container .modal-box {
     background: #fff;
     width: 99vw;

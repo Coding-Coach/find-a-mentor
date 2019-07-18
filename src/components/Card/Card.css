@@ -191,7 +191,7 @@
   color: hsl(0, 71%, 51%);
 }
 
-@media all and (max-width: 575.98px) {
+@media all and (max-width: 800px) {
   .card {
     margin-left: auto;
     margin-right: auto;
