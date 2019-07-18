@@ -8251,5 +8251,37 @@
         "id": "www.phung.io"
       }
     ]
+  },
+  {
+    "id": "hello@coderdiaz.me",
+    "name": "Javier Diaz Chamorro",
+    "avatar": "https://coderdiaz.me/assets/images/avatar.jpg",
+    "title": "Fullstack JavaScript Engineer",
+    "description": "Mexican, Software Technical Lead, Teaching at Bedu and Platzi, Speaker, Vueliber",
+    "country": "MX",
+    "spokenLanguages": [
+      "es"
+    ],
+    "tags": [
+      "fullstack",
+      "nodejs",
+      "nestjs",
+      "graphql",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@coderdiaz.me"
+      },
+      {
+        "type": "twitter",
+        "id": "coderdiaz"
+      },
+      {
+        "type": "github",
+        "id": "coderdiaz"
+      }
+    ]
   }
 ]
