@@ -4950,9 +4950,9 @@
   {
     "id": "charrx97@gmail.com",
     "name": "Lea Nygaard Sømod Jensen",
-    "avatar": "https://i.imgur.com/GitBWi0.jpg",
-    "title": "Full Stack Web Developer",
-    "description": "Hi there! I am an aspiring dev with flair for Web Development.",
+    "avatar": "https://avatars1.githubusercontent.com/u/33721141?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Hi there! I am a Software Engineer with flair for Full Stack Web Development.",
     "country": "DK",
     "spokenLanguages": [
       "en"
@@ -4967,7 +4967,7 @@
     "channels": [
       {
         "type": "twitter",
-        "id": "lunarcharrx"
+        "id": "leanygaard_io"
       },
       {
         "type": "linkedin",
@@ -7775,7 +7775,7 @@
     "name": "Melissa Nunes",
     "avatar": "https://www.gravatar.com/avatar/1d157966f52eb06a4853618994261400",
     "title": "Front-end developer",
-    "description": "Frontend specialist, fullstack generalist, interested in functional programming.",
+    "description": "Frontend specialist, fullstack able. Seeking code review exchanges (all levels).",
     "country": "CA",
     "spokenLanguages": [
       "en"
@@ -7783,7 +7783,8 @@
     "tags": [
       "javascript",
       "typescript",
-      "angular"
+      "angular",
+      "unit testing"
     ],
     "channels": [
       {
@@ -8087,7 +8088,8 @@
     "description": "I teach Computability, I write compilers for fun, and I coded a bank in Python.",
     "country": "HR",
     "spokenLanguages": [
-      "hr", "en"
+      "hr",
+      "en"
     ],
     "tags": [
       "computability",
@@ -8121,7 +8123,6 @@
     "channels": [
       {
         "type": "github",
-        "id": "mkhy19"
       },
       {
         "type": "website",
