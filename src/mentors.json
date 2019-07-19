@@ -8283,5 +8283,93 @@
         "id": "coderdiaz"
       }
     ]
+  },
+  {
+    "id": "ms.vignesh31@gmail.com",
+    "name": "Vignesh M",
+    "avatar": "https://vignesh.rocks/assets/img/profile.jpg",
+    "title": "Tech Lead / Fullstack developer",
+    "description": "",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "flutter",
+      "php",
+      "laravel",
+      "angular"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ms.vignesh31@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": ""
+      },
+      {
+        "type": "website",
+        "id": "vignesh.rocks"
+      }
+    ]
+  },
+  {
+    "id": "ms.vignesh31@gmail.com",
+    "name": "Vignesh M",
+    "avatar": "https://vignesh.rocks/assets/img/profile.jpg",
+    "title": "Tech Lead / Fullstack Developer",
+    "description": "",
+    "country": "IN",
+    "spokenLanguages": [
+      "ta"
+    ],
+    "tags": [
+      "flutter",
+      "angular",
+      "javascript",
+      "php",
+      "laravel"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ms.vignesh31@gmail.com"
+      }
+    ]
+  },
+  {
+    "id": "ms.vignesh31@gmail.com",
+    "name": "Vignesh M",
+    "avatar": "https://vignesh.rocks/assets/img/profile.jpg",
+    "title": "Tech Lead / Fullstack Developer",
+    "description": "",
+    "country": "IN",
+    "spokenLanguages": [
+      "ta"
+    ],
+    "tags": [
+      "javascript",
+      "flutter",
+      "angular",
+      "laravel",
+      "php"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ms.vignesh31@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "shivenigma"
+      },
+      {
+        "type": "website",
+        "id": "vignesh.rocks"
+      }
+    ]
   }
 ]

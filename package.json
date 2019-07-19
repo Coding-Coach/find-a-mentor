@@ -17,7 +17,8 @@
     "react-infinite-scroller": "^1.2.4",
     "react-obfuscate": "3.3.1",
     "react-scripts": "2.1.3",
-    "svg-country-flags": "^1.2.6"
+    "svg-country-flags": "^1.2.6",
+    "yarn": "^1.17.3"
   },
   "scripts": {
     "start": "react-scripts start",
