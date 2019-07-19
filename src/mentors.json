@@ -8283,5 +8283,37 @@
         "id": "coderdiaz"
       }
     ]
+  },
+  {
+    "id": "contact@davidmottet.com",
+    "name": "David Mottet",
+    "avatar": "https://avatars0.githubusercontent.com/u/5860151?s=460&v=4",
+    "title": "Chief Technical Officer",
+    "description": "Dude, suckin'at something is the first step to being sorta good at something.",
+    "country": "FR",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "frontend",
+      "nodejs",
+      "mongodb",
+      "docker"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "contact@davidmottet.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "davidmottet"
+      },
+      {
+        "type": "twitter",
+        "id": "@davidmottet"
+      }
+    ]
   }
 ]
