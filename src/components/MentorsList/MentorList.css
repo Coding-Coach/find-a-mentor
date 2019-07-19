@@ -2,17 +2,14 @@
   main {
     flex-direction: column;
   }
-
   .mentors-wrapper {
-    background: #fff;
-    padding: 0 18px;
     position: relative;
+    background: #fff;
     transform: translateY(0);
     transition: transform 0.3s ease;
   }
-
   .mentors-wrapper.active {
-    transform: translateY(300px);
+    transform: translateY(240px);
     margin-bottom: 50px;
   }
 }
@@ -22,7 +19,6 @@
     padding-bottom: 30px;
     flex-grow: 1;
   }
-
   .mentors-cards {
     display: flex;
     flex-wrap: wrap;
@@ -34,5 +30,4 @@
 .nothing-to-show {
   font-size: 20px;
   line-height: 1.6;
-  padding: 8px;
 }

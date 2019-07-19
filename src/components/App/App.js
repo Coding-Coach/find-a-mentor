@@ -237,7 +237,9 @@ class App extends Component {
                 target="_blank"
               >
                 <img
-                  src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
+                  src={`${
+                    process.env.PUBLIC_URL
+                  }/images/coding-coach-patron-button.jpg`}
                   alt="Become a Patron"
                 />
               </a>
