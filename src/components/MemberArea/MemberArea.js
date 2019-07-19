@@ -1,103 +1,75 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import onClickOutside from 'react-onclickoutside';
 import { getCurrentUser } from '../../api';
 import auth from '../../utils/auth';
 import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
-import styled from 'styled-components';
-import onClickOutside from 'react-onclickoutside';
+import LoginNavigation from '../LoginNavigation/LoginNavigation';
+import useWindowSize from '../../utils/useWindowSize';
 
-class MemberArea extends Component {
-  state = {
-    isAuthenticated: auth.isAuthenticated(),
-    currentUser: null,
-    isMemberMenuOpen: false,
-  };
+function MemberArea(props) {
+  const authenticated = auth.isAuthenticated();
+  const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
+  const isDesktop = useWindowSize().width > 800;
 
-  async componentDidMount() {
+  async function getUser() {
     try {
       await auth.renewSession();
-      const currentUser = await getCurrentUser();
-      this.refreshAuthState(currentUser);
+      return await getCurrentUser();
     } catch (error) {
       console.error('error', error);
     }
   }
 
-  refreshAuthState = currentUser => {
-    this.setState({
-      isAuthenticated: auth.isAuthenticated(),
-      currentUser,
+  useEffect(() => {
+    getUser().then(user => {
+      setIsAuthenticated(authenticated);
+      setCurrentUser(user);
     });
-  };
+  }, []);
 
-  logout = () => {
+  const logout = () => {
     auth.doLogout();
-    this.refreshAuthState();
+    setIsAuthenticated(authenticated);
+    setCurrentUser(null);
   };
+  const openProfile = () =>
+    props.onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} />);
+  const openPendingApplications = () =>
+    props.onOpenModal('Pending Applications', <PendingApplications />);
+  MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
 
-  login = () => {
-    auth.login();
-  };
-
-  signup = () => {
-    auth.signup();
-  };
-
-  openProfile = () => {
-    const { onOpenModal } = this.props;
-    onOpenModal(
-      'Edit Your Pofile',
-      <EditProfile user={this.state.currentUser} />
-    );
-  };
-
-  toggleMemberMenu = () => {
-    this.setState({ isMemberMenuOpen: !this.state.isMemberMenuOpen });
-  };
-
-  openPendingApplications = () => {
-    const { onOpenModal } = this.props;
-    onOpenModal('Pending Applications', <PendingApplications />);
-  };
-
-  handleClickOutside = () => {
-    this.setState({ isMemberMenuOpen: false });
-  };
-
-  render() {
-    const { isAuthenticated, currentUser, isMemberMenuOpen } = this.state;
-    return (
-      <div className="auth">
-        {isAuthenticated ? (
-          <>
-            <UserAvatar onClick={this.toggleMemberMenu}>
-              {currentUser && (
-                <UserImage alt={currentUser.email} src={currentUser.avatar} />
-              )}
-            </UserAvatar>
-            {isMemberMenuOpen && (
-              <MemberMenu tabIndex="0">
-                {currentUser && currentUser.roles.includes('Admin') && (
-                  <MemberMenuItem onClick={this.openPendingApplications}>
-                    Open pending applications
-                  </MemberMenuItem>
-                )}
-                <MemberMenuItem onClick={this.openProfile}>
-                  Edit your profile
-                </MemberMenuItem>
-                <MemberMenuItem onClick={this.logout}>Logout</MemberMenuItem>
-              </MemberMenu>
+  return (
+    <div className="auth">
+      {isAuthenticated ? (
+        <>
+          <UserAvatar onClick={() => setIsMemberMenuOpen(!isMemberMenuOpen)}>
+            {currentUser && (
+              <UserImage alt={currentUser.email} src={currentUser.avatar} />
             )}
-          </>
-        ) : (
-          <LoginArea>
-            <LoginAreaItem onClick={this.signup}>Sign up</LoginAreaItem>
-            <LoginAreaItem onClick={this.login}>Login</LoginAreaItem>
-          </LoginArea>
-        )}
-      </div>
-    );
-  }
+          </UserAvatar>
+          {isMemberMenuOpen && (
+            <MemberMenu tabIndex="0">
+              {currentUser && currentUser.roles.includes('Admin') && (
+                <MemberMenuItem onClick={openPendingApplications}>
+                  Open pending applications
+                </MemberMenuItem>
+              )}
+              <MemberMenuItem onClick={openProfile}>
+                Edit your profile
+              </MemberMenuItem>
+              <MemberMenuItem onClick={logout}>Logout</MemberMenuItem>
+            </MemberMenu>
+          )}
+        </>
+      ) : (
+        isDesktop && <LoginNavigation />
+      )}
+    </div>
+  );
 }
 
 const UserAvatar = styled.div`
@@ -140,23 +112,6 @@ const MemberMenuItem = styled.div`
   }
 `;
 
-const LoginAreaItem = styled.div`
-  font-size: 16px;
-  color: #69d5b1;
-  cursor: pointer;
-
-  &:hover {
-    color: #54aa8d;
-  }
-`;
-
-const LoginArea = styled.div`
-  display: flex;
-  margin: 0 20px;
-
-  * {
-    margin-left: 20px;
-  }
-`;
-
-export default onClickOutside(MemberArea);
+export default onClickOutside(MemberArea, {
+  handleClickOutside: () => MemberArea.handleClickOutside,
+});

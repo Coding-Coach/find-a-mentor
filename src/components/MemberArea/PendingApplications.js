@@ -3,39 +3,43 @@ import { getPendingApplications, approveApplication } from '../../api';
 
 export default class PendingApplications extends Component {
   state = {
-    applications: []
-  }
+    applications: [],
+  };
 
   async componentDidMount() {
     const applications = await getPendingApplications();
     this.setState({
-      applications
-    })
+      applications,
+    });
   }
 
   approve = async application => {
     await approveApplication(application);
     alert('done');
-  }
+  };
 
   render() {
     const { applications } = this.state;
-    return <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-        </tr>
-      </thead>
-      <tbody>
-      {
-        applications.map(application =>
-          <tr key={application._id}>
-            <td>{application.name}</td>
-            <td><button onClick={this.approve.bind(null, application)}>Approve</button></td>
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
           </tr>
-        )
-      }
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {applications.map(application => (
+            <tr key={application._id}>
+              <td>{application.name}</td>
+              <td>
+                <button onClick={this.approve.bind(null, application)}>
+                  Approve
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    );
   }
 }
