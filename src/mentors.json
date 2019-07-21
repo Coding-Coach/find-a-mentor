@@ -4950,9 +4950,9 @@
   {
     "id": "charrx97@gmail.com",
     "name": "Lea Nygaard Sømod Jensen",
-    "avatar": "https://i.imgur.com/GitBWi0.jpg",
-    "title": "Full Stack Web Developer",
-    "description": "Hi there! I am an aspiring dev with flair for Web Development.",
+    "avatar": "https://avatars1.githubusercontent.com/u/33721141?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Hi there! I am a Software Engineer with flair for Full Stack Web Development.",
     "country": "DK",
     "spokenLanguages": [
       "en"
@@ -4967,7 +4967,7 @@
     "channels": [
       {
         "type": "twitter",
-        "id": "lunarcharrx"
+        "id": "leanygaard_io"
       },
       {
         "type": "linkedin",
@@ -6377,7 +6377,7 @@
   {
     "id": "michaeljamiejohnston@gmail.com",
     "name": "Michael Johnston",
-    "avatar": "https://media.licdn.com/dms/image/C5603AQFA4TjeE9_hog/profile-displayphoto-shrink_200_200/0?e=1562803200&v=beta&t=quKEgDoY3eTOqDcAOn9Nd_DFPEs0xZngfq7QWqBiPgs",
+    "avatar": "https://i.ibb.co/nnJLqC4/me.jpg",
     "title": "Software Engineer at Noke",
     "description": "I'm a full-stack developer able to help with anything Javascript!",
     "country": "US",
@@ -7302,7 +7302,7 @@
       "en"
     ],
     "tags": [
-      "golang",
+      "go",
       "linux",
       "python",
       "data structures",
@@ -7592,7 +7592,8 @@
     "description": "Happy to help junior programmers",
     "country": "IN",
     "spokenLanguages": [
-      "en"
+      "en",
+      "hi"
     ],
     "tags": [
       "javascript",
@@ -7613,6 +7614,770 @@
       {
         "type": "twitter",
         "id": "techie_sandy"
+      }
+    ]
+  },
+  {
+    "id": "vladimino@gmail.com",
+    "name": "Vlad Bilokur",
+    "avatar": "https://avatars3.githubusercontent.com/u/63159?s=460&v=4",
+    "title": "Lead PHP Developer",
+    "description": "Backend Team Lead with a passion for state-of-the-art technologies.",
+    "country": "DE",
+    "spokenLanguages": [
+      "en",
+      "ru",
+      "uk"
+    ],
+    "tags": [
+      "php",
+      "backend",
+      "software-design",
+      "best-practices",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vladimino@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "vladimino"
+      },
+      {
+        "type": "github",
+        "id": "vladimino"
+      }
+    ]
+  },
+  {
+    "id": "sharmaravi0518@gmail.com",
+    "name": "Ravindra Sharma",
+    "avatar": "https://res.cloudinary.com/dyfwkm7qq/image/upload/v1562701959/Profile.jpg",
+    "title": "Lead Quality Engineer",
+    "description": "Hello, I'm Ravindra. Happy to help in Selenium and Web Automation.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "selenium",
+      "web automation"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "ravindra-sharma-24347932"
+      },
+      {
+        "type": "twitter",
+        "id": "sharma_ravi10"
+      },
+      {
+        "type": "slack",
+        "id": "UKXRK6S4A"
+      }
+    ]
+  },
+  {
+    "id": "gaju.mca@gmail.com",
+    "name": "Gajendra Jena",
+    "avatar": "https://secure.gravatar.com/avatar/b4cff03b048738f763b031a065a2cec4",
+    "title": "Mr",
+    "description": "Full Stack Web Developer",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "ruby",
+      "rails",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "gaju.mca@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "gajendrajena"
+      }
+    ]
+  },
+  {
+    "id": "ah.kabbany@gmail.com",
+    "name": "Ahmed Elkabbany",
+    "avatar": "https://avatars2.githubusercontent.com/u/5136725",
+    "title": "Senior Software Engineer",
+    "description": "Web development is my technical expertise, more focused on frontend development",
+    "country": "DE",
+    "spokenLanguages": [
+      "en",
+      "ar",
+      "fr"
+    ],
+    "tags": [
+      "reactjs",
+      "frontend",
+      "fullstack",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "ah.kabbany@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "akabbany"
+      },
+      {
+        "type": "twitter",
+        "id": "kabbany15"
+      }
+    ]
+  },
+  {
+    "id": "jordanmccann64@outlook.com",
+    "name": "Jordan McCann",
+    "avatar": "https://avatars2.githubusercontent.com/u/11492379?s=400&u=5d896133c4c7459aef3388893e40e86d4fbccb73&v=4",
+    "title": "Game Developer",
+    "description": "Passionate Software & Game Developer currently finishing his degree.",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "c#",
+      "c++",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jordanmccann64@outlook.com"
+      },
+      {
+        "type": "twitter",
+        "id": "InfiniteShockz"
+      },
+      {
+        "type": "linkedin",
+        "id": "jordan-mccann-b808b4156"
+      }
+    ]
+  },
+  {
+    "id": "wendelladriel.ti@gmail.com",
+    "name": "Wendell Adriel",
+    "avatar": "https://www.gravatar.com/avatar/d36a082aacb53b6f76869748fb4b81d4?s=500",
+    "title": "Software Engineer",
+    "description": "Speaker, Writer, PHP/JS/Go/Open Source lover, Dungeon Master, Gamer",
+    "country": "PT",
+    "spokenLanguages": [
+      "en",
+      "pt"
+    ],
+    "tags": [
+      "php",
+      "javascript",
+      "vuejs",
+      "fullstack",
+      "career"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "wendell_adriel"
+      },
+      {
+        "type": "github",
+        "id": "WendellAdriel"
+      },
+      {
+        "type": "website",
+        "id": "wendelladriel.com"
+      }
+    ]
+  },
+  {
+    "id": "nunes.melissa.m@gmail.com",
+    "name": "Melissa Nunes",
+    "avatar": "https://www.gravatar.com/avatar/1d157966f52eb06a4853618994261400",
+    "title": "Front-end developer",
+    "description": "Frontend specialist, fullstack able. Seeking code review exchanges (all levels).",
+    "country": "CA",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "typescript",
+      "angular",
+      "unit testing"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "nunes.melissa.m@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "https://github.com/mmnoo"
+      },
+      {
+        "type": "linkedin",
+        "id": "melissa-nunes-3a563974"
+      }
+    ]
+  },
+  {
+    "id": "barmat90@gmail.com",
+    "name": "Matteo Barone",
+    "avatar": "https://matteobarone.github.io/img/about-img.jpg",
+    "title": "Frontend developer",
+    "description": "Developer frontend with a strong passion of Javascript",
+    "country": "IT",
+    "spokenLanguages": [
+      "en",
+      "it"
+    ],
+    "tags": [
+      "javascript",
+      "typescript",
+      "angular",
+      "html",
+      "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "barmat90@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "matteo-barone-61285561"
+      },
+      {
+        "type": "github",
+        "id": "matteobarone"
+      }
+    ]
+  },
+  {
+    "id": "sgavhane70@gmail.com",
+    "name": "Sagar Gavhane",
+    "avatar": "https://avatars1.githubusercontent.com/u/33308798?s=460&v=4",
+    "title": "Senior Software Engineer",
+    "description": "Passionate software engineer with 2.4 years of experience building products",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "nodejs",
+      "javascript"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "sagar_dev44"
+      },
+      {
+        "type": "github",
+        "id": "sagar-gavhane"
+      },
+      {
+        "type": "website",
+        "id": "www.sagar-gavhane.com/"
+      }
+    ]
+  },
+  {
+    "id": "tstream.h@gmail.com",
+    "name": "Thiyagaraj T",
+    "avatar": "https://res.cloudinary.com/ddbxzcb7k/image/upload/v1563101893/dp_sbiaw0.jpg",
+    "title": "Reactive Developer",
+    "description": "Frontend Engineer | Google Code-In Mentor 2017,18 | Open Source Dev at FOSSASIA",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+
+      "reactjs",
+      "firebase",
+      "css",
+      "html"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "thiyagarajt"
+      },
+      {
+        "type": "twitter",
+        "id": "TheWizardJS"
+      },
+      {
+        "type": "github",
+        "id": "tsreamDOTh"
+      }
+    ]
+  },
+  {
+    "id": "wuilliam321@gmail.com",
+    "name": "Wuilliam Lacruz",
+    "avatar": "https://pbs.twimg.com/profile_images/1133016984608825344/SVfgN9Ov_400x400.jpg",
+    "title": "Fullstack Developer",
+    "description": "Passionate Software Developer",
+    "country": "VE",
+    "spokenLanguages": [
+      "en",
+      "es"
+    ],
+    "tags": [
+      "angular",
+      "reactjs",
+      "javascript",
+      "frontend",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "wlacruz"
+      },
+      {
+        "type": "twitter",
+        "id": "wuilliam321"
+      },
+      {
+        "type": "github",
+        "id": "wuilliam321"
+      }
+    ]
+  },
+  {
+    "id": "wsilva.emp@gmail.com",
+    "name": "Walace Silva",
+    "avatar": "https://avatars1.githubusercontent.com/u/3987798?s=460&v=4",
+    "title": "Full Stack Developer",
+    "description": "I can help you build something that the people will go to use",
+    "country": "BR",
+    "spokenLanguages": [
+      "en",
+      "pt"
+    ],
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "ruby on rails",
+      "kotlin",
+      "php"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "walacesilva"
+      },
+      {
+        "type": "twitter",
+        "id": "wsilvaemp"
+      },
+      {
+        "type": "github",
+        "id": "wchad"
+      }
+    ]
+  },
+  {
+    "id": "shlbnsl843@gmail.com",
+    "name": "Sahil Bansal",
+    "avatar": "https://avatars2.githubusercontent.com/u/19902688?s=460&v=4",
+    "title": "Sport Programmer",
+    "description": "I take part in coding contests a lot and happy to help you with problem solving.",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "data structures",
+      "algorithms",
+      "c++"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "sahilbansal17"
+      },
+      {
+        "type": "linkedin",
+        "id": "sahilbansal17"
+      },
+      {
+        "type": "github",
+        "id": "sahilbansal17"
+      }
+    ]
+  },
+  {
+    "id": "faith.morante@gmail.com",
+    "name": "Faith Morante",
+    "avatar": "https://avatars3.githubusercontent.com/u/29911508?s=460&v=4",
+    "title": "Software Engineer",
+    "description": "Full Stack Web and Mobile Hybrid Developer",
+    "country": "PH",
+    "spokenLanguages": [
+      "tl",
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "nodejs",
+      "fullstack",
+      "express",
+      "react native"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "faith.morante@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "idiglove"
+      },
+      {
+        "type": "website",
+        "id": "faithmorante.netlify.com"
+      }
+    ]
+  },
+  {
+    "id": "mkamranhamid@gmail.com",
+    "name": "Kamran Hamid",
+    "avatar": "https://media.licdn.com/dms/image/C4E03AQHtFOvjcBmF6Q/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=3ce0oXUGZNKXUeDk31qMjl1xEFltGqJuXVJwM2RmPis",
+    "title": "Senior Software Engineer",
+    "description": "Hi! i would love to help you with your javascript related queries.",
+    "country": "PK",
+    "spokenLanguages": [
+      "en",
+      "ur"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "frontend",
+      "nodejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mkamranhamid@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "mkamranhamid"
+      }
+    ]
+  },
+  {
+    "id": "sarah@grefalda.com",
+    "name": "Sarah Grefalda",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQGP5mh-SBZpTw/profile-displayphoto-shrink_100_100/0?e=1568851200&v=beta&t=5qXpC_TcSjfxs8_Fo3Z-ONuSMH8-QDIrEqLzwDsuX_Q",
+    "title": "Full stack developer",
+    "description": "I'm self-taught and enjoy the quirks and challenges of front end dev",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "typescript",
+      "frontend",
+      "angular"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sarah@grefalda.com"
+      },
+      {
+        "type": "slack",
+        "id": "ULBFQ3RNK"
+      }
+    ]
+  },
+  {
+    "id": "vedgar@gmail.com",
+    "name": "Vedran Čačić - Veky",
+    "avatar": "https://thepracticaldev.s3.amazonaws.com/uploads/user/profile_image/92573/4747cb2e-07dd-47d8-a027-c3978c7dd7be.jpg",
+    "title": "Fundamental programmer",
+    "description": "I teach Computability, I write compilers for fun, and I coded a bank in Python.",
+    "country": "HR",
+    "spokenLanguages": [
+      "hr",
+      "en"
+    ],
+    "tags": [
+      "computability",
+      "python",
+      "c"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vedgar@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "vedgar"
+      }
+    ]
+  },
+  {
+    "id": "mkhy88519@gmail.com",
+    "name": "Mohamed Khaled Yousef",
+    "avatar": "https://avatars2.githubusercontent.com/u/14186989?s=460&v=4",
+    "title": "Front End Developer",
+    "description": "PlayFifa PlayCode.",
+    "country": "EG",
+    "tags": [
+      "reactjs",
+      "redux",
+      "js",
+      "software-design"
+    ],
+    "channels": [
+      {
+        "type": "github",
+        "id": "mkhy_19"
+      },
+      {
+        "type": "website",
+        "id": "mkhy19.github.io/"
+      },
+      {
+        "type": "twitter",
+        "id": "mkhy_19"
+      }
+    ]
+  },
+  {
+    "id": "guglielmino@gmail.com",
+    "name": "Fabrizio Guglielmino",
+    "avatar": "https://www.gravatar.com/avatar/ad7fe7dc16940c4b9f0b4b1baafc0353",
+    "title": "Software Architect",
+    "description": "",
+    "country": "IT",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "mongodb",
+      "c#"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "guglielmino@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UDG2NB6BC"
+      },
+      {
+        "type": "github",
+        "id": "guglielmino"
+      }
+    ]
+  },
+  {
+    "id": "benhartouzmohamed@gmail.com",
+    "name": "Ben hartouz mohamed",
+    "avatar": "https://benhartouz.com/static/logo.b7123127.jpeg",
+    "title": "Full-Stack JavaScript Developer",
+    "description": "I'm a 💻Web /📱Mobile application developer currently obsessed with Javascript.",
+    "country": "MA",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "nodejs",
+      "react native"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "mohamed-benhartouz-01593498"
+      },
+      {
+        "type": "github",
+        "id": "benhartouz"
+      },
+      {
+        "type": "website",
+        "id": "benhartouz.com"
+      }
+    ]
+  },
+  {
+    "id": "giubueno@gmail.com",
+    "name": "Giulliano Bueno",
+    "avatar": "https://giulliano.me/assets/avatar.png",
+    "title": "Software Engineer",
+    "description": "Passionate programmer",
+    "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "ruby",
+      "javascript",
+      "golang",
+      "reactjs"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "giullianobueno"
+      }
+    ]
+  },
+  {
+    "id": "tuan@phung.cz",
+    "name": "Tuan Phung",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQHHbswRg5q7ew/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=-3FUQJvmNGF02BT6igSjulO4f3LQz6HvlSo3fajEFn0",
+    "title": "Frontend developer",
+    "description": "A self taught developer. Let me know if you need any help :)",
+    "country": "CZ",
+    "spokenLanguages": [
+      "en",
+      "cs",
+      "vi"
+    ],
+    "tags": [
+      "javascript",
+      "frontend",
+      "reactjs",
+      "redux"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "tuananhphung"
+      },
+      {
+        "type": "github",
+        "id": "digilifecz123"
+      },
+      {
+        "type": "website",
+        "id": "www.phung.io"
+      }
+    ]
+  },
+  {
+    "id": "hello@coderdiaz.me",
+    "name": "Javier Diaz Chamorro",
+    "avatar": "https://coderdiaz.me/assets/images/avatar.jpg",
+    "title": "Fullstack JavaScript Engineer",
+    "description": "Mexican, Software Technical Lead, Teaching at Bedu and Platzi, Speaker, Vueliber",
+    "country": "MX",
+    "spokenLanguages": [
+      "es"
+    ],
+    "tags": [
+      "fullstack",
+      "nodejs",
+      "nestjs",
+      "graphql",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "hello@coderdiaz.me"
+      },
+      {
+        "type": "twitter",
+        "id": "coderdiaz"
+      },
+      {
+        "type": "github",
+        "id": "coderdiaz"
+      }
+    ]
+  },
+  {
+    "id": "contact@davidmottet.com",
+    "name": "David Mottet",
+    "avatar": "https://avatars0.githubusercontent.com/u/5860151?s=460&v=4",
+    "title": "Chief Technical Officer",
+    "description": "Dude, suckin'at something is the first step to being sorta good at something.",
+    "country": "FR",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "frontend",
+      "nodejs",
+      "mongodb",
+      "docker"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "contact@davidmottet.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "davidmottet"
+      },
+      {
+        "type": "twitter",
+        "id": "@davidmottet"
+      }
+    ]
+  },
+  {
+    "id": "kumar.nirmal.v@gmail.com",
+    "name": "Nirmal Kumar",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQFgMmks5SVa_w/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=PtpI91KTUC3QwYyBlYetvZfIJ5JIQ-mKa8uLPtkc0_c",
+    "title": "Fullstack Engineer",
+    "description": "Happy to help anything on Cloud, Fullstack Development",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "apps script",
+      "devops",
+      "cloud"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "blog.gyanmoti.in"
+      },
+      {
+        "type": "twitter",
+        "id": "nirmal_kumar"
+      },
+      {
+        "type": "linkedin",
+        "id": "nirmalweb"
       }
     ]
   }
