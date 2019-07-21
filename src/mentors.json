@@ -8315,5 +8315,36 @@
         "id": "@davidmottet"
       }
     ]
+  },
+  {
+    "id": "kumar.nirmal.v@gmail.com",
+    "name": "Nirmal Kumar",
+    "avatar": "https://media.licdn.com/dms/image/C4D03AQFgMmks5SVa_w/profile-displayphoto-shrink_200_200/0?e=1568851200&v=beta&t=PtpI91KTUC3QwYyBlYetvZfIJ5JIQ-mKa8uLPtkc0_c",
+    "title": "Fullstack Engineer",
+    "description": "Happy to help anything on Cloud, Fullstack Development",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "apps script",
+      "devops",
+      "cloud"
+    ],
+    "channels": [
+      {
+        "type": "website",
+        "id": "blog.gyanmoti.in"
+      },
+      {
+        "type": "twitter",
+        "id": "nirmal_kumar"
+      },
+      {
+        "type": "linkedin",
+        "id": "nirmalweb"
+      }
+    ]
   }
 ]
