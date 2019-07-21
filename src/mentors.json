@@ -7268,26 +7268,29 @@
   },
   {
     "id": "isbkch@gmail.com",
-    "name": "ilyas bakouch",
-    "avatar": "https://media.licdn.com/dms/image/C4D03AQGCC8PCmlRLWA/profile-displayphoto-shrink_200_200/0?e=1567036800&v=beta&t=KQhOLDxZeL-wKTlT-bK7EXxhSpPS_1wGR92C_DBcB_0",
-    "title": "Cloud & Solutions Architect",
-    "description": "Cloud Architecture/AWS - LEMP/MEAN stack - Solidity & Blockchain",
+    "name": "iLyas Bakouch",
+    "avatar": "https://media.licdn.com/dms/image/C4E03AQH-9k2yI3F36Q/profile-displayphoto-shrink_200_200/0?e=1569456000&v=beta&t=3cVKm8psBezRPMvkYlH-yea5mcqI4vZq8h8eokInbMI",
+    "title": "Cloud Solutions Architect",
+    "description": "Software Engineer: Cloud Architecture - AWS - Solidity - Blockchain",
     "country": "CA",
     "spokenLanguages": [
       "en",
       "fr"
     ],
     "tags": [
-      "aws",
       "cloud",
-      "scala",
-      "laravel",
-      "blockchain"
+      "swoole",
+      "ethereum",
+      "start-ups"
     ],
     "channels": [
       {
         "type": "linkedin",
-        "id": "57628569"
+        "id": "ilyasbakouch"
+      },
+      {
+        "type": "twitter",
+        "id": "isbkch"
       }
     ]
   },
