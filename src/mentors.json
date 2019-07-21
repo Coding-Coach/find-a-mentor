@@ -7585,6 +7585,39 @@
     ]
   },
   {
+    "id": "sandip.sandip.das5@gmail.com",
+    "name": "Sandip Das",
+    "avatar": "https://avatars3.githubusercontent.com/u/6078551?s=460&v=4",
+    "title": "Sr. Javascript Developer",
+    "description": "Happy to help junior programmers",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "devops",
+      "docker",
+      "kubernetes"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sandip.sandip.das5@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "sandip-das-developer"
+      },
+      {
+        "type": "twitter",
+        "id": "techie_sandy"
+      }
+    ]
+  },
+  {
     "id": "vladimino@gmail.com",
     "name": "Vlad Bilokur",
     "avatar": "https://avatars3.githubusercontent.com/u/63159?s=460&v=4",
@@ -7876,6 +7909,7 @@
     ],
     "tags": [
       "javascript",
+
       "reactjs",
       "firebase",
       "css",
