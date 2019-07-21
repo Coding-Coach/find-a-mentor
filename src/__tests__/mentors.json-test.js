@@ -141,7 +141,7 @@ const mentorSchema = {
         items: {
           type: 'string',
           minLength: 1,
-          maxLength: 15,
+          maxLength: 20,
           pattern: '^[^A-Z]*$',
           synonymsTags: true,
         },
@@ -211,9 +211,7 @@ it('should mentors schema be valid', () => {
         );
 
         return [
-          `error with mentor "${
-            mentor.id
-          }"'s (#${index}) field "${fieldName}"!`,
+          `error with mentor "${mentor.id}"'s (#${index}) field "${fieldName}"!`,
           `  VALUE: ${fieldValue}`,
           `  ERROR: ${error.message}`,
         ].join('\n');
