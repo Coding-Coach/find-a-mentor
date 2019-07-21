@@ -7307,13 +7307,15 @@
     "country": "CA",
     "spokenLanguages": [
       "en",
-      "fr"
+      "fr",
+      "ar"
     ],
     "tags": [
       "cloud",
       "swoole",
       "ethereum",
-      "start-ups"
+      "start-ups",
+      "laravel"
     ],
     "channels": [
       {
