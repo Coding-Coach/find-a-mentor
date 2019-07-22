@@ -34,7 +34,7 @@
   overflow: hidden;
 }
 
-@media all and (max-width: var(--mq-mobile)) {
+@media all and (max-width: 800px) {
   .modal-container .modal-box {
     background: #fff;
     width: 99vw;
@@ -86,7 +86,7 @@
   margin: 0 auto 10px auto;
 }
 
-@media all and (max-width: var(--mq-mobile)) {
+@media all and (max-width: 800px) {
   .modal-container .modal-box {
     padding: 5px;
   }

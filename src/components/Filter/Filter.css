@@ -33,7 +33,7 @@
   transform: rotateZ(90deg);
 }
 
-@media all and (max-width: var(--mq-mobile)) {
+@media all and (max-width: 800px) {
   .inputs {
     position: absolute;
     left: 0;
@@ -44,7 +44,7 @@
   }
 }
 
-@media all and (min-width: var(--mq-mobile)) {
+@media all and (min-width: 800px) {
   .toggle-filter {
     display: none;
   }

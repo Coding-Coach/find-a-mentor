@@ -43,6 +43,8 @@ function MemberArea(props) {
     props.onOpenModal('Pending Applications', <PendingApplications />);
   MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
 
+  console.log(isDesktop, isAuthenticated);
+
   return (
     <div className="auth">
       {isAuthenticated ? (

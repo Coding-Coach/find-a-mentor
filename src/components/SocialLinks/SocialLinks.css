@@ -15,7 +15,7 @@
   margin-top: 30px;
 }
 
-@media all and (max-width: var(--mq-mobile)) {
+@media all and (max-width: 800px) {
   .social-wrapper {
     margin-top: 10px;
   }
