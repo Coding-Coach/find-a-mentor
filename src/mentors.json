@@ -7914,7 +7914,6 @@
     ],
     "tags": [
       "javascript",
-
       "reactjs",
       "firebase",
       "css",
@@ -8383,6 +8382,38 @@
       {
         "type": "linkedin",
         "id": "nirmalweb"
+      }
+    ]
+  },
+  {
+    "id": "gabriel.luchtenberg12@gmail.com",
+    "name": "Gabriel Luchtenberg",
+    "avatar": "https://scontent.frao1-1.fna.fbcdn.net/v/t1.0-9/67047587_2274927625896083_8267459513884344320_n.jpg?_nc_cat=109&_nc_oc=AQlycBi9bD7iuV0HBOu2nRdRqJBVTXfNYb5K65Qd2hNtXgpgXI5-iAZ0pZ4XWJis6P0&_nc_ht=scontent.frao1-1.fna&oh=b03257e7847d1ac935a17b0c05bf981b&oe=5DECA483",
+    "title": "Software developer",
+    "description": "Software developer in love with typescript (React and Node)",
+    "country": "BR",
+    "spokenLanguages": [
+      "en",
+      "pt"
+    ],
+    "tags": [
+      "nodejs",
+      "typescript",
+      "reactjs",
+      "sass"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "gabriel-lucht"
+      },
+      {
+        "type": "twitter",
+        "id": "GabrLucht"
+      },
+      {
+        "type": "github",
+        "id": "GLuchtenberg"
       }
     ]
   }
