@@ -8416,5 +8416,35 @@
         "id": "GLuchtenberg"
       }
     ]
+  },
+  {
+    "id": "pvinis@gmail.com",
+    "name": "Pavlos Vinieratos",
+    "avatar": "https://imgur.com/nuWJdgZ",
+    "title": "React Native Programmer",
+    "description": "I love rxjs and react native.",
+    "country": "GR",
+    "spokenLanguages": [
+      "el",
+      "en"
+    ],
+    "tags": [
+      "rxjs",
+      "react native"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "pvinis@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "pvinis"
+      },
+      {
+        "type": "github",
+        "id": "pvinis"
+      }
+    ]
   }
 ]
