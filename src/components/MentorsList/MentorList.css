@@ -1,4 +1,4 @@
-@media all and (max-width: var(--mq-mobile)) {
+@media all and (max-width: 800px) {
   main {
     flex-direction: column;
   }
@@ -14,7 +14,7 @@
   }
 }
 
-@media all and (min-width: var(--mq-mobile)) {
+@media all and (min-width: 800px) {
   .mentors-wrapper {
     padding-bottom: 30px;
     flex-grow: 1;

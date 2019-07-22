@@ -81,7 +81,7 @@ body {
     }
 }
 
-@media all and (max-width: var(--mq-mobile)) {
+@media all and (max-width: 800px) {
   .sidebar-nav {
     position: relative;
     display: none;
@@ -109,7 +109,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-@media all and (max-width: var(--mq-mobile)) {
+@media all and (max-width: 800px) {
   .logo {
     margin: 10px;
   }
