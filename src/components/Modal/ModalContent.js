@@ -25,11 +25,7 @@ export default class ModalContent extends Component {
             },
             () => {
               handleModal &&
-                handleModal(
-                  policyTitle,
-                  <Content topic={content} />,
-                  onClose
-                );
+                handleModal(policyTitle, <Content topic={content} />, onClose);
             }
           );
         }}

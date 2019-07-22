@@ -1,10 +1,12 @@
 import auth from '../utils/auth';
 const paths = {
   MENTORS: '/mentors',
-  USERS: '/users'
-}
+  USERS: '/users',
+};
 
-const apiHost = window.location.href.includes('localhost') ? 'https://api-staging.codingcoach.io' : 'http://api.codingcoach.io/';
+const apiHost = window.location.href.includes('localhost')
+  ? 'https://api-staging.codingcoach.io'
+  : 'http://api.codingcoach.io/';
 let currentUser;
 
 export async function makeApiCall(path, body, method) {
@@ -16,8 +18,8 @@ export async function makeApiCall(path, body, method) {
     headers: {
       Authorization: `Bearer ${auth.getIdToken()}`,
       Accept: 'application/json',
-      'Content-Type': 'application/json'
-    }
+      'Content-Type': 'application/json',
+    },
   };
   try {
     const data = await fetch(url, options).catch(error => {
@@ -27,8 +29,8 @@ export async function makeApiCall(path, body, method) {
     if (res.statusCode >= 400) {
       return {
         success: false,
-        message: res.message
-      }
+        message: res.message,
+      };
     }
     return res;
   } catch (error) {
@@ -38,7 +40,9 @@ export async function makeApiCall(path, body, method) {
 
 export async function getCurrentUser() {
   if (!currentUser) {
-    currentUser = await makeApiCall(`${paths.USERS}/current`).then(res => res.data);
+    currentUser = await makeApiCall(`${paths.USERS}/current`).then(
+      res => res.data
+    );
   }
   return currentUser;
 }
@@ -49,7 +53,11 @@ export async function getMentors() {
 }
 
 export async function createApplication() {
-  const res = await makeApiCall(`${paths.MENTORS}/applications`, {reason: 'why not?'}, 'POST');
+  const res = await makeApiCall(
+    `${paths.MENTORS}/applications`,
+    { reason: 'why not?' },
+    'POST'
+  );
   return res;
 }
 
@@ -64,11 +72,19 @@ export async function deleteMentor(mentor) {
 }
 
 export async function getPendingApplications() {
-  const res = await makeApiCall(`${paths.MENTORS}/applications?status=pending`, null, 'GET');
+  const res = await makeApiCall(
+    `${paths.MENTORS}/applications?status=pending`,
+    null,
+    'GET'
+  );
   return res.data;
 }
 
 export async function approveApplication(mentor) {
-  const res = await makeApiCall(`${paths.MENTORS}/applications/${mentor._id}`, null, 'PUT');
+  const res = await makeApiCall(
+    `${paths.MENTORS}/applications/${mentor._id}`,
+    null,
+    'PUT'
+  );
   return res.success;
 }

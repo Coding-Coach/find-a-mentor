@@ -211,9 +211,7 @@ it('should mentors schema be valid', () => {
         );
 
         return [
-          `error with mentor "${
-            mentor.id
-          }"'s (#${index}) field "${fieldName}"!`,
+          `error with mentor "${mentor.id}"'s (#${index}) field "${fieldName}"!`,
           `  VALUE: ${fieldValue}`,
           `  ERROR: ${error.message}`,
         ].join('\n');
