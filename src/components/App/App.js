@@ -268,7 +268,7 @@ const Main = styled.main`
 
 const Content = styled.div`
   display: flex;
-  @media all and (max-width: 800px) {
+  @media all and (max-width: var(--mq-mobile)px) {
     flex-direction: column;
   }
 `;

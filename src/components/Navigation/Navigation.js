@@ -6,9 +6,6 @@ function Navigation() {
     <nav id="menu">
       <List>
         <Link href="https://codingcoach.io/">About</Link>
-        <Link href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit?usp=sharing">
-          How it works
-        </Link>
         <Link href="https://github.com/Coding-Coach/find-a-mentor">
           Become a Mentor
         </Link>
@@ -20,7 +17,7 @@ function Navigation() {
 const List = styled.ul`
   list-style: none;
   display: flex;
-  @media all and (max-width: 800px) {
+  @media all and (max-width: var(--mq-mobile)) {
     margin-top: 100px;
     flex-direction: column;
   }
@@ -31,7 +28,7 @@ const Link = styled.a`
   text-decoration: none;
   padding: 10px;
   font-size: 16px;
-  @media all and (max-width: 800px) {
+  @media all and (max-width: var(--mq-mobile)) {
     padding-left: 0;
   }
 

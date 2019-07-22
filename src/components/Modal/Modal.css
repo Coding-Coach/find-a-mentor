@@ -6,8 +6,8 @@
   width: 100%;
   height: 100%;
   position: fixed;
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
   pointer-events: none;
   z-index: -1;
   opacity: 0;
@@ -34,7 +34,7 @@
   overflow: hidden;
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: var(--mq-mobile)) {
   .modal-container .modal-box {
     background: #fff;
     width: 99vw;
@@ -73,7 +73,7 @@
   letter-spacing: .05em;
   text-transform: uppercase;
   padding: 25px;
-  margin: 0px;
+  margin: 0;
 }
 .modal-container .modal-box .modal-content {
   padding: 15px 25px 25px 25px;
@@ -86,7 +86,7 @@
   margin: 0 auto 10px auto;
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: var(--mq-mobile)) {
   .modal-container .modal-box {
     padding: 5px;
   }

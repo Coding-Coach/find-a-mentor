@@ -29,7 +29,7 @@
   width: 100%;
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: var(--mq-mobile)) {
   .input {
     width: calc(100% - var(--filter-input-offset) * 2);
     font-size: 16px;

@@ -35,6 +35,7 @@ function MemberArea(props) {
     auth.doLogout();
     setIsAuthenticated(authenticated);
     setCurrentUser(null);
+    setIsMemberMenuOpen(false);
   };
   const openProfile = () =>
     props.onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} />);

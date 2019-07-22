@@ -22,10 +22,6 @@ class Auth {
     this.auth0.authorize();
   };
 
-  signup = () => {
-    this.auth0.signup();
-  };
-
   handleAuthentication() {
     return new Promise((resolve, reject) => {
       this.auth0.parseHash((err, authResult) => {

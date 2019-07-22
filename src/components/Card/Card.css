@@ -173,7 +173,7 @@
 }
 
 .card .channels .type {
-  margin: 5px 0px;
+  margin: 5px 0;
 }
 
 .channel-label {
@@ -191,7 +191,7 @@
   color: hsl(0, 71%, 51%);
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: var(--mq-mobile)) {
   .card {
     margin-left: auto;
     margin-right: auto;

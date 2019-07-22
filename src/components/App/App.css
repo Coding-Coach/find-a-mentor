@@ -37,7 +37,7 @@ body {
   list-style: none;
   padding-left: 20px;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
 }
 
 .sidebar-nav li {
@@ -81,11 +81,11 @@ body {
     }
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: var(--mq-mobile)) {
   .sidebar-nav {
     position: relative;
     display: none;
-    padding: 0px;
+    padding: 0;
     justify-content: space-evenly;
     margin-top: 30px;
   }
@@ -109,7 +109,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: var(--mq-mobile)) {
   .logo {
     margin: 10px;
   }

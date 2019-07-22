@@ -9,12 +9,12 @@
   color: #4a4a4a;
   font-size: 1.5em;
   text-transform: uppercase;
-  padding: 15px 0px 15px 30px;
+  padding: 15px 0 15px 30px;
   margin: 0;
 }
 @media screen and (max-height: 677px) {
   #filter {
-    padding: 10px 0px 10px 30px;
+    padding: 10px 0 10px 30px;
   }
 }
 
@@ -33,7 +33,7 @@
   transform: rotateZ(90deg);
 }
 
-@media all and (max-width: 800px) {
+@media all and (max-width: var(--mq-mobile)) {
   .inputs {
     position: absolute;
     left: 0;
@@ -44,17 +44,17 @@
   }
 }
 
-@media all and (min-width: 800px) {
+@media all and (min-width: var(--mq-mobile)) {
   .toggle-filter {
     display: none;
   }
   .sidebar {
-    max-width: 265px;
+    max-width: var(--filter-width);
   }
 }
 
 @media screen and (max-width: 1280px) {
   #filter {
-    padding: 5px 0px 5px 30px;
+    padding: 5px 0 5px 30px;
   }
 }

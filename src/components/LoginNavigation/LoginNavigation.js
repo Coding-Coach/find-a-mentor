@@ -6,13 +6,10 @@ function LoginNavigation() {
   const login = () => {
     auth.login();
   };
-  const signup = () => {
-    auth.signup();
-  };
 
   return (
     <LoginArea>
-      <LoginAreaItem onClick={signup}>Sign up</LoginAreaItem>
+      <LoginAreaItem onClick={login}>Sign up</LoginAreaItem>
       <LoginAreaItem onClick={login}>Login</LoginAreaItem>
     </LoginArea>
   );
@@ -28,7 +25,7 @@ const LoginAreaItem = styled.div`
     color: #54aa8d;
   }
 
-  @media all and (min-width: 800px) {
+  @media all and (min-width: var(mobile)) {
     color: #69d5b1;
     margin-bottom: 0;
   }
@@ -39,7 +36,7 @@ const LoginArea = styled.div`
   flex-direction: column;
   margin: 20px 40px;
 
-  @media all and (min-width: 800px) {
+  @media all and (min-width: var(mobile)) {
     margin: 0 20px;
     flex-direction: row;
 
