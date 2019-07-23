@@ -8446,5 +8446,37 @@
         "id": "pvinis"
       }
     ]
+  },
+  {
+    "id": "jsamchineme@gmail.com",
+    "name": "Samuel Osuh",
+    "avatar": "https://avatars3.githubusercontent.com/u/14825863",
+    "title": "Full-Stack Software Engineer",
+    "description": "Coaching is my passion. I am glad to help you improve your coding skills.",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "typescript",
+      "reactjs",
+      "react native",
+      "graphql"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jsamchineme@gmail.com"
+      },
+      {
+        "type": "slack",
+        "id": "UL5NAF6M6"
+      },
+      {
+        "type": "github",
+        "id": "jsamchineme"
+      }
+    ]
   }
 ]
