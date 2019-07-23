@@ -89,9 +89,6 @@ class Auth {
         this.auth0.checkSession({}, (err, authResult) => {
           if (authResult && authResult.accessToken && authResult.idToken) {
             this.setSession(authResult);
-          } else if (err) {
-            this.logout();
-            console.log(err);
           }
           resolve();
         });
@@ -122,7 +119,6 @@ class Auth {
     // Check whether the current time is past the
     // access token's expiry time
     let expiresAt = this.expiresAt;
-    console.log(new Date().getTime() < expiresAt);
     return new Date().getTime() < expiresAt;
   }
 }

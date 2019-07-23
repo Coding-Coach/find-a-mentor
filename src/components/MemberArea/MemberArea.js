@@ -24,10 +24,11 @@ function MemberArea(props) {
   }
 
   useEffect(() => {
-    getUser().then(user => {
+    (async () => {
+      const user = await getUser()
       setIsAuthenticated(auth.isAuthenticated());
       setCurrentUser(user);
-    });
+    })();
   }, []);
 
   const logout = () => {
@@ -42,8 +43,6 @@ function MemberArea(props) {
   const openPendingApplications = () =>
     props.onOpenModal('Pending Applications', <PendingApplications />);
   MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
-
-  console.log(isDesktop, isAuthenticated);
 
   return (
     <div className="auth">
