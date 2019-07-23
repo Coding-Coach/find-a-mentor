@@ -9,8 +9,8 @@ function LoginNavigation() {
 
   return (
     <LoginArea>
-      <LoginAreaItem onClick={login}>Sign up</LoginAreaItem>
-      <LoginAreaItem onClick={login}>Login</LoginAreaItem>
+      {/* <LoginAreaItem onClick={login}>Sign up</LoginAreaItem> */}
+      <LoginAreaItem onClick={login}>Login / Sign up</LoginAreaItem>
     </LoginArea>
   );
 }
