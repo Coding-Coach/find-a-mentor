@@ -227,7 +227,6 @@ class App extends Component {
                   }
                 />
               </nav>
-
               <a
                 href="https://www.patreon.com/codingcoach_io"
                 className="patreon-link"
