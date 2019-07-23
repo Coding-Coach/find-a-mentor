@@ -92,6 +92,7 @@ const HeaderWrapper = styled.header`
   justify-content: space-between;
   border-bottom: 1px solid #dadada;
   z-index: 3;
+  background: #fff;
 `;
 
 const LogoTitleWrapper = styled.div`

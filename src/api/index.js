@@ -48,6 +48,7 @@ export async function getCurrentUser() {
 }
 
 export async function getMentors() {
+  return require('../mentors.json');
   const res = await makeApiCall(paths.MENTORS);
   return res.data;
 }

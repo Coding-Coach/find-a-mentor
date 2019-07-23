@@ -197,7 +197,6 @@ class App extends Component {
                 clickedCountry={clickedCountry}
               />
               <SocialLinks />
-
               <nav className="sidebar-nav">
                 <ModalContent
                   policyTitle={'Cookies policy'}

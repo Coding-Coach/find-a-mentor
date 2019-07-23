@@ -20,7 +20,7 @@ const tagsList = (tags, handleTagClick) =>
         tabIndex={0}
         onClick={handleTagClick.bind(null, tag)}
       >
-        {tag.label.label}
+        {tag}
       </button>
     );
   });
