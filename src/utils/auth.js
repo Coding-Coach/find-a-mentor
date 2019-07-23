@@ -79,24 +79,25 @@ class Auth {
   }
 
   renewSession() {
-    return new Promise(resolve => {
-      this.auth0.checkSession({}, (err, authResult) => {
-        if (authResult && authResult.accessToken && authResult.idToken) {
-          this.setSession(authResult);
-          if (window.location.hash) {
-            // clean the hash
-            window.history.replaceState(
-              null,
-              null,
-              window.location.href.split('#')[0]
-            );
-          }
-        } else if (err) {
-          this.logout();
-          console.log(err);
-        }
+    return new Promise(async resolve => {
+      if (window.location.hash) {
+        await this.handleAuthentication();
+        // clean the hash
+        window.history.replaceState(null, null, window.location.href.split('#')[0]);
         resolve();
-      });
+      } else if (!this.isAuthenticated()) {
+        this.auth0.checkSession({}, (err, authResult) => {
+          if (authResult && authResult.accessToken && authResult.idToken) {
+            this.setSession(authResult);
+          } else if (err) {
+            this.logout();
+            console.log(err);
+          }
+          resolve();
+        });
+      } else {
+        resolve();
+      }
     });
   }
 
@@ -121,6 +122,7 @@ class Auth {
     // Check whether the current time is past the
     // access token's expiry time
     let expiresAt = this.expiresAt;
+    console.log(new Date().getTime() < expiresAt);
     return new Date().getTime() < expiresAt;
   }
 }

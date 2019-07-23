@@ -39,7 +39,7 @@ export async function makeApiCall(path, body, method) {
 }
 
 export async function getCurrentUser() {
-  if (!currentUser) {
+  if (!currentUser && auth.isAuthenticated()) {
     currentUser = await makeApiCall(`${paths.USERS}/current`).then(
       res => res.data
     );

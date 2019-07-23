@@ -17,7 +17,6 @@ function MemberArea(props) {
 
   async function getUser() {
     try {
-      await auth.renewSession();
       return await getCurrentUser();
     } catch (error) {
       console.error('error', error);
@@ -26,7 +25,7 @@ function MemberArea(props) {
 
   useEffect(() => {
     getUser().then(user => {
-      setIsAuthenticated(authenticated);
+      setIsAuthenticated(auth.isAuthenticated());
       setCurrentUser(user);
     });
   }, []);
@@ -37,6 +36,7 @@ function MemberArea(props) {
     setCurrentUser(null);
     setIsMemberMenuOpen(false);
   };
+
   const openProfile = () =>
     props.onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} />);
   const openPendingApplications = () =>
