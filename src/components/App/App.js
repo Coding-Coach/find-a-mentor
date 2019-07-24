@@ -195,6 +195,7 @@ class App extends Component {
                 mentorCount={mentorsInList.length}
                 clickedTag={clickedTag}
                 clickedCountry={clickedCountry}
+                mentors={mentorsInList}
               />
               <SocialLinks />
               <nav className="sidebar-nav">
