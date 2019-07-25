@@ -6,6 +6,7 @@ import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import helpers from '../../helpers';
 import { report } from '../../ga';
+import auth from '../../utils/auth';
 
 function handleAnalytic(channelName) {
   report('Channel', 'click', channelName);
@@ -25,7 +26,21 @@ const tagsList = (tags, handleTagClick) =>
     );
   });
 
+const nonLoggedinChannels = () => {
+  return (
+    <button onClick={auth.login}>
+      <div className="icon">
+        <i className="fa fa-hand-o-right fa-lg" />
+      </div>
+      <p className="type">Apply</p>
+    </button>
+  );
+}
+
 const channelsList = channels => {
+  if (!auth.isAuthenticated()) {
+    return nonLoggedinChannels();
+  }
   const orderedChannels = orderBy(channels, ['type'], ['asc']);
   return orderedChannels.map(channel => {
     const { icon, url } = getChannelInfo(channel);
