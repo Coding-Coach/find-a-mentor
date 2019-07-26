@@ -8475,7 +8475,39 @@
       },
       {
         "type": "github",                          
-        "id": "Ekwuno"                    
+        "id": "Ekwuno"                   
+      }
+    ]
+  },
+  {
+    "id": "lung.razvan@gmail.com",
+    "name": "Razvan Lung",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/long1eu.appspot.com/o/IMG_20190429_130909%20(1).jpg?alt=media&token=de68f41e-431a-4456-be13-74038c382bd1",
+    "title": "Mobile App Developer",
+    "description": "Forward thinking developer with experience in building Mobile applications. ",
+    "country": "RO",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "flutter",
+      "android",
+      "ios",
+      "dart",
+      "kotlin"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "lung.razvan@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "long1eu"
+      },
+      {
+        "type": "github",
+        "id": "long1eu"
       }
     ]
   }
