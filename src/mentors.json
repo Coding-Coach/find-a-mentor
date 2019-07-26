@@ -8446,5 +8446,37 @@
         "id": "jsamchineme"
       }
     ]
+  },
+  {
+    "id": "obinnacodes@gmail.com",
+    "name": "Obinna Ekwuno",                          
+    "avatar": "https://res.cloudinary.com/ekwuno/image/upload/v1563849909/007_obinna.jpg",  
+    "title": "JavaScript developer",                  
+    "description": "Hi, I'm Passionate about learning and Teaching. I love JavaScript",    
+    "country": "NG",                            
+    "spokenLanguages": [                        
+      "en" 
+    ],
+    "tags": [                                     
+      "javascript",
+      "reactjs",
+      "jamstack",
+      "a11y",
+      "frontend"            
+    ],
+    "channels": [                                 
+      {
+        "type": "email",                          
+        "id": "obinnacodes@gmail.com"                    
+      },
+      {
+        "type": "twitter",                          
+        "id": "obinnaspeaks"                    
+      },
+      {
+        "type": "github",                          
+        "id": "Ekwuno"                    
+      }
+    ]
   }
 ]
