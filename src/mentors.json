@@ -8448,6 +8448,38 @@
     ]
   },
   {
+    "id": "obinnacodes@gmail.com",
+    "name": "Obinna Ekwuno",                          
+    "avatar": "https://res.cloudinary.com/ekwuno/image/upload/v1563849909/007_obinna.jpg",  
+    "title": "JavaScript developer",                  
+    "description": "Hi, I'm Passionate about learning and Teaching. I love JavaScript",    
+    "country": "NG",                            
+    "spokenLanguages": [                        
+      "en" 
+    ],
+    "tags": [                                     
+      "javascript",
+      "reactjs",
+      "jamstack",
+      "a11y",
+      "frontend"            
+    ],
+    "channels": [                                 
+      {
+        "type": "email",                          
+        "id": "obinnacodes@gmail.com"                    
+      },
+      {
+        "type": "twitter",                          
+        "id": "obinnaspeaks"                    
+      },
+      {
+        "type": "github",                          
+        "id": "Ekwuno"                   
+      }
+    ]
+  },
+  {
     "id": "lung.razvan@gmail.com",
     "name": "Razvan Lung",
     "avatar": "https://firebasestorage.googleapis.com/v0/b/long1eu.appspot.com/o/IMG_20190429_130909%20(1).jpg?alt=media&token=de68f41e-431a-4456-be13-74038c382bd1",
