@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled, {css} from 'styled-components';
 import { getPendingApplications, approveApplication } from '../../api';
 
 export default class PendingApplications extends Component {
@@ -6,16 +7,31 @@ export default class PendingApplications extends Component {
     applications: [],
   };
 
-  async componentDidMount() {
+  async refreshApplications() {
     const applications = await getPendingApplications();
     this.setState({
       applications,
     });
   }
 
+  async componentDidMount() {
+    await this.refreshApplications();
+  }
+
+  toggleLoader = (application, show) => {
+    const { applications } = this.state;
+    const applicationIndex = applications.findIndex(app => app._id === application._id);
+    applications[applicationIndex].loading = show;
+    this.setState({
+      applications
+    })
+  }
+
   approve = async application => {
+    this.toggleLoader(application, true);
     await approveApplication(application);
-    alert('done');
+    this.toggleLoader(application, false);
+    await this.refreshApplications();
   };
 
   decline = async application => {
@@ -26,36 +42,88 @@ export default class PendingApplications extends Component {
   render() {
     const { applications } = this.state;
     return (
-      <table>
+      <Table>
         <thead>
           <tr>
-            <th />
+            <th>Avatar</th>
             <th>Name</th>
-            <th />
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {applications.map(application => (
             <tr key={application._id}>
               <td>
-                <img
+                <AvatarImage
                   alt={application.user.name}
                   src={application.user.avatar}
                 />
               </td>
               <td>{application.user.name}</td>
               <td>
-                <button onClick={this.approve.bind(null, application)}>
-                  Approve
-                </button>
-                <button onClick={this.decline.bind(null, application)}>
-                  Decline
-                </button>
+                {
+                  application.loading ?
+                  <i className="fa fa-spinner fa-spin" /> :
+                  <>
+                    <ApproveButton onClick={this.approve.bind(null, application)}>
+                      <i className="fa fa-thumbs-up" />
+                    </ApproveButton>
+                    <RejectButton onClick={this.decline.bind(null, application)}>
+                      <i className="fa fa-thumbs-down" />
+                    </RejectButton>
+                  </>
+                }
               </td>
             </tr>
           ))}
         </tbody>
-      </table>
+      </Table>
     );
   }
 }
+
+const Table = styled.table`
+  width: 100%;
+  border-spacing: 0;
+
+  thead tr {
+    background-color: rgba(105, 213, 177, 0.3);
+    color: #4a4a4a;
+  }
+
+  td, th {
+    padding: 5px;
+    text-align: left;
+
+    &:first-child,
+    &:last-child {
+      width: 100px;
+      text-align: center;
+    }
+  }
+`;
+
+const AvatarImage = styled.img`
+  width: 40px;
+  border-radius: 50%;
+`;
+
+const actionButton = css`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 0;
+  color: #fff;
+  margin-left: 5px;
+  cursor: pointer;
+`;
+
+const ApproveButton = styled.button`
+  ${actionButton}
+  background: green;
+`;
+
+const RejectButton = styled.button`
+  ${actionButton}
+  background: red;
+`;
