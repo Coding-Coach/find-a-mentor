@@ -56,7 +56,7 @@ export async function getMentors() {
 export async function createApplication() {
   const res = await makeApiCall(
     `${paths.MENTORS}/applications`,
-    { reason: 'why not?' },
+    { description: 'why not?' },
     'POST'
   );
   return res;
