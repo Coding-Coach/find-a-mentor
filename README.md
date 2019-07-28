@@ -8,101 +8,16 @@ Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
 
-Just go to https://mentors.codingcoach.io/ and find her / him / them.
+Just go to https://mentors.codingcoach.io/, register and find her / him / them.
+
+## Want to be a mentor?
+
+Just go to https://mentors.codingcoach.io/, register and fill the form to become a mentor
 
 ## Requirements
 - Git should be installed [Install Git](https://git-scm.com/downloads)
 - Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests**
 - Yarn (we recommend using yarn as a package manager) [Install Yarn](https://yarnpkg.com/en/)
-
-## Want to be a mentor?
-
-1. Fork
-1. Clone your fork (if you use passphrase, please clone with the HTTPS approach)
-1. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
-
-### CLI Geek?
-
-![Add user - demo](docs-assets/demo-add-user.gif)
-
-1. `yarn run add-user`
-1. Answer the questions.
-1. Step 2 will push the required changes to a branch `add-{your-name}-as-mentor` so you just need to create a PR.
-
-### Like to do it manually?
-1. Fork
-1. Clone your fork (if you use passphrase, please clone with the HTTPS approach)
-1. **Create a branch** "add-{your-name}-as-mentor"
-1. Add your details in `src/mentors.json` file (check the below schema for requirements).
-1. Run `yarn test` to validate that the details is following the right schema (carelfully read the output to see what needs to be fixed)
-1. Push the "add-{your-name}-as-mentor" branch to github
-1. PR with the title "Add {Your Name} as mentor".
-1. Thanks!
-
-**Notes:**
-
-1. Please double check your details. It’s important that the data scheme remains the same; just replace the details with your values. If you change the data architecture, it will cause errors.
-2. In order to avoid merge conflicts, please fetch the changes on master before pushing.
-3. By adding yourself as a mentor, you give us permission to send you emails. Don't worry, we'll not spam you, just to welcome you nicely and make sure you will get updates about the project.
-
-### Mentor schema
-
-```javascript
-{
-  "id": "your email",
-  "name": "your name",                          // minLength: 2
-  "avatar": "https://link-to-your/avatar.jpg",  // url, must start with https://
-  "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
-  "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
-  "country": "SE",                              // Country code (link to the list below)
-  "spokenLanguages": [                          // ISO language code (link to list below)
-    "en", "fr", "zh"
-  ],
-  "tags": [                                     // minItems: 1, maxItems: 5, only lowercase characters
-    "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below) tag's maxLength: 20 characters
-  ],
-  "channels": [                                 // minItems: 1, maxItems: 3
-    {
-      "type": "email",                          // see available channels below
-      "id": "john@gmail.com"                    // depends on the type
-    }
-  ]
-}
-```
-
-#### synonyms tags
-
-| Use          | Don't use       |
-|--------------|-----------------|
-| nodejs       | node, node.js   |
-| reactjs      | react, react.js |
-| react native | react-native    |
-| c#           | csharp          |
-| frontend     | front end       |
-| express      | expressjs       |
-| fullstack    | full stack      |
-| vuejs        | vue, vue.js     |
-| asp.net      | aspnet          |
-| asp.net core | aspnetcore      |
-
-#### Country codes
-
-https://github.com/hjnilsson/country-flags/blob/master/countries.json
-
-#### Spoken language ISO codes
-https://github.com/meikidd/iso-639-1/blob/master/src/data.js
-
-#### Channels
-
-| type     | parameter                                                                                                               |
-|----------|-------------------------------------------------------------------------------------------------------------------------|
-| email    | email address                                                                                                           |
-| slack    | memberID ([How to find it?](https://medium.com/@moshfeu/how-to-find-my-member-id-in-slack-workspace-d4bba942e38c#88b8)) |
-| linkedin | userId                                                                                                                  |
-| facebook | userId                                                                                                                  |
-| twitter  | userId                                                                                                                  |
-| github   | userId                                                                                                                  |
-| website  | link to your personal website without https                                                                             |
 
 ## Want to contribute this project?
 
