@@ -28,8 +28,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    overflow-y: auto;
   }
+}
+
+.mentors-cards .loader {
+  font-size: 2em;
+  margin-top: 15px;
 }
 
 .nothing-to-show {

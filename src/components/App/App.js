@@ -33,6 +33,7 @@ class App extends Component {
   state = {
     mentors: [],
     favorites: get(),
+    ready: false,
     modal: {
       title: null,
       content: null,
@@ -151,6 +152,7 @@ class App extends Component {
     const mentors = await getMentors();
     this.setState({
       mentors,
+      ready: true
     });
   }
 
@@ -172,6 +174,7 @@ class App extends Component {
       modal,
       clickedTag,
       clickedCountry,
+      ready,
     } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
@@ -252,6 +255,7 @@ class App extends Component {
               onFavMentor={this.onFavMentor}
               handleTagClick={this.handleTagClick}
               handleCountryClick={this.handleCountryClick}
+              ready={ready}
             />
           </Content>
         </Main>

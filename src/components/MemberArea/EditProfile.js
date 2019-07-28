@@ -4,7 +4,7 @@ import { updateMentor, deleteMentor, createApplication } from '../../api';
 import model from './model';
 import Select from 'react-select';
 import './EditProfile.css';
-import { isMentor, fromMtoVM } from '../../helpers/user';
+import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
 
 export default class EditProfile extends Component {
   state = {
@@ -15,12 +15,14 @@ export default class EditProfile extends Component {
     const { user } = this.state;
     e.preventDefault();
     this.setState({ disabled: true });
-    const updateMentorResult = await updateMentor(fromMtoVM(user));
+    const updateMentorResult = await updateMentor(fromVMtoM(user));
     if (updateMentorResult && !isMentor(user)) {
       const createApplicationResult = await createApplication();
       if (!createApplicationResult.success) {
         alert(createApplicationResult.message);
       }
+    } else {
+      alert('something went wrong, please open a bug');
     }
     this.setState({ disabled: false });
   };

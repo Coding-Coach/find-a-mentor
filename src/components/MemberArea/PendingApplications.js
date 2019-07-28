@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import styled, {css} from 'styled-components';
 import { getPendingApplications, approveApplication } from '../../api';
+import { Loader } from '../Loader';
 
 export default class PendingApplications extends Component {
   state = {
     applications: [],
+    ready: false
   };
 
   async refreshApplications() {
@@ -16,6 +18,9 @@ export default class PendingApplications extends Component {
 
   async componentDidMount() {
     await this.refreshApplications();
+    this.setState({
+      ready: true
+    })
   }
 
   toggleLoader = (application, show) => {
@@ -40,8 +45,12 @@ export default class PendingApplications extends Component {
   };
 
   render() {
-    const { applications } = this.state;
+    const { applications, ready } = this.state;
+    if (!ready) {
+      return <Loader />
+    }
     return (
+      applications.length ?
       <Table>
         <thead>
           <tr>
@@ -63,7 +72,7 @@ export default class PendingApplications extends Component {
               <td>
                 {
                   application.loading ?
-                  <i className="fa fa-spinner fa-spin" /> :
+                  <Loader /> :
                   <>
                     <ApproveButton onClick={this.approve.bind(null, application)}>
                       <i className="fa fa-thumbs-up" />
@@ -77,7 +86,8 @@ export default class PendingApplications extends Component {
             </tr>
           ))}
         </tbody>
-      </Table>
+      </Table> :
+      <div>There are no pending applications</div>
     );
   }
 }

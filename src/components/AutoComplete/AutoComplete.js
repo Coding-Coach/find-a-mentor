@@ -42,8 +42,8 @@ export default class AutoComplete extends Component {
     this.setPermalinkParams(this.props.id, value);
   };
 
-  matchStateToTerm(state, value) {
-    return state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+  matchStateToTerm({label}, value) {
+    return label && label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
   }
 
   getPermalinkParams() {
