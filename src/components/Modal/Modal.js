@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import './Modal.css';
 
 export default class Modal extends Component {
@@ -32,10 +33,10 @@ export default class Modal extends Component {
 
   render() {
     const { isActive } = this.state;
-    const { children, title } = this.props;
+    const { children, title, size = '' } = this.props;
 
     return (
-      <div className={`modal-container ${isActive ? 'active' : ''}`}>
+      <div className={classNames(['modal-container', size, {active: isActive}])}>
         <div className="modal-box">
           <button className="close" onClick={this.handleClose}>
             x

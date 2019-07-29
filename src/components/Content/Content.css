@@ -30,7 +30,7 @@
 }
 
 .modal-container.active .modal-box {
-  margin: 100px auto;
+  margin: 0 auto;
   opacity: 1;
 }
 

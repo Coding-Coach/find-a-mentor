@@ -24,7 +24,6 @@
   background: #fff;
   max-width: 780px;
   width: 95%;
-  max-height: 80vh;
   min-height: 100px;
   border-radius: 5px;
   margin: 300px auto;
@@ -81,7 +80,8 @@
   overflow: hidden;
 }
 .scroll-helper {
-  height: calc(80vh - 200px);
+  height: auto;
+  max-height: calc(100vh - 200px);
   overflow-y: auto;
   margin: 0 auto 10px;
 }
