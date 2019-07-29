@@ -18,6 +18,7 @@
   position: absolute;
   top: 50%;
   right: 10px;
+  transform: translateY(-50%);
 }
 
 @media all and (max-width: 576px) {
