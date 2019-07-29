@@ -25,7 +25,7 @@
     width: calc(100% - var(--filter-input-offset) * 2);
   }
   .ac .clear-btn {
-    right: 35px;
+    right: 20px;
   }
 }
 
