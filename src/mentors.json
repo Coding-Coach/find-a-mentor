@@ -8543,5 +8543,39 @@
         "id": "Jolg42"
       }
     ]
+  },
+  {
+    "id": "mohammedzamakhan@gmail.com",
+    "name": "Zama Khan Mohammed",
+    "avatar": "https://avatars3.githubusercontent.com/u/2327532?v=4",
+    "title": "Software Architect",
+    "description": "Expert in Angular, React, Node.js and AWS",
+    "country": "US",
+    "spokenLanguages": [
+      "en",
+      "hi",
+      "ur"
+    ],
+    "tags": [
+      "reactjs",
+      "angular",
+      "aws",
+      "frontend",
+      "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mohammedzamakhan@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "mohamedzamakhan"
+      },
+      {
+        "type": "github",
+        "id": "mohammedzamakhan"
+      }
+    ]
   }
 ]
