@@ -8449,33 +8449,33 @@
   },
   {
     "id": "obinnacodes@gmail.com",
-    "name": "Obinna Ekwuno",                          
-    "avatar": "https://res.cloudinary.com/ekwuno/image/upload/v1563849909/007_obinna.jpg",  
-    "title": "JavaScript developer",                  
-    "description": "Hi, I'm Passionate about learning and Teaching. I love JavaScript",    
-    "country": "NG",                            
-    "spokenLanguages": [                        
-      "en" 
+    "name": "Obinna Ekwuno",
+    "avatar": "https://res.cloudinary.com/ekwuno/image/upload/v1563849909/007_obinna.jpg",
+    "title": "JavaScript developer",
+    "description": "Hi, I'm Passionate about learning and Teaching. I love JavaScript",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
     ],
-    "tags": [                                     
+    "tags": [
       "javascript",
       "reactjs",
       "jamstack",
       "a11y",
-      "frontend"            
+      "frontend"
     ],
-    "channels": [                                 
+    "channels": [
       {
-        "type": "email",                          
-        "id": "obinnacodes@gmail.com"                    
+        "type": "email",
+        "id": "obinnacodes@gmail.com"
       },
       {
-        "type": "twitter",                          
-        "id": "obinnaspeaks"                    
+        "type": "twitter",
+        "id": "obinnaspeaks"
       },
       {
-        "type": "github",                          
-        "id": "Ekwuno"                   
+        "type": "github",
+        "id": "Ekwuno"
       }
     ]
   },
@@ -8508,6 +8508,38 @@
       {
         "type": "github",
         "id": "long1eu"
+      }
+    ]
+  },
+  {
+    "id": "joel.galeran+codingcoach@gmail.com",
+    "name": "Joël Galeran",
+    "avatar": "https://avatars3.githubusercontent.com/u/1328733?s=460&v=4",
+    "title": "Full-Stack JavaScript Developer",
+    "description": "Happy to help you with Node.js & JavaScript questions :)",
+    "country": "FR",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "node.js",
+      "opentype",
+      "aws",
+      "vue.js"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "https://www.linkedin.com/in/joelgaleran/"
+      },
+      {
+        "type": "twitter",
+        "id": "https://twitter.com/Jolg42"
+      },
+      {
+        "type": "github",
+        "id": "https://github.com/Jolg42"
       }
     ]
   }
