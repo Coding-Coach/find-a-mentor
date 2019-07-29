@@ -3,9 +3,9 @@ import './FilterClear.css';
 
 const FilterClear = ({ onClear }) => {
   return (
-    <React.Fragment>
-      <span className='clear' onClick={onClear}>clear</span>
-    </React.Fragment>
+    <>
+      <span className='clear' data-testid="clear-filter" onClick={onClear}>clear</span>
+    </>
   );
 };
 
