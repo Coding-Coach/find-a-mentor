@@ -1,6 +1,8 @@
 .clear {
   font-size: 12px;
   padding: 5px;
+  border: none;
+  background: none;
 }
 
 .clear:hover {
