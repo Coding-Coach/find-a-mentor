@@ -43,5 +43,5 @@ describe('Mentor Filtering', () => {
       .filterByName('Brent M Clark')
       .getByTestId('clear-filter')
       .should('have.length', 1);
-  })
+  });
 });

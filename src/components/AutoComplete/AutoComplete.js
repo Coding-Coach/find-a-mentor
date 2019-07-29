@@ -100,7 +100,7 @@ export default class AutoComplete extends Component {
 
   render() {
     const { value } = this.state;
-    const { clearButton, source, 'data-testid': testid } = this.props;
+    const { showClear, source, 'data-testid': testid } = this.props;
     let { id } = this.props;
     id = `${id}-${Math.random()}`;
 
@@ -122,7 +122,7 @@ export default class AutoComplete extends Component {
             'data-testid': testid,
           }}
         />
-        {clearButton && value && (
+        {showClear && value && (
           <div className={'clear-btn'}>
             <FilterClear onClear={this.onClear} />
           </div>
