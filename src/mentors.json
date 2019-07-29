@@ -8519,7 +8519,8 @@
     "description": "Happy to help you with Node.js & JavaScript questions :)",
     "country": "FR",
     "spokenLanguages": [
-      "en"
+      "en",
+      "fr"
     ],
     "tags": [
       "javascript",
