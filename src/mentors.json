@@ -8532,15 +8532,15 @@
     "channels": [
       {
         "type": "linkedin",
-        "id": "https://www.linkedin.com/in/joelgaleran/"
+        "id": "joelgaleran"
       },
       {
         "type": "twitter",
-        "id": "https://twitter.com/Jolg42"
+        "id": "Jolg42"
       },
       {
         "type": "github",
-        "id": "https://github.com/Jolg42"
+        "id": "Jolg42"
       }
     ]
   }
