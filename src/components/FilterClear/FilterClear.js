@@ -6,7 +6,7 @@ const FilterClear = ({ onClear }) => {
     <>
       <button className="clear" data-testid="clear-filter" onClick={onClear}>
         clear
-      </span>
+      </button>
     </>
   );
 };
