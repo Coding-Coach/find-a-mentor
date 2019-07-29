@@ -3906,11 +3906,11 @@
     ]
   },
   {
-    "id": "hello@juno.codes",
+    "id": "justin@edtechdeveloper.com",
     "name": "Justin Juno",
-    "avatar": "https://avatars3.githubusercontent.com/u/29876915?s=460&v=4",
+    "avatar": "https://avatars2.githubusercontent.com/u/50022106?s=460&v=4",
     "title": "Javascript Developer",
-    "description": "Infinitely curious javascript developer and father of twins!",
+    "description": "EdTech Developer and Advocate!",
     "country": "US",
     "spokenLanguages": [
       "en"
@@ -3925,15 +3925,15 @@
     "channels": [
       {
         "type": "twitter",
-        "id": "junocodes"
+        "id": "edtechdeveloper"
       },
       {
         "type": "github",
-        "id": "junocodes"
+        "id": "edtechdeveloper"
       },
       {
         "type": "email",
-        "id": "hello@juno.codes"
+        "id": "justin@edtechdeveloper.com"
       }
     ]
   },
