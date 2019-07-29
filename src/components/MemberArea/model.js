@@ -1,3 +1,8 @@
+import ISO6391 from 'iso-639-1';
+import countries from 'svg-country-flags/countries.json';
+
+const languages = ISO6391.getLanguages(ISO6391.getAllCodes());
+
 export default {
   email: {
     type: 'text',
@@ -16,16 +21,27 @@ export default {
     defaultValue: '',
   },
   description: {
-    type: 'text',
+    type: 'longtext',
     defaultValue: '',
+    style: {
+      width: '100%'
+    }
   },
   country: {
-    type: 'text',
+    type: 'select',
     defaultValue: '',
+    options: Object.entries(countries).map(([code, name]) => ({
+      label: name,
+      value: code,
+    }))
   },
   spokenLanguages: {
-    type: 'text',
-    defaultValue: '',
+    type: 'tags',
+    defaultValue: [],
+    options: languages.map(lang => ({
+      value: lang.code,
+      label: lang.name,
+    }))
   },
   tags: {
     type: 'tags',
@@ -35,9 +51,5 @@ export default {
       { value: 'strawberry', label: 'Strawberry' },
       { value: 'vanilla', label: 'Vanilla' },
     ],
-  },
-  roles: {
-    type: 'text',
-    defaultValue: '',
   },
 };

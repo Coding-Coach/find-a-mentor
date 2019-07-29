@@ -1,8 +1,51 @@
+.edit-profile .form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.edit-profile .form-submit {
+  margin-top: 15px;
+}
+
+.edit-profile .form-submit button {
+  background: var(--button-dark-bg);
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.edit-profile .form-submit button:disabled {
+  opacity: 0.8;
+}
+
+.edit-profile .form-field {
+  width: 50%;
+  padding: 0 10px;
+  margin-top: 10px;
+}
+
+.edit-profile .form-field input,
+.edit-profile .form-field textarea {
+  padding: .67857143em 1em;
+}
+
+.edit-profile .form-field input,
+.edit-profile .form-field textarea,
+.edit-profile .form-field .input-extended {
+  border: 1px solid #eee;
+  width: 100%;
+}
+
+.edit-profile .form-field span {
+  display: block;
+}
+
+.edit-profile .form-field span::first-letter {
+  text-transform: uppercase;
+}
+
 .edit-profile .select__control {
   background: none;
   border: none;
-}
-
-.edit-profile .select__value-container {
-  padding-left: 0;
 }

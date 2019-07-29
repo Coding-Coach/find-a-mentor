@@ -82,8 +82,8 @@
 }
 .scroll-helper {
   height: calc(80vh - 200px);
-  overflow-y: scroll;
-  margin: 0 auto 10px auto;
+  overflow-y: auto;
+  margin: 0 auto 10px;
 }
 
 @media all and (max-width: 800px) {

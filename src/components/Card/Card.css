@@ -105,7 +105,7 @@
 
 .card .tag {
   color: hsl(0, 0%, 100%);
-  background: #16385c;
+  background: var(--button-dark-bg);
   border: 0;
   border-radius: 20px;
   display: inline-block;
