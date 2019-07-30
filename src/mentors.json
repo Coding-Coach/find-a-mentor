@@ -8610,5 +8610,33 @@
         "id": "ivandevp"
       }
     ]
+  },
+  {
+    "id": "m.sawalhah@gmail.com",
+    "name": "Mohammad Sawalhah",
+    "avatar": "https://en.gravatar.com/userimage/54348409/7d0ca7f32d74c1345412710534edd293.jpg?size=200",
+    "title": "Web Developer",
+    "description": "Hi, I'm ready to help you !",
+    "country": "JO",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "laravel",
+      "vuejs",
+      "oracle apex",
+      "php",
+      "js"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "m.sawalhah@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "sawalhah"
+      }
+    ]
   }
 ]
