@@ -8668,5 +8668,38 @@
         "id": "daimor"
       }
     ]
+  },
+  {
+    "id": "alexloghin29@gmail.com",
+    "name": "Alexandru Loghin",
+    "avatar": "https://avatars2.githubusercontent.com/u/6248839?s=460&v=4",
+    "title": "Full Stack .Net Developer",
+    "description": "As a fresh dev technician I'm ready to help early devs in there software journey",
+    "country": "RO",
+    "spokenLanguages": [
+      "en",
+      "ro"
+    ],
+    "tags": [
+      "c#",
+      "design",
+      "frontend",
+      "performance",
+      "teamwork"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alexloghin29+mentor@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "loghinl-alexandru"
+      },
+      {
+        "type": "github",
+        "id": "logalex96"
+      }
+    ]
   }
 ]
