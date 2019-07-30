@@ -1,0 +1,11 @@
+.clear {
+  font-size: 12px;
+  padding: 5px;
+  border: none;
+  background: none;
+}
+
+.clear:hover {
+  color: var(--tag-color);
+  cursor: pointer;
+}
