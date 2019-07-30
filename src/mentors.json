@@ -8577,5 +8577,38 @@
         "id": "mohammedzamakhan"
       }
     ]
+  },
+  {
+    "id": "medinadiazivan@gmail.com",
+    "name": "Ivan Medina",
+    "avatar": "https://pbs.twimg.com/profile_images/1101504166760013826/WoH_WLsg_400x400.png",
+    "title": "JavaScript Engineer",
+    "description": "JavaScript && React lover working as a Senior Softwarer Engineer @ EPAM Systems",
+    "country": "PE",
+    "spokenLanguages": [
+      "es",
+      "en"
+    ],
+    "tags": [
+      "frontend",
+      "reactjs",
+      "angular",
+      "nodejs",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "medinadiazivan"
+      },
+      {
+        "type": "twitter",
+        "id": "ivandevp"
+      },
+      {
+        "type": "github",
+        "id": "ivandevp"
+      }
+    ]
   }
 ]
