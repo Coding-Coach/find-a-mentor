@@ -8640,6 +8640,69 @@
     ]
   },
   {
+    "id": "mrdaimor@gmail.com",
+    "name": "Dmitry Maslennikov",
+    "avatar": "https://avatars2.githubusercontent.com/u/1212251",
+    "title": "InterSystems Developer Advocate",
+    "description": "Dev Advocate for InterSystems products",
+    "country": "RU",
+    "spokenLanguages": [
+      "en",
+      "ru"
+    ],
+    "tags": [
+      "intersystems",
+      "devops"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mrdaimor@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "daimor"
+      },
+      {
+        "type": "github",
+        "id": "daimor"
+      }
+    ]
+  },
+  {
+    "id": "alexloghin29@gmail.com",
+    "name": "Alexandru Loghin",
+    "avatar": "https://avatars2.githubusercontent.com/u/6248839?s=460&v=4",
+    "title": "Full Stack .Net Developer",
+    "description": "As a fresh dev technician I'm ready to help early devs in there software journey",
+    "country": "RO",
+    "spokenLanguages": [
+      "en",
+      "ro"
+    ],
+    "tags": [
+      "c#",
+      "design",
+      "frontend",
+      "performance",
+      "teamwork"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alexloghin29+mentor@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "loghinl-alexandru"
+      },
+      {
+        "type": "github",
+        "id": "logalex96"
+      }
+    ]
+  },
+  {
     "id": "milad@nekofar.com",
     "name": "Milad Nekofar",
     "avatar": "https://milad.nekofar.com/wp-content/uploads/2018/12/Enlight8.jpg",
