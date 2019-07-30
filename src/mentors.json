@@ -8638,5 +8638,35 @@
         "id": "sawalhah"
       }
     ]
+  },
+  {
+    "id": "mrdaimor@gmail.com",
+    "name": "Dmitry Maslennikov",
+    "avatar": "https://avatars2.githubusercontent.com/u/1212251",
+    "title": "InterSystems Developer Advocate",
+    "description": "Dev Advocate for InterSystems products",
+    "country": "RU",
+    "spokenLanguages": [
+      "en",
+      "ru"
+    ],
+    "tags": [
+      "intersystems",
+      "devops"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mrdaimor@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "daimor"
+      },
+      {
+        "type": "github",
+        "id": "daimor"
+      }
+    ]
   }
 ]
