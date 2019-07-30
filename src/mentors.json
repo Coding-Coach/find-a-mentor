@@ -8638,5 +8638,37 @@
         "id": "sawalhah"
       }
     ]
+  },
+  {
+    "id": "milad@nekofar.com",
+    "name": "Milad Nekofar",
+    "avatar": "https://milad.nekofar.com/wp-content/uploads/2018/12/Enlight8.jpg",
+    "title": "Software Developer",
+    "description": "Experienced freelancer. I specialize in web development and mobile development.",
+    "country": "IR",
+    "spokenLanguages": [
+      "en",
+      "fa"
+    ],
+    "tags": [
+      "php",
+      "wordpress",
+      "android",
+      "ios"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "milad@nekofar.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "nekofar"
+      },
+      {
+        "type": "twitter",
+        "id": "nekofar"
+      }
+    ]
   }
 ]
