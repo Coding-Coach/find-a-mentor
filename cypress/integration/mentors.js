@@ -33,4 +33,11 @@ describe('Mentor Filtering', () => {
     // .getByTestId('mentor-card')
     // .should('have.length', 1);
   });
+
+  it('can clear filter', () => {
+    cy.visit('/')
+      .filterByName('Brent M Clark')
+      .getByTestId('clear-filter')
+      .should('have.length', 1);
+  });
 });

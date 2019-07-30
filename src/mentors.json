@@ -3906,11 +3906,11 @@
     ]
   },
   {
-    "id": "hello@juno.codes",
+    "id": "justin@edtechdeveloper.com",
     "name": "Justin Juno",
-    "avatar": "https://avatars3.githubusercontent.com/u/29876915?s=460&v=4",
+    "avatar": "https://avatars2.githubusercontent.com/u/50022106?s=460&v=4",
     "title": "Javascript Developer",
-    "description": "Infinitely curious javascript developer and father of twins!",
+    "description": "EdTech Developer and Advocate!",
     "country": "US",
     "spokenLanguages": [
       "en"
@@ -3925,15 +3925,15 @@
     "channels": [
       {
         "type": "twitter",
-        "id": "junocodes"
+        "id": "edtechdeveloper"
       },
       {
         "type": "github",
-        "id": "junocodes"
+        "id": "edtechdeveloper"
       },
       {
         "type": "email",
-        "id": "hello@juno.codes"
+        "id": "justin@edtechdeveloper.com"
       }
     ]
   },
@@ -5212,38 +5212,6 @@
       {
         "type": "github",
         "id": "sabiou"
-      }
-    ]
-  },
-  {
-    "id": "priyank.srivastava1990@gmail.com",
-    "name": "Priyank Srivastava",
-    "avatar": "https://avatars3.githubusercontent.com/u/34641210?s=460&v=4",
-    "title": "Senior Software Engineer (backend)",
-    "description": "6+ years of learning and practising software. Feel free to reach out, cheers!",
-    "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "spring",
-      "backend",
-      "architecture",
-      "kafka"
-    ],
-    "channels": [
-      {
-        "type": "github",
-        "id": "priyank-sriv"
-      },
-      {
-        "type": "linkedin",
-        "id": "sriv-priyank"
-      },
-      {
-        "type": "email",
-        "id": "priyank.srivastava1990@gmail.com"
       }
     ]
   },
@@ -8476,6 +8444,261 @@
       {
         "type": "github",
         "id": "jsamchineme"
+      }
+    ]
+  },
+  {
+    "id": "obinnacodes@gmail.com",
+    "name": "Obinna Ekwuno",
+    "avatar": "https://res.cloudinary.com/ekwuno/image/upload/v1563849909/007_obinna.jpg",
+    "title": "JavaScript developer",
+    "description": "Hi, I'm Passionate about learning and Teaching. I love JavaScript",
+    "country": "NG",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "reactjs",
+      "jamstack",
+      "a11y",
+      "frontend"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "obinnacodes@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "obinnaspeaks"
+      },
+      {
+        "type": "github",
+        "id": "Ekwuno"
+      }
+    ]
+  },
+  {
+    "id": "lung.razvan@gmail.com",
+    "name": "Razvan Lung",
+    "avatar": "https://firebasestorage.googleapis.com/v0/b/long1eu.appspot.com/o/IMG_20190429_130909%20(1).jpg?alt=media&token=de68f41e-431a-4456-be13-74038c382bd1",
+    "title": "Mobile App Developer",
+    "description": "Forward thinking developer with experience in building Mobile applications. ",
+    "country": "RO",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "flutter",
+      "android",
+      "ios",
+      "dart",
+      "kotlin"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "lung.razvan@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "long1eu"
+      },
+      {
+        "type": "github",
+        "id": "long1eu"
+      }
+    ]
+  },
+  {
+    "id": "joel.galeran+codingcoach@gmail.com",
+    "name": "Joël Galeran",
+    "avatar": "https://avatars3.githubusercontent.com/u/1328733?s=460&v=4",
+    "title": "Full-Stack JavaScript Developer",
+    "description": "Happy to help you with Node.js & JavaScript questions :)",
+    "country": "FR",
+    "spokenLanguages": [
+      "en",
+      "fr"
+    ],
+    "tags": [
+      "javascript",
+      "nodejs",
+      "opentype",
+      "aws",
+      "vuejs"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "joelgaleran"
+      },
+      {
+        "type": "twitter",
+        "id": "Jolg42"
+      },
+      {
+        "type": "github",
+        "id": "Jolg42"
+      }
+    ]
+  },
+  {
+    "id": "mohammedzamakhan@gmail.com",
+    "name": "Zama Khan Mohammed",
+    "avatar": "https://avatars3.githubusercontent.com/u/2327532?v=4",
+    "title": "Software Architect",
+    "description": "Expert in Angular, React, Node.js and AWS",
+    "country": "US",
+    "spokenLanguages": [
+      "en",
+      "hi",
+      "ur"
+    ],
+    "tags": [
+      "reactjs",
+      "angular",
+      "aws",
+      "frontend",
+      "css"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mohammedzamakhan@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "mohamedzamakhan"
+      },
+      {
+        "type": "github",
+        "id": "mohammedzamakhan"
+      }
+    ]
+  },
+  {
+    "id": "medinadiazivan@gmail.com",
+    "name": "Ivan Medina",
+    "avatar": "https://pbs.twimg.com/profile_images/1101504166760013826/WoH_WLsg_400x400.png",
+    "title": "JavaScript Engineer",
+    "description": "JavaScript && React lover working as a Senior Softwarer Engineer @ EPAM Systems",
+    "country": "PE",
+    "spokenLanguages": [
+      "es",
+      "en"
+    ],
+    "tags": [
+      "frontend",
+      "reactjs",
+      "angular",
+      "nodejs",
+      "backend"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "medinadiazivan"
+      },
+      {
+        "type": "twitter",
+        "id": "ivandevp"
+      },
+      {
+        "type": "github",
+        "id": "ivandevp"
+      }
+    ]
+  },
+  {
+    "id": "m.sawalhah@gmail.com",
+    "name": "Mohammad Sawalhah",
+    "avatar": "https://en.gravatar.com/userimage/54348409/7d0ca7f32d74c1345412710534edd293.jpg?size=200",
+    "title": "Web Developer",
+    "description": "Hi, I'm ready to help you !",
+    "country": "JO",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "laravel",
+      "vuejs",
+      "oracle apex",
+      "php",
+      "js"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "m.sawalhah@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "sawalhah"
+      }
+    ]
+  },
+  {
+    "id": "mrdaimor@gmail.com",
+    "name": "Dmitry Maslennikov",
+    "avatar": "https://avatars2.githubusercontent.com/u/1212251",
+    "title": "InterSystems Developer Advocate",
+    "description": "Dev Advocate for InterSystems products",
+    "country": "RU",
+    "spokenLanguages": [
+      "en",
+      "ru"
+    ],
+    "tags": [
+      "intersystems",
+      "devops"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "mrdaimor@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "daimor"
+      },
+      {
+        "type": "github",
+        "id": "daimor"
+      }
+    ]
+  },
+  {
+    "id": "alexloghin29@gmail.com",
+    "name": "Alexandru Loghin",
+    "avatar": "https://avatars2.githubusercontent.com/u/6248839?s=460&v=4",
+    "title": "Full Stack .Net Developer",
+    "description": "As a fresh dev technician I'm ready to help early devs in there software journey",
+    "country": "RO",
+    "spokenLanguages": [
+      "en",
+      "ro"
+    ],
+    "tags": [
+      "c#",
+      "design",
+      "frontend",
+      "performance",
+      "teamwork"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alexloghin29+mentor@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "loghinl-alexandru"
+      },
+      {
+        "type": "github",
+        "id": "logalex96"
       }
     ]
   }
