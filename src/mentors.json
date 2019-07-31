@@ -8733,5 +8733,37 @@
         "id": "nekofar"
       }
     ]
+  },
+  {
+    "id": "zacheryk89@gmail.com",
+    "name": "Zack Koppert",
+    "avatar": "https://secure.gravatar.com/avatar/b3de8ee3a5ed16adacd716cdcd0a72fe",
+    "title": "Open Source Director",
+    "description": "I work on Software in embedded systems as well as various open source projects.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "linux",
+      "bash",
+      "opensource",
+      "c",
+      "python"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "zack-koppert"
+      },
+      {
+        "type": "twitter",
+        "id": "ZacheryK89"
+      },
+      {
+        "type": "github",
+        "id": "zkoppert"
+      }
+    ]
   }
 ]
