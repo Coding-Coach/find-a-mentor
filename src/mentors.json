@@ -8765,5 +8765,37 @@
         "id": "zkoppert"
       }
     ]
+  },
+   {
+    "id": "michail.kuznetsov@gmail.com",
+    "name": "Mikhail Kuznetcov",
+    "avatar": "https://avatars2.githubusercontent.com/u/1363772?s=460&v=4",
+    "title": "Developer, speaker",
+    "description": "Fullstack developer <3 Javascript. Speak on topica about ddevelopment",
+    "country": "NL",
+    "spokenLanguages": [
+      "en", "ru"
+    ],
+    "tags": [
+      "web",
+      "bash",
+      "opensource",
+      "javascript",
+      "python"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "michailkuznetcov"
+      },
+      {
+        "type": "twitter",
+        "id": "legkoletat"
+      },
+      {
+        "type": "github",
+        "id": "shershen08"
+      }
+    ]
   }
 ]
