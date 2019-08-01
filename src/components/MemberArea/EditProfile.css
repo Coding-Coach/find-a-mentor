@@ -49,3 +49,33 @@
   background: none;
   border: none;
 }
+
+.edit-profile .channel-group {
+  position: relative;
+  border: 1px solid #eee;
+  width: 100%;
+  display: flex;
+}
+
+.edit-profile .channel-group.disabled {
+  background: #dadada;
+}
+.channel-slack {
+  width: 100% !important;
+}
+
+.edit-profile .channel-group i {
+  font-size: 24px;
+  color: #aaa;
+  padding: 6px 3px 0 4px;
+}
+
+.edit-profile .channel-group input {
+  padding-left: 5px;
+  border: none;
+}
+.edit-profile .channel-group label {
+  color: #aaa;
+  padding: 7px 0;
+  white-space: nowrap;
+}

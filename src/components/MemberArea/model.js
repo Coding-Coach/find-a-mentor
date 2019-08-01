@@ -52,4 +52,20 @@ export default {
       { value: 'vanilla', label: 'Vanilla' },
     ],
   },
+  channels: {
+    type: 'keyvalue',
+    defaultValue: {},
+    options: [
+      { value: 'email', label: 'Email Address', prefix: 'mailto:' },
+      { value: 'linkedin', label: 'LinkedIn', prefix: 'https://linkedin.com/in/' },
+      { value: 'facebook', label: 'Facebook', prefix: 'http://facebook.com/' },
+      { value: 'twitter', label: 'Twitter', prefix: 'https://twitter.com/@' },
+      { value: 'github', label: 'Github', prefix: 'http://github.com/' },
+      { value: 'website', label: 'Website', prefix: 'https://' },
+      { value: 'slack', label: 'Slack', prefix: 'https://coding-coach.slack.com/team/' },
+    ],
+    style: {
+      width: '100%'
+    }
+  }
 };
