@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 import { updateMentor, deleteMentor, createApplication } from '../../api';
 import model from './model';
 import Select from 'react-select';
 import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
-import { Icons } from './socialMediaIcons';
 
 const IconMapper = {
   'facebook': 'facebook-square',
@@ -100,15 +100,15 @@ export default class EditProfile extends Component {
                 {config.options.map((option, indx) => {
                   const isDisabled = filledChannels >= 3 && !user[fieldName][option.value];
                   return (<div className={`form-field channel-${option.value}`} key={indx}>
-                    <div className={`channel-group ${isDisabled ? 'disabled' : ''}`}>
+                    <div className={classNames(['channel-group', {disabled: isDisabled}])}>
                       <i className={`fa fa-${IconMapper[option.value]}`}></i>
-                      <label>{option.prefix}</label>  
+                      <label>{option.prefix}</label>
                       <input
                         value={user[fieldName][option.value]}
                         type="text"
                         name={`${fieldName}[${option.value}]`}
                         disabled={isDisabled}
-                        onChange={e => 
+                        onChange={e =>
                           this.handleKeyValueChange(fieldName, option.value, e.target.value)
                         }
                       />
@@ -137,9 +137,10 @@ export default class EditProfile extends Component {
     this.setState({
       user: {
         ...this.state.user,
-        [fieldName]: Object.assign(this.state.user[fieldName], {
+        [fieldName]: {
+          ...this.state.user[fieldName],
           [prop]: value
-        })
+        }
       },
     });
   };

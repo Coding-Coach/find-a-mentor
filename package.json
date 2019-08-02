@@ -24,7 +24,7 @@
     "svg-country-flags": "^1.2.6"
   },
   "scripts": {
-    "start": "BROWSER=\"none\" react-scripts start",
+    "start": "react-scripts start",
     "build": "node scripts/pre-build.js && react-scripts build",
     "test": "yarn prettier:fix && react-scripts test && yarn test:e2e:run",
     "eject": "react-scripts eject",
