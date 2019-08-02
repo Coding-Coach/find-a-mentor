@@ -18,8 +18,12 @@ class Auth {
     scope: 'openid',
   });
 
-  login = () => {
-    this.auth0.authorize();
+  login = (isMentor) => {
+    this.auth0.authorize({
+      appState: {
+        origin: isMentor ? 'mentor' : 'user'
+      }
+    });
   };
 
   handleAuthentication() {
@@ -62,6 +66,15 @@ class Auth {
     this.accessToken = authResult.accessToken;
     this.idToken = authResult.idToken;
     this.expiresAt = expiresAt;
+    // can't show the becoming mentor modal here because the app is not initialized yet, so store it in memory and wait the app to up
+    this.origin = authResult.appState.origin;
+  }
+
+  onMentorRegistered(callback) {
+    if (this.origin === 'mentor') {
+      callback();
+      delete this.origin;
+    }
   }
 
   loadSession() {

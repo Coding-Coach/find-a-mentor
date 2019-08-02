@@ -23,13 +23,32 @@ function MemberArea(props) {
     }
   }
 
+  const openProfile = () => {
+    props.onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} />);
+  }
+
+  const openPendingApplications = () => {
+    props.onOpenModal('Pending Applications', <PendingApplications />);
+  }
+
+  MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
+
   useEffect(() => {
     (async () => {
-      const user = await getUser()
+      const user = await getUser();
       setIsAuthenticated(auth.isAuthenticated());
       setCurrentUser(user);
     })();
   }, []);
+
+  useEffect(() => {
+    if (!currentUser) {
+      return;
+    }
+    auth.onMentorRegistered(() => {
+      openProfile();
+    });
+  }, [currentUser])
 
   const logout = () => {
     auth.doLogout();
@@ -37,12 +56,6 @@ function MemberArea(props) {
     setCurrentUser(null);
     setIsMemberMenuOpen(false);
   };
-
-  const openProfile = () =>
-    props.onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} />);
-  const openPendingApplications = () =>
-    props.onOpenModal('Pending Applications', <PendingApplications />);
-  MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
 
   return (
     <div className="auth">

@@ -3,6 +3,7 @@ import './AutoComplete.css';
 import React, { Component } from 'react';
 import Autocomplete from 'react-autocomplete';
 import classNames from 'classnames';
+import FilterClear from '../FilterClear/FilterClear';
 
 function renderInput(props) {
   return <input {...props} className="input" autoComplete="off" />;
@@ -42,8 +43,12 @@ export default class AutoComplete extends Component {
     this.setPermalinkParams(this.props.id, value);
   };
 
-  matchStateToTerm({label}, value) {
-    return label && label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+  onClear = event => {
+    this.onChange(event, '');
+  };
+
+  matchStateToTerm(state, value) {
+    return state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
   }
 
   getPermalinkParams() {
@@ -95,7 +100,7 @@ export default class AutoComplete extends Component {
 
   render() {
     const { value } = this.state;
-    const { source, 'data-testid': testid } = this.props;
+    const { showClear, source, 'data-testid': testid } = this.props;
     let { id } = this.props;
     id = `${id}-${Math.random()}`;
 
@@ -117,6 +122,11 @@ export default class AutoComplete extends Component {
             'data-testid': testid,
           }}
         />
+        {showClear && value && (
+          <div className={'clear-btn'}>
+            <FilterClear onClear={this.onClear} />
+          </div>
+        )}
       </div>
     );
   }

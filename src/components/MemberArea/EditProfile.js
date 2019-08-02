@@ -82,6 +82,10 @@ export default class EditProfile extends Component {
                   this.handleInputChange(data.name, selected)
                 }
                 options={config.options}
+                menuPortalTarget={document.body}
+                styles={{
+                  menuPortal: base => ({...base, zIndex: 1000}),
+                }}
               />
             </label>
           </div>
