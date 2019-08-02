@@ -5,16 +5,7 @@ import model from './model';
 import Select from 'react-select';
 import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
-
-const IconMapper = {
-  'facebook': 'facebook-square',
-  'twitter': 'twitter-square',
-  'linkedin': 'linkedin-square',
-  'website': 'globe',
-  'slack': 'slack',
-  'email': 'link',
-  'github': 'github'
-}
+import { providers } from '../../channelProvider';
 
 export default class EditProfile extends Component {
   state = {
@@ -98,10 +89,11 @@ export default class EditProfile extends Component {
               <span>{fieldName}</span>
               <div className="form-fields">
                 {config.options.map((option, indx) => {
+                  const inputIcon = providers[option.value].inputIcon || providers[option.value].icon;
                   const isDisabled = filledChannels >= 3 && !user[fieldName][option.value];
                   return (<div className={`form-field channel-${option.value}`} key={indx}>
                     <div className={classNames(['channel-group', {disabled: isDisabled}])}>
-                      <i className={`fa fa-${IconMapper[option.value]}`}></i>
+                      <i className={`fa fa-${inputIcon}`}></i>
                       <label>{option.prefix}</label>
                       <input
                         value={user[fieldName][option.value]}
