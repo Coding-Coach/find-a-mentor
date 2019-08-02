@@ -4,6 +4,17 @@ import model from './model';
 import Select from 'react-select';
 import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
+import { Icons } from './socialMediaIcons';
+
+const IconMapper = {
+  'facebook': 'facebook-square',
+  'twitter': 'twitter-square',
+  'linkedin': 'linkedin-square',
+  'website': 'globe',
+  'slack': 'slack',
+  'email': 'link',
+  'github': 'github'
+}
 
 export default class EditProfile extends Component {
   state = {
@@ -57,7 +68,7 @@ export default class EditProfile extends Component {
       case 'tags':
       case 'select':
         return (
-          <div className="form-field">
+          <div key={fieldName} className="form-field">
             <label>
               <span>{fieldName}</span>
               <Select
@@ -79,6 +90,35 @@ export default class EditProfile extends Component {
             </label>
           </div>
         );
+      case 'keyvalue':
+        const filledChannels = config.options.filter(x => user[fieldName][x.value]).length;
+        return (
+          <div key={fieldName} className="form-field" style={config.style}>
+            <label>
+              <span>{fieldName}</span>
+              <div className="form-fields">
+                {config.options.map((option, indx) => {
+                  const isDisabled = filledChannels >= 3 && !user[fieldName][option.value];
+                  return (<div className={`form-field channel-${option.value}`} key={indx}>
+                    <div className={`channel-group ${isDisabled ? 'disabled' : ''}`}>
+                      <i className={`fa fa-${IconMapper[option.value]}`}></i>
+                      <label>{option.prefix}</label>  
+                      <input
+                        value={user[fieldName][option.value]}
+                        type="text"
+                        name={`${fieldName}[${option.value}]`}
+                        disabled={isDisabled}
+                        onChange={e => 
+                          this.handleKeyValueChange(fieldName, option.value, e.target.value)
+                        }
+                      />
+                    </div>
+                </div>)
+                })}
+              </div>
+            </label>
+          </div>
+        );
       default:
         return <></>;
     }
@@ -89,6 +129,17 @@ export default class EditProfile extends Component {
       user: {
         ...this.state.user,
         [fieldName]: value,
+      },
+    });
+  };
+
+  handleKeyValueChange = (fieldName, prop,  value) => {
+    this.setState({
+      user: {
+        ...this.state.user,
+        [fieldName]: Object.assign(this.state.user[fieldName], {
+          [prop]: value
+        })
       },
     });
   };
