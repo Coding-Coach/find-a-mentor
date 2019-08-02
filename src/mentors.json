@@ -4423,7 +4423,7 @@
     "id": "brockmdavis@outlook.com",
     "name": "Brock Davis",
     "avatar": "https://avatars0.githubusercontent.com/brockmdavis",
-    "title": "Applications Architect @ Turner",
+    "title": "Applications Architect @ WarnerMedia",
     "description": "Full Stack Developer, ready to help when and where I can!",
     "country": "US",
     "spokenLanguages": [
@@ -4439,11 +4439,11 @@
     "channels": [
       {
         "type": "twitter",
-        "id": "brockmdavis"
+        "id": "brockneedcoffee"
       },
       {
-        "type": "slack",
-        "id": "UCBKN6XEY"
+        "type": "email",
+        "id": "brockmdavis@outlook.com"
       },
       {
         "type": "linkedin",
