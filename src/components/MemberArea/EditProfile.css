@@ -74,7 +74,9 @@
 .edit-profile .channel-group input {
   padding-left: 5px;
   border: none;
+  background: transparent;
 }
+
 .edit-profile .channel-group label {
   color: #aaa;
   white-space: nowrap;
