@@ -46,6 +46,7 @@ export default {
   tags: {
     type: 'tags',
     defaultValue: [],
+    maxItems: 5,
     options: [
       '.net',
       '.netcore',

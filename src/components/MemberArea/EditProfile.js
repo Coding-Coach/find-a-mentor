@@ -72,7 +72,9 @@ export default class EditProfile extends Component {
                 onChange={(selected, data) =>
                   this.handleInputChange(data.name, selected)
                 }
-                options={config.options}
+                options={(this.state.user[fieldName] || []).length === config.maxItems ? [
+                  {label: 'Reached max items', value: undefined, isDisabled: true}
+                ] : config.options}
                 menuPortalTarget={document.body}
                 styles={{
                   menuPortal: base => ({...base, zIndex: 1000}),
