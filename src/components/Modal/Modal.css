@@ -71,7 +71,7 @@
   color: #00bc89;
   letter-spacing: .05em;
   text-transform: uppercase;
-  padding: 25px;
+  padding: 0 25px 10px;
   margin: 0;
 }
 .modal-container .modal-box .modal-content {
