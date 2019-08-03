@@ -3,12 +3,14 @@ import countries from 'svg-country-flags/countries.json';
 import tags from './tags';
 
 const languages = ISO6391.getLanguages(ISO6391.getAllCodes());
+const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const urlPattern = /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
 
 export default {
   email: {
     type: 'text',
     defaultValue: '',
-    validate: value => !!value
+    validate: value => !!value && emailPattern.test(value),
   },
   name: {
     type: 'text',
@@ -18,12 +20,13 @@ export default {
   avatar: {
     type: 'text',
     defaultValue: '',
-    validate: value => !!value
+    validate: value => !!value && urlPattern.test(value),
+    helpText: 'A public URL to an image file'
   },
   title: {
     type: 'text',
     defaultValue: '',
-    validate: value => !!value
+    validate: value => !!value,
   },
   description: {
     type: 'longtext',
@@ -59,6 +62,7 @@ export default {
     },
     options: tags.map(tag => ({value: tag, label: tag})),
     validate: options => !!options.length,
+    helpText: 'Up tp 5'
   },
   channels: {
     type: 'keyvalue',
@@ -75,6 +79,7 @@ export default {
     style: {
       width: '100%'
     },
-    validate: options => !!options.length
+    validate: options => !!options.length,
+    helpText: 'Up to 3',
   }
 };

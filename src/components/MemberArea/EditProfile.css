@@ -20,9 +20,19 @@
 }
 
 .edit-profile .form-field {
+  --elements-top-space: 10px;
   width: 50%;
   padding: 0 10px;
-  margin-top: 10px;
+  margin-top: var(--elements-top-space);
+}
+
+.edit-profile .form-field .form-fields {
+  margin-top: calc(var(--elements-top-space) * -1);;
+}
+
+.edit-profile .form-field .required .form-field-name::after {
+  content: '*';
+  color: red;
 }
 
 .edit-profile .form-field input,
@@ -37,12 +47,25 @@
   width: 100%;
 }
 
-.edit-profile .form-field span {
-  display: block;
+.edit-profile .form-field .form-field-name {
+  margin-bottom: 3px;
 }
 
-.edit-profile .form-field span::first-letter {
+.edit-profile .form-field .form-field-name::first-letter {
   text-transform: uppercase;
+}
+
+.edit-profile .form-field .help-text {
+  color: #5c5c5c;
+  padding-left: 5px;
+}
+
+.edit-profile .form-field .help-text::before {
+  content: '(';
+}
+
+.edit-profile .form-field .help-text::after {
+  content: ')';
 }
 
 .edit-profile .select__control {
@@ -61,6 +84,7 @@
 .edit-profile .channel-group.disabled {
   background: #dadada;
 }
+
 .channel-slack {
   width: 100% !important;
 }

@@ -61,8 +61,12 @@ export default class EditProfile extends Component {
 
         return (
           <div key={fieldName} className="form-field" style={config.style}>
-            <label id={fieldName}>
-              <span>{fieldName}</span>
+            <label id={fieldName} className={classNames({required: !!config.validate})}>
+              <div className="form-field-name">{fieldName}
+                {config.helpText &&
+                  <span className="help-text">{config.helpText}</span>
+                }
+              </div>
               <CustomTag
                 aria-labelledby={fieldName}
                 value={user[fieldName] || config.defaultValue}
@@ -80,8 +84,12 @@ export default class EditProfile extends Component {
       case 'select':
         return (
           <div key={fieldName} className="form-field" style={config.style}>
-            <label id={fieldName}>
-              <span>{fieldName}</span>
+            <label id={fieldName} className={classNames({required: !!config.validate})}>
+              <div className="form-field-name">{fieldName}
+                {config.helpText &&
+                  <span className="help-text">{config.helpText}</span>
+                }
+              </div>
               <Select
                 name={fieldName}
                 className="input-extended"
@@ -107,8 +115,8 @@ export default class EditProfile extends Component {
         const filledChannels = config.options.filter(x => user[fieldName][x.value]).length;
         return (
           <div key={fieldName} className="form-field" style={config.style}>
-            <label>
-              <span>{fieldName}</span>
+            <label id={fieldName} className={classNames({required: !!config.validate})}>
+              <div className="form-field-name">{fieldName}</div>
               <div className="form-fields">
                 {config.options.map((option, indx) => {
                   const inputIcon = providers[option.value].inputIcon || providers[option.value].icon;
