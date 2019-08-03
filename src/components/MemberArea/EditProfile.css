@@ -81,3 +81,8 @@
   color: #aaa;
   white-space: nowrap;
 }
+
+.edit-profile .form-errors {
+  color: red;
+  margin: 5px 0;
+}

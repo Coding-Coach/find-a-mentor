@@ -10,11 +10,29 @@ import { providers } from '../../channelProvider';
 export default class EditProfile extends Component {
   state = {
     user: fromMtoVM(this.props.user),
+    errors: []
   };
+
+  validate() {
+    const errors = [];
+    const { user } = this.state;
+    Object.entries(model).forEach(([field, config]) => {
+      if (config.validate && !config.validate(user[field])) {
+        errors.push(field);
+      }
+    })
+    this.setState({
+      errors
+    })
+    return !errors.length;
+  }
 
   onSubmit = async e => {
     const { user } = this.state;
     e.preventDefault();
+    if (!this.validate()) {
+      return;
+    }
     this.setState({ disabled: true });
     const updateMentorResult = await updateMentor(fromVMtoM(user));
     if (updateMentorResult && !isMentor(user)) {
@@ -50,6 +68,7 @@ export default class EditProfile extends Component {
                 value={user[fieldName] || config.defaultValue}
                 type="text"
                 name={fieldName}
+                required={config.required}
                 onChange={e =>
                   this.handleInputChange(e.target.name, e.target.value)
                 }
@@ -142,7 +161,7 @@ export default class EditProfile extends Component {
   };
 
   render() {
-    const { disabled } = this.state;
+    const { disabled, errors } = this.state;
     const { user } = this.props;
     return (
       <>
@@ -152,6 +171,11 @@ export default class EditProfile extends Component {
             {Object.entries(model).map(([fieldName, field]) => this.formField(fieldName, field))}
           </div>
           <div className="form-submit">
+            {!!errors.length &&
+              <div className="form-errors">
+                The following fields is missing or invalid: {errors.join(', ')}
+              </div>
+            }
             <button disabled={disabled}>
               {user.roles.includes('MENTOR') ? 'Save' : 'Become a Mentor'}
             </button>
