@@ -138,7 +138,7 @@ export default class EditProfile extends Component {
                       <label id={option.value}>{option.prefix}</label>
                       <input
                         aria-labelledby={option.value}
-                        value={user[fieldName][option.value]}
+                        value={user[fieldName][option.value] || ''}
                         type="text"
                         name={`${fieldName}[${option.value}]`}
                         disabled={isDisabled}
