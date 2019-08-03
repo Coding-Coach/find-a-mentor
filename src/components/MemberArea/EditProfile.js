@@ -43,9 +43,10 @@ export default class EditProfile extends Component {
 
         return (
           <div key={fieldName} className="form-field" style={config.style}>
-            <label>
+            <label id={fieldName}>
               <span>{fieldName}</span>
               <CustomTag
+                aria-labelledby={fieldName}
                 value={user[fieldName] || config.defaultValue}
                 type="text"
                 name={fieldName}
@@ -60,7 +61,7 @@ export default class EditProfile extends Component {
       case 'select':
         return (
           <div key={fieldName} className="form-field">
-            <label>
+            <label id={fieldName}>
               <span>{fieldName}</span>
               <Select
                 name={fieldName}
@@ -96,8 +97,9 @@ export default class EditProfile extends Component {
                   return (<div className={`form-field channel-${option.value}`} key={indx}>
                     <div className={classNames(['channel-group', {disabled: isDisabled}])}>
                       <i className={`fa fa-${inputIcon}`}></i>
-                      <label>{option.prefix}</label>
+                      <label id={option.value}>{option.prefix}</label>
                       <input
+                        aria-labelledby={option.value}
                         value={user[fieldName][option.value]}
                         type="text"
                         name={`${fieldName}[${option.value}]`}
