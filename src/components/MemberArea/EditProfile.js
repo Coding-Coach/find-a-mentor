@@ -4,17 +4,16 @@ import model from './model';
 import Select from 'react-select';
 import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
-import { Icons } from './socialMediaIcons';
 
 const IconMapper = {
-  'facebook': 'facebook-square',
-  'twitter': 'twitter-square',
-  'linkedin': 'linkedin-square',
-  'website': 'globe',
-  'slack': 'slack',
-  'email': 'link',
-  'github': 'github'
-}
+  facebook: 'facebook-square',
+  twitter: 'twitter-square',
+  linkedin: 'linkedin-square',
+  website: 'globe',
+  slack: 'slack',
+  email: 'link',
+  github: 'github',
+};
 
 export default class EditProfile extends Component {
   state = {
@@ -84,36 +83,52 @@ export default class EditProfile extends Component {
                 options={config.options}
                 menuPortalTarget={document.body}
                 styles={{
-                  menuPortal: base => ({...base, zIndex: 1000}),
+                  menuPortal: base => ({ ...base, zIndex: 1000 }),
                 }}
               />
             </label>
           </div>
         );
       case 'keyvalue':
-        const filledChannels = config.options.filter(x => user[fieldName][x.value]).length;
+        const filledChannels = config.options.filter(
+          x => user[fieldName][x.value]
+        ).length;
         return (
           <div key={fieldName} className="form-field" style={config.style}>
             <label>
               <span>{fieldName}</span>
               <div className="form-fields">
                 {config.options.map((option, indx) => {
-                  const isDisabled = filledChannels >= 3 && !user[fieldName][option.value];
-                  return (<div className={`form-field channel-${option.value}`} key={indx}>
-                    <div className={`channel-group ${isDisabled ? 'disabled' : ''}`}>
-                      <i className={`fa fa-${IconMapper[option.value]}`}></i>
-                      <label>{option.prefix}</label>  
-                      <input
-                        value={user[fieldName][option.value]}
-                        type="text"
-                        name={`${fieldName}[${option.value}]`}
-                        disabled={isDisabled}
-                        onChange={e => 
-                          this.handleKeyValueChange(fieldName, option.value, e.target.value)
-                        }
-                      />
+                  const isDisabled =
+                    filledChannels >= 3 && !user[fieldName][option.value];
+                  return (
+                    <div
+                      className={`form-field channel-${option.value}`}
+                      key={indx}
+                    >
+                      <div
+                        className={`channel-group ${
+                          isDisabled ? 'disabled' : ''
+                        }`}
+                      >
+                        <i className={`fa fa-${IconMapper[option.value]}`}></i>
+                        <label>{option.prefix}</label>
+                        <input
+                          value={user[fieldName][option.value]}
+                          type="text"
+                          name={`${fieldName}[${option.value}]`}
+                          disabled={isDisabled}
+                          onChange={e =>
+                            this.handleKeyValueChange(
+                              fieldName,
+                              option.value,
+                              e.target.value
+                            )
+                          }
+                        />
+                      </div>
                     </div>
-                </div>)
+                  );
                 })}
               </div>
             </label>
@@ -133,13 +148,13 @@ export default class EditProfile extends Component {
     });
   };
 
-  handleKeyValueChange = (fieldName, prop,  value) => {
+  handleKeyValueChange = (fieldName, prop, value) => {
     this.setState({
       user: {
         ...this.state.user,
         [fieldName]: Object.assign(this.state.user[fieldName], {
-          [prop]: value
-        })
+          [prop]: value,
+        }),
       },
     });
   };
@@ -152,7 +167,9 @@ export default class EditProfile extends Component {
         <button onClick={this.onDelete}>Delete account</button>
         <form onSubmit={this.onSubmit} className="edit-profile">
           <div className="form-fields">
-            {Object.entries(model).map(([fieldName, field]) => this.formField(fieldName, field))}
+            {Object.entries(model).map(([fieldName, field]) =>
+              this.formField(fieldName, field)
+            )}
           </div>
           <div className="form-submit">
             <button disabled={disabled}>
