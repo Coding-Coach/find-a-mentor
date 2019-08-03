@@ -10,7 +10,7 @@ import { providers } from '../../channelProvider';
 export default class EditProfile extends Component {
   state = {
     user: fromMtoVM(this.props.user),
-    errors: []
+    errors: [],
   };
 
   validate() {
@@ -27,10 +27,10 @@ export default class EditProfile extends Component {
       if (config.validate && !config.validate(user[field])) {
         errors.push(config.label);
       }
-    })
+    });
     this.setState({
-      errors
-    })
+      errors,
+    });
     return !errors.length;
   }
 
@@ -68,11 +68,15 @@ export default class EditProfile extends Component {
 
         return (
           <div key={fieldName} className="form-field" style={config.style}>
-            <label id={fieldName} className={classNames({required: !!config.validate})}>
-              <div className="form-field-name">{config.label}
-                {config.helpText &&
+            <label
+              id={fieldName}
+              className={classNames({ required: !!config.validate })}
+            >
+              <div className="form-field-name">
+                {config.label}
+                {config.helpText && (
                   <span className="help-text">{config.helpText}</span>
-                }
+                )}
               </div>
               <CustomTag
                 aria-labelledby={fieldName}
@@ -91,11 +95,15 @@ export default class EditProfile extends Component {
       case 'select':
         return (
           <div key={fieldName} className="form-field" style={config.style}>
-            <label id={fieldName} className={classNames({required: !!config.validate})}>
-              <div className="form-field-name">{config.label}
-                {config.helpText &&
+            <label
+              id={fieldName}
+              className={classNames({ required: !!config.validate })}
+            >
+              <div className="form-field-name">
+                {config.label}
+                {config.helpText && (
                   <span className="help-text">{config.helpText}</span>
-                }
+                )}
               </div>
               <Select
                 name={fieldName}
@@ -107,48 +115,80 @@ export default class EditProfile extends Component {
                 onChange={(selected, data) =>
                   this.handleInputChange(data.name, selected)
                 }
-                options={config.maxItems && (this.state.user[fieldName] || []).length === config.maxItems ? [
-                  {label: 'Reached max items', value: undefined, isDisabled: true}
-                ] : config.options}
+                options={
+                  config.maxItems &&
+                  (this.state.user[fieldName] || []).length === config.maxItems
+                    ? [
+                        {
+                          label: 'Reached max items',
+                          value: undefined,
+                          isDisabled: true,
+                        },
+                      ]
+                    : config.options
+                }
                 menuPortalTarget={document.body}
                 styles={{
-                  menuPortal: base => ({...base, zIndex: 1000}),
+                  menuPortal: base => ({ ...base, zIndex: 1000 }),
                 }}
               />
             </label>
           </div>
         );
       case 'keyvalue':
-        const filledChannels = config.options.filter(x => user[fieldName][x.value]).length;
+        const filledChannels = config.options.filter(
+          x => user[fieldName][x.value]
+        ).length;
         return (
           <div key={fieldName} className="form-field" style={config.style}>
-            <label id={fieldName} className={classNames({required: !!config.validate})}>
-              <div className="form-field-name">{config.label}
-                {config.helpText &&
+            <label
+              id={fieldName}
+              className={classNames({ required: !!config.validate })}
+            >
+              <div className="form-field-name">
+                {config.label}
+                {config.helpText && (
                   <span className="help-text">{config.helpText}</span>
-                }
+                )}
               </div>
               <div className="form-fields">
                 {config.options.map((option, indx) => {
-                  const inputIcon = providers[option.value].inputIcon || providers[option.value].icon;
-                  const isDisabled = filledChannels >= 3 && !user[fieldName][option.value];
-                  return (<div className={`form-field channel-${option.value}`} key={indx}>
-                    <div className={classNames(['channel-group', {disabled: isDisabled}])}>
-                      <i className={`fa fa-${inputIcon}`}></i>
-                      <label id={option.value}>{option.prefix}</label>
-                      <input
-                        aria-labelledby={option.value}
-                        value={user[fieldName][option.value] || ''}
-                        type="text"
-                        name={`${fieldName}[${option.value}]`}
-                        disabled={isDisabled}
-                        placeholder={option.placeholder}
-                        onChange={e =>
-                          this.handleKeyValueChange(fieldName, option.value, e.target.value)
-                        }
-                      />
+                  const inputIcon =
+                    providers[option.value].inputIcon ||
+                    providers[option.value].icon;
+                  const isDisabled =
+                    filledChannels >= 3 && !user[fieldName][option.value];
+                  return (
+                    <div
+                      className={`form-field channel-${option.value}`}
+                      key={indx}
+                    >
+                      <div
+                        className={classNames([
+                          'channel-group',
+                          { disabled: isDisabled },
+                        ])}
+                      >
+                        <i className={`fa fa-${inputIcon}`}></i>
+                        <label id={option.value}>{option.prefix}</label>
+                        <input
+                          aria-labelledby={option.value}
+                          value={user[fieldName][option.value] || ''}
+                          type="text"
+                          name={`${fieldName}[${option.value}]`}
+                          disabled={isDisabled}
+                          placeholder={option.placeholder}
+                          onChange={e =>
+                            this.handleKeyValueChange(
+                              fieldName,
+                              option.value,
+                              e.target.value
+                            )
+                          }
+                        />
+                      </div>
                     </div>
-                </div>)
+                  );
                 })}
               </div>
             </label>
@@ -168,14 +208,14 @@ export default class EditProfile extends Component {
     });
   };
 
-  handleKeyValueChange = (fieldName, prop,  value) => {
+  handleKeyValueChange = (fieldName, prop, value) => {
     this.setState({
       user: {
         ...this.state.user,
         [fieldName]: {
           ...this.state.user[fieldName],
-          [prop]: value
-        }
+          [prop]: value,
+        },
       },
     });
   };
@@ -187,18 +227,22 @@ export default class EditProfile extends Component {
       <>
         <form onSubmit={this.onSubmit} className="edit-profile">
           <div className="form-fields">
-            {Object.entries(model).map(([fieldName, field]) => this.formField(fieldName, field))}
+            {Object.entries(model).map(([fieldName, field]) =>
+              this.formField(fieldName, field)
+            )}
           </div>
           <div className="form-submit">
-            {!!errors.length &&
+            {!!errors.length && (
               <div className="form-errors">
                 The following fields is missing or invalid: {errors.join(', ')}
               </div>
-            }
+            )}
             <button className="submit" disabled={disabled}>
               {user.roles.includes('MENTOR') ? 'Save' : 'Become a Mentor'}
             </button>
-            <button type="button" className="delete" onClick={this.onDelete}>Delete account</button>
+            <button type="button" className="delete" onClick={this.onDelete}>
+              Delete account
+            </button>
             {disabled && <i className="fa fa-spin fa-spinner" />}
           </div>
         </form>

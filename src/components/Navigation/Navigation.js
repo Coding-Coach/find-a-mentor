@@ -1,14 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { isMentor } from '../../helpers/user';
+import auth from '../../utils/auth';
+import { getCurrentUser } from '../../api';
+import EditProfile from '../MemberArea/EditProfile';
 
-function Navigation() {
+function Navigation({ isAuthenticated, onOpenModal }) {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  async function getUser() {
+    try {
+      return await getCurrentUser();
+    } catch (error) {
+      console.error('error', error);
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      const user = await getUser();
+      setCurrentUser(user);
+    })();
+  }, []);
+
+  const openProfile = () => {
+    onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} />);
+  };
+
+  const renderBecomeAMentor = () => {
+    if (isAuthenticated && isMentor(currentUser)) {
+      return null;
+    }
+    if (isAuthenticated) {
+      return (
+        <Link href="#" onClick={openProfile}>
+          Become a Mentor
+        </Link>
+      );
+    }
+    return (
+      <Link href="#" onClick={auth.login}>
+        Become a Mentor
+      </Link>
+    );
+  };
+
   return (
     <nav id="menu">
       <List>
         <Link href="https://codingcoach.io/">About</Link>
-        <Link href="https://github.com/Coding-Coach/find-a-mentor">
-          Become a Mentor
-        </Link>
+        {renderBecomeAMentor()}
       </List>
     </nav>
   );
