@@ -60,7 +60,7 @@ export default class EditProfile extends Component {
       case 'tags':
       case 'select':
         return (
-          <div key={fieldName} className="form-field">
+          <div key={fieldName} className="form-field" style={config.style}>
             <label id={fieldName}>
               <span>{fieldName}</span>
               <Select
@@ -73,7 +73,7 @@ export default class EditProfile extends Component {
                 onChange={(selected, data) =>
                   this.handleInputChange(data.name, selected)
                 }
-                options={(this.state.user[fieldName] || []).length === config.maxItems ? [
+                options={config.maxItems && (this.state.user[fieldName] || []).length === config.maxItems ? [
                   {label: 'Reached max items', value: undefined, isDisabled: true}
                 ] : config.options}
                 menuPortalTarget={document.body}

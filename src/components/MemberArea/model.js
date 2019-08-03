@@ -47,6 +47,9 @@ export default {
     type: 'tags',
     defaultValue: [],
     maxItems: 5,
+    style: {
+      width: '100%'
+    },
     options: [
       '.net',
       '.netcore',
