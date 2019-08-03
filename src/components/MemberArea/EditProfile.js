@@ -17,8 +17,15 @@ export default class EditProfile extends Component {
     const errors = [];
     const { user } = this.state;
     Object.entries(model).forEach(([field, config]) => {
+      if (config.options) {
+        config.options.forEach(option => {
+          if (option.validate && !option.validate(user[field][option.value])) {
+            errors.push(`${config.label}:${option.label}`);
+          }
+        });
+      }
       if (config.validate && !config.validate(user[field])) {
-        errors.push(field);
+        errors.push(config.label);
       }
     })
     this.setState({
@@ -62,7 +69,7 @@ export default class EditProfile extends Component {
         return (
           <div key={fieldName} className="form-field" style={config.style}>
             <label id={fieldName} className={classNames({required: !!config.validate})}>
-              <div className="form-field-name">{fieldName}
+              <div className="form-field-name">{config.label}
                 {config.helpText &&
                   <span className="help-text">{config.helpText}</span>
                 }
@@ -85,7 +92,7 @@ export default class EditProfile extends Component {
         return (
           <div key={fieldName} className="form-field" style={config.style}>
             <label id={fieldName} className={classNames({required: !!config.validate})}>
-              <div className="form-field-name">{fieldName}
+              <div className="form-field-name">{config.label}
                 {config.helpText &&
                   <span className="help-text">{config.helpText}</span>
                 }
@@ -116,7 +123,11 @@ export default class EditProfile extends Component {
         return (
           <div key={fieldName} className="form-field" style={config.style}>
             <label id={fieldName} className={classNames({required: !!config.validate})}>
-              <div className="form-field-name">{fieldName}</div>
+              <div className="form-field-name">{config.label}
+                {config.helpText &&
+                  <span className="help-text">{config.helpText}</span>
+                }
+              </div>
               <div className="form-fields">
                 {config.options.map((option, indx) => {
                   const inputIcon = providers[option.value].inputIcon || providers[option.value].icon;
@@ -131,6 +142,7 @@ export default class EditProfile extends Component {
                         type="text"
                         name={`${fieldName}[${option.value}]`}
                         disabled={isDisabled}
+                        placeholder={option.placeholder}
                         onChange={e =>
                           this.handleKeyValueChange(fieldName, option.value, e.target.value)
                         }
@@ -173,7 +185,6 @@ export default class EditProfile extends Component {
     const { user } = this.props;
     return (
       <>
-        <button onClick={this.onDelete}>Delete account</button>
         <form onSubmit={this.onSubmit} className="edit-profile">
           <div className="form-fields">
             {Object.entries(model).map(([fieldName, field]) => this.formField(fieldName, field))}
@@ -184,9 +195,10 @@ export default class EditProfile extends Component {
                 The following fields is missing or invalid: {errors.join(', ')}
               </div>
             }
-            <button disabled={disabled}>
+            <button className="submit" disabled={disabled}>
               {user.roles.includes('MENTOR') ? 'Save' : 'Become a Mentor'}
             </button>
+            <button type="button" className="delete" onClick={this.onDelete}>Delete account</button>
             {disabled && <i className="fa fa-spin fa-spinner" />}
           </div>
         </form>

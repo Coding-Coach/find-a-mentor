@@ -8,15 +8,21 @@
   margin-top: 15px;
 }
 
-.edit-profile .form-submit button {
+.edit-profile .form-submit .submit,
+.edit-profile .form-submit .delete {
   background: var(--button-dark-bg);
   color: #fff;
   padding: 10px 15px;
   cursor: pointer;
 }
 
-.edit-profile .form-submit button:disabled {
+.edit-profile .form-submit .submit:disabled {
   opacity: 0.8;
+}
+
+.edit-profile .form-submit .delete {
+  float: right;
+  background: #aa0101;
 }
 
 .edit-profile .form-field {
@@ -49,10 +55,6 @@
 
 .edit-profile .form-field .form-field-name {
   margin-bottom: 3px;
-}
-
-.edit-profile .form-field .form-field-name::first-letter {
-  text-transform: uppercase;
 }
 
 .edit-profile .form-field .help-text {
@@ -96,7 +98,7 @@
 }
 
 .edit-profile .channel-group input {
-  padding-left: 5px;
+  padding-left: 0;
   border: none;
   background: transparent;
 }

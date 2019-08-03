@@ -75,7 +75,7 @@
   margin: 0;
 }
 .modal-container .modal-box .modal-content {
-  padding: 15px 25px 25px 25px;
+  padding: 15px 25px 0 25px;
   color: #000022;
   overflow: hidden;
 }
