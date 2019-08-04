@@ -8766,7 +8766,7 @@
       }
     ]
   },
-   {
+  {
     "id": "michail.kuznetsov@gmail.com",
     "name": "Mikhail Kuznetcov",
     "avatar": "https://avatars2.githubusercontent.com/u/1363772?s=460&v=4",
@@ -8774,7 +8774,8 @@
     "description": "Fullstack developer <3 Javascript. Speak on topica about ddevelopment",
     "country": "NL",
     "spokenLanguages": [
-      "en", "ru"
+      "en",
+      "ru"
     ],
     "tags": [
       "web",
@@ -8795,6 +8796,38 @@
       {
         "type": "github",
         "id": "shershen08"
+      }
+    ]
+  },
+  {
+    "id": "ejgraber@gmail.com",
+    "name": "Ehren",
+    "avatar": "https://avatars0.githubusercontent.com/u/2798823?s=460&v=4",
+    "title": "Director of Engineering",
+    "description": "Leading an engineering team, mentoring devs, and always learning",
+    "country": "CA",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "frontend",
+      "backend",
+      "javascript",
+      "reactjs",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "ehren-graber-21439a7"
+      },
+      {
+        "type": "twitter",
+        "id": "EhrenGraber"
+      },
+      {
+        "type": "website",
+        "id": "ehrengraber.com"
       }
     ]
   }
