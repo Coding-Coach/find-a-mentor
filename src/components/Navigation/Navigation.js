@@ -46,18 +46,27 @@ function Navigation({ isAuthenticated, onOpenModal }) {
   };
 
   return (
-    <nav id="menu">
+    <Nav id="menu">
       <List>
         <Link href="https://codingcoach.io/">About</Link>
         {renderBecomeAMentor()}
       </List>
-    </nav>
+    </Nav>
   );
 }
+
+const Nav = styled.nav`
+  flex-grow: 1
+`;
 
 const List = styled.ul`
   list-style: none;
   display: flex;
+
+  @media all and (min-width: 801px) {
+    padding: 0;
+    margin: 0;
+  }
 
   @media all and (max-width: 800px) {
     margin-top: 100px;

@@ -2,12 +2,13 @@ import ISO6391 from 'iso-639-1';
 import countries from 'svg-country-flags/countries.json';
 
 export function isMentor(user) {
-  return user && user.roles.includes('MENTOR');
+  return user && user.roles.includes('Mentor');
 }
 
 export function fromVMtoM(user) {
   return {
     ...user,
+    description: user.description || undefined,
     tags: user.tags.map(i => i.value),
     spokenLanguages: user.spokenLanguages.map(i => i.value),
     country: user.country.value,

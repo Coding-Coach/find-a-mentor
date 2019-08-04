@@ -86,13 +86,16 @@ function Header() {
   );
 }
 
+const common = {
+  headerHeight: 90
+}
+
 const HeaderWrapper = styled.header`
   position: sticky;
   top: 0;
-  height: 90px;
+  height: ${common.headerHeight}px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border-bottom: 1px solid #dadada;
   z-index: 3;
   background: #fff;
@@ -102,6 +105,8 @@ const LogoTitleWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-right: 20px;
+  height: ${common.headerHeight}px;
+  width: 320px;
 `;
 
 const TitleWrapper = styled.div`

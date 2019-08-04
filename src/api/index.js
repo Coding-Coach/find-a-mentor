@@ -84,7 +84,9 @@ export async function getPendingApplications() {
 export async function approveApplication(mentor) {
   const res = await makeApiCall(
     `${paths.MENTORS}/applications/${mentor._id}`,
-    null,
+    {
+      status: 'Approved'
+    },
     'PUT'
   );
   return res.success;

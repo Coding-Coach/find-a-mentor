@@ -35,8 +35,8 @@ export default class PendingApplications extends Component {
   approve = async application => {
     this.toggleLoader(application, true);
     await approveApplication(application);
-    this.toggleLoader(application, false);
     await this.refreshApplications();
+    this.toggleLoader(application, false);
   };
 
   decline = async application => {
