@@ -7,6 +7,7 @@ import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import useWindowSize from '../../utils/useWindowSize';
+import { isMentor } from '../../helpers/user';
 
 function MemberArea(props) {
   const authenticated = auth.isAuthenticated();
@@ -25,11 +26,11 @@ function MemberArea(props) {
 
   const openProfile = () => {
     props.onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} />);
-  }
+  };
 
   const openPendingApplications = () => {
     props.onOpenModal('Pending Applications', <PendingApplications />);
-  }
+  };
 
   MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
 
@@ -48,7 +49,7 @@ function MemberArea(props) {
     auth.onMentorRegistered(() => {
       openProfile();
     });
-  }, [currentUser])
+  }, [currentUser]);
 
   const logout = () => {
     auth.doLogout();
@@ -74,7 +75,9 @@ function MemberArea(props) {
                 </MemberMenuItem>
               )}
               <MemberMenuItem onClick={openProfile}>
-                Edit your profile
+                {isMentor(currentUser)
+                  ? 'Edit your profile'
+                  : 'Become a mentor'}
               </MemberMenuItem>
               <MemberMenuItem onClick={logout}>Logout</MemberMenuItem>
             </MemberMenu>

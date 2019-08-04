@@ -41,7 +41,10 @@ function Header() {
 
       {isDesktop ? (
         <>
-          <Navigation />
+          <Navigation
+            isAuthenticated={authenticated}
+            onOpenModal={(title, content) => handleModal({ title, content })}
+          />
         </>
       ) : (
         <>
