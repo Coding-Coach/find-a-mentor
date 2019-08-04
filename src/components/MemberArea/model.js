@@ -27,7 +27,8 @@ export default {
     type: 'text',
     defaultValue: '',
     validate: value => !!value && urlValidation(value),
-    helpText: 'https public URL to an image file'
+    helpText: 'https public URL to an image file',
+    previewImage: true
   },
   title: {
     label: 'Title',

@@ -70,6 +70,23 @@
   content: ')';
 }
 
+.edit-profile .form-field-input-wrapper {
+  position: relative;
+}
+
+.edit-profile .form-field-input-wrapper .form-field-preview {
+  position: absolute;
+  width: 30px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+}
+
+.edit-profile .form-field-input-wrapper .form-field-preview + input {
+  padding-left: 40px;
+}
+
 .edit-profile .select__control {
   background: none;
   border: none;

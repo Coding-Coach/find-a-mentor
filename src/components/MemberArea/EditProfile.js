@@ -78,16 +78,19 @@ export default class EditProfile extends Component {
                   <span className="help-text">{config.helpText}</span>
                 )}
               </div>
-              <CustomTag
-                aria-labelledby={fieldName}
-                value={user[fieldName] || config.defaultValue}
-                type="text"
-                name={fieldName}
-                required={config.required}
-                onChange={e =>
-                  this.handleInputChange(e.target.name, e.target.value)
-                }
-              />
+              <div className="form-field-input-wrapper">
+                {config.previewImage && <img className="form-field-preview" src={user[fieldName]} alt="avatar" />}
+                <CustomTag
+                  aria-labelledby={fieldName}
+                  value={user[fieldName] || config.defaultValue}
+                  type="text"
+                  name={fieldName}
+                  required={config.required}
+                  onChange={e =>
+                    this.handleInputChange(e.target.name, e.target.value)
+                  }
+                />
+              </div>
             </label>
           </div>
         );
