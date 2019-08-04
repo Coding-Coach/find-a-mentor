@@ -53,8 +53,6 @@ function MemberArea(props) {
 
   const logout = () => {
     auth.doLogout();
-    setIsAuthenticated(false);
-    setCurrentUser(null);
     setIsMemberMenuOpen(false);
   };
 
