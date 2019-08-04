@@ -82,21 +82,22 @@ export default class EditProfile extends Component {
           </div>
         );
       case 'keyvalue':
-        const filledChannels = config.options.filter(x => user[fieldName][x.value]).length;
+        const filledChannel = user[fieldName].filter(x => x.data);
         return (
           <div key={fieldName} className="form-field" style={config.style}>
             <label>
               <span>{fieldName}</span>
               <div className="form-fields">
                 {config.options.map((option, indx) => {
+                  const propData = user[fieldName].find(x => x.value === option.value);
                   const inputIcon = providers[option.value].inputIcon || providers[option.value].icon;
-                  const isDisabled = filledChannels >= 3 && !user[fieldName][option.value];
+                  const isDisabled = filledChannel.length >= 3 && !(propData && propData.data);
                   return (<div className={`form-field channel-${option.value}`} key={indx}>
                     <div className={classNames(['channel-group', {disabled: isDisabled}])}>
                       <i className={`fa fa-${inputIcon}`}></i>
                       <label>{option.prefix}</label>
                       <input
-                        value={user[fieldName][option.value]}
+                        value={propData ? propData.data : ''}
                         type="text"
                         name={`${fieldName}[${option.value}]`}
                         disabled={isDisabled}
@@ -125,16 +126,24 @@ export default class EditProfile extends Component {
     });
   };
 
-  handleKeyValueChange = (fieldName, prop,  value) => {
-    this.setState({
-      user: {
-        ...this.state.user,
-        [fieldName]: {
-          ...this.state.user[fieldName],
-          [prop]: value
-        }
-      },
-    });
+  handleKeyValueChange = (fieldName, prop, value) => {
+    const { user } = this.state;
+    const isItemExist = user[fieldName].find(x => x.value === prop);
+
+    if (isItemExist) {
+      user[fieldName] = user[fieldName].map(x => {
+        if (x.value === prop) 
+          x['data'] = value;
+        return x;
+      });
+    } else {
+      user[fieldName].push({
+        value: prop,
+        data: value
+      });
+    }
+
+    this.setState({ user });
   };
 
   render() {

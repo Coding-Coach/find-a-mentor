@@ -242,7 +242,7 @@ export default {
   },
   channels: {
     type: 'keyvalue',
-    defaultValue: {},
+    defaultValue: [],
     options: [
       { value: 'email', label: 'Email Address', prefix: 'mailto:' },
       { value: 'linkedin', label: 'LinkedIn', prefix: 'https://linkedin.com/in/' },
