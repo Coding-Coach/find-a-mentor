@@ -79,7 +79,7 @@ export default {
   channels: {
     label: 'Channels',
     type: 'keyvalue',
-    defaultValue: {},
+    defaultValue: [],
     options: [
       { value: 'email', label: 'Email Address', prefix: 'mailto:', validate: emailValidation },
       { value: 'linkedin', label: 'LinkedIn', prefix: 'https://linkedin.com/in/' },
