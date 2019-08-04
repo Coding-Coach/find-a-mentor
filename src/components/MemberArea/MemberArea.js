@@ -53,7 +53,7 @@ function MemberArea(props) {
 
   const logout = () => {
     auth.doLogout();
-    setIsAuthenticated(authenticated);
+    setIsAuthenticated(false);
     setCurrentUser(null);
     setIsMemberMenuOpen(false);
   };
@@ -62,10 +62,12 @@ function MemberArea(props) {
     <div className="auth">
       {isAuthenticated ? (
         <>
-          <UserAvatar onClick={() => setIsMemberMenuOpen(!isMemberMenuOpen)}>
-            {currentUser && (
-              <UserImage alt={currentUser.email} src={currentUser.avatar} />
-            )}
+
+          <UserAvatar onClick={() => currentUser && setIsMemberMenuOpen(!isMemberMenuOpen)}>
+            {currentUser ?
+              <UserImage alt={currentUser.email} src={currentUser.avatar} /> :
+              <AvatarPlaceHolder className="fa fa-user-circle" />
+            }
           </UserAvatar>
           {isMemberMenuOpen && (
             <MemberMenu tabIndex="0">
@@ -95,11 +97,14 @@ const UserAvatar = styled.div`
   width: 50px;
   margin-right: 20px;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  padding: 2px;
   border: 4px solid #69d5b1;
   cursor: pointer;
+  position: relative;
+`;
+
+const AvatarPlaceHolder = styled.i`
+  font-size: 42px;
+  color: rgb(155, 155, 155);
 `;
 
 const UserImage = styled.img`

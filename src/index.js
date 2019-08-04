@@ -4,10 +4,12 @@ import './index.css';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import auth from './utils/auth';
+import { getCurrentUser } from './api';
 
 (async () => {
   await auth.renewSession();
-
+  // prepare user - don't wait for it
+  getCurrentUser();
   ReactDOM.render(<App />, document.getElementById('root'));
 })();
 

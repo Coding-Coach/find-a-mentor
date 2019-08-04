@@ -1,5 +1,6 @@
 import auth0 from 'auth0-js';
 import Constants from '../config/constants';
+import { clearCurrentUser } from '../api';
 
 const storageKey = 'auth-data';
 
@@ -123,6 +124,7 @@ class Auth {
 
   doLogout = () => {
     this.logout();
+    clearCurrentUser();
     this.auth0.logout({
       returnTo: window.location.href,
     });

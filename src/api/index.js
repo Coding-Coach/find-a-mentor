@@ -7,7 +7,9 @@ const paths = {
 const apiHost = window.location.href.includes('localhost')
   ? 'https://api-staging.codingcoach.io'
   : 'http://api.codingcoach.io/';
+
 let currentUser;
+const USER_LOCAL_KEY = 'user';
 
 export async function makeApiCall(path, body, method) {
   const url = `${apiHost}${path}`;
@@ -38,13 +40,30 @@ export async function makeApiCall(path, body, method) {
   }
 }
 
+async function fetchCurrentItem() {
+  currentUser = await makeApiCall(`${paths.USERS}/current`).then(
+    res => res.data
+  );
+  localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(currentUser))
+}
+
 export async function getCurrentUser() {
   if (!currentUser && auth.isAuthenticated()) {
-    currentUser = await makeApiCall(`${paths.USERS}/current`).then(
-      res => res.data
-    );
+    const userFromLocal = localStorage.getItem(USER_LOCAL_KEY);
+    if (userFromLocal) {
+      currentUser = JSON.parse(userFromLocal);
+      // in meantime, fetch the real user
+      fetchCurrentItem();
+    } else {
+      await fetchCurrentItem();
+    }
   }
   return currentUser;
+}
+
+export function clearCurrentUser() {
+  currentUser = null;
+  localStorage.removeItem(USER_LOCAL_KEY);
 }
 
 export async function getMentors() {
