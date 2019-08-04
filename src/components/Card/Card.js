@@ -26,9 +26,14 @@ const tagsList = (tags, handleTagClick) =>
     );
   });
 
+const applyOnClick = () => {
+  handleAnalytic('apply');
+  auth.login();
+}
+
 const nonLoggedinChannels = () => {
   return (
-    <button onClick={auth.login}>
+    <button onClick={applyOnClick}>
       <div className="icon">
         <i className="fa fa-hand-o-right fa-lg" />
       </div>
