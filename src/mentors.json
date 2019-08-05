@@ -8830,5 +8830,31 @@
         "id": "ehrengraber.com"
       }
     ]
+  },
+  {
+    "id": "vms.shabadi@gmail.com",
+    "name": "Vinod Shabadi",
+    "avatar": "https://scontent.fblr2-1.fna.fbcdn.net/v/t1.0-9/55719414_2001599709895897_2347258468315955200_o.jpg?_nc_cat=102&_nc_oc=AQnvUn-pkGpoLWfaDnipvLd7qe2hV8mOvCaKL08chftrC7x2ePhWo4SI79fxYvcOdNo&_nc_ht=scontent.fblr2-1.fna&oh=cc18b0c82c609c1374f4a1a0ed9e0595&oe=5DA7BC35",
+    "title": "SDE III",
+    "description": "",
+    "country": "IN",
+    "spokenLanguages": [
+      "en",
+      "hi",
+      "kn"
+    ],
+    "tags": [
+      "swift",
+      "nodejs",
+      "c#",
+      "objc",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "vms.shabadi@gmail.com"
+      }
+    ]
   }
 ]
