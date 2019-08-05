@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { toast } from 'react-toastify';
 import { updateMentor, deleteMentor, createApplication } from '../../api';
 import model from './model';
 import Select from 'react-select';
@@ -20,11 +21,14 @@ export default class EditProfile extends Component {
       if (config.validate && !config.validate(user[field])) {
         errors.push(config.label);
       } else if (config.options) {
-        config.options.forEach(option => {
-          if (option.validate && !option.validate(user[field].find(opt => opt.type === option.value))) {
-            errors.push(`${config.label}:${option.label}`);
-          }
-        });
+        if (user[field] instanceof Array) {
+          config.options.forEach(option => {
+            const item = user[field].find(opt => opt.type === option.value);
+            if (option.validate && item && !option.validate(item.id)) {
+              errors.push(`${config.label}:${option.label}`);
+            }
+          });
+        }
       }
     });
     this.setState({
@@ -43,11 +47,13 @@ export default class EditProfile extends Component {
     const updateMentorResult = await updateMentor(fromVMtoM(user));
     if (updateMentorResult && !isMentor(user)) {
       const createApplicationResult = await createApplication();
-      if (!createApplicationResult.success) {
-        alert(createApplicationResult.message);
+      if (createApplicationResult.success) {
+        toast.success(`Thanks for joining us! We'll approve your application ASAP.`);
+      } else {
+        toast.error(`Something went wrong: ${createApplicationResult.message}`);
       }
     } else {
-      alert('something went wrong, please open a bug');
+      toast.error('Something went wrong');
     }
     this.setState({ disabled: false });
   };

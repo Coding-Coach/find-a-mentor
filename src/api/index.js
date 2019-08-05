@@ -1,5 +1,9 @@
 import auth from '../utils/auth';
 import { report } from '../ga';
+import { toast } from 'react-toastify';
+
+const API_ERROR_TOAST_ID = 'api-error-toast-id';
+
 const paths = {
   MENTORS: '/mentors',
   USERS: '/users',
@@ -26,7 +30,7 @@ export async function makeApiCall(path, body, method) {
   };
   try {
     const data = await fetch(url, options).catch(error => {
-      return new Error(JSON.stringify(error));
+      return new Error(error);
     });
 
     if (data instanceof Error) {
@@ -43,6 +47,9 @@ export async function makeApiCall(path, body, method) {
   } catch (error) {
     report('api', path, error);
     console.error(error);
+    !toast.isActive(API_ERROR_TOAST_ID) && toast.error('something went wrong :(', {
+      toastId: API_ERROR_TOAST_ID,
+    });
     return {
       success: false,
       message: error,
@@ -54,7 +61,9 @@ async function fetchCurrentItem() {
   currentUser = await makeApiCall(`${paths.USERS}/current`).then(
     res => res && res.data
   );
-  localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(currentUser))
+  if (currentUser) {
+    localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(currentUser))
+  }
 }
 
 export async function getCurrentUser() {
@@ -97,7 +106,7 @@ export async function updateMentor(mentor) {
 }
 
 export async function deleteMentor(mentor) {
-  const res = await makeApiCall(`${paths.USERS}/${mentor._id}`, null, 'DELETE');
+  const res = await makeApiCall(`${paths.USERS}/${mentor.auth0Id}`, null, 'DELETE');
   return res.success;
 }
 

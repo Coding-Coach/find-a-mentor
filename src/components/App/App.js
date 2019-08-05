@@ -1,4 +1,5 @@
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
@@ -13,6 +14,7 @@ import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
+import { ToastContainer } from 'react-toastify';
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -180,6 +182,7 @@ class App extends Component {
 
     return (
       <div className="app">
+        <ToastContainer />
         <Modal onClose={this.closeModal} title={modal.title}>
           {modal.content}
         </Modal>
