@@ -1,3 +1,4 @@
+import React from 'react';
 import ISO6391 from 'iso-639-1';
 import countries from 'svg-country-flags/countries.json';
 import tags from './tags';
@@ -87,11 +88,12 @@ export default {
       { value: 'twitter', label: 'Twitter', prefix: 'https://twitter.com/@' },
       { value: 'github', label: 'Github', prefix: 'https://github.com/' },
       { value: 'website', label: 'Website', placeholder: 'https://...', validate: urlValidation },
-      { value: 'slack', label: 'Slack', prefix: 'https://coding-coach.slack.com/team/' },
+      { value: 'slack', label: 'Slack', prefix: 'https://coding-coach.slack.com/team/', helpText: <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@moshfeu/how-to-find-my-member-id-in-slack-workspace-d4bba942e38c#88b8">How to find SlackId?</a> },
     ],
     style: {
       width: '100%'
     },
     helpText: 'Up to 3',
+    validate: options => options.length > 0
   }
 };

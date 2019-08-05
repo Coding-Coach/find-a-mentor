@@ -1,6 +1,7 @@
 import auth0 from 'auth0-js';
 import Constants from '../config/constants';
-import { clearCurrentUser } from '../api';
+import { clearCurrentUser, getCurrentUser } from '../api';
+import { isMentor } from '../helpers/user';
 
 const storageKey = 'auth-data';
 
@@ -19,10 +20,10 @@ class Auth {
     scope: 'openid',
   });
 
-  login = (isMentor) => {
+  login = (isMentorIntent) => {
     this.auth0.authorize({
       appState: {
-        origin: isMentor ? 'mentor' : 'user'
+        origin: isMentorIntent ? 'mentor' : 'user'
       }
     });
   };
@@ -71,8 +72,11 @@ class Auth {
     this.origin = authResult.appState.origin;
   }
 
-  onMentorRegistered(callback) {
+  async onMentorRegistered(callback) {
     if (this.origin === 'mentor') {
+      if (isMentor(await getCurrentUser())) {
+        return;
+      }
       callback();
       delete this.origin;
     }

@@ -17,15 +17,14 @@ export default class EditProfile extends Component {
     const errors = [];
     const { user } = this.state;
     Object.entries(model).forEach(([field, config]) => {
-      if (config.options) {
+      if (config.validate && !config.validate(user[field])) {
+        errors.push(config.label);
+      } else if (config.options) {
         config.options.forEach(option => {
-          if (option.validate && !option.validate(user[field][option.value])) {
+          if (option.validate && !option.validate(user[field].find(opt => opt.type === option.value))) {
             errors.push(`${config.label}:${option.label}`);
           }
         });
-      }
-      if (config.validate && !config.validate(user[field])) {
-        errors.push(config.label);
       }
     });
     this.setState({
@@ -188,6 +187,9 @@ export default class EditProfile extends Component {
                           }
                         />
                       </div>
+                      {
+                        option.helpText && <div>{option.helpText}</div>
+                      }
                     </div>
                   );
                 })}
@@ -245,7 +247,7 @@ export default class EditProfile extends Component {
               </div>
             )}
             <button className="submit" disabled={disabled}>
-              {user.roles.includes('MENTOR') ? 'Save' : 'Become a Mentor'}
+              {isMentor(user) ? 'Save' : 'Become a Mentor'}
             </button>
             <button type="button" className="delete" onClick={this.onDelete}>
               Delete account

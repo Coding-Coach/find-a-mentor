@@ -1,4 +1,5 @@
 import auth from '../utils/auth';
+import { report } from '../ga';
 const paths = {
   MENTORS: '/mentors',
   USERS: '/users',
@@ -25,8 +26,12 @@ export async function makeApiCall(path, body, method) {
   };
   try {
     const data = await fetch(url, options).catch(error => {
-      console.error(error);
+      return new Error(JSON.stringify(error));
     });
+
+    if (data instanceof Error) {
+      throw data;
+    }
     const res = await data.json();
     if (res.statusCode >= 400) {
       return {
@@ -36,13 +41,18 @@ export async function makeApiCall(path, body, method) {
     }
     return res;
   } catch (error) {
+    report('api', path, error);
     console.error(error);
+    return {
+      success: false,
+      message: error,
+    };
   }
 }
 
 async function fetchCurrentItem() {
   currentUser = await makeApiCall(`${paths.USERS}/current`).then(
-    res => res.data
+    res => res && res.data
   );
   localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(currentUser))
 }
@@ -67,7 +77,7 @@ export function clearCurrentUser() {
 }
 
 export async function getMentors() {
-  return require('../mentors.json');
+  // return require('../mentors.json');
   const res = await makeApiCall(paths.MENTORS);
   return res.data;
 }

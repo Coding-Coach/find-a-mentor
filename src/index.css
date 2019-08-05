@@ -6,6 +6,7 @@
   --mq-mobile: 800px;
   --mq-desktop: 801px;
   --button-dark-bg: #16385c;
+  --link-color: #015d3e;
 }
 
 html {
@@ -26,6 +27,14 @@ body {
 
 *, :after, :before {
   box-sizing: border-box;
+}
+
+a {
+  color: var(--link-color);
+}
+
+button {
+  border: 0;
 }
 
 button, select {
