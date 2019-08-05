@@ -129,3 +129,14 @@
   color: red;
   margin: 5px 0;
 }
+
+@media all and (max-width: 800px) {
+  .edit-profile .form-fields {
+    margin: 0;
+  }
+
+  .edit-profile .form-field {
+    padding: 0;
+    width: 100%;
+  }
+}

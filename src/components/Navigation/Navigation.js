@@ -23,7 +23,8 @@ function Navigation({ isAuthenticated, onOpenModal }) {
     })();
   }, []);
 
-  const openProfile = () => {
+  const openProfile = e => {
+    e.preventDefault();
     onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} />);
   };
 
@@ -39,7 +40,7 @@ function Navigation({ isAuthenticated, onOpenModal }) {
       );
     }
     return (
-      <Link href="#" onClick={auth.login}>
+      <Link href="#" onClick={e => e.preventDefault() || auth.login(true)}>
         Become a Mentor
       </Link>
     );

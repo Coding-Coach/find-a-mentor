@@ -9,7 +9,6 @@ function LoginNavigation() {
 
   return (
     <LoginArea>
-      {/* <LoginAreaItem onClick={login}>Sign up</LoginAreaItem> */}
       <LoginAreaItem onClick={login}>Login / Sign up</LoginAreaItem>
     </LoginArea>
   );
@@ -19,7 +18,6 @@ const LoginAreaItem = styled.div`
   font-size: 16px;
   color: #fff;
   cursor: pointer;
-  margin-bottom: 20px;
 
   &:hover {
     color: #54aa8d;
@@ -27,14 +25,13 @@ const LoginAreaItem = styled.div`
 
   @media all and (min-width: 800px) {
     color: #69d5b1;
-    margin-bottom: 0;
   }
 `;
 
 const LoginArea = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 20px 40px;
+  margin: 0 40px;
 
   @media all and (min-width: 800px) {
     margin: 0 20px;
