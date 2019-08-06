@@ -87,7 +87,7 @@ export default {
       { value: 'facebook', label: 'Facebook', prefix: 'https://facebook.com/' },
       { value: 'twitter', label: 'Twitter', prefix: 'https://twitter.com/@' },
       { value: 'github', label: 'Github', prefix: 'https://github.com/' },
-      { value: 'website', label: 'Website', placeholder: 'https://...', validate: urlValidation },
+      { value: 'website', label: 'Website', prefix: 'https://', validate: value => urlValidation(`https://${value}`) },
       { value: 'slack', label: 'Slack', prefix: 'https://coding-coach.slack.com/team/', helpText: <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@moshfeu/how-to-find-my-member-id-in-slack-workspace-d4bba942e38c#88b8">How to find SlackId?</a> },
     ],
     style: {
