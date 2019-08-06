@@ -5,6 +5,10 @@ export function isMentor(user) {
   return user && user.roles.includes('Mentor');
 }
 
+export function isAdmin(user) {
+  return user && user.roles.includes('Admin');
+}
+
 export function fromVMtoM(user) {
   return {
     ...user,

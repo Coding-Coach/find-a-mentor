@@ -57,13 +57,17 @@ export async function makeApiCall(path, body, method) {
   }
 }
 
+function storeUserInLocalStorage(user = currentUser) {
+  if (user) {
+    localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(user));
+  }
+}
+
 async function fetchCurrentItem() {
   currentUser = await makeApiCall(`${paths.USERS}/current`).then(
     res => res && res.data
   );
-  if (currentUser) {
-    localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(currentUser))
-  }
+  storeUserInLocalStorage();
 }
 
 export async function getCurrentUser() {
@@ -101,6 +105,7 @@ export async function createApplication() {
 }
 
 export async function updateMentor(mentor) {
+  storeUserInLocalStorage(mentor);
   const res = await makeApiCall(`${paths.USERS}/${mentor._id}`, mentor, 'PUT');
   return res.success;
 }

@@ -39,7 +39,7 @@ export default class Modal extends Component {
       <div className={classNames(['modal-container', size, {active: isActive}])}>
         <div className="modal-box">
           <button className="close" onClick={this.handleClose}>
-            <i class="fa fa-times" aria-hidden="true"></i>
+            <i className="fa fa-times" aria-hidden="true"></i>
           </button>
           <div className="modal-head">
             <h2>{title || ''}</h2>

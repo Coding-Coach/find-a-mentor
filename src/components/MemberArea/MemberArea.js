@@ -7,7 +7,7 @@ import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import useWindowSize from '../../utils/useWindowSize';
-import { isMentor } from '../../helpers/user';
+import { isMentor, isAdmin } from '../../helpers/user';
 
 function MemberArea(props) {
   const authenticated = auth.isAuthenticated();
@@ -69,7 +69,7 @@ function MemberArea(props) {
           </UserAvatar>
           {isMemberMenuOpen && (
             <MemberMenu tabIndex="0">
-              {currentUser && currentUser.roles.includes('Admin') && (
+              {isAdmin(currentUser) && (
                 <MemberMenuItem onClick={openPendingApplications}>
                   Open pending applications
                 </MemberMenuItem>
