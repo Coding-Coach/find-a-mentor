@@ -8919,5 +8919,38 @@
         "id": "bahrmichael"
       }
     ]
+  },
+  {
+    "id": "jonas.groendahlxd@gmail.com",
+    "name": "Jonas Grøndahl",
+    "avatar": "https://avatars0.githubusercontent.com/u/23399953?s=460&v=4",
+    "title": "Full Stack Developer",
+    "description": "I code in JavaScript every day. React, Node, React Native. Ask me anything!",
+    "country": "DK",
+    "spokenLanguages": [
+      "en",
+      "da"
+    ],
+    "tags": [
+      "javascript",
+      "css",
+      "reactjs",
+      "nodejs",
+      "fullstack"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jonas.groendahlxd@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "jonasgroendahl"
+      },
+      {
+        "type": "website",
+        "id": "jonasgroendahl.dev"
+      }
+    ]
   }
 ]
