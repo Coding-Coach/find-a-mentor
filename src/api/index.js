@@ -111,7 +111,7 @@ export async function updateMentor(mentor) {
 }
 
 export async function deleteMentor(mentor) {
-  const res = await makeApiCall(`${paths.USERS}/${mentor.auth0Id}`, null, 'DELETE');
+  const res = await makeApiCall(`${paths.USERS}/${mentor._id}`, null, 'DELETE');
   return res.success;
 }
 
