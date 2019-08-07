@@ -8895,7 +8895,8 @@
     "description": "Serverless Enthusiast working mostly with Python, TypeScript, Java and AWS",
     "country": "DE",
     "spokenLanguages": [
-      "en"
+      "en",
+      "de"
     ],
     "tags": [
       "aws",
