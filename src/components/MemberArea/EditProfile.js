@@ -144,7 +144,7 @@ export default class EditProfile extends Component {
           </div>
         );
       case 'keyvalue':
-        const filledChannel = user[fieldName].filter(x => x.data);
+        const filledChannel = user[fieldName].filter(x => x.id);
         return (
           <div key={fieldName} className="form-field" style={config.style}>
             <label
