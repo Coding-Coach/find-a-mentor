@@ -8886,5 +8886,37 @@
         "id": "chochstrasser"
       }
     ]
+  },
+  {
+    "id": "michael@bahr.dev",
+    "name": "Michael Bahr",
+    "avatar": "https://photos.smugmug.com/photos/i-ntSWTfL/0/016a7242/X3/i-ntSWTfL-X3.png",
+    "title": "Freelance Developer",
+    "description": "Serverless Enthusiast working mostly with Python, TypeScript, Java and AWS",
+    "country": "DE",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "aws",
+      "serverless",
+      "python",
+      "java",
+      "architecture"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "michael@bahr.dev"
+      },
+      {
+        "type": "twitter",
+        "id": "michabahr"
+      },
+      {
+        "type": "github",
+        "id": "bahrmichael"
+      }
+    ]
   }
 ]
