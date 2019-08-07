@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled, {css} from 'styled-components';
-import { getPendingApplications, approveApplication } from '../../api';
+import { getPendingApplications, approveApplication, rejectApplication } from '../../api';
 import { Loader } from '../Loader';
 
 export default class PendingApplications extends Component {
@@ -36,12 +36,15 @@ export default class PendingApplications extends Component {
     this.toggleLoader(application, true);
     await approveApplication(application);
     await this.refreshApplications();
-    this.toggleLoader(application, false);
   };
 
-  decline = async application => {
-    // await approveApplication(application);
-    alert('decline');
+  reject = async application => {
+    const reason = prompt('Why you reject that poor gentleman / lady?');
+    if (reason) {
+      this.toggleLoader(application, true);
+      await rejectApplication(application, reason);
+      await this.refreshApplications();
+    }
   };
 
   render() {
@@ -60,7 +63,9 @@ export default class PendingApplications extends Component {
           </tr>
         </thead>
         <tbody>
-          {applications.map(application => (
+          {applications.map(application => {
+            application.user = application.user || {};
+            return (
             <tr key={application._id}>
               <td>
                 <AvatarImage
@@ -77,14 +82,14 @@ export default class PendingApplications extends Component {
                     <ApproveButton onClick={this.approve.bind(null, application)}>
                       <i className="fa fa-thumbs-up" />
                     </ApproveButton>
-                    <RejectButton onClick={this.decline.bind(null, application)}>
+                    <RejectButton onClick={this.reject.bind(null, application)}>
                       <i className="fa fa-thumbs-down" />
                     </RejectButton>
                   </>
                 }
               </td>
             </tr>
-          ))}
+          )})}
         </tbody>
       </Table> :
       <div>There are no pending applications</div>

@@ -134,3 +134,15 @@ export async function approveApplication(mentor) {
   );
   return res.success;
 }
+
+export async function rejectApplication(mentor, reason) {
+  const res = await makeApiCall(
+    `${paths.MENTORS}/applications/${mentor._id}`,
+    {
+      status: 'Rejected',
+      reason
+    },
+    'PUT'
+  );
+  return res.success;
+}
