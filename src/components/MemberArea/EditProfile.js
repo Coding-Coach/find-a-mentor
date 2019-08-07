@@ -7,6 +7,7 @@ import Select from 'react-select';
 import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
 import { providers } from '../../channelProvider';
+import auth from '../../utils/auth';
 
 export default class EditProfile extends Component {
   state = {
@@ -58,9 +59,10 @@ export default class EditProfile extends Component {
     this.setState({ disabled: false });
   };
 
-  onDelete = () => {
+  onDelete = async () => {
     if (window.confirm('Are you sure you want to delete your account?')) {
-      deleteMentor(this.state.user);
+      await deleteMentor(this.state.user);
+      auth.doLogout();
     }
   };
 
