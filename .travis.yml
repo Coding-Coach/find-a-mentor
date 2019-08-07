@@ -6,7 +6,7 @@ node_js:
 cache:
   directories:
   - "$HOME/.yarn-cache"
-  - "$HOME/travis/.cache/Cypress"
+  - ~/.cache
 script:
   - cypress install
   - yarn test
