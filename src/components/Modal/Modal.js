@@ -36,7 +36,9 @@ export default class Modal extends Component {
     const { children, title, size = '' } = this.props;
 
     return (
-      <div className={classNames(['modal-container', size, {active: isActive}])}>
+      <div
+        className={classNames(['modal-container', size, { active: isActive }])}
+      >
         <div className="modal-box">
           <button className="close" onClick={this.handleClose}>
             <i className="fa fa-times" aria-hidden="true"></i>
@@ -45,7 +47,11 @@ export default class Modal extends Component {
             <h2>{title || ''}</h2>
           </div>
           <div className="scroll-helper">
-            <div className="modal-content">{children || ''}</div>
+            <div className="modal-content">
+              {children
+                ? React.cloneElement(children, { onClose: this.handleClose })
+                : ''}
+            </div>
           </div>
         </div>
       </div>
