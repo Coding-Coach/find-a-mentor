@@ -8984,5 +8984,39 @@
         "id": "gleb-kosteiko"
       }
     ]
+  },
+  {
+    "id": "jacob@herper.io",
+    "name": "Jacob Herper",
+    "avatar": "https://res.cloudinary.com/jacobherper/image/upload/v1565298946/21012-3581_cover.jpg",
+    "title": "Front-End Engineer",
+    "description": "React, JAMstack, Web Performance & Accessibility Enthusiast",
+    "country": "GB",
+    "spokenLanguages": [
+      "en",
+      "de",
+      "es"
+    ],
+    "tags": [
+      "reactjs",
+      "javascript",
+      "frontend",
+      "gatsby",
+      "jamstack"
+    ],
+    "channels": [
+      {
+        "type": "linkedin",
+        "id": "jacobherper"
+      },
+      {
+        "type": "github",
+        "id": "jakeherp"
+      },
+      {
+        "type": "website",
+        "id": "herper.io"
+      }
+    ]
   }
 ]
