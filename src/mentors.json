@@ -8984,5 +8984,33 @@
         "id": "gleb-kosteiko"
       }
     ]
+  },
+  {
+    "id": "jonathon.d.meyers@gmail.com",
+    "name": "Jon",
+    "avatar": "https://avatars2.githubusercontent.com/u/13792200?s=460&v=4",
+    "title": "JS Developer/Educator",
+    "description": "I love JS and helping others not hate JS",
+    "country": "AU",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "reactjs",
+      "javascript",
+      "html",
+      "css",
+      "gatsby"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "jonathon.d.meyers@gmail.com"
+      },
+      {
+        "type": "github",
+        "id": "dijonmusters"
+      }
+    ]
   }
 ]
