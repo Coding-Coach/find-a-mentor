@@ -8862,7 +8862,7 @@
     "name": "Chase Hochstrasser",
     "avatar": "https://s3-us-west-2.amazonaws.com/hochstrasser/images/portrait.jpg",
     "title": "Software Eng. Front-End",
-    "description": "Hi, JS Developer",
+    "description": "Let's build something together",
     "country": "US",
     "spokenLanguages": [
       "en"
@@ -8870,7 +8870,8 @@
     "tags": [
       "reactjs",
       "js",
-      "frontend"
+      "frontend",
+      "javascript"
     ],
     "channels": [
       {
@@ -8882,8 +8883,8 @@
         "id": "UH4R7M49X"
       },
       {
-        "type": "github",
-        "id": "chochstrasser"
+        "type": "website",
+        "id": "chasehoch.io"
       }
     ]
   },
