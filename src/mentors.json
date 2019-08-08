@@ -8953,5 +8953,36 @@
         "id": "jonasgroendahl.dev"
       }
     ]
+  },
+  {
+    "id": "gleb.kosteiko@gmail.com",
+    "name": "Gleb Kosteiko",
+    "avatar": "https://avatars2.githubusercontent.com/u/15192983",
+    "title": "Java developer",
+    "description": "I works mostly with Java/AWS/Serverless technologies. Feel free to ask anything!",
+    "country": "BY",
+    "spokenLanguages": [
+      "ru",
+      "en"
+    ],
+    "tags": [
+      "java",
+      "aws",
+      "serverless"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "gleb_kosteiko"
+      },
+      {
+        "type": "website",
+        "id": "gleb-kosteiko.github.io"
+      },
+      {
+        "type": "github",
+        "id": "gleb-kosteiko"
+      }
+    ]
   }
 ]
