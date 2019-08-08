@@ -49,7 +49,10 @@ export default class EditProfile extends Component {
     if (updateMentorResult && !isMentor(user)) {
       const createApplicationResult = await createApplication();
       if (createApplicationResult.success) {
-        toast.success(`Thanks for joining us! We'll approve your application ASAP.`);
+        toast.success(
+          `Thanks for joining us! We'll approve your application ASAP.`
+        );
+        this.props.onClose();
       } else {
         toast.error(`Something went wrong: ${createApplicationResult.message}`);
       }
@@ -86,7 +89,13 @@ export default class EditProfile extends Component {
                 )}
               </div>
               <div className="form-field-input-wrapper">
-                {config.previewImage && <img className="form-field-preview" src={user[fieldName]} alt="avatar" />}
+                {config.previewImage && (
+                  <img
+                    className="form-field-preview"
+                    src={user[fieldName]}
+                    alt="avatar"
+                  />
+                )}
                 <CustomTag
                   aria-labelledby={fieldName}
                   value={user[fieldName] || config.defaultValue}
@@ -161,11 +170,14 @@ export default class EditProfile extends Component {
               </div>
               <div className="form-fields">
                 {config.options.map((option, indx) => {
-                  const propData = user[fieldName].find(x => x.type === option.value);
+                  const propData = user[fieldName].find(
+                    x => x.type === option.value
+                  );
                   const inputIcon =
                     providers[option.value].inputIcon ||
                     providers[option.value].icon;
-                    const isDisabled = filledChannel.length >= 3 && !(propData && propData.id);
+                  const isDisabled =
+                    filledChannel.length >= 3 && !(propData && propData.id);
                   return (
                     <div
                       className={`form-field channel-${option.value}`}
@@ -195,9 +207,7 @@ export default class EditProfile extends Component {
                           }
                         />
                       </div>
-                      {
-                        option.helpText && <div>{option.helpText}</div>
-                      }
+                      {option.helpText && <div>{option.helpText}</div>}
                     </div>
                   );
                 })}
@@ -224,14 +234,13 @@ export default class EditProfile extends Component {
     const isItemExist = user[fieldName].find(x => x.type === prop);
     if (isItemExist) {
       user[fieldName] = user[fieldName].map(x => {
-        if (x.type === prop)
-          x.id = value;
+        if (x.type === prop) x.id = value;
         return x;
       });
     } else {
       user[fieldName].push({
         type: prop,
-        id: value
+        id: value,
       });
     }
     this.setState({ user });
