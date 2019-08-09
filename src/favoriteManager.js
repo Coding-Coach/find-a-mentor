@@ -1,11 +1,11 @@
 export function toggle(mentor) {
   const favs = get();
-  const favIndex = favs.indexOf(mentor.id);
+  const favIndex = favs.indexOf(mentor._id);
 
   if (favIndex > -1) {
     favs.splice(favIndex, 1);
   } else {
-    favs.push(mentor.id);
+    favs.push(mentor._id);
   }
   localStorage.setItem('favs', JSON.stringify(favs));
   return favs;

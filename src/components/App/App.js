@@ -91,7 +91,7 @@ class App extends Component {
       (!language ||
         (mentor.spokenLanguages &&
           mentor.spokenLanguages.includes(language))) &&
-      (!showFavorite || favorites.indexOf(mentor.id) > -1)
+      (!showFavorite || favorites.indexOf(mentor._id) > -1)
     );
   };
 
@@ -154,7 +154,7 @@ class App extends Component {
     const mentors = await getMentors();
     this.setState({
       mentors,
-      ready: true
+      ready: true,
     });
   }
 
@@ -242,9 +242,7 @@ class App extends Component {
                 target="_blank"
               >
                 <img
-                  src={`${
-                    process.env.PUBLIC_URL
-                  }/images/coding-coach-patron-button.jpg`}
+                  src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
                   alt="Become a Patron"
                 />
               </a>

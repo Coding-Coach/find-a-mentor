@@ -41,30 +41,30 @@ export default class MentorsList extends Component {
 
     return mentorsInList.map((mentor, index) => (
       <Card
-        key={`${mentor.id}-${index}`}
+        key={`${mentor._id}-${index}`}
         mentor={mentor}
         onFavMentor={onFavMentor}
-        isFav={favorites.indexOf(mentor.id) > -1}
+        isFav={favorites.indexOf(mentor._id) > -1}
         handleTagClick={handleTagClick}
         handleCountryClick={handleCountryClick}
       />
-    ))
+    ));
   }
 
   nothingToShow(hasMentors) {
     const { ready } = this.state;
-    return ready && !hasMentors && (
-      <div className="nothing-to-show">
-        ¯\_(ツ)_/¯ Wow, we can't believe it. We have nothing for you!
-      </div>
-    )
+    return (
+      ready &&
+      !hasMentors && (
+        <div className="nothing-to-show">
+          ¯\_(ツ)_/¯ Wow, we can't believe it. We have nothing for you!
+        </div>
+      )
+    );
   }
 
   render() {
-    const {
-      mentors,
-      className,
-    } = this.props;
+    const { mentors, className } = this.props;
     const { page, ready } = this.state;
     const mentorsInList = mentors.slice(0, page * itemsInPage);
 
