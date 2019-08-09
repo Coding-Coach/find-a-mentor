@@ -9018,5 +9018,38 @@
         "id": "herper.io"
       }
     ]
+  },
+  {
+    "id": "dev.gummibeer@gmail.com",
+    "name": "Tom Witkowski",
+    "avatar": "https://secure.gravatar.com/avatar/fdc12b019fcd6ce03bedefae77083c1e.jpg?s=512&d=mm&r=g",
+    "title": "Senior Backend Developer",
+    "description": "Dedicated PHP/Laravel backend developer and open source lover.",
+    "country": "DE",
+    "spokenLanguages": [
+      "de",
+      "en"
+    ],
+    "tags": [
+      "laravel",
+      "php",
+      "api",
+      "backend",
+      "mysql"
+    ],
+    "channels": [
+      {
+        "type": "slack",
+        "id": "UM7C9KGQY"
+      },
+      {
+        "type": "github",
+        "id": "Gummibeer"
+      },
+      {
+        "type": "website",
+        "id": "gummibeer.de"
+      }
+    ]
   }
 ]
