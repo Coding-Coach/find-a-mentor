@@ -1,6 +1,7 @@
 import auth from '../utils/auth';
 import { report } from '../ga';
 import { toast } from 'react-toastify';
+import messages from '../messages';
 
 const API_ERROR_TOAST_ID = 'api-error-toast-id';
 
@@ -47,7 +48,7 @@ export async function makeApiCall(path, body, method) {
   } catch (error) {
     report('api', path, error);
     console.error(error);
-    !toast.isActive(API_ERROR_TOAST_ID) && toast.error('something went wrong :(', {
+    !toast.isActive(API_ERROR_TOAST_ID) && toast.error(messages.GENERIC_ERROR, {
       toastId: API_ERROR_TOAST_ID,
     });
     return {
@@ -95,13 +96,23 @@ export async function getMentors() {
   return res.data;
 }
 
-export async function createApplication() {
+export async function createApplicationIfNotExists() {
+  const myApplications = await makeApiCall(`${paths.MENTORS}/myapplications?status=pending`);
+  if (!!myApplications.length) {
+    return {
+      success: true,
+      message: messages.EDIT_DETAILS_MENTOR_SUCCESS
+    }
+  }
   const res = await makeApiCall(
     `${paths.MENTORS}/applications`,
     { description: 'why not?', status: 'Pending' },
     'POST'
   );
-  return res;
+  return {
+    success: res.success,
+    message: res.success ? messages.EDIT_DETAILS_APPLICATION_SUBMITTED : res.message
+  };
 }
 
 export async function updateMentor(mentor) {

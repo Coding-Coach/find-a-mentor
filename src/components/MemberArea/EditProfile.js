@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
-import { updateMentor, deleteMentor, createApplication } from '../../api';
+import { updateMentor, deleteMentor, createApplicationIfNotExists } from '../../api';
 import model from './model';
 import Select from 'react-select';
 import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
 import { providers } from '../../channelProvider';
 import auth from '../../utils/auth';
+import messages from '../../messages';
 
 export default class EditProfile extends Component {
   state = {
@@ -46,24 +47,26 @@ export default class EditProfile extends Component {
     }
     this.setState({ disabled: true });
     const updateMentorResult = await updateMentor(fromVMtoM(user));
-    if (updateMentorResult && !isMentor(user)) {
-      const createApplicationResult = await createApplication();
-      if (createApplicationResult.success) {
-        toast.success(
-          `Thanks for joining us! We'll approve your application ASAP.`
-        );
-        this.props.onClose();
+    if (updateMentorResult) {
+      if (isMentor(user)) {
+        toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
       } else {
-        toast.error(`Something went wrong: ${createApplicationResult.message}`);
+        const createApplicationResult = await createApplicationIfNotExists();
+        if (createApplicationResult.success) {
+          toast.success(createApplicationResult.message);
+          this.props.onClose();
+        } else {
+          toast.error(createApplicationResult.message);
+        }
       }
     } else {
-      toast.error('Something went wrong');
+      toast.error(messages.GENERIC_ERROR);
     }
     this.setState({ disabled: false });
   };
 
   onDelete = async () => {
-    if (window.confirm('Are you sure you want to delete your account?')) {
+    if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
       await deleteMentor(this.state.user);
       auth.doLogout();
     }
@@ -247,8 +250,7 @@ export default class EditProfile extends Component {
   };
 
   render() {
-    const { disabled, errors } = this.state;
-    const { user } = this.props;
+    const { disabled, errors, user } = this.state;
     return (
       <>
         <form onSubmit={this.onSubmit} className="edit-profile">
