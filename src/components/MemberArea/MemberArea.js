@@ -25,7 +25,7 @@ function MemberArea(props) {
   }
 
   const openProfile = () => {
-    props.onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} />);
+    props.onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} onUserUpdated={setCurrentUser} />);
   };
 
   const openPendingApplications = () => {
