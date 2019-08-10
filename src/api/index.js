@@ -10,7 +10,7 @@ const paths = {
   USERS: '/users',
 };
 
-const apiHost = window.location.host.includes('localhost') || window.localStorage.href === 'mentors-staging.codingcoach.io'
+const apiHost = window.location.host.includes('localhost') || window.location.href === 'mentors-staging.codingcoach.io'
   ? 'https://api-staging.codingcoach.io'
   : 'http://api.codingcoach.io/';
 
