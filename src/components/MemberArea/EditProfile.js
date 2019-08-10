@@ -41,6 +41,7 @@ export default class EditProfile extends Component {
 
   onSubmit = async e => {
     const { user } = this.state;
+    const { onClose, onUserUpdated } = this.props;
     e.preventDefault();
     if (!this.validate()) {
       return;
@@ -54,7 +55,8 @@ export default class EditProfile extends Component {
         const createApplicationResult = await createApplicationIfNotExists();
         if (createApplicationResult.success) {
           toast.success(createApplicationResult.message);
-          this.props.onClose();
+          onUserUpdated(user);
+          onClose();
         } else {
           toast.error(createApplicationResult.message);
         }

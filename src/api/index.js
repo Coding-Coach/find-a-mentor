@@ -116,8 +116,10 @@ export async function createApplicationIfNotExists() {
 }
 
 export async function updateMentor(mentor) {
-  storeUserInLocalStorage(mentor);
   const res = await makeApiCall(`${paths.USERS}/${mentor._id}`, mentor, 'PUT');
+  if (res.success) {
+    storeUserInLocalStorage(mentor);
+  }
   return res.success;
 }
 
