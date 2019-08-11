@@ -22,7 +22,7 @@
 
 .edit-profile .form-submit .delete {
   float: right;
-  background: #aa0101;
+  background: var(--error-background);
 }
 
 .edit-profile .form-field {

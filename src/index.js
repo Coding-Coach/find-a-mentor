@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import auth from './utils/auth';
 import { getCurrentUser } from './api';
+import './index.css';
 
 (async () => {
   await auth.renewSession();
