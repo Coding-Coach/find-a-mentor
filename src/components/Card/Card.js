@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import helpers from '../../helpers';
 import { report } from '../../ga';
 import auth from '../../utils/auth';
+import { Tooltip } from 'react-tippy';
+import messages from '../../messages';
 
 function handleAnalytic(channelName) {
   report('Channel', 'click', channelName);
@@ -33,12 +35,14 @@ const applyOnClick = () => {
 
 const nonLoggedinChannels = () => {
   return (
-    <button onClick={applyOnClick}>
-      <div className="icon">
-        <i className="fa fa-hand-o-right fa-lg" />
-      </div>
-      <p className="type">Apply</p>
-    </button>
+    <Tooltip title={messages.CARD_APPLY_TOOLTIP} size="big" arrow={true}>
+      <button onClick={applyOnClick}>
+        <div className="icon">
+          <i className="fa fa-hand-o-right fa-lg" />
+        </div>
+        <p className="type">Apply</p>
+      </button>
+    </Tooltip>
   );
 }
 

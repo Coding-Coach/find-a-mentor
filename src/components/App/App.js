@@ -1,5 +1,6 @@
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-tippy/dist/tippy.css';
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
