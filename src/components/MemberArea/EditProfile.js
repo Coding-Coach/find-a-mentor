@@ -9,6 +9,7 @@ import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
 import { providers } from '../../channelProvider';
 import auth from '../../utils/auth';
 import messages from '../../messages';
+import { report } from '../../ga';
 
 export default class EditProfile extends Component {
   state = {
@@ -40,6 +41,7 @@ export default class EditProfile extends Component {
   }
 
   onSubmit = async e => {
+    report('Member Area', 'Submit start', 'User details');
     const { user } = this.state;
     const { onClose, onUserUpdated } = this.props;
     e.preventDefault();
@@ -57,19 +59,24 @@ export default class EditProfile extends Component {
           toast.success(createApplicationResult.message);
           onUserUpdated(user);
           onClose();
+          report('Member Area', 'Submit sucess', 'User details');
         } else {
+          report('Member Area', 'Submit failed', 'User details');
           toast.error(createApplicationResult.message);
         }
       }
     } else {
+      report('Member Area', 'Submit failed', 'User details');
       toast.error(messages.GENERIC_ERROR);
     }
     this.setState({ disabled: false });
   };
 
   onDelete = async () => {
+    report('Member Area', 'Delete start', 'User details');
     if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
       await deleteMentor(this.state.user);
+      report('Member Area', 'Delete success', 'User details');
       auth.doLogout();
     }
   };
