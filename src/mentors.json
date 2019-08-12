@@ -9060,10 +9060,15 @@
     "description": "Passionate about teaching. I'm an Docker Captain & SRE",
     "country": "CH",
     "spokenLanguages": [
-      "en", "de"
+      "en",
+      "de"
     ],
     "tags": [
-      "docker","terraform","aws","cloud","devops"
+      "docker",
+      "terraform",
+      "aws",
+      "cloud",
+      "devops"
     ],
     "channels": [
       {
@@ -9077,6 +9082,38 @@
       {
         "type": "website",
         "id": "brianchristner.io"
+      }
+    ]
+  },
+  {
+    "id": "alexanderson1993@gmail.com",
+    "name": "Alex Anderson",
+    "avatar": "https://pbs.twimg.com/profile_images/567927550714736641/4kXV9NPG_400x400.jpeg",
+    "title": "React Web Developer",
+    "description": "I love React, Node, GraphQL, spaceships, and cooking.",
+    "country": "US",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "nodejs",
+      "reactjs",
+      "fullstack",
+      "react native",
+      "express"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "alexanderson1993@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "ralex1993"
+      },
+      {
+        "type": "github",
+        "id": "alexanderson1993"
       }
     ]
   }
