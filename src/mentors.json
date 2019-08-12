@@ -9116,5 +9116,37 @@
         "id": "alexanderson1993"
       }
     ]
+  },
+  {
+    "id": "laura@spun.dev",
+    "name": "Laura Weatherhead",
+    "avatar": "https://spun.dev/media/gbul5ttf/2019_laura-mvp_lg_sq.jpg",
+    "title": "Full-Stack Developer",
+    "description": "Hi! I'm a .NET & JS developer. I do bit of everything - happy to help out :)",
+    "country": "GB",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "javascript",
+      "graphql",
+      "react",
+      ".net",
+      "typescript"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "laura@spun.dev"
+      },
+      {
+        "type": "twitter",
+        "id": "lssweatherhead"
+      },
+      {
+        "type": "github",
+        "id": "lssweatherhead"
+      }
+    ]
   }
 ]
