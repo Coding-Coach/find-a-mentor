@@ -9051,5 +9051,42 @@
         "id": "gummibeer.de"
       }
     ]
+  },
+  {
+    "id": "brian.christner@gmail.com",
+    "name": "Brian Christner",
+    "avatar": "https://twitter.com/idomyowntricks/photo",
+    "title": "SRE",
+    "description": "Passionate about teaching. I'm an SRE, Docker Captain, and write Infrastructre as Code",
+    "country": "CH",
+    "spokenLanguages": [
+      "en",
+      "de"
+    ],
+    "tags": [
+      "docker",
+      "terraform",
+      "aws",
+      "swarm",
+      "cloud",
+      "devops",
+      "CI/CD",
+      "scurm",
+      "kubernetes"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "idomyowntricks"
+      },
+      {
+        "type": "github",
+        "id": "vegasbrianc"
+      },
+      {
+        "type": "website",
+        "id": "brianchristner.io"
+      }
+    ]
   }
 ]
