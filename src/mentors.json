@@ -2622,7 +2622,7 @@
   {
     "id": "healeycodes@gmail.com",
     "name": "Andrew Healey",
-    "avatar": "https://healeycodes.github.io/assets/avatar-v1.jpg",
+    "avatar": "https://healeycodes.com/assets/avatar-v1.jpg",
     "title": "Software Engineer",
     "description": "Hello! I'm Andrew. Happy to help out in any way I can.",
     "country": "GB",
@@ -2633,7 +2633,7 @@
       "javascript",
       "python",
       "nodejs",
-      "css",
+      "web",
       "fullstack"
     ],
     "channels": [
@@ -2647,7 +2647,7 @@
       },
       {
         "type": "website",
-        "id": "healeycodes.github.io"
+        "id": "healeycodes.com"
       }
     ]
   },
