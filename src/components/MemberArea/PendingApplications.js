@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled, {css} from 'styled-components';
 import { getPendingApplications, approveApplication, rejectApplication } from '../../api';
 import { Loader } from '../Loader';
+import { getChannelInfo } from '../../channelProvider';
 
 export default class PendingApplications extends Component {
   state = {
@@ -54,48 +55,63 @@ export default class PendingApplications extends Component {
     }
     return (
       applications.length ?
-      <Table>
-        <thead>
-          <tr>
-            <th>Avatar</th>
-            <th>Name</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {applications.map(application => {
-            application.user = application.user || {};
-            return (
-            <tr key={application._id}>
-              <td>
-                <AvatarImage
-                  alt={application.user.name}
-                  src={application.user.avatar}
-                />
-              </td>
-              <td>{application.user.name}</td>
-              <td>
-                {
-                  application.loading ?
-                  <Loader /> :
-                  <>
-                    <ApproveButton onClick={this.approve.bind(null, application)}>
-                      <i className="fa fa-thumbs-up" />
-                    </ApproveButton>
-                    <RejectButton onClick={this.reject.bind(null, application)}>
-                      <i className="fa fa-thumbs-down" />
-                    </RejectButton>
-                  </>
-                }
-              </td>
+      <PendingApplicationsContainer>
+        <Table>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Avatar</th>
+              <th>Name</th>
+              <th>Channels</th>
+              <th>Title</th>
+              <th>Description</th>
             </tr>
-          )})}
-        </tbody>
-      </Table> :
+          </thead>
+          <tbody>
+            {applications.map(application => {
+              const { user, loading } = application;
+              return (
+              <tr key={application._id}>
+                <td>
+                  {
+                    loading ?
+                    <Loader /> :
+                    <>
+                      <ApproveButton onClick={this.approve.bind(null, application)}>
+                        <i className="fa fa-thumbs-up" />
+                      </ApproveButton>
+                      <RejectButton onClick={this.reject.bind(null, application)}>
+                        <i className="fa fa-thumbs-down" />
+                      </RejectButton>
+                    </>
+                  }
+                </td>
+                <td>
+                  <AvatarImage
+                    alt={user.name}
+                    src={user.avatar}
+                  />
+                </td>
+                <td>{user.name}</td>
+                <td>{user.channels.map(channel => {
+                  const { url, icon } = getChannelInfo(channel);
+                  return <div><a href={url} target="_blank" rel="noopener noreferrer"><i className={`fa fa-${icon}`} />{channel.id}</a></div>;
+                })}</td>
+                <td>{user.title}</td>
+                <td>{user.description}</td>
+              </tr>
+            )})}
+          </tbody>
+        </Table>
+      </PendingApplicationsContainer> :
       <div>There are no pending applications</div>
     );
   }
 }
+
+const PendingApplicationsContainer = styled.div`
+  overflow-x: auto;
+`;
 
 const Table = styled.table`
   width: 100%;
@@ -109,6 +125,7 @@ const Table = styled.table`
   td, th {
     padding: 5px;
     text-align: left;
+    white-space: nowrap;
 
     &:first-child,
     &:last-child {
