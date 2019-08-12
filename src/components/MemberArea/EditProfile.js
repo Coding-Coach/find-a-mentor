@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
-import { updateMentor, deleteMentor, createApplicationIfNotExists } from '../../api';
+import {
+  updateMentor,
+  deleteMentor,
+  createApplicationIfNotExists,
+} from '../../api';
 import model from './model';
 import Select from 'react-select';
 import './EditProfile.css';
@@ -202,9 +206,15 @@ export default class EditProfile extends Component {
                         ])}
                       >
                         <i className={`fa fa-${inputIcon}`}></i>
-                        <label id={option.value}>{option.prefix}</label>
+                        <label
+                          id={option.value}
+                          htmlFor={`${option.value}-channel-input`}
+                        >
+                          {option.prefix}
+                        </label>
                         <input
                           aria-labelledby={option.value}
+                          id={`${option.value}-channel-input`}
                           value={propData ? propData.id : ''}
                           type="text"
                           name={`${fieldName}[${option.value}]`}

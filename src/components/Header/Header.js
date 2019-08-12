@@ -87,8 +87,8 @@ function Header() {
 }
 
 const common = {
-  headerHeight: 90
-}
+  headerHeight: 90,
+};
 
 const HeaderWrapper = styled.header`
   position: sticky;

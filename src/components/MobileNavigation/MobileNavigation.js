@@ -22,7 +22,10 @@ function MobileNavigation(props) {
         {modal.content}
       </Modal>
 
-      <Navigation />
+      <Navigation
+        isAuthenticated={props.isAuthenticated}
+        onOpenModal={(title, content) => handleModal({ title, content })}
+      />
 
       {!props.isAuthenticated && <LoginNavigation />}
 
