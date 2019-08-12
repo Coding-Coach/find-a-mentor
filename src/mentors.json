@@ -9051,5 +9051,33 @@
         "id": "gummibeer.de"
       }
     ]
+  },
+  {
+    "id": "brian.christner@gmail.com",
+    "name": "Brian Christner",
+    "avatar": "https://avatars0.githubusercontent.com/u/674790?s=400&v=4",
+    "title": "Docker Captain & SRE",
+    "description": "Passionate about teaching. I'm an Docker Captain & SRE",
+    "country": "CH",
+    "spokenLanguages": [
+      "en", "de"
+    ],
+    "tags": [
+      "docker","terraform","aws","cloud","devops"
+    ],
+    "channels": [
+      {
+        "type": "twitter",
+        "id": "idomyowntricks"
+      },
+      {
+        "type": "github",
+        "id": "vegasbrianc"
+      },
+      {
+        "type": "website",
+        "id": "brianchristner.io"
+      }
+    ]
   }
 ]
