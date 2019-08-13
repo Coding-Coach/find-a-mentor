@@ -9148,5 +9148,37 @@
         "id": "lssweatherhead"
       }
     ]
+  },
+  {
+    "id": "nik.kholin@gmail.com",
+    "name": "Nikita Kholin",
+    "avatar": "https://kholinlabs.com/assets/portrait.jpg",
+    "title": "Ruby/Rails Backend Developer",
+    "description": "Would love to help you",
+    "country": "UA",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "ruby",
+      "rails",
+      "ruby on rails",
+      "fullstack",
+      "react"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "nik.kholin@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "nikita-kholin"
+      },
+      {
+        "type": "twitter",
+        "id": "hmlon_"
+      }
+    ]
   }
 ]
