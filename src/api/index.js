@@ -10,9 +10,11 @@ const paths = {
   USERS: '/users',
 };
 
-const apiHost = window.location.host.includes('localhost') || window.location.host === 'mentors-staging.codingcoach.io'
-  ? 'https://api-staging.codingcoach.io'
-  : 'http://api.codingcoach.io/';
+const apiHost =
+  window.location.host.includes('localhost') ||
+  window.location.host === 'mentors-staging.codingcoach.io'
+    ? 'https://api-staging.codingcoach.io'
+    : 'http://api.codingcoach.io/';
 
 let currentUser;
 const USER_LOCAL_KEY = 'user';
@@ -48,9 +50,10 @@ export async function makeApiCall(path, body, method) {
   } catch (error) {
     report('Api', 'Error', `${error || 'unknown error'} at ${path}`);
     console.error(error);
-    !toast.isActive(API_ERROR_TOAST_ID) && toast.error(messages.GENERIC_ERROR, {
-      toastId: API_ERROR_TOAST_ID,
-    });
+    !toast.isActive(API_ERROR_TOAST_ID) &&
+      toast.error(messages.GENERIC_ERROR, {
+        toastId: API_ERROR_TOAST_ID,
+      });
     return {
       success: false,
       message: error,
@@ -96,13 +99,15 @@ export async function getMentors() {
   return res.data;
 }
 
-export async function createApplicationIfNotExists() {
-  const myApplications = await makeApiCall(`${paths.MENTORS}/myapplications?status=pending`);
+export async function createApplicationIfNotExists(user) {
+  const myApplications = await makeApiCall(
+    `${paths.MENTORS}/${user._id}/applications?status=pending`
+  );
   if (!!myApplications.length) {
     return {
       success: true,
-      message: messages.EDIT_DETAILS_MENTOR_SUCCESS
-    }
+      message: messages.EDIT_DETAILS_MENTOR_SUCCESS,
+    };
   }
   const res = await makeApiCall(
     `${paths.MENTORS}/applications`,
@@ -111,7 +116,9 @@ export async function createApplicationIfNotExists() {
   );
   return {
     success: res.success,
-    message: res.success ? messages.EDIT_DETAILS_APPLICATION_SUBMITTED : res.message
+    message: res.success
+      ? messages.EDIT_DETAILS_APPLICATION_SUBMITTED
+      : res.message,
   };
 }
 
@@ -141,7 +148,7 @@ export async function approveApplication(mentor) {
   const res = await makeApiCall(
     `${paths.MENTORS}/applications/${mentor._id}`,
     {
-      status: 'Approved'
+      status: 'Approved',
     },
     'PUT'
   );
@@ -153,7 +160,7 @@ export async function rejectApplication(mentor, reason) {
     `${paths.MENTORS}/applications/${mentor._id}`,
     {
       status: 'Rejected',
-      reason
+      reason,
     },
     'PUT'
   );
