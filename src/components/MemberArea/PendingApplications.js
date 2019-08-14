@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import styled, {css} from 'styled-components';
-import { getPendingApplications, approveApplication, rejectApplication } from '../../api';
+import styled, { css } from 'styled-components';
+import {
+  getPendingApplications,
+  approveApplication,
+  rejectApplication,
+} from '../../api';
 import { Loader } from '../Loader';
 import { getChannelInfo } from '../../channelProvider';
 
 export default class PendingApplications extends Component {
   state = {
     applications: [],
-    ready: false
+    ready: false,
   };
 
   async refreshApplications() {
@@ -20,18 +24,20 @@ export default class PendingApplications extends Component {
   async componentDidMount() {
     await this.refreshApplications();
     this.setState({
-      ready: true
-    })
+      ready: true,
+    });
   }
 
   toggleLoader = (application, show) => {
     const { applications } = this.state;
-    const applicationIndex = applications.findIndex(app => app._id === application._id);
+    const applicationIndex = applications.findIndex(
+      app => app._id === application._id
+    );
     applications[applicationIndex].loading = show;
     this.setState({
-      applications
-    })
-  }
+      applications,
+    });
+  };
 
   approve = async application => {
     this.toggleLoader(application, true);
@@ -51,10 +57,9 @@ export default class PendingApplications extends Component {
   render() {
     const { applications, ready } = this.state;
     if (!ready) {
-      return <Loader />
+      return <Loader />;
     }
-    return (
-      applications.length ?
+    return applications.length ? (
       <PendingApplicationsContainer>
         <Table>
           <thead>
@@ -71,39 +76,55 @@ export default class PendingApplications extends Component {
             {applications.map(application => {
               const { user, loading } = application;
               return (
-              <tr key={application._id}>
-                <td>
-                  {
-                    loading ?
-                    <Loader /> :
-                    <>
-                      <ApproveButton onClick={this.approve.bind(null, application)}>
-                        <i className="fa fa-thumbs-up" />
-                      </ApproveButton>
-                      <RejectButton onClick={this.reject.bind(null, application)}>
-                        <i className="fa fa-thumbs-down" />
-                      </RejectButton>
-                    </>
-                  }
-                </td>
-                <td>
-                  <AvatarImage
-                    alt={user.name}
-                    src={user.avatar}
-                  />
-                </td>
-                <td>{user.name}</td>
-                <td>{user.channels.map(channel => {
-                  const { url, icon } = getChannelInfo(channel);
-                  return <div><a href={url} target="_blank" rel="noopener noreferrer"><i className={`fa fa-${icon}`} />{channel.id}</a></div>;
-                })}</td>
-                <td>{user.title}</td>
-                <td>{user.description}</td>
-              </tr>
-            )})}
+                <tr key={application._id}>
+                  <td>
+                    {loading ? (
+                      <Loader />
+                    ) : (
+                      <>
+                        <ApproveButton
+                          onClick={this.approve.bind(null, application)}
+                        >
+                          <i className="fa fa-thumbs-up" />
+                        </ApproveButton>
+                        <RejectButton
+                          onClick={this.reject.bind(null, application)}
+                        >
+                          <i className="fa fa-thumbs-down" />
+                        </RejectButton>
+                      </>
+                    )}
+                  </td>
+                  <td>
+                    <AvatarImage alt={user.name} src={user.avatar} />
+                  </td>
+                  <td>{user.name}</td>
+                  <td>
+                    {user.channels.map(channel => {
+                      const { url, icon } = getChannelInfo(channel);
+                      return (
+                        <div>
+                          <a
+                            href={url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <i className={`fa fa-${icon}`} />
+                            {channel.id}
+                          </a>
+                        </div>
+                      );
+                    })}
+                  </td>
+                  <td>{user.title}</td>
+                  <td>{user.description}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </Table>
-      </PendingApplicationsContainer> :
+      </PendingApplicationsContainer>
+    ) : (
       <div>There are no pending applications</div>
     );
   }
@@ -122,7 +143,8 @@ const Table = styled.table`
     color: #4a4a4a;
   }
 
-  td, th {
+  td,
+  th {
     padding: 5px;
     text-align: left;
     white-space: nowrap;

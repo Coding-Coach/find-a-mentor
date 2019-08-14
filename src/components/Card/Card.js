@@ -31,7 +31,7 @@ const tagsList = (tags, handleTagClick) =>
 const applyOnClick = () => {
   handleAnalytic('apply');
   auth.login();
-}
+};
 
 const nonLoggedinChannels = () => {
   return (
@@ -44,7 +44,7 @@ const nonLoggedinChannels = () => {
       </button>
     </Tooltip>
   );
-}
+};
 
 const channelsList = channels => {
   if (!auth.isAuthenticated()) {

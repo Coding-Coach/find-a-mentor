@@ -20,11 +20,11 @@ class Auth {
     scope: 'openid',
   });
 
-  login = (isMentorIntent) => {
+  login = isMentorIntent => {
     this.auth0.authorize({
       appState: {
-        origin: isMentorIntent ? 'mentor' : 'user'
-      }
+        origin: isMentorIntent ? 'mentor' : 'user',
+      },
     });
   };
 
@@ -101,7 +101,11 @@ class Auth {
       if (window.location.hash) {
         await this.handleAuthentication();
         // clean the hash
-        window.history.replaceState(null, null, window.location.href.split('#')[0]);
+        window.history.replaceState(
+          null,
+          null,
+          window.location.href.split('#')[0]
+        );
         resolve();
       } else if (!this.isAuthenticated()) {
         this.auth0.checkSession({}, (err, authResult) => {

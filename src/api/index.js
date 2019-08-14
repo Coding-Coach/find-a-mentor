@@ -10,17 +10,11 @@ const paths = {
   USERS: '/users',
 };
 
-const apiHost =
-  window.location.host.includes('localhost') ||
-  window.location.host === 'mentors-staging.codingcoach.io'
-    ? 'https://api-staging.codingcoach.io'
-    : 'http://api.codingcoach.io/';
-
 let currentUser;
 const USER_LOCAL_KEY = 'user';
 
 export async function makeApiCall(path, body, method) {
-  const url = `${apiHost}${path}`;
+  const url = `${process.env.REACT_APP_API_ENDPOINT}${path}`;
   const options = {
     mode: 'cors',
     method,
@@ -94,16 +88,20 @@ export function clearCurrentUser() {
 }
 
 export async function getMentors() {
-  // return require('../mentors.json');
   const res = await makeApiCall(paths.MENTORS);
   return res.data;
 }
 
-export async function createApplicationIfNotExists(user) {
+async function userHasPendingApplication(user) {
   const myApplications = await makeApiCall(
     `${paths.MENTORS}/${user._id}/applications?status=pending`
   );
-  if (!!myApplications.length) {
+
+  return myApplications && myApplications.data && myApplications.data.length;
+}
+
+export async function createApplicationIfNotExists(user) {
+  if (await userHasPendingApplication(user)) {
     return {
       success: true,
       message: messages.EDIT_DETAILS_MENTOR_SUCCESS,

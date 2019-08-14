@@ -48,7 +48,10 @@ export default class AutoComplete extends Component {
   };
 
   matchStateToTerm(state, value) {
-    return state.label && state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+    return (
+      state.label &&
+      state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1
+    );
   }
 
   getPermalinkParams() {

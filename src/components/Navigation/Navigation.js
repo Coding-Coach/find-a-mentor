@@ -17,10 +17,14 @@ function Navigation({ isAuthenticated, onOpenModal }) {
   }
 
   useEffect(() => {
+    let isSubscribed = true;
     (async () => {
       const user = await getUser();
-      setCurrentUser(user);
+      if (isSubscribed) {
+        setCurrentUser(user);
+      }
     })();
+    return () => (isSubscribed = false);
   }, []);
 
   const openProfile = e => {
@@ -57,7 +61,7 @@ function Navigation({ isAuthenticated, onOpenModal }) {
 }
 
 const Nav = styled.nav`
-  flex-grow: 1
+  flex-grow: 1;
 `;
 
 const List = styled.ul`

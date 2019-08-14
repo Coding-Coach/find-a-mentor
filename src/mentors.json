@@ -5,14 +5,8 @@
     "avatar": "https://media.licdn.com/dms/image/C4D03AQFh38XOCJUahw/profile-displayphoto-shrink_200_200/0?e=1561593600&v=beta&t=qvn8ke275AH9xX6O0Lk2V9aBDegoA23qk07FiKnRRVY",
     "title": "React, React Native, Node dev",
     "country": "IE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "nodejs",
-      "react native"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "nodejs", "react native"],
     "channels": [
       {
         "type": "twitter",
@@ -35,16 +29,8 @@
     "title": "Platform Engineer at Postman",
     "description": "Product Engineer, Writer and Speaker",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "android",
-      "reactjs",
-      "backend",
-      "go",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["android", "reactjs", "backend", "go", "nodejs"],
     "channels": [
       {
         "type": "twitter",
@@ -67,17 +53,8 @@
     "title": "Frontend at @wix",
     "description": "Hi, I'm Mosh and I will love to help! 🤪",
     "country": "IL",
-    "spokenLanguages": [
-      "en",
-      "he"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs",
-      "html",
-      "css"
-    ],
+    "spokenLanguages": ["en", "he"],
+    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -100,16 +77,8 @@
     "title": "Sr. Engineer at @invisionapp",
     "description": "Hi, I'm Crysfel! Let me know how can I help 👨‍💻",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs",
-      "native",
-      "css"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "javascript", "reactjs", "native", "css"],
     "channels": [
       {
         "type": "email",
@@ -128,15 +97,8 @@
     "title": "co-CEO @RelativelyFund",
     "description": "Passionate coder and tech advisor",
     "country": "JO",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "web",
-      "php"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "web", "php"],
     "channels": [
       {
         "type": "email",
@@ -159,16 +121,8 @@
     "title": "JavaScript Web Developer",
     "description": "I'm a JavaScript Web Developer. Ask me any questions that you have.",
     "country": "ZA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "gatsby",
-      "nodejs",
-      "express"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "gatsby", "nodejs", "express"],
     "channels": [
       {
         "type": "email",
@@ -191,15 +145,8 @@
     "title": "Software Engineer",
     "description": "Hi! I am BD. Would love to help in any way 🙂",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "fp"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "fp"],
     "channels": [
       {
         "type": "email",
@@ -222,16 +169,8 @@
     "title": "Full Stack .NET Web Developer",
     "description": "28-year career in software. Would love to share what I know.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "c#",
-      "asp.net",
-      "backend",
-      "build",
-      "powershell"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["c#", "asp.net", "backend", "build", "powershell"],
     "channels": [
       {
         "type": "email",
@@ -254,16 +193,8 @@
     "title": "Developer at @wallplaynetwork",
     "description": "Hola ! Let's solve some problems.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "firebase",
-      "javascript",
-      "nodejs",
-      "redux"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "firebase", "javascript", "nodejs", "redux"],
     "channels": [
       {
         "type": "email",
@@ -286,16 +217,8 @@
     "title": "Software Developer at @sendboxng",
     "description": "When the journey looks rough, I promise you won't have to do it alone",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "web",
-      "frontend",
-      "ux"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "web", "frontend", "ux"],
     "channels": [
       {
         "type": "email",
@@ -318,16 +241,8 @@
     "title": "Full Stack Web Developer / Designer",
     "description": "23 year web development veteran specializing in Angular, Node and TypeScript",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "angular",
-      "django",
-      "nodejs",
-      "typescript",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["angular", "django", "nodejs", "typescript", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -346,14 +261,8 @@
     "title": "CTO @ Catalytic DS",
     "description": "Coding since I was 7 and still loving it. Looking forward to help you if I can!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "redux"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "redux"],
     "channels": [
       {
         "type": "twitter",
@@ -376,16 +285,8 @@
     "title": "Software Engineer",
     "description": "Open web enthusiast. Come explore the various corners of the internet with me!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "css",
-      "html",
-      "web",
-      "p2p"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "css", "html", "web", "p2p"],
     "channels": [
       {
         "type": "email",
@@ -404,16 +305,8 @@
     "title": "Senior Software Engineer @ValueLabs",
     "description": "Hi, I'm Kirankumar Ambati! Let me know if you need any help.👨‍💻",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs",
-      "redux",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "javascript", "reactjs", "redux", "fullstack"],
     "channels": [
       {
         "type": "email",
@@ -436,15 +329,8 @@
     "title": "Generalist; Python/Ruby/Web",
     "description": "Hi! Here for general help; specialise in Python, Ruby/Rails, and web projects.",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "python",
-      "ruby",
-      "rails",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["python", "ruby", "rails", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -467,16 +353,8 @@
     "title": "Frontend Engineer at @Schibsted",
     "description": "Pragmatic, efficient and happy to help😀. Focus on one thing at the time🤓.",
     "country": "ES",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs",
-      "html",
-      "css"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -499,16 +377,8 @@
     "title": "Product Engineer at @whitepanda",
     "description": "Hi, I'm Prateek. I mostly code in JavaScript. Shoot your queries at me.",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "redux"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "javascript", "reactjs", "nodejs", "redux"],
     "channels": [
       {
         "type": "email",
@@ -531,16 +401,8 @@
     "title": "Front End at Digial Air Strike",
     "description": "Hi! Happy to help you level up 🤠",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs",
-      "html",
-      "css"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
     "channels": [
       {
         "type": "twitter",
@@ -555,16 +417,8 @@
     "title": "Full stack developer",
     "description": "Hey there! Happy to help in whatever aspect is needed!",
     "country": "NZ",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "a11y",
-      "css",
-      "fp",
-      "rails"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "a11y", "css", "fp", "rails"],
     "channels": [
       {
         "type": "email",
@@ -587,14 +441,8 @@
     "title": "Software Developer",
     "description": "Hi, I'm Vinamra and I am excited to help you !",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "android",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java", "android", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -617,16 +465,8 @@
     "title": "Full Stack Developer",
     "description": "We can learn together, just ask or suggest.",
     "country": "TZ",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "reactjs",
-      "react native",
-      "express"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "reactjs", "react native", "express"],
     "channels": [
       {
         "type": "email",
@@ -649,15 +489,8 @@
     "title": "Staff Software Engineer",
     "description": "Hi, I'm Gulshan and I am happy to share my knowledge!",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "css",
-      "api"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "css", "api"],
     "channels": [
       {
         "type": "email",
@@ -680,16 +513,8 @@
     "title": "Software Developer",
     "description": "Hola, I'm Cristian and I'm happy to help!",
     "country": "SE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "html",
-      "css",
-      "javascript",
-      "reactjs",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["html", "css", "javascript", "reactjs", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -712,16 +537,8 @@
     "title": "PHP/Symfony Developer",
     "description": "I am an enthusiastic PHP/Symfony developer and trainer.",
     "country": "IT",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "symfony",
-      "web",
-      "html",
-      "git"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "symfony", "web", "html", "git"],
     "channels": [
       {
         "type": "email",
@@ -744,16 +561,8 @@
     "title": "PHP/Symfony Developer",
     "description": "PHP since 1998, co-RM for PHP 5.3, Symfony core team/lead diversity initiative.",
     "country": "CH",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "symfony",
-      "opensource",
-      "databases",
-      "speaking"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "symfony", "opensource", "databases", "speaking"],
     "channels": [
       {
         "type": "email",
@@ -776,14 +585,8 @@
     "title": "Software Developer at AND Digital",
     "description": "Hi, I am a front-end developer. Let me know if you want to have a chat.",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "javascript", "reactjs"],
     "channels": [
       {
         "type": "email",
@@ -802,16 +605,8 @@
     "title": "Senior Fullstack Developer @Globant",
     "description": "Hi, I am Gerson and I'll be happy to learn with you.",
     "country": "PE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "javascript",
-      "fullstack",
-      "frontend",
-      "serverless"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "javascript", "fullstack", "frontend", "serverless"],
     "channels": [
       {
         "type": "email",
@@ -834,16 +629,8 @@
     "title": "Full Stack Cloud Developer at @IBM",
     "description": "Hi! I'm a Cloud Developer working at IBM. Ask me anything! spanish & english",
     "country": "UY",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "watson",
-      "ibm cloud",
-      "javascript",
-      "angular"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "watson", "ibm cloud", "javascript", "angular"],
     "channels": [
       {
         "type": "email",
@@ -866,16 +653,8 @@
     "title": "Full Stack Web Developer",
     "description": "Hi, I'm AdroitCode! Let me know if you need any help.",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "frontend",
-      "javascript",
-      "html",
-      "css"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "frontend", "javascript", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -898,16 +677,8 @@
     "title": "Full Stack Developer @Sparkbox",
     "description": "Hi! I'm happy to help in anyway I can. Ask me anything! 👩‍💻",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "sass",
-      "markup",
-      "a11y",
-      "php"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "sass", "markup", "a11y", "php"],
     "channels": [
       {
         "type": "email",
@@ -926,16 +697,8 @@
     "title": "Team Leader at QuickTech.no",
     "description": "Hey! Let me know if you need any help.",
     "country": "BR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "ionic",
-      "react native",
-      "javascript",
-      "angular",
-      "git"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["ionic", "react native", "javascript", "angular", "git"],
     "channels": [
       {
         "type": "email",
@@ -958,14 +721,8 @@
     "title": "Full Stack Developer",
     "description": "Feel free to ask me any question, big or small!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "angular",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "angular", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -984,16 +741,8 @@
     "title": "Software Engineer @Jump360",
     "description": "Hi, I'm Jabbar and I will be happy to solve your {bug}",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "backend",
-      "javascript",
-      "nodejs",
-      "firebase",
-      "mongodb"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["backend", "javascript", "nodejs", "firebase", "mongodb"],
     "channels": [
       {
         "type": "email",
@@ -1016,16 +765,8 @@
     "title": "Backend Developer",
     "description": "Hello, I'm a backend developer interested in all things Javascript!",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "javascript",
-      "ibm cloud",
-      "watson",
-      "angular"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "javascript", "ibm cloud", "watson", "angular"],
     "channels": [
       {
         "type": "email",
@@ -1044,14 +785,8 @@
     "title": "Fullstack Developer",
     "description": "Hi, am leveling up on Angular and Nodejs :)",
     "country": "KE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "javascript",
-      "angular"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "javascript", "angular"],
     "channels": [
       {
         "type": "twitter",
@@ -1070,16 +805,8 @@
     "title": "Lead Fullstack Javascript Developer",
     "description": "I'm a lead developer and budding architect. I love talking about tech!",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "microservices",
-      "kubernetes",
-      "c#",
-      "reactjs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "microservices", "kubernetes", "c#", "reactjs"],
     "channels": [
       {
         "type": "twitter",
@@ -1102,16 +829,8 @@
     "title": "Programmer, Writer, Monster Slayer",
     "description": "I'm an adventurous programmer with an extensive range of experience.",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "programming",
-      "ux",
-      "management",
-      "quality",
-      "automation"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["programming", "ux", "management", "quality", "automation"],
     "channels": [
       {
         "type": "email",
@@ -1134,15 +853,8 @@
     "title": "Javascript developer",
     "description": "Hi! Here to relieve you of your Javascript woes",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "fp"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "fp"],
     "channels": [
       {
         "type": "email",
@@ -1161,16 +873,8 @@
     "title": "Web Developer @ blue-tomato.com",
     "description": "self-taught, daughter-driven programmer - had a career switch (former marketeer)",
     "country": "AT",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "css",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "css", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -1193,16 +897,8 @@
     "title": "Co-Founder @ Proximity Insight",
     "description": "10 years and counting working on Salesforce.com and with JavaScript",
     "country": "AU",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "salesforce",
-      "javascript",
-      "apex",
-      "css",
-      "c"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["salesforce", "javascript", "apex", "css", "c"],
     "channels": [
       {
         "type": "twitter",
@@ -1221,16 +917,8 @@
     "title": "Fullstack Developer",
     "description": "Hi, I am an experienced fullstack web developer. Happy to help.",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "javascript",
-      "reactjs",
-      "mongodb",
-      "api-design"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "javascript", "reactjs", "mongodb", "api-design"],
     "channels": [
       {
         "type": "twitter",
@@ -1253,9 +941,7 @@
     "title": "Backend Developer",
     "description": "Hi, My name is Carlos, if you need some help just ask me.",
     "country": "ES",
-    "spokenLanguages": [
-      "en"
-    ],
+    "spokenLanguages": ["en"],
     "tags": [
       "dotnet",
       "azure",
@@ -1285,9 +971,7 @@
     "title": "Frontend Developer",
     "description": "If you think I can help you, don't hesitate to tell me.",
     "country": "ES",
-    "spokenLanguages": [
-      "en"
-    ],
+    "spokenLanguages": ["en"],
     "tags": [
       "performance",
       "web typography",
@@ -1317,16 +1001,8 @@
     "title": "Senior Backend Engineer",
     "description": "Self-taught developer, 8+ years experience, entertainment & food tech.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "python",
-      "rest",
-      "speaker",
-      "podcast",
-      "inclusion"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["python", "rest", "speaker", "podcast", "inclusion"],
     "channels": [
       {
         "type": "twitter",
@@ -1349,16 +1025,8 @@
     "title": "Senior Frontend Engineer @GitLab",
     "description": "Vue.js Community Partner. Google Developer Expert. MozTechSpeaker.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "vuejs",
-      "html",
-      "css",
-      "javascript",
-      "career"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["vuejs", "html", "css", "javascript", "career"],
     "channels": [
       {
         "type": "github",
@@ -1377,16 +1045,8 @@
     "title": "Full Stack Software Developer",
     "description": "I build React UIs and serverless NodeJS backends. Excited to help!",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "serverless",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "serverless", "fullstack"],
     "channels": [
       {
         "type": "twitter",
@@ -1409,14 +1069,8 @@
     "title": "Fullstack Developer",
     "description": "Hi, I'm a fullstack web developer.",
     "country": "UG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "frontend"],
     "channels": [
       {
         "type": "twitter",
@@ -1435,16 +1089,8 @@
     "title": "Senior UI Developer @iamcloud",
     "description": "UI veteran looking to help those starting out. Let's build all the things!",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs",
-      "html",
-      "css"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "javascript", "reactjs", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -1467,16 +1113,8 @@
     "title": "Software Engineer & Dev Advocate",
     "description": "Self-taught developer, 10+ years exp. Excited to help others learn & grow!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "vuejs",
-      "c-sharp",
-      "mongodb"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "vuejs", "c-sharp", "mongodb"],
     "channels": [
       {
         "type": "email",
@@ -1499,16 +1137,8 @@
     "title": "Fullstack Developer/Entrepreneur",
     "description": "Hi, I'm Andrew and I love help growing those around me!",
     "country": "CA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "vuejs",
-      "css",
-      "php",
-      "sql",
-      "dotnet"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["vuejs", "css", "php", "sql", "dotnet"],
     "channels": [
       {
         "type": "slack",
@@ -1531,16 +1161,8 @@
     "title": "Software Architect",
     "description": "Coding embedded systems to mainframes and everything in between since 1985.",
     "country": "ZA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "spring",
-      "cloud",
-      "devops",
-      "career"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java", "spring", "cloud", "devops", "career"],
     "channels": [
       {
         "type": "twitter",
@@ -1563,16 +1185,8 @@
     "title": "Software Developer",
     "description": "I do frontend Web development most of the time. Don't hesitate to ask! 👋",
     "country": "PH",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "frontend",
-      "css",
-      "web-apis"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "frontend", "css", "web-apis"],
     "channels": [
       {
         "type": "email",
@@ -1595,16 +1209,8 @@
     "title": "Staff Software Engineer",
     "description": "Full-stack developer, working on projects in Algolia. Feel free to reach out!",
     "country": "CZ",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "backend",
-      "javascript",
-      "search",
-      "ecommerce"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "backend", "javascript", "search", "ecommerce"],
     "channels": [
       {
         "type": "email",
@@ -1627,16 +1233,8 @@
     "title": "Software Developer @P7S1",
     "description": "JavaScript & Java Developer working with react, react-native, GraphQL, ...",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "react native",
-      "nodejs",
-      "graphql"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "react native", "nodejs", "graphql"],
     "channels": [
       {
         "type": "twitter",
@@ -1659,16 +1257,8 @@
     "title": "Architect @Comparethemarket.com",
     "description": "Working with AWS, KUBERNETES, DevOps + Architecture",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "devops",
-      "kubernetes",
-      "aws",
-      "operations",
-      "python"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["devops", "kubernetes", "aws", "operations", "python"],
     "channels": [
       {
         "type": "twitter",
@@ -1691,16 +1281,8 @@
     "title": "Senior Full Stack Engineer",
     "description": "Full stack dev with 10+ years of experience in the game, mentor for 4+ years.",
     "country": "RO",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "angular",
-      "vuejs",
-      "dotnet",
-      "mssql"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "angular", "vuejs", "dotnet", "mssql"],
     "channels": [
       {
         "type": "twitter",
@@ -1719,16 +1301,8 @@
     "title": "Backend Security Engineer",
     "description": "Building and pushing secure software to the cloud. Just ask me anything",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "spring",
-      "cloud",
-      "kubernetes",
-      "security"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java", "spring", "cloud", "kubernetes", "security"],
     "channels": [
       {
         "type": "slack",
@@ -1751,16 +1325,8 @@
     "title": "Front End Engineer at IderaOS",
     "description": "Hey, Yusuf here! Fullstack JS Dev, Let me know if you need any help.",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "fullstack",
-      "vuejs",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "fullstack", "vuejs", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -1783,15 +1349,8 @@
     "title": "Software developer",
     "description": "Software developer, Creative Technologist and speaker",
     "country": "AU",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "front-end",
-      "arduino"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "front-end", "arduino"],
     "channels": [
       {
         "type": "email",
@@ -1810,16 +1369,8 @@
     "title": "UX Engineer",
     "description": "Software Engineer turned UX Engineer",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "html",
-      "css",
-      "javascript",
-      "reactjs",
-      "redux"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["html", "css", "javascript", "reactjs", "redux"],
     "channels": [
       {
         "type": "email",
@@ -1842,16 +1393,8 @@
     "title": "Fullstack developer",
     "description": "I code because I can action the changes and ideas I want to see in the world.",
     "country": "ZA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "laravel",
-      "php",
-      "vuejs",
-      "docker",
-      "architecture"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["laravel", "php", "vuejs", "docker", "architecture"],
     "channels": [
       {
         "type": "email",
@@ -1870,14 +1413,8 @@
     "title": "Senior Software Engineer",
     "description": "Hey, want to learn some crazy JavaScript stuff? Talk to me",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "angular",
-      "nodejs",
-      "webassembly"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["angular", "nodejs", "webassembly"],
     "channels": [
       {
         "type": "email",
@@ -1900,15 +1437,8 @@
     "title": "Software Developer",
     "description": "FOSS enthusiast, Speaker, Mozillian, Python & Rust developer",
     "country": "MX",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "python",
-      "rust",
-      "linux",
-      "opensource"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["python", "rust", "linux", "opensource"],
     "channels": [
       {
         "type": "email",
@@ -1927,16 +1457,8 @@
     "title": "Interaction Developer",
     "description": "JavaScript wrangler and div slinger. Front end, UX and tinkering with stuff.",
     "country": "NL",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "html",
-      "css",
-      "reactjs",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "html", "css", "reactjs", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -1959,15 +1481,8 @@
     "title": "Frontend engineer",
     "description": "Hey! I would be happy to help you on your coding journey!",
     "country": "UA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "gatsby",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "gatsby", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -1986,16 +1501,8 @@
     "title": "VP of Dev @halo_platform",
     "description": "Fullstack Dev. Leading teams & architecture at Halo Platform.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "leadership",
-      "javascript",
-      "database",
-      "fullstack",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["leadership", "javascript", "database", "fullstack", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -2018,16 +1525,8 @@
     "title": "Front-End Developer",
     "description": "",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "accessibility",
-      "css",
-      "ux",
-      "a11y",
-      "performance"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["accessibility", "css", "ux", "a11y", "performance"],
     "channels": [
       {
         "type": "email",
@@ -2046,16 +1545,8 @@
     "title": "Full-stack developer",
     "description": "Developer learning how to free himself from traditional 9-5",
     "country": "FR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "laravel",
-      "vuejs",
-      "reactjs",
-      "graphql",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["laravel", "vuejs", "reactjs", "graphql", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -2074,16 +1565,8 @@
     "title": "Senior Fullstack developer",
     "description": "If you treat programming as an art, write to me I will help you ;)",
     "country": "UA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "reactjs",
-      "3d",
-      "gamedev"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "reactjs", "3d", "gamedev"],
     "channels": [
       {
         "type": "email",
@@ -2106,14 +1589,8 @@
     "title": "Mobile application developer",
     "description": "Xamarin Forms mobile application developer, speaker and User group board member",
     "country": "BE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "c#",
-      "xamarin forms",
-      "xaml"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["c#", "xamarin forms", "xaml"],
     "channels": [
       {
         "type": "twitter",
@@ -2136,9 +1613,7 @@
     "title": "Software Engineer (Frontend)",
     "description": "8+ years focused mostly on Javascript/React. Happy to connect and help 😀",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
+    "spokenLanguages": ["en"],
     "tags": [
       "javascript",
       "reactjs",
@@ -2164,15 +1639,8 @@
     "title": "Independent Contractor",
     "description": "OpenSource e-Commerce veteran working with Spree and Solidus",
     "country": "NL",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "ruby",
-      "rails",
-      "spree",
-      "solidus"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["ruby", "rails", "spree", "solidus"],
     "channels": [
       {
         "type": "email",
@@ -2195,15 +1663,8 @@
     "title": "PHP Developer ",
     "description": "Maintainer Community Engineering Team @magento",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "magento",
-      "architecture",
-      "reactjs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "magento", "architecture", "reactjs"],
     "channels": [
       {
         "type": "email",
@@ -2222,18 +1683,8 @@
     "title": "Front-End Developer",
     "description": "Come catch some bugs on the lasso with me! 🤠",
     "country": "PL",
-    "spokenLanguages": [
-      "en",
-      "pl",
-      "de"
-    ],
-    "tags": [
-      "javascript",
-      "c#",
-      "lua",
-      "reactjs",
-      "typescript"
-    ],
+    "spokenLanguages": ["en", "pl", "de"],
+    "tags": ["javascript", "c#", "lua", "reactjs", "typescript"],
     "channels": [
       {
         "type": "email",
@@ -2256,16 +1707,8 @@
     "title": "Technical Lead @ Walmart Labs",
     "description": "UI guy with 7 years of Experience. Happy to help :)",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "html",
-      "css",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "html", "css", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -2288,16 +1731,8 @@
     "title": "Software Architect",
     "description": "All round nice guy :-) 10+ years of experience in building things",
     "country": "NL",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "c#",
-      "microservices",
-      "architecture",
-      "cloud",
-      "scalability"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["c#", "microservices", "architecture", "cloud", "scalability"],
     "channels": [
       {
         "type": "email",
@@ -2320,16 +1755,8 @@
     "title": "Android Engineer",
     "description": "Hola, need help or learn android stuff, talk to me :) ",
     "country": "EG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "android",
-      "kotlin",
-      "java",
-      "nodejs",
-      "mobile"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["android", "kotlin", "java", "nodejs", "mobile"],
     "channels": [
       {
         "type": "slack",
@@ -2352,16 +1779,8 @@
     "title": "Software Developer",
     "description": "",
     "country": "CA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "js",
-      "reactjs",
-      "java",
-      "c++",
-      "python"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["js", "reactjs", "java", "c++", "python"],
     "channels": [
       {
         "type": "email",
@@ -2380,16 +1799,8 @@
     "title": "Fullstack Developer",
     "description": "Let's learn and grow together...",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "firebase",
-      ".net",
-      "angular",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "firebase", ".net", "angular", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -2408,14 +1819,8 @@
     "title": "Backend Developer",
     "description": "Self-taught, career switch (civil engineer), I love Python specially Django.",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "python",
-      "django",
-      "rest"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["python", "django", "rest"],
     "channels": [
       {
         "type": "email",
@@ -2438,16 +1843,8 @@
     "title": "Senior Fullstack Software Engineer",
     "description": "I'm specialize in Net Core, MeanJs, Angular, React, Auto Test, Devops, Mobile",
     "country": "VN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "asp.net core",
-      "angular",
-      "reactjs",
-      "mean stack, pwa",
-      "devops"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["asp.net core", "angular", "reactjs", "mean stack, pwa", "devops"],
     "channels": [
       {
         "type": "email",
@@ -2470,16 +1867,8 @@
     "title": "Full Stack Web Developer",
     "description": "Happy to help you with Ruby / JavaScript questions :)",
     "country": "PE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "ruby",
-      "rails",
-      "javascript",
-      "reactjs",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["ruby", "rails", "javascript", "reactjs", "fullstack"],
     "channels": [
       {
         "type": "email",
@@ -2502,17 +1891,8 @@
     "title": "Software Engineer",
     "description": "Mostly focused on the backend, but with a view of the whole stack.",
     "country": "PT",
-    "spokenLanguages": [
-      "en",
-      "pt"
-    ],
-    "tags": [
-      "dotnet",
-      "asp.net",
-      "c#",
-      "backend",
-      "architecture"
-    ],
+    "spokenLanguages": ["en", "pt"],
+    "tags": ["dotnet", "asp.net", "c#", "backend", "architecture"],
     "channels": [
       {
         "type": "email",
@@ -2535,16 +1915,8 @@
     "title": "Software Architect",
     "description": "Frontend, Backend, Infrastructure who loves community work. Oh and Bee keeping!",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "kubernetes",
-      "docker",
-      "devops",
-      "nodejs",
-      "cloud"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["kubernetes", "docker", "devops", "nodejs", "cloud"],
     "channels": [
       {
         "type": "email",
@@ -2567,15 +1939,8 @@
     "title": "Full stack developer",
     "description": "I am Navneet, and I will be glad to help.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "redux",
-      "c#",
-      "sql server"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "redux", "c#", "sql server"],
     "channels": [
       {
         "type": "email",
@@ -2594,16 +1959,8 @@
     "title": "Frontend Arch. @ Lemonade Inc",
     "description": "Hi! I'm a frontend developer, driven by awesome UI/UX. Happy to help!",
     "country": "IL",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "javascript",
-      "reactjs",
-      "redux",
-      "architecture"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "javascript", "reactjs", "redux", "architecture"],
     "channels": [
       {
         "type": "email",
@@ -2626,16 +1983,8 @@
     "title": "Software Engineer",
     "description": "Hello! I'm Andrew. Happy to help out in any way I can.",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "python",
-      "nodejs",
-      "css",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "python", "nodejs", "css", "fullstack"],
     "channels": [
       {
         "type": "email",
@@ -2658,16 +2007,8 @@
     "title": "Full Stack .NET Developer",
     "description": "Let's make something cool, I'm here to help.",
     "country": "ZA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      ".net",
-      "fullstack",
-      "dotnet core",
-      "cloud",
-      "design"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": [".net", "fullstack", "dotnet core", "cloud", "design"],
     "channels": [
       {
         "type": "twitter",
@@ -2690,16 +2031,8 @@
     "title": "Front-End - JavaScript Dev",
     "description": "Sharing knowledge enriches everyone.",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "frontend",
-      "nodejs",
-      "vuejs",
-      "jest"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "frontend", "nodejs", "vuejs", "jest"],
     "channels": [
       {
         "type": "twitter",
@@ -2722,16 +2055,8 @@
     "title": "CTO @teamstarter",
     "description": "As much in love with UX/UI as programming.",
     "country": "FR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "ux",
-      "ui"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "ux", "ui"],
     "channels": [
       {
         "type": "email",
@@ -2754,16 +2079,8 @@
     "title": "Software Engineer",
     "description": "Hello! I'm a Software Engineer, I will be glad to help you anytime",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "css",
-      "c#",
-      "fullstack",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "css", "c#", "fullstack", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -2782,16 +2099,8 @@
     "title": "Full Stack Software Engineer",
     "description": "#heretohelp Let us get the basics right and design think together.",
     "country": "NP",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "c#",
-      "java",
-      "php",
-      "nodejs",
-      "backend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["c#", "java", "php", "nodejs", "backend"],
     "channels": [
       {
         "type": "email",
@@ -2810,16 +2119,8 @@
     "title": "Software Engineer",
     "description": "Let's do interesting stuff together.",
     "country": "UA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "algorithms",
-      "web",
-      "python",
-      "programming"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "algorithms", "web", "python", "programming"],
     "channels": [
       {
         "type": "email",
@@ -2842,9 +2143,7 @@
     "title": "Lead .Net Engineer/Architect",
     "description": "Let's build/learn something cool together",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
+    "spokenLanguages": ["en"],
     "tags": [
       "dotnet",
       "azure",
@@ -2874,9 +2173,7 @@
     "title": "Full Stack Engineer, Architect",
     "description": "A full stack engineer with a decade of experience. Excited to help!",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
+    "spokenLanguages": ["en"],
     "tags": [
       "cloud",
       "architecture",
@@ -2906,16 +2203,8 @@
     "title": "Senior Software Developer",
     "description": "I enjoy solving problems and writing software that does that.",
     "country": "AR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "vuejs",
-      "reactjs",
-      "nodejs",
-      "mongodb"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "vuejs", "reactjs", "nodejs", "mongodb"],
     "channels": [
       {
         "type": "slack",
@@ -2938,16 +2227,8 @@
     "title": "Frontend engineer",
     "description": "Frontend engineer, co-organizing React Medellin. Happy to help!",
     "country": "CO",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "frontend",
-      "reactjs",
-      "css",
-      "redux"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "frontend", "reactjs", "css", "redux"],
     "channels": [
       {
         "type": "linkedin",
@@ -2970,15 +2251,8 @@
     "title": "Mean Stack Developer",
     "description": "Hello everyone, Subhro here , love coding & happy to help others!",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "angular",
-      "nodejs",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java", "angular", "nodejs", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -3001,15 +2275,8 @@
     "title": "Software Development Engineer",
     "description": "Software architecture, clean code, web technologies. Ask me anything.",
     "country": "AT",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "frontend",
-      "c#",
-      "backend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "frontend", "c#", "backend"],
     "channels": [
       {
         "type": "email",
@@ -3032,16 +2299,8 @@
     "title": "Senior Front End Developer",
     "description": "Senior Developer, here to help!",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "frontend",
-      "javascript",
-      "html",
-      "css"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "frontend", "javascript", "html", "css"],
     "channels": [
       {
         "type": "twitter",
@@ -3060,16 +2319,8 @@
     "title": "Senior Software Engineer",
     "description": "I can help you with Software Design, Elixir, Ruby, and Rails.",
     "country": "MX",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "elixir",
-      "ruby",
-      "rails",
-      "backend",
-      "postgresql"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["elixir", "ruby", "rails", "backend", "postgresql"],
     "channels": [
       {
         "type": "email",
@@ -3092,16 +2343,8 @@
     "title": "Full Stack Software Engineer",
     "description": "I can help you with React, React Native, Node, AWS, Typescript, Graphql",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "typescript",
-      "nodejs",
-      "react native",
-      "graphql"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "typescript", "nodejs", "react native", "graphql"],
     "channels": [
       {
         "type": "twitter",
@@ -3124,16 +2367,8 @@
     "title": "Full Stack Pythonista Data Guy",
     "description": "Second Career Developer working with Data and Web.",
     "country": "SG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "python",
-      "reactjs",
-      "fullstack",
-      "webscraping",
-      "data"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["python", "reactjs", "fullstack", "webscraping", "data"],
     "channels": [
       {
         "type": "email",
@@ -3156,14 +2391,8 @@
     "title": "Senior Frontend Engineer",
     "description": "Coding since 2012, always happy to help",
     "country": "PL",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "jquery"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "jquery"],
     "channels": [
       {
         "type": "email",
@@ -3182,9 +2411,7 @@
     "title": "Technical Architect",
     "description": "Coding since '03. Architecture. Fullstack. Problem solving.",
     "country": "SE",
-    "spokenLanguages": [
-      "en"
-    ],
+    "spokenLanguages": ["en"],
     "tags": [
       "architecture",
       "software-design",
@@ -3214,16 +2441,8 @@
     "title": "Full Stack Web Developer",
     "description": "Full-Stack Web Dev currently attending bootcamp. I love JS!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "redux",
-      "vuejs",
-      "express",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "redux", "vuejs", "express", "nodejs"],
     "channels": [
       {
         "type": "slack",
@@ -3246,16 +2465,8 @@
     "title": "Senior Fullstack Developer",
     "description": "Hello 👋 ! Always here & happy to help 🤗",
     "country": "FR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "reactjs",
-      "vuejs",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "reactjs", "vuejs", "fullstack"],
     "channels": [
       {
         "type": "linkedin",
@@ -3278,16 +2489,8 @@
     "title": "Fullstack Developer",
     "description": "Eloquent JS is my jam!",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "linux",
-      "fp"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "linux", "fp"],
     "channels": [
       {
         "type": "email",
@@ -3310,15 +2513,8 @@
     "title": "Software Engineering Student",
     "description": "It's a fact that you have to start to be great, so why not start together.",
     "country": "DZ",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "android",
-      "java",
-      "kotlin",
-      "reactjs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["android", "java", "kotlin", "reactjs"],
     "channels": [
       {
         "type": "slack",
@@ -3341,16 +2537,8 @@
     "title": "Full-stack JavaScript developer",
     "description": "Full-stack developer. I love React and Nodejs. Feel free to reach me!",
     "country": "PK",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "mongodb",
-      "graphql",
-      "socket.io"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "reactjs", "mongodb", "graphql", "socket.io"],
     "channels": [
       {
         "type": "linkedin",
@@ -3373,15 +2561,8 @@
     "title": "Front End Software Engineer",
     "description": "I work in CSS and React and really love all the quirks of JavaScript!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "css",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "css", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -3404,16 +2585,8 @@
     "title": "Software Developer",
     "description": "Mobile App Developer (React Native)",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "react native",
-      "html",
-      "css"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "react native", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -3436,15 +2609,8 @@
     "title": "Senior TYPO3 Developer",
     "description": "50% Developer, 20% Technical Lead, 20% Coaching, 10% DevOps, 100% variation",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "backend",
-      "devops",
-      "architecture"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "backend", "devops", "architecture"],
     "channels": [
       {
         "type": "email",
@@ -3467,16 +2633,8 @@
     "title": "DDD Fan // Fullstack Dev",
     "description": "My heart beats for functional programming, DDD, TDD, automation and compassion",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "elixir",
-      "backend",
-      "fp",
-      "ddd",
-      "compassion"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["elixir", "backend", "fp", "ddd", "compassion"],
     "channels": [
       {
         "type": "slack",
@@ -3499,16 +2657,8 @@
     "title": "Software Engineer",
     "description": "Developer based in London that's been coding for 10 years. Drop me a message!",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "typescript",
-      "javascript",
-      "frontend",
-      "backend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "typescript", "javascript", "frontend", "backend"],
     "channels": [
       {
         "type": "email",
@@ -3531,16 +2681,8 @@
     "title": "Frontend Engineer at @Adevinta",
     "description": "I am a self-taught person who never stop learning.",
     "country": "ES",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "vuejs",
-      "css",
-      "performance"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "vuejs", "css", "performance"],
     "channels": [
       {
         "type": "email",
@@ -3563,16 +2705,8 @@
     "title": "Backend Developer",
     "description": "Have worked in big and small companies, love API design and command line tools.",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "go",
-      "backend",
-      "command line",
-      "linux"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java", "go", "backend", "command line", "linux"],
     "channels": [
       {
         "type": "email",
@@ -3595,16 +2729,8 @@
     "title": "Front end Developer",
     "description": "Feel free to ask me any question, big or small!",
     "country": "TR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "html",
-      "css",
-      "javascript",
-      "vuejs",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["html", "css", "javascript", "vuejs", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -3627,16 +2753,8 @@
     "title": "Front-end Developer",
     "description": "Hey! I help you on your front-end, UX and web development roadmap",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "css",
-      "html",
-      "javascript",
-      "ui",
-      "ux"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["css", "html", "javascript", "ui", "ux"],
     "channels": [
       {
         "type": "slack",
@@ -3659,15 +2777,8 @@
     "title": "Software Developer",
     "description": "Hi! I'm an experienced xamarin/mobile developer. I'll be happy to help out.",
     "country": "DO",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "xamarin",
-      "xamarin.forms",
-      "dotnet",
-      "dotnet core"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["xamarin", "xamarin.forms", "dotnet", "dotnet core"],
     "channels": [
       {
         "type": "slack",
@@ -3690,14 +2801,8 @@
     "title": "Xamarin.Forms developer",
     "description": "Just a programmer using Microsoft tools to create awesome apps!",
     "country": "AR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "xamarin.forms",
-      "c#",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["xamarin.forms", "c#", "fullstack"],
     "channels": [
       {
         "type": "email",
@@ -3720,16 +2825,8 @@
     "title": "Product Design Manager",
     "description": "UX Designer, amateur react developer, CSS \"expert\", design tool aficionado ",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "design",
-      "frontend",
-      "css",
-      "figma",
-      "user experience"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["design", "frontend", "css", "figma", "user experience"],
     "channels": [
       {
         "type": "email",
@@ -3752,16 +2849,8 @@
     "title": "Fullstack Developer",
     "description": "Passionate Fullstack Developer with a focus on Javascript world",
     "country": "IT",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "fullstack",
-      "angular",
-      "sass"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "fullstack", "angular", "sass"],
     "channels": [
       {
         "type": "email",
@@ -3784,16 +2873,8 @@
     "title": "UI Engineer / Frontend Designer",
     "description": "I can help building design systems, scalable and accessible UI components",
     "country": "IT",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "html",
-      "css",
-      "js",
-      "stenciljs",
-      "vuejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["html", "css", "js", "stenciljs", "vuejs"],
     "channels": [
       {
         "type": "twitter",
@@ -3816,16 +2897,8 @@
     "title": "Software Engineer",
     "description": "Passionate and experienced software engineer based in Monza, Italy.",
     "country": "IT",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "vuejs",
-      "express",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "vuejs", "express", "fullstack"],
     "channels": [
       {
         "type": "linkedin",
@@ -3848,16 +2921,8 @@
     "title": "Software Developer",
     "description": "Experienced mobile developer, special interest in app architecture",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "ios",
-      "android",
-      "architecture",
-      "rx",
-      "career"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["ios", "android", "architecture", "rx", "career"],
     "channels": [
       {
         "type": "email",
@@ -3880,16 +2945,8 @@
     "title": "Front-end web developer",
     "description": "I'm a freelance front-end, JavaScript developer, tutor, tech writer, and mentor.",
     "country": "EG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "html",
-      "css",
-      "javascript",
-      "reactjs",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["html", "css", "javascript", "reactjs", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -3912,16 +2969,8 @@
     "title": "Javascript Developer",
     "description": "EdTech Developer and Advocate!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "graphql",
-      "gatsby"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "graphql", "gatsby"],
     "channels": [
       {
         "type": "twitter",
@@ -3944,16 +2993,8 @@
     "title": "Web Spinner",
     "description": "Head in code, heart in design. Debugging, refactoring, style.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "vuejs",
-      "css",
-      "frontend",
-      "ruby",
-      "rails"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["vuejs", "css", "frontend", "ruby", "rails"],
     "channels": [
       {
         "type": "slack",
@@ -3976,15 +3017,8 @@
     "title": "Senior Developer",
     "description": "The web is the future. 🏳️‍🌈",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "graphql"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "graphql"],
     "channels": [
       {
         "type": "twitter",
@@ -4007,16 +3041,8 @@
     "title": "Solutions Architect",
     "description": "Software Developer & Cloud Computing enthusiast",
     "country": "BR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "nodejs",
-      "javascript",
-      "java",
-      "aws"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "nodejs", "javascript", "java", "aws"],
     "channels": [
       {
         "type": "email",
@@ -4039,16 +3065,8 @@
     "title": "Designer",
     "description": "I currently lead design teams on enterprise-level design",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "ui",
-      "ux",
-      "visual design",
-      "sketch",
-      "adobe"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["ui", "ux", "visual design", "sketch", "adobe"],
     "channels": [
       {
         "type": "linkedin",
@@ -4067,16 +3085,8 @@
     "title": "Senior Laravel API Developer",
     "description": "I'm a senior PHP Laravel developer",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "laravel",
-      "api",
-      "php",
-      "integration",
-      "principles"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["laravel", "api", "php", "integration", "principles"],
     "channels": [
       {
         "type": "email",
@@ -4099,16 +3109,8 @@
     "title": ".Net Developer",
     "description": "Hi, I'm Ammad! Let me know if you need any help.",
     "country": "PK",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      ".net",
-      "algorithms",
-      "android",
-      "c#",
-      "backend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": [".net", "algorithms", "android", "c#", "backend"],
     "channels": [
       {
         "type": "twitter",
@@ -4127,14 +3129,8 @@
     "title": "Frontend Engineer",
     "description": "A self learned developer",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "vuejs",
-      "jquery"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "vuejs", "jquery"],
     "channels": [
       {
         "type": "github",
@@ -4153,16 +3149,8 @@
     "title": "Web Developer, Blogger",
     "description": "Lets help everyone to grow",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "php",
-      "git",
-      "mysql",
-      "symfony",
-      "codeigniter"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["php", "git", "mysql", "symfony", "codeigniter"],
     "channels": [
       {
         "type": "website",
@@ -4181,16 +3169,8 @@
     "title": "Full-stack Software Engineer",
     "description": "Hey! I've been developing full-stack applications for over 20 years",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "java",
-      "web",
-      "reactjs",
-      "docker"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "java", "web", "reactjs", "docker"],
     "channels": [
       {
         "type": "website",
@@ -4213,16 +3193,8 @@
     "title": ".Net Front-End Developer",
     "description": "Hi, I am a .Net Front-End Developer. I work with Umbraco CMS.",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "umbraco",
-      "ui",
-      "ux",
-      ".net",
-      "design"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["umbraco", "ui", "ux", ".net", "design"],
     "channels": [
       {
         "type": "email",
@@ -4245,14 +3217,8 @@
     "title": "PHP Developer",
     "description": "A self trained php developer with a lots of love for Laravel",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "modern php",
-      "laravel",
-      "vuejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["modern php", "laravel", "vuejs"],
     "channels": [
       {
         "type": "twitter",
@@ -4271,16 +3237,8 @@
     "title": "Technical Architect ",
     "description": "Hi, I am very good in Microsoft Technology including Azure.",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "asp.net",
-      "c#",
-      "sql servers",
-      "azure",
-      "redis"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["asp.net", "c#", "sql servers", "azure", "redis"],
     "channels": [
       {
         "type": "twitter",
@@ -4299,16 +3257,8 @@
     "title": "Software Engineer",
     "description": "Happy to help with Node, React, TypeScript, or anything really!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "typescript",
-      "backend",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "reactjs", "typescript", "backend", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -4331,16 +3281,8 @@
     "title": ".NET Developer",
     "description": "I'm a jack of all trades but my passion remains C#. Happy to share my knowledge!",
     "country": "RO",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "dotnet",
-      "c#",
-      "xamarin.forms",
-      "uwp",
-      "git"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["dotnet", "c#", "xamarin.forms", "uwp", "git"],
     "channels": [
       {
         "type": "twitter",
@@ -4363,16 +3305,8 @@
     "title": "Web Developer",
     "description": "Full Stack Developer & Advocate for Open Source",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "gatsby",
-      "css",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "reactjs", "gatsby", "css", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -4395,15 +3329,8 @@
     "title": "Design Technologist",
     "description": "",
     "country": "FR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "sketch plugins",
-      "design systems"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "reactjs", "sketch plugins", "design systems"],
     "channels": [
       {
         "type": "slack",
@@ -4426,16 +3353,8 @@
     "title": "Applications Architect @ Turner",
     "description": "Full Stack Developer, ready to help when and where I can!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "c#",
-      "aws"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "c#", "aws"],
     "channels": [
       {
         "type": "twitter",
@@ -4458,16 +3377,8 @@
     "title": "R&D Full Stack Software Engineer",
     "description": "Hi, i'm Passionate and experienced software engineer based in France",
     "country": "FR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "golang",
-      "nodejs",
-      "angular",
-      "php"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java", "golang", "nodejs", "angular", "php"],
     "channels": [
       {
         "type": "slack",
@@ -4490,16 +3401,8 @@
     "title": "Frontend developer",
     "description": "I will help you to get the right way :)",
     "country": "IL",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "angularjs",
-      "javascript",
-      "html",
-      "css",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["angularjs", "javascript", "html", "css", "frontend"],
     "channels": [
       {
         "type": "linkedin",
@@ -4518,14 +3421,8 @@
     "title": "Full stack web developer",
     "description": "JS and web enthusiast",
     "country": "IE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "js",
-      "reactjs",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["js", "reactjs", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -4544,16 +3441,8 @@
     "title": "Full stack developer",
     "description": "I help people to learn web and mobile technologies.",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "javascript",
-      "css-in-js",
-      "graphql",
-      "gatsby"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "javascript", "css-in-js", "graphql", "gatsby"],
     "channels": [
       {
         "type": "linkedin",
@@ -4576,16 +3465,8 @@
     "title": "Frontend Developer",
     "description": "I love to help people!",
     "country": "AZ",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "html",
-      "css",
-      "sass",
-      "pug",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["html", "css", "sass", "pug", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -4608,16 +3489,8 @@
     "title": "Frontend Developer and Trainer",
     "description": "Diversity is what makes us strong! Coaching preferably for women, PoC...",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "angular",
-      "frontend",
-      "scrum",
-      "typescript",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["angular", "frontend", "scrum", "typescript", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -4640,15 +3513,8 @@
     "title": "Software Engineer",
     "description": "MAJOR: Android Development. MINOR: React-Native, Nodejs, NoSQL databases.",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "android",
-      "nodejs",
-      "nosql",
-      "react native"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["android", "nodejs", "nosql", "react native"],
     "channels": [
       {
         "type": "slack",
@@ -4671,18 +3537,8 @@
     "title": "React JS Architect",
     "description": "Full Stack Developer, LAMP / MERN Stack specialising in UX & Front End Tech.",
     "country": "GB",
-    "spokenLanguages": [
-      "en",
-      "ta",
-      "te"
-    ],
-    "tags": [
-      "frontend",
-      "reactjs",
-      "api-design",
-      "nodejs",
-      "php"
-    ],
+    "spokenLanguages": ["en", "ta", "te"],
+    "tags": ["frontend", "reactjs", "api-design", "nodejs", "php"],
     "channels": [
       {
         "type": "slack",
@@ -4705,15 +3561,8 @@
     "title": "Software Developer",
     "description": "Full Stack Developer (Angular & ASP.NET Core), happy to help",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "angular",
-      "asp.net core",
-      "architect"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "angular", "asp.net core", "architect"],
     "channels": [
       {
         "type": "email",
@@ -4736,16 +3585,8 @@
     "title": "Full Stack Software Engineer",
     "description": "Happy to help you with Java, Spring, JavaScript, React, AWS and Docker :)",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "reactjs",
-      "spring",
-      "javascript",
-      "aws"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java", "reactjs", "spring", "javascript", "aws"],
     "channels": [
       {
         "type": "email",
@@ -4768,16 +3609,8 @@
     "title": "MEAN/MERN Stack Developer",
     "description": "Hi, I am a full stack developer with some elegant skill on Javasript framework.",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "angular",
-      "aws",
-      "docker"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "reactjs", "angular", "aws", "docker"],
     "channels": [
       {
         "type": "email",
@@ -4800,16 +3633,8 @@
     "title": "Frontend Engineer",
     "description": "Frontend tinkerer since 1999, FullStack dabbler since 2007.",
     "country": "CH",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "fullstack",
-      "nodejs",
-      "express",
-      "reactjs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "fullstack", "nodejs", "express", "reactjs"],
     "channels": [
       {
         "type": "email",
@@ -4832,16 +3657,8 @@
     "title": "Magento 2 Developer - Tech Lead",
     "description": "EcommerceSpecialist, WebDev and NewTechnologyResearcher. Driven by GreatIdeas🎉",
     "country": "UA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "ecommerce",
-      "magento",
-      "php",
-      "automation",
-      "architecture"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["ecommerce", "magento", "php", "automation", "architecture"],
     "channels": [
       {
         "type": "twitter",
@@ -4860,16 +3677,8 @@
     "title": "User Experience Designer",
     "description": "I have a coding background and would love to help you with your UX issues.",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "ux",
-      "ui",
-      "wireframing",
-      "prototyping",
-      "sketch"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["ux", "ui", "wireframing", "prototyping", "sketch"],
     "channels": [
       {
         "type": "slack",
@@ -4892,16 +3701,8 @@
     "title": "Dev Advocate and Software Engineer",
     "description": "Dev Advocate, Software Engineer, Community Builder, Startup Founder and OSS",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "laravel",
-      "pwa",
-      "performance"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "laravel", "pwa", "performance"],
     "channels": [
       {
         "type": "twitter",
@@ -4924,16 +3725,8 @@
     "title": "Full-Stack Developer",
     "description": "I'm mostly self-taught, a full-stack developer with 5 years experince.",
     "country": "IT",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "e6",
-      "nodejs",
-      "sysadmin",
-      "linux"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["frontend", "e6", "nodejs", "sysadmin", "linux"],
     "channels": [
       {
         "type": "twitter",
@@ -4956,16 +3749,8 @@
     "title": "Software Engineer",
     "description": "Hi there! I am a Software Engineer with flair for Full Stack Web Development.",
     "country": "DK",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "angular",
-      "javascript",
-      "nodejs",
-      "express",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["angular", "javascript", "nodejs", "express", "frontend"],
     "channels": [
       {
         "type": "twitter",
@@ -4988,16 +3773,8 @@
     "title": "Fullstack developer",
     "description": "Tech Enthisiast & bad humorist",
     "country": "FR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "angular",
-      "nodejs",
-      "scrum",
-      "backend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "angular", "nodejs", "scrum", "backend"],
     "channels": [
       {
         "type": "email",
@@ -5020,16 +3797,8 @@
     "title": "Frontend Engineer",
     "description": "I'm into Javascript and User Interfaces!",
     "country": "GR",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "frontend",
-      "javascript",
-      "graphql",
-      "vuejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "frontend", "javascript", "graphql", "vuejs"],
     "channels": [
       {
         "type": "email",
@@ -5052,16 +3821,8 @@
     "title": "Mobile Developer",
     "description": "Happy to help with any app dev concepts & issues, always up for tech discussion!",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "kotlin",
-      "javascript",
-      "swift",
-      "react native"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java", "kotlin", "javascript", "swift", "react native"],
     "channels": [
       {
         "type": "email",
@@ -5080,13 +3841,7 @@
     "title": "React Developer",
     "description": "React, JavaScript, Node developer. Also with 4 years of Unity and C# experience.",
     "country": "TR",
-    "tags": [
-      "reactjs",
-      "javascript",
-      "nodejs",
-      "unity",
-      "c#"
-    ],
+    "tags": ["reactjs", "javascript", "nodejs", "unity", "c#"],
     "channels": [
       {
         "type": "email",
@@ -5109,13 +3864,7 @@
     "title": "Software Engineer",
     "description": "Experienced software engineer with a demonstrated history of working in IT.",
     "country": "LB",
-    "tags": [
-      "javascript",
-      "nodejs",
-      "c-sharp",
-      "front-end",
-      "angularjs"
-    ],
+    "tags": ["javascript", "nodejs", "c-sharp", "front-end", "angularjs"],
     "channels": [
       {
         "type": "email",
@@ -5138,12 +3887,7 @@
     "title": "Frontend Developer and Designer",
     "description": "Frontend Developer with an eye in graphic design!",
     "country": "CA",
-    "tags": [
-      "reactjs",
-      "frontend",
-      "javascript",
-      "nodejs"
-    ],
+    "tags": ["reactjs", "frontend", "javascript", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -5166,13 +3910,7 @@
     "title": "Software Developer",
     "description": "Tech lead and senior developer with 20 years of experience.",
     "country": "GB",
-    "tags": [
-      "dotnet",
-      "java",
-      "architecture",
-      "cloud",
-      "software-design"
-    ],
+    "tags": ["dotnet", "java", "architecture", "cloud", "software-design"],
     "channels": [
       {
         "type": "email",
@@ -5195,11 +3933,7 @@
     "title": "Android Developer @Dikalo",
     "description": "Let's learn together",
     "country": "NE",
-    "tags": [
-      "android",
-      "kotlin",
-      "java"
-    ],
+    "tags": ["android", "kotlin", "java"],
     "channels": [
       {
         "type": "email",
@@ -5222,12 +3956,7 @@
     "title": "Research Engineer",
     "description": "",
     "country": "GB",
-    "tags": [
-      "c++",
-      "python",
-      "java",
-      "tensorflow"
-    ],
+    "tags": ["c++", "python", "java", "tensorflow"],
     "channels": [
       {
         "type": "email",
@@ -5250,13 +3979,7 @@
     "title": "Web Developer",
     "description": "I like helping people and learn new topics of computing",
     "country": "PE",
-    "tags": [
-      "css",
-      "javascript",
-      "nodejs",
-      "reactjs",
-      "python"
-    ],
+    "tags": ["css", "javascript", "nodejs", "reactjs", "python"],
     "channels": [
       {
         "type": "email",
@@ -5279,13 +4002,7 @@
     "title": "Full Stack Developer",
     "description": "CTO @mad-hacks | Full Stack Web Dev | Mobile Dev | JavaScript heart",
     "country": "IN",
-    "tags": [
-      "javascript",
-      "php",
-      "python",
-      "golang",
-      "nosql"
-    ],
+    "tags": ["javascript", "php", "python", "golang", "nosql"],
     "channels": [
       {
         "type": "linkedin",
@@ -5308,13 +4025,7 @@
     "title": "Remote Full-Stack Developer",
     "description": "Remote, full-stack developer w/ 6+ yrs experience wanting to help others.",
     "country": "US",
-    "tags": [
-      "reactjs",
-      "react native",
-      "javascript",
-      "css",
-      "full-stack"
-    ],
+    "tags": ["reactjs", "react native", "javascript", "css", "full-stack"],
     "channels": [
       {
         "type": "email",
@@ -5337,12 +4048,7 @@
     "title": "Senior iOS Developer",
     "description": "10 Years of experience with iOS. Smaller experiences with FE/BE/SiteOps.",
     "country": "IT",
-    "tags": [
-      "ios",
-      "mobile",
-      "swift",
-      "objc"
-    ],
+    "tags": ["ios", "mobile", "swift", "objc"],
     "channels": [
       {
         "type": "facebook",
@@ -5361,13 +4067,7 @@
     "title": "Front-End Developer at @NasNav",
     "description": "CSS geek :D.",
     "country": "EG",
-    "tags": [
-      "a11y",
-      "html",
-      "css",
-      "javascript",
-      "reactjs"
-    ],
+    "tags": ["a11y", "html", "css", "javascript", "reactjs"],
     "channels": [
       {
         "type": "email",
@@ -5390,13 +4090,7 @@
     "title": "reactjs developer",
     "description": "Software engineer, focusing on React for the last 3 years.",
     "country": "PT",
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "frontend",
-      "html",
-      "css"
-    ],
+    "tags": ["nodejs", "reactjs", "frontend", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -5415,13 +4109,7 @@
     "title": "Software Developer",
     "description": "Hi, my name is Hemmy! I love coding in PHP, NodeJS, Flutter and Python.",
     "country": "IN",
-    "tags": [
-      "php",
-      "reactjs",
-      "flutter",
-      "data structures",
-      "python"
-    ],
+    "tags": ["php", "reactjs", "flutter", "data structures", "python"],
     "channels": [
       {
         "type": "email",
@@ -5444,12 +4132,7 @@
     "title": "Product/Full-stack Dev",
     "description": "Over 20 years of dev experience and about 10 in product and team building!",
     "country": "PE",
-    "tags": [
-      "fullstack",
-      "rails",
-      "ruby",
-      "product"
-    ],
+    "tags": ["fullstack", "rails", "ruby", "product"],
     "channels": [
       {
         "type": "email",
@@ -5472,13 +4155,7 @@
     "title": "Full-Stack JavaScript Developer",
     "description": "I'm a JS dev. Ask me anything Node/JS, React, flow, TypeScript etc !",
     "country": "FR",
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "express",
-      "typescript"
-    ],
+    "tags": ["javascript", "reactjs", "nodejs", "express", "typescript"],
     "channels": [
       {
         "type": "email",
@@ -5501,13 +4178,7 @@
     "title": "Frontend Developer",
     "description": "All things web development / UI / UX",
     "country": "US",
-    "tags": [
-      "frontend",
-      "javascript",
-      "typescript",
-      "reactjs",
-      "elm"
-    ],
+    "tags": ["frontend", "javascript", "typescript", "reactjs", "elm"],
     "channels": [
       {
         "type": "linkedin",
@@ -5530,11 +4201,7 @@
     "title": "Front-End Developer @oldboycd",
     "description": "In love with web technologies. AMA!",
     "country": "ES",
-    "tags": [
-      "nodejs",
-      "frontend",
-      "fullstack"
-    ],
+    "tags": ["nodejs", "frontend", "fullstack"],
     "channels": [
       {
         "type": "email",
@@ -5557,13 +4224,7 @@
     "title": "Software Devloper",
     "description": "A self taught programmer, i work as a backend engineer.",
     "country": "IN",
-    "tags": [
-      "c#",
-      "golang",
-      "nodejs",
-      "mongodb",
-      "asp.net"
-    ],
+    "tags": ["c#", "golang", "nodejs", "mongodb", "asp.net"],
     "channels": [
       {
         "type": "email",
@@ -5586,16 +4247,8 @@
     "title": "Software Engineer",
     "description": "Software Engineer, Writer and Speaker",
     "country": "BD",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "fullstack",
-      "angular",
-      "reactjs",
-      "java",
-      "mysql"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["fullstack", "angular", "reactjs", "java", "mysql"],
     "channels": [
       {
         "type": "twitter",
@@ -5618,13 +4271,7 @@
     "title": "Full-Stack Software Engineer",
     "description": "Hello. My name is Jake. I'm happy to help you learn about software development.",
     "country": "US",
-    "tags": [
-      "python",
-      "javascript",
-      "fullstack",
-      "devops",
-      "architecture"
-    ],
+    "tags": ["python", "javascript", "fullstack", "devops", "architecture"],
     "channels": [
       {
         "type": "email",
@@ -5643,13 +4290,7 @@
     "title": "Software Engineer",
     "description": "Self taught and then formally trained, strong fundamentals and loves mentoring",
     "country": "US",
-    "tags": [
-      "algorithms",
-      "ai",
-      "performance",
-      "web",
-      "interviews"
-    ],
+    "tags": ["algorithms", "ai", "performance", "web", "interviews"],
     "channels": [
       {
         "type": "email",
@@ -5672,13 +4313,7 @@
     "title": "Frontend Developer",
     "description": "Hi shoot questions at me and we'll solve them together.",
     "country": "BE",
-    "tags": [
-      "html",
-      "css",
-      "vuejs",
-      "nodejs",
-      "tailwind"
-    ],
+    "tags": ["html", "css", "vuejs", "nodejs", "tailwind"],
     "channels": [
       {
         "type": "twitter",
@@ -5701,13 +4336,7 @@
     "title": "Senior Software Engineer",
     "description": "Hello! Solving complex problems with code (Since 2002). Happy to help",
     "country": "US",
-    "tags": [
-      "java",
-      "kotlin",
-      "vuejs",
-      "architecture",
-      "aws"
-    ],
+    "tags": ["java", "kotlin", "vuejs", "architecture", "aws"],
     "channels": [
       {
         "type": "email",
@@ -5726,11 +4355,7 @@
     "title": "Developer",
     "description": "Self-taught develope Can help mostly with Python and TDD",
     "country": "EU",
-    "tags": [
-      "python",
-      "tdd",
-      "career advice"
-    ],
+    "tags": ["python", "tdd", "career advice"],
     "channels": [
       {
         "type": "email",
@@ -5753,13 +4378,7 @@
     "title": "Web Developer",
     "description": "Hi, I specialize in MERN stack and JAMstack applications.",
     "country": "NG",
-    "tags": [
-      "javascript",
-      "mongodb",
-      "express",
-      "reactjs",
-      "nodejs"
-    ],
+    "tags": ["javascript", "mongodb", "express", "reactjs", "nodejs"],
     "channels": [
       {
         "type": "linkedin",
@@ -5782,11 +4401,7 @@
     "title": "I ❤️  Javascript",
     "description": "Making things with React and Node",
     "country": "ES",
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "frontend"
-    ],
+    "tags": ["nodejs", "reactjs", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -5809,11 +4424,7 @@
     "title": "FullStack Developer",
     "description": "developer who is interested in web and mobile applications",
     "country": "IN",
-    "tags": [
-      "reactjs",
-      "nodejs",
-      "devops"
-    ],
+    "tags": ["reactjs", "nodejs", "devops"],
     "channels": [
       {
         "type": "email",
@@ -5836,13 +4447,7 @@
     "title": "Software Developer",
     "description": "Fullstack Engineer mentoring at Immersive Coding Bootcamps",
     "country": "IN",
-    "tags": [
-      "javascript",
-      "reactjs",
-      "angular",
-      "nodejs",
-      "serverless"
-    ],
+    "tags": ["javascript", "reactjs", "angular", "nodejs", "serverless"],
     "channels": [
       {
         "type": "email",
@@ -5865,13 +4470,7 @@
     "title": "Software Engineer",
     "description": "I'm an engineer specialising in front end. Happy to help.",
     "country": "ZA",
-    "tags": [
-      "javascript",
-      "vuejs",
-      "html",
-      "css",
-      "front-end"
-    ],
+    "tags": ["javascript", "vuejs", "html", "css", "front-end"],
     "channels": [
       {
         "type": "github",
@@ -5894,13 +4493,7 @@
     "title": "Systems Engineer",
     "description": "Front End Specialist & Functional Programming Enthusiast",
     "country": "US",
-    "tags": [
-      "frontend",
-      "javascript",
-      "typescript",
-      "reactjs",
-      "nodejs"
-    ],
+    "tags": ["frontend", "javascript", "typescript", "reactjs", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -5923,13 +4516,7 @@
     "title": "Front-End Software Engineer",
     "description": "Front-End Software Engineer, UI Designer, Entrepreneur, and Outdoor Adventurer.",
     "country": "IE",
-    "tags": [
-      "javascript",
-      "angular",
-      "typescript",
-      "rxjs",
-      "sass"
-    ],
+    "tags": ["javascript", "angular", "typescript", "rxjs", "sass"],
     "channels": [
       {
         "type": "linkedin",
@@ -5952,13 +4539,7 @@
     "title": "Software Engineer @ Datawrapper",
     "description": "Hi! 🙋🏻‍♂️ Happy to help with design systems, data viz and web apps in general.",
     "country": "DE",
-    "tags": [
-      "d3js",
-      "reactjs",
-      "svg",
-      "css",
-      "nodejs"
-    ],
+    "tags": ["d3js", "reactjs", "svg", "css", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -5981,11 +4562,7 @@
     "title": "Software Engineer ",
     "description": "I can help in js and react",
     "country": "EG",
-    "tags": [
-      "reactjs",
-      "js",
-      "redux"
-    ],
+    "tags": ["reactjs", "js", "redux"],
     "channels": [
       {
         "type": "linkedin",
@@ -6008,12 +4585,7 @@
     "title": "Software Developer",
     "description": "Passionate about helping others and learning.",
     "country": "US",
-    "tags": [
-      "javascript",
-      "nodejs",
-      "web",
-      "web-development"
-    ],
+    "tags": ["javascript", "nodejs", "web", "web-development"],
     "channels": [
       {
         "type": "linkedin",
@@ -6036,13 +4608,7 @@
     "title": "Senior Front-end Developer",
     "description": "Passionate about learning and helping others",
     "country": "CA",
-    "tags": [
-      "js",
-      "angular2",
-      "css",
-      "ngrx",
-      "frontend"
-    ],
+    "tags": ["js", "angular2", "css", "ngrx", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -6065,16 +4631,8 @@
     "title": "Project Manager at SSC",
     "description": "Software Consultant, Architecture,Software Engineer, Project Manager",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      ".netcore",
-      "c#",
-      "asp.net core",
-      "jquery",
-      "restapi"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": [".netcore", "c#", "asp.net core", "jquery", "restapi"],
     "channels": [
       {
         "type": "twitter",
@@ -6097,17 +4655,8 @@
     "title": "Software Developer",
     "description": "Full-stack developer focused on Python & the JavaScript ecosystem",
     "country": "KE",
-    "spokenLanguages": [
-      "en",
-      "sw"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "reactjs",
-      "graphql",
-      "python"
-    ],
+    "spokenLanguages": ["en", "sw"],
+    "tags": ["javascript", "nodejs", "reactjs", "graphql", "python"],
     "channels": [
       {
         "type": "slack",
@@ -6130,16 +4679,8 @@
     "title": "Sr. Software Engineer",
     "description": "",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "html",
-      "css",
-      "python",
-      "graphql"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "html", "css", "python", "graphql"],
     "channels": [
       {
         "type": "linkedin",
@@ -6162,18 +4703,8 @@
     "title": "Developer Advocate",
     "description": "Dev advocate, JavaScript developer and Blogger",
     "country": "IN",
-    "spokenLanguages": [
-      "en",
-      "ta",
-      "es"
-    ],
-    "tags": [
-      "frontend",
-      "backend",
-      "javascript",
-      "nodejs",
-      "git"
-    ],
+    "spokenLanguages": ["en", "ta", "es"],
+    "tags": ["frontend", "backend", "javascript", "nodejs", "git"],
     "channels": [
       {
         "type": "email",
@@ -6196,13 +4727,7 @@
     "title": "Full Stack Developer",
     "description": "Enabling the future with software",
     "country": "BR",
-    "tags": [
-      "linux",
-      "javascript",
-      "reactjs",
-      "testing",
-      "python"
-    ],
+    "tags": ["linux", "javascript", "reactjs", "testing", "python"],
     "channels": [
       {
         "type": "email",
@@ -6225,13 +4750,7 @@
     "title": "DevOps-Engineer",
     "description": "Self-taught developer and systems architect with 10+ yrs experience.",
     "country": "DE",
-    "tags": [
-      "devops",
-      "go",
-      "cloud",
-      "architecture",
-      "career"
-    ],
+    "tags": ["devops", "go", "cloud", "architecture", "career"],
     "channels": [
       {
         "type": "email",
@@ -6254,16 +4773,8 @@
     "title": "Lead Frontend Engineer",
     "description": "Feel free to ask anything! 12+ years and counting",
     "country": "AU",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "css",
-      "html",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "css", "html", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -6286,16 +4797,8 @@
     "title": "Frontend Developer",
     "description": "Self-taught dev. Focused on JavaScript, React, and Accessibility.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "accessibility",
-      "reactjs",
-      "career",
-      "tooling",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["accessibility", "reactjs", "career", "tooling", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -6318,17 +4821,8 @@
     "title": "Senior Ruby on Rails dev",
     "description": "Fullstack, Hacker, Sailor, Dad",
     "country": "AT",
-    "spokenLanguages": [
-      "de",
-      "en"
-    ],
-    "tags": [
-      "rails",
-      "mongodb",
-      "stimulusjs",
-      "bootstrap",
-      "growth hacking"
-    ],
+    "spokenLanguages": ["de", "en"],
+    "tags": ["rails", "mongodb", "stimulusjs", "bootstrap", "growth hacking"],
     "channels": [
       {
         "type": "email",
@@ -6351,17 +4845,8 @@
     "title": "Software Engineer at Noke",
     "description": "I'm a full-stack developer able to help with anything Javascript!",
     "country": "US",
-    "spokenLanguages": [
-      "en",
-      "da"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "vuejs",
-      "frontend",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en", "da"],
+    "tags": ["javascript", "reactjs", "vuejs", "frontend", "fullstack"],
     "channels": [
       {
         "type": "linkedin",
@@ -6384,16 +4869,8 @@
     "title": "Freelance Web Dev",
     "description": "",
     "country": "MU",
-    "spokenLanguages": [
-      "fr",
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "front-end",
-      "vuejs",
-      "electron.js"
-    ],
+    "spokenLanguages": ["fr", "en"],
+    "tags": ["javascript", "front-end", "vuejs", "electron.js"],
     "channels": [
       {
         "type": "email",
@@ -6416,16 +4893,8 @@
     "title": "Backend developer at Postman",
     "description": "I love open source and solving problems using models and design patterns.",
     "country": "IN",
-    "spokenLanguages": [
-      "en",
-      "hi"
-    ],
-    "tags": [
-      "nodejs",
-      "express",
-      "api-design",
-      "javascript"
-    ],
+    "spokenLanguages": ["en", "hi"],
+    "tags": ["nodejs", "express", "api-design", "javascript"],
     "channels": [
       {
         "type": "website",
@@ -6448,17 +4917,8 @@
     "title": "Lead Instructor, Bootcamp",
     "description": "Instructor at Lighthouse Labs, a Canadian web development bootcamp",
     "country": "CA",
-    "spokenLanguages": [
-      "en",
-      "it"
-    ],
-    "tags": [
-      "reactjs",
-      "web dev",
-      "teaching",
-      "intro",
-      "javascript"
-    ],
+    "spokenLanguages": ["en", "it"],
+    "tags": ["reactjs", "web dev", "teaching", "intro", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -6481,16 +4941,8 @@
     "title": "Platform Engineer at r3",
     "description": "Probably best suited to helping new/early devs in their software journey 👩‍💻",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java",
-      "kotlin",
-      "backend",
-      "intro",
-      "blogging"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java", "kotlin", "backend", "intro", "blogging"],
     "channels": [
       {
         "type": "email",
@@ -6513,16 +4965,8 @@
     "title": "CTO",
     "description": "Ruby backend dev turned CTO",
     "country": "BE",
-    "spokenLanguages": [
-      "en",
-      "fr"
-    ],
-    "tags": [
-      "ruby",
-      "rails",
-      "backend",
-      "leadership"
-    ],
+    "spokenLanguages": ["en", "fr"],
+    "tags": ["ruby", "rails", "backend", "leadership"],
     "channels": [
       {
         "type": "email",
@@ -6545,17 +4989,8 @@
     "title": "Head of Engineering",
     "description": "Systems and Software Engineer! Happy to help and learn along the way!",
     "country": "CH",
-    "spokenLanguages": [
-      "de",
-      "en"
-    ],
-    "tags": [
-      "java",
-      "linux",
-      "automation",
-      "cloud",
-      "scrum"
-    ],
+    "spokenLanguages": ["de", "en"],
+    "tags": ["java", "linux", "automation", "cloud", "scrum"],
     "channels": [
       {
         "type": "email",
@@ -6578,16 +5013,8 @@
     "title": "Backend Engineer at Monzo",
     "description": "I work on infrastructure and distributed systems. Always happy to help ✨",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "platform",
-      "devops",
-      "go",
-      "python",
-      "kubernetes"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["platform", "devops", "go", "python", "kubernetes"],
     "channels": [
       {
         "type": "email",
@@ -6610,16 +5037,8 @@
     "title": "Front-end Dev & Technical Writer",
     "description": "I'm a JAMstack enthusiast [a11y & m16y], Technical Writer and OSS Advocate.",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "jamstack",
-      "hugo",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "jamstack", "hugo", "frontend"],
     "channels": [
       {
         "type": "github",
@@ -6642,16 +5061,8 @@
     "title": "Senior Software Engineer",
     "description": "I build React and Python web apps on AWS. AMA!",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "python",
-      "aws",
-      "reactjs",
-      "docker",
-      "backend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["python", "aws", "reactjs", "docker", "backend"],
     "channels": [
       {
         "type": "twitter",
@@ -6674,16 +5085,8 @@
     "title": "Senior Front Engineer @ SamKnows",
     "description": "Happy to help on all front end things related!",
     "country": "GB",
-    "spokenLanguages": [
-      "en",
-      "fr"
-    ],
-    "tags": [
-      "html",
-      "css",
-      "javascript",
-      "vuejs"
-    ],
+    "spokenLanguages": ["en", "fr"],
+    "tags": ["html", "css", "javascript", "vuejs"],
     "channels": [
       {
         "type": "email",
@@ -6706,17 +5109,8 @@
     "title": "Senior Frontend Engineer",
     "description": "Engineer and occasional speaker/blogger. Always happy to help!",
     "country": "EU",
-    "spokenLanguages": [
-      "en",
-      "fr"
-    ],
-    "tags": [
-      "vuejs",
-      "javascript",
-      "frontend",
-      "remote work",
-      "career"
-    ],
+    "spokenLanguages": ["en", "fr"],
+    "tags": ["vuejs", "javascript", "frontend", "remote work", "career"],
     "channels": [
       {
         "type": "twitter",
@@ -6739,15 +5133,8 @@
     "title": "Full-stack web and C++ developer",
     "description": "Engineer, writer, speaker",
     "country": "IN",
-    "spokenLanguages": [
-      "en",
-      "hi"
-    ],
-    "tags": [
-      "nodejs",
-      "fullstack",
-      "frontend"
-    ],
+    "spokenLanguages": ["en", "hi"],
+    "tags": ["nodejs", "fullstack", "frontend"],
     "channels": [
       {
         "type": "github",
@@ -6770,17 +5157,8 @@
     "title": "Front-end Developer (React)",
     "description": "Hiya! I'll gladly lend a hand with HTML/CSS/JS and frameworks like React.",
     "country": "CA",
-    "spokenLanguages": [
-      "en",
-      "fr"
-    ],
-    "tags": [
-      "frontend",
-      "reactjs",
-      "css",
-      "html",
-      "javascript"
-    ],
+    "spokenLanguages": ["en", "fr"],
+    "tags": ["frontend", "reactjs", "css", "html", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -6803,17 +5181,8 @@
     "title": "Full-Stack Developer",
     "description": "15+ years of experience and happy to boost your skills or career.",
     "country": "DE",
-    "spokenLanguages": [
-      "de",
-      "en"
-    ],
-    "tags": [
-      "fullstack",
-      "vuejs",
-      "php",
-      "javascript",
-      "career"
-    ],
+    "spokenLanguages": ["de", "en"],
+    "tags": ["fullstack", "vuejs", "php", "javascript", "career"],
     "channels": [
       {
         "type": "email",
@@ -6836,17 +5205,8 @@
     "title": "Software Engineer",
     "description": "",
     "country": "BR",
-    "spokenLanguages": [
-      "en",
-      "pt"
-    ],
-    "tags": [
-      "fullstack",
-      "nodejs",
-      "reactjs",
-      "react native",
-      "serverless"
-    ],
+    "spokenLanguages": ["en", "pt"],
+    "tags": ["fullstack", "nodejs", "reactjs", "react native", "serverless"],
     "channels": [
       {
         "type": "slack",
@@ -6869,16 +5229,8 @@
     "title": "Front End Developer",
     "description": "My interests are JavaScript, React, CSS Grid, Flexbox.",
     "country": "CA",
-    "spokenLanguages": [
-      "en",
-      "hi",
-      "pa"
-    ],
-    "tags": [
-      "frontend",
-      "reactjs",
-      "vuejs"
-    ],
+    "spokenLanguages": ["en", "hi", "pa"],
+    "tags": ["frontend", "reactjs", "vuejs"],
     "channels": [
       {
         "type": "twitter",
@@ -6901,18 +5253,8 @@
     "title": "Frontend Engineer",
     "description": "Blending Functionallity and Artistry to Create Spectacular Websites",
     "country": "MX",
-    "spokenLanguages": [
-      "en",
-      "es",
-      "pt"
-    ],
-    "tags": [
-      "frontend",
-      "product",
-      "design system",
-      "css",
-      "js"
-    ],
+    "spokenLanguages": ["en", "es", "pt"],
+    "tags": ["frontend", "product", "design system", "css", "js"],
     "channels": [
       {
         "type": "linkedin",
@@ -6935,16 +5277,8 @@
     "title": "Managing Director",
     "description": "My passions include teaching (@ University of Colorado) and inspiring growth.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "express",
-      "reactjs",
-      "api",
-      "architecture"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "express", "reactjs", "api", "architecture"],
     "channels": [
       {
         "type": "email",
@@ -6967,16 +5301,8 @@
     "title": "Senior Web Developer, Artisan",
     "description": "Rejoice in what you learn, and spray it. Forward pay it. ",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "php",
-      "laravel",
-      "vuejs",
-      "git"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "php", "laravel", "vuejs", "git"],
     "channels": [
       {
         "type": "email",
@@ -6999,17 +5325,8 @@
     "title": "Software Engineer",
     "description": "I love to share my knowledge while I learn from others. Let's learn together!",
     "country": "ES",
-    "spokenLanguages": [
-      "es",
-      "en"
-    ],
-    "tags": [
-      "elixir",
-      "phoenix fwk",
-      "ruby",
-      "ruby on rails",
-      "backend"
-    ],
+    "spokenLanguages": ["es", "en"],
+    "tags": ["elixir", "phoenix fwk", "ruby", "ruby on rails", "backend"],
     "channels": [
       {
         "type": "email",
@@ -7032,16 +5349,8 @@
     "title": "React Native Engineer",
     "description": "Hello! I am a React Native and React Engineer, happy to help with any questions!",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "react native",
-      "reactjs",
-      "frontend",
-      "mobile",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["react native", "reactjs", "frontend", "mobile", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -7064,16 +5373,8 @@
     "title": "Frontend Developer",
     "description": "",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "js",
-      "vuejs",
-      "css",
-      "html"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "js", "vuejs", "css", "html"],
     "channels": [
       {
         "type": "email",
@@ -7096,14 +5397,8 @@
     "title": "Software Developer",
     "description": "Experienced Software developer. Skilled in React, ReactNative and Vuejs",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "react native",
-      "vuejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "react native", "vuejs"],
     "channels": [
       {
         "type": "email",
@@ -7126,16 +5421,8 @@
     "title": "Software Developer",
     "description": "Happy to help with React / Node.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "react native",
-      "nodejs",
-      "javascript",
-      "nextjs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "react native", "nodejs", "javascript", "nextjs"],
     "channels": [
       {
         "type": "email",
@@ -7158,16 +5445,8 @@
     "title": "Software Engineer",
     "description": "I am really passionate about JavaScript on the web",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "reactjs",
-      "php",
-      "web"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "reactjs", "php", "web"],
     "channels": [
       {
         "type": "twitter",
@@ -7190,17 +5469,8 @@
     "title": "Frontend Developer",
     "description": "Creating products that users love and experiences that help people grow!",
     "country": "PL",
-    "spokenLanguages": [
-      "en",
-      "pl"
-    ],
-    "tags": [
-      "reactjs",
-      "javascript",
-      "ux/ui",
-      "typescript",
-      "education"
-    ],
+    "spokenLanguages": ["en", "pl"],
+    "tags": ["reactjs", "javascript", "ux/ui", "typescript", "education"],
     "channels": [
       {
         "type": "email",
@@ -7223,12 +5493,8 @@
     "title": "Java Dev",
     "description": "Java Dev for JBoss Community",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "java"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["java"],
     "channels": [
       {
         "type": "email",
@@ -7243,16 +5509,8 @@
     "title": "Cloud Solutions Architect",
     "description": "Software Engineer: Cloud Architecture - AWS - Solidity - Blockchain",
     "country": "CA",
-    "spokenLanguages": [
-      "en",
-      "fr"
-    ],
-    "tags": [
-      "cloud",
-      "swoole",
-      "ethereum",
-      "start-ups"
-    ],
+    "spokenLanguages": ["en", "fr"],
+    "tags": ["cloud", "swoole", "ethereum", "start-ups"],
     "channels": [
       {
         "type": "linkedin",
@@ -7271,16 +5529,8 @@
     "title": "Site Reliability Engineering",
     "description": "Distributed systems, computer networks and loves a coding challenge.",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "go",
-      "linux",
-      "python",
-      "data structures",
-      "distributed systems"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["go", "linux", "python", "data structures", "distributed systems"],
     "channels": [
       {
         "type": "email",
@@ -7303,17 +5553,8 @@
     "title": "Ruby Developer",
     "description": "Hi, I speak Python and Ruby ...\"",
     "country": "AR",
-    "spokenLanguages": [
-      "en",
-      "es"
-    ],
-    "tags": [
-      "ruby",
-      "python",
-      "php",
-      "golang",
-      "javascript"
-    ],
+    "spokenLanguages": ["en", "es"],
+    "tags": ["ruby", "python", "php", "golang", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -7336,16 +5577,8 @@
     "title": "Front-end Dev/Technical writer",
     "description": "Technology Enthusiast, come let's build together",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "javascript",
-      "wordpress",
-      "jamstack",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "javascript", "wordpress", "jamstack", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -7368,17 +5601,8 @@
     "title": "Lead Teacher",
     "description": "Fullstack dev, Teacher at Ironhack, Teacher at Platzi, jamstack, reactjs lover.",
     "country": "MX",
-    "spokenLanguages": [
-      "en",
-      "es"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "express",
-      "graphql"
-    ],
+    "spokenLanguages": ["en", "es"],
+    "tags": ["javascript", "reactjs", "nodejs", "express", "graphql"],
     "channels": [
       {
         "type": "linkedin",
@@ -7401,17 +5625,8 @@
     "title": "React Developer",
     "description": "Hello, I'm Praveen. Happy to help in any kind of JavaScript Environment stuff.",
     "country": "IN",
-    "spokenLanguages": [
-      "en",
-      "hi"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "reactjs",
-      "react native",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en", "hi"],
+    "tags": ["javascript", "nodejs", "reactjs", "react native", "fullstack"],
     "channels": [
       {
         "type": "email",
@@ -7434,17 +5649,8 @@
     "title": "Full Stack Developer/Tech Lead",
     "description": "Full stack developer, Tech lead, focusing on javascript, node.js, python, php.",
     "country": "IN",
-    "spokenLanguages": [
-      "ml",
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "python",
-      "php",
-      "reactjs"
-    ],
+    "spokenLanguages": ["ml", "en"],
+    "tags": ["javascript", "nodejs", "python", "php", "reactjs"],
     "channels": [
       {
         "type": "twitter",
@@ -7467,16 +5673,8 @@
     "title": "Senior Developer at Etch",
     "description": "Weekdays I work with Umbraco CMS, weekends are for wilderness!",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "c#",
-      "umbraco",
-      "asp.net",
-      "tsql",
-      ".net"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["c#", "umbraco", "asp.net", "tsql", ".net"],
     "channels": [
       {
         "type": "slack",
@@ -7499,17 +5697,8 @@
     "title": "Frontend Developer",
     "description": "Skilled in React.js/Javascript.Can help you in learning frontend development.AMA",
     "country": "IN",
-    "spokenLanguages": [
-      "en",
-      "hi",
-      "mr"
-    ],
-    "tags": [
-      "reactjs",
-      "nodejs",
-      "frontend",
-      "websitedevelopment"
-    ],
+    "spokenLanguages": ["en", "hi", "mr"],
+    "tags": ["reactjs", "nodejs", "frontend", "websitedevelopment"],
     "channels": [
       {
         "type": "linkedin",
@@ -7532,16 +5721,8 @@
     "title": "Product Engineer",
     "description": "I build React apps, product APIs, and compilers.",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "reactjs",
-      "performance",
-      "typescript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "nodejs", "reactjs", "performance", "typescript"],
     "channels": [
       {
         "type": "email",
@@ -7564,17 +5745,8 @@
     "title": "Sr. Javascript Developer",
     "description": "Happy to help junior programmers",
     "country": "IN",
-    "spokenLanguages": [
-      "en",
-      "hi"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "devops",
-      "docker",
-      "kubernetes"
-    ],
+    "spokenLanguages": ["en", "hi"],
+    "tags": ["javascript", "nodejs", "devops", "docker", "kubernetes"],
     "channels": [
       {
         "type": "email",
@@ -7597,11 +5769,7 @@
     "title": "Lead PHP Developer",
     "description": "Backend Team Lead with a passion for state-of-the-art technologies.",
     "country": "DE",
-    "spokenLanguages": [
-      "en",
-      "ru",
-      "uk"
-    ],
+    "spokenLanguages": ["en", "ru", "uk"],
     "tags": [
       "php",
       "backend",
@@ -7631,14 +5799,8 @@
     "title": "Lead Quality Engineer",
     "description": "Hello, I'm Ravindra. Happy to help in Selenium and Web Automation.",
     "country": "IN",
-    "spokenLanguages": [
-      "en",
-      "hi"
-    ],
-    "tags": [
-      "selenium",
-      "web automation"
-    ],
+    "spokenLanguages": ["en", "hi"],
+    "tags": ["selenium", "web automation"],
     "channels": [
       {
         "type": "linkedin",
@@ -7661,14 +5823,8 @@
     "title": "Mr",
     "description": "Full Stack Web Developer",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "ruby",
-      "rails",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["ruby", "rails", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -7687,17 +5843,8 @@
     "title": "Senior Software Engineer",
     "description": "Web development is my technical expertise, more focused on frontend development",
     "country": "DE",
-    "spokenLanguages": [
-      "en",
-      "ar",
-      "fr"
-    ],
-    "tags": [
-      "reactjs",
-      "frontend",
-      "fullstack",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en", "ar", "fr"],
+    "tags": ["reactjs", "frontend", "fullstack", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -7720,14 +5867,8 @@
     "title": "Game Developer",
     "description": "Passionate Software & Game Developer currently finishing his degree.",
     "country": "GB",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "c#",
-      "c++",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["c#", "c++", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -7750,17 +5891,8 @@
     "title": "Software Engineer",
     "description": "Speaker, Writer, PHP/JS/Go/Open Source lover, Dungeon Master, Gamer",
     "country": "PT",
-    "spokenLanguages": [
-      "en",
-      "pt"
-    ],
-    "tags": [
-      "php",
-      "javascript",
-      "vuejs",
-      "fullstack",
-      "career"
-    ],
+    "spokenLanguages": ["en", "pt"],
+    "tags": ["php", "javascript", "vuejs", "fullstack", "career"],
     "channels": [
       {
         "type": "twitter",
@@ -7783,15 +5915,8 @@
     "title": "Front-end developer",
     "description": "Frontend specialist, fullstack able. Seeking code review exchanges (all levels).",
     "country": "CA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "typescript",
-      "angular",
-      "unit testing"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "typescript", "angular", "unit testing"],
     "channels": [
       {
         "type": "email",
@@ -7814,17 +5939,8 @@
     "title": "Frontend developer",
     "description": "Developer frontend with a strong passion of Javascript",
     "country": "IT",
-    "spokenLanguages": [
-      "en",
-      "it"
-    ],
-    "tags": [
-      "javascript",
-      "typescript",
-      "angular",
-      "html",
-      "css"
-    ],
+    "spokenLanguages": ["en", "it"],
+    "tags": ["javascript", "typescript", "angular", "html", "css"],
     "channels": [
       {
         "type": "email",
@@ -7847,14 +5963,8 @@
     "title": "Senior Software Engineer",
     "description": "Passionate software engineer with 2.4 years of experience building products",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "nodejs",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["reactjs", "nodejs", "javascript"],
     "channels": [
       {
         "type": "twitter",
@@ -7877,16 +5987,8 @@
     "title": "Reactive Developer",
     "description": "Frontend Engineer | Google Code-In Mentor 2017,18 | Open Source Dev at FOSSASIA",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "firebase",
-      "css",
-      "html"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "firebase", "css", "html"],
     "channels": [
       {
         "type": "linkedin",
@@ -7909,17 +6011,8 @@
     "title": "Fullstack Developer",
     "description": "Passionate Software Developer",
     "country": "VE",
-    "spokenLanguages": [
-      "en",
-      "es"
-    ],
-    "tags": [
-      "angular",
-      "reactjs",
-      "javascript",
-      "frontend",
-      "fullstack"
-    ],
+    "spokenLanguages": ["en", "es"],
+    "tags": ["angular", "reactjs", "javascript", "frontend", "fullstack"],
     "channels": [
       {
         "type": "linkedin",
@@ -7942,17 +6035,8 @@
     "title": "Full Stack Developer",
     "description": "I can help you build something that the people will go to use",
     "country": "BR",
-    "spokenLanguages": [
-      "en",
-      "pt"
-    ],
-    "tags": [
-      "nodejs",
-      "reactjs",
-      "ruby on rails",
-      "kotlin",
-      "php"
-    ],
+    "spokenLanguages": ["en", "pt"],
+    "tags": ["nodejs", "reactjs", "ruby on rails", "kotlin", "php"],
     "channels": [
       {
         "type": "linkedin",
@@ -7975,14 +6059,8 @@
     "title": "Sport Programmer",
     "description": "I take part in coding contests a lot and happy to help you with problem solving.",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "data structures",
-      "algorithms",
-      "c++"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["data structures", "algorithms", "c++"],
     "channels": [
       {
         "type": "slack",
@@ -8005,17 +6083,8 @@
     "title": "Software Engineer",
     "description": "Full Stack Web and Mobile Hybrid Developer",
     "country": "PH",
-    "spokenLanguages": [
-      "tl",
-      "en"
-    ],
-    "tags": [
-      "reactjs",
-      "nodejs",
-      "fullstack",
-      "express",
-      "react native"
-    ],
+    "spokenLanguages": ["tl", "en"],
+    "tags": ["reactjs", "nodejs", "fullstack", "express", "react native"],
     "channels": [
       {
         "type": "email",
@@ -8038,16 +6107,8 @@
     "title": "Senior Software Engineer",
     "description": "Hi! i would love to help you with your javascript related queries.",
     "country": "PK",
-    "spokenLanguages": [
-      "en",
-      "ur"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "frontend",
-      "nodejs"
-    ],
+    "spokenLanguages": ["en", "ur"],
+    "tags": ["javascript", "reactjs", "frontend", "nodejs"],
     "channels": [
       {
         "type": "email",
@@ -8066,15 +6127,8 @@
     "title": "Full stack developer",
     "description": "I'm self-taught and enjoy the quirks and challenges of front end dev",
     "country": "US",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "typescript",
-      "frontend",
-      "angular"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "typescript", "frontend", "angular"],
     "channels": [
       {
         "type": "email",
@@ -8093,15 +6147,8 @@
     "title": "Fundamental programmer",
     "description": "I teach Computability, I write compilers for fun, and I coded a bank in Python.",
     "country": "HR",
-    "spokenLanguages": [
-      "hr",
-      "en"
-    ],
-    "tags": [
-      "computability",
-      "python",
-      "c"
-    ],
+    "spokenLanguages": ["hr", "en"],
+    "tags": ["computability", "python", "c"],
     "channels": [
       {
         "type": "email",
@@ -8120,12 +6167,7 @@
     "title": "Front End Developer",
     "description": "PlayFifa PlayCode.",
     "country": "EG",
-    "tags": [
-      "reactjs",
-      "redux",
-      "js",
-      "software-design"
-    ],
+    "tags": ["reactjs", "redux", "js", "software-design"],
     "channels": [
       {
         "type": "github",
@@ -8148,14 +6190,8 @@
     "title": "Software Architect",
     "description": "",
     "country": "IT",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "mongodb",
-      "c#"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "mongodb", "c#"],
     "channels": [
       {
         "type": "email",
@@ -8178,15 +6214,8 @@
     "title": "Full-Stack JavaScript Developer",
     "description": "I'm a 💻Web /📱Mobile application developer currently obsessed with Javascript.",
     "country": "MA",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "nodejs",
-      "react native"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "nodejs", "react native"],
     "channels": [
       {
         "type": "linkedin",
@@ -8209,15 +6238,8 @@
     "title": "Software Engineer",
     "description": "Passionate programmer",
     "country": "DE",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "ruby",
-      "javascript",
-      "golang",
-      "reactjs"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["ruby", "javascript", "golang", "reactjs"],
     "channels": [
       {
         "type": "linkedin",
@@ -8232,17 +6254,8 @@
     "title": "Frontend developer",
     "description": "A self taught developer. Let me know if you need any help :)",
     "country": "CZ",
-    "spokenLanguages": [
-      "en",
-      "cs",
-      "vi"
-    ],
-    "tags": [
-      "javascript",
-      "frontend",
-      "reactjs",
-      "redux"
-    ],
+    "spokenLanguages": ["en", "cs", "vi"],
+    "tags": ["javascript", "frontend", "reactjs", "redux"],
     "channels": [
       {
         "type": "linkedin",
@@ -8265,16 +6278,8 @@
     "title": "Fullstack JavaScript Engineer",
     "description": "Mexican, Software Technical Lead, Teaching at Bedu and Platzi, Speaker, Vueliber",
     "country": "MX",
-    "spokenLanguages": [
-      "es"
-    ],
-    "tags": [
-      "fullstack",
-      "nodejs",
-      "nestjs",
-      "graphql",
-      "vuejs"
-    ],
+    "spokenLanguages": ["es"],
+    "tags": ["fullstack", "nodejs", "nestjs", "graphql", "vuejs"],
     "channels": [
       {
         "type": "email",
@@ -8297,16 +6302,8 @@
     "title": "Chief Technical Officer",
     "description": "Dude, suckin'at something is the first step to being sorta good at something.",
     "country": "FR",
-    "spokenLanguages": [
-      "en",
-      "fr"
-    ],
-    "tags": [
-      "frontend",
-      "nodejs",
-      "mongodb",
-      "docker"
-    ],
+    "spokenLanguages": ["en", "fr"],
+    "tags": ["frontend", "nodejs", "mongodb", "docker"],
     "channels": [
       {
         "type": "email",
@@ -8329,15 +6326,8 @@
     "title": "Fullstack Engineer",
     "description": "Happy to help anything on Cloud, Fullstack Development",
     "country": "IN",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "apps script",
-      "devops",
-      "cloud"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "apps script", "devops", "cloud"],
     "channels": [
       {
         "type": "website",
@@ -8360,16 +6350,8 @@
     "title": "Software developer",
     "description": "Software developer in love with typescript (React and Node)",
     "country": "BR",
-    "spokenLanguages": [
-      "en",
-      "pt"
-    ],
-    "tags": [
-      "nodejs",
-      "typescript",
-      "reactjs",
-      "sass"
-    ],
+    "spokenLanguages": ["en", "pt"],
+    "tags": ["nodejs", "typescript", "reactjs", "sass"],
     "channels": [
       {
         "type": "linkedin",
@@ -8392,14 +6374,8 @@
     "title": "React Native Programmer",
     "description": "I love rxjs and react native.",
     "country": "GR",
-    "spokenLanguages": [
-      "el",
-      "en"
-    ],
-    "tags": [
-      "rxjs",
-      "react native"
-    ],
+    "spokenLanguages": ["el", "en"],
+    "tags": ["rxjs", "react native"],
     "channels": [
       {
         "type": "email",
@@ -8422,16 +6398,8 @@
     "title": "Full-Stack Software Engineer",
     "description": "Coaching is my passion. I am glad to help you improve your coding skills.",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "nodejs",
-      "typescript",
-      "reactjs",
-      "react native",
-      "javascript"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["nodejs", "typescript", "reactjs", "react native", "javascript"],
     "channels": [
       {
         "type": "email",
@@ -8454,16 +6422,8 @@
     "title": "JavaScript developer",
     "description": "Hi, I'm Passionate about learning and Teaching. I love JavaScript",
     "country": "NG",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "javascript",
-      "reactjs",
-      "jamstack",
-      "a11y",
-      "frontend"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["javascript", "reactjs", "jamstack", "a11y", "frontend"],
     "channels": [
       {
         "type": "email",
@@ -8486,16 +6446,8 @@
     "title": "Mobile App Developer",
     "description": "Forward thinking developer with experience in building Mobile applications. ",
     "country": "RO",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "flutter",
-      "android",
-      "ios",
-      "dart",
-      "kotlin"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["flutter", "android", "ios", "dart", "kotlin"],
     "channels": [
       {
         "type": "email",
@@ -8518,17 +6470,8 @@
     "title": "Full-Stack JavaScript Developer",
     "description": "Happy to help you with Node.js & JavaScript questions :)",
     "country": "FR",
-    "spokenLanguages": [
-      "en",
-      "fr"
-    ],
-    "tags": [
-      "javascript",
-      "nodejs",
-      "opentype",
-      "aws",
-      "vuejs"
-    ],
+    "spokenLanguages": ["en", "fr"],
+    "tags": ["javascript", "nodejs", "opentype", "aws", "vuejs"],
     "channels": [
       {
         "type": "linkedin",
@@ -8551,18 +6494,8 @@
     "title": "Software Architect",
     "description": "Expert in Angular, React, Node.js and AWS",
     "country": "US",
-    "spokenLanguages": [
-      "en",
-      "hi",
-      "ur"
-    ],
-    "tags": [
-      "reactjs",
-      "angular",
-      "aws",
-      "frontend",
-      "css"
-    ],
+    "spokenLanguages": ["en", "hi", "ur"],
+    "tags": ["reactjs", "angular", "aws", "frontend", "css"],
     "channels": [
       {
         "type": "email",
@@ -8585,17 +6518,8 @@
     "title": "JavaScript Engineer",
     "description": "JavaScript && React lover working as a Senior Softwarer Engineer @ EPAM Systems",
     "country": "PE",
-    "spokenLanguages": [
-      "es",
-      "en"
-    ],
-    "tags": [
-      "frontend",
-      "reactjs",
-      "angular",
-      "nodejs",
-      "backend"
-    ],
+    "spokenLanguages": ["es", "en"],
+    "tags": ["frontend", "reactjs", "angular", "nodejs", "backend"],
     "channels": [
       {
         "type": "linkedin",
@@ -8618,16 +6542,8 @@
     "title": "Web Developer",
     "description": "Hi, I'm ready to help you !",
     "country": "JO",
-    "spokenLanguages": [
-      "en"
-    ],
-    "tags": [
-      "laravel",
-      "vuejs",
-      "oracle apex",
-      "php",
-      "js"
-    ],
+    "spokenLanguages": ["en"],
+    "tags": ["laravel", "vuejs", "oracle apex", "php", "js"],
     "channels": [
       {
         "type": "email",
@@ -8646,14 +6562,8 @@
     "title": "InterSystems Developer Advocate",
     "description": "Dev Advocate for InterSystems products",
     "country": "RU",
-    "spokenLanguages": [
-      "en",
-      "ru"
-    ],
-    "tags": [
-      "intersystems",
-      "devops"
-    ],
+    "spokenLanguages": ["en", "ru"],
+    "tags": ["intersystems", "devops"],
     "channels": [
       {
         "type": "email",
@@ -8676,17 +6586,8 @@
     "title": "Full Stack .Net Developer",
     "description": "As a fresh dev technician I'm ready to help early devs in there software journey",
     "country": "RO",
-    "spokenLanguages": [
-      "en",
-      "ro"
-    ],
-    "tags": [
-      "c#",
-      "design",
-      "frontend",
-      "performance",
-      "teamwork"
-    ],
+    "spokenLanguages": ["en", "ro"],
+    "tags": ["c#", "design", "frontend", "performance", "teamwork"],
     "channels": [
       {
         "type": "email",
@@ -8709,16 +6610,8 @@
     "title": "Software Developer",
     "description": "Experienced freelancer. I specialize in web development and mobile development.",
     "country": "IR",
-    "spokenLanguages": [
-      "en",
-      "fa"
-    ],
-    "tags": [
-      "php",
-      "wordpress",
-      "android",
-      "ios"
-    ],
+    "spokenLanguages": ["en", "fa"],
+    "tags": ["php", "wordpress", "android", "ios"],
     "channels": [
       {
         "type": "email",

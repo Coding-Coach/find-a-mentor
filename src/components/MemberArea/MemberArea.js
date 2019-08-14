@@ -25,7 +25,10 @@ function MemberArea(props) {
   }
 
   const openProfile = () => {
-    props.onOpenModal('Edit Your Pofile', <EditProfile user={currentUser} onUserUpdated={setCurrentUser} />);
+    props.onOpenModal(
+      'Edit Your Pofile',
+      <EditProfile user={currentUser} onUserUpdated={setCurrentUser} />
+    );
   };
 
   const openPendingApplications = () => {
@@ -60,12 +63,16 @@ function MemberArea(props) {
     <div className="auth">
       {isAuthenticated ? (
         <>
-
-          <UserAvatar onClick={() => currentUser && setIsMemberMenuOpen(!isMemberMenuOpen)}>
-            {currentUser ?
-              <UserImage alt={currentUser.email} src={currentUser.avatar} /> :
-              <AvatarPlaceHolder className="fa fa-user-circle" />
+          <UserAvatar
+            onClick={() =>
+              currentUser && setIsMemberMenuOpen(!isMemberMenuOpen)
             }
+          >
+            {currentUser ? (
+              <UserImage alt={currentUser.email} src={currentUser.avatar} />
+            ) : (
+              <AvatarPlaceHolder className="fa fa-user-circle" />
+            )}
           </UserAvatar>
           {isMemberMenuOpen && (
             <MemberMenu tabIndex="0">

@@ -29,7 +29,7 @@ export default {
     defaultValue: '',
     validate: value => !!value && urlValidation(value),
     helpText: 'https public URL to an image file',
-    previewImage: true
+    previewImage: true,
   },
   title: {
     label: 'Title',
@@ -42,7 +42,7 @@ export default {
     type: 'longtext',
     defaultValue: '',
     style: {
-      width: '100%'
+      width: '100%',
     },
   },
   country: {
@@ -53,7 +53,7 @@ export default {
       label: name,
       value: code,
     })),
-    validate: option => !!option.value
+    validate: option => !!option.value,
   },
   spokenLanguages: {
     label: 'Spoken Languages',
@@ -63,7 +63,7 @@ export default {
       value: lang.code,
       label: lang.name,
     })),
-    validate: options => !!options.length
+    validate: options => !!options.length,
   },
   tags: {
     label: 'Tags',
@@ -71,29 +71,56 @@ export default {
     defaultValue: [],
     maxItems: 5,
     style: {
-      width: '100%'
+      width: '100%',
     },
-    options: tags.map(tag => ({value: tag, label: tag})),
+    options: tags.map(tag => ({ value: tag, label: tag })),
     validate: options => !!options.length,
-    helpText: 'Up tp 5'
+    helpText: 'Up tp 5',
   },
   channels: {
     label: 'Channels',
     type: 'keyvalue',
     defaultValue: [],
     options: [
-      { value: 'email', label: 'Email Address', prefix: 'mailto:', validate: emailValidation },
-      { value: 'linkedin', label: 'LinkedIn', prefix: 'https://linkedin.com/in/' },
+      {
+        value: 'email',
+        label: 'Email Address',
+        prefix: 'mailto:',
+        validate: emailValidation,
+      },
+      {
+        value: 'linkedin',
+        label: 'LinkedIn',
+        prefix: 'https://linkedin.com/in/',
+      },
       { value: 'facebook', label: 'Facebook', prefix: 'https://facebook.com/' },
       { value: 'twitter', label: 'Twitter', prefix: 'https://twitter.com/@' },
       { value: 'github', label: 'Github', prefix: 'https://github.com/' },
-      { value: 'website', label: 'Website', prefix: 'https://', validate: value => urlValidation(`https://${value}`) },
-      { value: 'slack', label: 'Slack', prefix: 'https://coding-coach.slack.com/team/', helpText: <a target="_blank" rel="noopener noreferrer" href="https://medium.com/@moshfeu/how-to-find-my-member-id-in-slack-workspace-d4bba942e38c#88b8">How to find SlackId?</a> },
+      {
+        value: 'website',
+        label: 'Website',
+        prefix: 'https://',
+        validate: value => urlValidation(`https://${value}`),
+      },
+      {
+        value: 'slack',
+        label: 'Slack',
+        prefix: 'https://coding-coach.slack.com/team/',
+        helpText: (
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://medium.com/@moshfeu/how-to-find-my-member-id-in-slack-workspace-d4bba942e38c#88b8"
+          >
+            How to find SlackId?
+          </a>
+        ),
+      },
     ],
     style: {
-      width: '100%'
+      width: '100%',
     },
     helpText: 'Up to 3',
-    validate: options => options.length > 0
-  }
+    validate: options => options.length > 0,
+  },
 };

@@ -189,5 +189,5 @@ export default [
   'wordpress',
   'xamarin',
   'xamarin forms',
-  'xaml'
+  'xaml',
 ];

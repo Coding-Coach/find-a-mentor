@@ -22,7 +22,9 @@ export function fromVMtoM(user) {
 export function fromMtoVM(user) {
   return {
     ...user,
-    country: user.country ? { label: countries[user.country], value: user.country } : {value: ''},
+    country: user.country
+      ? { label: countries[user.country], value: user.country }
+      : { value: '' },
     spokenLanguages: user.spokenLanguages
       ? user.spokenLanguages.map(i => ({
           label: ISO6391.getName(i),
