@@ -54,7 +54,9 @@ export default class EditProfile extends Component {
       if (isMentor(user)) {
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
       } else {
-        const createApplicationResult = await createApplicationIfNotExists();
+        const createApplicationResult = await createApplicationIfNotExists(
+          user
+        );
         if (createApplicationResult.success) {
           toast.success(createApplicationResult.message);
           onUserUpdated(user);
