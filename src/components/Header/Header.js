@@ -33,9 +33,7 @@ function Header() {
           <Logo />
         </LogoWrapper>
         {isDesktop && (
-          <TitleWrapper>
-            <Title />
-          </TitleWrapper>
+          <Title />
         )}
       </LogoTitleWrapper>
 
@@ -109,15 +107,8 @@ const LogoTitleWrapper = styled.div`
   width: 320px;
 `;
 
-const TitleWrapper = styled.div`
-  width: 100px;
-  margin-top: -15px;
-  margin-left: -30px;
-`;
-
 const LogoWrapper = styled.div`
-  width: 180px;
-  margin-left: -30px;
+  margin: 0 10px;
 `;
 
 const HeaderOffCanvas = styled(OffCanvas)`
