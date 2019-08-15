@@ -45,7 +45,7 @@ export default {
     defaultValue: '',
     maxLength: 140,
     validate: value => !value || (value.length > 3 && value.length <= 140),
-    helpText: 'Empty or 3-141 characters',
+    helpText: 'Empty or 3-140 characters',
     style: {
       width: '100%',
     },
