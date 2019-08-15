@@ -32,9 +32,7 @@ function Header() {
         <LogoWrapper>
           <Logo />
         </LogoWrapper>
-        {isDesktop && (
-          <Title />
-        )}
+        {isDesktop && <Title />}
       </LogoTitleWrapper>
 
       {isDesktop ? (
