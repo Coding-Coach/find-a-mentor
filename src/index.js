@@ -9,10 +9,6 @@ import { reportError } from './ga';
 
 (async () => {
   try {
-    if (!window.location.search.includes('cc-admin')) {
-      document.write('<h1>The website is under maintenance. We\'ll back online soon :)</h1>');
-      return;
-    }
     await auth.renewSession();
     // prepare user - don't wait for it
     getCurrentUser();
