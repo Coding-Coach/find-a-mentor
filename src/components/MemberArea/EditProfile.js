@@ -118,6 +118,7 @@ export default class EditProfile extends Component {
                   />
                 )}
                 <CustomTag
+                  maxLength={config.maxLength}
                   aria-labelledby={fieldName}
                   value={user[fieldName] || config.defaultValue}
                   type="text"
