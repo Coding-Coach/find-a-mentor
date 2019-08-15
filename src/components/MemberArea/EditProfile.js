@@ -259,12 +259,17 @@ export default class EditProfile extends Component {
 
   handleKeyValueChange = (fieldName, prop, value) => {
     const { user } = this.state;
-    const isItemExist = user[fieldName].find(x => x.type === prop);
+    const itemIndex = user[fieldName].findIndex(x => x.type === prop)
+    const isItemExist = itemIndex > -1;
     if (isItemExist) {
-      user[fieldName] = user[fieldName].map(x => {
-        if (x.type === prop) x.id = value;
-        return x;
-      });
+      if (value) {
+        user[fieldName] = user[fieldName].map(x => {
+          if (x.type === prop) x.id = value;
+          return x;
+        });
+      } else {
+        user[fieldName].splice(itemIndex, 1);
+      }
     } else {
       user[fieldName].push({
         type: prop,
