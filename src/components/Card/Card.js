@@ -1,6 +1,6 @@
 import React from 'react';
 import Obfuscate from 'react-obfuscate';
-import { orderBy } from 'lodash';
+import orderBy from 'lodash/orderBy';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';

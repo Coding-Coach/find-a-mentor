@@ -7,9 +7,10 @@ export default class Modal extends Component {
     isActive: false,
   };
 
-  handleOpen = () => {
+  handleOpen = (children) => {
     this.setState({
       isActive: true,
+      children
     });
   };
 
@@ -27,17 +28,23 @@ export default class Modal extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.children !== this.props.children) {
-      this.handleOpen();
+      this.handleOpen(nextProps.children);
+    }
+  }
+
+  onTransitionEnd = (e) => {
+    if (!this.state.isActive) {
+      this.setState({children: null})
     }
   }
 
   render() {
-    const { isActive } = this.state;
-    const { children, title, size = '' } = this.props;
-
+    const { isActive, children } = this.state;
+    const { title, size = '' } = this.props;
     return (
       <div
         className={classNames(['modal-container', size, { active: isActive }])}
+        onTransitionEnd={this.onTransitionEnd}
       >
         <div className="modal-box">
           <button className="close" onClick={this.handleClose}>
