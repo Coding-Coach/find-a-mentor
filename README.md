@@ -19,6 +19,11 @@ Just go to https://mentors.codingcoach.io/, register and fill the form to become
 - Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests**
 - Yarn (we recommend using yarn as a package manager) [Install Yarn](https://yarnpkg.com/en/)
 
+## Want to be a mentor?
+
+#### 🎉 EXCITING ANNOUNCEMENT!
+We’re launching a new “become a mentor” process! This means we won’t be accepting any new mentor requests for a short period of time, but stay tuned for the official release of our new Sign Up feature!
+
 ## Want to contribute this project?
 
 That's why we here! 😀
