@@ -9148,5 +9148,37 @@
         "id": "lssweatherhead"
       }
     ]
+  },
+  {
+    "id": "it.ghasemzadeh@gmail.com",
+    "name": "Ali Ghasemzadeh",
+    "avatar": "https://shirazsoft.com/me.jpg",
+    "title": "php programming",
+    "description": "I can share my experiences with you.",
+    "country": "IR",
+    "spokenLanguages": [
+      "en",
+      "fa"
+    ],
+    "tags": [
+      "php",
+      "laravel",
+      "vuejs",
+      "bootstrap"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "it.ghasemzadeh@gmail.com"
+      },
+      {
+        "type": "twitter",
+        "id": "aghasemzadeh"
+      },
+      {
+        "type": "github",
+        "id": "alighasemzadeh"
+      }
+    ]
   }
 ]
