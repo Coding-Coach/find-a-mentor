@@ -41,6 +41,8 @@ export default {
     label: 'Description',
     type: 'longtext',
     defaultValue: '',
+    validate: value => !value || value.length > 3,
+    helpText: 'Empty or at least 3 characters',
     style: {
       width: '100%',
     },
