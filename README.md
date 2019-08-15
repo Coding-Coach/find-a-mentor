@@ -7,7 +7,7 @@ Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
 
-Just go to https://mentors.codingcoach.io/, register and find her / him / them.
+Just go to https://mentors.codingcoach.io/, register and find them.
 
 ## Want to be a mentor?
 
