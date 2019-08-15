@@ -1,5 +1,5 @@
 import auth from '../utils/auth';
-import { report } from '../ga';
+import { reportError } from '../ga';
 import { toast } from 'react-toastify';
 import messages from '../messages';
 
@@ -42,7 +42,7 @@ export async function makeApiCall(path, body, method) {
     }
     return res;
   } catch (error) {
-    report('Api', 'Error', `${error || 'unknown error'} at ${path}`);
+    reportError('Api', `${error || 'unknown error'} at ${path}`);
     console.error(error);
     !toast.isActive(API_ERROR_TOAST_ID) &&
       toast.error(messages.GENERIC_ERROR, {

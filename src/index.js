@@ -5,12 +5,17 @@ import * as serviceWorker from './serviceWorker';
 import auth from './utils/auth';
 import { getCurrentUser } from './api';
 import './index.css';
+import { reportError } from './ga';
 
 (async () => {
-  await auth.renewSession();
-  // prepare user - don't wait for it
-  getCurrentUser();
-  ReactDOM.render(<App />, document.getElementById('root'));
+  try {
+    await auth.renewSession();
+    // prepare user - don't wait for it
+    getCurrentUser();
+    ReactDOM.render(<App />, document.getElementById('root'));
+  } catch (error) {
+    reportError('Init', error);
+  }
 })();
 
 // If you want your app to work offline and load faster, you can change

@@ -13,7 +13,7 @@ import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
 import { providers } from '../../channelProvider';
 import auth from '../../utils/auth';
 import messages from '../../messages';
-import { report } from '../../ga';
+import { report, reportError } from '../../ga';
 
 export default class EditProfile extends Component {
   state = {
@@ -65,14 +65,17 @@ export default class EditProfile extends Component {
           toast.success(createApplicationResult.message);
           onUserUpdated(user);
           onClose();
-          report('Member Area', 'Submit sucess', 'User details');
+          report('Member Area', 'Submit success', 'User details');
         } else {
-          report('Member Area', 'Submit failed', 'User details');
+          reportError(
+            'Member Area - User details',
+            createApplicationResult.message
+          );
           toast.error(createApplicationResult.message);
         }
       }
     } else {
-      report('Member Area', 'Submit failed', 'User details');
+      reportError('Member Area - User details');
       toast.error(messages.GENERIC_ERROR);
     }
     this.setState({ disabled: false });
