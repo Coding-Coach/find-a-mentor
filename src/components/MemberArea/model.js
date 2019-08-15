@@ -21,7 +21,8 @@ export default {
     label: 'Name',
     type: 'text',
     defaultValue: '',
-    validate: value => !!value,
+    maxLength: 50,
+    validate: value => !!value && (value.length > 3 && value.length <= 50),
   },
   avatar: {
     label: 'Avatar',
@@ -34,15 +35,16 @@ export default {
   title: {
     label: 'Title',
     type: 'text',
+    maxLength: 50,
     defaultValue: '',
-    validate: value => !!value,
+    validate: value => !!value && (value.length > 3 && value.length <= 50),
   },
   description: {
     label: 'Description',
     type: 'longtext',
     defaultValue: '',
-    maxLength: 141,
-    validate: value => !value || (value.length > 3 && value.length <= 141),
+    maxLength: 140,
+    validate: value => !value || (value.length > 3 && value.length <= 140),
     helpText: 'Empty or 3-141 characters',
     style: {
       width: '100%',
