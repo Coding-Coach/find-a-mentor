@@ -17,7 +17,8 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 
 ## Want to be a mentor?
 
-#### 🎉 Exciting news! We're about to launch a whole new process of becoming a mentor. So, just for a short time, we can't accept new mentors requests. Please hold on and stay tuned.
+#### 🎉 EXCITING ANNOUNCEMENT!
+We’re launching a new “become a mentor” process! This means we won’t be accepting any new mentor requests for a short period of time, but stay tuned for the official release of our new Sign Up feature!
 
 ## Want to contribute this project?
 
