@@ -1,4 +1,4 @@
-@media all and (max-width: 575.98px) {
+@media all and (max-width: 800px) {
   main {
     flex-direction: column;
   }
@@ -17,20 +17,23 @@
   }
 }
 
-@media all and (min-width: 576px) {
+@media all and (min-width: 800px) {
   .mentors-wrapper {
     flex-grow: 1;
     margin-left: 276px;
     padding-bottom: 30px;
   }
-  
+
   .mentors-cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    overflow-y: auto;
-    margin-top: 100px;
   }
+}
+
+.mentors-cards .loader {
+  font-size: 2em;
+  margin-top: 15px;
 }
 
 .nothing-to-show {

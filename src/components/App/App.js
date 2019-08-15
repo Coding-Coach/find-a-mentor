@@ -1,25 +1,42 @@
 import './App.css';
-import mentors from '../../mentors.json';
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-tippy/dist/tippy.css';
 
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import classNames from 'classnames';
 import MentorsList from '../MentorsList/MentorsList';
 import Filter from '../Filter/Filter';
-import Logo from '../Logo';
 import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
-import shuffle from 'lodash/shuffle';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
+import { getMentors } from '../../api';
+import { ToastContainer } from 'react-toastify';
 
-// const serverEndpoint = 'http://localhost:3001';
+function scrollToTop() {
+  const scrollDuration = 200;
+  return new Promise(resolve => {
+    const scrollStep = -window.scrollY / (scrollDuration / 15),
+      scrollInterval = setInterval(function() {
+        if (window.scrollY !== 0) {
+          window.scrollBy(0, scrollStep);
+        } else {
+          clearInterval(scrollInterval);
+          resolve();
+        }
+      }, 15);
+  });
+}
+
 class App extends Component {
   state = {
-    mentors: shuffle(mentors),
+    mentors: [],
     favorites: get(),
+    ready: false,
     modal: {
       title: null,
       content: null,
@@ -75,7 +92,7 @@ class App extends Component {
       (!language ||
         (mentor.spokenLanguages &&
           mentor.spokenLanguages.includes(language))) &&
-      (!showFavorite || favorites.indexOf(mentor.id) > -1)
+      (!showFavorite || favorites.indexOf(mentor._id) > -1)
     );
   };
 
@@ -132,9 +149,14 @@ class App extends Component {
     set(nextState);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     reportPageView();
     this.getPermalinkParams();
+    const mentors = await getMentors();
+    this.setState({
+      mentors,
+      ready: true,
+    });
   }
 
   handleModal = (title, content, onClose) => {
@@ -150,111 +172,110 @@ class App extends Component {
 
   render() {
     const {
-      mentors,
+      mentors = [],
       fieldsIsActive,
       modal,
       clickedTag,
       clickedCountry,
+      ready,
     } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
       <div className="app">
+        <ToastContainer />
         <Modal onClose={this.closeModal} title={modal.title}>
           {modal.content}
         </Modal>
 
-        <main>
+        <Main>
           <Header />
-          <aside className="sidebar">
-            <Logo width={110} height={50} color="#68d5b1" />
-            <Filter
-              onTagSelected={this.handleTagSelect}
-              onCountrySelected={this.handleCountrySelect}
-              onNameSelected={this.handleNameSelect}
-              onLanguageSelected={this.handleLanguageSelect}
-              onToggleFilter={this.toggleFields}
-              onToggleSwitch={this.toggleSwitch}
-              mentorCount={mentorsInList.length}
-              clickedTag={clickedTag}
-              clickedCountry={clickedCountry}
+          <Content>
+            <aside className="sidebar">
+              <Filter
+                onTagSelected={this.handleTagSelect}
+                onCountrySelected={this.handleCountrySelect}
+                onNameSelected={this.handleNameSelect}
+                onLanguageSelected={this.handleLanguageSelect}
+                onToggleFilter={this.toggleFields}
+                onToggleSwitch={this.toggleSwitch}
+                mentorCount={mentorsInList.length}
+                clickedTag={clickedTag}
+                clickedCountry={clickedCountry}
+                mentors={mentorsInList}
+              />
+              <SocialLinks />
+              <nav className="sidebar-nav">
+                <ModalContent
+                  policyTitle={'Cookies policy'}
+                  content={'cookies-policy'}
+                  handleModal={(title, content) =>
+                    this.handleModal(title, content)
+                  }
+                />
+                <ModalContent
+                  policyTitle={'Code of Conduct'}
+                  content={'code-conduct'}
+                  handleModal={(title, content) =>
+                    this.handleModal(title, content)
+                  }
+                />
+                <ModalContent
+                  policyTitle={'Terms & Conditions'}
+                  content={'terms-conditions'}
+                  handleModal={(title, content) =>
+                    this.handleModal(title, content)
+                  }
+                />
+                <ModalContent
+                  policyTitle={'Privacy Statement'}
+                  content={'privacy-policy'}
+                  handleModal={(title, content) =>
+                    this.handleModal(title, content)
+                  }
+                />
+              </nav>
+              <a
+                href="https://www.patreon.com/codingcoach_io"
+                className="patreon-link"
+                aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
+                  alt="Become a Patron"
+                />
+              </a>
+            </aside>
+            <MentorsList
+              className={classNames({
+                active: fieldsIsActive,
+              })}
               mentors={mentorsInList}
+              favorites={this.state.favorites}
+              onFavMentor={this.onFavMentor}
+              handleTagClick={this.handleTagClick}
+              handleCountryClick={this.handleCountryClick}
+              ready={ready}
             />
-            <SocialLinks />
-
-            <nav className="sidebar-nav">
-              <ModalContent
-                policyTitle={'Cookies policy'}
-                content={'cookies-policy'}
-                handleModal={(title, content) =>
-                  this.handleModal(title, content)
-                }
-              />
-              <ModalContent
-                policyTitle={'Code of Conduct'}
-                content={'code-conduct'}
-                handleModal={(title, content) =>
-                  this.handleModal(title, content)
-                }
-              />
-              <ModalContent
-                policyTitle={'Terms & Conditions'}
-                content={'terms-conditions'}
-                handleModal={(title, content) =>
-                  this.handleModal(title, content)
-                }
-              />
-              <ModalContent
-                policyTitle={'Privacy Statement'}
-                content={'privacy-policy'}
-                handleModal={(title, content) =>
-                  this.handleModal(title, content)
-                }
-              />
-            </nav>
-
-            <a
-              href="https://www.patreon.com/codingcoach_io"
-              className="patreon-link"
-              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <img
-                src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
-                alt="Become a Patron"
-              />
-            </a>
-          </aside>
-          <MentorsList
-            className={classNames({
-              active: fieldsIsActive,
-            })}
-            mentors={mentorsInList}
-            favorites={this.state.favorites}
-            onFavMentor={this.onFavMentor}
-            handleTagClick={this.handleTagClick}
-            handleCountryClick={this.handleCountryClick}
-          />
-        </main>
+          </Content>
+        </Main>
       </div>
     );
   }
 }
 
-export default App;
+const Main = styled.main`
+  display: flex;
+  flex-direction: column;
+`;
 
-function scrollToTop() {
-  const scrollDuration = 200;
-  return new Promise(resolve => {
-    var scrollStep = -window.scrollY / (scrollDuration / 15),
-      scrollInterval = setInterval(function() {
-        if (window.scrollY !== 0) {
-          window.scrollBy(0, scrollStep);
-        } else {
-          clearInterval(scrollInterval);
-          resolve();
-        }
-      }, 15);
-  });
-}
+const Content = styled.div`
+  display: flex;
+  @media all and (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+
+export default App;

@@ -5,12 +5,14 @@ import InfiniteScroll from 'react-infinite-scroller';
 import Card from '../Card/Card';
 
 import './MentorList.css';
+import { Loader } from '../Loader';
 
 const itemsInPage = 20;
 
 export default class MentorsList extends Component {
   state = {
     page: 1,
+    ready: false,
   };
 
   loadMore = () => {
@@ -20,24 +22,50 @@ export default class MentorsList extends Component {
   };
 
   componentWillReceiveProps(newProps) {
-    if (newProps.mentors !== this.props.mentors) {
+    const { mentors, ready } = this.props;
+    if (newProps.mentors !== mentors || newProps.ready !== ready) {
       this.setState({
         page: 1,
+        ready: newProps.ready,
       });
     }
   }
 
-  render() {
+  mentorsList(mentorsInList) {
     const {
-      mentors,
-      className,
       favorites,
       onFavMentor,
       handleTagClick,
       handleCountryClick,
     } = this.props;
-    const { page } = this.state;
 
+    return mentorsInList.map((mentor, index) => (
+      <Card
+        key={`${mentor._id}-${index}`}
+        mentor={mentor}
+        onFavMentor={onFavMentor}
+        isFav={favorites.indexOf(mentor._id) > -1}
+        handleTagClick={handleTagClick}
+        handleCountryClick={handleCountryClick}
+      />
+    ));
+  }
+
+  nothingToShow(hasMentors) {
+    const { ready } = this.state;
+    return (
+      ready &&
+      !hasMentors && (
+        <div className="nothing-to-show">
+          ¯\_(ツ)_/¯ Wow, we can't believe it. We have nothing for you!
+        </div>
+      )
+    );
+  }
+
+  render() {
+    const { mentors, className } = this.props;
+    const { page, ready } = this.state;
     const mentorsInList = mentors.slice(0, page * itemsInPage);
 
     return (
@@ -50,21 +78,9 @@ export default class MentorsList extends Component {
           loadMore={this.loadMore}
           hasMore={mentorsInList.length < mentors.length}
         >
-          {mentorsInList.map(mentor => (
-            <Card
-              key={mentor.id}
-              mentor={mentor}
-              onFavMentor={onFavMentor}
-              isFav={favorites.indexOf(mentor.id) > -1}
-              handleTagClick={handleTagClick}
-              handleCountryClick={handleCountryClick}
-            />
-          ))}
-          {mentorsInList.length === 0 && (
-            <div className="nothing-to-show">
-              ¯\_(ツ)_/¯ Wow, we can't believe it. We have nothing for you!
-            </div>
-          )}
+          {this.mentorsList(mentorsInList)}
+          {!ready && <Loader />}
+          {this.nothingToShow(!!mentorsInList.length)}
         </InfiniteScroll>
       </section>
     );

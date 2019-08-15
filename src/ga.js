@@ -14,6 +14,10 @@ export function reportPageView() {
   ga('send', 'pageview');
 }
 
+export function reportError(category, label) {
+  report(category, 'Error', label);
+}
+
 function isLocal() {
   return window.location.host.includes('localhost');
 }

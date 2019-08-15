@@ -1,5 +1,5 @@
 .social-link {
-  margin: 0px 10px;
+  margin: 0 10px;
 }
 
 .social-link svg path {
@@ -15,7 +15,7 @@
   margin-top: 30px;
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 800px) {
   .social-wrapper {
     margin-top: 10px;
   }

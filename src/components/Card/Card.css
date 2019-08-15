@@ -105,7 +105,7 @@
 
 .card .tag {
   color: hsl(0, 0%, 100%);
-  background: #16385c;
+  background: var(--button-dark-bg);
   border: 0;
   border-radius: 20px;
   display: inline-block;
@@ -148,18 +148,34 @@
   border-radius: 0% 0% 50% 50%;
 }
 
-.card .channels a {
+.card .channels button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.card .channels a,
+.card .channels button {
   color: #16385c;
   text-decoration: none;
 }
 
-.card .channels a .icon {
+.card .channels a .icon,
+.card .channels button .icon {
   transition: transform 0.3s ease;
   transform-origin: 50%;
 }
 
 .card .channels a:hover .icon {
   transform: rotate(45deg);
+}
+
+.card .channels button:hover .icon {
+  transform: rotate(-90deg);
+}
+
+.card .channels button:active .icon {
+  transform: rotate(-110deg);
 }
 
 .card .channels a .type::first-letter {
@@ -173,7 +189,7 @@
 }
 
 .card .channels .type {
-  margin: 5px 0px;
+  margin: 5px 0;
 }
 
 .channel-label {
@@ -191,7 +207,7 @@
   color: hsl(0, 71%, 51%);
 }
 
-@media all and (max-width: 575.98px) {
+@media all and (max-width: 800px) {
   .card {
     margin-left: auto;
     margin-right: auto;
