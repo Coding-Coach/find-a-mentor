@@ -38,6 +38,10 @@ button {
   border: 0;
 }
 
+textarea {
+  resize: none;
+}
+
 button, select {
   text-transform: none;
 }
