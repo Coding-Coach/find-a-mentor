@@ -22,6 +22,7 @@ export default {
     type: 'text',
     defaultValue: '',
     maxLength: 50,
+    helpText: 'Please use your real name',
     validate: value => !!value && (value.length > 3 && value.length <= 50),
   },
   avatar: {
