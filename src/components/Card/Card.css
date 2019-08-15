@@ -81,9 +81,11 @@
   color: hsl(0, 0%, 29%);
   font-size: 20px;
   margin: 0 0 5px;
+  word-break: break-all;
 }
 
 .card .title {
+  word-break: break-all;
   color: hsl(0, 0%, 29%);
   margin: 0 0 5px;
   font-weight: 400;
@@ -91,6 +93,7 @@
 
 .card .description {
   font-style: italic;
+  word-break: break-all;
 
   color: #16385c;
   font-weight: 600;
