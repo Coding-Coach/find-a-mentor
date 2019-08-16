@@ -7,10 +7,10 @@ export default class Modal extends Component {
     isActive: false,
   };
 
-  handleOpen = (children) => {
+  handleOpen = children => {
     this.setState({
       isActive: true,
-      children
+      children,
     });
   };
 
@@ -32,11 +32,11 @@ export default class Modal extends Component {
     }
   }
 
-  onTransitionEnd = (e) => {
+  onTransitionEnd = e => {
     if (!this.state.isActive) {
-      this.setState({children: null})
+      this.setState({ children: null });
     }
-  }
+  };
 
   render() {
     const { isActive, children } = this.state;
