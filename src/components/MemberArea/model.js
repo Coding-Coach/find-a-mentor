@@ -81,7 +81,7 @@ export default {
     },
     options: tags.map(tag => ({ value: tag, label: tag })),
     validate: options => !!options.length,
-    helpText: 'Up tp 5',
+    helpText: 'Up to 5',
   },
   channels: {
     label: 'Channels',
