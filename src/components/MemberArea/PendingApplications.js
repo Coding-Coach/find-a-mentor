@@ -68,6 +68,7 @@ export default class PendingApplications extends Component {
               <th>Avatar</th>
               <th>Name</th>
               <th>Channels</th>
+              <th>Tags</th>
               <th>Title</th>
               <th>Description</th>
             </tr>
@@ -115,6 +116,9 @@ export default class PendingApplications extends Component {
                         </div>
                       );
                     })}
+                  </td>
+                  <td>
+                    {user.tags.join(', ')}
                   </td>
                   <td>{user.title}</td>
                   <td>{user.description}</td>
