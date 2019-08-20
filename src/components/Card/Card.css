@@ -51,6 +51,10 @@
   margin: calc(var(--avatar-offset) * -1) auto 0;
 }
 
+.avatar:hover {
+  cursor: pointer;
+}
+
 .card .avatar i {
   position: absolute;
   font-size: var(--avatar-dim);
