@@ -65,7 +65,7 @@ class App extends Component {
     this.setState({
       name,
     });
-    report('Filter', 'name', 'name');
+    report('Filter', 'name', name);
   };
 
   handleLanguageSelect = async ({ value: language }) => {
@@ -126,6 +126,14 @@ class App extends Component {
     report('Filter', 'tag', clickedTag);
   };
 
+  handleAvatarClick = async clickedUser => {
+    await scrollToTop();
+    this.setState({
+      clickedUser,
+    });
+    report('Filter', 'name', clickedUser);
+  };
+
   handleCountryClick = async clickedCountry => {
     await scrollToTop();
     this.setState({
@@ -177,6 +185,8 @@ class App extends Component {
       modal,
       clickedTag,
       clickedCountry,
+      name,
+      clickedUser,
       ready,
     } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
@@ -201,6 +211,7 @@ class App extends Component {
                 onToggleSwitch={this.toggleSwitch}
                 mentorCount={mentorsInList.length}
                 clickedTag={clickedTag}
+                clickedUser={clickedUser}
                 clickedCountry={clickedCountry}
                 mentors={mentorsInList}
               />
@@ -256,6 +267,7 @@ class App extends Component {
               favorites={this.state.favorites}
               onFavMentor={this.onFavMentor}
               handleTagClick={this.handleTagClick}
+              handleAvatarClick={this.handleAvatarClick}
               handleCountryClick={this.handleCountryClick}
               ready={ready}
             />

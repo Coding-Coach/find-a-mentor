@@ -37,6 +37,7 @@ export default class MentorsList extends Component {
       onFavMentor,
       handleTagClick,
       handleCountryClick,
+      handleAvatarClick,
     } = this.props;
 
     return mentorsInList.map((mentor, index) => (
@@ -47,6 +48,7 @@ export default class MentorsList extends Component {
         isFav={favorites.indexOf(mentor._id) > -1}
         handleTagClick={handleTagClick}
         handleCountryClick={handleCountryClick}
+        handleAvatarClick={handleAvatarClick}
       />
     ));
   }

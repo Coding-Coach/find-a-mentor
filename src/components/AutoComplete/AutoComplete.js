@@ -82,12 +82,17 @@ export default class AutoComplete extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { clickedTag: value, clickedCountry } = this.props;
+    const { clickedTag: value, clickedCountry, clickedUser } = this.props;
 
     if (prevProps.clickedTag !== this.props.clickedTag) {
       this.setState({ value });
       this.props.onSelect({ value });
       this.setPermalinkParams(this.props.id, value);
+    }
+    if (prevProps.clickedUser !== this.props.clickedUser) {
+      this.setState({ value: clickedUser });
+      this.props.onSelect({ value: clickedUser });
+      this.setPermalinkParams(this.props.id, clickedUser);
     }
 
     if (prevProps.clickedCountry !== clickedCountry) {

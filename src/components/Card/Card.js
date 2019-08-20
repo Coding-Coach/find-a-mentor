@@ -86,9 +86,9 @@ const channelsList = channels => {
   });
 };
 
-const Avatar = ({ mentor, id }) => {
+const Avatar = ({ mentor, id, handleAvatarClick }) => {
   return (
-    <div className="avatar">
+    <div className="avatar" onClick={handleAvatarClick}>
       <i className="fa fa-user-circle" />
       <img
         src={mentor.avatar}
@@ -117,6 +117,7 @@ const Card = ({
   isFav,
   handleTagClick,
   handleCountryClick,
+  handleAvatarClick,
 }) => {
   const toggleFav = () => {
     isFav = !isFav;
@@ -170,7 +171,11 @@ const Card = ({
           <p>{mentor.country}</p>
         </button>
 
-        <Avatar mentor={mentor} id={mentor._id} />
+        <Avatar
+          mentor={mentor}
+          id={mentor._id}
+          handleAvatarClick={handleAvatarClick.bind(null, mentor.name)}
+        />
         <LikeButton onClick={toggleFav} liked={isFav} />
       </div>
     );
