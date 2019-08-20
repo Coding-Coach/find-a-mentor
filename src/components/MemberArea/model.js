@@ -100,7 +100,7 @@ export default {
         value: 'linkedin',
         label: 'LinkedIn',
         prefix: 'https://linkedin.com/in/',
-        validate: value => !!value && linkedinValidation(value),
+        validate: value => linkedinValidation(value),
       },
       { value: 'facebook', label: 'Facebook', prefix: 'https://facebook.com/' },
       { value: 'twitter', label: 'Twitter', prefix: 'https://twitter.com/@' },
