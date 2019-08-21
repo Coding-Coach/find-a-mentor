@@ -123,6 +123,7 @@ export default class EditProfile extends Component {
                   value={user[fieldName] || config.defaultValue}
                   type="text"
                   name={fieldName}
+                  disabled={config.disabled}
                   required={config.required}
                   onChange={e =>
                     this.handleInputChange(e.target.name, e.target.value)
