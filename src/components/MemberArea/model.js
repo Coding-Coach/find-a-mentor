@@ -15,6 +15,7 @@ export default {
     label: 'Email',
     type: 'text',
     defaultValue: '',
+    disabled: true,
     validate: value => !!value && emailValidation(value),
   },
   name: {
