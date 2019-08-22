@@ -13,7 +13,7 @@ import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
-import { report, reportPageView } from '../../ga';
+import { report } from '../../ga';
 import { getMentors } from '../../api';
 import { ToastContainer } from 'react-toastify';
 
@@ -35,8 +35,8 @@ function scrollToTop() {
 class App extends Component {
   state = {
     mentors: [],
+    pagination: { total: 0, hasMore: true },
     favorites: get(),
-    ready: false,
     modal: {
       title: null,
       content: null,
@@ -149,15 +149,14 @@ class App extends Component {
     set(nextState);
   }
 
-  async componentDidMount() {
-    reportPageView();
-    this.getPermalinkParams();
-    const mentors = await getMentors();
-    this.setState({
-      mentors,
-      ready: true,
-    });
-  }
+  getMentorsPage = async page => {
+    const newMentors = await getMentors(page);
+    this.setState(({ mentors }) => ({
+      mentors: [...mentors, ...newMentors.mentors],
+      pagination: { ...newMentors.pagination },
+      filters: newMentors.filters,
+    }));
+  };
 
   handleModal = (title, content, onClose) => {
     this.setState({
@@ -177,10 +176,7 @@ class App extends Component {
       modal,
       clickedTag,
       clickedCountry,
-      ready,
     } = this.state;
-    const mentorsInList = mentors.filter(this.filterMentors);
-
     return (
       <div className="app">
         <ToastContainer />
@@ -199,10 +195,10 @@ class App extends Component {
                 onLanguageSelected={this.handleLanguageSelect}
                 onToggleFilter={this.toggleFields}
                 onToggleSwitch={this.toggleSwitch}
-                mentorCount={mentorsInList.length}
+                mentorCount={this.state.pagination.total}
                 clickedTag={clickedTag}
                 clickedCountry={clickedCountry}
-                mentors={mentorsInList}
+                mentors={mentors}
               />
               <SocialLinks />
               <nav className="sidebar-nav">
@@ -252,12 +248,13 @@ class App extends Component {
               className={classNames({
                 active: fieldsIsActive,
               })}
-              mentors={mentorsInList}
+              mentors={mentors}
+              pagination={this.state.pagination}
               favorites={this.state.favorites}
               onFavMentor={this.onFavMentor}
               handleTagClick={this.handleTagClick}
               handleCountryClick={this.handleCountryClick}
-              ready={ready}
+              getMentorsPage={this.getMentorsPage}
             />
           </Content>
         </Main>

@@ -33,6 +33,12 @@
 
 .mentors-cards .loader {
   font-size: 2em;
+  margin: 0 auto;
+}
+
+.mentors-cards .loader-wrapper {
+  width: 100%;
+  display: flex;
   margin-top: 15px;
 }
 

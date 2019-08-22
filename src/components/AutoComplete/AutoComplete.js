@@ -109,7 +109,7 @@ export default function AutoComplete(props) {
         onSelect={onSelect}
         onChange={onChange}
         inputProps={{
-          inputId,
+          id: inputId,
           'data-testid': testid,
         }}
       />

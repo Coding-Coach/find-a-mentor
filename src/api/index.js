@@ -87,9 +87,13 @@ export function clearCurrentUser() {
   localStorage.removeItem(USER_LOCAL_KEY);
 }
 
-export async function getMentors() {
-  const res = await makeApiCall(paths.MENTORS);
-  return res.data;
+export async function getMentors(pageNumber = 1) {
+  const res = await makeApiCall(`${paths.MENTORS}?page=${pageNumber}`);
+  return {
+    mentors: res.data,
+    pagination: { ...res.pagination },
+    filters: res.filters,
+  };
 }
 
 async function userHasPendingApplication(user) {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
 import Card from '../Card/Card';
@@ -6,33 +6,22 @@ import Card from '../Card/Card';
 import './MentorList.css';
 import { Loader } from '../Loader';
 
-const itemsInPage = 20;
-
-const MentorsList = props => {
-  const [page, setPage] = useState(1);
-  const [ready, setReady] = useState(false);
-
-  useEffect(() => {
-    setPage(1);
-    setReady(props.ready);
-  }, [props.mentors, props.ready]);
-
-  const loadMore = () => {
-    setPage(page + 1);
+const MentorsList = ({
+  mentors,
+  className,
+  pagination,
+  favorites,
+  onFavMentor,
+  getMentorsPage,
+  handleTagClick,
+  handleCountryClick,
+}) => {
+  const loadMore = async page => {
+    await getMentorsPage(page);
   };
 
-  const { mentors, className } = props;
-  const mentorsInList = mentors.slice(0, page * itemsInPage);
-
   const mentorsList = () => {
-    const {
-      favorites,
-      onFavMentor,
-      handleTagClick,
-      handleCountryClick,
-    } = props;
-
-    return mentorsInList.map((mentor, index) => (
+    return mentors.map((mentor, index) => (
       <Card
         key={`${mentor._id}-${index}`}
         mentor={mentor}
@@ -46,7 +35,6 @@ const MentorsList = props => {
 
   const nothingToShow = hasMentors => {
     return (
-      ready &&
       !hasMentors && (
         <div className="nothing-to-show">
           ¯\_(ツ)_/¯ Wow, we can't believe it. We have nothing for you!
@@ -63,11 +51,16 @@ const MentorsList = props => {
       <InfiniteScroll
         className="mentors-cards"
         loadMore={loadMore}
-        hasMore={mentorsInList.length < mentors.length}
+        hasMore={pagination.hasMore}
+        loader={
+          <div className="loader-wrapper" key={'loader'}>
+            <Loader />
+          </div>
+        }
+        pageStart={0}
       >
-        {mentorsList(mentorsInList)}
-        {!ready && <Loader />}
-        {nothingToShow(!!mentorsInList.length)}
+        {mentorsList(mentors)}
+        {nothingToShow(pagination.mentorCount === 0 && !pagination.hasMore)}
       </InfiniteScroll>
     </section>
   );
