@@ -6,15 +6,18 @@ import tags from './tags';
 const languages = ISO6391.getLanguages(ISO6391.getAllCodes());
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const urlPattern = /^https:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/;
+const linkedinPattern = /^[A-Za-z0-9-]{3,100}$/;
 
 const emailValidation = value => !value || emailPattern.test(value);
 const urlValidation = value => !value || urlPattern.test(value);
+const linkedinValidation = value => !value || linkedinPattern.test(value);
 
 export default {
   email: {
     label: 'Email',
     type: 'text',
     defaultValue: '',
+    disabled: true,
     validate: value => !!value && emailValidation(value),
   },
   name: {
@@ -22,6 +25,7 @@ export default {
     type: 'text',
     defaultValue: '',
     maxLength: 50,
+    helpText: 'Please use your real name',
     validate: value => !!value && (value.length > 3 && value.length <= 50),
   },
   avatar: {
@@ -80,7 +84,7 @@ export default {
     },
     options: tags.map(tag => ({ value: tag, label: tag })),
     validate: options => !!options.length,
-    helpText: 'Up tp 5',
+    helpText: 'Up to 5',
   },
   channels: {
     label: 'Channels',
@@ -97,6 +101,7 @@ export default {
         value: 'linkedin',
         label: 'LinkedIn',
         prefix: 'https://linkedin.com/in/',
+        validate: value => linkedinValidation(value),
       },
       { value: 'facebook', label: 'Facebook', prefix: 'https://facebook.com/' },
       { value: 'twitter', label: 'Twitter', prefix: 'https://twitter.com/@' },

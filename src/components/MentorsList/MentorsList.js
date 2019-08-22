@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
-
 import Card from '../Card/Card';
 
 import './MentorList.css';
@@ -9,29 +8,23 @@ import { Loader } from '../Loader';
 
 const itemsInPage = 20;
 
-export default class MentorsList extends Component {
-  state = {
-    page: 1,
-    ready: false,
+const MentorsList = props => {
+  const [page, setPage] = useState(1);
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    setPage(1);
+    setReady(props.ready);
+  }, [props.mentors, props.ready]);
+
+  const loadMore = () => {
+    setPage(page + 1);
   };
 
-  loadMore = () => {
-    this.setState({
-      page: this.state.page + 1,
-    });
-  };
+  const { mentors, className } = props;
+  const mentorsInList = mentors.slice(0, page * itemsInPage);
 
-  componentWillReceiveProps(newProps) {
-    const { mentors, ready } = this.props;
-    if (newProps.mentors !== mentors || newProps.ready !== ready) {
-      this.setState({
-        page: 1,
-        ready: newProps.ready,
-      });
-    }
-  }
-
-  mentorsList(mentorsInList) {
+  const mentorsList = () => {
     const {
       favorites,
       onFavMentor,
@@ -51,10 +44,9 @@ export default class MentorsList extends Component {
         handleAvatarClick={handleAvatarClick}
       />
     ));
-  }
+  };
 
-  nothingToShow(hasMentors) {
-    const { ready } = this.state;
+  const nothingToShow = hasMentors => {
     return (
       ready &&
       !hasMentors && (
@@ -63,28 +55,24 @@ export default class MentorsList extends Component {
         </div>
       )
     );
-  }
+  };
 
-  render() {
-    const { mentors, className } = this.props;
-    const { page, ready } = this.state;
-    const mentorsInList = mentors.slice(0, page * itemsInPage);
-
-    return (
-      <section
-        className={classNames(['mentors-wrapper', className])}
-        data-testid="mentors-wrapper"
+  return (
+    <section
+      className={classNames(['mentors-wrapper', className])}
+      data-testid="mentors-wrapper"
+    >
+      <InfiniteScroll
+        className="mentors-cards"
+        loadMore={loadMore}
+        hasMore={mentorsInList.length < mentors.length}
       >
-        <InfiniteScroll
-          className="mentors-cards"
-          loadMore={this.loadMore}
-          hasMore={mentorsInList.length < mentors.length}
-        >
-          {this.mentorsList(mentorsInList)}
-          {!ready && <Loader />}
-          {this.nothingToShow(!!mentorsInList.length)}
-        </InfiniteScroll>
-      </section>
-    );
-  }
-}
+        {mentorsList(mentorsInList)}
+        {!ready && <Loader />}
+        {nothingToShow(!!mentorsInList.length)}
+      </InfiniteScroll>
+    </section>
+  );
+};
+
+export default MentorsList;
