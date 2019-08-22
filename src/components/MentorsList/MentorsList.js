@@ -31,7 +31,7 @@ const MentorsList = props => {
       handleTagClick,
       handleCountryClick,
       handleAvatarClick,
-    } = this.props;
+    } = props;
 
     return mentorsInList.map((mentor, index) => (
       <Card
