@@ -88,7 +88,7 @@ const channelsList = channels => {
 
 const Avatar = ({ mentor, id, handleAvatarClick }) => {
   return (
-    <div className="avatar" onClick={handleAvatarClick}>
+    <button className="avatar" onClick={handleAvatarClick}>
       <i className="fa fa-user-circle" />
       <img
         src={mentor.avatar}
@@ -96,7 +96,7 @@ const Avatar = ({ mentor, id, handleAvatarClick }) => {
         alt={`${mentor.name}`}
         onError={e => e.currentTarget.classList.add('broken')}
       />
-    </div>
+    </button>
   );
 };
 

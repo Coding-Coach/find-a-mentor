@@ -65,7 +65,7 @@ class App extends Component {
     this.setState({
       name,
     });
-    report('Filter', 'name', name);
+    report('Filter', 'name', 'name');
   };
 
   handleLanguageSelect = async ({ value: language }) => {
@@ -185,7 +185,6 @@ class App extends Component {
       modal,
       clickedTag,
       clickedCountry,
-      name,
       clickedUser,
       ready,
     } = this.state;
