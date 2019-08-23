@@ -38,7 +38,6 @@ export default [
   'command-line',
   'compassion',
   'computability',
-  'continuous integration',
   'css',
   'css-in-js',
   'd3js',
