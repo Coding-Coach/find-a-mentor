@@ -50,6 +50,7 @@
   height: 118px;
   margin: calc(var(--avatar-offset) * -1) auto 0;
   background: transparent;
+  padding: 0;
 }
 
 .avatar:hover {
