@@ -123,6 +123,7 @@ export default class EditProfile extends Component {
                   value={user[fieldName] || config.defaultValue}
                   type="text"
                   name={fieldName}
+                  disabled={config.disabled}
                   required={config.required}
                   onChange={e =>
                     this.handleInputChange(e.target.name, e.target.value)
@@ -259,7 +260,7 @@ export default class EditProfile extends Component {
 
   handleKeyValueChange = (fieldName, prop, value) => {
     const { user } = this.state;
-    const itemIndex = user[fieldName].findIndex(x => x.type === prop)
+    const itemIndex = user[fieldName].findIndex(x => x.type === prop);
     const isItemExist = itemIndex > -1;
     if (isItemExist) {
       if (value) {

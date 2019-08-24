@@ -30,7 +30,9 @@ function Header() {
     <HeaderWrapper>
       <LogoTitleWrapper>
         <LogoWrapper>
-          <Logo />
+          <LogoLink href='https://codingcoach.io/'>
+            <Logo />
+          </LogoLink>
         </LogoWrapper>
         {isDesktop && <Title />}
       </LogoTitleWrapper>
@@ -108,6 +110,8 @@ const LogoTitleWrapper = styled.div`
 const LogoWrapper = styled.div`
   margin: 0 10px;
 `;
+
+const LogoLink = styled.a``;
 
 const HeaderOffCanvas = styled(OffCanvas)`
   outline: currentcolor none 0;
