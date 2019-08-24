@@ -30,6 +30,7 @@ const MentorsList = props => {
       onFavMentor,
       handleTagClick,
       handleCountryClick,
+      handleAvatarClick,
     } = props;
 
     return mentorsInList.map((mentor, index) => (
@@ -40,6 +41,7 @@ const MentorsList = props => {
         isFav={favorites.indexOf(mentor._id) > -1}
         handleTagClick={handleTagClick}
         handleCountryClick={handleCountryClick}
+        handleAvatarClick={handleAvatarClick}
       />
     ));
   };
