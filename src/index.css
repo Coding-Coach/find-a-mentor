@@ -11,6 +11,11 @@
   --error-background: #dc3545;
 }
 
+::selection {
+  background: #65d6af;
+  color: #16385c;
+}
+
 html {
   font-size: 14px;
 }
