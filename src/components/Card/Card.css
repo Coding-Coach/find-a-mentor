@@ -49,6 +49,12 @@
   width: var(--avatar-dim);
   height: 118px;
   margin: calc(var(--avatar-offset) * -1) auto 0;
+  background: transparent;
+  padding: 0;
+}
+
+.avatar:hover {
+  cursor: pointer;
 }
 
 .card .avatar i {
@@ -74,7 +80,7 @@
 }
 
 .card .avatar img.broken {
-  display: none !important;
+  visibility: hidden;
 }
 
 .card .name {

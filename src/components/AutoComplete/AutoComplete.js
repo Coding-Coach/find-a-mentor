@@ -83,6 +83,14 @@ export default function AutoComplete(props) {
       setPermalinkParams(props.id, value);
     }
   }, [props.clickedTag]);
+  
+  useEffect(() => {
+    if (props.clickedUser) {
+      setValue(props.clickedUser);
+      props.onSelect({ value: props.clickedUser });
+      setPermalinkParams(props.id, props.clickedUser);
+    }
+  }, [props.clickedUser]);
 
   useEffect(() => {
     if (props.clickedCountry) {
