@@ -2,6 +2,7 @@ import auth from '../utils/auth';
 import { reportError } from '../ga';
 import { toast } from 'react-toastify';
 import messages from '../messages';
+import shuffle from 'lodash/shuffle';
 
 const API_ERROR_TOAST_ID = 'api-error-toast-id';
 
@@ -89,7 +90,10 @@ export function clearCurrentUser() {
 
 export async function getMentors() {
   const res = await makeApiCall(paths.MENTORS);
-  return res.data;
+  if (res.data) {
+    return shuffle(res.data);
+  }
+  return [];
 }
 
 async function userHasPendingApplication(user) {
