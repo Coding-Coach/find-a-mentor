@@ -89,7 +89,8 @@ export function clearCurrentUser() {
 }
 
 export async function getMentors() {
-  const res = await makeApiCall(paths.MENTORS);
+  // TODO remove prepage: 1000 once the pagination will be ready
+  const res = await makeApiCall(`${paths.MENTORS}?limit=1000`);
   if (res.data) {
     return shuffle(res.data);
   }
