@@ -42,6 +42,15 @@ This section describes the workflow we are going to follow when working in a new
 
 Forking the project will create a copy of that project in your own GitHub account, you will commit your work against your own repository.
 
+#### Quick start
+
+1. Navigate to the project folder.
+2. Run `npm install`
+3. Run `yarn test`
+4. Type `a` to run all tests
+5. Type `q` to quit (this will start cypress and set that up)
+6. Navigate to [http://localhost:3000](http://localhost:3000) to see the site
+
 #### Updating your local
 
 In order to update your local environment to the latest version on `master`, you will have to pull the changes using the `upstream` repository, for example: `git pull upstream master`. This will pull all the new commits from the origin repository to your local environment.
