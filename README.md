@@ -45,7 +45,7 @@ Forking the project will create a copy of that project in your own GitHub accoun
 #### Quick start
 
 1. Navigate to the project folder.
-2. Run `yarn install`
+2. Run `yarn`
 3. Run `yarn test`
 4. Type `a` to run all tests
 5. Type `q` to quit (this will start cypress and set that up)
