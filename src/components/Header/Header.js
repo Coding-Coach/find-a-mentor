@@ -30,7 +30,7 @@ function Header() {
     <HeaderWrapper>
       <LogoTitleWrapper>
         <LogoWrapper>
-          <LogoLink href='https://codingcoach.io/'>
+          <LogoLink href="https://codingcoach.io/">
             <Logo />
           </LogoLink>
         </LogoWrapper>

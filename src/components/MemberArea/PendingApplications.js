@@ -117,9 +117,7 @@ export default class PendingApplications extends Component {
                       );
                     })}
                   </td>
-                  <td>
-                    {user.tags.join(', ')}
-                  </td>
+                  <td>{user.tags.join(', ')}</td>
                   <td>{user.title}</td>
                   <td>{user.description}</td>
                 </tr>

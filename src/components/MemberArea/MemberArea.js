@@ -52,6 +52,7 @@ function MemberArea(props) {
     auth.onMentorRegistered(() => {
       openProfile();
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
 
   const logout = () => {

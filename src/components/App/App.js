@@ -153,7 +153,7 @@ class App extends Component {
     });
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
     set(nextState);
   }
 

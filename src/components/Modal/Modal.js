@@ -26,7 +26,7 @@ export default class Modal extends Component {
     }
   };
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.children !== this.props.children) {
       this.handleOpen(nextProps.children);
     }
