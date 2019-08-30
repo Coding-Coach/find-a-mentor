@@ -92,6 +92,7 @@ export default function AutoComplete(props) {
       onSelect({ value: clickedTag });
       setPermalinkParams(id, clickedTag);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickedTag]);
 
   useEffect(() => {
@@ -100,6 +101,7 @@ export default function AutoComplete(props) {
       onSelect({ value: props.clickedUser });
       setPermalinkParams(id, props.clickedUser);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.clickedUser]);
 
   useEffect(() => {
@@ -109,6 +111,7 @@ export default function AutoComplete(props) {
       onSelect({ value: code.value });
       setPermalinkParams(props.id, code.label);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.clickedCountry]);
 
   const inputId = `${id}-${Math.random()}`;
