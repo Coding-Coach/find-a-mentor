@@ -107,6 +107,10 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 Launches the `Cypress` test runner _and_ the app; must run on port `3000`. Learn more about `Cypress` [on their website](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell).
 
+Alternatively You can also use Gitpod ( a free online IDE that will automate your dev setup )  for contributing with a single click. It will launch a ready to code workspace with the dependencies pre-installed so that you can start contributing without wasting precious time on development setup.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Coding-Coach/find-a-mentor)
+
 # Code of Conduct
 
 At Coding Coach, we value all our mentors, mentees, and contributors. Our goal is to make this a safe space where new and experienced developers can connect and learn from one another. Therefore, we do not tolerate any form of harassment or prejudice. This Code of Conduct applies to all Coding Coach spaces including but not limited to slack, email correspondence, and social media.
