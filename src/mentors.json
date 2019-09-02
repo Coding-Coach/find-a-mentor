@@ -8478,5 +8478,36 @@
         "id": "jsamchineme"
       }
     ]
+  },
+  {
+    "id": "sakshivij12@gmail.com",
+    "name": "Sakshi",
+    "avatar": "https://sakshivij.github.io/images/sakshi.jpg",
+    "title": "Java Instructor",
+    "description": "Love coding!",
+    "country": "IN",
+    "spokenLanguages": [
+      "en"
+    ],
+    "tags": [
+      "java",
+      "mvc",
+      "jsp",
+      "spring"
+    ],
+    "channels": [
+      {
+        "type": "email",
+        "id": "sakshivij12@gmail.com"
+      },
+      {
+        "type": "linkedin",
+        "id": "sakshi-vij-b77058126"
+      },
+      {
+        "type": "twitter",
+        "id": "sakshivij21"
+      }
+    ]
   }
 ]
