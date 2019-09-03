@@ -1,6 +1,6 @@
 {
-  "short_name": "Coding-Coach",
-  "name": "Coding-Coach",
+  "short_name": "CodingCoach",
+  "name": "CodingCoach",
   "icons": [
     {
       "src": "favicon.ico",
@@ -11,6 +11,11 @@
       "src": "codingcoach-logo-192.png",
       "type": "image/png",
       "sizes": "192x192"
+    },
+    {
+      "src": "codingcoach-logo-384.png",
+      "type": "image/png",
+      "sizes": "384x384"
     },
     {
       "src": "codingcoach-logo-512.png",
