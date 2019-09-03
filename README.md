@@ -21,6 +21,8 @@ Just go to https://mentors.codingcoach.io/ and find her / him / them.
 1. Clone your fork (if you use passphrase, please clone with the HTTPS approach)
 1. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
 
+Edit: You no longer need to create a PR to become a mentor, now you can just sign up to the app (https://mentors.codingcoach.io/), click Become a Mentor link at the top, fill your information in the form and click the submit button.
+
 ### CLI Geek?
 
 ![Add user - demo](docs-assets/demo-add-user.gif)
