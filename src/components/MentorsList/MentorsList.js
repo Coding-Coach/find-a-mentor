@@ -5,6 +5,7 @@ import Card from '../Card/Card';
 
 import './MentorList.css';
 import { Loader } from '../Loader';
+import { report } from '../../ga';
 
 const itemsInPage = 20;
 
@@ -19,6 +20,7 @@ const MentorsList = props => {
 
   const loadMore = () => {
     setPage(page + 1);
+    report('Mentors', 'Load More', page + 1);
   };
 
   const { mentors, className } = props;
