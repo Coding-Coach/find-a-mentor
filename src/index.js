@@ -6,6 +6,9 @@ import auth from './utils/auth';
 import { getCurrentUser } from './api';
 import './index.css';
 import { reportError } from './ga';
+import * as Sentry from '@sentry/browser';
+
+Sentry.init({dsn: "https://bcc1baf038b847258b4307e6ca5777e2@sentry.io/1542584"});
 
 (async () => {
   try {
