@@ -23,6 +23,7 @@ export default [
   'azure',
   'backend',
   'best-practices',
+  'blazor',
   'blogging',
   'bootstrap',
   'build',
