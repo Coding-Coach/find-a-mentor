@@ -3,6 +3,7 @@ import { reportError } from '../ga';
 import { toast } from 'react-toastify';
 import messages from '../messages';
 import shuffle from 'lodash/shuffle';
+import * as Sentry from '@sentry/browser';
 
 const API_ERROR_TOAST_ID = 'api-error-toast-id';
 
@@ -64,7 +65,19 @@ function storeUserInLocalStorage(user = currentUser) {
 
 async function fetchCurrentItem() {
   currentUser = await makeApiCall(`${paths.USERS}/current`).then(
-    res => res && res.data
+    res => {
+      if (res != null) {
+        Sentry.configureScope((scope) => {
+          scope.setUser({
+            id: res.data._id,
+            email: res.data.email,
+            username: res.data.name,
+          });
+        });
+
+        return res.data
+      }
+    }
   );
   storeUserInLocalStorage();
 }
