@@ -5,13 +5,13 @@
   flex-direction: column;
   width: 280px;
   padding: 0 20px;
-  border-radius: 5px;
+  border-radius: 8px;
   text-align: center;
   position: relative;
   margin-top: calc(var(--avatar-offset) + 20px);
   margin-right: 5px;
   margin-left: 5px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 4px 0 rgba(17, 22, 26, 0.16), 0 2px 4px 0 rgba(17, 22, 26, 0.08), 0 4px 8px 0 rgba(17, 22, 26, 0.08);
   display: grid;
   grid-auto-rows: 80px minmax(140px, auto) minmax(60px, auto) 80px;
 }
@@ -65,8 +65,6 @@
   background: hsl(0, 0%, 100%);
   color: rgb(155, 155, 155);
   border-radius: 50%;
-  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14),
-    0 1px 10px 0 rgba(0, 0, 0, 0.12);
   display: block;
 }
 
@@ -146,6 +144,8 @@
   padding: 20px 10px 5px 10px;
   margin-right: -20px;
   margin-left: -20px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .card .wave {
   position: absolute;
