@@ -46,27 +46,27 @@ export default function Filter(props) {
   const onTagSelect = useCallback(tag => {
     dispatch({ type: 'filterTag', payload: tag });
     onTagSelected(tag);
-  });
+  }, [filters.tag]);
 
   const onCountrySelect = useCallback(country => {
     dispatch({ type: 'filterCountry', payload: country });
     onCountrySelected(country);
-  });
+  }, [filters.country]);
 
   const onNameSelect = useCallback(name => {
     dispatch({ type: 'filterName', payload: name });
     onNameSelected(name);
-  });
+  }, [filters.name]);
 
   const onLanguageSelect = useCallback(language => {
     dispatch({ type: 'filterLanguage', payload: language });
     onLanguageSelected(language);
-  });
+  }, [filters.language]);
 
   const onToggleShowFilters = useCallback(() => {
     dispatch({ type: 'showFilters', payload: !filters.showFilters });
     onToggleFilter();
-  });
+  }, [filters.showFilters]);
 
   const {
     onToggleSwitch,
