@@ -3,13 +3,10 @@ body {
   overflow-x: hidden;
 }
 
-main {
-  display: flex;
-}
-
 .sidebar {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 .app {
@@ -40,12 +37,12 @@ main {
   list-style: none;
   padding-left: 20px;
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
 }
 
 .sidebar-nav li {
   margin-bottom: 10px;
-  color: #015d3e;
+  color: var(--link-color);
   text-decoration: none;
   cursor: pointer;
 }
@@ -84,11 +81,11 @@ main {
     }
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 800px) {
   .sidebar-nav {
     position: relative;
     display: none;
-    padding: 0px;
+    padding: 0;
     justify-content: space-evenly;
     margin-top: 30px;
   }
@@ -112,7 +109,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-@media all and (max-width: 576px) {
+@media all and (max-width: 800px) {
   .logo {
     margin: 10px;
   }

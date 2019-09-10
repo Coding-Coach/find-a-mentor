@@ -1,63 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-    <meta name="Description" content="Coding Coach is here to connect mentors and mentees around the world, for free. We believe mentorship should be accessible to all, regardless of circumstance.">
-    <meta name="google-site-verification" content="FDwgnrh2ftb6shLvseXpn_mH1LNxln2eD7UgE1FSlfg" />
+    <meta
+      name="Description"
+      content="Coding Coach is here to connect mentors and mentees around the world, for free. We believe mentorship should be accessible to all, regardless of circumstance."
+    />
+    <meta
+      name="google-site-verification"
+      content="FDwgnrh2ftb6shLvseXpn_mH1LNxln2eD7UgE1FSlfg"
+    />
 
     <!-- Open Graph data -->
-    <meta property="og:title" content="Coding Coach">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="/">
-    <meta property="og:image" content="%PUBLIC_URL%/codingcoach-logo.jpg">
-    <meta property="og:description" content="Connecting developers with mentors worldwide.">
-    <meta property="og:site_name" content="https://mentors.codingcoach.io/">
+    <meta property="og:title" content="Coding Coach" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="%PUBLIC_URL%/codingcoach-logo.jpg" />
+    <meta
+      property="og:description"
+      content="Connecting developers with mentors worldwide."
+    />
+    <meta property="og:site_name" content="https://mentors.codingcoach.io/" />
 
     <!-- Twitter cards -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@codingcoach_io">
-    <meta name="twitter:domain" content="/">
-    <meta name="twitter:creator" content="@codingcoach_io">
-    <meta name="twitter:title" content="Coding Coach">
-    <meta name="twitter:image" content="%PUBLIC_URL%/codingcoach-logo.jpg">
-    <meta name="twitter:description" content="Connecting developers with mentors worldwide.">
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@codingcoach_io" />
+    <meta name="twitter:domain" content="/" />
+    <meta name="twitter:creator" content="@codingcoach_io" />
+    <meta name="twitter:title" content="Coding Coach" />
+    <meta name="twitter:image" content="%PUBLIC_URL%/codingcoach-logo.jpg" />
+    <meta
+      name="twitter:description"
+      content="Connecting developers with mentors worldwide."
+    />
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon%PUBLIC_URL%/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon/favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="%PUBLIC_URL%/favicon/favicon-512x512.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
-    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#20293a">
-    <meta name="msapplication-TileColor" content="#20293a">
-    <meta name="theme-color" content="#20293a">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="%PUBLIC_URL%/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="%PUBLIC_URL%/codingcoach-logo-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="%PUBLIC_URL%/codingcoach-logo-16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="%PUBLIC_URL%/codingcoach-logo-512.png"
+    />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:400,400i" as="font" type="font/woff2" crossOrigin="true">
+    <link
+      rel="mask-icon"
+      href="%PUBLIC_URL%/safari-pinned-tab.svg"
+      color="#20293a"
+    />
+    <meta name="msapplication-TileColor" content="#20293a" />
+    <meta name="theme-color" content="#20293a" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <link
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Lato:400,400i"
+      as="font"
+      type="font/woff2"
+      crossOrigin="true"
+    />
     <title>Coding Coach</title>
     <!-- Google Analytics -->
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-133820299-2', 'auto');
-
+      (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        (i[r] =
+          i[r] ||
+          function() {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        'script',
+        'https://www.google-analytics.com/analytics.js',
+        'ga'
+      );
+      ga('create', 'UA-133820299-2', 'auto');
+      ga('send', 'pageview');
     </script>
     <!-- End Google Analytics -->
-</head>
+  </head>
 
-<body>
+  <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-</body>
-
+  </body>
 </html>

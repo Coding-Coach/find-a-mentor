@@ -1,11 +1,13 @@
 import React from 'react';
 import Obfuscate from 'react-obfuscate';
-import { orderBy } from 'lodash';
+import orderBy from 'lodash/orderBy';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
-import helpers from '../../helpers';
 import { report } from '../../ga';
+import auth from '../../utils/auth';
+import { Tooltip } from 'react-tippy';
+import messages from '../../messages';
 
 function handleAnalytic(channelName) {
   report('Channel', 'click', channelName);
@@ -25,7 +27,28 @@ const tagsList = (tags, handleTagClick) =>
     );
   });
 
+const applyOnClick = () => {
+  handleAnalytic('apply');
+  auth.login();
+};
+
+const nonLoggedinChannels = () => {
+  return (
+    <Tooltip title={messages.CARD_APPLY_TOOLTIP} size="big" arrow={true}>
+      <button onClick={applyOnClick}>
+        <div className="icon">
+          <i className="fa fa-hand-o-right fa-lg" />
+        </div>
+        <p className="type">Apply</p>
+      </button>
+    </Tooltip>
+  );
+};
+
 const channelsList = channels => {
+  if (!auth.isAuthenticated()) {
+    return nonLoggedinChannels();
+  }
   const orderedChannels = orderBy(channels, ['type'], ['asc']);
   return orderedChannels.map(channel => {
     const { icon, url } = getChannelInfo(channel);
@@ -63,9 +86,9 @@ const channelsList = channels => {
   });
 };
 
-const Avatar = ({ mentor, id }) => {
+const Avatar = ({ mentor, id, handleAvatarClick }) => {
   return (
-    <div className="avatar">
+    <button className="avatar" onClick={handleAvatarClick}>
       <i className="fa fa-user-circle" />
       <img
         src={mentor.avatar}
@@ -73,7 +96,7 @@ const Avatar = ({ mentor, id }) => {
         alt={`${mentor.name}`}
         onError={e => e.currentTarget.classList.add('broken')}
       />
-    </div>
+    </button>
   );
 };
 
@@ -94,6 +117,7 @@ const Card = ({
   isFav,
   handleTagClick,
   handleCountryClick,
+  handleAvatarClick,
 }) => {
   const toggleFav = () => {
     isFav = !isFav;
@@ -107,15 +131,13 @@ const Card = ({
     <React.Fragment />
   );
 
-  const mentorId = helpers.generateMentorId();
-
   const MentorInfo = () => {
     return (
       <>
         <div>
-          <h1 className="name" id={`${mentorId}`}>
+          <h2 className="name" id={`${mentor._id}`}>
             {mentor.name}
-          </h1>
+          </h2>
           <h4 className="title">{mentor.title}</h4>
           {description}
         </div>
@@ -149,7 +171,11 @@ const Card = ({
           <p>{mentor.country}</p>
         </button>
 
-        <Avatar mentor={mentor} id={mentorId} />
+        <Avatar
+          mentor={mentor}
+          id={mentor._id}
+          handleAvatarClick={handleAvatarClick.bind(null, mentor.name)}
+        />
         <LikeButton onClick={toggleFav} liked={isFav} />
       </div>
     );

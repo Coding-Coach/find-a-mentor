@@ -45,7 +45,13 @@ export default class Filter extends Component {
   };
 
   render() {
-    const { onToggleSwitch, clickedTag, clickedCountry, mentors } = this.props;
+    const {
+      onToggleSwitch,
+      clickedTag,
+      clickedCountry,
+      clickedUser,
+      mentors,
+    } = this.props;
     const { showFilters } = this.state;
     const { tags, countries, names, languages } = generateLists(mentors);
 
@@ -92,6 +98,7 @@ export default class Filter extends Component {
               id="name"
               source={names}
               onSelect={this.onNameSelect}
+              clickedUser={clickedUser}
               showClear
               data-testid="name-filter-autocomplete"
             />

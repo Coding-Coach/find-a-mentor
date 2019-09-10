@@ -1,16 +1,20 @@
 language: node_js
 install:
-- yarn
+  - yarn
 node_js:
-  - v11.6.0
+  - v12.9.1
 cache:
   directories:
-  - "$HOME/.yarn-cache"
-  - "$HOME/travis/.cache/Cypress"
+    - "$HOME/.yarn-cache"
+    - "$HOME/travis/.cache/Cypress"
 script:
   - cypress install
   - yarn test
   - NODE_ENV=production yarn predeploy
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
 env:
   - PUBLIC_URL=https://mentors.codingcoach.io
 deploy:

@@ -3,106 +3,26 @@
 
 <a href="https://patreon.com/codingcoach_io"><img src="https://img.shields.io/endpoint.svg?url=https://shieldsio-patreon.herokuapp.com/codingcoach_io&style=for-the-badge" alt="Patreon donate button" /> </a>
 
-
 Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
 
-Just go to https://mentors.codingcoach.io/ and find her / him / them.
+Just go to https://mentors.codingcoach.io/, register and find a mentor.
+
+## Want to be a mentor?
+
+Just go to https://mentors.codingcoach.io/, register and fill the form to become a mentor
 
 ## Requirements
+
 - Git should be installed [Install Git](https://git-scm.com/downloads)
 - Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests**
 - Yarn (we recommend using yarn as a package manager) [Install Yarn](https://yarnpkg.com/en/)
 
 ## Want to be a mentor?
 
-1. Fork
-1. Clone your fork (if you use passphrase, please clone with the HTTPS approach)
-1. `yarn` (make sure you have a compatible node version, [nvm](https://github.com/creationix/nvm) or [fnm](https://github.com/Schniz/fnm#installation) can help here)
-
-### CLI Geek?
-
-![Add user - demo](docs-assets/demo-add-user.gif)
-
-1. `yarn run add-user`
-1. Answer the questions.
-1. Step 2 will push the required changes to a branch `add-{your-name}-as-mentor` so you just need to create a PR.
-
-### Like to do it manually?
-1. Fork
-1. Clone your fork (if you use passphrase, please clone with the HTTPS approach)
-1. **Create a branch** "add-{your-name}-as-mentor"
-1. Add your details in `src/mentors.json` file (check the below schema for requirements).
-1. Run `yarn test` to validate that the details is following the right schema (carelfully read the output to see what needs to be fixed)
-1. Push the "add-{your-name}-as-mentor" branch to github
-1. PR with the title "Add {Your Name} as mentor".
-1. Thanks!
-
-**Notes:**
-
-1. Please double check your details. It’s important that the data scheme remains the same; just replace the details with your values. If you change the data architecture, it will cause errors.
-2. In order to avoid merge conflicts, please fetch the changes on master before pushing.
-3. By adding yourself as a mentor, you give us permission to send you emails. Don't worry, we'll not spam you, just to welcome you nicely and make sure you will get updates about the project.
-
-### Mentor schema
-
-```javascript
-{
-  "id": "your email",
-  "name": "your name",                          // minLength: 2
-  "avatar": "https://link-to-your/avatar.jpg",  // url, must start with https://
-  "title": "NodeJS developer",                  // minLength: 2, maxLength: 30
-  "description": "Hi, I'm NodeJs developer",    // minLength: 5, maxLength: 80 optional
-  "country": "SE",                              // Country code (link to the list below)
-  "spokenLanguages": [                          // ISO language code (link to list below)
-    "en", "fr", "zh"
-  ],
-  "tags": [                                     // minItems: 1, maxItems: 5, only lowercase characters
-    "nodejs", "webpack", "mongodb"              // please avoid synonyms (see list below) tag's maxLength: 20 characters
-  ],
-  "channels": [                                 // minItems: 1, maxItems: 3
-    {
-      "type": "email",                          // see available channels below
-      "id": "john@gmail.com"                    // depends on the type
-    }
-  ]
-}
-```
-
-#### synonyms tags
-
-| Use          | Don't use       |
-|--------------|-----------------|
-| nodejs       | node, node.js   |
-| reactjs      | react, react.js |
-| react native | react-native    |
-| c#           | csharp          |
-| frontend     | front end       |
-| express      | expressjs       |
-| fullstack    | full stack      |
-| vuejs        | vue, vue.js     |
-| asp.net      | aspnet          |
-| asp.net core | aspnetcore      |
-
-#### Country codes
-
-https://github.com/hjnilsson/country-flags/blob/master/countries.json
-
-#### Spoken language ISO codes
-https://github.com/meikidd/iso-639-1/blob/master/src/data.js
-
-#### Channels
-
-| type     | parameter                                                                                                               |
-|----------|-------------------------------------------------------------------------------------------------------------------------|
-| email    | email address                                                                                                           |
-| slack    | memberID ([How to find it?](https://medium.com/@moshfeu/how-to-find-my-member-id-in-slack-workspace-d4bba942e38c#88b8)) |
-| linkedin | userId                                                                                                                  |
-| facebook | userId                                                                                                                  |
-| twitter  | userId                                                                                                                  |
-| github   | userId                                                                                                                  |
-| website  | link to your personal website without https                                                                             |
+#### 🎉 EXCITING ANNOUNCEMENT!
+We’re launching a new “become a mentor” process! This means we won’t be accepting any new mentor requests for a short period of time, but stay tuned for the official release of our new Sign Up feature!
 
 ## Want to contribute this project?
 
@@ -111,6 +31,52 @@ That's why we here! 😀
 Have an idea? Please **use a branch** and [create a PR](https://help.github.com/articles/creating-a-pull-request/). If you not sure how to do this, ask us or find a mentor who can assist.
 
 Haven't time to code it? Please open an [issue](https://github.com/Coding-Coach/find-a-mentor/issues/new).
+
+### Workflow
+
+This section describes the workflow we are going to follow when working in a new feature or fixing a bug. If you want to contribute, please follow these steps:
+
+1. Fork this project
+2. Clone the forked project to your local environment, for example: `git clone git@github.com:crysfel/coding-coach-front-end.git` (Make sure to replace the URL to your own repository).
+3. Add the original project as a remote, for this example the name is `upstream`, feel free to use whatever name you want. `git remote add upstream https://github.com/Coding-Coach/find-a-mentor.git`.
+
+Forking the project will create a copy of that project in your own GitHub account, you will commit your work against your own repository.
+
+#### Quick start
+
+1. Navigate to the project folder.
+2. Run `yarn`
+3. Run `yarn test`
+4. Type `a` to run all tests
+5. Type `q` to quit (this will start cypress and set that up)
+6. If the browser doesn't open automatically, navigate to [http://localhost:3000](http://localhost:3000) to see the site.
+
+For other options, please see [Available Scripts](https://github.com/Coding-Coach/find-a-mentor#available-scripts) below.
+
+#### Updating your local
+
+In order to update your local environment to the latest version on `master`, you will have to pull the changes using the `upstream` repository, for example: `git pull upstream master`. This will pull all the new commits from the origin repository to your local environment.
+
+#### Features/Bugs
+
+When working on a new feature, create a new branch `feature/something` from the `master` branch, for example `feature/login-form`. Commit your work against this new branch and push everything to your forked project. Once everything is completed, you should create a PR to the original project. Make sure to add a description about your work.
+
+When fixing a bug, create a new branch `fix/something` from the `master` branch, for example `fix/css-btn-issues`. When completed, push your commits to your forked repository and create a PR from there. Please make sure to describe what was the problem and how did you fix it.
+
+#### Updating your local branch
+
+Let's say you've been working on a feature for a couple days, most likely there are new changes in `master` and your branch is behind. In order to update it to the latest (You might not need/want to do this) you need to pull the latest changes to `master` and then rebase your current branch.
+
+```bash
+$ git checkout master
+$ git pull upstream master
+$ git checkout feature/something-awesome
+$ git rebase master
+```
+
+After this, your commits will be on top of the `master` commits. From here you can push to your `origin` repository and create a PR.
+
+You might have some conflicts while rebasing, try to resolve the conflicts for each individual commit. Rebasing is intimidating at the beginning, if you need help don't be afraid to reach out in slack.
 
 ## Slack
 
@@ -139,12 +105,18 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ### `yarn test:e2e`
 
-Launches the `Cypress` test runner _and_ the app; must run on port `3000`.  Learn more about `Cypress` [on their website](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell).
+Launches the `Cypress` test runner _and_ the app; must run on port `3000`. Learn more about `Cypress` [on their website](https://docs.cypress.io/guides/overview/why-cypress.html#In-a-nutshell).
+
+Alternatively You can also use Gitpod ( a free online IDE that will automate your dev setup )  for contributing with a single click. It will launch a ready to code workspace with the dependencies pre-installed so that you can start contributing without wasting precious time on development setup.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Coding-Coach/find-a-mentor)
 
 # Code of Conduct
+
 At Coding Coach, we value all our mentors, mentees, and contributors. Our goal is to make this a safe space where new and experienced developers can connect and learn from one another. Therefore, we do not tolerate any form of harassment or prejudice. This Code of Conduct applies to all Coding Coach spaces including but not limited to slack, email correspondence, and social media.
 
 Harassment includes but is not limited to:
+
 - Offensive comments related to gender, gender identity and expression, sexual orientation, disability, mental illness, physical appearance, body size, age, race, or religion.
 - Deliberate misgendering or use of ‘dead’ or rejected names.
 - Physical contact and simulated physical contact (eg, textual descriptions like “hug” or “backrub”) without consent or after a request to stop.
@@ -168,4 +140,5 @@ If someone makes you or anyone else feel unsafe or unwelcome, please report it a
 Our primary goal is to support you. We will listen to you and then help you determine a course of action based on the situation. While harassment may not always result in that member being expelled from the group, depending on the type and severity of harassment. We want to make sure you have all the support you need no matter what that entails, including whether to stay anonymous or not. Whatever decision you make, our priority is your safety.
 
 # Support Coding Coach
+
 Our goal is to keep Coding Coach a free platform because we believe that mentorship should be free and accessible for all users. However, there are some costs incurred with creating a platform. We could use your help! If you're just as passionate about Coding Coach as we are, we'd appreciate your support on [Patreon](https://www.patreon.com/codingcoach_io). Here, you can sign up to be a member and help support our mission.

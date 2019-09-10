@@ -1,4 +1,4 @@
-const providers = {
+export const providers = {
   slack: {
     icon: 'slack',
     url: 'https://coding-coach.slack.com/team/{id}',
@@ -9,14 +9,17 @@ const providers = {
   },
   linkedin: {
     icon: 'linkedin',
+    inputIcon: 'linkedin-square',
     url: 'https://www.linkedin.com/in/{id}',
   },
   facebook: {
     icon: 'facebook',
+    inputIcon: 'facebook-square',
     url: 'https://www.facebook.com/{id}',
   },
   twitter: {
     icon: 'twitter',
+    inputIcon: 'twitter-square',
     url: 'https://twitter.com/{id}',
   },
   github: {
