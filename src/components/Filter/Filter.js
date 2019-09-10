@@ -50,25 +50,37 @@ export default function Filter(props) {
   const { showFilters } = filters;
   const { tags, countries, names, languages } = generateLists(mentors);
 
-  const onTagSelect = useCallback(tag => {
-    dispatch({ type: 'filterTag', payload: tag });
-    onTagSelected(tag);
-  }, [onTagSelected]);
+  const onTagSelect = useCallback(
+    tag => {
+      dispatch({ type: 'filterTag', payload: tag });
+      onTagSelected(tag);
+    },
+    [onTagSelected]
+  );
 
-  const onCountrySelect = useCallback(country => {
-    dispatch({ type: 'filterCountry', payload: country });
-    onCountrySelected(country);
-  }, [onCountrySelected]);
+  const onCountrySelect = useCallback(
+    country => {
+      dispatch({ type: 'filterCountry', payload: country });
+      onCountrySelected(country);
+    },
+    [onCountrySelected]
+  );
 
-  const onNameSelect = useCallback(name => {
-    dispatch({ type: 'filterName', payload: name });
-    onNameSelected(name);
-  }, [onNameSelected]);
+  const onNameSelect = useCallback(
+    name => {
+      dispatch({ type: 'filterName', payload: name });
+      onNameSelected(name);
+    },
+    [onNameSelected]
+  );
 
-  const onLanguageSelect = useCallback(language => {
-    dispatch({ type: 'filterLanguage', payload: language });
-    onLanguageSelected(language);
-  }, [onLanguageSelected]);
+  const onLanguageSelect = useCallback(
+    language => {
+      dispatch({ type: 'filterLanguage', payload: language });
+      onLanguageSelected(language);
+    },
+    [onLanguageSelected]
+  );
 
   const onToggleShowFilters = useCallback(() => {
     dispatch({ type: 'showFilters', payload: !filters.showFilters });
