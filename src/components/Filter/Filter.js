@@ -41,34 +41,6 @@ export default function Filter(props) {
     onNameSelected,
     onLanguageSelected,
     onToggleFilter,
-  } = props;
-
-  const onTagSelect = useCallback(tag => {
-    dispatch({ type: 'filterTag', payload: tag });
-    onTagSelected(tag);
-  }, [filters.tag]);
-
-  const onCountrySelect = useCallback(country => {
-    dispatch({ type: 'filterCountry', payload: country });
-    onCountrySelected(country);
-  }, [filters.country]);
-
-  const onNameSelect = useCallback(name => {
-    dispatch({ type: 'filterName', payload: name });
-    onNameSelected(name);
-  }, [filters.name]);
-
-  const onLanguageSelect = useCallback(language => {
-    dispatch({ type: 'filterLanguage', payload: language });
-    onLanguageSelected(language);
-  }, [filters.language]);
-
-  const onToggleShowFilters = useCallback(() => {
-    dispatch({ type: 'showFilters', payload: !filters.showFilters });
-    onToggleFilter();
-  }, [filters.showFilters]);
-
-  const {
     onToggleSwitch,
     clickedTag,
     clickedCountry,
@@ -77,6 +49,31 @@ export default function Filter(props) {
   } = props;
   const { showFilters } = filters;
   const { tags, countries, names, languages } = generateLists(mentors);
+
+  const onTagSelect = useCallback(tag => {
+    dispatch({ type: 'filterTag', payload: tag });
+    onTagSelected(tag);
+  }, [onTagSelected]);
+
+  const onCountrySelect = useCallback(country => {
+    dispatch({ type: 'filterCountry', payload: country });
+    onCountrySelected(country);
+  }, [onCountrySelected]);
+
+  const onNameSelect = useCallback(name => {
+    dispatch({ type: 'filterName', payload: name });
+    onNameSelected(name);
+  }, [onNameSelected]);
+
+  const onLanguageSelect = useCallback(language => {
+    dispatch({ type: 'filterLanguage', payload: language });
+    onLanguageSelected(language);
+  }, [onLanguageSelected]);
+
+  const onToggleShowFilters = useCallback(() => {
+    dispatch({ type: 'showFilters', payload: !filters.showFilters });
+    onToggleFilter();
+  }, [filters.showFilters, onToggleFilter]);
 
   return (
     <section aria-labelledby="filter" className="filter-wrapper">
