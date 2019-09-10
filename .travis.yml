@@ -10,6 +10,7 @@ cache:
 script:
   - cypress install
   - yarn test
+  - yarn test:e2e
   - NODE_ENV=production yarn predeploy
 addons:
   apt:
