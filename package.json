@@ -29,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "node scripts/pre-build.js && react-scripts build",
-    "test": "yarn prettier:fix && react-scripts test",
+    "test": "yarn prettier:fix && react-scripts test && yarn test:e2e:run",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
