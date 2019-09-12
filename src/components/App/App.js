@@ -16,6 +16,8 @@ import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { ToastContainer } from 'react-toastify';
+import UserContext from '../../context/userContext/UserContext';
+import { getCurrentUser } from '../../api';
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -161,9 +163,11 @@ class App extends Component {
     reportPageView();
     this.getPermalinkParams();
     const mentors = await getMentors();
+    const currentUser = await getCurrentUser();
     this.setState({
       mentors,
       ready: true,
+      currentUser,
     });
   }
 
@@ -178,6 +182,12 @@ class App extends Component {
     report('Modal', 'open', title);
   };
 
+  updateUser = user => {
+    this.setState({
+      currentUser: user,
+    });
+  };
+
   render() {
     const {
       mentors = [],
@@ -187,92 +197,97 @@ class App extends Component {
       clickedCountry,
       clickedUser,
       ready,
+      currentUser,
     } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
 
     return (
-      <div className="app">
-        <ToastContainer />
-        <Modal onClose={this.closeModal} title={modal.title}>
-          {modal.content}
-        </Modal>
+      <UserContext.Provider
+        value={{ currentUser, updateUser: this.updateUser }}
+      >
+        <div className="app">
+          <ToastContainer />
+          <Modal onClose={this.closeModal} title={modal.title}>
+            {modal.content}
+          </Modal>
 
-        <Main>
-          <Header />
-          <Content>
-            <aside className="sidebar">
-              <Filter
-                onTagSelected={this.handleTagSelect}
-                onCountrySelected={this.handleCountrySelect}
-                onNameSelected={this.handleNameSelect}
-                onLanguageSelected={this.handleLanguageSelect}
-                onToggleFilter={this.toggleFields}
-                onToggleSwitch={this.toggleSwitch}
-                mentorCount={mentorsInList.length}
-                clickedTag={clickedTag}
-                clickedUser={clickedUser}
-                clickedCountry={clickedCountry}
+          <Main>
+            <Header />
+            <Content>
+              <aside className="sidebar">
+                <Filter
+                  onTagSelected={this.handleTagSelect}
+                  onCountrySelected={this.handleCountrySelect}
+                  onNameSelected={this.handleNameSelect}
+                  onLanguageSelected={this.handleLanguageSelect}
+                  onToggleFilter={this.toggleFields}
+                  onToggleSwitch={this.toggleSwitch}
+                  mentorCount={mentorsInList.length}
+                  clickedTag={clickedTag}
+                  clickedUser={clickedUser}
+                  clickedCountry={clickedCountry}
+                  mentors={mentorsInList}
+                />
+                <SocialLinks />
+                <nav className="sidebar-nav">
+                  <ModalContent
+                    policyTitle={'Cookies policy'}
+                    content={'cookies-policy'}
+                    handleModal={(title, content) =>
+                      this.handleModal(title, content)
+                    }
+                  />
+                  <ModalContent
+                    policyTitle={'Code of Conduct'}
+                    content={'code-conduct'}
+                    handleModal={(title, content) =>
+                      this.handleModal(title, content)
+                    }
+                  />
+                  <ModalContent
+                    policyTitle={'Terms & Conditions'}
+                    content={'terms-conditions'}
+                    handleModal={(title, content) =>
+                      this.handleModal(title, content)
+                    }
+                  />
+                  <ModalContent
+                    policyTitle={'Privacy Statement'}
+                    content={'privacy-policy'}
+                    handleModal={(title, content) =>
+                      this.handleModal(title, content)
+                    }
+                  />
+                </nav>
+                <a
+                  href="https://www.patreon.com/codingcoach_io"
+                  className="patreon-link"
+                  aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <img
+                    src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
+                    alt="Become a Patron"
+                  />
+                </a>
+              </aside>
+              <MentorsList
+                className={classNames({
+                  active: fieldsIsActive,
+                })}
                 mentors={mentorsInList}
+                favorites={this.state.favorites}
+                onFavMentor={this.onFavMentor}
+                handleTagClick={this.handleTagClick}
+                handleAvatarClick={this.handleAvatarClick}
+                handleCountryClick={this.handleCountryClick}
+                ready={ready}
               />
-              <SocialLinks />
-              <nav className="sidebar-nav">
-                <ModalContent
-                  policyTitle={'Cookies policy'}
-                  content={'cookies-policy'}
-                  handleModal={(title, content) =>
-                    this.handleModal(title, content)
-                  }
-                />
-                <ModalContent
-                  policyTitle={'Code of Conduct'}
-                  content={'code-conduct'}
-                  handleModal={(title, content) =>
-                    this.handleModal(title, content)
-                  }
-                />
-                <ModalContent
-                  policyTitle={'Terms & Conditions'}
-                  content={'terms-conditions'}
-                  handleModal={(title, content) =>
-                    this.handleModal(title, content)
-                  }
-                />
-                <ModalContent
-                  policyTitle={'Privacy Statement'}
-                  content={'privacy-policy'}
-                  handleModal={(title, content) =>
-                    this.handleModal(title, content)
-                  }
-                />
-              </nav>
-              <a
-                href="https://www.patreon.com/codingcoach_io"
-                className="patreon-link"
-                aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
-                  alt="Become a Patron"
-                />
-              </a>
-            </aside>
-            <MentorsList
-              className={classNames({
-                active: fieldsIsActive,
-              })}
-              mentors={mentorsInList}
-              favorites={this.state.favorites}
-              onFavMentor={this.onFavMentor}
-              handleTagClick={this.handleTagClick}
-              handleAvatarClick={this.handleAvatarClick}
-              handleCountryClick={this.handleCountryClick}
-              ready={ready}
-            />
-          </Content>
-        </Main>
-      </div>
+            </Content>
+          </Main>
+        </div>
+      </UserContext.Provider>
     );
   }
 }
