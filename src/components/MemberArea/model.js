@@ -7,10 +7,16 @@ const languages = ISO6391.getLanguages(ISO6391.getAllCodes());
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const urlPattern = /^https:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/;
 const linkedinPattern = /^[A-Za-z0-9-]{3,100}$/;
+const facebookPattern = /^[a-z\d.]{5,50}$/i;
+const twitterPattern = /^[A-Za-z0-9_]{1,15}$/;
+const githubPattern = /^([a-z\d]+-)*[a-z\d]+$/i;
 
 const emailValidation = value => !value || emailPattern.test(value);
 const urlValidation = value => !value || urlPattern.test(value);
 const linkedinValidation = value => !value || linkedinPattern.test(value);
+const facebookValidation = value => !value || facebookPattern.test(value);
+const twitterValidation = value => !value || twitterPattern.test(value);
+const githubValidation = value => !value || githubPattern.test(value);
 
 export default {
   email: {
@@ -102,10 +108,29 @@ export default {
         label: 'LinkedIn',
         prefix: 'https://linkedin.com/in/',
         validate: value => linkedinValidation(value),
+        helpText: <span class="helper-text">Add only your linkedin username</span>
       },
-      { value: 'facebook', label: 'Facebook', prefix: 'https://facebook.com/' },
-      { value: 'twitter', label: 'Twitter', prefix: 'https://twitter.com/@' },
-      { value: 'github', label: 'Github', prefix: 'https://github.com/' },
+      {
+        value: 'facebook',
+        label: 'Facebook',
+        prefix: 'https://facebook.com/',
+        validate: value => facebookValidation(value),
+        helpText: <span class="helper-text">Add only your facebook username</span>
+      },
+      {
+        value: 'twitter',
+        label: 'Twitter',
+        prefix: 'https://twitter.com/',
+        validate: value => twitterValidation(value),
+        helpText: <span class="helper-text">Add only your twitter handle</span>
+      },
+      {
+        value: 'github',
+        label: 'Github',
+        prefix: 'https://github.com/',
+        validate: value => githubValidation(value),
+        helpText: <span class="helper-text">Add only your github username</span>
+      },
       {
         value: 'website',
         label: 'Website',
