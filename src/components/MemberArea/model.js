@@ -104,38 +104,38 @@ export default {
         validate: emailValidation,
       },
       {
+        value: 'website',
+        label: 'Website',
+        prefix: 'https://',
+        validate: value => urlValidation(`https://${value}`),
+      },
+      {
         value: 'linkedin',
         label: 'LinkedIn',
         prefix: 'https://linkedin.com/in/',
         validate: value => linkedinValidation(value),
-        helpText: <span class="helper-text">Add only your linkedin username</span>
+        helpText: "Add only your Linkedin username"
       },
       {
         value: 'facebook',
         label: 'Facebook',
         prefix: 'https://facebook.com/',
         validate: value => facebookValidation(value),
-        helpText: <span class="helper-text">Add only your facebook username</span>
+        helpText: "Add only your Facebook username"
       },
       {
         value: 'twitter',
         label: 'Twitter',
         prefix: 'https://twitter.com/',
         validate: value => twitterValidation(value),
-        helpText: <span class="helper-text">Add only your twitter handle</span>
+        helpText: "Add only your Twitter handle"
       },
       {
         value: 'github',
         label: 'Github',
         prefix: 'https://github.com/',
         validate: value => githubValidation(value),
-        helpText: <span class="helper-text">Add only your github username</span>
-      },
-      {
-        value: 'website',
-        label: 'Website',
-        prefix: 'https://',
-        validate: value => urlValidation(`https://${value}`),
+        helpText: "Add only your Github username"
       },
       {
         value: 'slack',

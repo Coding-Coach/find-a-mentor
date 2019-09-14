@@ -236,7 +236,7 @@ export default class EditProfile extends Component {
                           }
                         />
                       </div>
-                      {option.helpText && <div>{option.helpText}</div>}
+                      {option.helpText && <div class="helper-text">{option.helpText}</div>}
                     </div>
                   );
                 })}
