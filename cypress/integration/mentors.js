@@ -1,6 +1,10 @@
 const { cy } = global;
 
 describe('Mentor Filtering', () => {
+  beforeEach(function() {
+    cy.fixture("users/credentials.json").as("user");
+  });
+
   it('can filter by technology', () => {
     cy.visit('/')
       .filterByName('Brent M Clark')
@@ -40,5 +44,24 @@ describe('Mentor Filtering', () => {
       .getByTestId('clear-filter')
       .click();
     cy.getByTestId('name-filter-autocomplete').should('have.value', '');
+  });
+
+  it('loogin user if not', () => {
+    cy.visit('/');
+    cy.get('div.auth').contains('Login / Sign up').click();
+    cy.get('@user')
+      .then((user) => {
+        cy.get('input[name="email"]').type(user.email);
+        cy.get('input[name="password"]').type(user.password);
+        cy.get('button').click();
+      })
+  });
+
+  it('logged users can click on mentors channel', () => {
+    cy.visit('/').filterByName('Brent M Clark')
+    cy.getAllByTestId('mentor-card').first()
+      .get('div.channels')
+      .first()
+      .click();
   });
 });
