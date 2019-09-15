@@ -10,8 +10,6 @@ describe('Mentor Filtering', () => {
       .filterByName('Brent M Clark')
       .getByTestId('technology-filter-autocomplete')
       .type('reactjs{enter}', { force: true });
-    // .getByTestId('mentor-card')
-    // .should('have.length', 1);
   });
 
   it('can filter by country', () => {
@@ -46,7 +44,7 @@ describe('Mentor Filtering', () => {
     cy.getByTestId('name-filter-autocomplete').should('have.value', '');
   });
 
-  it('loogin user if not', () => {
+  it('login user to apply for mentor', () => {
     cy.visit('/');
     cy.get('div.auth').contains('Login / Sign up').click();
     cy.get('@user')
@@ -64,4 +62,22 @@ describe('Mentor Filtering', () => {
       .first()
       .click();
   });
+
+  it( 'verify filtered technology label on mentors card', ()=> {
+    cy.visit('/')
+      .getByTestId('technology-filter-autocomplete')
+      .type('aws')
+      .type('{enter}');
+    cy.getAllByTestId('mentor-card').first()
+      .get('.tag').contains('aws')
+  });
+
+  it( 'verify filtered country label on mentors card', ()=> {
+    cy.visit('/')
+      .getByTestId('country-filter-autocomplete')
+      .type('France')
+      .type('{enter}');
+    cy.getAllByTestId('mentor-card').first()
+      .get('.country').contains('FR')
+  })
 });
