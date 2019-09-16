@@ -7,10 +7,16 @@ const languages = ISO6391.getLanguages(ISO6391.getAllCodes());
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const urlPattern = /^https:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/;
 const linkedinPattern = /^[A-Za-z0-9-]{3,100}$/;
+const facebookPattern = /^[a-z\d.]{5,50}$/i;
+const twitterPattern = /^[A-Za-z0-9_]{1,15}$/;
+const githubPattern = /^([a-z\d]+-)*[a-z\d]+$/i;
 
 const emailValidation = value => !value || emailPattern.test(value);
 const urlValidation = value => !value || urlPattern.test(value);
 const linkedinValidation = value => !value || linkedinPattern.test(value);
+const facebookValidation = value => !value || facebookPattern.test(value);
+const twitterValidation = value => !value || twitterPattern.test(value);
+const githubValidation = value => !value || githubPattern.test(value);
 
 export default {
   email: {
@@ -98,19 +104,38 @@ export default {
         validate: emailValidation,
       },
       {
-        value: 'linkedin',
-        label: 'LinkedIn',
-        prefix: 'https://linkedin.com/in/',
-        validate: value => linkedinValidation(value),
-      },
-      { value: 'facebook', label: 'Facebook', prefix: 'https://facebook.com/' },
-      { value: 'twitter', label: 'Twitter', prefix: 'https://twitter.com/@' },
-      { value: 'github', label: 'Github', prefix: 'https://github.com/' },
-      {
         value: 'website',
         label: 'Website',
         prefix: 'https://',
         validate: value => urlValidation(`https://${value}`),
+      },
+      {
+        value: 'linkedin',
+        label: 'LinkedIn',
+        prefix: 'https://linkedin.com/in/',
+        validate: value => linkedinValidation(value),
+        helpText: "Add only your Linkedin username"
+      },
+      {
+        value: 'facebook',
+        label: 'Facebook',
+        prefix: 'https://facebook.com/',
+        validate: value => facebookValidation(value),
+        helpText: "Add only your Facebook username"
+      },
+      {
+        value: 'twitter',
+        label: 'Twitter',
+        prefix: 'https://twitter.com/',
+        validate: value => twitterValidation(value),
+        helpText: "Add only your Twitter handle"
+      },
+      {
+        value: 'github',
+        label: 'Github',
+        prefix: 'https://github.com/',
+        validate: value => githubValidation(value),
+        helpText: "Add only your Github username"
       },
       {
         value: 'slack',

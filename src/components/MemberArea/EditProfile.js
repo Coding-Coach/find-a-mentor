@@ -14,10 +14,12 @@ import { providers } from '../../channelProvider';
 import auth from '../../utils/auth';
 import messages from '../../messages';
 import { report, reportError } from '../../ga';
+import UserContext from '../../context/userContext/UserContext';
 
 export default class EditProfile extends Component {
+  static contextType = UserContext;
   state = {
-    user: fromMtoVM(this.props.user),
+    user: fromMtoVM(this.context.currentUser),
     errors: [],
   };
 
@@ -47,7 +49,9 @@ export default class EditProfile extends Component {
   onSubmit = async e => {
     report('Member Area', 'Submit start', 'User details');
     const { user } = this.state;
-    const { onClose, onUserUpdated } = this.props;
+    const { onClose } = this.props;
+    const { updateUser } = this.context;
+
     e.preventDefault();
     if (!this.validate()) {
       return;
@@ -63,7 +67,7 @@ export default class EditProfile extends Component {
         );
         if (createApplicationResult.success) {
           toast.success(createApplicationResult.message);
-          onUserUpdated(user);
+          updateUser(fromVMtoM(user));
           onClose();
           report('Member Area', 'Submit success', 'User details');
         } else {
@@ -236,7 +240,7 @@ export default class EditProfile extends Component {
                           }
                         />
                       </div>
-                      {option.helpText && <div>{option.helpText}</div>}
+                      {option.helpText && <div class="helper-text">{option.helpText}</div>}
                     </div>
                   );
                 })}

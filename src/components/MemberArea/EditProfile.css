@@ -132,6 +132,11 @@
   margin: 5px 0;
 }
 
+.edit-profile .form-field .helper-text {
+  color: #aaa;
+  font-style: italic;
+}
+
 @media all and (max-width: 800px) {
   .edit-profile .form-fields {
     margin: 0;
