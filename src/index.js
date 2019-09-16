@@ -7,6 +7,7 @@ import { getCurrentUser } from './api';
 import './index.css';
 import { reportError } from './ga';
 import * as Sentry from '@sentry/browser';
+import { UserProvider } from './context/userContext/UserContext';
 
 Sentry.init({
   dsn: 'https://bcc1baf038b847258b4307e6ca5777e2@sentry.io/1542584',
@@ -17,7 +18,12 @@ Sentry.init({
     await auth.renewSession();
     // prepare user - don't wait for it
     getCurrentUser();
-    ReactDOM.render(<App />, document.getElementById('root'));
+    ReactDOM.render(
+      <UserProvider>
+        <App />
+      </UserProvider>,
+      document.getElementById('root')
+    );
   } catch (error) {
     reportError('Init', error);
   }

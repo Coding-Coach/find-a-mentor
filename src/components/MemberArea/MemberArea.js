@@ -1,47 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext, useCallback } from 'react';
 import styled from 'styled-components';
 import onClickOutside from 'react-onclickoutside';
-import { getCurrentUser } from '../../api';
 import auth from '../../utils/auth';
 import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import useWindowSize from '../../utils/useWindowSize';
 import { isMentor, isAdmin } from '../../helpers/user';
+import UserContext from '../../context/userContext/UserContext';
 
-function MemberArea(props) {
+function MemberArea({ onOpenModal }) {
   const authenticated = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
-  const [currentUser, setCurrentUser] = useState(null);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
   const isDesktop = useWindowSize().width > 800;
 
-  async function getUser() {
-    try {
-      return await getCurrentUser();
-    } catch (error) {
-      console.error('error', error);
-    }
-  }
+  const { currentUser } = useContext(UserContext);
 
-  const openProfile = () => {
-    props.onOpenModal(
-      'Edit Your Pofile',
-      <EditProfile user={currentUser} onUserUpdated={setCurrentUser} />
-    );
-  };
+  const openProfile = useCallback(() => {
+    onOpenModal('Edit Your Pofile', <EditProfile />);
+  }, [onOpenModal]);
 
   const openPendingApplications = () => {
-    props.onOpenModal('Pending Applications', <PendingApplications />);
+    onOpenModal('Pending Applications', <PendingApplications />);
   };
 
   MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
 
   useEffect(() => {
     (async () => {
-      const user = await getUser();
       setIsAuthenticated(auth.isAuthenticated());
-      setCurrentUser(user);
     })();
   }, []);
 
@@ -52,8 +40,7 @@ function MemberArea(props) {
     auth.onMentorRegistered(() => {
       openProfile();
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentUser]);
+  }, [currentUser, openProfile]);
 
   const logout = () => {
     auth.doLogout();

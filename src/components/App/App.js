@@ -16,6 +16,8 @@ import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { ToastContainer } from 'react-toastify';
+import UserContext from '../../context/userContext/UserContext';
+import { getCurrentUser } from '../../api';
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -33,6 +35,7 @@ function scrollToTop() {
 }
 
 class App extends Component {
+  static contextType = UserContext;
   state = {
     mentors: [],
     favorites: get(),
@@ -161,6 +164,8 @@ class App extends Component {
     reportPageView();
     this.getPermalinkParams();
     const mentors = await getMentors();
+    const currentUser = await getCurrentUser();
+    this.context.updateUser(currentUser);
     this.setState({
       mentors,
       ready: true,
