@@ -64,21 +64,19 @@ function storeUserInLocalStorage(user = currentUser) {
 }
 
 async function fetchCurrentItem() {
-  currentUser = await makeApiCall(`${paths.USERS}/current`).then(
-    res => {
-      if (res != null) {
-        Sentry.configureScope((scope) => {
-          scope.setUser({
-            id: res.data._id,
-            email: res.data.email,
-            username: res.data.name,
-          });
+  currentUser = await makeApiCall(`${paths.USERS}/current`).then(res => {
+    if (res != null) {
+      Sentry.configureScope(scope => {
+        scope.setUser({
+          id: res.data._id,
+          email: res.data.email,
+          username: res.data.name,
         });
+      });
 
-        return res.data
-      }
+      return res.data;
     }
-  );
+  });
   storeUserInLocalStorage();
 }
 
