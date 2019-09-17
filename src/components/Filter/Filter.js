@@ -1,40 +1,21 @@
 import './Filter.css';
 
-import React, { useReducer, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import classNames from 'classnames';
 import AutoComplete from '../AutoComplete/AutoComplete';
 import Input from '../Input/Input';
 import Switch from '../Switch/Switch';
 
 import { generateLists } from '../../listsGenerator';
-
-const initialFilters = {
-  tag: '',
-  country: '',
-  name: '',
-  language: '',
-  showFilters: false,
-};
-
-function filterReducer(state, action) {
-  switch (action.type) {
-    case 'filterTag':
-      return { tag: action.payload };
-    case 'filterCountry':
-      return { country: action.payload };
-    case 'filterName':
-      return { name: action.payload };
-    case 'filterLanguage':
-      return { language: action.payload };
-    case 'showFilters':
-      return { showFilters: action.payload };
-    default:
-      throw new Error('');
-  }
-}
+import {
+  useFiltersDispatch,
+  useFiltersState,
+} from '../../context/filtersContext/FiltersContext';
 
 export default function Filter(props) {
-  const [filters, dispatch] = useReducer(filterReducer, initialFilters);
+  console.log(props);
+  const filters = useFiltersState();
+  const dispatch = useFiltersDispatch();
   const {
     onTagSelected,
     onCountrySelected,
@@ -55,7 +36,7 @@ export default function Filter(props) {
       dispatch({ type: 'filterTag', payload: tag });
       onTagSelected(tag);
     },
-    [onTagSelected]
+    [onTagSelected, dispatch]
   );
 
   const onCountrySelect = useCallback(
@@ -63,7 +44,7 @@ export default function Filter(props) {
       dispatch({ type: 'filterCountry', payload: country });
       onCountrySelected(country);
     },
-    [onCountrySelected]
+    [onCountrySelected, dispatch]
   );
 
   const onNameSelect = useCallback(
@@ -71,7 +52,7 @@ export default function Filter(props) {
       dispatch({ type: 'filterName', payload: name });
       onNameSelected(name);
     },
-    [onNameSelected]
+    [onNameSelected, dispatch]
   );
 
   const onLanguageSelect = useCallback(
@@ -79,13 +60,13 @@ export default function Filter(props) {
       dispatch({ type: 'filterLanguage', payload: language });
       onLanguageSelected(language);
     },
-    [onLanguageSelected]
+    [onLanguageSelected, dispatch]
   );
 
   const onToggleShowFilters = useCallback(() => {
     dispatch({ type: 'showFilters', payload: !filters.showFilters });
     onToggleFilter();
-  }, [filters.showFilters, onToggleFilter]);
+  }, [filters.showFilters, onToggleFilter, dispatch]);
 
   return (
     <section aria-labelledby="filter" className="filter-wrapper">
