@@ -91,6 +91,9 @@ export default function AutoComplete(props) {
       setValue(clickedTag);
       onSelect({ value: clickedTag });
       setPermalinkParams(id, clickedTag);
+    } else {
+      setValue('');
+      onSelect({ value: '' });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickedTag]);
@@ -100,6 +103,9 @@ export default function AutoComplete(props) {
       setValue(props.clickedUser);
       onSelect({ value: props.clickedUser });
       setPermalinkParams(id, props.clickedUser);
+    } else {
+      setValue('');
+      onSelect({ value: '' });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.clickedUser]);
@@ -110,6 +116,9 @@ export default function AutoComplete(props) {
       setValue(code.label);
       onSelect({ value: code.value });
       setPermalinkParams(props.id, code.label);
+    } else {
+      setValue('');
+      onSelect({ value: '' });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.clickedCountry]);
