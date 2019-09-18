@@ -56,4 +56,4 @@ const useFiltersDispatch = () => {
 
 const useFilters = () => [useFiltersState(), useFiltersDispatch()];
 
-export { FiltersProvider, useFilters, useFiltersDispatch, useFiltersState };
+export { FiltersProvider, useFilters };
