@@ -18,6 +18,7 @@ import { getMentors } from '../../api';
 import { ToastContainer } from 'react-toastify';
 import UserContext from '../../context/userContext/UserContext';
 import { getCurrentUser } from '../../api';
+import { FiltersProvider } from '../../context/filtersContext/FiltersContext';
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -206,19 +207,21 @@ class App extends Component {
           <Header />
           <Content>
             <aside className="sidebar">
-              <Filter
-                onTagSelected={this.handleTagSelect}
-                onCountrySelected={this.handleCountrySelect}
-                onNameSelected={this.handleNameSelect}
-                onLanguageSelected={this.handleLanguageSelect}
-                onToggleFilter={this.toggleFields}
-                onToggleSwitch={this.toggleSwitch}
-                mentorCount={mentorsInList.length}
-                clickedTag={clickedTag}
-                clickedUser={clickedUser}
-                clickedCountry={clickedCountry}
-                mentors={mentorsInList}
-              />
+              <FiltersProvider>
+                <Filter
+                  onTagSelected={this.handleTagSelect}
+                  onCountrySelected={this.handleCountrySelect}
+                  onNameSelected={this.handleNameSelect}
+                  onLanguageSelected={this.handleLanguageSelect}
+                  onToggleFilter={this.toggleFields}
+                  onToggleSwitch={this.toggleSwitch}
+                  mentorCount={mentorsInList.length}
+                  clickedTag={clickedTag}
+                  clickedUser={clickedUser}
+                  clickedCountry={clickedCountry}
+                  mentors={mentorsInList}
+                />
+              </FiltersProvider>
               <SocialLinks />
               <nav className="sidebar-nav">
                 <ModalContent
