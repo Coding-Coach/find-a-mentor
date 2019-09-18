@@ -114,28 +114,28 @@ export default {
         label: 'LinkedIn',
         prefix: 'https://linkedin.com/in/',
         validate: value => linkedinValidation(value),
-        helpText: "Add only your Linkedin username"
+        helpText: 'Add only your Linkedin username',
       },
       {
         value: 'facebook',
         label: 'Facebook',
         prefix: 'https://facebook.com/',
         validate: value => facebookValidation(value),
-        helpText: "Add only your Facebook username"
+        helpText: 'Add only your Facebook username',
       },
       {
         value: 'twitter',
         label: 'Twitter',
         prefix: 'https://twitter.com/',
         validate: value => twitterValidation(value),
-        helpText: "Add only your Twitter handle"
+        helpText: 'Add only your Twitter handle',
       },
       {
         value: 'github',
         label: 'Github',
         prefix: 'https://github.com/',
         validate: value => githubValidation(value),
-        helpText: "Add only your Github username"
+        helpText: 'Add only your Github username',
       },
       {
         value: 'slack',
