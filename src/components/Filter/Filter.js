@@ -7,15 +7,10 @@ import Input from '../Input/Input';
 import Switch from '../Switch/Switch';
 
 import { generateLists } from '../../listsGenerator';
-import {
-  useFiltersDispatch,
-  useFiltersState,
-} from '../../context/filtersContext/FiltersContext';
+import { useFilters } from '../../context/filtersContext/FiltersContext';
 
 export default function Filter(props) {
-  console.log(props);
-  const filters = useFiltersState();
-  const dispatch = useFiltersDispatch();
+  const [filters, dispatch] = useFilters();
   const {
     onTagSelected,
     onCountrySelected,

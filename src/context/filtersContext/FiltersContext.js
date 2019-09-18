@@ -54,4 +54,6 @@ const useFiltersDispatch = () => {
   return context;
 };
 
-export { FiltersProvider, useFiltersDispatch, useFiltersState };
+const useFilters = () => [useFiltersState(), useFiltersDispatch()];
+
+export { FiltersProvider, useFilters, useFiltersDispatch, useFiltersState };
