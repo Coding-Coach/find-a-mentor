@@ -154,6 +154,9 @@ class App extends Component {
       country: permalink.get('country'),
       name: permalink.get('name'),
       language: permalink.get('language'),
+      clickedTag: permalink.get('technology'),
+      clickedCountry: permalink.get('country'),
+      clickedUser: permalink.get('name'),
     });
   }
 
@@ -162,6 +165,9 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    window.onpopstate = () => {
+      this.getPermalinkParams();
+    };
     reportPageView();
     this.getPermalinkParams();
     const mentors = await getMentors();
@@ -195,7 +201,6 @@ class App extends Component {
       ready,
     } = this.state;
     const mentorsInList = mentors.filter(this.filterMentors);
-
     return (
       <div className="app">
         <ToastContainer />
