@@ -38,13 +38,17 @@ export default function AutoComplete(props) {
   const setPermalinkParams = useCallback(
     (param, value) => {
       const permalink = new URLSearchParams(window.location.search);
+      const { length } = [...permalink];
       const paramItem = source.filter(item => item.label === value);
       if (paramItem.length && value.length) {
         permalink.set(param, paramItem[0].value);
       } else if (!value.length) {
         permalink.delete(param);
       }
-      window.history.pushState({}, null, '?' + permalink.toString());
+      // pushState only if the state changed
+      if (length !== [...permalink].length) {
+        window.history.pushState({}, null, '?' + permalink.toString());
+      }
     },
     [source]
   );
@@ -92,8 +96,7 @@ export default function AutoComplete(props) {
       onSelect({ value: clickedTag });
       setPermalinkParams(id, clickedTag);
     } else {
-      setValue('');
-      onSelect({ value: '' });
+      onChange(null, '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [clickedTag]);
@@ -104,8 +107,7 @@ export default function AutoComplete(props) {
       onSelect({ value: props.clickedUser });
       setPermalinkParams(id, props.clickedUser);
     } else {
-      setValue('');
-      onSelect({ value: '' });
+      onChange(null, '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.clickedUser]);
@@ -117,8 +119,7 @@ export default function AutoComplete(props) {
       onSelect({ value: code.value });
       setPermalinkParams(props.id, code.label);
     } else {
-      setValue('');
-      onSelect({ value: '' });
+      onChange(null, '');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.clickedCountry]);
