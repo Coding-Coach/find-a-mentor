@@ -2,7 +2,7 @@ import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
 
-import React, { Component } from 'react';
+import React, { useCallback, useEffect, useState, useContext } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import MentorsList from '../MentorsList/MentorsList';
@@ -16,9 +16,9 @@ import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { ToastContainer } from 'react-toastify';
-import UserContext from '../../context/userContext/UserContext';
 import { getCurrentUser } from '../../api';
-import { FiltersProvider } from '../../context/filtersContext/FiltersContext';
+import { useFilters } from '../../context/filtersContext/FiltersContext';
+import UserContext from '../../context/userContext/UserContext';
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -35,60 +35,41 @@ function scrollToTop() {
   });
 }
 
-class App extends Component {
-  static contextType = UserContext;
-  state = {
-    mentors: [],
-    favorites: get(),
-    ready: false,
-    modal: {
-      title: null,
-      content: null,
-      onClose: null,
-    },
-  };
+const App = () => {
+  const [mentors, setMentors] = useState([]);
+  const [isReady, setIsReady] = useState(false);
+  const [filters] = useFilters();
+  const [favorites, setFavorites] = useState(get());
+  const [fieldsIsActive, setFieldsIsActive] = useState(true);
+  const { updateUser } = useContext(UserContext);
+  const [modal, setModal] = useState({
+    title: null,
+    content: null,
+    onClose: null,
+  });
 
-  handleTagSelect = async ({ value: tag }) => {
+  const handleTagSelect = useCallback(async ({ value: tag }) => {
     await scrollToTop();
-    this.setState({
-      tag,
-    });
     report('Filter', 'tag', tag);
-  };
+  }, []);
 
-  handleCountrySelect = async ({ value: country }) => {
+  const handleCountrySelect = useCallback(async ({ value: country }) => {
     await scrollToTop();
-    this.setState({
-      country,
-    });
     report('Filter', 'country', country);
-  };
+  }, []);
 
-  handleNameSelect = async ({ value: name }) => {
+  const handleNameSelect = useCallback(async ({ value: name }) => {
     await scrollToTop();
-    this.setState({
-      name,
-    });
     report('Filter', 'name', 'name');
-  };
+  }, []);
 
-  handleLanguageSelect = async ({ value: language }) => {
+  const handleLanguageSelect = useCallback(async ({ value: language }) => {
     await scrollToTop();
-    this.setState({
-      language,
-    });
     report('Filter', 'language', language);
-  };
+  }, []);
 
-  filterMentors = mentor => {
-    const {
-      tag,
-      country,
-      name,
-      language,
-      showFavorite,
-      favorites,
-    } = this.state;
+  const filterMentors = mentor => {
+    const { tag, country, name, language, showFavorite } = filters;
     return (
       (!tag || mentor.tags.includes(tag)) &&
       (!country || mentor.country === country) &&
@@ -100,195 +81,140 @@ class App extends Component {
     );
   };
 
-  toggleFields = () => {
-    this.setState({
-      fieldsIsActive: !this.state.fieldsIsActive,
-    });
+  const toggleFields = () => {
+    setFieldsIsActive(fieldsIsActive => !fieldsIsActive);
   };
 
-  toggleSwitch = async showFavorite => {
+  const toggleSwitch = async showFavorite => {
     await scrollToTop();
-    this.setState({
-      showFavorite,
-    });
     report('Show Favorite', 'switch', showFavorite);
   };
 
-  onFavMentor = mentor => {
+  const onFavMentor = mentor => {
     const favorites = toggle(mentor);
-    this.setState({
-      favorites,
-    });
+    setFavorites(favorites);
     report('Favorite');
   };
 
-  handleTagClick = async clickedTag => {
+  const handleTagClick = async clickedTag => {
     await scrollToTop();
-    this.setState({
-      clickedTag,
-    });
     report('Filter', 'tag', clickedTag);
   };
 
-  handleAvatarClick = async clickedUser => {
+  const handleAvatarClick = async clickedUser => {
     await scrollToTop();
-    this.setState({
-      clickedUser,
-    });
     report('Filter', 'name', clickedUser);
   };
 
-  handleCountryClick = async clickedCountry => {
+  const handleCountryClick = async clickedCountry => {
     await scrollToTop();
-    this.setState({
-      clickedCountry,
-    });
     report('Filter', 'country', clickedCountry);
   };
 
-  getPermalinkParams() {
-    const permalink = new URLSearchParams(window.location.search);
-
-    this.setState({
-      tag: permalink.get('technology'),
-      country: permalink.get('country'),
-      name: permalink.get('name'),
-      language: permalink.get('language'),
-      clickedTag: permalink.get('technology'),
-      clickedCountry: permalink.get('country'),
-      clickedUser: permalink.get('name'),
-    });
-  }
-
+  /*
   UNSAFE_componentWillUpdate(nextProps, nextState) {
     set(nextState);
   }
+*/
 
-  async componentDidMount() {
-    window.onpopstate = () => {
-      this.getPermalinkParams();
-    };
-    reportPageView();
-    this.getPermalinkParams();
-    const mentors = await getMentors();
-    const currentUser = await getCurrentUser();
-    this.context.updateUser(currentUser);
-    this.setState({
-      mentors,
-      ready: true,
-    });
-  }
+  useEffect(() => {
+    async function initialize() {
+      reportPageView();
+      const mentors = await getMentors();
+      const currentUser = await getCurrentUser();
+      updateUser(currentUser);
+      setMentors(mentors);
+      setIsReady(true);
+    }
+    initialize();
+  }, [updateUser]);
 
-  handleModal = (title, content, onClose) => {
-    this.setState({
-      modal: {
-        title,
-        content,
-        onClose,
-      },
+  const handleModal = (title, content, onClose) => {
+    setModal({
+      title,
+      content,
+      onClose,
     });
     report('Modal', 'open', title);
   };
 
-  render() {
-    const {
-      mentors = [],
-      fieldsIsActive,
-      modal,
-      clickedTag,
-      clickedCountry,
-      clickedUser,
-      ready,
-    } = this.state;
-    const mentorsInList = mentors.filter(this.filterMentors);
-    return (
-      <div className="app">
-        <ToastContainer />
-        <Modal onClose={this.closeModal} title={modal.title}>
-          {modal.content}
-        </Modal>
+  const mentorsInList = mentors.filter(filterMentors);
 
-        <Main>
-          <Header />
-          <Content>
-            <aside className="sidebar">
-              <FiltersProvider>
-                <Filter
-                  onTagSelected={this.handleTagSelect}
-                  onCountrySelected={this.handleCountrySelect}
-                  onNameSelected={this.handleNameSelect}
-                  onLanguageSelected={this.handleLanguageSelect}
-                  onToggleFilter={this.toggleFields}
-                  onToggleSwitch={this.toggleSwitch}
-                  mentorCount={mentorsInList.length}
-                  clickedTag={clickedTag}
-                  clickedUser={clickedUser}
-                  clickedCountry={clickedCountry}
-                  mentors={mentorsInList}
-                />
-              </FiltersProvider>
-              <SocialLinks />
-              <nav className="sidebar-nav">
-                <ModalContent
-                  policyTitle={'Cookies policy'}
-                  content={'cookies-policy'}
-                  handleModal={(title, content) =>
-                    this.handleModal(title, content)
-                  }
-                />
-                <ModalContent
-                  policyTitle={'Code of Conduct'}
-                  content={'code-conduct'}
-                  handleModal={(title, content) =>
-                    this.handleModal(title, content)
-                  }
-                />
-                <ModalContent
-                  policyTitle={'Terms & Conditions'}
-                  content={'terms-conditions'}
-                  handleModal={(title, content) =>
-                    this.handleModal(title, content)
-                  }
-                />
-                <ModalContent
-                  policyTitle={'Privacy Statement'}
-                  content={'privacy-policy'}
-                  handleModal={(title, content) =>
-                    this.handleModal(title, content)
-                  }
-                />
-              </nav>
-              <a
-                href="https://www.patreon.com/codingcoach_io"
-                className="patreon-link"
-                aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
-                  alt="Become a Patron"
-                />
-              </a>
-            </aside>
-            <MentorsList
-              className={classNames({
-                active: fieldsIsActive,
-              })}
+  return (
+    <div className="app">
+      <ToastContainer />
+      <Modal title={modal.title}>
+        {/*onClose={closeModal}*/}
+        {modal.content}
+      </Modal>
+
+      <Main>
+        <Header />
+        <Content>
+          <aside className="sidebar">
+            <Filter
+              onTagSelected={handleTagSelect}
+              onCountrySelected={handleCountrySelect}
+              onNameSelected={handleNameSelect}
+              onLanguageSelected={handleLanguageSelect}
+              onToggleFilter={toggleFields}
+              onToggleSwitch={toggleSwitch}
+              mentorCount={mentorsInList.length}
               mentors={mentorsInList}
-              favorites={this.state.favorites}
-              onFavMentor={this.onFavMentor}
-              handleTagClick={this.handleTagClick}
-              handleAvatarClick={this.handleAvatarClick}
-              handleCountryClick={this.handleCountryClick}
-              ready={ready}
             />
-          </Content>
-        </Main>
-      </div>
-    );
-  }
-}
+            <SocialLinks />
+            <nav className="sidebar-nav">
+              <ModalContent
+                policyTitle={'Cookies policy'}
+                content={'cookies-policy'}
+                handleModal={(title, content) => handleModal(title, content)}
+              />
+              <ModalContent
+                policyTitle={'Code of Conduct'}
+                content={'code-conduct'}
+                handleModal={(title, content) => handleModal(title, content)}
+              />
+              <ModalContent
+                policyTitle={'Terms & Conditions'}
+                content={'terms-conditions'}
+                handleModal={(title, content) => handleModal(title, content)}
+              />
+              <ModalContent
+                policyTitle={'Privacy Statement'}
+                content={'privacy-policy'}
+                handleModal={(title, content) => handleModal(title, content)}
+              />
+            </nav>
+            <a
+              href="https://www.patreon.com/codingcoach_io"
+              className="patreon-link"
+              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
+                alt="Become a Patron"
+              />
+            </a>
+          </aside>
+          <MentorsList
+            className={classNames({
+              active: fieldsIsActive,
+            })}
+            mentors={mentorsInList}
+            favorites={favorites}
+            onFavMentor={onFavMentor}
+            handleTagClick={handleTagClick}
+            handleAvatarClick={handleAvatarClick}
+            handleCountryClick={handleCountryClick}
+            ready={isReady}
+          />
+        </Content>
+      </Main>
+    </div>
+  );
+};
 
 const Main = styled.main`
   display: flex;

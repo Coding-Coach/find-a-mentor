@@ -18,9 +18,6 @@ export default function Filter(props) {
     onLanguageSelected,
     onToggleFilter,
     onToggleSwitch,
-    clickedTag,
-    clickedCountry,
-    clickedUser,
     mentors,
   } = props;
   const { showFilters } = filters;
@@ -86,7 +83,6 @@ export default function Filter(props) {
             id="technology"
             source={tags}
             onSelect={onTagSelect}
-            clickedTag={clickedTag}
             showClear
             data-testid="technology-filter-autocomplete"
           />
@@ -96,7 +92,6 @@ export default function Filter(props) {
             id="country"
             source={countries}
             onSelect={onCountrySelect}
-            clickedCountry={clickedCountry}
             showClear
             data-testid="country-filter-autocomplete"
           />
@@ -106,7 +101,6 @@ export default function Filter(props) {
             id="name"
             source={names}
             onSelect={onNameSelect}
-            clickedUser={clickedUser}
             showClear
             data-testid="name-filter-autocomplete"
           />

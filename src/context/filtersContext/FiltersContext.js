@@ -3,12 +3,16 @@ import React, { useReducer, createContext, useContext } from 'react';
 const FiltersStateContext = createContext({});
 const FiltersDispatchContext = createContext({});
 
-const initialFilters = {
-  tag: '',
-  country: '',
-  name: '',
-  language: '',
-  showFilters: false,
+const getInitialFilters = () => {
+  const permalink = new URLSearchParams(window.location.search);
+
+  return {
+    tag: permalink.get('technology') || '',
+    country: permalink.get('country') || '',
+    name: permalink.get('name') || '',
+    language: permalink.get('language') || '',
+    showFilters: false,
+  };
 };
 
 const filterReducer = (state, action) => {
@@ -23,13 +27,16 @@ const filterReducer = (state, action) => {
       return { ...state, language: action.payload };
     case 'showFilters':
       return { ...state, showFilters: action.payload };
+    case 'setFilters':
+      return { ...action.payload };
     default:
       throw new Error('');
   }
 };
 
 const FiltersProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(filterReducer, initialFilters);
+  const [state, dispatch] = useReducer(filterReducer, getInitialFilters());
+
   return (
     <FiltersStateContext.Provider value={state}>
       <FiltersDispatchContext.Provider value={dispatch}>
