@@ -14,13 +14,12 @@ import ModalContent from '../Modal/ModalContent';
 import { toggle, get } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
-import { getMentors } from '../../api';
 import { ToastContainer } from 'react-toastify';
+import { getCurrentUser, getMentors } from '../../api';
+import FilterContextProvider from '../../context/filtersContext/FiltersContext';
 import UserContext from '../../context/userContext/UserContext';
-import { getCurrentUser } from '../../api';
-import { FiltersProvider } from '../../context/filtersContext/FiltersContext';
 
-function scrollToTop() {
+function scrollToTop(){
   const scrollDuration = 200;
   return new Promise(resolve => {
     const scrollStep = -window.scrollY / (scrollDuration / 15),
@@ -47,6 +46,43 @@ class App extends Component {
       onClose: null,
     },
   };
+
+  UNSAFE_componentWillUpdate(nextProps, nextState) {
+    set(nextState);
+  }
+
+  getPermalinkParams() {
+    const permalink = new URLSearchParams(window.location.search);
+
+    // this.setState merges the new object into the current object
+    // so all of the below values will be appended to the existing values
+    this.setState({
+      tag: permalink.get('technology'),
+      country: permalink.get('country'),
+      name: permalink.get('name'),
+      language: permalink.get('language'),
+      clickedTag: permalink.get('technology'),
+      clickedCountry: permalink.get('country'),
+      clickedUser: permalink.get('name'),
+    });
+  }
+
+  async componentDidMount() {
+    window.onpopstate = () => {
+      this.getPermalinkParams();
+    };
+    reportPageView();
+    this.getPermalinkParams();
+    const mentors = await getMentors();
+    const currentUser = await getCurrentUser();
+    // update the value of currentUser in the UserContext, so that it will be available to every
+    // Component using the context
+    this.context.updateUser(currentUser);
+    this.setState({
+      mentors,
+      ready: true,
+    });
+  }
 
   handleTagSelect = async ({ value: tag }) => {
     await scrollToTop();
@@ -146,39 +182,6 @@ class App extends Component {
     report('Filter', 'country', clickedCountry);
   };
 
-  getPermalinkParams() {
-    const permalink = new URLSearchParams(window.location.search);
-
-    this.setState({
-      tag: permalink.get('technology'),
-      country: permalink.get('country'),
-      name: permalink.get('name'),
-      language: permalink.get('language'),
-      clickedTag: permalink.get('technology'),
-      clickedCountry: permalink.get('country'),
-      clickedUser: permalink.get('name'),
-    });
-  }
-
-  UNSAFE_componentWillUpdate(nextProps, nextState) {
-    set(nextState);
-  }
-
-  async componentDidMount() {
-    window.onpopstate = () => {
-      this.getPermalinkParams();
-    };
-    reportPageView();
-    this.getPermalinkParams();
-    const mentors = await getMentors();
-    const currentUser = await getCurrentUser();
-    this.context.updateUser(currentUser);
-    this.setState({
-      mentors,
-      ready: true,
-    });
-  }
-
   handleModal = (title, content, onClose) => {
     this.setState({
       modal: {
@@ -212,7 +215,7 @@ class App extends Component {
           <Header />
           <Content>
             <aside className="sidebar">
-              <FiltersProvider>
+              <FilterContextProvider>
                 <Filter
                   onTagSelected={this.handleTagSelect}
                   onCountrySelected={this.handleCountrySelect}
@@ -226,7 +229,7 @@ class App extends Component {
                   clickedCountry={clickedCountry}
                   mentors={mentorsInList}
                 />
-              </FiltersProvider>
+              </FilterContextProvider>
               <SocialLinks />
               <nav className="sidebar-nav">
                 <ModalContent

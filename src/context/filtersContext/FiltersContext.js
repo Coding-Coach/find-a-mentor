@@ -1,7 +1,6 @@
-import React, { useReducer, createContext, useContext } from 'react';
+import React, { useReducer, createContext } from 'react';
 
-const FiltersStateContext = createContext({});
-const FiltersDispatchContext = createContext({});
+export const FilterContext = createContext();
 
 const initialFilters = {
   tag: '',
@@ -28,32 +27,13 @@ const filterReducer = (state, action) => {
   }
 };
 
-const FiltersProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(filterReducer, initialFilters);
+const FilterContextProvider = ({ children }) => {
+  const [filters, dispatch] = useReducer(filterReducer, initialFilters, () => initialFilters);
   return (
-    <FiltersStateContext.Provider value={state}>
-      <FiltersDispatchContext.Provider value={dispatch}>
+    <FilterContext.Provider value={{filters, dispatch}}>
         {children}
-      </FiltersDispatchContext.Provider>
-    </FiltersStateContext.Provider>
+    </FilterContext.Provider>
   );
 };
 
-const useFiltersState = () => {
-  const context = useContext(FiltersStateContext);
-  if (context === undefined) {
-    throw new Error('useFiltersState must be used within a FiltersProvider');
-  }
-  return context;
-};
-const useFiltersDispatch = () => {
-  const context = useContext(FiltersDispatchContext);
-  if (context === undefined) {
-    throw new Error('useFiltersDispatch must be used within a FiltersProvider');
-  }
-  return context;
-};
-
-const useFilters = () => [useFiltersState(), useFiltersDispatch()];
-
-export { FiltersProvider, useFilters };
+export default FilterContextProvider;

@@ -1,16 +1,16 @@
 import './Filter.css';
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import classNames from 'classnames';
 import AutoComplete from '../AutoComplete/AutoComplete';
 import Input from '../Input/Input';
 import Switch from '../Switch/Switch';
-
 import { generateLists } from '../../listsGenerator';
-import { useFilters } from '../../context/filtersContext/FiltersContext';
+import {FilterContext} from '../../context/filtersContext/FiltersContext';
 
 export default function Filter(props) {
-  const [filters, dispatch] = useFilters();
+  const {filters, dispatch} = useContext(FilterContext)
+  const { showFilters } = filters;
   const {
     onTagSelected,
     onCountrySelected,
@@ -23,7 +23,6 @@ export default function Filter(props) {
     clickedUser,
     mentors,
   } = props;
-  const { showFilters } = filters;
   const { tags, countries, names, languages } = generateLists(mentors);
 
   const onTagSelect = useCallback(
@@ -59,9 +58,9 @@ export default function Filter(props) {
   );
 
   const onToggleShowFilters = useCallback(() => {
-    dispatch({ type: 'showFilters', payload: !filters.showFilters });
+    dispatch({ type: 'showFilters', payload: !showFilters });
     onToggleFilter();
-  }, [filters.showFilters, onToggleFilter, dispatch]);
+  }, [showFilters, onToggleFilter, dispatch]);
 
   return (
     <section aria-labelledby="filter" className="filter-wrapper">
@@ -80,7 +79,7 @@ export default function Filter(props) {
           />
         </button>
       </h3>
-      <div className="inputs" aria-expanded={showFilters}>
+      {<div className="inputs" aria-expanded={showFilters}>
         <Input id="technology" label="Technology" key="technology">
           <AutoComplete
             id="technology"
@@ -121,7 +120,7 @@ export default function Filter(props) {
           />
         </Input>
         <Switch id="fav" label="My Favorites" onToggle={onToggleSwitch} />
-      </div>
+      </div>}
     </section>
   );
 }
