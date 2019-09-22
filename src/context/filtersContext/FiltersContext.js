@@ -11,18 +11,18 @@ const initialFilters = {
   showFilters: false,
 };
 
-const filterReducer = (_, action) => {
+const filterReducer = (state, action) => {
   switch (action.type) {
     case 'filterTag':
-      return { tag: action.payload };
+      return { ...state, tag: action.payload };
     case 'filterCountry':
-      return { country: action.payload };
+      return { ...state, country: action.payload };
     case 'filterName':
-      return { name: action.payload };
+      return { ...state, name: action.payload };
     case 'filterLanguage':
-      return { language: action.payload };
+      return { ...state, language: action.payload };
     case 'showFilters':
-      return { showFilters: action.payload };
+      return { ...state, showFilters: action.payload };
     default:
       throw new Error('');
   }
