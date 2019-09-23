@@ -23,7 +23,7 @@ export function fromVMtoM(user) {
 export function fromMtoVM(user) {
   return {
     ...user,
-    ...overwriteProfileDefaults(user),
+    ...(isMentor(user) ? {} : overwriteProfileDefaults(user)),
     country: user.country
       ? { label: countries[user.country], value: user.country }
       : { value: '' },
