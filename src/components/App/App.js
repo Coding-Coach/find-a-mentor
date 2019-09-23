@@ -2,7 +2,13 @@ import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
 
-import React, { useCallback, useEffect, useState, useContext } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useState,
+  useContext,
+  useMemo,
+} from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import MentorsList from '../MentorsList/MentorsList';
@@ -12,13 +18,14 @@ import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
 import { toggle, get } from '../../favoriteManager';
-import { set } from '../../titleGenerator';
+//import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { ToastContainer } from 'react-toastify';
 import { getCurrentUser } from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import UserContext from '../../context/userContext/UserContext';
+import { setPermalinkParams } from '../../utils/permaLinkService';
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -39,6 +46,7 @@ const App = () => {
   const [mentors, setMentors] = useState([]);
   const [isReady, setIsReady] = useState(false);
   const [filters] = useFilters();
+  const { tag } = filters;
   const [favorites, setFavorites] = useState(get());
   const [fieldsIsActive, setFieldsIsActive] = useState(true);
   const { updateUser } = useContext(UserContext);
@@ -60,7 +68,7 @@ const App = () => {
 
   const handleNameSelect = useCallback(async ({ value: name }) => {
     await scrollToTop();
-    report('Filter', 'name', 'name');
+    report('Filter', 'name', name);
   }, []);
 
   const handleLanguageSelect = useCallback(async ({ value: language }) => {
@@ -68,18 +76,21 @@ const App = () => {
     report('Filter', 'language', language);
   }, []);
 
-  const filterMentors = mentor => {
-    const { tag, country, name, language, showFavorite } = filters;
-    return (
-      (!tag || mentor.tags.includes(tag)) &&
-      (!country || mentor.country === country) &&
-      (!name || mentor.name === name) &&
-      (!language ||
-        (mentor.spokenLanguages &&
-          mentor.spokenLanguages.includes(language))) &&
-      (!showFavorite || favorites.indexOf(mentor._id) > -1)
-    );
-  };
+  const filterMentors = useCallback(
+    mentor => {
+      const { tag, country, name, language, showFavorite } = filters;
+      return (
+        (!tag || mentor.tags.includes(tag)) &&
+        (!country || mentor.country === country) &&
+        (!name || mentor.name === name) &&
+        (!language ||
+          (mentor.spokenLanguages &&
+            mentor.spokenLanguages.includes(language))) &&
+        (!showFavorite || favorites.indexOf(mentor._id) > -1)
+      );
+    },
+    [filters, favorites]
+  );
 
   const toggleFields = () => {
     setFieldsIsActive(fieldsIsActive => !fieldsIsActive);
@@ -111,6 +122,11 @@ const App = () => {
     report('Filter', 'country', clickedCountry);
   };
 
+  useEffect(() => {
+    console.log('run ', tag);
+    setPermalinkParams('technology', tag);
+  }, [tag]);
+
   /*
   UNSAFE_componentWillUpdate(nextProps, nextState) {
     set(nextState);
@@ -138,7 +154,10 @@ const App = () => {
     report('Modal', 'open', title);
   };
 
-  const mentorsInList = mentors.filter(filterMentors);
+  const mentorsInList = useMemo(() => mentors.filter(filterMentors), [
+    mentors,
+    filterMentors,
+  ]);
 
   return (
     <div className="app">

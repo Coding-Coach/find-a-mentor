@@ -1,6 +1,6 @@
 import './AutoComplete.css';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Autocomplete from 'react-autocomplete';
 import classNames from 'classnames';
 import FilterClear from '../FilterClear/FilterClear';
@@ -35,40 +35,11 @@ export default function AutoComplete(props) {
   } = props;
   const [value, setValue] = useState('');
 
-  const setPermalinkParams = useCallback(
-    (param, value) => {
-      const permalink = new URLSearchParams(window.location.search);
-      const { length } = [...permalink];
-      const paramItem = source.filter(item => item.label === value);
-      if (paramItem.length && value.length) {
-        permalink.set(param, paramItem[0].value);
-      } else if (!value.length) {
-        permalink.delete(param);
-      }
-      // pushState only if the state changed
-      if (length !== [...permalink].length) {
-        window.history.pushState({}, null, '?' + permalink.toString());
-      }
-    },
-    [source]
-  );
-
-  const getPermalinkParams = () => {
-    const permalink = new URLSearchParams(window.location.search);
-    const paramValue = permalink.get(props.id);
-    const paramItem = source.filter(item => item.value === paramValue);
-    if (paramItem.length) {
-      setValue(paramItem[0].label);
-      onSelect({ value: paramValue, label: paramItem[0].label });
-    }
-  };
-
-  useEffect(getPermalinkParams, [source.length]);
+  //useEffect(getPermalinkParams, [source.length]);
 
   const handleSelect = (value, item) => {
     setValue(value);
     onSelect(item);
-    setPermalinkParams(props.id, value);
   };
 
   const onChange = (event, value) => {
@@ -76,7 +47,6 @@ export default function AutoComplete(props) {
     if (!value) {
       onSelect({ value: '', label: '' });
     }
-    setPermalinkParams(props.id, value);
   };
 
   const onClear = event => {
@@ -94,7 +64,6 @@ export default function AutoComplete(props) {
     if (clickedTag) {
       setValue(clickedTag);
       onSelect({ value: clickedTag });
-      setPermalinkParams(id, clickedTag);
     } else {
       onChange(null, '');
     }
@@ -105,7 +74,6 @@ export default function AutoComplete(props) {
     if (props.clickedUser) {
       setValue(props.clickedUser);
       onSelect({ value: props.clickedUser });
-      setPermalinkParams(id, props.clickedUser);
     } else {
       onChange(null, '');
     }
@@ -117,7 +85,6 @@ export default function AutoComplete(props) {
       const code = source.find(item => item.value === props.clickedCountry);
       setValue(code.label);
       onSelect({ value: code.value });
-      setPermalinkParams(props.id, code.label);
     } else {
       onChange(null, '');
     }

@@ -1,19 +1,7 @@
-import React, { useReducer, createContext, useContext } from 'react';
+import React, { useReducer, createContext, useContext, useEffect } from 'react';
 
 const FiltersStateContext = createContext({});
 const FiltersDispatchContext = createContext({});
-
-const getInitialFilters = () => {
-  const permalink = new URLSearchParams(window.location.search);
-
-  return {
-    tag: permalink.get('technology') || '',
-    country: permalink.get('country') || '',
-    name: permalink.get('name') || '',
-    language: permalink.get('language') || '',
-    showFilters: false,
-  };
-};
 
 const filterReducer = (state, action) => {
   switch (action.type) {
@@ -35,7 +23,20 @@ const filterReducer = (state, action) => {
 };
 
 const FiltersProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(filterReducer, getInitialFilters());
+  const [state, dispatch] = useReducer(filterReducer, {});
+  useEffect(() => {
+    console.log('corre');
+
+    const permalink = new URLSearchParams(window.location.search);
+    const initialFilters = {
+      tag: permalink.get('technology') || '',
+      country: permalink.get('country') || '',
+      name: permalink.get('name') || '',
+      language: permalink.get('language') || '',
+      showFilters: false,
+    };
+    dispatch({ type: 'setFilters', payload: initialFilters });
+  }, []);
 
   return (
     <FiltersStateContext.Provider value={state}>

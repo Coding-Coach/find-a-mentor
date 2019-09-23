@@ -25,7 +25,7 @@ export default function Filter(props) {
 
   const onTagSelect = useCallback(
     tag => {
-      dispatch({ type: 'filterTag', payload: tag });
+      dispatch({ type: 'filterTag', payload: tag.value });
       onTagSelected(tag);
     },
     [onTagSelected, dispatch]
@@ -33,7 +33,7 @@ export default function Filter(props) {
 
   const onCountrySelect = useCallback(
     country => {
-      dispatch({ type: 'filterCountry', payload: country });
+      dispatch({ type: 'filterCountry', payload: country.value });
       onCountrySelected(country);
     },
     [onCountrySelected, dispatch]
@@ -41,7 +41,7 @@ export default function Filter(props) {
 
   const onNameSelect = useCallback(
     name => {
-      dispatch({ type: 'filterName', payload: name });
+      dispatch({ type: 'filterName', payload: name.value });
       onNameSelected(name);
     },
     [onNameSelected, dispatch]
@@ -49,7 +49,7 @@ export default function Filter(props) {
 
   const onLanguageSelect = useCallback(
     language => {
-      dispatch({ type: 'filterLanguage', payload: language });
+      dispatch({ type: 'filterLanguage', payload: language.value });
       onLanguageSelected(language);
     },
     [onLanguageSelected, dispatch]
