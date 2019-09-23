@@ -66,9 +66,10 @@ const App = () => {
     report('Filter', 'country', country);
   }, []);
 
-  const handleNameSelect = useCallback(async ({ value: name }) => {
+  const handleNameSelect = useCallback(async () => {
     await scrollToTop();
-    report('Filter', 'name', name);
+    //this one is different, we don't want to store any private data
+    report('Filter', 'name', 'name');
   }, []);
 
   const handleLanguageSelect = useCallback(async ({ value: language }) => {
@@ -123,7 +124,6 @@ const App = () => {
   };
 
   useEffect(() => {
-    console.log('run ', tag);
     setPermalinkParams('technology', tag);
   }, [tag]);
 
