@@ -83,7 +83,7 @@ export default function AutoComplete(props) {
           'data-testid': testid,
         }}
       />
-      {showClear && value && (
+      {showClear && (value || localValue) && (
         <div className={'clear-btn'}>
           <FilterClear onClear={onClear} />
         </div>
