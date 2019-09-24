@@ -113,7 +113,7 @@ const LikeButton = ({ onClick, liked }) => (
 );
 
 const Card = ({ mentor, onFavMentor, isFav }) => {
-  const [filters, dispatch] = useFilters();
+  const [, dispatch] = useFilters();
   const toggleFav = () => {
     isFav = !isFav;
     onFavMentor(mentor);
@@ -123,10 +123,10 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
     dispatch({ type: 'filterTag', payload: tag });
   };
   const handleAvatarClick = name => {
-    dispatch({ type: 'filterName', payload: name.value });
+    dispatch({ type: 'filterName', payload: name });
   };
   const handleCountryClick = country => {
-    dispatch({ type: 'filterCountry', payload: country.value });
+    dispatch({ type: 'filterCountry', payload: country });
   };
 
   // don't show the description if it's not provided

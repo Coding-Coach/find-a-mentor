@@ -18,7 +18,7 @@ import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
 import { toggle, get } from '../../favoriteManager';
-//import { set } from '../../titleGenerator';
+import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { ToastContainer } from 'react-toastify';
@@ -46,7 +46,7 @@ const App = () => {
   const [mentors, setMentors] = useState([]);
   const [isReady, setIsReady] = useState(false);
   const [filters] = useFilters();
-  const { tag } = filters;
+  const { tag, country, name, language } = filters;
   const [favorites, setFavorites] = useState(get());
   const [fieldsIsActive, setFieldsIsActive] = useState(true);
   const { updateUser } = useContext(UserContext);
@@ -55,27 +55,6 @@ const App = () => {
     content: null,
     onClose: null,
   });
-
-  const handleTagSelect = useCallback(async ({ value: tag }) => {
-    await scrollToTop();
-    report('Filter', 'tag', tag);
-  }, []);
-
-  const handleCountrySelect = useCallback(async ({ value: country }) => {
-    await scrollToTop();
-    report('Filter', 'country', country);
-  }, []);
-
-  const handleNameSelect = useCallback(async () => {
-    await scrollToTop();
-    //this one is different, we don't want to store any private data
-    report('Filter', 'name', 'name');
-  }, []);
-
-  const handleLanguageSelect = useCallback(async ({ value: language }) => {
-    await scrollToTop();
-    report('Filter', 'language', language);
-  }, []);
 
   const filterMentors = useCallback(
     mentor => {
@@ -108,30 +87,56 @@ const App = () => {
     report('Favorite');
   };
 
-  const handleTagClick = async clickedTag => {
-    await scrollToTop();
-    report('Filter', 'tag', clickedTag);
-  };
-
-  const handleAvatarClick = async clickedUser => {
-    await scrollToTop();
-    report('Filter', 'name', clickedUser);
-  };
-
-  const handleCountryClick = async clickedCountry => {
-    await scrollToTop();
-    report('Filter', 'country', clickedCountry);
-  };
-
   useEffect(() => {
-    setPermalinkParams('technology', tag);
+    const onUpdateTag = async () => {
+      await scrollToTop();
+      setPermalinkParams('technology', tag);
+      if (tag) {
+        report('Filter', 'tag', tag);
+      }
+    };
+    onUpdateTag();
   }, [tag]);
 
-  /*
-  UNSAFE_componentWillUpdate(nextProps, nextState) {
-    set(nextState);
-  }
-*/
+  useEffect(() => {
+    const onUpdateCountry = async () => {
+      await scrollToTop();
+      setPermalinkParams('country', country);
+      if (country) {
+        report('Filter', 'country', country);
+      }
+    };
+    onUpdateCountry();
+  }, [country]);
+
+  useEffect(() => {
+    const onUpdateLanguage = async () => {
+      await scrollToTop();
+      setPermalinkParams('language', language);
+      if (language) {
+        report('Filter', 'language', language);
+      }
+    };
+    onUpdateLanguage();
+  }, [language]);
+
+  useEffect(() => {
+    const onUpdateName = async () => {
+      await scrollToTop();
+      setPermalinkParams('name', name);
+      if (name) {
+        report('Filter', 'name', 'name');
+      }
+    };
+    onUpdateName();
+  }, [name]);
+
+  useEffect(() => set({ tag, country, name, language }), [
+    tag,
+    country,
+    name,
+    language,
+  ]);
 
   useEffect(() => {
     async function initialize() {
@@ -172,10 +177,6 @@ const App = () => {
         <Content>
           <aside className="sidebar">
             <Filter
-              onTagSelected={handleTagSelect}
-              onCountrySelected={handleCountrySelect}
-              onNameSelected={handleNameSelect}
-              onLanguageSelected={handleLanguageSelect}
               onToggleFilter={toggleFields}
               onToggleSwitch={toggleSwitch}
               mentorCount={mentorsInList.length}
@@ -224,9 +225,6 @@ const App = () => {
             mentors={mentorsInList}
             favorites={favorites}
             onFavMentor={onFavMentor}
-            handleTagClick={handleTagClick}
-            handleAvatarClick={handleAvatarClick}
-            handleCountryClick={handleCountryClick}
             ready={isReady}
           />
         </Content>

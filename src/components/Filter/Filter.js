@@ -11,54 +11,55 @@ import { useFilters } from '../../context/filtersContext/FiltersContext';
 
 export default function Filter(props) {
   const [filters, dispatch] = useFilters();
-  const {
-    onTagSelected,
-    onCountrySelected,
-    onNameSelected,
-    onLanguageSelected,
-    onToggleFilter,
-    onToggleSwitch,
-    mentors,
-  } = props;
+  const { tag, country, language, name } = filters;
+  const { onToggleFilter, onToggleSwitch, mentors } = props;
   const { showFilters } = filters;
   const { tags, countries, names, languages } = generateLists(mentors);
 
   const onTagSelect = useCallback(
     tag => {
       dispatch({ type: 'filterTag', payload: tag.value });
-      onTagSelected(tag);
     },
-    [onTagSelected, dispatch]
+    [dispatch]
   );
 
   const onCountrySelect = useCallback(
     country => {
       dispatch({ type: 'filterCountry', payload: country.value });
-      onCountrySelected(country);
     },
-    [onCountrySelected, dispatch]
+    [dispatch]
   );
 
   const onNameSelect = useCallback(
     name => {
       dispatch({ type: 'filterName', payload: name.value });
-      onNameSelected(name);
     },
-    [onNameSelected, dispatch]
+    [dispatch]
   );
 
   const onLanguageSelect = useCallback(
     language => {
       dispatch({ type: 'filterLanguage', payload: language.value });
-      onLanguageSelected(language);
     },
-    [onLanguageSelected, dispatch]
+    [dispatch]
   );
 
   const onToggleShowFilters = useCallback(() => {
     dispatch({ type: 'showFilters', payload: !filters.showFilters });
     onToggleFilter();
   }, [filters.showFilters, onToggleFilter, dispatch]);
+
+  const countryLabel = useCallback(() => {
+    const countryObject = countries.find(element => element.value === country);
+    return (countryObject && countryObject.label) || '';
+  }, [countries, country]);
+
+  const languageLabel = useCallback(() => {
+    const languageObject = languages.find(
+      element => element.value === language
+    );
+    return (languageObject && languageObject.label) || '';
+  }, [languages, language]);
 
   return (
     <section aria-labelledby="filter" className="filter-wrapper">
@@ -80,6 +81,7 @@ export default function Filter(props) {
       <div className="inputs" aria-expanded={showFilters}>
         <Input id="technology" label="Technology" key="technology">
           <AutoComplete
+            value={tag}
             id="technology"
             source={tags}
             onSelect={onTagSelect}
@@ -89,6 +91,7 @@ export default function Filter(props) {
         </Input>
         <Input id="country" label="Country" key="country">
           <AutoComplete
+            value={countryLabel()}
             id="country"
             source={countries}
             onSelect={onCountrySelect}
@@ -98,6 +101,7 @@ export default function Filter(props) {
         </Input>
         <Input id="name" label="Name" key="name">
           <AutoComplete
+            value={name}
             id="name"
             source={names}
             onSelect={onNameSelect}
@@ -107,6 +111,7 @@ export default function Filter(props) {
         </Input>
         <Input id="language" label="Language" key="language">
           <AutoComplete
+            value={languageLabel()}
             id="language"
             source={languages}
             onSelect={onLanguageSelect}

@@ -20,7 +20,7 @@ function renderItem(item, isHighlighted) {
   );
 }
 
-function renderMenu(items, value, style) {
+function renderMenu(items) {
   return <div className="ac-menu" children={items} />;
 }
 
@@ -30,27 +30,25 @@ export default function AutoComplete(props) {
     source,
     'data-testid': testid,
     id,
-    clickedTag,
     onSelect,
+    value,
   } = props;
-  const [value, setValue] = useState('');
 
-  //useEffect(getPermalinkParams, [source.length]);
+  const [localValue, setLocalValue] = useState('');
 
-  const handleSelect = (value, item) => {
-    setValue(value);
+  const handleSelect = (_, item) => {
     onSelect(item);
   };
 
-  const onChange = (event, value) => {
-    setValue(value);
+  const onChange = (_, value) => {
+    setLocalValue(value);
     if (!value) {
       onSelect({ value: '', label: '' });
     }
   };
 
-  const onClear = event => {
-    onChange(event, '');
+  const onClear = _ => {
+    onChange(_, '');
   };
 
   const matchStateToTerm = (state, value) => {
@@ -61,42 +59,16 @@ export default function AutoComplete(props) {
   };
 
   useEffect(() => {
-    if (clickedTag) {
-      setValue(clickedTag);
-      onSelect({ value: clickedTag });
-    } else {
-      onChange(null, '');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [clickedTag]);
+    setLocalValue('');
+  }, [value]);
 
-  useEffect(() => {
-    if (props.clickedUser) {
-      setValue(props.clickedUser);
-      onSelect({ value: props.clickedUser });
-    } else {
-      onChange(null, '');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.clickedUser]);
-
-  useEffect(() => {
-    if (props.clickedCountry) {
-      const code = source.find(item => item.value === props.clickedCountry);
-      setValue(code.label);
-      onSelect({ value: code.value });
-    } else {
-      onChange(null, '');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.clickedCountry]);
-
+  //TODO: generate a safe ID
   const inputId = `${id}-${Math.random()}`;
 
   return (
     <div className="ac">
       <Autocomplete
-        value={value}
+        value={localValue || value}
         items={source}
         renderItem={renderItem}
         renderMenu={renderMenu}

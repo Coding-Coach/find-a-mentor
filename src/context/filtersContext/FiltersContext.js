@@ -25,8 +25,6 @@ const filterReducer = (state, action) => {
 const FiltersProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, {});
   useEffect(() => {
-    console.log('corre');
-
     const permalink = new URLSearchParams(window.location.search);
     const initialFilters = {
       tag: permalink.get('technology') || '',
