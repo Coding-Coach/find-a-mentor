@@ -1,4 +1,5 @@
 import React, { useReducer, createContext, useContext, useEffect } from 'react';
+import { getPermalinkParamsValues } from '../../utils/permaLinkService';
 
 const FiltersStateContext = createContext({});
 const FiltersDispatchContext = createContext({});
@@ -6,17 +7,19 @@ const FiltersDispatchContext = createContext({});
 const filterReducer = (state, action) => {
   switch (action.type) {
     case 'filterTag':
-      return { ...state, tag: action.payload };
+      return { ...state, tag: action.payload, onPopState: false };
     case 'filterCountry':
-      return { ...state, country: action.payload };
+      return { ...state, country: action.payload, onPopState: false };
     case 'filterName':
-      return { ...state, name: action.payload };
+      return { ...state, name: action.payload, onPopState: false };
     case 'filterLanguage':
-      return { ...state, language: action.payload };
+      return { ...state, language: action.payload, onPopState: false };
     case 'showFilters':
-      return { ...state, showFilters: action.payload };
+      return { ...state, showFilters: action.payload, onPopState: false };
     case 'setFilters':
-      return { ...action.payload };
+      return { ...action.payload, onPopState: false };
+    case 'onPopState':
+      return { ...state, ...action.payload, onPopState: true };
     default:
       throw new Error('');
   }
@@ -25,15 +28,11 @@ const filterReducer = (state, action) => {
 const FiltersProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, {});
   useEffect(() => {
-    const permalink = new URLSearchParams(window.location.search);
-    const initialFilters = {
-      tag: permalink.get('technology') || '',
-      country: permalink.get('country') || '',
-      name: permalink.get('name') || '',
-      language: permalink.get('language') || '',
-      showFilters: false,
-    };
-    dispatch({ type: 'setFilters', payload: initialFilters });
+    const initialFilters = getPermalinkParamsValues();
+    dispatch({
+      type: 'setFilters',
+      payload: { initialFilters, showFilters: false },
+    });
   }, []);
 
   return (

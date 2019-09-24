@@ -25,7 +25,10 @@ import { ToastContainer } from 'react-toastify';
 import { getCurrentUser } from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import UserContext from '../../context/userContext/UserContext';
-import { setPermalinkParams } from '../../utils/permaLinkService';
+import {
+  setPermalinkParams,
+  getPermalinkParamsValues,
+} from '../../utils/permaLinkService';
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -45,8 +48,8 @@ function scrollToTop() {
 const App = () => {
   const [mentors, setMentors] = useState([]);
   const [isReady, setIsReady] = useState(false);
-  const [filters] = useFilters();
-  const { tag, country, name, language } = filters;
+  const [filters, setFilters] = useFilters();
+  const { tag, country, name, language, onPopState } = filters;
   const [favorites, setFavorites] = useState(get());
   const [fieldsIsActive, setFieldsIsActive] = useState(true);
   const { updateUser } = useContext(UserContext);
@@ -55,6 +58,13 @@ const App = () => {
     content: null,
     onClose: null,
   });
+
+  useEffect(() => {
+    window.onpopstate = () => {
+      const urlFilters = getPermalinkParamsValues();
+      setFilters({ type: 'setFilters', payload: urlFilters });
+    };
+  }, [setFilters]);
 
   const filterMentors = useCallback(
     mentor => {
@@ -87,49 +97,44 @@ const App = () => {
     report('Favorite');
   };
 
-  useEffect(() => {
-    const onUpdateTag = async () => {
+  const onUpdateFilter = useCallback(
+    async (value, param) => {
       await scrollToTop();
-      setPermalinkParams('technology', tag);
-      if (tag) {
-        report('Filter', 'tag', tag);
+      if (!onPopState) {
+        setPermalinkParams(param, value);
+        if (value) {
+          report('Filter', param, value);
+        }
       }
-    };
-    onUpdateTag();
-  }, [tag]);
+    },
+    [onPopState]
+  );
 
   useEffect(() => {
-    const onUpdateCountry = async () => {
-      await scrollToTop();
-      setPermalinkParams('country', country);
-      if (country) {
-        report('Filter', 'country', country);
-      }
-    };
-    onUpdateCountry();
-  }, [country]);
+    onUpdateFilter(tag, 'technology');
+  }, [tag, onUpdateFilter]);
 
   useEffect(() => {
-    const onUpdateLanguage = async () => {
-      await scrollToTop();
-      setPermalinkParams('language', language);
-      if (language) {
-        report('Filter', 'language', language);
-      }
-    };
-    onUpdateLanguage();
-  }, [language]);
+    onUpdateFilter(country, 'country');
+  }, [country, onUpdateFilter]);
 
   useEffect(() => {
-    const onUpdateName = async () => {
-      await scrollToTop();
+    onUpdateFilter(language, 'language');
+  }, [language, onUpdateFilter]);
+
+  const onUpdateName = useCallback(async () => {
+    await scrollToTop();
+    if (!onPopState) {
       setPermalinkParams('name', name);
       if (name) {
         report('Filter', 'name', 'name');
       }
-    };
+    }
+  }, [name, onPopState]);
+
+  useEffect(() => {
     onUpdateName();
-  }, [name]);
+  }, [name, onUpdateName]);
 
   useEffect(() => set({ tag, country, name, language }), [
     tag,
