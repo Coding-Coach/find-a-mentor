@@ -51,6 +51,7 @@ const App = () => {
   const [filters, setFilters] = useFilters();
   const { tag, country, name, language, onPopState } = filters;
   const [favorites, setFavorites] = useState(get());
+  const [showFavorites, setShowFavorites] = useState(false);
   const [fieldsIsActive, setFieldsIsActive] = useState(false);
   const { updateUser } = useContext(UserContext);
   const [modal, setModal] = useState({
@@ -68,7 +69,7 @@ const App = () => {
 
   const filterMentors = useCallback(
     mentor => {
-      const { tag, country, name, language, showFavorite } = filters;
+      const { tag, country, name, language } = filters;
       return (
         (!tag || mentor.tags.includes(tag)) &&
         (!country || mentor.country === country) &&
@@ -76,10 +77,10 @@ const App = () => {
         (!language ||
           (mentor.spokenLanguages &&
             mentor.spokenLanguages.includes(language))) &&
-        (!showFavorite || favorites.indexOf(mentor._id) > -1)
+        (!showFavorites || favorites.indexOf(mentor._id) > -1)
       );
     },
-    [filters, favorites]
+    [filters, favorites, showFavorites]
   );
 
   const toggleFields = () => {
@@ -88,6 +89,7 @@ const App = () => {
 
   const toggleSwitch = async showFavorite => {
     await scrollToTop();
+    setShowFavorites(showFavorite);
     report('Show Favorite', 'switch', showFavorite);
   };
 
