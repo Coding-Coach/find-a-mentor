@@ -51,7 +51,7 @@ const App = () => {
   const [filters, setFilters] = useFilters();
   const { tag, country, name, language, onPopState } = filters;
   const [favorites, setFavorites] = useState(get());
-  const [fieldsIsActive, setFieldsIsActive] = useState(true);
+  const [fieldsIsActive, setFieldsIsActive] = useState(false);
   const { updateUser } = useContext(UserContext);
   const [modal, setModal] = useState({
     title: null,
