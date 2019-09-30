@@ -75,16 +75,26 @@
 }
 
 .edit-profile .form-field-input-wrapper .form-field-preview {
-  position: absolute;
   width: 30px;
   border-radius: 50%;
+}
+
+.edit-profile .form-field-input-wrapper .form-field-preview,
+.edit-profile .form-field-input-wrapper i {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 5px;
 }
 
-.edit-profile .form-field-input-wrapper .form-field-preview + input {
+.edit-profile .form-field-input-wrapper .form-field-preview + input,
+.edit-profile .form-field-input-wrapper i + input {
   padding-left: 40px;
+}
+
+.edit-profile .form-field-input-wrapper i {
+  font-size: 30px;
+  color: var(--generic-avatar-color);
 }
 
 .edit-profile .select__control {

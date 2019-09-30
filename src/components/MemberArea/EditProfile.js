@@ -115,11 +115,15 @@ export default class EditProfile extends Component {
               </div>
               <div className="form-field-input-wrapper">
                 {config.previewImage && (
-                  <img
-                    className="form-field-preview"
-                    src={user[fieldName]}
-                    alt="avatar"
-                  />
+                  user[fieldName]
+                    ? (
+                      <img
+                        className="form-field-preview"
+                        src={user[fieldName]}
+                        alt="avatar"
+                      />
+                    )
+                    : <i className="fa fa-user-circle" />
                 )}
                 <CustomTag
                   maxLength={config.maxLength}

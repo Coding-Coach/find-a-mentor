@@ -63,7 +63,7 @@
   width: var(--avatar-dim);
   height: var(--avatar-dim);
   background: hsl(0, 0%, 100%);
-  color: rgb(155, 155, 155);
+  color: var(--generic-avatar-color);
   border-radius: 50%;
   display: block;
 }
