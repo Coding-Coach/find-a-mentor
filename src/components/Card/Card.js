@@ -8,6 +8,7 @@ import { report } from '../../ga';
 import auth from '../../utils/auth';
 import { Tooltip } from 'react-tippy';
 import messages from '../../messages';
+import { useFilters } from '../../context/filtersContext/FiltersContext';
 
 function handleAnalytic(channelName) {
   report('Channel', 'click', channelName);
@@ -111,17 +112,21 @@ const LikeButton = ({ onClick, liked }) => (
   </button>
 );
 
-const Card = ({
-  mentor,
-  onFavMentor,
-  isFav,
-  handleTagClick,
-  handleCountryClick,
-  handleAvatarClick,
-}) => {
+const Card = ({ mentor, onFavMentor, isFav }) => {
+  const [, dispatch] = useFilters();
   const toggleFav = () => {
     isFav = !isFav;
     onFavMentor(mentor);
+  };
+
+  const handleTagClick = tag => {
+    dispatch({ type: 'filterTag', payload: tag });
+  };
+  const handleAvatarClick = name => {
+    dispatch({ type: 'filterName', payload: name });
+  };
+  const handleCountryClick = country => {
+    dispatch({ type: 'filterCountry', payload: country });
   };
 
   // don't show the description if it's not provided
@@ -165,7 +170,7 @@ const Card = ({
       <div className="header">
         <button
           className="country location"
-          onClick={handleCountryClick.bind(null, mentor.country)}
+          onClick={() => handleCountryClick(mentor.country)}
         >
           <i className={'fa fa-map-marker'} />
           <p>{mentor.country}</p>
