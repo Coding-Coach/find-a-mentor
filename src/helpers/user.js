@@ -1,5 +1,6 @@
 import ISO6391 from 'iso-639-1';
 import countries from 'svg-country-flags/countries.json';
+import { overwriteProfileDefaults } from '../utils/overwriteProfileDefaults';
 
 export function isMentor(user) {
   return user && user.roles.includes('Mentor');
@@ -22,6 +23,7 @@ export function fromVMtoM(user) {
 export function fromMtoVM(user) {
   return {
     ...user,
+    ...(isMentor(user) ? {} : overwriteProfileDefaults(user)),
     country: user.country
       ? { label: countries[user.country], value: user.country }
       : { value: '' },
