@@ -99,6 +99,9 @@ const App = () => {
 
   const onUpdateFilter = useCallback(
     async (value, param) => {
+      if (typeof value === 'undefined') {
+        return;
+      }
       await scrollToTop();
       if (!onPopState) {
         setPermalinkParams(param, value);
@@ -123,6 +126,9 @@ const App = () => {
   }, [language, onUpdateFilter]);
 
   const onUpdateName = useCallback(async () => {
+    if (typeof name === 'undefined') {
+      return;
+    }
     await scrollToTop();
     if (!onPopState) {
       setPermalinkParams('name', name);

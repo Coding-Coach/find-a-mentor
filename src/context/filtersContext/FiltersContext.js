@@ -31,7 +31,7 @@ const FiltersProvider = ({ children }) => {
     const initialFilters = getPermalinkParamsValues();
     dispatch({
       type: 'setFilters',
-      payload: { initialFilters, showFilters: false },
+      payload: { ...initialFilters, showFilters: false },
     });
   }, []);
 
