@@ -1,0 +1,12 @@
+{
+    "data": {
+        "_id": 1,
+        "email": "brentmclark@gmail.com",
+        "username": "brentmclark",
+        "roles": [
+            "Mentor"
+        ],
+        "avatar": "http://placekitten.com/50/50"
+    }
+}
+          
