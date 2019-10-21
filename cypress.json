@@ -1,5 +1,6 @@
 {
   "baseUrl": "http://localhost:3000",
   "videoUploadOnPasses": false,
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "defaultCommandTimeout": 15000
 }

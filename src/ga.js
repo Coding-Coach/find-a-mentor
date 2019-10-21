@@ -1,5 +1,7 @@
 export function report(category, action, label) {
   if (isLocal()) {
+    console.log('Fake report: ');
+    console.log({ category, action, label });
     return;
   }
   window.ga('send', 'event', category, action, label);

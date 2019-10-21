@@ -27,13 +27,7 @@ const MentorsList = props => {
   const mentorsInList = mentors.slice(0, page * itemsInPage);
 
   const mentorsList = () => {
-    const {
-      favorites,
-      onFavMentor,
-      handleTagClick,
-      handleCountryClick,
-      handleAvatarClick,
-    } = props;
+    const { favorites, onFavMentor } = props;
 
     return mentorsInList.map((mentor, index) => (
       <Card
@@ -41,9 +35,6 @@ const MentorsList = props => {
         mentor={mentor}
         onFavMentor={onFavMentor}
         isFav={favorites.indexOf(mentor._id) > -1}
-        handleTagClick={handleTagClick}
-        handleCountryClick={handleCountryClick}
-        handleAvatarClick={handleAvatarClick}
       />
     ));
   };

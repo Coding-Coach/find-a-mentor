@@ -9,6 +9,8 @@
   --link-color: #015d3e;
   --success-background: #28a745;
   --error-background: #dc3545;
+
+  --generic-avatar-color: rgb(155, 155, 155);
 }
 
 ::selection {

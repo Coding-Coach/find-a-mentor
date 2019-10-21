@@ -1,6 +1,6 @@
 import './AutoComplete.css';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Autocomplete from 'react-autocomplete';
 import classNames from 'classnames';
 import FilterClear from '../FilterClear/FilterClear';
@@ -20,7 +20,7 @@ function renderItem(item, isHighlighted) {
   );
 }
 
-function renderMenu(items, value, style) {
+function renderMenu(items) {
   return <div className="ac-menu" children={items} />;
 }
 
@@ -30,53 +30,25 @@ export default function AutoComplete(props) {
     source,
     'data-testid': testid,
     id,
-    clickedTag,
     onSelect,
+    value,
   } = props;
-  const [value, setValue] = useState('');
 
-  const setPermalinkParams = useCallback(
-    (param, value) => {
-      const permalink = new URLSearchParams(window.location.search);
-      const paramItem = source.filter(item => item.label === value);
-      if (paramItem.length && value.length) {
-        permalink.set(param, paramItem[0].value);
-      } else if (!value.length) {
-        permalink.delete(param);
-      }
-      window.history.pushState({}, null, '?' + permalink.toString());
-    },
-    [source]
-  );
+  const [localValue, setLocalValue] = useState('');
 
-  const getPermalinkParams = () => {
-    const permalink = new URLSearchParams(window.location.search);
-    const paramValue = permalink.get(props.id);
-    const paramItem = source.filter(item => item.value === paramValue);
-    if (paramItem.length) {
-      setValue(paramItem[0].label);
-      onSelect({ value: paramValue, label: paramItem[0].label });
-    }
-  };
-
-  useEffect(getPermalinkParams, [source.length]);
-
-  const handleSelect = (value, item) => {
-    setValue(value);
+  const handleSelect = (_, item) => {
     onSelect(item);
-    setPermalinkParams(props.id, value);
   };
 
-  const onChange = (event, value) => {
-    setValue(value);
+  const onChange = (_, value) => {
+    setLocalValue(value);
     if (!value) {
       onSelect({ value: '', label: '' });
     }
-    setPermalinkParams(props.id, value);
   };
 
-  const onClear = event => {
-    onChange(event, '');
+  const onClear = _ => {
+    onChange(_, '');
   };
 
   const matchStateToTerm = (state, value) => {
@@ -87,39 +59,16 @@ export default function AutoComplete(props) {
   };
 
   useEffect(() => {
-    if (clickedTag) {
-      setValue(clickedTag);
-      onSelect({ value: clickedTag });
-      setPermalinkParams(id, clickedTag);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [clickedTag]);
+    setLocalValue('');
+  }, [value]);
 
-  useEffect(() => {
-    if (props.clickedUser) {
-      setValue(props.clickedUser);
-      onSelect({ value: props.clickedUser });
-      setPermalinkParams(id, props.clickedUser);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.clickedUser]);
-
-  useEffect(() => {
-    if (props.clickedCountry) {
-      const code = source.find(item => item.value === props.clickedCountry);
-      setValue(code.label);
-      onSelect({ value: code.value });
-      setPermalinkParams(props.id, code.label);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.clickedCountry]);
-
+  //TODO: generate a safe ID
   const inputId = `${id}-${Math.random()}`;
 
   return (
     <div className="ac">
       <Autocomplete
-        value={value}
+        value={localValue || value}
         items={source}
         renderItem={renderItem}
         renderMenu={renderMenu}
@@ -134,7 +83,7 @@ export default function AutoComplete(props) {
           'data-testid': testid,
         }}
       />
-      {showClear && value && (
+      {showClear && (value || localValue) && (
         <div className={'clear-btn'}>
           <FilterClear onClear={onClear} />
         </div>

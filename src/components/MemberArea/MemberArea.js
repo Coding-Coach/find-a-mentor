@@ -52,6 +52,7 @@ function MemberArea({ onOpenModal }) {
       {isAuthenticated ? (
         <>
           <UserAvatar
+            data-testid="user-avatar"
             onClick={() =>
               currentUser && setIsMemberMenuOpen(!isMemberMenuOpen)
             }

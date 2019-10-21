@@ -1,0 +1,12 @@
+{
+    "data": {
+        "_id": 1,
+        "email": "brentmclark@gmail.com",
+        "username": "brentmclark",
+        "roles": [
+            "Mentor"
+        ],
+        "avatar": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtBAMAAADINP+pAAAAG1BMVEXMzMyWlpa+vr6xsbG3t7fFxcWqqqqjo6OcnJzvcxCxAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANElEQVQ4jWNgGAUjGDCZpcBJZMBsgiCRgat5M4OJAohEBYlCigzhYBINGCcD1YPIUTCsAADs9gb4p4yG2QAAAABJRU5ErkJggg=="
+    }
+}
+          

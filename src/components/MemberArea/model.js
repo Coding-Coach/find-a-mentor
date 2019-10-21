@@ -17,6 +17,8 @@ const linkedinValidation = value => !value || linkedinPattern.test(value);
 const facebookValidation = value => !value || facebookPattern.test(value);
 const twitterValidation = value => !value || twitterPattern.test(value);
 const githubValidation = value => !value || githubPattern.test(value);
+const nameValidation = value =>
+  value.length > 3 && value.length <= 50 && /^\S+(\s\S+)+$/.test(value);
 
 export default {
   email: {
@@ -32,7 +34,7 @@ export default {
     defaultValue: '',
     maxLength: 50,
     helpText: 'Please use your real name',
-    validate: value => !!value && (value.length > 3 && value.length <= 50),
+    validate: value => !!value && nameValidation(value),
   },
   avatar: {
     label: 'Avatar',
@@ -114,28 +116,28 @@ export default {
         label: 'LinkedIn',
         prefix: 'https://linkedin.com/in/',
         validate: value => linkedinValidation(value),
-        helpText: "Add only your Linkedin username"
+        helpText: 'Add only your Linkedin username',
       },
       {
         value: 'facebook',
         label: 'Facebook',
         prefix: 'https://facebook.com/',
         validate: value => facebookValidation(value),
-        helpText: "Add only your Facebook username"
+        helpText: 'Add only your Facebook username',
       },
       {
         value: 'twitter',
         label: 'Twitter',
         prefix: 'https://twitter.com/',
         validate: value => twitterValidation(value),
-        helpText: "Add only your Twitter handle"
+        helpText: 'Add only your Twitter handle',
       },
       {
         value: 'github',
         label: 'Github',
         prefix: 'https://github.com/',
         validate: value => githubValidation(value),
-        helpText: "Add only your Github username"
+        helpText: 'Add only your Github username',
       },
       {
         value: 'slack',
