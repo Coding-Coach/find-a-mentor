@@ -3,6 +3,8 @@ import '@testing-library/cypress/add-commands';
 
 let polyfill;
 
+const { before, cy, Cypress } = global 
+
 // Polyfill window.fetch because thre is no native support from Cypress yet
 // Adapted from: https://github.com/cypress-io/cypress/issues/95#issuecomment-517594737
 before(() => {
