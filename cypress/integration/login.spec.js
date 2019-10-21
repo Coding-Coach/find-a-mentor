@@ -1,3 +1,5 @@
+import { createPublicKey } from "crypto";
+
 const { cy } = global;
 
 describe('login', () => {
@@ -6,7 +8,11 @@ describe('login', () => {
     cy.server({urlMatchingOptions: { matchBase: false, dot: true }});
     cy.route('GET', '/users/current', 'fixture:users/current/get');
     cy.route('GET', '/mentors?limit=*', 'fixture:mentors/get');
-    cy.visit("/")
-    cy.getByAltText('brentmclark@gmail.com')
+    cy.visit('/')
+    cy.getByTestId('user-avatar')
+      .findByAltText('brentmclark@gmail.com')
+      .click()
+    cy.getByText('Logout')
+      .should('have.length', 1)
 	})
 })
