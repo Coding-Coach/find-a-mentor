@@ -1,4 +1,5 @@
 {
   "baseUrl": "http://localhost:3000",
-  "videoUploadOnPasses": false
+  "videoUploadOnPasses": false,
+  "defaultCommandTimeout": 15000
 }
