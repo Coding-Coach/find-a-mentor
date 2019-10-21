@@ -10,7 +10,7 @@ describe('login', () => {
     cy.route('GET', '/mentors?limit=*', 'fixture:mentors/get');
     cy.visit('/')
     cy.getByTestId('user-avatar')
-      .findByAltText('brentmclark@gmail.com')
+      .getByAltText('brentmclark@gmail.com')
       .click()
     cy.getByText('Logout')
       .should('have.length', 1)
