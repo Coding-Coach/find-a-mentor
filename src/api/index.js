@@ -108,6 +108,21 @@ export async function getMentors() {
   return [];
 }
 
+export async function getFavorites() {
+  const {_id: userId} = await getCurrentUser();
+  const res = await makeApiCall(`${paths.USERS}/${userId}/favorites/`);
+  if (res.success) {
+    return res.data.mentors.map(mentor => mentor._id);
+  }
+  return [];
+}
+
+export async function addMentorToFavorites(mentorId) {
+  const {_id: userId} = await getCurrentUser();
+  const res = await makeApiCall(`${paths.USERS}/${userId}/favorites/${mentorId}`, {}, 'POST');
+  return res.success;
+}
+
 async function userHasPendingApplication(user) {
   const myApplications = await makeApiCall(
     `${paths.MENTORS}/${user._id}/applications?status=pending`
