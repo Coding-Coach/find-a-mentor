@@ -53,7 +53,7 @@ const App = () => {
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
   const [fieldsIsActive, setFieldsIsActive] = useState(false);
-  const { currentUser, updateUser } = useContext(UserContext);
+  const { updateUser } = useContext(UserContext);
   const [modal, setModal] = useState({
     title: null,
     content: null,
@@ -158,11 +158,12 @@ const App = () => {
       const user = await getCurrentUser();
       updateUser(user);
 
-      await Promise.all([
-        currentUser && getFavorites().then(setFavorites),
+      Promise.all([
+        user && getFavorites().then(setFavorites),
         getMentors().then(setMentors),
-      ]);
-      setIsReady(true);
+      ]).then(() => {
+        setIsReady(true);
+      });
     }
     initialize();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps

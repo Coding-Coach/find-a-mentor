@@ -12,6 +12,6 @@ export function toggle(mentor, favs) {
   return favs;
 }
 
-export async function get() {
-  return await getFavorites();
+export function get() {
+  return getFavorites();
 }

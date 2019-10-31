@@ -175,6 +175,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
   };
 
   const CardHeader = () => {
+    const tooltip = currentUser ? null : messages.CARD_ANONYMOUS_LIKE_TOOLTIP;
     return (
       <div className="header">
         <button
@@ -190,7 +191,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
           id={mentor._id}
           handleAvatarClick={handleAvatarClick.bind(null, mentor.name)}
         />
-        <LikeButton onClick={toggleFav} liked={isFav} tooltip={currentUser ? null : messages.CARD_ANONYMOUS_LIKE_TOOLTIP} />
+        <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
     );
   };
