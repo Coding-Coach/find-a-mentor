@@ -53,7 +53,7 @@ const App = () => {
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
   const [fieldsIsActive, setFieldsIsActive] = useState(false);
-  const { updateUser } = useContext(UserContext);
+  const { currentUser, updateUser } = useContext(UserContext);
   const [modal, setModal] = useState({
     title: null,
     content: null,
@@ -154,10 +154,10 @@ const App = () => {
   useEffect(() => {
     async function initialize() {
       reportPageView();
+      await getCurrentUser().then(updateUser);
       await Promise.all([
-        getFavorites().then(setFavorites),
+        currentUser && getFavorites().then(setFavorites),
         getMentors().then(setMentors),
-        getCurrentUser().then(updateUser),
       ]);
       setIsReady(true);
     }
