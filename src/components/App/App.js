@@ -154,7 +154,10 @@ const App = () => {
   useEffect(() => {
     async function initialize() {
       reportPageView();
-      await getCurrentUser().then(updateUser);
+
+      const user = await getCurrentUser();
+      updateUser(user);
+
       await Promise.all([
         currentUser && getFavorites().then(setFavorites),
         getMentors().then(setMentors),

@@ -103,7 +103,7 @@ const Avatar = ({ mentor, id, handleAvatarClick }) => {
 };
 
 const LikeButton = ({ onClick, liked, tooltip }) => (
-  <Tooltip title={tooltip} size="big" arrow={true}>
+  <Tooltip disabled={!tooltip} title={tooltip} size="big" arrow={true}>
     <button onClick={onClick} className="like-button" aria-label="Save Mentor">
       <i
         className={classNames([
@@ -190,7 +190,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
           id={mentor._id}
           handleAvatarClick={handleAvatarClick.bind(null, mentor.name)}
         />
-        <LikeButton onClick={toggleFav} liked={isFav} tooltip={currentUser ? '' : messages.CARD_ANONYMOUS_LIKE_TOOLTIP} />
+        <LikeButton onClick={toggleFav} liked={isFav} tooltip={currentUser ? null : messages.CARD_ANONYMOUS_LIKE_TOOLTIP} />
       </div>
     );
   };
