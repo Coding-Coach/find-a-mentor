@@ -116,7 +116,7 @@ export async function getFavorites() {
 
 export async function addMentorToFavorites(mentorId) {
   const {_id: userId} = await getCurrentUser();
-  const res = await makeApiCall(`${paths.USERS}/${userId}/favorites1/${mentorId}`, {}, 'POST');
+  const res = await makeApiCall(`${paths.USERS}/${userId}/favorites/${mentorId}`, {}, 'POST');
   return res.success;
 }
 
