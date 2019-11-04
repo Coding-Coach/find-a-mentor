@@ -37,10 +37,7 @@ export async function makeApiCall(path, body, method) {
     }
     const res = await data.json();
     if (res.statusCode >= 400) {
-      return {
-        success: false,
-        message: res.message,
-      };
+      throw res.message;
     }
     return res;
   } catch (error) {
@@ -106,6 +103,21 @@ export async function getMentors() {
     return shuffle(res.data);
   }
   return [];
+}
+
+export async function getFavorites() {
+  const {_id: userId} = await getCurrentUser();
+  const res = await makeApiCall(`${paths.USERS}/${userId}/favorites`);
+  if (res.success) {
+    return res.data.mentors.map(mentor => mentor._id);
+  }
+  return [];
+}
+
+export async function addMentorToFavorites(mentorId) {
+  const {_id: userId} = await getCurrentUser();
+  const res = await makeApiCall(`${paths.USERS}/${userId}/favorites/${mentorId}`, {}, 'POST');
+  return res.success;
 }
 
 async function userHasPendingApplication(user) {

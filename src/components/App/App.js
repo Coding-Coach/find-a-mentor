@@ -17,7 +17,7 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
-import { toggle, get } from '../../favoriteManager';
+import { toggle, get as getFavorites } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
@@ -50,7 +50,7 @@ const App = () => {
   const [isReady, setIsReady] = useState(false);
   const [filters, setFilters] = useFilters();
   const { tag, country, name, language, onPopState } = filters;
-  const [favorites, setFavorites] = useState(get());
+  const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
   const [fieldsIsActive, setFieldsIsActive] = useState(false);
   const { updateUser } = useContext(UserContext);
@@ -93,9 +93,9 @@ const App = () => {
     report('Show Favorite', 'switch', showFavorite);
   };
 
-  const onFavMentor = mentor => {
-    const favorites = toggle(mentor);
-    setFavorites(favorites);
+  const onFavMentor = async mentor => {
+    const newFavorites = toggle(mentor, [...favorites]);
+    setFavorites(newFavorites);
     report('Favorite');
   };
 
@@ -154,14 +154,19 @@ const App = () => {
   useEffect(() => {
     async function initialize() {
       reportPageView();
-      const mentors = await getMentors();
-      const currentUser = await getCurrentUser();
-      updateUser(currentUser);
-      setMentors(mentors);
-      setIsReady(true);
+
+      const user = await getCurrentUser();
+      updateUser(user);
+
+      Promise.all([
+        user && getFavorites().then(setFavorites),
+        getMentors().then(setMentors),
+      ]).then(() => {
+        setIsReady(true);
+      });
     }
     initialize();
-  }, [updateUser]);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleModal = (title, content, onClose) => {
     setModal({

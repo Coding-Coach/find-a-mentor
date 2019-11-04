@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Obfuscate from 'react-obfuscate';
 import orderBy from 'lodash/orderBy';
 import './Card.css';
@@ -9,6 +9,7 @@ import auth from '../../utils/auth';
 import { Tooltip } from 'react-tippy';
 import messages from '../../messages';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
+import UserContext from '../../context/userContext/UserContext';
 
 function handleAnalytic(channelName) {
   report('Channel', 'click', channelName);
@@ -101,22 +102,30 @@ const Avatar = ({ mentor, id, handleAvatarClick }) => {
   );
 };
 
-const LikeButton = ({ onClick, liked }) => (
-  <button onClick={onClick} className="like-button" aria-label="Save Mentor">
-    <i
-      className={classNames([
-        'fa',
-        { 'liked fa-heart': liked, 'fa-heart-o': !liked },
-      ])}
-    />
-  </button>
+const LikeButton = ({ onClick, liked, tooltip }) => (
+  <Tooltip disabled={!tooltip} title={tooltip} size="big" arrow={true}>
+    <button onClick={onClick} className="like-button" aria-label="Save Mentor">
+      <i
+        className={classNames([
+          'fa',
+          { 'liked fa-heart': liked, 'fa-heart-o': !liked },
+        ])}
+      />
+    </button>
+  </Tooltip>
 );
 
 const Card = ({ mentor, onFavMentor, isFav }) => {
   const [, dispatch] = useFilters();
+  const { currentUser } = useContext(UserContext);
+
   const toggleFav = () => {
-    isFav = !isFav;
-    onFavMentor(mentor);
+    if (currentUser) {
+      isFav = !isFav;
+      onFavMentor(mentor);
+    } else {
+      auth.login();
+    }
   };
 
   const handleTagClick = tag => {
@@ -166,6 +175,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
   };
 
   const CardHeader = () => {
+    const tooltip = currentUser ? null : messages.CARD_ANONYMOUS_LIKE_TOOLTIP;
     return (
       <div className="header">
         <button
@@ -181,7 +191,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
           id={mentor._id}
           handleAvatarClick={handleAvatarClick.bind(null, mentor.name)}
         />
-        <LikeButton onClick={toggleFav} liked={isFav} />
+        <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
     );
   };
