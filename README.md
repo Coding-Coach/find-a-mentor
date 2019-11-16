@@ -7,11 +7,23 @@ Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
 
-Just go to https://mentors.codingcoach.io/, register and find a mentor.
+**Please read our [Mentorships Guideline](https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit?ts=5dc96ff1)**
+
+1. Go to https://mentors.codingcoach.io/
+1. Search for a mentor - use the filters for better matching
+1. Find one or more? Register to get their details.
+1. Reach them out.
 
 ## Want to be a mentor?
 
-Just go to https://mentors.codingcoach.io/, register and fill the form to become a mentor
+**Please read our [Mentorships Guideline](https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit?ts=5dc96ff1)**
+
+1. Go to https://mentors.codingcoach.io/.
+1. Register
+1. Click on your avatar image and click on `Become a Mentor`.
+1. Fill the form with your details and your contact channels.
+1. Wait for an approval message (usually it dosn't take more than few hours)
+
 
 ## Requirements
 
