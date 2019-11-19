@@ -10,7 +10,7 @@ function Navigation({ isAuthenticated, onOpenModal }) {
 
   const openProfile = e => {
     e.preventDefault();
-    onOpenModal('Edit Your Pofile', <EditProfile />);
+    onOpenModal('Edit Your Profile', <EditProfile />);
   };
 
   const renderBecomeAMentor = () => {

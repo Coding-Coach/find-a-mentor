@@ -18,7 +18,7 @@ function MemberArea({ onOpenModal }) {
   const { currentUser } = useContext(UserContext);
 
   const openProfile = useCallback(() => {
-    onOpenModal('Edit Your Pofile', <EditProfile />);
+    onOpenModal('Edit Your Profile', <EditProfile />);
   }, [onOpenModal]);
 
   const openPendingApplications = () => {
