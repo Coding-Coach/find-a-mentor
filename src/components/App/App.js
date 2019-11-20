@@ -17,7 +17,7 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
-import { toggle, get as getFavorites, readAndUpdateMentorsFromLocalStorage } from '../../favoriteManager';
+import { toggle, get as getFavorites } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
