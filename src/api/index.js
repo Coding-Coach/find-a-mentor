@@ -109,7 +109,6 @@ export async function getFavorites() {
   const {_id: userId} = await getCurrentUser();
   const res = await makeApiCall(`${paths.USERS}/${userId}/favorites`);
   if (res.success) {
-    console.log("Got mentors from server: ", res.data.mentors);
     return res.data.mentors.map(mentor => mentor._id);
   }
   return [];
@@ -118,7 +117,6 @@ export async function getFavorites() {
 export async function addMentorToFavorites(mentorId) {
   const {_id: userId} = await getCurrentUser();
   const res = await makeApiCall(`${paths.USERS}/${userId}/favorites/${mentorId}`, {}, 'POST');
-  console.log("mentor: ", mentorId, " is added, res: ", res);
   return res.success;
 }
 

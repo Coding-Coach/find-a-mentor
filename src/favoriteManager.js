@@ -15,23 +15,31 @@ export function toggle(mentor, favs) {
 }
 
 export async function get() {
-  await readAndUpdateMentorsFromLocalStorage();
   return getFavorites();
 }
 
-export function readAndUpdateMentorsFromLocalStorage(){
-  const mentorList = `["5d5d6372f4fcfc765924b7f3", "5d5d6372f4fcfc765924b7d5", "5d5d6373f4fcfc765924b992",
-  "5d5d6373f4fcfc765924bb75", "5d5d6373f4fcfc765924bb26", "5d5d6373f4fcfc765924bb65"]`;
-  window.localStorage.setItem(LOCAL_FAV_KEY, mentorList);
+export async function readAndUpdateFavMentorsFromLocalStorage(){
+  let isMentorListUpdated = false;
   const favsFromLocal = window.localStorage.getItem(LOCAL_FAV_KEY);
   if (favsFromLocal) {
+    isMentorListUpdated = true;
     const favMentorsFromLocalStorage = JSON.parse(favsFromLocal);
-
-    let updateRequestPromises = [];
     window.localStorage.removeItem(LOCAL_FAV_KEY);
+
+    let timeOut = 0;
+    let updateFavoritesPromises = [];
+
     favMentorsFromLocalStorage.forEach((mentorId) => {
-      updateRequestPromises.push(addMentorToFavorites(mentorId));
+      const updateFavoritePromise = new Promise((resolve, reject) => {
+          setTimeout(async (mentorId)=>{
+            const res = await addMentorToFavorites(mentorId);
+            resolve(res);
+          }, timeOut, mentorId);
+      })
+      updateFavoritesPromises.push(updateFavoritePromise);
+      timeOut += 300;
     });
-    return Promise.all(updateRequestPromises);
+    await Promise.all(updateFavoritesPromises).then((values) => console.log(values));
   }
+  return isMentorListUpdated;
 }

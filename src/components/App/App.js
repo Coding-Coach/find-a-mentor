@@ -17,7 +17,7 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
-import { toggle, get as getFavorites } from '../../favoriteManager';
+import { toggle, get as getFavorites, readAndUpdateFavMentorsFromLocalStorage } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
@@ -89,7 +89,6 @@ const App = () => {
 
   const toggleSwitch = async showFavorite => {
     await scrollToTop();
-    // getFavorites().then(setFavorites);
     setShowFavorites(showFavorite);
     report('Show Favorite', 'switch', showFavorite);
   };
@@ -165,6 +164,11 @@ const App = () => {
         getMentors().then(setMentors),
       ]).then(() => {
         setIsReady(true);
+        readAndUpdateFavMentorsFromLocalStorage().then((isMentorListUpdated) => {
+          if (isMentorListUpdated) {
+            getFavorites().then(setFavorites)
+          };
+        });
       });
     }
     initialize();
