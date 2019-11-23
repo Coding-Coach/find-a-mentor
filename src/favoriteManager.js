@@ -1,5 +1,4 @@
 import { getFavorites, addMentorToFavorites } from './api';
-import { Promise } from 'q';
 const LOCAL_FAV_KEY = "favs";
 
 export function toggle(mentor, favs) {
@@ -14,7 +13,7 @@ export function toggle(mentor, favs) {
   return favs;
 }
 
-export async function get() {
+export function get() {
   return getFavorites();
 }
 
