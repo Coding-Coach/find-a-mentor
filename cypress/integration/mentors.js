@@ -1,10 +1,6 @@
 const { cy } = global;
 
 describe('Mentor Filtering', () => {
-  beforeEach(function() {
-    cy.fixture("users/credentials.json").as("user");
-  });
-
   it('can filter by technology', () => {
     cy.visit('/')
       .filterByName('Brent M Clark')
@@ -44,40 +40,33 @@ describe('Mentor Filtering', () => {
     cy.getByTestId('name-filter-autocomplete').should('have.value', '');
   });
 
-  it('login user to apply for mentor', () => {
-    cy.visit('/');
-    cy.get('div.auth').contains('Login / Sign up').click();
-    cy.get('@user')
-      .then((user) => {
-        cy.get('input[name="email"]').type(user.email);
-        cy.get('input[name="password"]').type(user.password);
-        cy.get('button').click();
-      })
+  it( 'verify filtered technology label on mentors card', ()=> {
+    cy.visit('/')
+      .getByTestId('technology-filter-autocomplete')
+      .type('reactjs')
+      .type('{enter}');
+    cy.getAllByTestId('mentor-card').first()
+      .get('.tag').contains('reactjs')
   });
 
+  it( 'verify filtered country label on mentors card', ()=> {
+    cy.visit('/')
+      .getByTestId('country-filter-autocomplete')
+      .type('United States')
+      .type('{enter}');
+    cy.getAllByTestId('mentor-card').first()
+      .get('.country').contains('US')
+  })
+
   it('logged users can click on mentors channel', () => {
+    cy.login();
+    cy.server({urlMatchingOptions: { matchBase: false, dot: true }});
+    cy.route('GET', '/users/current', 'fixture:users/current/get');
+    cy.route('GET', '/mentors?limit=*', 'fixture:mentors/get');
     cy.visit('/').filterByName('Brent M Clark')
     cy.getAllByTestId('mentor-card').first()
       .get('div.channels')
       .first()
       .click();
   });
-
-  it( 'verify filtered technology label on mentors card', ()=> {
-    cy.visit('/')
-      .getByTestId('technology-filter-autocomplete')
-      .type('aws')
-      .type('{enter}');
-    cy.getAllByTestId('mentor-card').first()
-      .get('.tag').contains('aws')
-  });
-
-  it( 'verify filtered country label on mentors card', ()=> {
-    cy.visit('/')
-      .getByTestId('country-filter-autocomplete')
-      .type('France')
-      .type('{enter}');
-    cy.getAllByTestId('mentor-card').first()
-      .get('.country').contains('FR')
-  })
 });
