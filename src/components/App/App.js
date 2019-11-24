@@ -157,18 +157,15 @@ const App = () => {
 
       const user = await getCurrentUser();
       updateUser(user);
-
+      const favMentorsFromLocalStorage = readAndUpdateFavMentorsFromLocalStorage();
       Promise.all([
         user &&
-        getFavorites().then(setFavorites),
+        getFavorites().then((favorites) => {
+          setFavorites([...favMentorsFromLocalStorage, ...favorites]);
+        }),
         getMentors().then(setMentors),
       ]).then(() => {
         setIsReady(true);
-        readAndUpdateFavMentorsFromLocalStorage().then((isMentorListUpdated) => {
-          if (isMentorListUpdated) {
-            getFavorites().then(setFavorites)
-          };
-        });
       });
     }
     initialize();

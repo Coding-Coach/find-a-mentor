@@ -17,28 +17,25 @@ export function get() {
   return getFavorites();
 }
 
-export async function readAndUpdateFavMentorsFromLocalStorage(){
-  let isMentorListUpdated = false;
+export function readAndUpdateFavMentorsFromLocalStorage() {
+  let favMentorsFromLocalStorage = [];
   const favsFromLocal = window.localStorage.getItem(LOCAL_FAV_KEY);
   if (favsFromLocal) {
-    isMentorListUpdated = true;
-    const favMentorsFromLocalStorage = JSON.parse(favsFromLocal);
+    favMentorsFromLocalStorage = JSON.parse(favsFromLocal);
     window.localStorage.removeItem(LOCAL_FAV_KEY);
 
     let timeOut = 0;
-    let updateFavoritesPromises = [];
 
-    favMentorsFromLocalStorage.forEach((mentorId) => {
-      const updateFavoritePromise = new Promise((resolve, reject) => {
-          setTimeout(async (mentorId)=>{
-            const res = await addMentorToFavorites(mentorId);
-            resolve(res);
-          }, timeOut, mentorId);
-      })
-      updateFavoritesPromises.push(updateFavoritePromise);
+    favMentorsFromLocalStorage.forEach(mentorId => {
+      setTimeout(
+        mentorId => {
+          addMentorToFavorites(mentorId);
+        },
+        timeOut,
+        mentorId
+      );
       timeOut += 300;
     });
-    await Promise.all(updateFavoritesPromises).then((values) => console.log(values));
   }
-  return isMentorListUpdated;
+  return favMentorsFromLocalStorage;
 }
