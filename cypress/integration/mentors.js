@@ -68,4 +68,17 @@ describe('Mentor Filtering', () => {
       .first()
       .click();
   });
+
+  it ('user can like mentor', ()=> {
+    cy.get('button.like-button').first().click();
+    cy.get('button.like-button i').first().should('have.class', 'liked')
+  })
+
+  it ('user can unlike mentor', ()=> {
+    cy.filterByName('Sandra Anuj')
+    // first click then unclick
+    cy.get('button.like-button').click();
+    cy.get('button.like-button').click();
+    cy.get('button.like-button i').first().should('have.class', 'fa-heart-o')
+  })
 });
