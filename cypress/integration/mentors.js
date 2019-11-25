@@ -38,7 +38,10 @@ describe('Mentor Filtering', () => {
 
   it('can clear filter', () => {
     cy.filterByName('Brent M Clark')
-    cy.get('div.input-container:nth-child(3) div.clear-btn button').click();
+    cy.get('div.input-container:nth-child(3)').within(() => {
+      cy.getByText('clear').click()
+    })
+    
     cy.getByTestId('name-filter-autocomplete').should('have.value', '');
   });
 
