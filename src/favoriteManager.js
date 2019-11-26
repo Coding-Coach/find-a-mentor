@@ -17,16 +17,19 @@ export function get() {
   return getFavorites();
 }
 
-export function readAndUpdateFavMentorsFromLocalStorage() {
+export function readFavMentorsFromLocalStorage() {
   let favMentorsFromLocalStorage = [];
   const favsFromLocal = window.localStorage.getItem(LOCAL_FAV_KEY);
   if (favsFromLocal) {
     favMentorsFromLocalStorage = JSON.parse(favsFromLocal);
     window.localStorage.removeItem(LOCAL_FAV_KEY);
+  }
+  return favMentorsFromLocalStorage;
+}
 
+export function updateFavMentorsForUser(mentors) {
     let timeOut = 0;
-
-    favMentorsFromLocalStorage.forEach(mentorId => {
+    mentors.forEach(mentorId => {
       setTimeout(
         mentorId => {
           addMentorToFavorites(mentorId);
@@ -36,6 +39,4 @@ export function readAndUpdateFavMentorsFromLocalStorage() {
       );
       timeOut += 300;
     });
-  }
-  return favMentorsFromLocalStorage;
 }
