@@ -1,4 +1,5 @@
 import { getFavorites, addMentorToFavorites } from './api';
+import { report } from './ga';
 const LOCAL_FAV_KEY = "favs";
 
 export function toggle(mentor, favs) {
@@ -23,6 +24,7 @@ export function readFavMentorsFromLocalStorage() {
   if (favsFromLocal) {
     favMentorsFromLocalStorage = JSON.parse(favsFromLocal);
     window.localStorage.removeItem(LOCAL_FAV_KEY);
+    report('Favorite', 'sync');
   }
   return favMentorsFromLocalStorage;
 }
