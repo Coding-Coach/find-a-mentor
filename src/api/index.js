@@ -91,6 +91,13 @@ export async function getCurrentUser() {
   return currentUser;
 }
 
+export function getUserFromLocalStorage() {
+  const userFromLocal =  localStorage.getItem(USER_LOCAL_KEY);
+  if(userFromLocal){
+    return JSON.parse(userFromLocal);
+  }
+}
+
 export function clearCurrentUser() {
   currentUser = null;
   localStorage.removeItem(USER_LOCAL_KEY);
@@ -190,5 +197,12 @@ export async function rejectApplication(mentor, reason) {
     },
     'PUT'
   );
+  return res.success;
+}
+
+export async function updateMentorAvailability(isAvailable) {
+  const userID = currentUser._id;
+  storeUserInLocalStorage({...currentUser, available: isAvailable});
+  const res = await makeApiCall(`${paths.USERS}/${userID}`, {available: isAvailable}, 'PUT');
   return res.success;
 }

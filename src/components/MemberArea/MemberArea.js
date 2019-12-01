@@ -6,16 +6,18 @@ import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import useWindowSize from '../../utils/useWindowSize';
-import { isMentor, isAdmin } from '../../helpers/user';
+import { isMentor, isAdmin, isMentorAvailable} from '../../helpers/user';
 import UserContext from '../../context/userContext/UserContext';
+import { SwitchInput, SwitchLabel } from '../Switch/Switch';
+import { updateMentorAvailability } from '../../../src/api/index';
 
 function MemberArea({ onOpenModal }) {
   const authenticated = auth.isAuthenticated();
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
   const isDesktop = useWindowSize().width > 800;
-
   const { currentUser } = useContext(UserContext);
+  const [isAvailable, setIsAvailable] = useState(false);
 
   const openProfile = useCallback(() => {
     onOpenModal('Edit Your Profile', <EditProfile />);
@@ -42,10 +44,39 @@ function MemberArea({ onOpenModal }) {
     });
   }, [currentUser, openProfile]);
 
+  useEffect(() => {
+    console.log("## currentUser: ", currentUser);
+    if(currentUser){
+      isMentorAvailable().then((available)=>{
+        setIsAvailable(available);
+      });
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
+      console.log("## isavailable: ", isAvailable);
+        if(currentUser){
+          isMentorAvailable().then((available)=>{
+            console.log("available:", available,  " vs ", "isAvailable: ", isAvailable);
+            if(available !== isAvailable) {
+                updateMentorAvailability(isAvailable).then(()=>{
+                  console.log("Updated value in db: ", isAvailable);
+                });
+            }
+          });
+        }
+  }, [currentUser, isAvailable]);
+
+
   const logout = () => {
     auth.doLogout();
     setIsMemberMenuOpen(false);
   };
+
+  const onToogleAvailability = async () => {
+      console.log("onToogleAvailability: ", isAvailable);
+      setIsAvailable((isAvailable) => !isAvailable);
+  }
 
   return (
     <div className="auth">
@@ -73,8 +104,16 @@ function MemberArea({ onOpenModal }) {
               <MemberMenuItem onClick={openProfile}>
                 {isMentor(currentUser)
                   ? 'Edit your profile'
-                  : 'Become a mentor'}
+                  : 'Become a mentor'
+                  }
               </MemberMenuItem>
+              {
+                isMentor(currentUser) &&
+                <MemberMenuItem>
+                  <SwitchLabel classID="profile-menu-switch-label" id="available" label="Available for new mentees" />
+                  <SwitchInput onToggle={onToogleAvailability} id="available"/>
+                </MemberMenuItem>
+              }
               <MemberMenuItem onClick={logout}>Logout</MemberMenuItem>
             </MemberMenu>
           )}
@@ -122,12 +161,16 @@ const MemberMenuItem = styled.div`
   font-size: 16px;
   padding: 15px;
   color: #4a4a4a;
-
+  display: flex;
   &:hover {
     background-color: #69d5b1;
     cursor: pointer;
   }
+  #swtich-available {
+    background-color: red;
+  }
 `;
+
 
 export default onClickOutside(MemberArea, {
   handleClickOutside: () => MemberArea.handleClickOutside,
