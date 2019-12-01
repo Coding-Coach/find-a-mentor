@@ -17,7 +17,7 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
-import { toggle, get as getFavorites } from '../../favoriteManager';
+import { toggle, get as getFavorites, readFavMentorsFromLocalStorage, updateFavMentorsForUser } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
@@ -157,9 +157,16 @@ const App = () => {
 
       const user = await getCurrentUser();
       updateUser(user);
-
+      const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
       Promise.all([
-        user && getFavorites().then(setFavorites),
+        user &&
+        getFavorites().then((favorites) => {
+          if(Array.isArray(favMentorsFromLocalStorage) && favMentorsFromLocalStorage.length > 0){
+            const mentors = favMentorsFromLocalStorage.filter(m => !favorites.includes(m));
+            if(mentors.length > 0) updateFavMentorsForUser(mentors);
+          }
+          setFavorites([...new Set([...favMentorsFromLocalStorage, ...favorites])]);
+        }),
         getMentors().then(setMentors),
       ]).then(() => {
         setIsReady(true);
