@@ -2,32 +2,33 @@ import React, { Component, useState } from 'react';
 
 import './Switch.css';
 
-export function SwitchLabel({classID, id, label}){
+function SwitchLabel({labelID, label}){
   return (
     <>
-      <label className={classID} htmlFor={id}>{label}</label>
+      <label id={labelID} htmlFor={labelID}>{label}</label>
     </>
   );
 };
 
-export function SwitchInput({onToggle, isEnabled, id}){
-  const [isChecked, setisChecked] = useState(isEnabled);
+function SwitchInput({onToggle, isEnabled, switchID, switchType, switchTheme}){
+  const [isChecked, setIsChecked] = useState(isEnabled);
 
   const toggleSwitch = () => {
-    setisChecked((isChecked) => !isChecked);
-    onToggle(!isChecked);
+    if(onToggle(!isChecked)) {
+      setIsChecked((isChecked) => !isChecked);
+    }
   };
 
   return (
     <>
-      <div className="switch-input">
+      <div className={`switch-input ${switchTheme} ${switchType}`}>
         <input
           type="checkbox"
-          id={`switch-${id}`}
+          id={`switch-${switchID}`}
           checked={isChecked}
           onChange={toggleSwitch}
         />
-        <label htmlFor={`switch-${id}`}>Toggle</label>
+        <label id={`switch-label-${switchID}`} htmlFor={`switch-${switchID}`}>Toggle</label>
       </div>
     </>
   );
@@ -35,14 +36,19 @@ export function SwitchInput({onToggle, isEnabled, id}){
 
 export default class Switch extends Component {
   render() {
-    const { id, label, onToggle} = this.props;
+    const { switchID, label, onToggle, switchTheme, switchType, isEnabled} = this.props;
     return (
       <>
-        <div className="switch-container">
-          <SwitchLabel classID="filter-switch-label" id={id} label={label} />
-          <SwitchInput onToggle={onToggle} id={id}/>
+        <div className={`switch-container ${switchID}`}>
+          <SwitchLabel labelID={switchID} label={label} />
+          <SwitchInput isEnabled={isEnabled} switchTheme={switchTheme} switchType={switchType} switchID={switchID} onToggle={onToggle} />
         </div>
       </>
     );
   }
+}
+
+Switch.defaultProps = {
+  switchTheme: "regular",
+  switchType: "regular",
 }

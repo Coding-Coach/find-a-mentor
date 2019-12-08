@@ -12,6 +12,14 @@ export function isAdmin(user) {
   return user && user.roles.includes('Admin');
 }
 
+export function isMentorAvailable(){
+  const user = getUserFromLocalStorage();
+  if(user){
+    return user.available;
+  } else {
+    return false;
+  }
+}
 
 export function fromVMtoM(user) {
   return {
@@ -38,9 +46,4 @@ export function fromMtoVM(user) {
       : [],
     tags: user.tags ? user.tags.map(i => ({ label: i, value: i })) : [],
   };
-}
-
-export async function isMentorAvailable(){
-  const user = getUserFromLocalStorage();
-  return user && user.available;
 }

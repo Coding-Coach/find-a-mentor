@@ -8,16 +8,16 @@ import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import useWindowSize from '../../utils/useWindowSize';
 import { isMentor, isAdmin, isMentorAvailable} from '../../helpers/user';
 import UserContext from '../../context/userContext/UserContext';
-import { SwitchInput, SwitchLabel } from '../Switch/Switch';
 import { updateMentorAvailability } from '../../../src/api/index';
+import Switch from '../../components/Switch/Switch';
 
 function MemberArea({ onOpenModal }) {
   const authenticated = auth.isAuthenticated();
+  const isDesktop = useWindowSize().width > 800;
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const isDesktop = useWindowSize().width > 800;
+  const [isAvailable, setIsAvailable] = useState((()=> isMentorAvailable()));
   const { currentUser } = useContext(UserContext);
-  const [isAvailable, setIsAvailable] = useState(false);
 
   const openProfile = useCallback(() => {
     onOpenModal('Edit Your Profile', <EditProfile />);
@@ -45,37 +45,38 @@ function MemberArea({ onOpenModal }) {
   }, [currentUser, openProfile]);
 
   useEffect(() => {
-    console.log("## currentUser: ", currentUser);
     if(currentUser){
-      isMentorAvailable().then((available)=>{
-        setIsAvailable(available);
-      });
+      const isAvailable = isMentorAvailable();
+      setIsAvailable(isAvailable);
     }
   }, [currentUser]);
 
   useEffect(() => {
-      console.log("## isavailable: ", isAvailable);
-        if(currentUser){
-          isMentorAvailable().then((available)=>{
-            console.log("available:", available,  " vs ", "isAvailable: ", isAvailable);
-            if(available !== isAvailable) {
-                updateMentorAvailability(isAvailable).then(()=>{
-                  console.log("Updated value in db: ", isAvailable);
-                });
-            }
-          });
+    if(currentUser){
+      const cachedAvailabilityState = isMentorAvailable();
+        if(cachedAvailabilityState !== isAvailable) {
+            updateMentorAvailability(isAvailable).then((isSuccessful)=>{
+              if(!isSuccessful){
+                setIsAvailable((isAvailable) => !isAvailable);
+              }
+            });
         }
-  }, [currentUser, isAvailable]);
-
+    }
+  }, [isAvailable]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const logout = () => {
     auth.doLogout();
     setIsMemberMenuOpen(false);
   };
 
-  const onToogleAvailability = async () => {
-      console.log("onToogleAvailability: ", isAvailable);
-      setIsAvailable((isAvailable) => !isAvailable);
+  const onToggleAvailability = (toggleState) => {
+    if(!toggleState){
+      if(!window.confirm("Are you sure you want to set yourself as unavailable?")){
+        return false;
+      }
+    }
+    setIsAvailable((isAvailable) => !isAvailable);
+    return true;
   }
 
   return (
@@ -110,8 +111,14 @@ function MemberArea({ onOpenModal }) {
               {
                 isMentor(currentUser) &&
                 <MemberMenuItem>
-                  <SwitchLabel classID="profile-menu-switch-label" id="available" label="Available for new mentees" />
-                  <SwitchInput onToggle={onToogleAvailability} id="available"/>
+                  <Switch
+                    label={"Available for new Mentees"}
+                    switchType={"small"}
+                    switchTheme={"dark"}
+                    isEnabled={isAvailable}
+                    onToggle={onToggleAvailability}
+                    switchID="available"
+                  />
                 </MemberMenuItem>
               }
               <MemberMenuItem onClick={logout}>Logout</MemberMenuItem>
@@ -124,6 +131,10 @@ function MemberArea({ onOpenModal }) {
     </div>
   );
 }
+
+export default onClickOutside(MemberArea, {
+  handleClickOutside: () => MemberArea.handleClickOutside,
+});
 
 const UserAvatar = styled.div`
   height: 50px;
@@ -162,16 +173,9 @@ const MemberMenuItem = styled.div`
   padding: 15px;
   color: #4a4a4a;
   display: flex;
+  justify-content: space-between;
   &:hover {
     background-color: #69d5b1;
     cursor: pointer;
   }
-  #swtich-available {
-    background-color: red;
-  }
 `;
-
-
-export default onClickOutside(MemberArea, {
-  handleClickOutside: () => MemberArea.handleClickOutside,
-});

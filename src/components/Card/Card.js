@@ -118,6 +118,16 @@ const LikeButton = ({ onClick, liked, tooltip }) => (
 const Card = ({ mentor, onFavMentor, isFav }) => {
   const [, dispatch] = useFilters();
   const { currentUser } = useContext(UserContext);
+  const {
+    name,
+    country,
+    description,
+    tags,
+    title,
+    _id: mentorID,
+    channels,
+    available:availability
+  } = mentor;
 
   const toggleFav = () => {
     if (currentUser) {
@@ -131,45 +141,58 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
   const handleTagClick = tag => {
     dispatch({ type: 'filterTag', payload: tag });
   };
+
   const handleAvatarClick = name => {
     dispatch({ type: 'filterName', payload: name });
   };
+
   const handleCountryClick = country => {
     dispatch({ type: 'filterCountry', payload: country });
   };
 
-  // don't show the description if it's not provided
-  const description = mentor.description ? (
-    <p className="description">"{mentor.description}"</p>
-  ) : (
-    <React.Fragment />
-  );
+  const MentorDescription = () => {
+    return (
+      description ?
+      <p className="description">"{description}"</p>:
+      <React.Fragment />
+    )
+  }
 
   const MentorInfo = () => {
     return (
       <>
         <div>
-          <h2 className="name" id={`${mentor._id}`}>
-            {mentor.name}
+          <h2 className="name" id={`${mentorID}`}>
+            {name}
           </h2>
-          <h4 className="title">{mentor.title}</h4>
-          {description}
+          <h4 className="title">{title}</h4>
+          <MentorDescription/>
         </div>
       </>
     );
   };
 
   const SkillsTags = () => {
-    return <div className="tags">{tagsList(mentor.tags, handleTagClick)}</div>;
+    return <div className="tags">{tagsList(tags, handleTagClick)}</div>;
   };
+
+  const MentorNotAvailable = () => {
+    return (
+      <div className="channel-inner mentor-unavailable">
+        This mentor is not taking new mentees for now
+      </div>
+    );
+  }
 
   const CardFooter = () => {
     return (
       <>
         <div className="wave" />
-        <div className="channels">
-          <div className="channel-inner">{channelsList(mentor.channels)}</div>
-        </div>
+          <div className="channels">
+            {
+              availability ? <div className="channel-inner">{channelsList(channels)}</div> : <MentorNotAvailable/>
+            }
+          </div>
       </>
     );
   };
@@ -180,21 +203,22 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
       <div className="header">
         <button
           className="country location"
-          onClick={() => handleCountryClick(mentor.country)}
+          onClick={() => handleCountryClick(country)}
         >
           <i className={'fa fa-map-marker'} />
-          <p>{mentor.country}</p>
+          <p>{country}</p>
         </button>
 
         <Avatar
           mentor={mentor}
-          id={mentor._id}
-          handleAvatarClick={handleAvatarClick.bind(null, mentor.name)}
+          id={mentorID}
+          handleAvatarClick={handleAvatarClick.bind(null, name)}
         />
         <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
     );
   };
+
   return (
     <div className="card" aria-label="Mentor card" data-testid="mentor-card">
       <CardHeader />

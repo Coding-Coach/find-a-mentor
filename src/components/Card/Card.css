@@ -138,7 +138,6 @@
 .card .channels .channel-inner {
   display: flex;
   justify-content: space-around;
-
   background-color: #d0f8ef;
   align-items: center;
   padding: 20px 10px 5px 10px;
@@ -147,6 +146,11 @@
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+
+.card .channels .channel-inner.mentor-unavailable{
+  height: 70px;
+}
+
 .card .wave {
   position: absolute;
   bottom: 60px;

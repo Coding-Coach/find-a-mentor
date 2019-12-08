@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import AutoComplete from '../AutoComplete/AutoComplete';
 import Input from '../Input/Input';
 import Switch from '../Switch/Switch';
-
 import { generateLists } from '../../listsGenerator';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 
@@ -119,7 +118,7 @@ export default function Filter(props) {
             data-testid="language-filter-autocomplete"
           />
         </Input>
-        <Switch isChecked={false} id="fav" label="My Favorites" onToggle={onToggleSwitch} />
+        <Switch isEnabled={false} switchID="fav-filter" label="My Favorites" onToggle={onToggleSwitch} />
       </div>
     </section>
   );
