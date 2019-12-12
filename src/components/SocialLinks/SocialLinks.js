@@ -62,7 +62,7 @@ const SocialLinks = () => (
       </svg>
     </a>
     <a
-      href="https://join.slack.com/t/coding-coach/shared_invite/enQtNDYxNTcwMjk4MDcwLWQ2MWEwYTc3YTZmMmM5ZDJjOGRkMDg0NGRjOWJhZThlZjUyMmViYzM4YjY4MjFjZGJkNjAzNDVlYTEwMWY2ZTU"
+      href="https://join.slack.com/t/coding-coach/shared_invite/enQtODYwODU0NDE2OTkzLTRmMTY3NTZmOGI2MjYyZTM2ZDBlZTNjNmMwNGRhY2I3MzZkMjA3ZjlhZjliYmQzMGQyYTkxNTViZTc3MzJmOTU"
       className="social-link"
       aria-label="Slack"
       target="blank"

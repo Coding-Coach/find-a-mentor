@@ -87,7 +87,7 @@ You might have some conflicts while rebasing, try to resolve the conflicts for e
 
 ## Slack
 
-Coding Coach is on Slack! [Click here](https://join.slack.com/t/coding-coach/shared_invite/enQtNDYxNTcwMjk4MDcwLWQ2MWEwYTc3YTZmMmM5ZDJjOGRkMDg0NGRjOWJhZThlZjUyMmViYzM4YjY4MjFjZGJkNjAzNDVlYTEwMWY2ZTU) to join.
+Coding Coach is on Slack! [Click here](https://join.slack.com/t/coding-coach/shared_invite/enQtODYwODU0NDE2OTkzLTRmMTY3NTZmOGI2MjYyZTM2ZDBlZTNjNmMwNGRhY2I3MzZkMjA3ZjlhZjliYmQzMGQyYTkxNTViZTc3MzJmOTU) to join.
 
 ---
 
