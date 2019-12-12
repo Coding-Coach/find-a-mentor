@@ -1,24 +1,13 @@
 import ISO6391 from 'iso-639-1';
 import countries from 'svg-country-flags/countries.json';
 import { overwriteProfileDefaults } from '../utils/overwriteProfileDefaults';
-import { getUserFromLocalStorage } from '../api';
 
 export function isMentor(user) {
-  return true;
-  // return user && user.roles.includes('Mentor');
+  return user && user.roles.includes('Mentor');
 }
 
 export function isAdmin(user) {
   return user && user.roles.includes('Admin');
-}
-
-export function isMentorAvailable(){
-  const user = getUserFromLocalStorage();
-  if(user){
-    return user.available;
-  } else {
-    return false;
-  }
 }
 
 export function fromVMtoM(user) {

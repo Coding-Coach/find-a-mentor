@@ -209,6 +209,7 @@ const App = () => {
               onToggleSwitch={toggleSwitch}
               mentorCount={mentorsInList.length}
               mentors={mentorsInList}
+              showFavorite={showFavorites}
             />
             <SocialLinks />
             <nav className="sidebar-nav">

@@ -1,4 +1,4 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 
 import './Switch.css';
 
@@ -11,12 +11,8 @@ function SwitchLabel({labelID, label}){
 };
 
 function SwitchInput({onToggle, isEnabled, switchID, switchType, switchTheme}){
-  const [isChecked, setIsChecked] = useState(isEnabled);
-
-  const toggleSwitch = () => {
-    if(onToggle(!isChecked)) {
-      setIsChecked((isChecked) => !isChecked);
-    }
+  const toggleSwitch = (event) => {
+    onToggle(event.target.checked);
   };
 
   return (
@@ -25,7 +21,7 @@ function SwitchInput({onToggle, isEnabled, switchID, switchType, switchTheme}){
         <input
           type="checkbox"
           id={`switch-${switchID}`}
-          checked={isChecked}
+          checked={isEnabled}
           onChange={toggleSwitch}
         />
         <label id={`switch-label-${switchID}`} htmlFor={`switch-${switchID}`}>Toggle</label>

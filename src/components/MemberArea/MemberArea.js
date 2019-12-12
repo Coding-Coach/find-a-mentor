@@ -6,18 +6,18 @@ import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import useWindowSize from '../../utils/useWindowSize';
-import { isMentor, isAdmin, isMentorAvailable} from '../../helpers/user';
 import UserContext from '../../context/userContext/UserContext';
 import { updateMentorAvailability } from '../../../src/api/index';
 import Switch from '../../components/Switch/Switch';
+import {isAdmin, isMentor} from '../../helpers/user';
+import { report } from '../../ga';
 
 function MemberArea({ onOpenModal }) {
   const authenticated = auth.isAuthenticated();
   const isDesktop = useWindowSize().width > 800;
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const [isAvailable, setIsAvailable] = useState((()=> isMentorAvailable()));
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, updateUser } = useContext(UserContext);
 
   const openProfile = useCallback(() => {
     onOpenModal('Edit Your Profile', <EditProfile />);
@@ -44,39 +44,24 @@ function MemberArea({ onOpenModal }) {
     });
   }, [currentUser, openProfile]);
 
-  useEffect(() => {
-    if(currentUser){
-      const isAvailable = isMentorAvailable();
-      setIsAvailable(isAvailable);
-    }
-  }, [currentUser]);
-
-  useEffect(() => {
-    if(currentUser){
-      const cachedAvailabilityState = isMentorAvailable();
-        if(cachedAvailabilityState !== isAvailable) {
-            updateMentorAvailability(isAvailable).then((isSuccessful)=>{
-              if(!isSuccessful){
-                setIsAvailable((isAvailable) => !isAvailable);
-              }
-            });
-        }
-    }
-  }, [isAvailable]); // eslint-disable-line react-hooks/exhaustive-deps
-
   const logout = () => {
     auth.doLogout();
     setIsMemberMenuOpen(false);
   };
 
-  const onToggleAvailability = (toggleState) => {
+  const onToggleAvailability = async (toggleState) => {
     if(!toggleState){
       if(!window.confirm("Are you sure you want to set yourself as unavailable?")){
-        return false;
+        return;
       }
     }
-    setIsAvailable((isAvailable) => !isAvailable);
-    return true;
+    updateUser({...currentUser, available: toggleState});
+    const isSuccessful = await updateMentorAvailability(toggleState);
+    if(isSuccessful) {
+      report('Mentor availability', 'toggle', toggleState);
+    } else {
+      updateUser({...currentUser, available: !toggleState});
+    }
   }
 
   return (
@@ -115,7 +100,7 @@ function MemberArea({ onOpenModal }) {
                     label={"Available for new Mentees"}
                     switchType={"small"}
                     switchTheme={"dark"}
-                    isEnabled={isAvailable}
+                    isEnabled={currentUser.available}
                     onToggle={onToggleAvailability}
                     switchID="available"
                   />
