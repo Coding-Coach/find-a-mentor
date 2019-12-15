@@ -98,11 +98,11 @@ function MemberArea({ onOpenModal }) {
                 <MemberMenuItem>
                   <Switch
                     label={"Available for new Mentees"}
-                    switchType={"small"}
-                    switchTheme={"dark"}
-                    isEnabled={currentUser.available}
+                    type={"small"}
+                    theme={"dark"}
+                    isChecked={currentUser.available}
                     onToggle={onToggleAvailability}
-                    switchID="available"
+                    id="available"
                   />
                 </MemberMenuItem>
               }

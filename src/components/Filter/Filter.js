@@ -118,7 +118,7 @@ export default function Filter(props) {
             data-testid="language-filter-autocomplete"
           />
         </Input>
-        <Switch isEnabled={showFavorite} switchID="fav-filter" label="My Favorites" onToggle={onToggleSwitch} />
+        <Switch isChecked={showFavorite} id="fav-filter" label="My Favorites" onToggle={onToggleSwitch} />
       </div>
     </section>
   );

@@ -96,7 +96,6 @@ const App = () => {
     await scrollToTop();
     setShowFavorites(showFavorite);
     report('Show Favorite', 'switch', showFavorite);
-    return true;
   };
 
   const onFavMentor = async mentor => {
