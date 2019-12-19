@@ -6,16 +6,18 @@ import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import useWindowSize from '../../utils/useWindowSize';
-import { isMentor, isAdmin } from '../../helpers/user';
 import UserContext from '../../context/userContext/UserContext';
+import { updateMentorAvailability } from '../../../src/api/index';
+import Switch from '../../components/Switch/Switch';
+import {isAdmin, isMentor} from '../../helpers/user';
+import { report } from '../../ga';
 
 function MemberArea({ onOpenModal }) {
   const authenticated = auth.isAuthenticated();
+  const isDesktop = useWindowSize().width > 800;
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const isDesktop = useWindowSize().width > 800;
-
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, updateUser } = useContext(UserContext);
 
   const openProfile = useCallback(() => {
     onOpenModal('Edit Your Profile', <EditProfile />);
@@ -47,6 +49,21 @@ function MemberArea({ onOpenModal }) {
     setIsMemberMenuOpen(false);
   };
 
+  const onToggleAvailability = async (toggleState) => {
+    if(!toggleState){
+      if(!window.confirm("Are you sure you want to set yourself as unavailable?")){
+        return;
+      }
+    }
+    updateUser({...currentUser, available: toggleState});
+    const isSuccessful = await updateMentorAvailability(toggleState);
+    if(isSuccessful) {
+      report('Mentor availability', 'toggle', toggleState);
+    } else {
+      updateUser({...currentUser, available: !toggleState});
+    }
+  }
+
   return (
     <div className="auth">
       {isAuthenticated ? (
@@ -73,8 +90,22 @@ function MemberArea({ onOpenModal }) {
               <MemberMenuItem onClick={openProfile}>
                 {isMentor(currentUser)
                   ? 'Edit your profile'
-                  : 'Become a mentor'}
+                  : 'Become a mentor'
+                  }
               </MemberMenuItem>
+              {
+                isMentor(currentUser) &&
+                <MemberMenuItem>
+                  <Switch
+                    label={"Available for new Mentees"}
+                    type={"small"}
+                    theme={"dark"}
+                    isChecked={currentUser.available}
+                    onToggle={onToggleAvailability}
+                    id="available"
+                  />
+                </MemberMenuItem>
+              }
               <MemberMenuItem onClick={logout}>Logout</MemberMenuItem>
             </MemberMenu>
           )}
@@ -85,6 +116,10 @@ function MemberArea({ onOpenModal }) {
     </div>
   );
 }
+
+export default onClickOutside(MemberArea, {
+  handleClickOutside: () => MemberArea.handleClickOutside,
+});
 
 const UserAvatar = styled.div`
   height: 50px;
@@ -122,13 +157,10 @@ const MemberMenuItem = styled.div`
   font-size: 16px;
   padding: 15px;
   color: #4a4a4a;
-
+  display: flex;
+  justify-content: space-between;
   &:hover {
     background-color: #69d5b1;
     cursor: pointer;
   }
 `;
-
-export default onClickOutside(MemberArea, {
-  handleClickOutside: () => MemberArea.handleClickOutside,
-});

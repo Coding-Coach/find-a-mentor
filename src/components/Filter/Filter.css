@@ -72,3 +72,19 @@
     padding: 5px 0 5px 30px;
   }
 }
+
+.switch-container.fav-filter {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 18px;
+  background-color: #fff;
+  text-transform: uppercase;
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+@media all and (max-width: 576px) {
+  .switch-container.fav-filter {
+    padding: 0 15px;
+  }
+}

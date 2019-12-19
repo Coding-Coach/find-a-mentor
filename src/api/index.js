@@ -6,6 +6,7 @@ import shuffle from 'lodash/shuffle';
 import * as Sentry from '@sentry/browser';
 
 const API_ERROR_TOAST_ID = 'api-error-toast-id';
+const USER_LOCAL_KEY = 'user';
 
 const paths = {
   MENTORS: '/mentors',
@@ -13,7 +14,6 @@ const paths = {
 };
 
 let currentUser;
-const USER_LOCAL_KEY = 'user';
 
 export async function makeApiCall(path, body, method) {
   const url = `${process.env.REACT_APP_API_ENDPOINT}${path}`;
@@ -152,6 +152,16 @@ export async function updateMentor(mentor) {
   const res = await makeApiCall(`${paths.USERS}/${mentor._id}`, mentor, 'PUT');
   if (res.success) {
     storeUserInLocalStorage(mentor);
+  }
+  return res.success;
+}
+
+export async function updateMentorAvailability(isAvailable) {
+  let currentUser = await getCurrentUser();
+  const userID = currentUser._id;
+  const res = await makeApiCall(`${paths.USERS}/${userID}`, {available: isAvailable}, 'PUT');
+  if(res.success){
+    storeUserInLocalStorage({...currentUser, available: isAvailable});
   }
   return res.success;
 }

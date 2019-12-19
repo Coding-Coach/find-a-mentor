@@ -17,7 +17,12 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
-import { toggle, get as getFavorites, readFavMentorsFromLocalStorage, updateFavMentorsForUser } from '../../favoriteManager';
+import {
+  toggle,
+  get as getFavorites,
+  readFavMentorsFromLocalStorage,
+  updateFavMentorsForUser
+} from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
@@ -154,7 +159,6 @@ const App = () => {
   useEffect(() => {
     async function initialize() {
       reportPageView();
-
       const user = await getCurrentUser();
       updateUser(user);
       const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
@@ -193,10 +197,8 @@ const App = () => {
     <div className="app">
       <ToastContainer />
       <Modal title={modal.title}>
-        {/*onClose={closeModal}*/}
         {modal.content}
       </Modal>
-
       <Main>
         <Header />
         <Content>
@@ -206,6 +208,7 @@ const App = () => {
               onToggleSwitch={toggleSwitch}
               mentorCount={mentorsInList.length}
               mentors={mentorsInList}
+              showFavorite={showFavorites}
             />
             <SocialLinks />
             <nav className="sidebar-nav">

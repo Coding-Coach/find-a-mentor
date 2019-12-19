@@ -1,35 +1,50 @@
 import React, { Component } from 'react';
-
+import classNames from 'classnames';
 import './Switch.css';
 
-export default class Switch extends Component {
-  state = {
-    checked: false,
+function SwitchLabel({id, label}){
+  return (
+    <>
+      <label id={id} htmlFor={id}>{label}</label>
+    </>
+  );
+};
+
+function SwitchInput({onToggle, isChecked, id, type, theme}){
+  const toggleSwitch = (event) => {
+    onToggle(event.target.checked);
   };
 
-  toggleSwitch = () => {
-    this.setState({
-      checked: !this.state.checked,
-    });
-    this.props.onToggle(!this.state.checked);
-  };
-
-  render() {
-    const { id, label } = this.props;
-
-    return (
-      <div className="switch-container">
-        <label htmlFor={id}>{label}</label>
-        <div className="switch-input">
-          <input
-            type="checkbox"
-            id={`switch-${id}`}
-            checked={this.state.checked}
-            onChange={this.toggleSwitch}
-          />
-          <label htmlFor={`switch-${id}`}>Toggle</label>
-        </div>
+  return (
+    <>
+      <div className={classNames(['switch-input', theme, type])}>
+        <input
+          type="checkbox"
+          id={`switch-input-${id}`}
+          checked={isChecked}
+          onChange={toggleSwitch}
+        />
+        <label id={`switch-label-${id}`} htmlFor={`switch-input-${id}`}>Toggle</label>
       </div>
+    </>
+  );
+}
+
+export default class Switch extends Component {
+  render() {
+    const { id, label, onToggle, theme, type, isChecked} = this.props;
+    return (
+      <>
+        <div className={classNames(['switch-container', id])}>
+          <SwitchLabel id={id} label={label} />
+          <SwitchInput isChecked={isChecked} theme={theme} type={type} id={id} onToggle={onToggle} />
+        </div>
+      </>
     );
   }
+}
+
+Switch.defaultProps = {
+  theme: "regular",
+  type: "regular",
 }
