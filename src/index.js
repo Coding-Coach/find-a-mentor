@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
+import Me from './components/Me/Me';
 import * as serviceWorker from './serviceWorker';
 import auth from './utils/auth';
 import { getCurrentUser } from './api';
@@ -9,6 +10,7 @@ import { reportError } from './ga';
 import * as Sentry from '@sentry/browser';
 import { UserProvider } from './context/userContext/UserContext';
 import { FiltersProvider } from './context/filtersContext/FiltersContext';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 Sentry.init({
   dsn: 'https://bcc1baf038b847258b4307e6ca5777e2@sentry.io/1542584',
@@ -20,11 +22,18 @@ Sentry.init({
     // prepare user - don't wait for it
     getCurrentUser();
     ReactDOM.render(
-      <UserProvider>
-        <FiltersProvider>
-          <App />
-        </FiltersProvider>
-      </UserProvider>,
+        <UserProvider>
+          <FiltersProvider>
+            <Router>
+              <Switch>
+                <Route exact path="/">
+                  <App />
+                </Route>
+                <Route path="/me" component={Me}/>
+              </Switch>
+            </Router>
+          </FiltersProvider>
+        </UserProvider>,
       document.getElementById('root')
     );
   } catch (error) {
