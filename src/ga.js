@@ -11,9 +11,7 @@ export function reportPageView() {
   if (isLocal()) {
     return;
   }
-  const { location, ga } = window;
-  ga('set', 'page', location.href);
-  ga('send', 'pageview');
+  window.ga('send', 'pageview');
 }
 
 export function reportError(category, label) {
