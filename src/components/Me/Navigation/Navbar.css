@@ -1,0 +1,62 @@
+html {
+    height: 100%;
+    background-color: #E0E0E0;
+}
+
+.bar {
+    display: none;
+}
+
+.sidenav-logo {
+    height: 79px;
+    width: 75px;
+}
+
+.house {
+    height: 55.5px;
+    width: 44px;
+}
+
+.mentors {
+    height: 51.5px;
+    width: 44px;
+}
+
+.side-icon {
+    padding-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.menu-tablet {
+    height: 100%;
+    width: 75px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+@media all and (max-width: 800px) {
+    .menu-tablet {
+        display: none;
+    }
+
+    .bar {
+        height: 74px;
+        width: 100%;
+        bottom: 0;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+    }
+
+    .icon {
+        flex: 1;
+        text-align: center;
+    }
+}
