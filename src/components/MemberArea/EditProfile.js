@@ -101,8 +101,6 @@ export default class EditProfile extends Component {
       case 'longtext':
       case 'file':
         const CustomTag = config.type === 'longtext' ? 'textarea' : 'input';
-        const value = config.type !== 'file' ? (user[fieldName] || config.defaultValue) : undefined;
-        console.log(config, value);
 
         return (
           <div key={fieldName} className="form-field" style={config.style}>
@@ -131,7 +129,7 @@ export default class EditProfile extends Component {
                 <CustomTag
                   maxLength={config.maxLength}
                   aria-labelledby={fieldName}
-                  value={value}
+                  value={config.type !== 'file' ? (user[fieldName] || config.defaultValue) : undefined}
                   type={config.type}
                   name={fieldName}
                   disabled={config.disabled}
