@@ -6,6 +6,7 @@ import tags from './tags';
 const languages = ISO6391.getLanguages(ISO6391.getAllCodes());
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const urlPattern = /^https:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/;
+const avatarUrlPattern = /^[a-zA-Z0-9/"]*$/;
 const linkedinPattern = /^[A-Za-z0-9-]{3,100}$/;
 const facebookPattern = /^[a-z\d.]{5,50}$/i;
 const twitterPattern = /^[A-Za-z0-9_]{1,15}$/;
@@ -13,6 +14,7 @@ const githubPattern = /^([a-z\d]+-)*[a-z\d]+$/i;
 
 const emailValidation = value => !value || emailPattern.test(value);
 const urlValidation = value => !value || urlPattern.test(value);
+const avatarUrlValidation = value => !value || avatarUrlPattern.test(value);
 const linkedinValidation = value => !value || linkedinPattern.test(value);
 const facebookValidation = value => !value || facebookPattern.test(value);
 const twitterValidation = value => !value || twitterPattern.test(value);
@@ -40,7 +42,7 @@ export default {
     label: 'Avatar',
     type: 'file',
     defaultValue: '',
-    validate: value => !!value && urlValidation(value),
+    validate: value => !!value && avatarUrlValidation(value),
     helpText: 'https public URL to an image file',
     previewImage: true,
   },

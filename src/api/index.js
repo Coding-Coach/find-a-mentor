@@ -156,6 +156,14 @@ export async function updateMentor(mentor) {
   return res.success;
 }
 
+export async function updateMentorAvatar(mentor, value) {
+  const res = await makeApiCall(`${paths.USERS}/${mentor._id}/avatar`, value, 'POST');
+  if (res.success) {
+    getCurrentUser();
+  }
+  return currentUser;
+}
+
 export async function updateMentorAvailability(isAvailable) {
   let currentUser = await getCurrentUser();
   const userID = currentUser._id;
