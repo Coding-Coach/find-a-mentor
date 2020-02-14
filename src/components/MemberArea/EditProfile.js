@@ -59,40 +59,8 @@ export default class EditProfile extends Component {
       return;
     }
     this.setState({ disabled: true });
-    const removeUserAvatar = (({
-      spokenLanguages,
-      tags,
-      roles,
-      _id,
-      auth0Id,
-      email,
-      name,
-      channels,
-      createdAt,
-      updatedAt,
-      __v,
-      image,
-      country,
-      description,
-      title}) => ({
-        spokenLanguages,
-        tags,
-        roles,
-        _id,
-        auth0Id,
-        email,
-        name,
-        channels,
-        createdAt,
-        updatedAt,
-        __v,
-        image,
-        country,
-        description,
-        title}
-    ))(user);
 
-    const updateMentorResult = await updateMentor(fromVMtoM(removeUserAvatar));
+    const updateMentorResult = await updateMentor(fromVMtoM(user));
     if (updateMentorResult) {
       if (isMentor(user)) {
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
