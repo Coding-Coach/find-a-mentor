@@ -1,5 +1,7 @@
 import React from 'react';
 import './Navbar.css';
+import IconHome from './IconHome';
+import IconMentors from './IconMentors';
 
 const Navbar = () => {
   return (
@@ -13,24 +15,32 @@ const Navbar = () => {
           />
         </div>
         <div className="house side-icon">
-          <img src={`${process.env.PUBLIC_URL}/images/icons/Home.png`} alt="" />
+          <a href="/" className="icon">
+            <div>
+              <IconHome />
+              <span className="desc">Home</span>
+            </div>
+          </a>
         </div>
         <div className="mentors side-icon">
-          <img
-            src={`${process.env.PUBLIC_URL}/images/icons/Mentors.png`}
-            alt=""
-          />
+          <a href="#" className="icon">
+            <div>
+              <IconMentors />
+              <span className="desc">Mentors</span>
+            </div>
+          </a>
         </div>
       </div>
       <div className="bar">
+        <a href="/" className="icon">
+          <div>
+            <IconHome />
+            <span className="desc">Home</span>
+          </div>
+        </a>
         <div className="icon">
-          <img src={`${process.env.PUBLIC_URL}/images/icons/Home.png`} alt="" />
-        </div>
-        <div className="icon">
-          <img
-            src={`${process.env.PUBLIC_URL}/images/icons/Mentors.png`}
-            alt=""
-          />
+          <IconMentors />
+          <span className="desc">Mentors</span>
         </div>
       </div>
     </div>
