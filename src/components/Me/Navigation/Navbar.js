@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.css';
 import IconHome from './IconHome';
 import IconMentors from './IconMentors';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -9,38 +10,42 @@ const Navbar = () => {
       <div className="menu-tablet">
         <div className="logo-left">
           <img
-            class="sidenav-logo"
+            className="sidenav-logo"
             src={`${process.env.PUBLIC_URL}/codingcoach-logo-192.png`}
             alt=""
           />
         </div>
         <div className="house side-icon">
-          <a href="/" className="icon">
+          <Link to="/me/home" className="icon">
             <div>
               <IconHome />
               <span className="desc">Home</span>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="mentors side-icon">
-          <a href="#" className="icon">
+          <Link to="/" className="icon">
             <div>
               <IconMentors />
               <span className="desc">Mentors</span>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
       <div className="bar">
-        <a href="/" className="icon">
+        <Link to="/me/home" className="icon">
           <div>
             <IconHome />
             <span className="desc">Home</span>
           </div>
-        </a>
+        </Link>
         <div className="icon">
-          <IconMentors />
-          <span className="desc">Mentors</span>
+          <Link to="/" className="icon">
+            <div>
+              <IconMentors />
+              <span className="desc">Mentors</span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
