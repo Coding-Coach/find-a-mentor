@@ -275,7 +275,7 @@ export default class EditProfile extends Component {
   handleInputChangeEvent = async (event) => {
     const fieldName = event.target.name;
     const value = event.target.value;
-    if(fieldName === 'avatar') {
+    if (fieldName === 'avatar') {
       this.setState({
         user: {
           ...this.state.user,
