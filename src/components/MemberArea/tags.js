@@ -114,7 +114,7 @@ export default [
   'magento',
   'management',
   'markup',
-  'matlab`,
+  'matlab',
   'mean stack',
   'microservices',
   'mobile',
