@@ -60,7 +60,9 @@ export default class EditProfile extends Component {
     }
     this.setState({ disabled: true });
 
-    const updateMentorResult = await updateMentor(fromVMtoM(user));
+    const { avatar, ...userInfo } = fromVMtoM(user);
+    const updateMentorResult = await updateMentor(userInfo);
+    
     if (updateMentorResult) {
       if (isMentor(user)) {
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
