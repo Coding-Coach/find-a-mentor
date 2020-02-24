@@ -62,7 +62,7 @@ export default class EditProfile extends Component {
 
     const { avatar, ...userInfo } = fromVMtoM(user);
     const updateMentorResult = await updateMentor(userInfo);
-    
+
     if (updateMentorResult) {
       if (isMentor(user)) {
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
@@ -278,6 +278,7 @@ export default class EditProfile extends Component {
     const fieldName = event.target.name;
     const value = event.target.value;
     if (fieldName === 'avatar') {
+      const { updateUser } = this.context;
       this.setState({
         user: {
           ...this.state.user,
@@ -294,6 +295,7 @@ export default class EditProfile extends Component {
           avatar: updatedUser.avatar,
         },
       });
+      updateUser(this.state.user);
     } else {
       this.setState({
         user: {
