@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "node scripts/pre-build.js && react-scripts build",
+    "build": "node scripts/pre-build.js && react-scripts build && build-storybook",
     "test": "yarn prettier:fix && react-scripts test && yarn test:e2e:run",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
@@ -41,7 +41,9 @@
     "test:e2e": "is-ci \"test:e2e:run\" \"test:e2e:dev\"",
     "pretest:e2e:run": "yarn run build",
     "test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
-    "test:e2e:dev": "start-server-and-test start http://localhost:3000 cy:open"
+    "test:e2e:dev": "start-server-and-test start http://localhost:3000 cy:open",
+    "storybook": "start-storybook",
+    "build-storybook": "build-storybook -c .storybook -o build/sb"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -53,6 +55,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@storybook/react": "^5.3.14",
     "@testing-library/cypress": "^4.1.1",
     "ajv": "^6.10.2",
     "cors": "^2.8.5",
