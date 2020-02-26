@@ -6,7 +6,6 @@ import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import { report } from '../../ga';
 import auth from '../../utils/auth';
-import { getAvatarUrl } from '../../helpers/avatar';
 import { Tooltip } from 'react-tippy';
 import messages from '../../messages';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
@@ -94,7 +93,7 @@ const Avatar = ({ mentor, id, handleAvatarClick }) => {
     <button className="avatar" onClick={handleAvatarClick}>
       <i className="fa fa-user-circle" />
       <img
-        src={getAvatarUrl(mentor.avatar)}
+        src={mentor.avatar}
         aria-labelledby={`${id}`}
         alt={`${mentor.name}`}
         onError={e => e.currentTarget.classList.add('broken')}

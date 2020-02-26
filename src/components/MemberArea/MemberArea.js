@@ -10,7 +10,6 @@ import UserContext from '../../context/userContext/UserContext';
 import { updateMentorAvailability } from '../../../src/api/index';
 import Switch from '../../components/Switch/Switch';
 import {isAdmin, isMentor} from '../../helpers/user';
-import { getAvatarUrl } from '../../helpers/avatar';
 import { report } from '../../ga';
 
 function MemberArea({ onOpenModal }) {
@@ -76,7 +75,7 @@ function MemberArea({ onOpenModal }) {
             }
           >
             {currentUser ? (
-              <UserImage alt={currentUser.email} src={getAvatarUrl(currentUser.avatar)} />
+              <UserImage alt={currentUser.email} src={currentUser.avatar} />
             ) : (
               <AvatarPlaceHolder className="fa fa-user-circle" />
             )}

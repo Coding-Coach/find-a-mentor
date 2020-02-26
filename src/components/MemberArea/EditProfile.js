@@ -5,13 +5,11 @@ import {
   updateMentor,
   deleteMentor,
   createApplicationIfNotExists,
-  updateMentorAvatar,
 } from '../../api';
 import model from './model';
 import Select from 'react-select';
 import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
-import { getAvatarUrl } from '../../helpers/avatar';
 import { providers } from '../../channelProvider';
 import auth from '../../utils/auth';
 import messages from '../../messages';
@@ -59,10 +57,7 @@ export default class EditProfile extends Component {
       return;
     }
     this.setState({ disabled: true });
-
-    const { avatar, ...userInfo } = fromVMtoM(user);
-    const updateMentorResult = await updateMentor(userInfo);
-
+    const updateMentorResult = await updateMentor(fromVMtoM(user));
     if (updateMentorResult) {
       if (isMentor(user)) {
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
@@ -104,8 +99,7 @@ export default class EditProfile extends Component {
     switch (config.type) {
       case 'text':
       case 'longtext':
-      case 'file':
-        const CustomTag = config.type === 'longtext' ? 'textarea' : 'input';
+        const CustomTag = config.type === 'text' ? 'input' : 'textarea';
 
         return (
           <div key={fieldName} className="form-field" style={config.style}>
@@ -125,7 +119,7 @@ export default class EditProfile extends Component {
                     ? (
                       <img
                         className="form-field-preview"
-                        src={getAvatarUrl(user[fieldName])}
+                        src={user[fieldName]}
                         alt="avatar"
                       />
                     )
@@ -134,13 +128,13 @@ export default class EditProfile extends Component {
                 <CustomTag
                   maxLength={config.maxLength}
                   aria-labelledby={fieldName}
-                  value={config.type !== 'file' ? (user[fieldName] || config.defaultValue) : undefined}
-                  type={config.type}
+                  value={user[fieldName] || config.defaultValue}
+                  type="text"
                   name={fieldName}
                   disabled={config.disabled}
                   required={config.required}
                   onChange={e =>
-                    this.handleInputChangeEvent(e)
+                    this.handleInputChange(e.target.name, e.target.value)
                   }
                 />
               </div>
@@ -272,38 +266,6 @@ export default class EditProfile extends Component {
         [fieldName]: value,
       },
     });
-  };
-
-  handleInputChangeEvent = async (event) => {
-    const fieldName = event.target.name;
-    const value = event.target.value;
-    if (fieldName === 'avatar') {
-      const { updateUser } = this.context;
-      this.setState({
-        user: {
-          ...this.state.user,
-          [fieldName]: "",
-        },
-      });
-      const files = Array.from(event.target.files);
-      const formData = new FormData();
-      formData.append('image', files[0]);
-      const updatedUser = await updateMentorAvatar(this.state.user, formData)
-      this.setState({
-        user: {
-          ...this.state.user,
-          avatar: updatedUser.avatar,
-        },
-      });
-      updateUser(this.state.user);
-    } else {
-      this.setState({
-        user: {
-          ...this.state.user,
-          [fieldName]: value,
-        },
-      });
-    }
   };
 
   handleKeyValueChange = (fieldName, prop, value) => {
