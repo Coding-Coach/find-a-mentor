@@ -67,7 +67,6 @@
     "is-ci-cli": "^1.1.1",
     "nock": "^10.0.6",
     "node-fetch": "^2.6.0",
-    "node-sass": "^4.13.1",
     "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "object-path": "^0.11.4",
