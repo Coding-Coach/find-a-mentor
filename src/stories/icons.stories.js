@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ReactComponent as Logo } from '../../assets/me/logo.svg';
-import { ReactComponent as Home } from '../../assets/me/home.svg';
-import { ReactComponent as Mentors } from '../../assets/me/mentors.svg';
+import { ReactComponent as Logo } from '../assets/me/logo.svg';
+import { ReactComponent as Home } from '../assets/me/home.svg';
+import { ReactComponent as Mentors } from '../assets/me/mentors.svg';
 
 export default { title: 'Icons' };
 
