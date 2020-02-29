@@ -60,6 +60,18 @@ Forking the project will create a copy of that project in your own GitHub accoun
 
 For other options, please see [Available Scripts](https://github.com/Coding-Coach/find-a-mentor#available-scripts) below.
 
+#### <img style="vertical-align:middle" alt="Storybook" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg" />
+
+We're using <a target="_blank" href="https://github.com/storybookjs/storybook">Storybook</a>. Each reusable component should be added. If you're not sure 🤷🏾, please ask 🙋
+
+Run Storybook
+
+```
+yarn storybook
+```
+
+The stories located under `src/stories`
+
 #### Updating your local
 
 In order to update your local environment to the latest version on `master`, you will have to pull the changes using the `upstream` repository, for example: `git pull upstream master`. This will pull all the new commits from the origin repository to your local environment.
