@@ -3,6 +3,8 @@
 
 <a href="https://patreon.com/codingcoach_io"><img src="https://img.shields.io/endpoint.svg?url=https://shieldsio-patreon.herokuapp.com/codingcoach_io&style=for-the-badge" alt="Patreon donate button" /> </a>
 
+<a href="https://mentors.codingcoach.io/sb/" target="_blank"><img style="vertical-align:middle" alt="Storybook" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg" /></a>
+
 Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
@@ -60,13 +62,15 @@ Forking the project will create a copy of that project in your own GitHub accoun
 
 For other options, please see [Available Scripts](https://github.com/Coding-Coach/find-a-mentor#available-scripts) below.
 
-#### <img style="vertical-align:middle" alt="Storybook" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg" />
+#### Storybook
 
 We're using <a target="_blank" href="https://github.com/storybookjs/storybook">Storybook</a>. Each reusable component should be added. If you're not sure 🤷🏾, please ask 🙋
 
+**Production**
+
 https://mentors.codingcoach.io/sb/
 
-Run Storybook locally
+**Local**
 
 ```
 yarn storybook
