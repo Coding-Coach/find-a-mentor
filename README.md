@@ -64,7 +64,9 @@ For other options, please see [Available Scripts](https://github.com/Coding-Coac
 
 We're using <a target="_blank" href="https://github.com/storybookjs/storybook">Storybook</a>. Each reusable component should be added. If you're not sure 🤷🏾, please ask 🙋
 
-Run Storybook
+https://mentors.codingcoach.io/sb/
+
+Run Storybook locally
 
 ```
 yarn storybook
