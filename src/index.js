@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
-import Me from './components/Me/Me';
+import Me from './Me/Me';
 import * as serviceWorker from './serviceWorker';
 import auth from './utils/auth';
 import { getCurrentUser } from './api';
