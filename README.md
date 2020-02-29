@@ -1,9 +1,17 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a3969a16-d0ad-4485-b205-d2b297f99051/deploy-status)](https://app.netlify.com/sites/codingcoach-io/deploys)
 [![Build Status](https://travis-ci.com/Coding-Coach/find-a-mentor.svg?branch=master)](https://travis-ci.com/Coding-Coach/find-a-mentor)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
+![create-react-app supported](https://img.shields.io/badge/CRA-supported-green.svg)
+[![storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://mentors.codingcoach.io/sb/)
+[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
-<a href="https://patreon.com/codingcoach_io"><img src="https://img.shields.io/endpoint.svg?url=https://shieldsio-patreon.herokuapp.com/codingcoach_io&style=for-the-badge" alt="Patreon donate button" /> </a>
 
-<a href="https://mentors.codingcoach.io/sb/" target="_blank"><img style="vertical-align:middle" alt="Storybook" src="https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg" /></a>
+
+## Support Us
+
+CodingCoach is a FREE platform that built and managed by volunteers. However, there are costs (servers, domains etc.). Please help CodingCoach to keep being free ❤️
+
+<a href="https://patreon.com/codingcoach_io"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=codingcoach_io" alt="Patreon donate button" /> </a>
 
 Pre-release version of Coding Coach.
 
