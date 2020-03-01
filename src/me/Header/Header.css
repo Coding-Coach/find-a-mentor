@@ -1,8 +1,3 @@
-.header-large {
-  height: 408px;
-  width: 100%;
-}
-
 .rectangle {
   height: 268px;
   width: 100%;
@@ -27,11 +22,6 @@
 
 
 @media all and (max-width: 800px) {
-  .header-large {
-    height: 345px;
-    width: 100%;
-  }
-
   .rectangle {
     height: 243px;
     width: 100%;
