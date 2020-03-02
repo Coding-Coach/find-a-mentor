@@ -9,7 +9,7 @@
 
 ## Support Us
 
-CodingCoach is a FREE platform that built and managed by volunteers. However, there are costs (servers, domains etc.). Please help CodingCoach to keep being free ❤️
+CodingCoach is a FREE platform that is built and managed entirely by volunteers. As always, there are ongoing costs to run this site such as servers, domains, email, and more.  Please consider becoming a patron so we can continue our mission of being accessible and free ❤️
 
 <a href="https://patreon.com/codingcoach_io"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=codingcoach_io" alt="Patreon donate button" /> </a>
 
