@@ -4,10 +4,15 @@ import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('Card component', () => {
-  it('render card just title', () => {
+  it('render card just title and children', () => {
     const title = 'mentor';
-    const { getByText } = render(<Card title={title} />);
+    const { getByText } = render(
+      <Card title={title}>
+        <p>I'm a children</p>
+      </Card>
+    );
     expect(getByText('mentor')).toBeInTheDocument();
+    expect(getByText("I'm a children")).toBeInTheDocument();
   });
 
   it('render card with Edit button', () => {

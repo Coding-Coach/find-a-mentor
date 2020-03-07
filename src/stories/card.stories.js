@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from '../Me/components/Card';
-import '../index.css'
+import '../index.css';
 
 export default { title: 'Card' };
 
@@ -22,13 +22,13 @@ export const withChildren = () => (
     <Card title="Mentor Profile" onEdit={action}>
       <div>
         <p>This is an example of a list inside a card</p>
-      <ul>
-        <li>First item</li>
-        <li>2nd item</li>
-        <li>3rd item</li>
-        <li>4th item</li>
-      </ul>
-    </div>
+        <ul>
+          <li>First item</li>
+          <li>2nd item</li>
+          <li>3rd item</li>
+          <li>4th item</li>
+        </ul>
+      </div>
     </Card>
   </CardContainer>
 );
