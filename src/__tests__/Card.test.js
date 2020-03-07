@@ -1,6 +1,6 @@
 import React from 'react';
 import Card from '../Me/components/Card';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 describe('Card component', () => {
@@ -12,8 +12,12 @@ describe('Card component', () => {
 
   it('render card with Edit button', () => {
     const title = 'mentor';
-    const { getByText } = render(<Card title={title} onEdit={() => null} />);
+    const editFn = jest.fn();
+    const { getByText } = render(<Card title={title} onEdit={editFn} />);
     expect(getByText('mentor')).toBeInTheDocument();
-    expect(getByText('Edit')).toBeInTheDocument();
+    const editButton = getByText('Edit');
+    expect(editButton).toBeInTheDocument();
+    fireEvent.click(editButton);
+    expect(editFn).toHaveBeenCalled();
   });
 });
