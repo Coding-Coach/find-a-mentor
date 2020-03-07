@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from '../Me/components/Card';
+import '../index.css'
 
 export default { title: 'Card' };
 
@@ -11,8 +12,23 @@ const CardContainer = styled.div`
 
 const action = () => console.log('Clicked');
 
-export const me = () => (
+export const empty = () => (
   <CardContainer>
     <Card title="Mentor Profile" onEdit={action} />
+  </CardContainer>
+);
+export const withChildren = () => (
+  <CardContainer>
+    <Card title="Mentor Profile" onEdit={action}>
+      <div>
+        <p>This is an example of a list inside a card</p>
+      <ul>
+        <li>First item</li>
+        <li>2nd item</li>
+        <li>3rd item</li>
+        <li>4th item</li>
+      </ul>
+    </div>
+    </Card>
   </CardContainer>
 );
