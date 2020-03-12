@@ -3,18 +3,21 @@ import styled from 'styled-components';
 
 const CardContainer = styled.div`
   background-color: #ffffff;
-  box-shadow: 4px 4px 9px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
   padding: 20px 14px 20px 14px;
 
   h4 {
     color: #4a4a4a;
     line-height: 1.2142857143rem;
+    font-weight: bold;
+    margin: 0;
   }
 `;
 
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  margin-bottom: 1.0714285714rem;
 `;
 
 const EditButton = styled.button`
@@ -24,9 +27,15 @@ const EditButton = styled.button`
   color: #4f4f4f;
   font-size: 0.8571428571rem;
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  line-height: 1.2142857143rem;
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  color: #4F4F4F;
+  font-family: Lato;
+  font-size: 1rem;
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+`;
 
 const Edit = ({ onEdit }) => {
   return onEdit ? <EditButton onClick={onEdit}>Edit</EditButton> : null;

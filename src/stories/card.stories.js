@@ -6,7 +6,7 @@ import '../index.css';
 export default { title: 'Card' };
 
 const CardContainer = styled.div`
-  width: 700px;
+  width: 375px;
   padding: 15px;
 `;
 
