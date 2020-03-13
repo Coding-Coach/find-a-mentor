@@ -28,6 +28,8 @@ const EditButton = styled.button`
   font-size: 0.8571428571rem;
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.2142857143rem;
+  padding: 0;
+  cursor: pointer;
 `;
 
 const Content = styled.div`
