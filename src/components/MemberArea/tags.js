@@ -6,6 +6,7 @@ export default [
   'accessibility',
   'adobe',
   'ai',
+  'ajax',
   'algorithms',
   'android',
   'angular',
@@ -162,6 +163,7 @@ export default [
   'redux',
   'remote work',
   'rest',
+  'restful api',
   'ruby',
   'ruby on rails',
   'rust',
@@ -216,10 +218,12 @@ export default [
   'web apis',
   'web development',
   'webassembly',
+  'webflow',
   'webscraping',
   'wireframing',
   'wordpress',
   'xamarin',
   'xamarin forms',
   'xaml',
+  'yaml'
 ];
