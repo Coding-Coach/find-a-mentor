@@ -1,72 +1,125 @@
-import "./Filter.css";
-import mentors from "../../mentors.json";
+import './Filter.css';
 
-import React, { Component } from "react";
-import classNames from "classnames";
-import AutoComplete from "../AutoComplete/AutoComplete";
-import Input from "../Input/Input";
+import React, { useCallback } from 'react';
+import classNames from 'classnames';
+import AutoComplete from '../AutoComplete/AutoComplete';
+import Input from '../Input/Input';
+import Switch from '../Switch/Switch';
+import { generateLists } from '../../listsGenerator';
+import { useFilters } from '../../context/filtersContext/FiltersContext';
 
-import { generateLists } from "../../listsGenerator";
-const { tags, countries, names } = generateLists(mentors);
+export default function Filter(props) {
+  const [filters, dispatch] = useFilters();
+  const { tag, country, language, name } = filters;
+  const { onToggleFilter, onToggleSwitch, mentors, showFavorite} = props;
+  const { showFilters } = filters;
+  const { tags, countries, names, languages } = generateLists(mentors);
 
-export default class Filter extends Component {
-  state = {
-    tag: "",
-    country: "",
-    name: "",
-    showFilters: false
-  };
+  const onTagSelect = useCallback(
+    tag => {
+      dispatch({ type: 'filterTag', payload: tag.value });
+    },
+    [dispatch]
+  );
 
-  onTagSelect = tag => {
-    this.setState({ tag });
-    this.props.onTagSelected(tag);
-  };
+  const onCountrySelect = useCallback(
+    country => {
+      dispatch({ type: 'filterCountry', payload: country.value });
+    },
+    [dispatch]
+  );
 
-  onCountrySelect = country => {
-    this.setState({ country });
-    this.props.onCountrySelected(country);
-  };
+  const onNameSelect = useCallback(
+    name => {
+      dispatch({ type: 'filterName', payload: name.value });
+    },
+    [dispatch]
+  );
 
-  onNameSelect = name => {
-    this.setState({ name });
-    this.props.onNameSelected(name);
-  };
+  const onLanguageSelect = useCallback(
+    language => {
+      dispatch({ type: 'filterLanguage', payload: language.value });
+    },
+    [dispatch]
+  );
 
-  onToggleFilter = () => {
-    this.setState({
-      showFilters: !this.state.showFilters
-    });
-    this.props.onToggleFilter();
-  };
+  const onToggleShowFilters = useCallback(() => {
+    dispatch({ type: 'showFilters', payload: !filters.showFilters });
+    onToggleFilter();
+  }, [filters.showFilters, onToggleFilter, dispatch]);
 
-  render() {
-    const { showFilters } = this.state;
+  const countryLabel = useCallback(() => {
+    const countryObject = countries.find(element => element.value === country);
+    return (countryObject && countryObject.label) || '';
+  }, [countries, country]);
 
-    return (
-      <section aria-labelledby="filter" className="filter-wrapper">
-        <h3 id="filter">
-          Filter <span id="mentorCount">{this.props.mentorCount} Mentors</span>
-          <button className="toggle-filter" onClick={this.onToggleFilter} aria-label="Toggle filter">
-            <i
-              className={classNames([
-                "fa fa-angle-down",
-                { "show-filters": showFilters }
-              ])}
-            />
-          </button>
-        </h3>
-        <div className="inputs" aria-expanded={showFilters}>
-          <Input id="language" label="Language or technology" key="language">
-            <AutoComplete source={tags} onSelect={this.onTagSelect} />
-          </Input>
-          <Input id="country" label="Country" key="country">
-            <AutoComplete source={countries} onSelect={this.onCountrySelect} />
-          </Input>
-          <Input id="name" label="Name" key="name">
-            <AutoComplete source={names} onSelect={this.onNameSelect} />
-          </Input>
-        </div>
-      </section>
+  const languageLabel = useCallback(() => {
+    const languageObject = languages.find(
+      element => element.value === language
     );
-  }
+    return (languageObject && languageObject.label) || '';
+  }, [languages, language]);
+
+  return (
+    <section aria-labelledby="filter" className="filter-wrapper">
+      <h3 id="filter">
+        Filter <span id="mentorCount">{props.mentorCount} Mentors</span>
+        <button
+          className="toggle-filter"
+          onClick={onToggleShowFilters}
+          aria-label="Toggle filter"
+        >
+          <i
+            className={classNames([
+              'fa fa-angle-down',
+              { 'show-filters': showFilters },
+            ])}
+          />
+        </button>
+      </h3>
+      <div className="inputs" aria-expanded={showFilters}>
+        <Input id="technology" label="Technology" key="technology">
+          <AutoComplete
+            value={tag}
+            id="technology"
+            source={tags}
+            onSelect={onTagSelect}
+            showClear
+            data-testid="technology-filter-autocomplete"
+          />
+        </Input>
+        <Input id="country" label="Country" key="country">
+          <AutoComplete
+            value={countryLabel()}
+            id="country"
+            source={countries}
+            onSelect={onCountrySelect}
+            showClear
+            data-testid="country-filter-autocomplete"
+          />
+        </Input>
+        <Input id="name" label="Name" key="name">
+          <AutoComplete
+            value={name}
+            id="name"
+            source={names}
+            onSelect={onNameSelect}
+            showClear
+            data-testid="name-filter-autocomplete"
+          />
+        </Input>
+        <Input id="language" label="Language" key="language">
+          <AutoComplete
+            value={languageLabel()}
+            id="language"
+            source={languages}
+            onSelect={onLanguageSelect}
+            showClear
+            data-testid="language-filter-autocomplete"
+          />
+        </Input>
+        <Switch isChecked={showFavorite} id="fav-filter" label="My Favorites" onToggle={onToggleSwitch} />
+      </div>
+    </section>
+  );
 }

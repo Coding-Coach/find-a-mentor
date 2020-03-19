@@ -9,7 +9,13 @@
   color: #4a4a4a;
   font-size: 1.5em;
   text-transform: uppercase;
-  padding: 15px 0px 15px 30px;
+  padding: 15px 0 15px 30px;
+  margin: 0;
+}
+@media screen and (max-height: 677px) {
+  #filter {
+    padding: 10px 0 10px 30px;
+  }
 }
 
 .toggle-filter {
@@ -27,23 +33,58 @@
   transform: rotateZ(90deg);
 }
 
-@media all and (max-width: 575.98px) {
+@media all and (max-width: 800px) {
   .inputs {
-    position: absolute;
     left: 0;
+    opacity: 1;
+    padding: 0 10px;
+    position: absolute;
     width: 100%;
   }
+
+  .inputs[aria-expanded="false"] {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .inputs[aria-expanded="true"] {
+    transition: opacity 0.5s ease-in-out;
+  }
+
   .filter-wrapper {
     order: 2;
   }
 }
 
-@media all and (min-width: 576px) {
+@media all and (min-width: 800px) {
   .toggle-filter {
     display: none;
   }
+
   .sidebar {
-    order: 2;
+    max-width: var(--filter-width);
     position: fixed;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  #filter {
+    padding: 5px 0 5px 30px;
+  }
+}
+
+.switch-container.fav-filter {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 18px;
+  background-color: #fff;
+  text-transform: uppercase;
+  color: #4a4a4a;
+  font-weight: bold;
+}
+
+@media all and (max-width: 576px) {
+  .switch-container.fav-filter {
+    padding: 0 15px;
   }
 }

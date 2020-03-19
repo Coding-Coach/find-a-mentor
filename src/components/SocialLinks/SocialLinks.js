@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./SocialLinks.css";
+import './SocialLinks.css';
 
 const SocialLinks = () => (
   <nav aria-label="Social Media" className="social-wrapper">
@@ -62,7 +62,7 @@ const SocialLinks = () => (
       </svg>
     </a>
     <a
-      href="https://coding-coach.slack.com/join/shared_invite/enQtNDYxNTcwMjk4MDcwLThiZjY1MTM2YTU1YzM2MGI1N2Y1NDI3ZGM1MGRhNjdiZjU0MzE1YjMxZjdlZmVlNDdhNmFhN2RhNGIxZmE1YTI"
+      href="https://join.slack.com/t/coding-coach/shared_invite/enQtODYwODU0NDE2OTkzLTRmMTY3NTZmOGI2MjYyZTM2ZDBlZTNjNmMwNGRhY2I3MzZkMjA3ZjlhZjliYmQzMGQyYTkxNTViZTc3MzJmOTU"
       className="social-link"
       aria-label="Slack"
       target="blank"

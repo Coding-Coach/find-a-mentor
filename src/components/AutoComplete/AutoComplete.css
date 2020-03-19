@@ -14,9 +14,19 @@
   border-top: 0;
 }
 
+.ac .clear-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
 @media all and (max-width: 576px) {
   .ac .ac-menu {
     width: calc(100% - var(--filter-input-offset) * 2);
+  }
+  .ac .clear-btn {
+    right: 20px;
   }
 }
 

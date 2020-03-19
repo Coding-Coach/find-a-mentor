@@ -17,6 +17,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.history/
 
 npm-debug.log*
 yarn-debug.log*
@@ -28,3 +29,9 @@ package-lock.json
 #editors
 .idea
 .vscode
+
+public/sitemap.xml
+
+# Cypress
+cypress/videos
+cypress/screenshots

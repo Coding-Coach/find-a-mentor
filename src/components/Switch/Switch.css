@@ -1,0 +1,71 @@
+.switch-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.switch-input {
+  height: 20px;
+}
+
+.switch-input input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.switch-input label {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 60px;
+  height: 30px;
+  background-color: grey;
+  display: block;
+  border-radius: 100px;
+  position: relative;
+  top: -25px;
+  transition: background-color 0.35s ease-in-out;
+}
+
+.switch-input.small label {
+  width: 25px;
+  height: 15px;
+  top: -15px;
+  margin-left: 5px;
+}
+
+.switch-input label:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 20px;
+  transition: left 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.switch-input.small label:after {
+  top: 2.5px;
+  left: 2.5px;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.switch-input input:checked + label {
+  background-color: var(--tag-color);
+}
+
+.switch-input.dark input:checked + label {
+  background-color: var(--button-dark-bg);
+}
+
+.switch-input input:checked + label:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+.switch-input.small input:checked label:after {
+  left: calc(100% - 2.5px);
+}

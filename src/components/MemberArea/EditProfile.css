@@ -1,0 +1,159 @@
+.edit-profile .form-fields {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+}
+
+.edit-profile .form-submit {
+  margin-top: 15px;
+}
+
+.edit-profile .form-submit .submit,
+.edit-profile .form-submit .delete {
+  background: var(--button-dark-bg);
+  color: #fff;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.edit-profile .form-submit .submit:disabled {
+  opacity: 0.8;
+}
+
+.edit-profile .form-submit .delete {
+  float: right;
+  background: var(--error-background);
+}
+
+.edit-profile .form-field {
+  --elements-top-space: 10px;
+  width: 50%;
+  padding: 0 10px;
+  margin-top: var(--elements-top-space);
+}
+
+.edit-profile .form-field .form-fields {
+  margin-top: calc(var(--elements-top-space) * -1);
+}
+
+.edit-profile .form-field .required .form-field-name::after {
+  content: '*';
+  color: red;
+}
+
+.edit-profile .form-field input,
+.edit-profile .form-field textarea {
+  padding: 0.67857143em 1em;
+}
+
+.edit-profile .form-field input,
+.edit-profile .form-field textarea,
+.edit-profile .form-field .input-extended {
+  border: 1px solid #eee;
+  width: 100%;
+}
+
+.edit-profile .form-field .form-field-name {
+  margin-bottom: 3px;
+}
+
+.edit-profile .form-field .help-text {
+  color: #5c5c5c;
+  padding-left: 5px;
+}
+
+.edit-profile .form-field .help-text::before {
+  content: '(';
+}
+
+.edit-profile .form-field .help-text::after {
+  content: ')';
+}
+
+.edit-profile .form-field-input-wrapper {
+  position: relative;
+}
+
+.edit-profile .form-field-input-wrapper .form-field-preview {
+  width: 30px;
+  border-radius: 50%;
+}
+
+.edit-profile .form-field-input-wrapper .form-field-preview,
+.edit-profile .form-field-input-wrapper i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 5px;
+}
+
+.edit-profile .form-field-input-wrapper .form-field-preview + input,
+.edit-profile .form-field-input-wrapper i + input {
+  padding-left: 40px;
+}
+
+.edit-profile .form-field-input-wrapper i {
+  font-size: 30px;
+  color: var(--generic-avatar-color);
+}
+
+.edit-profile .select__control {
+  background: none;
+  border: none;
+}
+
+.edit-profile .channel-group {
+  position: relative;
+  border: 1px solid #eee;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.edit-profile .channel-group.disabled {
+  background: #dadada;
+}
+
+.channel-slack {
+  width: 100% !important;
+}
+
+.edit-profile .channel-group i {
+  font-size: 24px;
+  color: #aaa;
+  padding: 0 3px 0 4px;
+}
+
+.edit-profile .channel-group input {
+  padding: 0;
+  border: none;
+  background: transparent;
+  height: 25px;
+}
+
+.edit-profile .channel-group label {
+  color: #aaa;
+  white-space: nowrap;
+}
+
+.edit-profile .form-errors {
+  color: red;
+  margin: 5px 0;
+}
+
+.edit-profile .form-field .helper-text {
+  color: #aaa;
+  font-style: italic;
+}
+
+@media all and (max-width: 800px) {
+  .edit-profile .form-fields {
+    margin: 0;
+  }
+
+  .edit-profile .form-field {
+    padding: 0;
+    width: 100%;
+  }
+}
