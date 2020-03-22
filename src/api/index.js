@@ -202,3 +202,12 @@ export async function rejectApplication(mentor, reason) {
   );
   return res.success;
 }
+
+
+export async function updateMentorAvatar(mentor, value) {
+  const res = await makeApiCall(`${paths.USERS}/${mentor._id}/avatar`, value, 'POST', false);
+  if (res.success) {
+    await fetchCurrentItem();
+  }
+  return currentUser;
+}

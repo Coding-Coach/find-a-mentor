@@ -7,6 +7,8 @@ import './MentorList.css';
 import { Loader } from '../Loader';
 import { report } from '../../ga';
 
+import Avatar from '../Avatar/Avatar';
+
 const itemsInPage = 20;
 
 const MentorsList = props => {
@@ -55,6 +57,7 @@ const MentorsList = props => {
       className={classNames(['mentors-wrapper', className])}
       data-testid="mentors-wrapper"
     >
+      <Avatar/>
       <InfiniteScroll
         className="mentors-cards"
         loadMore={loadMore}
