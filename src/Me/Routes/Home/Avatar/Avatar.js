@@ -1,14 +1,21 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import UserContext from '../../context/userContext/UserContext';
-import Camera from '../../assets/me/camera.svg';
-import { updateMentorAvatar } from '../../api';
-
-
+import UserContext from '../../../../context/userContext/UserContext';
+import Camera from '../../../../assets/me/camera.svg';
+import { updateMentorAvatar, getCurrentUser } from '../../../../api';
+import CardContainer from '../../../components/Card/index'
 
 function Avatar() {
   let { currentUser, updateUser } = useContext(UserContext);
   const [image, setImage] = useState({ preview: '', raw: '' })
+
+  useEffect(() => {
+    async function initialize() {
+      const user = await getCurrentUser();
+      updateUser(user);
+    }
+    initialize();
+  });
 
   const handleChange = (e) => {
     if (e) {
@@ -32,18 +39,20 @@ function Avatar() {
 
   return (
     <CardContainer>
-      <label htmlFor="upload-button">
-        <UserAvatar>
-          {(currentUser && currentUser.avatar) ? (
-            <UserImage alt={currentUser.email} src={currentUser.avatar} />
-          ) : (
-              <AvatarPlaceHolder alt="No profile picture" src={Camera} />
-            )}
-        </UserAvatar>
-      </label>
-      <input type="file" id="upload-button" style={{ display: 'none' }} onChange={handleChange} />
-      <h1>{currentUser ? currentUser.name : ""}</h1>
-      <p>{currentUser ? currentUser.title : ""}</p>
+      <Container>
+        <label htmlFor="upload-button">
+          <UserAvatar>
+            {(currentUser && currentUser.avatar) ? (
+              <UserImage alt={currentUser.email} src={currentUser.avatar} />
+            ) : (
+                <AvatarPlaceHolder alt="No profile picture" src={Camera} />
+              )}
+          </UserAvatar>
+        </label>
+        <input type="file" id="upload-button" style={{ display: 'none' }} onChange={handleChange} />
+        <h1>{currentUser ? currentUser.name : ""}</h1>
+        <p>{currentUser ? currentUser.title : ""}</p>
+      </Container>
     </CardContainer>
   );
 }
@@ -71,11 +80,7 @@ const UserImage = styled.img`
   border-radius: 50%;
 `;
 
-const CardContainer = styled.div`
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
-  margin: 5%;
-  padding: 20px 14px 42px 14px;
+const Container = styled.div`
   text-align: center;
 
   h1 {
@@ -89,6 +94,7 @@ const CardContainer = styled.div`
     color: #4a4a4a;
     line-height:17px;
     margin: 0;
+    margin-top: 1%;
   }
 `;
 
