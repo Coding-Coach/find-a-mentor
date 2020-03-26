@@ -4,6 +4,7 @@ import UserContext from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
 import { updateMentorAvatar, getCurrentUser } from '../../../../api';
 import CardContainer from '../../../components/Card/index'
+import { getAvatarUrl } from '../../../../helpers/avatar';
 
 function Avatar() {
   let { currentUser, updateUser } = useContext(UserContext);
@@ -43,7 +44,7 @@ function Avatar() {
         <label htmlFor="upload-button">
           <UserAvatar>
             {(currentUser && currentUser.avatar) ? (
-              <UserImage alt={currentUser.email} src={currentUser.avatar} />
+              <UserImage alt={currentUser.email} src={getAvatarUrl(currentUser.avatar)} />
             ) : (
                 <AvatarPlaceHolder alt="No profile picture" src={Camera} />
               )}
@@ -76,7 +77,8 @@ const AvatarPlaceHolder = styled.img`
 
 
 const UserImage = styled.img`
-  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
   border-radius: 50%;
 `;
 
