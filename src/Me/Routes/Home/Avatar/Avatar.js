@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import UserContext from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
@@ -8,7 +8,6 @@ import { getAvatarUrl } from '../../../../helpers/avatar';
 
 function Avatar() {
   let { currentUser, updateUser } = useContext(UserContext);
-  const [image, setImage] = useState({ preview: '', raw: '' })
 
   useEffect(() => {
     async function initialize() {
@@ -18,24 +17,14 @@ function Avatar() {
     initialize();
   });
 
-  const handleChange = (e) => {
-    if (e) {
-      setImage({
-        preview: URL.createObjectURL(e.target.files[0]),
-        raw: e.target.files[0]
-      })
+  const handleChange = async (e) => {
+    if (e.target.files.length) {
+      const formData = new FormData()
+      formData.append('image', e.target.files[0])
 
-      handleUpload(e);
+      const updatedUser = await updateMentorAvatar(currentUser, formData);
+      updateUser(updatedUser);
     }
-  }
-
-  const handleUpload = async (e) => {
-    e.preventDefault()
-    const formData = new FormData()
-    formData.append('image', image.raw)
-
-    const updatedUser = await updateMentorAvatar(currentUser, formData);
-    updateUser(updatedUser);
   }
 
   return (
