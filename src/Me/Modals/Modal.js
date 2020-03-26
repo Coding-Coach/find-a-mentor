@@ -24,6 +24,7 @@ const CloseIconButton = styled.button`
   padding: 5px 10px;
   width: 28px;
   height: 28px;
+  cursor: pointer;
 `;
 
 const ContentContainer = styled.div`
@@ -38,7 +39,7 @@ const ContentContainer = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.header`
   width: 100%;
   color: #4F4F4F;
   font-family: Lato;
@@ -49,7 +50,7 @@ const Title = styled.div`
   margin: 50px 0;
 `;
 
-const Footer = styled.div`
+const Footer = styled.footer`
   position: absolute;
   height: 20%;
   width: 100%;
@@ -84,6 +85,7 @@ const Button = styled.button`
   line-height: 17px;
   text-align: center;
   margin-bottom: 1rem;
+  cursor: pointer;
 
   @media ${desktop} {
     height: 30px;
@@ -107,9 +109,9 @@ const SecondaryButton = styled(Button)`
   color: #69D5B1;
 `;
 
-export const Modal = ({onClose, onSave, title, children }) => (
+export const Modal = ({closeModal, onSave, title, children }) => (
   <ModalContainer>
-    <CloseIconButton  onClick={onClose}>x</CloseIconButton>
+    <CloseIconButton  onClick={closeModal}>x</CloseIconButton>
     <ContentContainer>
       <Title>
         {title || null}
@@ -118,7 +120,7 @@ export const Modal = ({onClose, onSave, title, children }) => (
     </ContentContainer>
     <Footer>
       <ButtonBar>
-        <SecondaryButton onClick={onClose}>Close</SecondaryButton>
+        <SecondaryButton onClick={closeModal}>Close</SecondaryButton>
         <PrimaryButton onClick={onSave}>Save</PrimaryButton>
       </ButtonBar>
     </Footer>
