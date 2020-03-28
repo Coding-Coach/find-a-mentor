@@ -248,7 +248,7 @@ const App = () => {
               />
             </a>
           </aside>
-          <Profile />
+
           <MentorsList
             className={classNames({
               active: fieldsIsActive,

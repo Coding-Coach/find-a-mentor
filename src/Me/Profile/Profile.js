@@ -4,7 +4,7 @@
 //      a. spokenLanguages
 //      b. tags
 // 3. Conditionally render availability svg
-// 4. Hook up edit link
+
 
 import React, { useContext } from "react";
 
@@ -18,6 +18,8 @@ import { ReactComponent as TitleIcon } from '../../assets/me/icon-title.svg';
 import { ReactComponent as TagsIcon } from '../../assets/me/icon-tags.svg';
 import { ReactComponent as AvailableIcon } from '../../assets/me/icon-available.svg';
 import { ReactComponent as DescriptionIcon } from '../../assets/me/icon-description.svg';
+
+import "./Profile.css";
 
 // Object w/ keyed SVG Components
 const Components = {
@@ -45,7 +47,9 @@ const ProfileLine = (props) => {
     const TagName = Components[props.type];
     return (
         <div>
-            <TagName />
+            <div className="profileIcon">
+                <TagName />
+            </div>
             <span>{props.val}</span>
         </div>
     )
