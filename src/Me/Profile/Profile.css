@@ -1,4 +1,14 @@
+.profileLine {
+    display: grid;
+    grid-template-columns: 40px auto;
+}
+
 .profileIcon {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 100%;
+    margin-right: 20px;
+}
+
+.profileText {
+    padding-top: 4px; 
 }

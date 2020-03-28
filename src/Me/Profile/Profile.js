@@ -36,7 +36,7 @@ const Components = {
 const ProfileData = (props) => {
     const profileLines = Object.entries(props).map(p => <ProfileLine type={p[0]} val={p[1]} />);
     return (
-        < div >
+        < div className="profileData">
             {profileLines}
         </div >
     )
@@ -46,11 +46,11 @@ const ProfileData = (props) => {
 const ProfileLine = (props) => {
     const TagName = Components[props.type];
     return (
-        <div>
+        <div className="profileLine">
             <div className="profileIcon">
                 <TagName />
             </div>
-            <span>{props.val}</span>
+            <div className="profileText">{props.val}</div>
         </div>
     )
 }
