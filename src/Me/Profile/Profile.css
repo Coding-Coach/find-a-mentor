@@ -1,6 +1,7 @@
 .profileLine {
     display: grid;
     grid-template-columns: 40px auto;
+    margin-top: 5px;
 }
 
 .profileIcon {

@@ -1,5 +1,3 @@
-import Profile from '../../Me/Profile/Profile';
-
 import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
