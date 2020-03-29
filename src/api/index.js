@@ -15,17 +15,19 @@ const paths = {
 
 let currentUser;
 
-export async function makeApiCall(path, body, method) {
+export async function makeApiCall(path, body, method, jsonous = true) {
   const url = `${process.env.REACT_APP_API_ENDPOINT}${path}`;
+  const optionBody = jsonous ? body && JSON.stringify(body) : body;
+  const optionHeader = jsonous ? {
+                        Authorization: `Bearer ${auth.getIdToken()}`,
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                      } : { Authorization: `Bearer ${auth.getIdToken()}` }
   const options = {
     mode: 'cors',
     method,
-    body: body && JSON.stringify(body),
-    headers: {
-      Authorization: `Bearer ${auth.getIdToken()}`,
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
+    body: optionBody,
+    headers: optionHeader,
   };
   try {
     const data = await fetch(url, options).catch(error => {
@@ -201,4 +203,13 @@ export async function rejectApplication(mentor, reason) {
     'PUT'
   );
   return res.success;
+}
+
+
+export async function updateMentorAvatar(mentor, value) {
+  const res = await makeApiCall(`${paths.USERS}/${mentor._id}/avatar`, value, 'POST', false);
+  if (res.success) {
+    await fetchCurrentItem();
+  }
+  return currentUser;
 }
