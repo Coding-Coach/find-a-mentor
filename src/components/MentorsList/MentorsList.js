@@ -1,5 +1,3 @@
-import Profile from "../../Me/Profile/Profile";
-
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
@@ -62,7 +60,6 @@ const MentorsList = props => {
         loadMore={loadMore}
         hasMore={mentorsInList.length < mentors.length}
       >
-        <Profile />
         {mentorsList(mentorsInList)}
         {!ready && <Loader />}
         {nothingToShow(!!mentorsInList.length)}

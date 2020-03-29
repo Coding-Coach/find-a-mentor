@@ -246,7 +246,6 @@ const App = () => {
               />
             </a>
           </aside>
-
           <MentorsList
             className={classNames({
               active: fieldsIsActive,
