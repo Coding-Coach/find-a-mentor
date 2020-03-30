@@ -39,7 +39,7 @@ function scrollToTop() {
   const scrollDuration = 200;
   return new Promise(resolve => {
     const scrollStep = -window.scrollY / (scrollDuration / 15),
-      scrollInterval = setInterval(function() {
+      scrollInterval = setInterval(function () {
         if (window.scrollY !== 0) {
           window.scrollBy(0, scrollStep);
         } else {
@@ -165,9 +165,9 @@ const App = () => {
       Promise.all([
         user &&
         getFavorites().then((favorites) => {
-          if(Array.isArray(favMentorsFromLocalStorage) && favMentorsFromLocalStorage.length > 0){
+          if (Array.isArray(favMentorsFromLocalStorage) && favMentorsFromLocalStorage.length > 0) {
             const mentors = favMentorsFromLocalStorage.filter(m => !favorites.includes(m));
-            if(mentors.length > 0) updateFavMentorsForUser(mentors);
+            if (mentors.length > 0) updateFavMentorsForUser(mentors);
           }
           setFavorites([...new Set([...favMentorsFromLocalStorage, ...favorites])]);
         }),

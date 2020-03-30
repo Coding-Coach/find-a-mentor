@@ -9,7 +9,7 @@ import useWindowSize from '../../utils/useWindowSize';
 import UserContext from '../../context/userContext/UserContext';
 import { updateMentorAvailability } from '../../../src/api/index';
 import Switch from '../../components/Switch/Switch';
-import {isAdmin, isMentor} from '../../helpers/user';
+import { isAdmin, isMentor } from '../../helpers/user';
 import { report } from '../../ga';
 
 function MemberArea({ onOpenModal }) {
@@ -50,17 +50,17 @@ function MemberArea({ onOpenModal }) {
   };
 
   const onToggleAvailability = async (toggleState) => {
-    if(!toggleState){
-      if(!window.confirm("Are you sure you want to set yourself as unavailable?")){
+    if (!toggleState) {
+      if (!window.confirm("Are you sure you want to set yourself as unavailable?")) {
         return;
       }
     }
-    updateUser({...currentUser, available: toggleState});
+    updateUser({ ...currentUser, available: toggleState });
     const isSuccessful = await updateMentorAvailability(toggleState);
-    if(isSuccessful) {
+    if (isSuccessful) {
       report('Mentor availability', 'toggle', toggleState);
     } else {
-      updateUser({...currentUser, available: !toggleState});
+      updateUser({ ...currentUser, available: !toggleState });
     }
   }
 
@@ -77,8 +77,8 @@ function MemberArea({ onOpenModal }) {
             {currentUser ? (
               <UserImage alt={currentUser.email} src={currentUser.avatar} />
             ) : (
-              <AvatarPlaceHolder className="fa fa-user-circle" />
-            )}
+                <AvatarPlaceHolder className="fa fa-user-circle" />
+              )}
           </UserAvatar>
           {isMemberMenuOpen && (
             <MemberMenu tabIndex="0">
@@ -91,7 +91,7 @@ function MemberArea({ onOpenModal }) {
                 {isMentor(currentUser)
                   ? 'Edit your profile'
                   : 'Become a mentor'
-                  }
+                }
               </MemberMenuItem>
               {
                 isMentor(currentUser) &&
@@ -111,8 +111,8 @@ function MemberArea({ onOpenModal }) {
           )}
         </>
       ) : (
-        isDesktop && <LoginNavigation />
-      )}
+          isDesktop && <LoginNavigation />
+        )}
     </div>
   );
 }
