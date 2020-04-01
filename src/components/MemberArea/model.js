@@ -38,11 +38,11 @@ export default {
   },
   avatar: {
     label: 'Avatar',
-    type: 'text',
+    type: 'file',
     defaultValue: '',
-    validate: value => !!value && urlValidation(value),
     helpText: 'https public URL to an image file',
     previewImage: true,
+    validate: value => !!value,
   },
   title: {
     label: 'Title',
