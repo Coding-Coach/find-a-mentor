@@ -7,6 +7,7 @@ import {
 } from '../../api';
 import { Loader } from '../Loader';
 import { getChannelInfo } from '../../channelProvider';
+import { getAvatarUrl } from '../../helpers/avatar';
 
 export default class PendingApplications extends Component {
   state = {
@@ -97,7 +98,7 @@ export default class PendingApplications extends Component {
                     )}
                   </td>
                   <td>
-                    <AvatarImage alt={user.name} src={user.avatar} />
+                    <AvatarImage alt={user.name} src={getAvatarUrl(user.avatar)} />
                   </td>
                   <td>{user.name}</td>
                   <td>
