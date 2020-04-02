@@ -57,7 +57,7 @@
   ],
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.14",
-    "@storybook/react": "^5.3.14",
+    "@storybook/react": "^5.3.18",
     "@testing-library/cypress": "^4.1.1",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.5.0",
