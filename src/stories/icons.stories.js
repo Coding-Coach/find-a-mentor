@@ -6,22 +6,23 @@ import { ReactComponent as Mentors } from '../assets/me/mentors.svg';
 
 export default { title: 'Icons' };
 
-const Icon = ({
-  children,
-  light = false
-}) => (
-  <IconContainer light={light}>
-    {children}
-  </IconContainer>
-)
+const Icon = ({ children, light = false }) => (
+  <IconContainer light={light}>{children}</IconContainer>
+);
 
 export const me = () => (
   <Icons>
-    <Icon light><Logo /></Icon>
-    <Icon><Home /></Icon>
-    <Icon><Mentors /></Icon>
+    <Icon light>
+      <Logo />
+    </Icon>
+    <Icon>
+      <Home />
+    </Icon>
+    <Icon>
+      <Mentors />
+    </Icon>
   </Icons>
-)
+);
 
 const Icons = styled.div`
   display: flex;
@@ -36,9 +37,9 @@ const IconContainer = styled.div`
   align-items: center;
   border: 1px solid #aaa;
 
-  ${props => props.light && {background: '#eee'}}
+  ${props => props.light && { background: '#eee' }}
 
   > svg {
-    width: 100%
+    width: 100%;
   }
 `;

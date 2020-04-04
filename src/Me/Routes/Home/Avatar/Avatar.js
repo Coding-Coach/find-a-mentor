@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import UserContext from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
 import { updateMentorAvatar, getCurrentUser } from '../../../../api';
-import CardContainer from '../../../components/Card/index'
+import CardContainer from '../../../components/Card/index';
 import { getAvatarUrl } from '../../../../helpers/avatar';
 
 function Avatar() {
@@ -17,43 +17,50 @@ function Avatar() {
     initialize();
   });
 
-  const handleChange = async (e) => {
+  const handleChange = async e => {
     if (e.target.files.length) {
-      const formData = new FormData()
-      formData.append('image', e.target.files[0])
+      const formData = new FormData();
+      formData.append('image', e.target.files[0]);
 
       const updatedUser = await updateMentorAvatar(currentUser, formData);
       updateUser(updatedUser);
     }
-  }
+  };
 
   return (
     <CardContainer>
       <Container>
         <label htmlFor="upload-button">
           <UserAvatar>
-            {(currentUser && currentUser.avatar) ? (
-              <UserImage alt={currentUser.email} src={getAvatarUrl(currentUser.avatar)} />
+            {currentUser && currentUser.avatar ? (
+              <UserImage
+                alt={currentUser.email}
+                src={getAvatarUrl(currentUser.avatar)}
+              />
             ) : (
-                <AvatarPlaceHolder alt="No profile picture" src={Camera} />
-              )}
+              <AvatarPlaceHolder alt="No profile picture" src={Camera} />
+            )}
           </UserAvatar>
         </label>
-        <input type="file" id="upload-button" style={{ display: 'none' }} onChange={handleChange} />
-        <h1>{currentUser ? currentUser.name : ""}</h1>
-        <p>{currentUser ? currentUser.title : ""}</p>
+        <input
+          type="file"
+          id="upload-button"
+          style={{ display: 'none' }}
+          onChange={handleChange}
+        />
+        <h1>{currentUser ? currentUser.name : ''}</h1>
+        <p>{currentUser ? currentUser.title : ''}</p>
       </Container>
     </CardContainer>
   );
 }
 
-
 const UserAvatar = styled.div`
   height: 100px;
   width: 100px;
   margin: auto;
-  background-color:#20293A;
-  margin-bottom:10px;
+  background-color: #20293a;
+  margin-bottom: 10px;
   border-radius: 50%;
   display: flex;
   cursor: pointer;
@@ -64,7 +71,6 @@ const AvatarPlaceHolder = styled.img`
   margin: auto;
 `;
 
-
 const UserImage = styled.img`
   object-fit: cover;
   overflow: hidden;
@@ -73,7 +79,6 @@ const UserImage = styled.img`
 
 const Container = styled.div`
   text-align: center;
-
   h1 {
     color: #4a4a4a;
     font-weight: bold;
@@ -83,11 +88,10 @@ const Container = styled.div`
 
   p {
     color: #4a4a4a;
-    line-height:17px;
+    line-height: 17px;
     margin: 0;
     margin-top: 1%;
   }
 `;
-
 
 export default Avatar;

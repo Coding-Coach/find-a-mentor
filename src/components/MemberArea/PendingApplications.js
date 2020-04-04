@@ -98,7 +98,10 @@ export default class PendingApplications extends Component {
                     )}
                   </td>
                   <td>
-                    <AvatarImage alt={user.name} src={getAvatarUrl(user.avatar)} />
+                    <AvatarImage
+                      alt={user.name}
+                      src={getAvatarUrl(user.avatar)}
+                    />
                   </td>
                   <td>{user.name}</td>
                   <td>

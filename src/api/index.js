@@ -18,11 +18,13 @@ let currentUser;
 export async function makeApiCall(path, body, method, jsonous = true) {
   const url = `${process.env.REACT_APP_API_ENDPOINT}${path}`;
   const optionBody = jsonous ? body && JSON.stringify(body) : body;
-  const optionHeader = jsonous ? {
-                        Authorization: `Bearer ${auth.getIdToken()}`,
-                        Accept: 'application/json',
-                        'Content-Type': 'application/json',
-                      } : { Authorization: `Bearer ${auth.getIdToken()}` }
+  const optionHeader = jsonous
+    ? {
+        Authorization: `Bearer ${auth.getIdToken()}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
+    : { Authorization: `Bearer ${auth.getIdToken()}` };
   const options = {
     mode: 'cors',
     method,
@@ -108,7 +110,7 @@ export async function getMentors() {
 }
 
 export async function getFavorites() {
-  const {_id: userId} = await getCurrentUser();
+  const { _id: userId } = await getCurrentUser();
   const res = await makeApiCall(`${paths.USERS}/${userId}/favorites`);
   if (res.success) {
     return res.data.mentors.map(mentor => mentor._id);
@@ -117,8 +119,12 @@ export async function getFavorites() {
 }
 
 export async function addMentorToFavorites(mentorId) {
-  const {_id: userId} = await getCurrentUser();
-  const res = await makeApiCall(`${paths.USERS}/${userId}/favorites/${mentorId}`, {}, 'POST');
+  const { _id: userId } = await getCurrentUser();
+  const res = await makeApiCall(
+    `${paths.USERS}/${userId}/favorites/${mentorId}`,
+    {},
+    'POST'
+  );
   return res.success;
 }
 
@@ -159,7 +165,12 @@ export async function updateMentor(mentor) {
 }
 
 export async function updateMentorAvatar(mentor, value) {
-  const res = await makeApiCall(`${paths.USERS}/${mentor._id}/avatar`, value, 'POST', false);
+  const res = await makeApiCall(
+    `${paths.USERS}/${mentor._id}/avatar`,
+    value,
+    'POST',
+    false
+  );
   if (res.success) {
     await fetchCurrentItem();
   }
@@ -169,9 +180,13 @@ export async function updateMentorAvatar(mentor, value) {
 export async function updateMentorAvailability(isAvailable) {
   let currentUser = await getCurrentUser();
   const userID = currentUser._id;
-  const res = await makeApiCall(`${paths.USERS}/${userID}`, {available: isAvailable}, 'PUT');
-  if(res.success){
-    storeUserInLocalStorage({...currentUser, available: isAvailable});
+  const res = await makeApiCall(
+    `${paths.USERS}/${userID}`,
+    { available: isAvailable },
+    'PUT'
+  );
+  if (res.success) {
+    storeUserInLocalStorage({ ...currentUser, available: isAvailable });
   }
   return res.success;
 }

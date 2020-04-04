@@ -41,7 +41,7 @@ const ContentContainer = styled.div`
 
 const Title = styled.header`
   width: 100%;
-  color: #4F4F4F;
+  color: #4f4f4f;
   font-family: Lato;
   font-size: 28px;
   font-weight: 700;
@@ -95,8 +95,8 @@ const Button = styled.button`
 `;
 
 const PrimaryButton = styled(Button)`
-  background-color: #69D5B1;
-  color: #FFF;
+  background-color: #69d5b1;
+  color: #fff;
   font-family: Lato;
   font-size: 14px;
   order: -1;
@@ -104,18 +104,16 @@ const PrimaryButton = styled(Button)`
 
 const SecondaryButton = styled(Button)`
   box-sizing: border-box;
-  background-color: #FFF;
-  border: 2px solid #69D5B1;
-  color: #69D5B1;
+  background-color: #fff;
+  border: 2px solid #69d5b1;
+  color: #69d5b1;
 `;
 
-export const Modal = ({closeModal, onSave, title, children }) => (
+export const Modal = ({ closeModal, onSave, title, children }) => (
   <ModalContainer>
-    <CloseIconButton  onClick={closeModal}>x</CloseIconButton>
+    <CloseIconButton onClick={closeModal}>x</CloseIconButton>
     <ContentContainer>
-      <Title>
-        {title || null}
-      </Title>
+      <Title>{title || null}</Title>
       {children}
     </ContentContainer>
     <Footer>
@@ -125,4 +123,4 @@ export const Modal = ({closeModal, onSave, title, children }) => (
       </ButtonBar>
     </Footer>
   </ModalContainer>
-)
+);
