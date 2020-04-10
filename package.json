@@ -69,6 +69,7 @@
     "image-type": "^4.1.0",
     "inquirer": "^7.0.0",
     "is-ci-cli": "^1.1.1",
+    "jest-styled-components": "^7.0.2",
     "nock": "^10.0.6",
     "node-fetch": "^2.6.0",
     "nodemon": "^1.19.1",
