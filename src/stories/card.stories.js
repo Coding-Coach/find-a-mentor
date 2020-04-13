@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Card from '../Me/components/Card';
-import '../index.css';
+
 
 export default { title: 'Card' };
 

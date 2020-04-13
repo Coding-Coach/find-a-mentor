@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from '../Me/components/Card';
 import { render, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 describe('Card component', () => {
   it('render card just title and children', () => {
