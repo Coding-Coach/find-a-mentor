@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import 'styled-components/macro';
 import Button from '../Me/components/Button';
-import '../index.css';
+
 import { StoriesContainer } from './StoriesContainer';
 
 export default { title: 'Button' };

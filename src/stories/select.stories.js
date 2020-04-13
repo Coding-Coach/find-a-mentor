@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import 'styled-components/macro';
 import Select from '../Me/components/Select';
 import FormField from '../Me/components/FormField';
-import '../index.css';
+
 import { StoriesContainer } from './StoriesContainer';
 
 export default { title: 'Select' };

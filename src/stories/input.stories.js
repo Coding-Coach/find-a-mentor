@@ -3,7 +3,7 @@ import 'styled-components/macro';
 import Input from '../Me/components/Input';
 import Textarea from '../Me/components/Textarea';
 import FormField from '../Me/components/FormField';
-import '../index.css';
+
 import { StoriesContainer } from './StoriesContainer';
 
 export default { title: 'Input' };
