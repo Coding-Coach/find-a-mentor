@@ -56,11 +56,13 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.4",
     "@storybook/addon-actions": "^5.3.14",
     "@storybook/react": "^5.3.18",
     "@testing-library/cypress": "^4.1.1",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.5.0",
+    "@types/styled-components": "^5.1.0",
     "ajv": "^6.10.2",
     "cors": "^2.8.5",
     "cypress": "^3.4.1",
