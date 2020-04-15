@@ -3,8 +3,8 @@ import styled from 'styled-components';
 
 const CardContainer = styled.div`
   background-color: #ffffff;
-  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
-  padding: 20px 14px 20px 14px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  padding: 20px 14px 43px 14px;
 
   h4 {
     color: #4a4a4a;
@@ -33,7 +33,7 @@ const EditButton = styled.button`
 `;
 
 const Content = styled.div`
-  color: #4F4F4F;
+  color: #4f4f4f;
   font-family: Lato;
   font-size: 1rem;
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;

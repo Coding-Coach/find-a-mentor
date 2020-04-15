@@ -1,6 +1,6 @@
 import { getFavorites, addMentorToFavorites } from './api';
 import { report } from './ga';
-const LOCAL_FAV_KEY = "favs";
+const LOCAL_FAV_KEY = 'favs';
 
 export function toggle(mentor, favs) {
   const favIndex = favs.indexOf(mentor._id);
@@ -30,15 +30,15 @@ export function readFavMentorsFromLocalStorage() {
 }
 
 export function updateFavMentorsForUser(mentors) {
-    let timeOut = 0;
-    mentors.forEach(mentorId => {
-      setTimeout(
-        mentorId => {
-          addMentorToFavorites(mentorId);
-        },
-        timeOut,
-        mentorId
-      );
-      timeOut += 300;
-    });
+  let timeOut = 0;
+  mentors.forEach(mentorId => {
+    setTimeout(
+      mentorId => {
+        addMentorToFavorites(mentorId);
+      },
+      timeOut,
+      mentorId
+    );
+    timeOut += 300;
+  });
 }

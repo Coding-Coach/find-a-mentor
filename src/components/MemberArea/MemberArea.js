@@ -9,7 +9,7 @@ import useWindowSize from '../../utils/useWindowSize';
 import UserContext from '../../context/userContext/UserContext';
 import { updateMentorAvailability } from '../../../src/api/index';
 import Switch from '../../components/Switch/Switch';
-import {isAdmin, isMentor} from '../../helpers/user';
+import { isAdmin, isMentor } from '../../helpers/user';
 import { getAvatarUrl } from '../../helpers/avatar';
 import { report } from '../../ga';
 
@@ -50,9 +50,11 @@ function MemberArea({ onOpenModal }) {
     setIsMemberMenuOpen(false);
   };
 
-  const onToggleAvailability = async (toggleState) => {
+  const onToggleAvailability = async toggleState => {
     if (!toggleState) {
-      if (!window.confirm("Are you sure you want to set yourself as unavailable?")) {
+      if (
+        !window.confirm('Are you sure you want to set yourself as unavailable?')
+      ) {
         return;
       }
     }
@@ -63,7 +65,7 @@ function MemberArea({ onOpenModal }) {
     } else {
       updateUser({ ...currentUser, available: !toggleState });
     }
-  }
+  };
 
   return (
     <div className="auth">
@@ -76,10 +78,13 @@ function MemberArea({ onOpenModal }) {
             }
           >
             {currentUser ? (
-              <UserImage alt={currentUser.email} src={getAvatarUrl(currentUser.avatar)} />
+              <UserImage
+                alt={currentUser.email}
+                src={getAvatarUrl(currentUser.avatar)}
+              />
             ) : (
-                <AvatarPlaceHolder className="fa fa-user-circle" />
-              )}
+              <AvatarPlaceHolder className="fa fa-user-circle" />
+            )}
           </UserAvatar>
           {isMemberMenuOpen && (
             <MemberMenu tabIndex="0">
@@ -91,29 +96,27 @@ function MemberArea({ onOpenModal }) {
               <MemberMenuItem onClick={openProfile}>
                 {isMentor(currentUser)
                   ? 'Edit your profile'
-                  : 'Become a mentor'
-                }
+                  : 'Become a mentor'}
               </MemberMenuItem>
-              {
-                isMentor(currentUser) &&
+              {isMentor(currentUser) && (
                 <MemberMenuItem>
                   <Switch
-                    label={"Available for new Mentees"}
-                    type={"small"}
-                    theme={"dark"}
+                    label={'Available for new Mentees'}
+                    type={'small'}
+                    theme={'dark'}
                     isChecked={currentUser.available}
                     onToggle={onToggleAvailability}
                     id="available"
                   />
                 </MemberMenuItem>
-              }
+              )}
               <MemberMenuItem onClick={logout}>Logout</MemberMenuItem>
             </MemberMenu>
           )}
         </>
       ) : (
-          isDesktop && <LoginNavigation />
-        )}
+        isDesktop && <LoginNavigation />
+      )}
     </div>
   );
 }

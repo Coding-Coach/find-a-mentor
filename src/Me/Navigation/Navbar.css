@@ -33,15 +33,15 @@
 }
 
 .primary {
-  fill: #69D5B1;
+  fill: #69d5b1;
 }
 
 .secondary {
-  fill: #179A6F;
+  fill: #179a6f;
 }
 
 .primary-mentors {
-  fill: #E0E0E0;
+  fill: #e0e0e0;
 }
 
 .secondary-mentors {
@@ -72,9 +72,14 @@
     justify-content: center;
     align-items: center;
     background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   }
 
   .desc {
     display: block;
+    color: #4a4a4a;
+    font-size: 9px;
+    line-height: 11px;
+    text-align: center;
   }
 }

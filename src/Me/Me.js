@@ -36,7 +36,7 @@ export default Me;
 
 const Container = styled.div`
   min-height: 100vh;
-  background-color: #e0e0e0;
+  background-color: #f8f8f8;
 
   @media ${desktop} {
     padding-left: 75px;

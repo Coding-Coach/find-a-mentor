@@ -120,28 +120,29 @@ export default class EditProfile extends Component {
                 )}
               </div>
               <div className="form-field-input-wrapper">
-                {config.previewImage && (
-                  user[fieldName]
-                    ? (
-                      <img
-                        className="form-field-preview"
-                        src={getAvatarUrl(user[fieldName])}
-                        alt="avatar"
-                      />
-                    )
-                    : <i className="fa fa-user-circle" />
-                )}
+                {config.previewImage &&
+                  (user[fieldName] ? (
+                    <img
+                      className="form-field-preview"
+                      src={getAvatarUrl(user[fieldName])}
+                      alt="avatar"
+                    />
+                  ) : (
+                    <i className="fa fa-user-circle" />
+                  ))}
                 <CustomTag
                   maxLength={config.maxLength}
                   aria-labelledby={fieldName}
-                  value={config.type !== 'file' ? (user[fieldName] || config.defaultValue) : undefined}
+                  value={
+                    config.type !== 'file'
+                      ? user[fieldName] || config.defaultValue
+                      : undefined
+                  }
                   type={config.type}
                   name={fieldName}
                   disabled={config.disabled}
                   required={config.required}
-                  onChange={e =>
-                    this.handleInputChangeEvent(e)
-                  }
+                  onChange={e => this.handleInputChangeEvent(e)}
                 />
               </div>
             </label>
@@ -274,7 +275,7 @@ export default class EditProfile extends Component {
     });
   };
 
-  handleInputChangeEvent = async (event) => {
+  handleInputChangeEvent = async event => {
     const fieldName = event.target.name;
     const value = event.target.value;
     if (fieldName === 'avatar') {
@@ -282,13 +283,13 @@ export default class EditProfile extends Component {
       this.setState({
         user: {
           ...this.state.user,
-          [fieldName]: "",
+          [fieldName]: '',
         },
       });
       const files = Array.from(event.target.files);
       const formData = new FormData();
       formData.append('image', files[0]);
-      const updatedUser = await updateMentorAvatar(this.state.user, formData)
+      const updatedUser = await updateMentorAvatar(this.state.user, formData);
       this.setState({
         user: {
           ...this.state.user,

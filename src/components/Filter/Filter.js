@@ -11,7 +11,7 @@ import { useFilters } from '../../context/filtersContext/FiltersContext';
 export default function Filter(props) {
   const [filters, dispatch] = useFilters();
   const { tag, country, language, name } = filters;
-  const { onToggleFilter, onToggleSwitch, mentors, showFavorite} = props;
+  const { onToggleFilter, onToggleSwitch, mentors, showFavorite } = props;
   const { showFilters } = filters;
   const { tags, countries, names, languages } = generateLists(mentors);
 
@@ -118,7 +118,12 @@ export default function Filter(props) {
             data-testid="language-filter-autocomplete"
           />
         </Input>
-        <Switch isChecked={showFavorite} id="fav-filter" label="My Favorites" onToggle={onToggleSwitch} />
+        <Switch
+          isChecked={showFavorite}
+          id="fav-filter"
+          label="My Favorites"
+          onToggle={onToggleSwitch}
+        />
       </div>
     </section>
   );

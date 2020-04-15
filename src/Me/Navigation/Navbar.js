@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-import { ReactComponent as IconHome } from '../../assets/me/home.svg'
+import { ReactComponent as IconHome } from '../../assets/me/home.svg';
 import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
 import { Link } from 'react-router-dom';
 

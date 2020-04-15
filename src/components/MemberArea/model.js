@@ -49,7 +49,7 @@ export default {
     type: 'text',
     maxLength: 50,
     defaultValue: '',
-    validate: value => !!value && (value.length > 3 && value.length <= 50),
+    validate: value => !!value && value.length > 3 && value.length <= 50,
   },
   description: {
     label: 'Description',

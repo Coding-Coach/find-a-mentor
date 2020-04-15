@@ -10,7 +10,7 @@ import { reportError } from './ga';
 import * as Sentry from '@sentry/browser';
 import { UserProvider } from './context/userContext/UserContext';
 import { FiltersProvider } from './context/filtersContext/FiltersContext';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ModalHookProvider } from './context/modalContext/ModalContext';
 
 Sentry.init({
@@ -23,20 +23,20 @@ Sentry.init({
     // prepare user - don't wait for it
     getCurrentUser();
     ReactDOM.render(
-        <UserProvider>
-          <FiltersProvider>
-            <ModalHookProvider>
-              <Router>
-                <Switch>
-                  <Route exact path="/">
-                    <App />
-                  </Route>
-                  <Route path="/me" component={Me}/>
-                </Switch>
-              </Router>
-            </ModalHookProvider>
-          </FiltersProvider>
-        </UserProvider>,
+      <UserProvider>
+        <FiltersProvider>
+          <ModalHookProvider>
+            <Router>
+              <Switch>
+                <Route exact path="/">
+                  <App />
+                </Route>
+                <Route path="/me" component={Me} />
+              </Switch>
+            </Router>
+          </ModalHookProvider>
+        </FiltersProvider>
+      </UserProvider>,
       document.getElementById('root')
     );
   } catch (error) {

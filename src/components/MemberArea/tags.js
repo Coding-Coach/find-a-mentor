@@ -225,5 +225,5 @@ export default [
   'xamarin',
   'xamarin forms',
   'xaml',
-  'yaml'
+  'yaml',
 ];

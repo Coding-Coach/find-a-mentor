@@ -5,5 +5,8 @@ Cypress.Commands.add('filterByName', name => {
 });
 
 Cypress.Commands.add('login', () => {
-  window.localStorage.setItem('auth-data', JSON.stringify({expiresAt: 1887058578000}))
-})
+  window.localStorage.setItem(
+    'auth-data',
+    JSON.stringify({ expiresAt: 1887058578000 })
+  );
+});

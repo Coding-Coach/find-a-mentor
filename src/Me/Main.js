@@ -2,15 +2,9 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { desktop } from './styles/shared/devices';
 
-const Main = ({
-  children
-}) => {
-  return (
-    <Content>
-      {children}
-    </Content>
-  );
-}
+const Main = ({ children }) => {
+  return <Content>{children}</Content>;
+};
 
 export default Main;
 
@@ -21,4 +15,4 @@ const Content = styled.div`
   @media ${desktop} {
     padding: 0 80px;
   }
-`
+`;

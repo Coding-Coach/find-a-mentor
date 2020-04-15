@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Obfuscate from 'react-obfuscate';
 import orderBy from 'lodash/orderBy';
 import './Card.css';
@@ -127,7 +127,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
     title,
     _id: mentorID,
     channels,
-    available:availability
+    available: availability,
   } = mentor;
 
   const toggleFav = () => {
@@ -152,12 +152,12 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
   };
 
   const MentorDescription = () => {
-    return (
-      description ?
-      <p className="description">"{description}"</p>:
+    return description ? (
+      <p className="description">"{description}"</p>
+    ) : (
       <React.Fragment />
-    )
-  }
+    );
+  };
 
   const MentorInfo = () => {
     return (
@@ -167,7 +167,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
             {name}
           </h2>
           <h4 className="title">{title}</h4>
-          <MentorDescription/>
+          <MentorDescription />
         </div>
       </>
     );
@@ -183,17 +183,19 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
         This mentor is not taking new mentees for now
       </div>
     );
-  }
+  };
 
   const CardFooter = () => {
     return (
       <>
         <div className="wave" />
-          <div className="channels">
-            {
-              availability ? <div className="channel-inner">{channelsList(channels)}</div> : <MentorNotAvailable/>
-            }
-          </div>
+        <div className="channels">
+          {availability ? (
+            <div className="channel-inner">{channelsList(channels)}</div>
+          ) : (
+            <MentorNotAvailable />
+          )}
+        </div>
       </>
     );
   };

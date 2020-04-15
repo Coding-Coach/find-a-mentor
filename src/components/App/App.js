@@ -21,7 +21,7 @@ import {
   toggle,
   get as getFavorites,
   readFavMentorsFromLocalStorage,
-  updateFavMentorsForUser
+  updateFavMentorsForUser,
 } from '../../favoriteManager';
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
@@ -39,7 +39,7 @@ function scrollToTop() {
   const scrollDuration = 200;
   return new Promise(resolve => {
     const scrollStep = -window.scrollY / (scrollDuration / 15),
-      scrollInterval = setInterval(function () {
+      scrollInterval = setInterval(function() {
         if (window.scrollY !== 0) {
           window.scrollBy(0, scrollStep);
         } else {
@@ -164,13 +164,20 @@ const App = () => {
       const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
       Promise.all([
         user &&
-        getFavorites().then((favorites) => {
-          if (Array.isArray(favMentorsFromLocalStorage) && favMentorsFromLocalStorage.length > 0) {
-            const mentors = favMentorsFromLocalStorage.filter(m => !favorites.includes(m));
-            if (mentors.length > 0) updateFavMentorsForUser(mentors);
-          }
-          setFavorites([...new Set([...favMentorsFromLocalStorage, ...favorites])]);
-        }),
+          getFavorites().then(favorites => {
+            if (
+              Array.isArray(favMentorsFromLocalStorage) &&
+              favMentorsFromLocalStorage.length > 0
+            ) {
+              const mentors = favMentorsFromLocalStorage.filter(
+                m => !favorites.includes(m)
+              );
+              if (mentors.length > 0) updateFavMentorsForUser(mentors);
+            }
+            setFavorites([
+              ...new Set([...favMentorsFromLocalStorage, ...favorites]),
+            ]);
+          }),
         getMentors().then(setMentors),
       ]).then(() => {
         setIsReady(true);
@@ -196,9 +203,7 @@ const App = () => {
   return (
     <div className="app">
       <ToastContainer />
-      <Modal title={modal.title}>
-        {modal.content}
-      </Modal>
+      <Modal title={modal.title}>{modal.content}</Modal>
       <Main>
         <Header />
         <Content>
