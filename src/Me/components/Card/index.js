@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { mobile } from '../../styles/shared/devices';
 
 const CardContainer = styled.div`
   background-color: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   padding: 20px 14px 43px 14px;
+
+  @media ${mobile} {
+    & + & {
+      margin-top: 30px;
+    }
+  }
 
   h4 {
     color: #4a4a4a;

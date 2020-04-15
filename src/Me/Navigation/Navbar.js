@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div>
+    <>
       <div className="menu-tablet">
         <div className="logo-left">
           <img
@@ -17,38 +17,30 @@ const Navbar = () => {
         </div>
         <div className="house side-icon">
           <Link to="/me/home" className="icon">
-            <div>
-              <IconHome />
-              <span className="desc">Home</span>
-            </div>
+            <IconHome />
+            <span className="desc">Home</span>
           </Link>
         </div>
         <div className="mentors side-icon">
           <Link to="/" className="icon">
-            <div>
-              <IconMentors />
-              <span className="desc">Mentors</span>
-            </div>
+            <IconMentors />
+            <span className="desc">Mentors</span>
           </Link>
         </div>
       </div>
       <div className="bar">
         <Link to="/me/home" className="icon">
-          <div>
-            <IconHome />
-            <span className="desc">Home</span>
-          </div>
+          <IconHome />
+          <span className="desc">Home</span>
         </Link>
         <div className="icon">
           <Link to="/" className="icon">
-            <div>
-              <IconMentors />
-              <span className="desc">Mentors</span>
-            </div>
+            <IconMentors />
+            <span className="desc">Mentors</span>
           </Link>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
