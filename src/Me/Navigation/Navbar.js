@@ -5,12 +5,12 @@ import { mobile, desktop } from '../styles/shared/devices';
 import { ReactComponent as IconHome } from '../../assets/me/home.svg';
 import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
 
-const MenuItem = ({icon: Icon, label, to}) => (
+const MenuItem = ({ icon: Icon, label, to }) => (
   <NavItemDecoration to={to}>
     <Icon />
     <Label>{label}</Label>
   </NavItemDecoration>
-)
+);
 
 const Navbar = () => {
   return (
