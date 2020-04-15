@@ -14,7 +14,10 @@ const Content = styled.div`
   padding: 0 16px;
 
   @media ${desktop} {
-    padding: 0 80px;
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 10px;
   }
 
   @media ${mobile} {
