@@ -6,6 +6,10 @@ const CardContainer = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
   padding: 20px 14px 43px 14px;
 
+  & + & {
+    margin-top: 30px;
+  }
+
   h4 {
     color: #4a4a4a;
     line-height: 1.2142857143rem;

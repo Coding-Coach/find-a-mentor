@@ -11,7 +11,6 @@ const noop = () => {};
 
 describe('Select component', () => {
   it('renders properly', () => {
-
     const options = [
       { value: 1, label: 'one' },
       { value: 2, label: 'two' },
