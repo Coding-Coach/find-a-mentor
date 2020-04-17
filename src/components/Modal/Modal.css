@@ -101,6 +101,6 @@
   }
 
   .modal-container .modal-box .modal-content {
-    padding: 0;
+    padding-inline: 0;
   }
 }
