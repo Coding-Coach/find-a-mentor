@@ -80,7 +80,7 @@ export default {
       label: name,
       value: code,
     })),
-    validate: option => !!option.value,
+    // validate: option => !!option.value,
   },
   spokenLanguages: {
     label: 'Spoken Languages',
@@ -110,7 +110,7 @@ export default {
     // maxLength: 50,
     defaultValue: '',
     prefix: 'https://',
-    validate: value => urlValidation(`https://${value}`),
+    validate: value => urlValidation(value),
   },
   channels: {
     label: 'Channels',
@@ -179,51 +179,55 @@ export default {
       'This is how you will communicate with your mentees once you have accepted their mentorship requests, you can set up to three.',
     validate: options => options.length > 0,
   },
-  availability: {
-    label: 'Availability',
-    type: 'radio',
-    defaultValue: {},
-    options: [
-      {
-        value: '0',
-        label: (
-          <span>
-            Schedule calls for <b>mentoring sessions</b>
-          </span>
-        ),
-      },
-      {
-        value: '1',
-        label: (
-          <span>
-            Ping me at <b>any time</b>, I will get back when available
-          </span>
-        ),
-      },
-      {
-        value: '2',
-        label: (
-          <span>
-            I'm not available for <b>new</b> mentorships
-          </span>
-        ),
-      },
-      {
-        value: '3',
-        label: (
-          <span>
-            I'm <b>not available</b> anymore
-          </span>
-        ),
-      },
-    ],
+  available: {
+    label: 'Available for new mentees',
+    type: 'checkbox',
+    defaultValue: 'true',
+    // options: [
+    //   {
+    //     value: '0',
+    //     label: (
+    //       <span>
+    //         Schedule calls for <b>mentoring sessions</b>
+    //       </span>
+    //     ),
+    //   },
+    //   {
+    //     value: '1',
+    //     label: (
+    //       <span>
+    //         Ping me at <b>any time</b>, I will get back when available
+    //       </span>
+    //     ),
+    //   },
+    //   {
+    //     value: '2',
+    //     label: (
+    //       <span>
+    //         I'm not available for <b>new</b> mentorships
+    //       </span>
+    //     ),
+    //   },
+    //   {
+    //     value: '3',
+    //     label: (
+    //       <span>
+    //         I'm <b>not available</b> anymore
+    //       </span>
+    //     ),
+    //   },
+    // ],
     helpText:
       'Please define how would you like to drive the mentorship and how many mentees you can take.',
+    // validate: value => value,
   },
-  capacity: {
-    label: 'Capacity',
-    type: 'tags',
-    defaultValue: [],
-    options: [1, 2, 3, 4].map(item => ({ label: item, value: item })),
-  },
+  // capacity: {
+  //   label: 'Capacity',
+  //   type: 'select',
+  //   defaultValue: '',
+  //   options: [1, 2, 3, 4].map(item => ({
+  //     label: item,
+  //     value: item,
+  //   })),
+  // },
 };
