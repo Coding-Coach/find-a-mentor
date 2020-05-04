@@ -28,6 +28,10 @@ exports[`Input component renders properly 1`] = `
   color: #898889;
 }
 
+.c0:disabled {
+  background-color: #dadada;
+}
+
 <input
   class="c0"
   placeholder="test"
