@@ -1,8 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 import styled from 'styled-components';
 
 import UserContext from '../../context/userContext/UserContext';
 import Card from '../components/Card';
+import EditMentorDetails from '../Modals/EditMentorDetails';
+import { updateMentor } from '../../api/index';
+import messages from '../../messages';
 
 import { ReactComponent as EmailIcon } from '../../assets/me/icon-email.svg';
 import { ReactComponent as SpokenLanguagesIcon } from '../../assets/me/icon-spokenLanguages.svg';
@@ -43,7 +47,18 @@ const ProfileText = styled.div`
 `;
 
 // UPDATE THIS ACTION FOR EDIT PROFILE LINK ONCE EDIT PROFILE COMPONENT IS CREATED //
-const action = () => console.log('Clicked');
+const handleUpdateMentor = async updatedUserInfo => {
+  try {
+    const updateMentorResult = await updateMentor(updatedUserInfo);
+    if (updateMentorResult) {
+      toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
+    } else {
+      toast.error(messages.GENERIC_ERROR);
+    }
+  } catch (error) {
+    toast.error(messages.GENERIC_ERROR);
+  }
+};
 
 //--- Container for Profile Data ---//
 const ProfileData = props => {
@@ -90,18 +105,32 @@ const Profile = () => {
   // get user from context
   const { currentUser } = useContext(UserContext);
 
+  const [isUpdateDetailsOpen, setIsUpdateDetalsOpen] = useState(false);
+
+  const toggleUpdateDetailsOpen = () => {
+    setIsUpdateDetalsOpen(!isUpdateDetailsOpen);
+  };
+
   return (
-    <Card title="Mentor Profile" onEdit={action}>
+    <Card title="Mentor Profile" onEdit={toggleUpdateDetailsOpen}>
       {currentUser && (
-        <ProfileData
-          email={currentUser.email}
-          spokenLanguages={currentUser.spokenLanguages}
-          country={currentUser.country}
-          title={currentUser.title}
-          tags={currentUser.tags}
-          available={currentUser.available}
-          description={currentUser.description}
-        />
+        <>
+          <ProfileData
+            email={currentUser.email}
+            spokenLanguages={currentUser.spokenLanguages}
+            country={currentUser.country}
+            title={currentUser.title}
+            tags={currentUser.tags}
+            available={currentUser.available}
+            description={currentUser.description}
+          />
+          <EditMentorDetails
+            isModalOpen={isUpdateDetailsOpen}
+            closeModal={toggleUpdateDetailsOpen}
+            userDetails={currentUser}
+            updateMentor={handleUpdateMentor}
+          />
+        </>
       )}
     </Card>
   );
