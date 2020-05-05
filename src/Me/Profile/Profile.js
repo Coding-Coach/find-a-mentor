@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 
 import UserContext from '../../context/userContext/UserContext';
+import { useModal } from '../../context/modalContext/ModalContext';
 import Card from '../components/Card';
 import EditMentorDetails from '../Modals/EditMentorDetails';
 import { updateMentor } from '../../api/index';
@@ -105,14 +106,15 @@ const Profile = () => {
   // get user from context
   const { currentUser } = useContext(UserContext);
 
-  const [isUpdateDetailsOpen, setIsUpdateDetalsOpen] = useState(false);
-
-  const toggleUpdateDetailsOpen = () => {
-    setIsUpdateDetalsOpen(!isUpdateDetailsOpen);
-  };
+  const [openModal] = useModal(
+    <EditMentorDetails
+      userDetails={currentUser}
+      updateMentor={handleUpdateMentor}
+    />
+  );
 
   return (
-    <Card title="Mentor Profile" onEdit={toggleUpdateDetailsOpen}>
+    <Card title="Mentor Profile" onEdit={openModal}>
       {currentUser && (
         <>
           <ProfileData
@@ -123,12 +125,6 @@ const Profile = () => {
             tags={currentUser.tags}
             available={currentUser.available}
             description={currentUser.description}
-          />
-          <EditMentorDetails
-            isModalOpen={isUpdateDetailsOpen}
-            closeModal={toggleUpdateDetailsOpen}
-            userDetails={currentUser}
-            updateMentor={handleUpdateMentor}
           />
         </>
       )}
