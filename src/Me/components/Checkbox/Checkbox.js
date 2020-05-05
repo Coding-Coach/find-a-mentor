@@ -56,12 +56,12 @@ const Label = styled.label`
   font-size: 14px;
 `;
 
-export const Checkbox = ({ LabelComponent, ...props }) => {
+export const Checkbox = ({ LabelComponent, checked, ...props }) => {
   const id = useContext(formFieldContext);
   return (
     <CheckboxContainer>
-      <HiddenCheckbox id={id} checked={props.checked} {...props} />
-      <StyledCheckbox checked={props.checked}>
+      <HiddenCheckbox id={id} defaultChecked={checked} {...props} />
+      <StyledCheckbox checked={checked}>
         <Icon viewbox="0 24 24" width="22px" height="22px">
           <polyline points="20 6 9 17 4 12" />
         </Icon>
