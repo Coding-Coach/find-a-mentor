@@ -21,13 +21,6 @@ const nameValidation = value =>
   value.length > 3 && value.length <= 50 && /^\S+(\s\S+)+$/.test(value);
 
 export default {
-  // email: {
-  //   label: 'Email',
-  //   type: 'text',
-  //   defaultValue: '',
-  //   disabled: true,
-  //   validate: value => !!value && emailValidation(value),
-  // },
   name: {
     label: 'Name',
     type: 'text',
@@ -36,14 +29,6 @@ export default {
     helpText: 'Please use your real name',
     validate: value => !!value && nameValidation(value),
   },
-  // avatar: {
-  //   label: 'Avatar',
-  //   type: 'file',
-  //   defaultValue: '',
-  //   helpText: 'https public URL to an image file',
-  //   previewImage: true,
-  //   validate: value => !!value,
-  // },
   title: {
     label: 'Title',
     type: 'text',
@@ -80,7 +65,6 @@ export default {
       label: name,
       value: code,
     })),
-    // validate: option => !!option.value,
   },
   spokenLanguages: {
     label: 'Spoken Languages',
@@ -107,7 +91,6 @@ export default {
   website: {
     label: 'Website',
     type: 'text',
-    // maxLength: 50,
     defaultValue: '',
     prefix: 'https://',
     validate: value => urlValidation(value),
