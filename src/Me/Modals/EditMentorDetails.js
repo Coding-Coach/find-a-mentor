@@ -39,6 +39,10 @@ const ExtendedFormField = styled(FormField)`
   flex-direction: column;
   justify-content: flex-start;
 
+  & label {
+    color: #4f4f4f;
+  }
+
   @media ${desktop} {
     flex: ${props => (props.customFormField ? '1 1 100%' : '1 1 40%')};
     max-width: ${props => (props.customFormField ? 'unset' : '355px')};
