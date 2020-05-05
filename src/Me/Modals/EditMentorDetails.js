@@ -40,28 +40,23 @@ const ExtendedFormField = styled(FormField)`
   justify-content: flex-start;
 
   @media ${desktop} {
-    flex: 1 1 40%;
+    flex: ${props => (props.customFormField ? '1 1 100%' : '1 1 40%')};
+    max-width: ${props => (props.customFormField ? 'unset' : '355px')};
   }
 `;
 
-const CustomFormField = styled.div`
-  display: 'flex';
-  flex-direction: 'column';
-  margin-bottom: 30px;
+const InnerFieldsContainer = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
 `;
 
 const SubFieldContainer = styled.div``;
 
-const FormFieldName = styled.div`
-  margin-bottom: 2rem;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-`;
-
-const HelpText = styled.span`
+const HelpText = styled.div`
   display: block;
-  margin: 5px 0;
+  margin: 5px 0 30px 0;
   font-weight: normal;
   font-size: inherit;
   line-height: inherit;
@@ -72,14 +67,10 @@ const FormErrors = styled.div`
 `;
 
 function EditMentorDetails({
-  isModalOpen,
-  closeModal,
-  userDetails,
+  userDetails: { avatar, ...details },
   updateMentor,
 }) {
-  const [mentorDetails, setMentorDetails] = useState(
-    fromMtoVM({ ...userDetails })
-  );
+  const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
   const [errors, setValidationErrors] = useState([]);
 
   // textfields onChange function
@@ -157,12 +148,13 @@ function EditMentorDetails({
       case 'keyvalue':
         const filledChannel = mentorDetails[fieldName].filter(x => x.id);
         return (
-          <CustomFormField key={fieldName} label={config.label}>
-            <FormFieldName>
-              <span>{config.label}</span>
-              <HelpText>{config.helpText}</HelpText>
-            </FormFieldName>
-            <div>
+          <ExtendedFormField
+            key={fieldName}
+            label={config.label}
+            customFormField
+          >
+            <HelpText>{config.helpText}</HelpText>
+            <InnerFieldsContainer>
               {config.options.map((option, indx) => {
                 const propData = mentorDetails[fieldName].find(
                   x => x.type === option.value
@@ -175,7 +167,6 @@ function EditMentorDetails({
                       aria-labelledby={option.value}
                       type="text"
                       name={`${fieldName}[${option.value}]`}
-                      id={`${option.value}-channel-input`}
                       value={propData ? propData.id : ''}
                       onChange={e => {
                         handleKeyValueChange(
@@ -190,16 +181,17 @@ function EditMentorDetails({
                   </ExtendedFormField>
                 );
               })}
-            </div>
-          </CustomFormField>
+            </InnerFieldsContainer>
+          </ExtendedFormField>
         );
       case 'checkbox':
         return (
-          <CustomFormField key={fieldName}>
-            <FormFieldName>
-              <span>{config.label}</span>
-              <HelpText>{config.helpText}</HelpText>
-            </FormFieldName>
+          <ExtendedFormField
+            key={fieldName}
+            label={config.label}
+            customFormField
+          >
+            <HelpText>{config.helpText}</HelpText>
             <SubFieldContainer>
               <Checkbox
                 checked={mentorDetails[fieldName] === true}
@@ -211,7 +203,7 @@ function EditMentorDetails({
                 LabelComponent={config.label}
               />
             </SubFieldContainer>
-          </CustomFormField>
+          </ExtendedFormField>
         );
       default:
         return <></>;
@@ -250,33 +242,26 @@ function EditMentorDetails({
       return;
     }
     const userInfo = fromVMtoM(mentorDetails);
-    updateMentor(userInfo, closeModal);
+    updateMentor(userInfo);
   };
 
   return (
-    <>
-      {isModalOpen ? (
-        <Modal title="Update Profile" closeModal={closeModal} onSave={onSubmit}>
-          <EditDetails>
-            <EditDetailsForm onSubmit={onSubmit}>
-              <FormFields>
-                {Object.entries(model).map(([fieldName, field]) =>
-                  formField(fieldName, field)
-                )}
-              </FormFields>
-            </EditDetailsForm>
-            <FormErrors>
-              {!!errors.length && (
-                <>
-                  The following fields is missing or invalid:{' '}
-                  {errors.join(', ')}
-                </>
-              )}
-            </FormErrors>
-          </EditDetails>
-        </Modal>
-      ) : null}
-    </>
+    <Modal title="Update Profile" onSave={onSubmit}>
+      <EditDetails>
+        <EditDetailsForm onSubmit={onSubmit}>
+          <FormFields>
+            {Object.entries(model).map(([fieldName, field]) =>
+              formField(fieldName, field)
+            )}
+          </FormFields>
+        </EditDetailsForm>
+        <FormErrors>
+          {!!errors.length && (
+            <>The following fields is missing or invalid: {errors.join(', ')}</>
+          )}
+        </FormErrors>
+      </EditDetails>
+    </Modal>
   );
 }
 
