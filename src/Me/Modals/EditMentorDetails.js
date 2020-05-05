@@ -73,6 +73,7 @@ const FormErrors = styled.div`
 function EditMentorDetails({
   userDetails: { avatar, ...details },
   updateMentor,
+  closeModal,
 }) {
   const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
   const [errors, setValidationErrors] = useState([]);
@@ -250,7 +251,7 @@ function EditMentorDetails({
   };
 
   return (
-    <Modal title="Update Profile" onSave={onSubmit}>
+    <Modal title="Update Profile" onSave={onSubmit} closeModal={closeModal}>
       <EditDetails>
         <EditDetailsForm onSubmit={onSubmit}>
           <FormFields>
