@@ -6,7 +6,11 @@ import UserContext from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import Card from '../components/Card';
 import EditMentorDetails from '../Modals/EditMentorDetails';
-import { updateMentor } from '../../api/index';
+import {
+  updateMentor,
+  getCurrentUser,
+  clearCurrentUser,
+} from '../../api/index';
 import messages from '../../messages';
 
 import { ReactComponent as EmailIcon } from '../../assets/me/icon-email.svg';
@@ -48,11 +52,15 @@ const ProfileText = styled.div`
 `;
 
 // UPDATE THIS ACTION FOR EDIT PROFILE LINK ONCE EDIT PROFILE COMPONENT IS CREATED //
-const handleUpdateMentor = async updatedUserInfo => {
+const handleUpdateMentor = async (updatedUserInfo, updateUser, closeModal) => {
   try {
     const updateMentorResult = await updateMentor(updatedUserInfo);
     if (updateMentorResult) {
+      clearCurrentUser();
       toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
+      const updatedUserDetails = await getCurrentUser();
+      updateUser(updatedUserDetails);
+      closeModal();
     } else {
       toast.error(messages.GENERIC_ERROR);
     }
