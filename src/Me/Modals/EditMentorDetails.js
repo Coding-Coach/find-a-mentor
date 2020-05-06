@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 
+import UserContext from '../../context/userContext/UserContext';
 import { Modal } from './Modal';
 import FormField from '../components/FormField';
 import Input from '../components/Input';
@@ -77,6 +78,9 @@ function EditMentorDetails({
 }) {
   const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
   const [errors, setValidationErrors] = useState([]);
+
+  // method to update user
+  const { updateUser } = useContext(UserContext);
 
   // textfields onChange function
   const handleInputChange = (fieldName, value) => {
@@ -247,7 +251,7 @@ function EditMentorDetails({
       return;
     }
     const userInfo = fromVMtoM(mentorDetails);
-    updateMentor(userInfo);
+    updateMentor(userInfo, updateUser, closeModal);
   };
 
   return (
