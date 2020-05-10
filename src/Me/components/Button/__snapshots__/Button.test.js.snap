@@ -1,7 +1,39 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Button component renders danger button when specified with skin prop 1`] = `
+.c0 {
+  box-sizing: border-box;
+  height: 30px;
+  width: 285px;
+  border-radius: 3px;
+  font-family: Lato;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  background-color: #d56969;
+  color: #fff;
+}
+
+@media (min-width:801px) {
+  .c0 {
+    height: 30px;
+    width: 151px;
+    margin: 1rem;
+  }
+}
+
+<div>
+  <button
+    class="sc-AxjAm c0"
+  />
+</div>
+`;
+
 exports[`Button component renders primary button by default 1`] = `
 .c0 {
+  box-sizing: border-box;
   height: 30px;
   width: 285px;
   border-radius: 3px;
@@ -13,8 +45,6 @@ exports[`Button component renders primary button by default 1`] = `
   cursor: pointer;
   background-color: #69d5b1;
   color: #fff;
-  font-family: Lato;
-  font-size: 14px;
 }
 
 @media (min-width:801px) {
@@ -32,6 +62,7 @@ exports[`Button component renders primary button by default 1`] = `
 
 exports[`Button component renders secondary button when specified with skin prop 1`] = `
 .c0 {
+  box-sizing: border-box;
   height: 30px;
   width: 285px;
   border-radius: 3px;
@@ -41,9 +72,8 @@ exports[`Button component renders secondary button when specified with skin prop
   text-align: center;
   margin-bottom: 1rem;
   cursor: pointer;
-  box-sizing: border-box;
   background-color: #fff;
-  border: 2px solid #69d5b1;
+  border: 2px solid;
   color: #69d5b1;
 }
 

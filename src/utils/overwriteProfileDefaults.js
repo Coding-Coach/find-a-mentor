@@ -3,6 +3,6 @@ export function overwriteProfileDefaults({ email, name, avatar }) {
 
   return {
     name: emailName === name ? '' : name,
-    avatar: avatar.indexOf('auth0') > -1 ? '' : avatar,
+    avatar: avatar && avatar.includes('auth0') ? '' : avatar,
   };
 }

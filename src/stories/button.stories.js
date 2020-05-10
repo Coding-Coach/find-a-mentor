@@ -15,6 +15,9 @@ export const Buttons = () => {
       <Button skin="secondary" onClick={() => setMsg('Secondary clicked!')}>
         Secondary
       </Button>
+      <Button skin="danger" onClick={() => setMsg('Danger clicked!')}>
+        Danger
+      </Button>
       <h2>{msg}</h2>
     </StoriesContainer>
   );
