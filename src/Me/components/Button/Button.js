@@ -57,7 +57,7 @@ const getComponentBySkin = skin => {
     case 'danger':
       return DangerButton;
   }
-}
+};
 
 /**
  * @param {{
@@ -67,9 +67,7 @@ const getComponentBySkin = skin => {
  */
 export const Button = ({ skin = 'primary', ...props }) => {
   const ThemedButton = getComponentBySkin(skin);
-  return (
-    <ThemedButton {...props} />
-  );
+  return <ThemedButton {...props} />;
 };
 
 Button.propTypes = {

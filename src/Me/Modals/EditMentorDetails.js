@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 
-import {report} from '../../ga';
-import {deleteMentor} from '../../api';
+import { report } from '../../ga';
+import { deleteMentor } from '../../api';
 import auth from '../../utils/auth';
 import messages from '../../messages';
 import UserContext from '../../context/userContext/UserContext';
@@ -269,7 +269,7 @@ function EditMentorDetails({
       report('Member Area', 'Delete success', 'User details');
       auth.doLogout();
     }
-  }
+  };
 
   return (
     <Modal title="Update Profile" onSave={onSubmit} closeModal={closeModal}>
@@ -282,7 +282,9 @@ function EditMentorDetails({
           </FormFields>
         </EditDetailsForm>
         <DeleteAccountContainer>
-          <Button skin="danger" onClick={onDelete}>Delete my account</Button>
+          <Button skin="danger" onClick={onDelete}>
+            Delete my account
+          </Button>
         </DeleteAccountContainer>
         <FormErrors>
           {!!errors.length && (

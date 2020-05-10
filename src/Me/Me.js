@@ -8,7 +8,7 @@ import Header from './Header/Header';
 import Navbar from './Navigation/Navbar';
 import Home from './Routes/Home';
 import { desktop } from './styles/shared/devices';
-import {GlobalStyle} from './styles/global';
+import { GlobalStyle } from './styles/global';
 
 import 'react-toastify/dist/ReactToastify.css';
 
