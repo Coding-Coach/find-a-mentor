@@ -4,6 +4,8 @@ import {
   useModal as rmhUseModal,
 } from 'react-modal-hook';
 
+const BODY_HAS_CLASS_MODAL = 'has-modal';
+
 export const ModalHookProvider = ({children}) => (
   <ModalProvider>{children}</ModalProvider>
 );
@@ -13,12 +15,22 @@ export const ModalHookProvider = ({children}) => (
  * @param {any[]} [deps]
  */
 export function useModal(modal, deps = null) {
+  const onOpenModal = openModal => () => {
+    document.body.classList.add(BODY_HAS_CLASS_MODAL);
+    openModal();
+  }
+
+  const onCloseModal = closeModal => () => {
+    document.body.classList.remove(BODY_HAS_CLASS_MODAL);
+    closeModal();
+  }
+
   const [openModal, closeModal] = rmhUseModal(() => {
     const {type: ModalComponent, props, key} = modal;
     return (
-      <ModalComponent key={key} {...props} closeModal={closeModal} />
+      <ModalComponent key={key} {...props} closeModal={onCloseModal(closeModal)} />
     );
   }, deps);
 
-  return [openModal, closeModal];
+  return [onOpenModal(openModal), onCloseModal(closeModal)];
 }
