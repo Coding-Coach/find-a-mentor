@@ -13,6 +13,11 @@ describe('Button component', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('renders danger button when specified with skin prop', () => {
+    const { container } = render(<Button skin="danger" />);
+    expect(container).toMatchSnapshot();
+  });
+
   it('passes down other props to the button tag', () => {
     const { getByTestId } = render(<Button data-testid="test-button" />);
     expect(getByTestId('test-button')).toBeInTheDocument();

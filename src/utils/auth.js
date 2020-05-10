@@ -134,7 +134,7 @@ class Auth {
     this.logout();
     clearCurrentUser();
     this.auth0.logout({
-      returnTo: window.location.href,
+      returnTo: Constants.auth.CALLBACK_URL,
     });
   };
 

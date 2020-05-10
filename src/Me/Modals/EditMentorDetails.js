@@ -1,6 +1,10 @@
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 
+import {report} from '../../ga';
+import {deleteMentor} from '../../api';
+import auth from '../../utils/auth';
+import messages from '../../messages';
 import UserContext from '../../context/userContext/UserContext';
 import { Modal } from './Modal';
 import FormField from '../components/FormField';
@@ -11,6 +15,7 @@ import Checkbox from '../components/Checkbox';
 import { desktop } from '../styles/shared/devices';
 import model from './model';
 import { fromMtoVM, fromVMtoM } from '../../helpers/user';
+import Button from '../components/Button';
 
 const EditDetails = styled.div`
   margin: 0 auto;
@@ -66,6 +71,8 @@ const HelpText = styled.div`
   font-size: inherit;
   line-height: inherit;
 `;
+
+const DeleteAccountContainer = styled.div``;
 
 const FormErrors = styled.div`
   /* padding: 0 10px; */
@@ -246,6 +253,7 @@ function EditMentorDetails({
   };
 
   const onSubmit = e => {
+    report('Member Area', 'Submit start', 'User details');
     e.preventDefault();
     if (!validate()) {
       return;
@@ -253,6 +261,15 @@ function EditMentorDetails({
     const userInfo = fromVMtoM(mentorDetails);
     updateMentor(userInfo, updateUser, closeModal);
   };
+
+  const onDelete = async () => {
+    report('Member Area', 'Delete start', 'User details');
+    if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
+      await deleteMentor(details);
+      report('Member Area', 'Delete success', 'User details');
+      auth.doLogout();
+    }
+  }
 
   return (
     <Modal title="Update Profile" onSave={onSubmit} closeModal={closeModal}>
@@ -264,6 +281,9 @@ function EditMentorDetails({
             )}
           </FormFields>
         </EditDetailsForm>
+        <DeleteAccountContainer>
+          <Button skin="danger" onClick={onDelete}>Delete my account</Button>
+        </DeleteAccountContainer>
         <FormErrors>
           {!!errors.length && (
             <>The following fields is missing or invalid: {errors.join(', ')}</>
