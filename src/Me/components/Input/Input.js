@@ -14,6 +14,9 @@ const StyledInput = styled.input`
   ::placeholder {
     color: #898889;
   }
+  :disabled {
+    background-color: #dadada;
+  }
 `;
 
 export const Input = props => {
