@@ -243,7 +243,9 @@ function EditMentorDetails({
       }
     });
 
-    toast.error(`The following fields is missing or invalid: ${errors.join(', ')}`);
+    toast.error(
+      `The following fields is missing or invalid: ${errors.join(', ')}`
+    );
     return !errors.length;
   };
 
