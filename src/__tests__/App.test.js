@@ -5,6 +5,12 @@ import { act } from 'react-dom/test-utils';
 import nock from 'nock';
 import { UserProvider } from '../context/userContext/UserContext';
 
+jest.mock('react-router-dom', () => ({
+  useHistory: () => ({
+    push: jest.fn(),
+  }),
+}));
+
 it('renders without crashing', () => {
   nock('https://api.codingcoach.io/mentors')
     .get()

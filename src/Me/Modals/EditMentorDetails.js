@@ -16,6 +16,7 @@ import { desktop } from '../styles/shared/devices';
 import model from './model';
 import { fromMtoVM, fromVMtoM } from '../../helpers/user';
 import Button from '../components/Button';
+import { toast } from 'react-toastify';
 
 const EditDetails = styled.div`
   margin: 0 auto;
@@ -74,17 +75,12 @@ const HelpText = styled.div`
 
 const DeleteAccountContainer = styled.div``;
 
-const FormErrors = styled.div`
-  /* padding: 0 10px; */
-`;
-
 function EditMentorDetails({
   userDetails: { avatar, ...details },
   updateMentor,
   closeModal,
 }) {
   const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
-  const [errors, setValidationErrors] = useState([]);
 
   // method to update user
   const { updateUser } = useContext(UserContext);
@@ -247,8 +243,9 @@ function EditMentorDetails({
       }
     });
 
-    // update the state with errors
-    setValidationErrors(errors);
+    toast.error(
+      `The following fields is missing or invalid: ${errors.join(', ')}`
+    );
     return !errors.length;
   };
 
@@ -286,11 +283,6 @@ function EditMentorDetails({
             Delete my account
           </Button>
         </DeleteAccountContainer>
-        <FormErrors>
-          {!!errors.length && (
-            <>The following fields is missing or invalid: {errors.join(', ')}</>
-          )}
-        </FormErrors>
       </EditDetails>
     </Modal>
   );

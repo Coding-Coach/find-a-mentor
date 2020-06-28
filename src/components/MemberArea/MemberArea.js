@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 import onClickOutside from 'react-onclickoutside';
 import auth from '../../utils/auth';
 import EditProfile from './EditProfile';
@@ -12,6 +13,7 @@ import Switch from '../../components/Switch/Switch';
 import { isAdmin, isMentor } from '../../helpers/user';
 import { getAvatarUrl } from '../../helpers/avatar';
 import { report } from '../../ga';
+import { isOpen } from '../../config/experiments';
 
 function MemberArea({ onOpenModal }) {
   const authenticated = auth.isAuthenticated();
@@ -19,10 +21,15 @@ function MemberArea({ onOpenModal }) {
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
   const { currentUser, updateUser } = useContext(UserContext);
+  const history = useHistory();
 
   const openProfile = useCallback(() => {
-    onOpenModal('Edit Your Profile', <EditProfile />);
-  }, [onOpenModal]);
+    if (isOpen('newBackoffice')) {
+      history.push('/me/home');
+    } else {
+      onOpenModal('Edit Your Profile', <EditProfile />);
+    }
+  }, [onOpenModal, history]);
 
   const openPendingApplications = () => {
     onOpenModal('Pending Applications', <PendingApplications />);
@@ -98,7 +105,7 @@ function MemberArea({ onOpenModal }) {
                   ? 'Edit your profile'
                   : 'Become a mentor'}
               </MemberMenuItem>
-              {isMentor(currentUser) && (
+              {isMentor(currentUser) && !isOpen('newBackoffice') && (
                 <MemberMenuItem>
                   <Switch
                     label={'Available for new Mentees'}
