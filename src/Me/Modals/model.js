@@ -57,15 +57,16 @@ export default {
     })),
     validate: option => !!option.value,
   },
-  timezone: {
-    label: 'TimeZone',
-    type: 'select',
-    defaultValue: '',
-    options: Object.entries(countries).map(([code, name]) => ({
-      label: name,
-      value: code,
-    })),
-  },
+  // we don't need timezone for now, we're not showing it anywhere.
+  // timezone: {
+  //   label: 'Time Zone',
+  //   type: 'select',
+  //   defaultValue: '',
+  //   options: Object.entries(countries).map(([code, name]) => ({
+  //     label: name,
+  //     value: code,
+  //   })),
+  // },
   spokenLanguages: {
     label: 'Spoken Languages',
     type: 'tags',
