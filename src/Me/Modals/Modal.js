@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { desktop } from '../styles/shared/devices';
+import { desktop, tablet } from '../styles/shared/devices';
+
+import CloseIcon from '../../assets/me/icon-close.svg';
 
 const ModalContainer = styled.div`
   height: 100vh;
@@ -20,11 +22,19 @@ const CloseIconButton = styled.button`
   font-size: 20px;
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 15px;
   padding: 5px 10px;
   width: 28px;
   height: 28px;
   cursor: pointer;
+
+  @media ${tablet} {
+    right: 10%;
+  }
+
+  @media ${desktop} {
+    right: 25%;
+  }
 `;
 
 const ContentContainer = styled.div`
@@ -109,9 +119,21 @@ const SecondaryButton = styled(Button)`
   color: #69d5b1;
 `;
 
+const CloseIconStyled = styled.img`
+  width: 25px;
+  height: 25px;
+
+  @media ${desktop} {
+    width: 40px;
+    height: 40px;
+  }
+`
+
 export const Modal = ({ closeModal, onSave, title, children }) => (
   <ModalContainer>
-    <CloseIconButton onClick={closeModal}>x</CloseIconButton>
+    <CloseIconButton onClick={closeModal}>
+      <CloseIconStyled src={CloseIcon} />
+    </CloseIconButton>
     <ContentContainer>
       <Title>{title || null}</Title>
       {children}

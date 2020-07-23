@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { desktop, mobile } from './styles/shared/devices';
+import { desktop, tablet, mobile } from './styles/shared/devices';
 import { mobileNavHeight } from './Navigation/Navbar';
 
 const Main = ({ children }) => {
@@ -14,6 +14,13 @@ const Content = styled.div`
   padding: 0 16px;
 
   @media ${desktop} {
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 10px;
+  }
+
+  @media ${tablet} {
     width: 400px;
     margin-right: auto;
     margin-left: auto;

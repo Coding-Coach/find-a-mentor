@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
-import { mobile, desktop } from '../styles/shared/devices';
+import { mobile, tablet } from '../styles/shared/devices';
 import { ReactComponent as IconHome } from '../../assets/me/home.svg';
 import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
 
@@ -37,7 +37,7 @@ const Menu = styled.nav`
   overflow-x: hidden;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 
-  @media ${desktop} {
+  @media ${tablet} {
     height: 100%;
     width: 75px;
     top: 0;
@@ -61,7 +61,7 @@ const NavItemDecoration = styled(Link)`
   text-align: center;
   text-decoration: none;
 
-  @media ${desktop} {
+  @media ${tablet} {
     margin-bottom: 38px;
   }
 

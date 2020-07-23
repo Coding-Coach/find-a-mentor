@@ -1,7 +1,7 @@
 // @ts-check
 import React from 'react';
 import styled from 'styled-components';
-import { desktop } from '../../styles/shared/devices';
+import { tablet } from '../../styles/shared/devices';
 import PropTypes from 'prop-types';
 
 /**
@@ -21,7 +21,7 @@ const StyledButton = styled.button`
   margin-bottom: 1rem;
   cursor: pointer;
 
-  @media ${desktop} {
+  @media ${tablet} {
     height: 30px;
     width: 151px;
     margin: 1rem;

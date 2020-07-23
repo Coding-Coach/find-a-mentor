@@ -7,7 +7,7 @@ import Main from './Main';
 import Header from './Header/Header';
 import Navbar from './Navigation/Navbar';
 import Home from './Routes/Home';
-import { desktop } from './styles/shared/devices';
+import { desktop, tablet } from './styles/shared/devices';
 import { GlobalStyle } from './styles/global';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -44,7 +44,7 @@ const Container = styled.div`
   min-height: 100vh;
   background-color: #f8f8f8;
 
-  @media ${desktop} {
+  @media ${tablet} {
     padding-left: 75px;
   }
 `;
