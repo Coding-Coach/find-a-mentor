@@ -122,7 +122,7 @@ const Profile = () => {
   );
 
   return (
-    <Card title="Mentor Profile" onEdit={openModal}>
+    <Card title="My Profile" onEdit={openModal}>
       {currentUser && (
         <>
           <ProfileData
