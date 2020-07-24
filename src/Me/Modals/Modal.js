@@ -44,7 +44,7 @@ const ContentContainer = styled.div`
   overflow-y: auto;
   padding: 20px;
 
-  @media ${desktop} {
+  @media ${tablet} {
     height: 70%;
   }
 `;
@@ -70,7 +70,7 @@ const Footer = styled.footer`
   flex-direction: column;
   justify-content: center;
 
-  @media ${desktop} {
+  @media ${tablet} {
     height: 30%;
   }
 `;
@@ -81,7 +81,7 @@ const ButtonBar = styled.div`
   justify-content: center;
   align-items: center;
 
-  @media ${desktop} {
+  @media ${tablet} {
     flex-direction: row;
   }
 `;
@@ -97,7 +97,7 @@ const Button = styled.button`
   margin-bottom: 1rem;
   cursor: pointer;
 
-  @media ${desktop} {
+  @media ${tablet} {
     height: 30px;
     width: 151px;
     margin: 1rem;
@@ -123,7 +123,7 @@ const CloseIconStyled = styled.img`
   width: 25px;
   height: 25px;
 
-  @media ${desktop} {
+  @media ${tablet} {
     width: 40px;
     height: 40px;
   }

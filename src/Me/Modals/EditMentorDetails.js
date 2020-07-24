@@ -12,7 +12,7 @@ import Input from '../components/Input';
 import Textarea from '../components/Textarea';
 import Select from '../components/Select';
 import Checkbox from '../components/Checkbox';
-import { desktop } from '../styles/shared/devices';
+import { tablet } from '../styles/shared/devices';
 import model from './model';
 import { fromMtoVM, fromVMtoM } from '../../helpers/user';
 import Button from '../components/Button';
@@ -50,7 +50,7 @@ const ExtendedFormField = styled(FormField)`
     color: #4f4f4f;
   }
 
-  @media ${desktop} {
+  @media ${tablet} {
     flex: ${props => (props.customFormField ? '1 1 100%' : '1 1 40%')};
     max-width: ${props => (props.customFormField ? 'unset' : '355px')};
   }
