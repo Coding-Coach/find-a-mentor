@@ -13,7 +13,7 @@ import {
 } from '../../api/index';
 import messages from '../../messages';
 import ISO6391 from 'iso-639-1';
-import { getName } from 'country-list';
+import countries from 'svg-country-flags/countries.json';
 
 import { ReactComponent as EmailIcon } from '../../assets/me/icon-email.svg';
 import { ReactComponent as SpokenLanguagesIcon } from '../../assets/me/icon-spokenLanguages.svg';
@@ -103,7 +103,7 @@ const ProfileLine = props => {
       lineText = props.val === true ? 'available' : 'unavailable';
       break;
     case 'country':
-      lineText = getName(props.val);
+      lineText = countries[props.val];
       break;
     default:
       lineText = props.val;
