@@ -12,6 +12,8 @@ import {
   clearCurrentUser,
 } from '../../api/index';
 import messages from '../../messages';
+import ISO6391 from 'iso-639-1';
+import countries from 'svg-country-flags/countries.json';
 
 import { ReactComponent as EmailIcon } from '../../assets/me/icon-email.svg';
 import { ReactComponent as SpokenLanguagesIcon } from '../../assets/me/icon-spokenLanguages.svg';
@@ -86,6 +88,12 @@ const ProfileLine = props => {
   // join array properties, and set availability svg to check or x
   switch (props.type) {
     case 'spokenLanguages':
+      var languagesSpoken = [];
+      props.val.map(language =>
+        languagesSpoken.push(ISO6391.getName(language))
+      );
+      lineText = languagesSpoken.join(', ');
+      break;
     case 'tags':
       lineText = props.val.join(', ');
       break;
@@ -93,6 +101,9 @@ const ProfileLine = props => {
       TagName =
         props.val === true ? Components.available : Components.unavailable;
       lineText = props.val === true ? 'available' : 'unavailable';
+      break;
+    case 'country':
+      lineText = countries[props.val];
       break;
     default:
       lineText = props.val;
