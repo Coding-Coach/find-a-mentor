@@ -32,6 +32,7 @@
     "start": "react-scripts start",
     "build": "node scripts/pre-build.js && react-scripts build && yarn build-storybook",
     "test": "yarn prettier:fix && react-scripts test && yarn test:e2e:run",
+    "test:unit": "yarn prettier:fix && react-scripts test",
     "test:unit:update-snapshot": "react-scripts test -u",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
