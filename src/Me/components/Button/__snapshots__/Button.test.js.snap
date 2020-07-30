@@ -16,7 +16,7 @@ exports[`Button component renders danger button when specified with skin prop 1`
   color: #fff;
 }
 
-@media (min-width:801px) {
+@media (min-width:1024px) {
   .c0 {
     height: 30px;
     width: 151px;
@@ -47,7 +47,7 @@ exports[`Button component renders primary button by default 1`] = `
   color: #fff;
 }
 
-@media (min-width:801px) {
+@media (min-width:1024px) {
   .c0 {
     height: 30px;
     width: 151px;
@@ -77,7 +77,7 @@ exports[`Button component renders secondary button when specified with skin prop
   color: #69d5b1;
 }
 
-@media (min-width:801px) {
+@media (min-width:1024px) {
   .c0 {
     height: 30px;
     width: 151px;

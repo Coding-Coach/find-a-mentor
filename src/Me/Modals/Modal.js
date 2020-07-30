@@ -127,7 +127,7 @@ const CloseIconStyled = styled.img`
     width: 40px;
     height: 40px;
   }
-`
+`;
 
 export const Modal = ({ closeModal, onSave, title, children }) => (
   <ModalContainer>
