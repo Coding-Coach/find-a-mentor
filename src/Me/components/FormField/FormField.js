@@ -37,7 +37,7 @@ export const FormField = ({ label, className, children, helpText }) => {
     <FormFieldContainer className={className}>
       {label && (
         <Label htmlFor={id}>
-          {label} {helpText && <InlineHelpText>{helpText}</InlineHelpText>}
+          {label}{helpText && <InlineHelpText>{helpText}</InlineHelpText>}
         </Label>
       )}
       <formFieldContext.Provider value={id}>
