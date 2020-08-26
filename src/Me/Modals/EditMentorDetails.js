@@ -73,6 +73,19 @@ const HelpText = styled.div`
   line-height: inherit;
 `;
 
+const InlineHelpText = styled.span`
+  color: #5c5c5c;
+  padding-left: 5px;
+
+  &:before {
+    content: '('
+  }
+
+  &:after {
+    content: ')'
+  }
+`;
+
 const DeleteAccountContainer = styled.div``;
 
 function EditMentorDetails({
@@ -122,6 +135,7 @@ function EditMentorDetails({
       case 'text':
         return (
           <ExtendedFormField key={fieldName} label={config.label}>
+            <InlineHelpText>{config.helpText}</InlineHelpText>
             <Input
               type={config.type}
               name={fieldName}
@@ -134,6 +148,7 @@ function EditMentorDetails({
       case 'longtext':
         return (
           <ExtendedFormField key={fieldName} label={config.label}>
+            <InlineHelpText>{config.helpText}</InlineHelpText>
             <Textarea
               name={fieldName}
               value={mentorDetails[fieldName]}
@@ -146,6 +161,7 @@ function EditMentorDetails({
       case 'select':
         return (
           <ExtendedFormField key={fieldName} label={config.label}>
+            <InlineHelpText>{config.helpText}</InlineHelpText>
             <Select
               name={fieldName}
               isMulti={config.type === 'tags'}
