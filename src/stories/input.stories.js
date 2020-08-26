@@ -15,6 +15,9 @@ export const ProfileEdit = () => {
       <FormField label="Full Name" css={{ width: '60%' }}>
         <Input type="text" placeholder="John Smith" />
       </FormField>
+      <FormField label="Full Name" css={{ width: '60%' }} helpText="help message">
+        <Input type="text" placeholder="With help message" />
+      </FormField>
       <FormField label="Title" css={{ width: '60%' }}>
         <Input type="text" placeholder="Sr Software Engineer" />
       </FormField>
