@@ -32,6 +32,7 @@ export default [
   'backend',
   'best-practices',
   'big-data',
+  'bitcoin',
   'blazor',
   'blogging',
   'bootstrap',
