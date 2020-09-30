@@ -52,6 +52,13 @@ const List = styled.ul`
   list-style: none;
   display: flex;
 
+.sc-fznKkj fQkkzS:hover{
+background-color:6AD5B2;
+transition:all 0.3s ease-in;
+border-radius:5px;
+focus:none;
+}
+
   @media all and (min-width: 801px) {
     padding: 0;
     margin: 0;
