@@ -34,11 +34,13 @@ function Navigation({ isAuthenticated, onOpenModal }) {
   return (
     <Nav id="menu">
       <List>
-        <Link href="https://codingcoach.io/">About</Link>
-        <Link href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit">
+        <Link className="nav_hover" href="https://codingcoach.io/">About</Link>
+        <Link className="nav_hover" href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit">
           Mentorship Guidelines
         </Link>
+    <Link className="nav_hover">
         {renderBecomeAMentor()}
+</Link>
       </List>
     </Nav>
   );
@@ -46,6 +48,13 @@ function Navigation({ isAuthenticated, onOpenModal }) {
 
 const Nav = styled.nav`
   flex-grow: 1;
+
+.nav_hover{
+background-color:6AD5B2;
+transition:all 0.3s ease-in;
+border-radius:5px;
+focus:none;
+}
 `;
 
 const List = styled.ul`
