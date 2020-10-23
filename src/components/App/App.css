@@ -1,15 +1,12 @@
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   overflow-x: hidden;
-}
-
-main {
-  display: flex;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 .app {
@@ -25,9 +22,6 @@ main {
 }
 
 .logo {
-  display: flex;
-  color: #a1a1a1;
-  justify-content: space-between;
   margin: 30px 30px;
 }
 
@@ -37,6 +31,64 @@ main {
 
 .social {
   margin-top: 10px;
+}
+
+.sidebar-nav {
+  list-style: none;
+  padding-left: 20px;
+  position: fixed;
+  bottom: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 10px;
+  color: var(--link-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.patreon-link {
+  display: block;
+  margin: 20px auto 0;
+  width: 150px;
+}
+
+.patreon-link img {
+  max-width: 100%;
+}
+
+@media screen and (max-height: 650px) {
+    .social-wrapper {
+      margin-top: 10px !important;
+    }
+}
+@media screen and (max-height: 677px) {
+    .sidebar-nav {
+        margin-top: 5px;
+        position: relative;
+    }
+    .sidebar-nav li {
+      margin-bottom: 5px;
+    }
+    .sidebar {
+        overflow-y: auto;
+    }
+    .patreon-link {
+      margin: 5px auto 0;
+    }
+    .logo {
+      margin: 5px 30px;
+    }
+}
+
+@media all and (max-width: 800px) {
+  .sidebar-nav {
+    position: relative;
+    display: none;
+    padding: 0;
+    justify-content: space-evenly;
+    margin-top: 30px;
+  }
 }
 
 footer {
@@ -57,23 +109,27 @@ footer a:hover {
   text-decoration: underline;
 }
 
-.patreon-link {
-  display: block;
-  margin: 20px auto 0;
-  width: 150px;
-}
-
-.patreon-link img {
-  max-width: 100%;
-}
-
-@media all and (max-width: 576px) {
+@media all and (max-width: 800px) {
   .logo {
-    display: flex;
-    justify-content: center;
+    margin: 10px;
   }
+
+  .logo svg {
+    height: 80px;
+  }
+
   .patreon-link {
-    margin: 25px auto;
+    margin: 5px auto 10px;
     width: 130px;
+  }
+
+  .patreon-link img {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .logo {
+    margin: 10px auto;
   }
 }

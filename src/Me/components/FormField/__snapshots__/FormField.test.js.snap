@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormField component renders properly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  font-family: Lato,sans-serif;
+  margin-bottom: 30px;
+}
+
+.c1 {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 6px;
+}
+
+<div
+  class="c0"
+>
+  <label
+    class="c1"
+    for="form-field-1"
+  >
+    test label
+  </label>
+</div>
+`;

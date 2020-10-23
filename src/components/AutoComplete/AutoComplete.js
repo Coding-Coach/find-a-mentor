@@ -1,11 +1,12 @@
 import './AutoComplete.css';
 
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Autocomplete from 'react-autocomplete';
 import classNames from 'classnames';
+import FilterClear from '../FilterClear/FilterClear';
 
 function renderInput(props) {
-  return <input {...props} className="input" />;
+  return <input {...props} className="input" autoComplete="off" />;
 }
 
 function renderItem(item, isHighlighted) {
@@ -19,113 +20,74 @@ function renderItem(item, isHighlighted) {
   );
 }
 
-function renderMenu(items, value, style) {
+function renderMenu(items) {
   return <div className="ac-menu" children={items} />;
 }
 
-export default class AutoComplete extends Component {
-  state = {
-    value: '',
+export default function AutoComplete(props) {
+  const {
+    showClear,
+    source,
+    'data-testid': testid,
+    id,
+    onSelect,
+    value,
+  } = props;
+
+  const [localValue, setLocalValue] = useState('');
+
+  const handleSelect = (_, item) => {
+    onSelect(item);
   };
 
-  onSelect = (value, item) => {
-    this.setState({ value });
-    this.props.onSelect(item);
-  };
-
-  onChange = (event, value) => {
-    this.setState({ value });
+  const onChange = (_, value) => {
+    setLocalValue(value);
     if (!value) {
-      this.props.onSelect({ value: '', label: '' });
+      onSelect({ value: '', label: '' });
     }
   };
 
-  matchStateToTerm(state, value) {
-    return state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1;
-  }
+  const onClear = _ => {
+    onChange(_, '');
+  };
 
-  componentDidUpdate(prevProps) {
-    const { clickedTag: value } = this.props;
-
-    if (prevProps.clickedTag !== this.props.clickedTag) {
-      this.setState({ value });
-      this.props.onSelect({ value });
-    }
-  }
-
-  render() {
-    const { value } = this.state;
-    const { id, source } = this.props;
+  const matchStateToTerm = (state, value) => {
     return (
-      <div className="ac">
-        <Autocomplete
-          value={value}
-          items={source}
-          renderItem={renderItem}
-          renderMenu={renderMenu}
-          renderInput={renderInput}
-          wrapperStyle={{}}
-          getItemValue={item => item.label}
-          shouldItemRender={this.matchStateToTerm}
-          onSelect={this.onSelect}
-          onChange={this.onChange}
-          inputProps={{
-            id,
-          }}
-        />
-      </div>
+      state.label &&
+      state.label.toLowerCase().indexOf(value.toLowerCase()) !== -1
     );
-  }
+  };
+
+  useEffect(() => {
+    setLocalValue('');
+  }, [value]);
+
+  //TODO: generate a safe ID
+  const inputId = `${id}-${Math.random()}`;
+
+  return (
+    <div className="ac">
+      <Autocomplete
+        value={localValue || value}
+        items={source}
+        renderItem={renderItem}
+        renderMenu={renderMenu}
+        renderInput={renderInput}
+        wrapperStyle={{}}
+        getItemValue={item => item.label}
+        shouldItemRender={matchStateToTerm}
+        onSelect={handleSelect}
+        onChange={onChange}
+        inputProps={{
+          id: inputId,
+          'data-testid': testid,
+        }}
+      />
+      {showClear && (value || localValue) && (
+        <div className={'clear-btn'}>
+          <FilterClear onClear={onClear} />
+        </div>
+      )}
+    </div>
+  );
 }
-
-// export default class AutoComplete extends Component {
-//   componentWillMount() {
-//     this.resetComponent()
-//   }
-
-//   resetComponent = () => {
-//     this.setState({ isLoading: false, results: [], value: '' });
-//     this.props.onReset();
-//   }
-
-//   handleResultSelect = (e, { result }) => {
-//     this.setState({ value: result.title })
-//     this.props.handleResultSelect(result);
-//   }
-
-//   handleSearchChange = (e, { value }) => {
-//     const { source } = this.props;
-//     this.setState({ isLoading: true, value })
-
-//     setTimeout(() => {
-//       if (this.state.value.length < 1) return this.resetComponent()
-
-//       const re = new RegExp(escapeRegExp(this.state.value), 'i')
-//       const isMatch = result => re.test(result.title)
-
-//       this.setState({
-//         isLoading: false,
-//         results: filter(source, isMatch),
-//       })
-//     }, 300)
-//   }
-
-//   render() {
-//     const { isLoading, value, results } = this.state
-
-//     return (
-//       <div className="search-wrapper">
-//         <Search
-//           input="search"
-//           loading={isLoading}
-//           onResultSelect={this.handleResultSelect}
-//           onSearchChange={debounce(this.handleSearchChange, 500, { leading: true })}
-//           results={results}
-//           value={value}
-//           placeholder={this.props.placeholder}
-//           className="search-input"
-//         />
-//       </div>
-//     )
-//   }
-// }

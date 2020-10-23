@@ -1,0 +1,51 @@
+.rectangle {
+  height: 268px;
+  width: 100%;
+  background: radial-gradient(circle, #a5fcdb 0%, #12c395 100%);
+}
+
+.home {
+  color: #FFF;
+  font-family: Lato;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+  padding-top: 39px;
+  padding-left: 152px;
+}
+
+.logo {
+  display: none;
+}
+
+
+@media all and (max-width: 800px) {
+  .rectangle {
+    height: 243px;
+    width: 100%;
+    background: radial-gradient(circle, #a5fcdb 0%, #12c395 100%);
+  }
+
+  .home {
+    height: 34px;
+    width: 76px;
+    color: #fff;
+    font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 34px;
+    padding-top: 43px;
+    padding-left: 16px;
+  }
+
+  .logo {
+    padding-right: 16px;
+    margin-top: 0px;
+    float: right;
+    display: block;
+  }
+
+  .logo svg {
+    height: 30px;
+  }
+}

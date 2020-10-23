@@ -3,8 +3,19 @@
   --tag-color: #6ad4b0;
   --filter-width: 265px;
 
-  --mq-mobile: 576px;
-  --mq-desktop: 577px;
+  --mq-mobile: 800px;
+  --mq-desktop: 801px;
+  --button-dark-bg: #16385c;
+  --link-color: #015d3e;
+  --success-background: #28a745;
+  --error-background: #dc3545;
+
+  --generic-avatar-color: rgb(155, 155, 155);
+}
+
+::selection {
+  background: #65d6af;
+  color: #16385c;
 }
 
 html {
@@ -20,11 +31,22 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 14px;
-  line-height: 1.4285em;
 }
 
 *, :after, :before {
   box-sizing: border-box;
+}
+
+a {
+  color: var(--link-color);
+}
+
+button {
+  border: 0;
+}
+
+textarea {
+  resize: none;
 }
 
 button, select {
@@ -58,3 +80,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+
+/* #region toast overrides */
+.Toastify__toast--error {
+  background: var(--error-background);
+}
+
+.Toastify__toast--success {
+  background: var(--success-background);
+}
+/* #endregion */
