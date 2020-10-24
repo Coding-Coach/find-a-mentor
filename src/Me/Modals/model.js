@@ -89,13 +89,14 @@ export default {
     validate: options => !!options.length,
     helpText: 'Up to 5',
   },
-  website: {
-    label: 'Website',
-    type: 'text',
-    defaultValue: '',
-    prefix: 'https://',
-    validate: value => urlValidation(value),
-  },
+  // currently the website is a channel. Until the new ui
+  // website: {
+  //   label: 'Website',
+  //   type: 'text',
+  //   defaultValue: '',
+  //   prefix: 'https://',
+  //   validate: value => urlValidation(value),
+  // },
   channels: {
     label: 'Channels',
     type: 'keyvalue',
@@ -107,12 +108,12 @@ export default {
         prefix: 'mailto:',
         validate: emailValidation,
       },
-      // {
-      //   value: 'website',
-      //   label: 'Website',
-      //   prefix: 'https://',
-      //   validate: value => urlValidation(`https://${value}`),
-      // },
+      {
+        value: 'website',
+        label: 'Website',
+        prefix: 'https://',
+        validate: value => urlValidation(`https://${value}`),
+      },
       {
         value: 'linkedin',
         label: 'LinkedIn',
