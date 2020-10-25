@@ -1,12 +1,12 @@
-import React from 'react';
 import ISO6391 from 'iso-639-1';
+import React from 'react';
 import countries from 'svg-country-flags/countries.json';
 import tags from './tags';
 
 const languages = ISO6391.getLanguages(ISO6391.getAllCodes());
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const urlPattern = /^https:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/;
-const linkedinPattern = /^[A-Za-z0-9-]{3,100}$/;
+const linkedinPattern = /^\p{Lu}|\p{Ll}|\p{Lt}|\p{Lm}|\p{Lo}|-|[0-9]{1,50}$/u;
 const facebookPattern = /^[a-z\d.]{5,50}$/i;
 const twitterPattern = /^[A-Za-z0-9_]{1,15}$/;
 const githubPattern = /^([a-z\d]+-)*[a-z\d]+$/i;
@@ -89,14 +89,6 @@ export default {
     validate: options => !!options.length,
     helpText: 'Up to 5',
   },
-  // currently the website is a channel. Until the new ui
-  // website: {
-  //   label: 'Website',
-  //   type: 'text',
-  //   defaultValue: '',
-  //   prefix: 'https://',
-  //   validate: value => urlValidation(value),
-  // },
   channels: {
     label: 'Channels',
     type: 'keyvalue',
