@@ -174,7 +174,7 @@ function EditMentorDetails({
                 const isDisabled =
                   filledChannel.length >= 3 && !(propData && propData.id);
                 return (
-                  <ExtendedFormField key={option.value} label={option.label}>
+                  <ExtendedFormField key={option.value} label={option.label} helpText={option.helpText}>
                     <Input
                       aria-labelledby={option.value}
                       type="text"
