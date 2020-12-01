@@ -73,6 +73,15 @@ const HelpText = styled.div`
   line-height: inherit;
 `;
 
+const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  & input {
+    flex: 1
+  }
+`;
+
 const DeleteAccountContainer = styled.div``;
 
 function EditMentorDetails({
@@ -179,7 +188,7 @@ function EditMentorDetails({
           >
             <HelpText>{config.helpText}</HelpText>
             <InnerFieldsContainer>
-              {config.options.map((option, indx) => {
+              {config.options.map((option, index) => {
                 const propData = mentorDetails[fieldName].find(
                   x => x.type === option.value
                 );
@@ -190,8 +199,9 @@ function EditMentorDetails({
                     key={option.value}
                     label={option.label}
                     helpText={option.helpText}
+                    customFormField={index === config.options.length - 1}
                   >
-                    <div>
+                    <InputContainer>
                       <span>{option.prefix}</span>
                       <Input
                         aria-labelledby={option.value}
@@ -208,7 +218,7 @@ function EditMentorDetails({
                         disabled={isDisabled}
                         placeholder={option.placeholder}
                       />
-                    </div>
+                    </InputContainer>
                   </ExtendedFormField>
                 );
               })}
