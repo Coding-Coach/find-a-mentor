@@ -3,7 +3,6 @@
 exports[`FormField component renders properly 1`] = `
 .c2 {
   color: #5c5c5c;
-  padding-left: 5px;
   font-weight: normal;
 }
 
@@ -42,6 +41,7 @@ exports[`FormField component renders properly 1`] = `
     for="form-field-1"
   >
     test label
+     
     <span
       class="c2"
     >
