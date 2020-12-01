@@ -105,6 +105,7 @@ export default {
         label: 'Website',
         prefix: 'https://',
         validate: value => urlValidation(`https://${value}`),
+        helpText: 'Only https supported'
       },
       {
         value: 'linkedin',

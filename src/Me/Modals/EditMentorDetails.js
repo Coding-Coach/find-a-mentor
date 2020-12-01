@@ -121,7 +121,11 @@ function EditMentorDetails({
     switch (config.type) {
       case 'text':
         return (
-          <ExtendedFormField key={fieldName} label={config.label} helpText={config.helpText}>
+          <ExtendedFormField
+            key={fieldName}
+            label={config.label}
+            helpText={config.helpText}
+          >
             <Input
               type={config.type}
               name={fieldName}
@@ -133,7 +137,11 @@ function EditMentorDetails({
         );
       case 'longtext':
         return (
-          <ExtendedFormField key={fieldName} label={config.label} helpText={config.helpText}>
+          <ExtendedFormField
+            key={fieldName}
+            label={config.label}
+            helpText={config.helpText}
+          >
             <Textarea
               name={fieldName}
               value={mentorDetails[fieldName]}
@@ -145,7 +153,11 @@ function EditMentorDetails({
       case 'tags':
       case 'select':
         return (
-          <ExtendedFormField key={fieldName} label={config.label} helpText={config.helpText}>
+          <ExtendedFormField
+            key={fieldName}
+            label={config.label}
+            helpText={config.helpText}
+          >
             <Select
               name={fieldName}
               isMulti={config.type === 'tags'}
@@ -174,22 +186,29 @@ function EditMentorDetails({
                 const isDisabled =
                   filledChannel.length >= 3 && !(propData && propData.id);
                 return (
-                  <ExtendedFormField key={option.value} label={option.label} helpText={option.helpText}>
-                    <Input
-                      aria-labelledby={option.value}
-                      type="text"
-                      name={`${fieldName}[${option.value}]`}
-                      value={propData ? propData.id : ''}
-                      onChange={e => {
-                        handleKeyValueChange(
-                          fieldName,
-                          option.value,
-                          e.target.value
-                        );
-                      }}
-                      disabled={isDisabled}
-                      placeholder={option.placeholder}
-                    />
+                  <ExtendedFormField
+                    key={option.value}
+                    label={option.label}
+                    helpText={option.helpText}
+                  >
+                    <div>
+                      <span>{option.prefix}</span>
+                      <Input
+                        aria-labelledby={option.value}
+                        type="text"
+                        name={`${fieldName}[${option.value}]`}
+                        value={propData ? propData.id : ''}
+                        onChange={e => {
+                          handleKeyValueChange(
+                            fieldName,
+                            option.value,
+                            e.target.value
+                          );
+                        }}
+                        disabled={isDisabled}
+                        placeholder={option.placeholder}
+                      />
+                    </div>
                   </ExtendedFormField>
                 );
               })}

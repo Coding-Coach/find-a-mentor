@@ -5,7 +5,6 @@ import { formFieldContext } from './formContext';
 
 const InlineHelpText = styled.span`
   color: #5c5c5c;
-  padding-left: 5px;
   font-weight: normal;
 
   &:before {
@@ -37,7 +36,7 @@ export const FormField = ({ label, className, children, helpText }) => {
     <FormFieldContainer className={className}>
       {label && (
         <Label htmlFor={id}>
-          {label}{helpText && <InlineHelpText>{helpText}</InlineHelpText>}
+          {label} {helpText && <InlineHelpText>{helpText}</InlineHelpText>}
         </Label>
       )}
       <formFieldContext.Provider value={id}>
