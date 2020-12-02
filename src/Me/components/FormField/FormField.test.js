@@ -5,7 +5,7 @@ import { formFieldContext } from './formContext';
 
 describe('FormField component', () => {
   it('renders properly', () => {
-    const { container } = render(<FormField label="test label" />);
+    const { container } = render(<FormField label="test label" helpText="help text" />);
     expect(container.firstChild).toMatchSnapshot();
   });
   it('renders the label when it is defined', () => {

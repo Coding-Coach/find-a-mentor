@@ -1,6 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FormField component renders properly 1`] = `
+.c2 {
+  color: #5c5c5c;
+  font-weight: normal;
+}
+
+.c2:before {
+  content: '(';
+}
+
+.c2:after {
+  content: ')';
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -28,6 +41,12 @@ exports[`FormField component renders properly 1`] = `
     for="form-field-1"
   >
     test label
+     
+    <span
+      class="c2"
+    >
+      help text
+    </span>
   </label>
 </div>
 `;

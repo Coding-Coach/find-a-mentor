@@ -73,6 +73,15 @@ const HelpText = styled.div`
   line-height: inherit;
 `;
 
+const InputContainer = styled.div`
+  display: flex;
+  align-items: center;
+
+  & input {
+    flex: 1
+  }
+`;
+
 const DeleteAccountContainer = styled.div``;
 
 function EditMentorDetails({
@@ -121,7 +130,11 @@ function EditMentorDetails({
     switch (config.type) {
       case 'text':
         return (
-          <ExtendedFormField key={fieldName} label={config.label}>
+          <ExtendedFormField
+            key={fieldName}
+            label={config.label}
+            helpText={config.helpText}
+          >
             <Input
               type={config.type}
               name={fieldName}
@@ -133,7 +146,11 @@ function EditMentorDetails({
         );
       case 'longtext':
         return (
-          <ExtendedFormField key={fieldName} label={config.label}>
+          <ExtendedFormField
+            key={fieldName}
+            label={config.label}
+            helpText={config.helpText}
+          >
             <Textarea
               name={fieldName}
               value={mentorDetails[fieldName]}
@@ -145,7 +162,11 @@ function EditMentorDetails({
       case 'tags':
       case 'select':
         return (
-          <ExtendedFormField key={fieldName} label={config.label}>
+          <ExtendedFormField
+            key={fieldName}
+            label={config.label}
+            helpText={config.helpText}
+          >
             <Select
               name={fieldName}
               isMulti={config.type === 'tags'}
@@ -167,29 +188,37 @@ function EditMentorDetails({
           >
             <HelpText>{config.helpText}</HelpText>
             <InnerFieldsContainer>
-              {config.options.map((option, indx) => {
+              {config.options.map((option, index) => {
                 const propData = mentorDetails[fieldName].find(
                   x => x.type === option.value
                 );
                 const isDisabled =
                   filledChannel.length >= 3 && !(propData && propData.id);
                 return (
-                  <ExtendedFormField key={option.value} label={option.label}>
-                    <Input
-                      aria-labelledby={option.value}
-                      type="text"
-                      name={`${fieldName}[${option.value}]`}
-                      value={propData ? propData.id : ''}
-                      onChange={e => {
-                        handleKeyValueChange(
-                          fieldName,
-                          option.value,
-                          e.target.value
-                        );
-                      }}
-                      disabled={isDisabled}
-                      placeholder={option.placeholder}
-                    />
+                  <ExtendedFormField
+                    key={option.value}
+                    label={option.label}
+                    helpText={option.helpText}
+                    customFormField={index === config.options.length - 1}
+                  >
+                    <InputContainer>
+                      <span>{option.prefix}</span>
+                      <Input
+                        aria-labelledby={option.value}
+                        type="text"
+                        name={`${fieldName}[${option.value}]`}
+                        value={propData ? propData.id : ''}
+                        onChange={e => {
+                          handleKeyValueChange(
+                            fieldName,
+                            option.value,
+                            e.target.value
+                          );
+                        }}
+                        disabled={isDisabled}
+                        placeholder={option.placeholder}
+                      />
+                    </InputContainer>
                   </ExtendedFormField>
                 );
               })}
