@@ -57,7 +57,7 @@ const Profile = () => {
           />
           <List.Item type="country" value={countries[currentUser.country]} />
           <List.Item type="title" value={currentUser.title} />
-          <List.Item type="tags" value={currentUser.tags} />
+          <List.Item type="tags" value={currentUser.tags.join(', ')} />
           <List.Item
             type="available"
             value={currentUser.available ? 'available' : 'unavailable'}
