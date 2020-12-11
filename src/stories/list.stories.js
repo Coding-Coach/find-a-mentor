@@ -1,18 +1,14 @@
 import React from 'react';
 import List from '../Me/components/List';
 import Card from '../Me/components/Card';
+//import ListItem from '../Me/components/ListItem'
 
 import { StoriesContainer } from './StoriesContainer';
 
-export default { title: 'Profile List and List Item' };
+export default { title: 'List and List Item' };
 
-//looking for 
-// email
-// country
-// tags - programming skills
-// available
-
-export const ListA = () => {
+// List Component takes prop as array of string or number - see example below
+export const ListProfile = () => {
     const items = [
         {
             type: 'email',
@@ -20,7 +16,7 @@ export const ListA = () => {
         },
         {
             type: 'spokenLanguages',
-            value: ['EN'],
+            value: 'EN',
         },
         {
             type: 'country',
@@ -32,11 +28,11 @@ export const ListA = () => {
         },
         {
             type: 'tags',
-            value: ['front-end', 'reactjs', 'css', 'html'],
+            value: 'front-end, reactjs, css, html, ninja',
         },
         {
-            type: 'available',
-            value: true,
+            type: 'unavailable',
+            value: 'unavailable',
         },
         {
             type: 'description',
@@ -50,11 +46,33 @@ export const ListA = () => {
 
     return (
         <StoriesContainer>
+            <p>Profile takes key/value - value as string or number only These are dumb componets</p>
             <Card title="Mentor List Example" onEdit={() => console.log("Edit is Clicked!")}>
                 <List items={items} >
 
-                    <h1>this is a child</h1>
-                    <div>So is this so intersting</div>
+                </List>
+            </Card>
+        </StoriesContainer>
+    );
+};
+
+
+
+// List takes children of type <List> <Listitem> </ListItem <List>
+export const ListGeneric = () => {
+
+
+    return (
+        <StoriesContainer>
+            <Card title="List Example" onEdit={() => console.log("Edit is Clicked!")}>
+                <List>
+                    <div> A list passed as children</div>
+                    <div>test</div>
+                    <div>test</div>
+                    <div>test</div>
+                    <div>test</div>
+                    <div>test</div>
+
                 </List>
             </Card>
         </StoriesContainer>
