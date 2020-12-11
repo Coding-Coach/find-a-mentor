@@ -7,7 +7,7 @@ import { StoriesContainer } from './StoriesContainer';
 
 export default { title: 'List and List Item' };
 
-// List Component takes prop as array of string or number - see example below
+// List Component takes value as string or number - see example below
 export const ListProfile = () => {
     const items = [
         {
@@ -58,7 +58,7 @@ export const ListProfile = () => {
 
 
 
-// List takes children of type <List> <Listitem> </ListItem <List>
+// List takes children of type children
 export const ListGeneric = () => {
 
 
