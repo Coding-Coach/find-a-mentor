@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ListItem from './ListItem';
 
@@ -9,29 +9,20 @@ const Style = {
   `,
 };
 
-export const List = ({ items, children }) => {
-  const _items = useMemo(
-    () =>
-      items
-        ? items.map(item => (
-            <ListItem {...item} key={`${item.type}${item.value}`} />
-          ))
-        : children,
-    [children, items]
-  );
+const renderItems = item => (
+  <ListItem {...item} key={`${item.type}${item.value}`} />
+);
 
-  return <Style.List>{_items}</Style.List>;
+export const List = ({ items, children }) => {
+  const listItems = items?.map(renderItems) ?? children;
+  return <Style.List>{listItems}</Style.List>;
 };
 
 //This will allow us to use ListItem as <List.Item ... />
 List.Item = ListItem;
 
 List.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      ...ListItem.propTypes,
-    })
-  ),
+  items: PropTypes.arrayOf(PropTypes.shape(ListItem.propTypes)),
   children: ({ children, items }) => {
     if (!children) return;
     if (items)

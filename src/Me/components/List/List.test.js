@@ -14,12 +14,12 @@ describe('List component', () => {
     },
   ];
 
-  it('Should  render children as ListItem', () => {
+  it('Should render children as ListItem', () => {
     const itemsComp = [
       <List.Item {...items[0]} />,
       <List.Item {...items[1]} />,
     ];
-    const { getByTestId, getByText, rerender, unmount } = render(
+    const { getByTestId, getByText, rerender } = render(
       <List>{itemsComp[0]}</List>
     );
     getByTestId(items[0].type);

@@ -39,7 +39,7 @@ const ItemText = styled.div`
   padding-top: 4px;
 `;
 
-const ListItem = ({ type, value, children }) => {
+const ListItem = ({ type, value }) => {
   const Icon = icons[type];
   return (
     <ItemRow>
