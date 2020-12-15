@@ -20,7 +20,6 @@ import { toast } from 'react-toastify';
 
 const EditDetails = styled.div`
   margin: 0 auto;
-  padding: 20px;
   width: 100%;
   max-width: 780px;
 `;
