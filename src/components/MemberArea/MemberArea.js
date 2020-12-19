@@ -1,19 +1,19 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
-import styled from 'styled-components';
-import { useHistory } from 'react-router-dom';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import onClickOutside from 'react-onclickoutside';
-import auth from '../../utils/auth';
-import EditProfile from './EditProfile';
-import PendingApplications from './PendingApplications';
-import LoginNavigation from '../LoginNavigation/LoginNavigation';
-import useWindowSize from '../../utils/useWindowSize';
-import UserContext from '../../context/userContext/UserContext';
+import { useHistory } from 'react-router-dom';
+import styled from 'styled-components';
 import { updateMentorAvailability } from '../../../src/api/index';
 import Switch from '../../components/Switch/Switch';
-import { isAdmin, isMentor } from '../../helpers/user';
-import { getAvatarUrl } from '../../helpers/avatar';
-import { report } from '../../ga';
 import { isOpen } from '../../config/experiments';
+import UserContext from '../../context/userContext/UserContext';
+import { report } from '../../ga';
+import { getAvatarUrl } from '../../helpers/avatar';
+import { isAdmin, isMentor } from '../../helpers/user';
+import auth from '../../utils/auth';
+import useWindowSize from '../../utils/useWindowSize';
+import LoginNavigation from '../LoginNavigation/LoginNavigation';
+import EditProfile from './EditProfile';
+import PendingApplications from './PendingApplications';
 
 function MemberArea({ onOpenModal }) {
   const authenticated = auth.isAuthenticated();
@@ -25,7 +25,7 @@ function MemberArea({ onOpenModal }) {
 
   const openProfile = useCallback(() => {
     if (isOpen('newBackoffice')) {
-      history.push('/me/home');
+      history.push('/me');
     } else {
       onOpenModal('Edit Your Profile', <EditProfile />);
     }
