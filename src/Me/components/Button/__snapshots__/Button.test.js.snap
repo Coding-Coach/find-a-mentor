@@ -27,7 +27,9 @@ exports[`Button component renders danger button when specified with skin prop 1`
 <div>
   <button
     class="sc-AxjAm c0"
-  />
+  >
+    danger button
+  </button>
 </div>
 `;
 
@@ -57,7 +59,9 @@ exports[`Button component renders primary button by default 1`] = `
 
 <button
   class="sc-AxjAm c0"
-/>
+>
+  primary button
+</button>
 `;
 
 exports[`Button component renders secondary button when specified with skin prop 1`] = `
@@ -88,6 +92,8 @@ exports[`Button component renders secondary button when specified with skin prop
 <div>
   <button
     class="sc-AxjAm c0"
-  />
+  >
+    secondary button
+  </button>
 </div>
 `;
