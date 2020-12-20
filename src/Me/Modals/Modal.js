@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { desktop } from '../styles/shared/devices';
 
 const ModalContainer = styled.div`
+  z-index: 4;
   height: 100vh;
   width: 100vw;
   top: 0;
@@ -70,6 +71,8 @@ const ButtonBar = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  max-width: 285px;
 
   @media ${desktop} {
     flex-direction: row;
@@ -125,7 +128,7 @@ export const Modal = ({
     <Footer>
       <ButtonBar>
         <SecondaryButton onClick={closeModal}>Close</SecondaryButton>
-        <PrimaryButton onClick={onSave}>{saveText}</PrimaryButton>
+        {onSave && <PrimaryButton onClick={onSave}>{saveText}</PrimaryButton>}
       </ButtonBar>
     </Footer>
   </ModalContainer>

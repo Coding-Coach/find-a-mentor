@@ -7,16 +7,23 @@ import { desktop } from '../styles/shared/devices';
 import { toast } from 'react-toastify';
 import { sendMentorshipRequest } from '../../api';
 import messages from '../../messages';
+import ImageSrc from '../../assets/mentorshipRequestSuccess.svg';
 
 const MentorshipRequestDetails = styled.div`
   margin: 0 auto;
   width: 100%;
-  max-width: 780px;
+  max-width: 52rem;
 `;
 
 const MentorshipRequestDetailsForm = styled.form`
   display: flex;
   width: 100%;
+`;
+
+const SuccessMentorshipRequest = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const FormFields = styled.div`
@@ -30,17 +37,17 @@ const FormFields = styled.div`
 
 const ExtendedFormField = styled(FormField)`
   flex: 1 1 100%;
-  max-width: 355px;
+  /* max-width: 355px; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
-  flex: ${props => (props.customFormField ? '1 1 100%' : '1 1 40%')};
-  max-width: ${props => (props.customFormField ? 'unset' : '355px')};
-
   & label {
     color: #4f4f4f;
   }
+
+  width: 100%;
+  min-width: 15rem;
 
   @media ${desktop} {
     flex: ${props => (props.customFormField ? '1 1 100%' : '1 1 40%')};
@@ -53,18 +60,12 @@ const model = {
     label: 'My Background',
     type: 'longtext',
     defaultValue: '',
-    style: {
-      width: '100%',
-    },
     placeholder: 'Tell the mentor about yourself.',
   },
   myExpectations: {
     label: 'My Expectations',
     type: 'longtext',
     defaultValue: '',
-    style: {
-      width: '100%',
-    },
     placeholder: 'What do you expect from this mentorship?',
   },
   message: {
@@ -72,15 +73,13 @@ const model = {
     type: 'longtext',
     defaultValue: '',
     validate: value => !!value,
-    style: {
-      width: '100%',
-    },
     required: true,
     placeholder: 'Anything else you want to say?',
   },
 };
 
 const MentorshipRequest = ({ mentor, closeModal }) => {
+  const [confirmed, setConfirmed] = useState(false);
   const [mentorshipRequestDetails, setMentorshipRequestDetails] = useState({});
 
   // text fields onChange function
@@ -99,12 +98,10 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
             key={fieldName}
             label={config.label}
             helpText={config.helpText}
-            customFormField={config.style.width}
           >
             <Textarea
               name={fieldName}
               onChange={e => handleInputChange(fieldName, e.target.value)}
-              style={config.style}
               required={config.required}
               placeholder={config.placeholder}
             />
@@ -120,7 +117,6 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
     const errors = [];
 
     Object.entries(model).forEach(([field, config]) => {
-      console.log('config', config);
       if (
         config.validate &&
         !config.validate(mentorshipRequestDetails[field])
@@ -142,7 +138,6 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
     if (!validate()) {
       return;
     }
-    console.log('mentor: ', mentor, mentorshipRequestDetails);
     try {
       const requestResult = await sendMentorshipRequest(
         mentor.mentor,
@@ -150,7 +145,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
       );
       if (requestResult) {
         toast.success(messages.CARD_APPLY_REQUEST_SUCCESS);
-        closeModal();
+        setConfirmed(true);
       } else {
         toast.error(messages.GENERIC_ERROR);
       }
@@ -162,18 +157,28 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
   return (
     <Modal
       title="Mentorship Request"
-      onSave={onSubmit}
+      onSave={confirmed ? null : onSubmit}
       closeModal={closeModal}
       saveText="Send Request"
     >
       <MentorshipRequestDetails>
-        <MentorshipRequestDetailsForm onSubmit={onSubmit}>
-          <FormFields>
-            {Object.entries(model).map(([fieldName, field]) =>
-              formField(fieldName, field)
-            )}
-          </FormFields>
-        </MentorshipRequestDetailsForm>
+        {confirmed ? (
+          <SuccessMentorshipRequest>
+            <img src={ImageSrc} alt="successfully sent mentorship request" />
+            <p>
+              Your application has been sent! We will contact you when we hear
+              from Sarah Smith.
+            </p>
+          </SuccessMentorshipRequest>
+        ) : (
+          <MentorshipRequestDetailsForm onSubmit={onSubmit}>
+            <FormFields>
+              {Object.entries(model).map(([fieldName, field]) =>
+                formField(fieldName, field)
+              )}
+            </FormFields>
+          </MentorshipRequestDetailsForm>
+        )}
       </MentorshipRequestDetails>
     </Modal>
   );

@@ -231,7 +231,6 @@ export async function rejectApplication(mentor, reason) {
 }
 
 export async function sendMentorshipRequest(mentor, mentorshipRequest) {
-  console.log('make api call', mentor._id);
   const res = await makeApiCall(
     `${paths.MENTORSHIPS}/${mentor._id}/apply`,
     { message: mentorshipRequest.message },
