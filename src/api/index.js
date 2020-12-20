@@ -7,10 +7,12 @@ import * as Sentry from '@sentry/browser';
 
 const API_ERROR_TOAST_ID = 'api-error-toast-id';
 const USER_LOCAL_KEY = 'user';
+const USER_MENTORSHIP_REQUEST = 'mentorship-request';
 
 const paths = {
   MENTORS: '/mentors',
   USERS: '/users',
+  MENTORSHIPS: '/mentorships',
 };
 
 let currentUser;
@@ -225,5 +227,21 @@ export async function rejectApplication(mentor, reason) {
     },
     'PUT'
   );
+  return res.success;
+}
+
+export async function sendMentorshipRequest(mentor, mentorshipRequest) {
+  console.log('make api call', mentor._id);
+  const res = await makeApiCall(
+    `${paths.MENTORSHIPS}/${mentor._id}/apply`,
+    { message: mentorshipRequest.message },
+    'POST'
+  );
+  if (res.success) {
+    localStorage.setItem(
+      USER_MENTORSHIP_REQUEST,
+      JSON.stringify(mentorshipRequest)
+    );
+  }
   return res.success;
 }

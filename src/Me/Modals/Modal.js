@@ -109,7 +109,13 @@ const SecondaryButton = styled(Button)`
   color: #69d5b1;
 `;
 
-export const Modal = ({ closeModal, onSave, title, children }) => (
+export const Modal = ({
+  closeModal,
+  onSave,
+  title,
+  children,
+  saveText = 'Save',
+}) => (
   <ModalContainer>
     <CloseIconButton onClick={closeModal}>x</CloseIconButton>
     <ContentContainer>
@@ -119,7 +125,7 @@ export const Modal = ({ closeModal, onSave, title, children }) => (
     <Footer>
       <ButtonBar>
         <SecondaryButton onClick={closeModal}>Close</SecondaryButton>
-        <PrimaryButton onClick={onSave}>Save</PrimaryButton>
+        <PrimaryButton onClick={onSave}>{saveText}</PrimaryButton>
       </ButtonBar>
     </Footer>
   </ModalContainer>
