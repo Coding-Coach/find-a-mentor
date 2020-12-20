@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@sentry/browser": "^5.6.3",
+    "@storybook/addon-essentials": "^6.1.11",
     "auth0-js": "^9.13.2",
     "classnames": "^2.2.6",
     "express": "^4.17.1",
@@ -57,14 +58,14 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.14",
-    "@storybook/react": "^5.3.18",
+    "@storybook/react": "^6.1.11",
     "@testing-library/cypress": "^4.1.1",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.5.0",
     "@types/react-router-dom": "^5.1.4",
     "@types/styled-components": "^5.1.0",
     "ajv": "^6.10.2",
+    "babel-loader": "^8.2.2",
     "cors": "^2.8.5",
     "cypress": "^3.4.1",
     "execa": "^2.0.4",
