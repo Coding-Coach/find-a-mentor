@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   auth: {
     DOMAIN: process.env.REACT_APP_AUTH_DOMAIN,

@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 export default {
   GENERIC_ERROR: 'Something went wrong. Please contact us',
   EDIT_DETAILS_MENTOR_SUCCESS: 'Your details updated successfully',
