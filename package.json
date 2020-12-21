@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@sentry/browser": "^5.6.3",
-    "@storybook/addon-essentials": "^6.1.11",
     "auth0-js": "^9.13.2",
     "classnames": "^2.2.6",
     "express": "^4.17.1",
@@ -22,7 +21,7 @@
     "react-obfuscate": "^3.6.2",
     "react-onclickoutside": "^6.9.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.1.1",
+    "react-scripts": "^4.0.1",
     "react-select": "^3.0.4",
     "react-tippy": "^1.2.3",
     "react-toastify": "^5.3.2",
@@ -58,6 +57,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@storybook/addon-essentials": "^6.1.11",
+    "@storybook/preset-create-react-app": "^3.1.5",
     "@storybook/react": "^6.1.11",
     "@testing-library/cypress": "^4.1.1",
     "@testing-library/jest-dom": "^5.1.1",
@@ -65,7 +66,6 @@
     "@types/react-router-dom": "^5.1.4",
     "@types/styled-components": "^5.1.0",
     "ajv": "^6.10.2",
-    "babel-loader": "^8.2.2",
     "cors": "^2.8.5",
     "cypress": "^3.4.1",
     "execa": "^2.0.4",
@@ -83,5 +83,8 @@
     "prettier": "^1.18.2",
     "start-server-and-test": "^1.10.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "resolutions": {
+    "babel-loader": "8.1.0"
+  }
 }
