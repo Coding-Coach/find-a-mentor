@@ -88,9 +88,7 @@ const Logo = styled.img`
 `;
 
 const Label = styled.div`
-  @media ${mobile} {
-    color: #4a4a4a;
-  }
+  color: #4a4a4a;
 `;
 
 const Logout = styled(NavItemDecoration)`
