@@ -11,4 +11,5 @@ export default {
     'Click here to Login / Register<br />to add this mentor to favorites',
   CARD_APPLY_REQUEST_TOOLTIP: 'Click here to send a mentorship<br />request.',
   CARD_APPLY_REQUEST_SUCCESS: 'Your mentorship request has been sent.',
+  LOGOUT: 'Logout'
 };
