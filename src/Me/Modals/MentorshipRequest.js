@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import { Modal } from './Modal';
 import FormField from '../components/FormField';
 import Textarea from '../components/Textarea';
-import { desktop } from '../styles/shared/devices';
 import { toast } from 'react-toastify';
-import { sendMentorshipRequest } from '../../api';
+import { sendMentorshipRequest, getMentorshipRequest } from '../../api';
 import messages from '../../messages';
 import ImageSrc from '../../assets/mentorshipRequestSuccess.svg';
 
@@ -24,6 +23,10 @@ const SuccessMentorshipRequest = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  p {
+    max-width: 24rem;
+  }
 `;
 
 const FormFields = styled.div`
@@ -37,7 +40,8 @@ const FormFields = styled.div`
 
 const ExtendedFormField = styled(FormField)`
   flex: 1 1 100%;
-  /* max-width: 355px; */
+  width: 100%;
+  min-width: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -45,49 +49,34 @@ const ExtendedFormField = styled(FormField)`
   & label {
     color: #4f4f4f;
   }
-
-  width: 100%;
-  min-width: 15rem;
-
-  @media ${desktop} {
-    flex: ${props => (props.customFormField ? '1 1 100%' : '1 1 40%')};
-    max-width: ${props => (props.customFormField ? 'unset' : '355px')};
-  }
 `;
-
-const model = {
-  myBackground: {
-    label: 'My Background',
-    type: 'longtext',
-    defaultValue: '',
-    placeholder: 'Tell the mentor about yourself.',
-  },
-  myExpectations: {
-    label: 'My Expectations',
-    type: 'longtext',
-    defaultValue: '',
-    placeholder: 'What do you expect from this mentorship?',
-  },
-  message: {
-    label: 'Message',
-    type: 'longtext',
-    defaultValue: '',
-    validate: value => !!value,
-    required: true,
-    placeholder: 'Anything else you want to say?',
-  },
-};
 
 const MentorshipRequest = ({ mentor, closeModal }) => {
   const [confirmed, setConfirmed] = useState(false);
-  const [mentorshipRequestDetails, setMentorshipRequestDetails] = useState({});
+  const [mentorshipRequestDetails, setMentorshipRequestDetails] = useState(
+    getMentorshipRequest()
+  );
 
   // text fields onChange function
-  const handleInputChange = (fieldName, value) => {
+  const handleInputChange = e => {
+    const {
+      target: { name: fieldName, value },
+    } = e;
     setMentorshipRequestDetails({
       ...mentorshipRequestDetails,
       [fieldName]: value,
     });
+  };
+
+  const model = {
+    message: {
+      label: 'Message',
+      type: 'longtext',
+      defaultValue: mentorshipRequestDetails.message,
+      validate: value => !!value,
+      required: true,
+      placeholder: 'Anything else you want to say?',
+    },
   };
 
   const formField = (fieldName, config) => {
@@ -101,9 +90,10 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
           >
             <Textarea
               name={fieldName}
-              onChange={e => handleInputChange(fieldName, e.target.value)}
+              onChange={handleInputChange}
               required={config.required}
               placeholder={config.placeholder}
+              value={config.defaultValue}
             />
           </ExtendedFormField>
         );
@@ -127,7 +117,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
 
     if (errors.length) {
       toast.error(
-        `The following fields is missing or invalid: ${errors.join(', ')}`
+        `The following fields are missing or invalid: ${errors.join(', ')}`
       );
     }
     return !errors.length;
@@ -146,8 +136,6 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
       if (requestResult) {
         toast.success(messages.CARD_APPLY_REQUEST_SUCCESS);
         setConfirmed(true);
-      } else {
-        toast.error(messages.GENERIC_ERROR);
       }
     } catch (error) {
       toast.error(messages.GENERIC_ERROR);
@@ -167,7 +155,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
             <img src={ImageSrc} alt="successfully sent mentorship request" />
             <p>
               Your application has been sent! We will contact you when we hear
-              from Sarah Smith.
+              from {mentor.mentor.name}
             </p>
           </SuccessMentorshipRequest>
         ) : (

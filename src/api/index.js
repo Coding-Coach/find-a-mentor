@@ -244,3 +244,7 @@ export async function sendMentorshipRequest(mentor, mentorshipRequest) {
   }
   return res.success;
 }
+
+export function getMentorshipRequest() {
+  return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || {});
+}

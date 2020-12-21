@@ -34,29 +34,16 @@ const applyOnClick = () => {
   auth.login();
 };
 
-const nonLoggedinChannels = () => {
-  return (
-    <Tooltip title={messages.CARD_APPLY_TOOLTIP} size="big" arrow={true}>
-      <button onClick={applyOnClick}>
-        <div className="icon">
-          <i className="fa fa-hand-o-right fa-lg" />
-        </div>
-        <p className="type">Apply</p>
-      </button>
-    </Tooltip>
-  );
-};
-
-const LoggedInApply = mentor => {
+const ApplyButton = mentor => {
   const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
-
+  const isAuth = auth.isAuthenticated();
+  const tooltipMessage = isAuth
+    ? messages.CARD_APPLY_REQUEST_TOOLTIP
+    : messages.CARD_APPLY_TOOLTIP;
+  const handleClick = isAuth ? openModal : applyOnClick;
   return (
-    <Tooltip
-      title={messages.CARD_APPLY_REQUEST_TOOLTIP}
-      size="big"
-      arrow={true}
-    >
-      <button onClick={openModal}>
+    <Tooltip title={tooltipMessage} size="big" arrow={true}>
+      <button onClick={handleClick}>
         <div className="icon">
           <i className="fa fa-hand-o-right fa-lg" />
         </div>
@@ -64,12 +51,6 @@ const LoggedInApply = mentor => {
       </button>
     </Tooltip>
   );
-};
-
-const channelsList = channels => {
-  if (!auth.isAuthenticated()) {
-    return nonLoggedinChannels();
-  }
 };
 
 const Avatar = ({ mentor, id, handleAvatarClick }) => {
@@ -109,7 +90,6 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
     tags,
     title,
     _id: mentorID,
-    channels,
     available: availability,
   } = mentor;
 
@@ -175,11 +155,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
         <div className="channels">
           {availability ? (
             <div className="channel-inner">
-              {auth.isAuthenticated() ? (
-                <LoggedInApply mentor={mentor} />
-              ) : (
-                channelsList(channels)
-              )}
+              <ApplyButton mentor={mentor} />
             </div>
           ) : (
             <MentorNotAvailable />
