@@ -130,7 +130,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
     }
     try {
       const requestResult = await sendMentorshipRequest(
-        mentor.mentor,
+        mentor,
         mentorshipRequestDetails
       );
       if (requestResult) {
@@ -155,7 +155,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
             <img src={ImageSrc} alt="successfully sent mentorship request" />
             <p>
               Your application has been sent! We will contact you when we hear
-              from {mentor.mentor.name}
+              from {mentor.name}
             </p>
           </SuccessMentorshipRequest>
         ) : (

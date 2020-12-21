@@ -34,7 +34,7 @@ const applyOnClick = () => {
   auth.login();
 };
 
-const ApplyButton = mentor => {
+const ApplyButton = ({ mentor }) => {
   const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
   const isAuth = auth.isAuthenticated();
   const tooltipMessage = isAuth
