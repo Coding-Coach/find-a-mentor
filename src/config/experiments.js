@@ -12,7 +12,7 @@ function addSource(source) {
   if (source && source.length) {
     source.split(',').forEach(exp => {
       experiments[exp] = true;
-    })
+    });
   }
 }
 
@@ -20,10 +20,7 @@ addSource(process.env.REACT_APP_EXPERIMENTS);
 addSource(new URLSearchParams(window.location.search).get('experiments'))
 
 if (Object.keys(experiments).length) {
-  localStorage.setItem(
-    'experiments',
-    JSON.stringify(experiments)
-  );
+  localStorage.setItem('experiments', JSON.stringify(experiments));
 }
 
 /**
