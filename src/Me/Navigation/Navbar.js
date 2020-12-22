@@ -1,9 +1,12 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 import { Link } from 'react-router-dom';
+import auth from '../../utils/auth';
 import { mobile, desktop } from '../styles/shared/devices';
+import messages from '../../messages';
 import { ReactComponent as IconHome } from '../../assets/me/home.svg';
 import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
+import { ReactComponent as IconLogout } from '../../assets/me/icon-door-exit.svg';
 
 const MenuItem = ({ icon: Icon, label, to }) => (
   <NavItemDecoration to={to}>
@@ -22,6 +25,10 @@ const Navbar = () => {
         />
         <MenuItem to="/me/home" icon={IconHome} label="Home" />
         <MenuItem to="/" icon={IconMentors} label="Mentors" />
+        <Logout onClick={auth.doLogout}>
+          <IconLogout />
+          <Label>{messages.LOGOUT}</Label>
+        </Logout>
       </Menu>
     </>
   );
@@ -81,7 +88,14 @@ const Logo = styled.img`
 `;
 
 const Label = styled.div`
-  @media ${mobile} {
-    color: #4a4a4a;
+  color: #4a4a4a;
+`;
+
+const Logout = styled(NavItemDecoration)`
+  @media ${desktop} {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    margin-bottom: 10px;
   }
 `;

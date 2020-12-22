@@ -67,7 +67,7 @@
     "@types/styled-components": "^5.1.0",
     "ajv": "^6.10.2",
     "cors": "^2.8.5",
-    "cypress": "^3.4.1",
+    "cypress": "^6.2.0",
     "execa": "^2.0.4",
     "gh-pages": "^2.1.1",
     "image-type": "^4.1.0",

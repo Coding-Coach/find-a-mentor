@@ -4,8 +4,8 @@ describe('Mentor Filtering', () => {
   before(function() {
     cy.login();
     cy.server({ urlMatchingOptions: { matchBase: false, dot: true } });
-    cy.route('GET', '/users/current', 'fixture:users/current/get');
-    cy.route('GET', '/mentors?limit=*', 'fixture:mentors/get');
+    cy.intercept('GET', '/users/current', {fixture: 'users/current/get'});
+    cy.intercept('GET', '/mentors?limit=*', {fixture: 'mentors/get'});
     cy.visit('/');
   });
   it('can filter by technology', () => {
