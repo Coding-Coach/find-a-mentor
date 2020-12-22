@@ -10,7 +10,6 @@ import useWindowSize from '../../utils/useWindowSize';
 import UserContext from '../../context/userContext/UserContext';
 import { updateMentorAvailability } from '../../../src/api/index';
 import Switch from '../../components/Switch/Switch';
-import { isAdmin, isMentor } from '../../helpers/user';
 import { getAvatarUrl } from '../../helpers/avatar';
 import { report } from '../../ga';
 import { isOpen } from '../../config/experiments';
@@ -21,16 +20,16 @@ function MemberArea({ onOpenModal }) {
   const isDesktop = useWindowSize().width > 800;
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const { currentUser, updateUser } = useContext(UserContext);
+  const { currentUser, updateUser, isMentor, isAdmin } = useContext(UserContext);
   const history = useHistory();
 
   const openProfile = useCallback(() => {
-    if (isOpen('newBackoffice')) {
+    if (isOpen('newBackoffice') && isMentor) {
       history.push('/me/home');
     } else {
       onOpenModal('Edit Your Profile', <EditProfile />);
     }
-  }, [onOpenModal, history]);
+  }, [isMentor, history, onOpenModal]);
 
   const openPendingApplications = () => {
     onOpenModal('Pending Applications', <PendingApplications />);
@@ -96,17 +95,17 @@ function MemberArea({ onOpenModal }) {
           </UserAvatar>
           {isMemberMenuOpen && (
             <MemberMenu tabIndex="0">
-              {isAdmin(currentUser) && (
+              {isAdmin && (
                 <MemberMenuItem onClick={openPendingApplications}>
                   Open pending applications
                 </MemberMenuItem>
               )}
               <MemberMenuItem onClick={openProfile}>
-                {isMentor(currentUser)
+                {isMentor
                   ? 'Edit your profile'
                   : 'Become a mentor'}
               </MemberMenuItem>
-              {isMentor(currentUser) && !isOpen('newBackoffice') && (
+              {isMentor && !isOpen('newBackoffice') && (
                 <MemberMenuItem>
                   <Switch
                     label={'Available for new Mentees'}
