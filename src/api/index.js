@@ -233,7 +233,11 @@ export async function rejectApplication(mentor, reason) {
 export async function sendMentorshipRequest(mentor, mentorshipRequest) {
   const res = await makeApiCall(
     `${paths.MENTORSHIPS}/${mentor._id}/apply`,
-    { message: mentorshipRequest.message },
+    {
+      myBackground: mentorshipRequest.myBackground,
+      myExpectations: mentorshipRequest.myExpectations,
+      message: mentorshipRequest.message,
+    },
     'POST'
   );
   if (res.success) {
@@ -246,5 +250,5 @@ export async function sendMentorshipRequest(mentor, mentorshipRequest) {
 }
 
 export function getMentorshipRequest() {
-  return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || {});
+  return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
 }

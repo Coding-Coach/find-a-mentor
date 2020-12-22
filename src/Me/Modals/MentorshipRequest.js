@@ -7,6 +7,9 @@ import { toast } from 'react-toastify';
 import { sendMentorshipRequest, getMentorshipRequest } from '../../api';
 import messages from '../../messages';
 import ImageSrc from '../../assets/mentorshipRequestSuccess.svg';
+import { desktop } from '../styles/shared/devices';
+
+const errorColor = '#ff5f58';
 
 const MentorshipRequestDetails = styled.div`
   margin: 0 auto;
@@ -34,21 +37,29 @@ const FormFields = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: stretch;
-  padding: 0 5px;
+  padding: 0 1.5rem;
   width: 100%;
 `;
 
 const ExtendedFormField = styled(FormField)`
   flex: 1 1 100%;
   width: 100%;
-  min-width: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 
   & label {
-    color: #4f4f4f;
+    color: ${props => (props.invalid ? errorColor : '#4f4f4f')};
   }
+
+  @media ${desktop} {
+    flex-basis: 49%;
+    padding: 0.5rem;
+  }
+`;
+
+const ErrorMessage = styled.div`
+  color: ${errorColor};
 `;
 
 const MentorshipRequest = ({ mentor, closeModal }) => {
@@ -56,6 +67,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
   const [mentorshipRequestDetails, setMentorshipRequestDetails] = useState(
     getMentorshipRequest()
   );
+  const [errors, setErrors] = useState({});
 
   // text fields onChange function
   const handleInputChange = e => {
@@ -69,6 +81,24 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
   };
 
   const model = {
+    myBackground: {
+      label: 'My Background',
+      type: 'longtext',
+      defaultValue: mentorshipRequestDetails.myBackground,
+      placeholder: 'Tell the mentor about yourself.',
+      style: {
+        height: '121px',
+      },
+    },
+    myExpectations: {
+      label: 'My Expectations',
+      type: 'longtext',
+      defaultValue: mentorshipRequestDetails.myExpectations,
+      placeholder: 'What do you expect from this mentorship?',
+      style: {
+        height: '121px',
+      },
+    },
     message: {
       label: 'Message',
       type: 'longtext',
@@ -76,6 +106,9 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
       validate: value => !!value,
       required: true,
       placeholder: 'Anything else you want to say?',
+      style: {
+        height: '121px',
+      },
     },
   };
 
@@ -87,6 +120,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
             key={fieldName}
             label={config.label}
             helpText={config.helpText}
+            invalid={errors[fieldName]}
           >
             <Textarea
               name={fieldName}
@@ -94,7 +128,15 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
               required={config.required}
               placeholder={config.placeholder}
               value={config.defaultValue}
+              style={{
+                ...config.style,
+                borderColor: errors[fieldName] && errorColor,
+              }}
+              invalid={errors[fieldName]}
             />
+            {errors[fieldName] && (
+              <ErrorMessage>{errors[fieldName]}</ErrorMessage>
+            )}
           </ExtendedFormField>
         );
       default:
@@ -104,39 +146,31 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
 
   // validate form details
   const validate = () => {
-    const errors = [];
-
+    let isValid = true;
     Object.entries(model).forEach(([field, config]) => {
       if (
         config.validate &&
         !config.validate(mentorshipRequestDetails[field])
       ) {
-        errors.push(config.label);
+        setErrors(pervState => ({
+          ...pervState,
+          [field]: `The ${config.label.toLowerCase()} is required.`,
+        }));
+        isValid = false;
       }
     });
-
-    if (errors.length) {
-      toast.error(
-        `The following fields are missing or invalid: ${errors.join(', ')}`
-      );
-    }
-    return !errors.length;
+    return isValid;
   };
 
   const onSubmit = async e => {
     e.preventDefault();
-    if (!validate()) {
-      return;
-    }
+    if (!validate()) return;
     try {
-      const requestResult = await sendMentorshipRequest(
+      const result = await sendMentorshipRequest(
         mentor,
         mentorshipRequestDetails
       );
-      if (requestResult) {
-        toast.success(messages.CARD_APPLY_REQUEST_SUCCESS);
-        setConfirmed(true);
-      }
+      if (result) setConfirmed(true);
     } catch (error) {
       toast.error(messages.GENERIC_ERROR);
     }
