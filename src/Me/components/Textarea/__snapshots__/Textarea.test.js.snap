@@ -14,19 +14,19 @@ exports[`Textarea component renders properly 1`] = `
 }
 
 .c0::-webkit-input-placeholder {
-  color: #898889;
+  color: var(--form-text-placeholder);
 }
 
 .c0::-moz-placeholder {
-  color: #898889;
+  color: var(--form-text-placeholder);
 }
 
 .c0:-ms-input-placeholder {
-  color: #898889;
+  color: var(--form-text-placeholder);
 }
 
 .c0::placeholder {
-  color: #898889;
+  color: var(--form-text-placeholder);
 }
 
 <textarea

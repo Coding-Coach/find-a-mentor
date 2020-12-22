@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { desktop } from '../styles/shared/devices';
 
 const ModalContainer = styled.div`
+  z-index: 4;
   height: 100vh;
   width: 100vw;
   top: 0;
@@ -109,7 +110,13 @@ const SecondaryButton = styled(Button)`
   color: #69d5b1;
 `;
 
-export const Modal = ({ closeModal, onSave, title, children }) => (
+export const Modal = ({
+  closeModal,
+  onSave,
+  title,
+  children,
+  saveText = 'Save',
+}) => (
   <ModalContainer>
     <CloseIconButton onClick={closeModal}>x</CloseIconButton>
     <ContentContainer>
@@ -119,7 +126,7 @@ export const Modal = ({ closeModal, onSave, title, children }) => (
     <Footer>
       <ButtonBar>
         <SecondaryButton onClick={closeModal}>Close</SecondaryButton>
-        <PrimaryButton onClick={onSave}>Save</PrimaryButton>
+        {onSave && <PrimaryButton onClick={onSave}>{saveText}</PrimaryButton>}
       </ButtonBar>
     </Footer>
   </ModalContainer>
