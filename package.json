@@ -48,7 +48,10 @@
     "build-storybook": "build-storybook -c .storybook -o build/sb"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "import/no-anonymous-default-export": "off"
+    }
   },
   "browserslist": [
     ">0.2%",

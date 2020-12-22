@@ -1,4 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 import ISO6391 from 'iso-639-1';
 import countries from 'svg-country-flags/countries.json';
