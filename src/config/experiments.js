@@ -16,7 +16,7 @@ function addSource(source) {
   }
 }
 
-addSource(process.env.REACT_APP_EXPERIMENTS);
+addSource(process.env.REACT_EXPERIMENTS);
 addSource(new URLSearchParams(window.location.search).get('experiments'))
 
 if (Object.keys(experiments).length) {
