@@ -12,7 +12,10 @@ const StyledTextarea = styled.textarea`
   padding: 7px 12px 6px 8px;
   color: #4f4f4f;
   ::placeholder {
-    color: ${props => (props.invalid ? '#ff5f58' : '#898889')};
+    color: ${props =>
+      props.invalid
+        ? 'var(--form-text-invalid)'
+        : 'var(--form-text-placeholder)'};
   }
   height: 75px;
 `;

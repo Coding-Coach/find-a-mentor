@@ -9,8 +9,6 @@ import messages from '../../messages';
 import ImageSrc from '../../assets/mentorshipRequestSuccess.svg';
 import { desktop } from '../styles/shared/devices';
 
-const errorColor = '#ff5f58';
-
 const MentorshipRequestDetails = styled.div`
   margin: 0 auto;
   width: 100%;
@@ -49,7 +47,8 @@ const ExtendedFormField = styled(FormField)`
   justify-content: flex-start;
 
   & label {
-    color: ${props => (props.invalid ? errorColor : '#4f4f4f')};
+    color: ${props =>
+      props.invalid ? 'var(--form-text-invalid)' : 'var(--form-text-default)'};
   }
 
   @media ${desktop} {
@@ -59,7 +58,7 @@ const ExtendedFormField = styled(FormField)`
 `;
 
 const ErrorMessage = styled.div`
-  color: ${errorColor};
+  color: var(--form-text-invalid);
 `;
 
 const MentorshipRequest = ({ mentor, closeModal }) => {
@@ -130,7 +129,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
               value={config.defaultValue}
               style={{
                 ...config.style,
-                borderColor: errors[fieldName] && errorColor,
+                borderColor: errors[fieldName] && 'var(--form-text-invalid)',
               }}
               invalid={errors[fieldName]}
             />
