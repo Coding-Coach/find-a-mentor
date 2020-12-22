@@ -9,8 +9,8 @@ import { StoriesContainer } from './StoriesContainer';
 export default { title: 'Input' };
 
 const fieldStyle = {
-  width: '60%'
-}
+  width: '60%',
+};
 
 export const ProfileEdit = () => {
   return (
