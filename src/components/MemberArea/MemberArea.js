@@ -8,7 +8,6 @@ import { getAvatarUrl } from '../../helpers/avatar';
 import { isOpen } from '../../config/experiments';
 import UserContext from '../../context/userContext/UserContext';
 import { report } from '../../ga';
-import { getAvatarUrl } from '../../helpers/avatar';
 import auth from '../../utils/auth';
 import useWindowSize from '../../utils/useWindowSize';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
