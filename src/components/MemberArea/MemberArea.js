@@ -25,7 +25,7 @@ function MemberArea({ onOpenModal }) {
   const history = useHistory();
 
   const openProfile = useCallback(() => {
-    if (isOpen('newBackoffice')) {
+    if (isOpen('newBackoffice') && isMentor) {
       history.push('/me');
     } else {
       onOpenModal('Edit Your Profile', <EditProfile />);
