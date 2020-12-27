@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import { updateMentorAvailability } from '../../../src/api/index';
 import Switch from '../../components/Switch/Switch';
 import { getAvatarUrl } from '../../helpers/avatar';
-import { report } from '../../ga';
 import { isOpen } from '../../config/experiments';
 import UserContext from '../../context/userContext/UserContext';
 import { report } from '../../ga';
@@ -21,7 +20,9 @@ function MemberArea({ onOpenModal }) {
   const isDesktop = useWindowSize().width > 800;
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const { currentUser, updateUser, isMentor, isAdmin } = useContext(UserContext);
+  const { currentUser, updateUser, isMentor, isAdmin } = useContext(
+    UserContext
+  );
   const history = useHistory();
 
   const openProfile = useCallback(() => {
@@ -102,9 +103,7 @@ function MemberArea({ onOpenModal }) {
                 </MemberMenuItem>
               )}
               <MemberMenuItem onClick={openProfile}>
-                {isMentor
-                  ? 'Edit your profile'
-                  : 'Become a mentor'}
+                {isMentor ? 'Edit your profile' : 'Become a mentor'}
               </MemberMenuItem>
               {isMentor && !isOpen('newBackoffice') && (
                 <MemberMenuItem>
