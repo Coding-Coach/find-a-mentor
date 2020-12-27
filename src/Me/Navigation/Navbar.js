@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import auth from '../../utils/auth';
 import { mobile, desktop } from '../styles/shared/devices';
 import messages from '../../messages';
+import styled from 'styled-components/macro';
 import { ReactComponent as IconHome } from '../../assets/me/home.svg';
 import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
 import { ReactComponent as IconLogout } from '../../assets/me/icon-door-exit.svg';
@@ -24,7 +25,7 @@ const Navbar = () => {
         />
         <MenuItem to="/me" icon={IconHome} label="Home" />
         <MenuItem to="/" icon={IconMentors} label="Mentors" />
-        <Logout onClick={auth.doLogout}>
+        <Logout to={window.location.pathname} onClick={auth.doLogout}>
           <IconLogout />
           <Label>{messages.LOGOUT}</Label>
         </Logout>
