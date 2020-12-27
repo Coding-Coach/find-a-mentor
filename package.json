@@ -21,7 +21,7 @@
     "react-obfuscate": "^3.6.2",
     "react-onclickoutside": "^6.9.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.1.1",
+    "react-scripts": "^4.0.1",
     "react-select": "^3.0.4",
     "react-tippy": "^1.2.3",
     "react-toastify": "^5.3.2",
@@ -48,7 +48,10 @@
     "build-storybook": "build-storybook -c .storybook -o build/sb"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "import/no-anonymous-default-export": "off"
+    }
   },
   "browserslist": [
     ">0.2%",
@@ -57,8 +60,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.14",
-    "@storybook/react": "^5.3.18",
+    "@storybook/addon-essentials": "^6.1.11",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.11",
     "@testing-library/cypress": "^4.1.1",
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.5.0",
@@ -66,7 +70,7 @@
     "@types/styled-components": "^5.1.0",
     "ajv": "^6.10.2",
     "cors": "^2.8.5",
-    "cypress": "^3.4.1",
+    "cypress": "^6.2.0",
     "execa": "^2.0.4",
     "gh-pages": "^2.1.1",
     "image-type": "^4.1.0",
@@ -82,5 +86,8 @@
     "prettier": "^1.18.2",
     "start-server-and-test": "^1.10.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "resolutions": {
+    "babel-loader": "8.1.0"
+  }
 }

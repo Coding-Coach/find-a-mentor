@@ -78,6 +78,7 @@ const InputContainer = styled.div`
 
   & input {
     flex: 1;
+    width: 100%;
   }
 `;
 
