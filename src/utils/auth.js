@@ -1,75 +1,35 @@
-import auth0 from 'auth0-js';
 import Constants from '../config/constants';
 import { clearCurrentUser, getCurrentUser } from '../api';
 import { isMentor } from '../helpers/user';
 
-const storageKey = 'auth-data';
+import { Auth0Client } from '@auth0/auth0-spa-js';
 
 class Auth {
-  accessToken;
-
-  idToken;
-
-  expiresAt;
-
-  auth0 = new auth0.WebAuth({
+  auth0 = new Auth0Client({
     domain: Constants.auth.DOMAIN,
-    clientID: Constants.auth.CLIENT_ID,
-    redirectUri: Constants.auth.CALLBACK_URL,
-    responseType: 'token id_token',
-    scope: 'openid',
+    client_id: Constants.auth.CLIENT_ID,
+    redirect_uri: Constants.auth.CALLBACK_URL,
+    audience: `https://${Constants.auth.DOMAIN}/api/v2/`, // TEMP AUDIENCE TO ENSURE A JWT AT IS ISSUED
   });
 
   login = isMentorIntent => {
-    this.auth0.authorize({
+    this.auth0.loginWithRedirect({
       appState: {
         origin: isMentorIntent ? 'mentor' : 'user',
       },
     });
   };
 
-  handleAuthentication() {
-    return new Promise((resolve, reject) => {
-      this.auth0.parseHash((err, authResult) => {
-        if (err) {
-          reject(err);
-        } else {
-          if (authResult && authResult.accessToken && authResult.idToken) {
-            this.setSession(authResult);
-          }
-          resolve();
-        }
-      });
-    });
-  }
-
-  getAccessToken() {
-    return this.accessToken;
+  async getAccessToken() {
+    try {
+      return await this.auth0.getTokenSilently();
+    } catch (e) {
+      return null;
+    }
   }
 
   getIdToken() {
     return this.idToken;
-  }
-
-  setSession(authResult) {
-    const expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
-
-    // Set isLoggedIn flag in localStorage
-    localStorage.setItem(
-      storageKey,
-      JSON.stringify({
-        accessToken: authResult.accessToken,
-        idToken: authResult.idToken,
-        expiresAt,
-      })
-    );
-
-    // Set the time that the access token will expire at
-    this.accessToken = authResult.accessToken;
-    this.idToken = authResult.idToken;
-    this.expiresAt = expiresAt;
-    // can't show the becoming mentor modal here because the app is not initialized yet, so store it in memory and wait the app to up
-    this.origin = authResult.appState.origin;
   }
 
   async onMentorRegistered(callback) {
@@ -82,68 +42,53 @@ class Auth {
     }
   }
 
-  loadSession() {
-    const json = localStorage.getItem(storageKey);
+  async renewSession() {
 
-    if (json) {
-      const session = JSON.parse(json);
-
-      this.accessToken = session.accessToken;
-      this.idToken = session.idToken;
-      this.expiresAt = session.expiresAt;
-    }
-
-    return this;
-  }
-
-  renewSession() {
-    return new Promise(async resolve => {
-      if (window.location.hash) {
-        await this.handleAuthentication();
-        // clean the hash
-        window.history.replaceState(
-          null,
-          null,
-          window.location.href.split('#')[0]
-        );
-        resolve();
-      } else if (!this.isAuthenticated()) {
-        this.auth0.checkSession({}, (err, authResult) => {
-          if (authResult && authResult.accessToken && authResult.idToken) {
-            this.setSession(authResult);
-          }
-          resolve();
-        });
-      } else {
-        resolve();
+    const parseQueryResult = (queryString: string) => {
+      if (queryString.indexOf('#') > -1) {
+        queryString = queryString.substr(0, queryString.indexOf('#'));
       }
-    });
+    
+      return queryString.split('&').reduce((acc, cur) => {
+        const [key, val] = cur.split('=');
+        acc[key] = decodeURIComponent(val);
+        return acc;
+      }, {});
+    };
+
+    const queryStringFragments = window.location.href.split('?').slice(1);
+
+    const { code, error, error_description } = parseQueryResult(
+      queryStringFragments.join('')
+    );
+
+    if (queryStringFragments.length > 0 && (code || error || error_description)) {
+      await this.auth0.handleRedirectCallback();
+      window.history.replaceState({}, document.title, window.location.pathname);
+    } else {
+      const isAuthenticated = await this.isAuthenticated();
+      if (!isAuthenticated) {
+        await this.auth0.checkSession();
+      }
+    }
   }
 
   logout = () => {
-    // Remove tokens and expiry time from memory
-    this.accessToken = null;
-    this.idToken = null;
-    this.expiresAt = 0;
-
-    // Remove token from localStorage
-    localStorage.removeItem(storageKey);
-  };
-
-  doLogout = () => {
-    this.logout();
-    clearCurrentUser();
     this.auth0.logout({
       returnTo: Constants.auth.CALLBACK_URL,
     });
   };
 
-  isAuthenticated() {
+  doLogout = () => {
+    this.logout();
+    clearCurrentUser();
+  };
+
+  async isAuthenticated() {
     // Check whether the current time is past the
     // access token's expiry time
-    let expiresAt = this.expiresAt;
-    return new Date().getTime() < expiresAt;
+    return await this.auth0.isAuthenticated();
   }
 }
 
-export default new Auth().loadSession();
+export default new Auth();

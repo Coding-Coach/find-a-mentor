@@ -15,9 +15,8 @@ import { report } from '../../ga';
 import { isOpen } from '../../config/experiments';
 
 function MemberArea({ onOpenModal }) {
-  const authenticated = auth.isAuthenticated();
   const isDesktop = useWindowSize().width > 800;
-  const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
   const { currentUser, updateUser, isMentor, isAdmin } = useContext(
     UserContext
@@ -40,7 +39,7 @@ function MemberArea({ onOpenModal }) {
 
   useEffect(() => {
     (async () => {
-      setIsAuthenticated(auth.isAuthenticated());
+      setIsAuthenticated(await auth.isAuthenticated());
     })();
   }, []);
 
