@@ -1,23 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardContainer = styled.div`
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
-  padding: 20px 14px 43px 14px;
-
-  & + & {
-    margin-top: 30px;
-  }
-
-  h4 {
-    color: #4a4a4a;
-    line-height: 1.2142857143rem;
-    font-weight: bold;
-    margin: 0;
-  }
-`;
-
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
@@ -36,11 +19,39 @@ const EditButton = styled.button`
   cursor: pointer;
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
   color: #4f4f4f;
   font-family: Lato;
   font-size: 1rem;
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+`;
+
+const CardContainer = styled.div`
+  position: relative;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+  ${Header} {
+    padding-top: 20px;
+  }
+  ${Content} {
+    padding-bottom: 43px;
+  }
+  ${Header},
+  ${Content} {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  & + & {
+    margin-top: 30px;
+  }
+
+  h4 {
+    color: #4a4a4a;
+    line-height: 1.2142857143rem;
+    font-weight: bold;
+    margin: 0;
+  }
 `;
 
 const Edit = ({ onEdit }) => {
