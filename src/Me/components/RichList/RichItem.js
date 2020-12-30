@@ -14,8 +14,8 @@ const RichItem = ({
   children,
 }) => {
   return (
-    <Root hasChildren={!!children} onClick={() => onClick(id)}>
-      <Main>
+    <Root highlight={!!children && !expand} expanded={expand}>
+      <Main onClick={() => onClick(id)}>
         <ItemRow>
           <ItemAvatar>
             <img src={avatar} alt="avatar" />
@@ -62,8 +62,9 @@ const Root = styled.div`
   padding: 0 1rem;
   font-family: Lato;
   &:hover {
-    cursor: pointer;
-    background-color: ${({ hasChildren }) => (hasChildren ? '#f2f2f2' : '')};
+    cursor: ${({ highlight, expanded }) =>
+      expanded || highlight ? 'pointer' : 'default'};
+    background-color: ${({ highlight }) => (highlight ? '#f2f2f2' : '')};
   }
   & + ${Root}::before {
     content: ' ';
@@ -103,6 +104,7 @@ const Titles = styled(ItemCol)`
 
 const ItemAvatar = styled.div`
   margin-right: 20px;
+  user-select: none;
 
   img {
     height: 45px;

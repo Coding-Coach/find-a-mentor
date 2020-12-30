@@ -17,7 +17,7 @@ export const RichList = ({ items }) => {
       {...item}
       key={id}
       onClick={() => {
-        setState(state === id ? '' : id);
+        item.children && setState(state === id ? '' : id);
       }}
       expand={state === id}
     >
