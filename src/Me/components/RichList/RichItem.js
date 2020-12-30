@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
-const ListItem = ({
+const RichItem = ({
   id,
   avatar,
   title,
@@ -35,8 +35,8 @@ const ListItem = ({
   );
 };
 
-ListItem.propTypes = {
-  id: PropTypes.string,
+RichItem.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   avatar: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
@@ -59,9 +59,10 @@ const themeColours = {
 
 const Root = styled.div`
   position: relative;
-  padding: 0 20px;
+  padding: 0 1rem;
   font-family: Lato;
   &:hover {
+    cursor: pointer;
     background-color: ${({ hasChildren }) => (hasChildren ? '#f2f2f2' : '')};
   }
   & + ${Root}::before {
@@ -136,8 +137,8 @@ const Tag = styled.div`
 `;
 
 const Content = styled(ItemRow)`
-  padding: 1rem;
+  padding-bottom: 30px;
   display: ${({ expand }) => (expand ? 'flex' : 'none')};
 `;
 
-export default ListItem;
+export default RichItem;
