@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import RichItem from './RichItem';
 
 const Style = {
   List: styled.ul`
     padding: 0;
+    margin: 0;
   `,
 };
 
@@ -18,22 +19,20 @@ export const RichList = ({ items }) => {
       onClick={() => {
         setState(state === id ? '' : id);
       }}
-      expand={state === id && item.children}
+      expand={state === id}
     >
       {item.children}
     </RichItem>
   );
 
-  const listItems = useMemo(() => items?.map(renderItems), [state]);
-
-  return <Style.List>{listItems}</Style.List>;
+  return <Style.List>{items?.map(renderItems)}</Style.List>;
 };
 
 RichList.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       ...RichItem.propTypes,
-      id: PropTypes.string.isRequired,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     })
   ),
 };
