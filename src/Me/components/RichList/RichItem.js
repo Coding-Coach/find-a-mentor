@@ -17,9 +17,7 @@ const RichItem = ({
     <Root highlight={!!children && !expand} expanded={expand}>
       <Main onClick={() => onClick(id)}>
         <ItemRow>
-          <ItemAvatar>
-            <img src={avatar} alt="avatar" />
-          </ItemAvatar>
+          <ItemAvatar>{avatar && <img src={avatar} alt="avatar" />}</ItemAvatar>
           <Titles>
             <ItemRow>
               <Title>{title}</Title>
@@ -30,14 +28,14 @@ const RichItem = ({
           <Info>{info}</Info>
         </ItemRow>
       </Main>
-      {children && <Content expand={expand}>{children}</Content>}
+      {children && expand && <Content>{children}</Content>}
     </Root>
   );
 };
 
 RichItem.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  avatar: PropTypes.string.isRequired,
+  avatar: PropTypes.string,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   info: PropTypes.string,
@@ -56,25 +54,6 @@ const themeColours = {
 };
 
 // Styled Components
-
-const Root = styled.div`
-  position: relative;
-  padding: 0 1rem;
-  font-family: Lato;
-  &:hover {
-    cursor: ${({ highlight, expanded }) =>
-      expanded || highlight ? 'pointer' : 'default'};
-    background-color: ${({ highlight }) => (highlight ? '#f2f2f2' : '')};
-  }
-  & + ${Root}::before {
-    content: ' ';
-    border-top: 1px solid #f2f2f2;
-    display: block;
-    position: absolute;
-    width: 100%;
-    top: -1px;
-  }
-`;
 
 const ItemRow = styled.div`
   display: flex;
@@ -140,7 +119,27 @@ const Tag = styled.div`
 
 const Content = styled(ItemRow)`
   padding-bottom: 30px;
-  display: ${({ expand }) => (expand ? 'flex' : 'none')};
+`;
+
+const Root = styled.div`
+  position: relative;
+  padding: 0 1rem;
+  font-family: Lato;
+  &:hover {
+    background-color: ${({ highlight }) => (highlight ? '#f2f2f2' : '')};
+    ${Main} {
+      cursor: ${({ highlight, expanded }) =>
+        expanded || highlight ? 'pointer' : 'default'};
+    }
+  }
+  & + &::before {
+    content: ' ';
+    border-top: 1px solid #f2f2f2;
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: -1px;
+  }
 `;
 
 export default RichItem;

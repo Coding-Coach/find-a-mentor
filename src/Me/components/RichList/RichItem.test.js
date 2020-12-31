@@ -8,46 +8,76 @@ const item = {
   subtitle: 'web dev',
   tag: {
     value: 'pending',
-    theme: 'secondary'
+    theme: 'secondary',
   },
-  info: '3 days ago'
+  info: '3 days ago',
 };
 
 describe('RichItem component', () => {
   it('Should render all props correctly', () => {
-    const {getByText} = render(<RichItem {...item} />) 
+    const { getByText, getByAltText } = render(<RichItem {...item} />);
 
-    getByText(item.title)
-    getByText(item.subtitle)
-    getByText(item.tag.value)
-    getByText(item.info)
-  })
+    getByAltText('avatar');
+    getByText(item.title);
+    getByText(item.subtitle);
+    getByText(item.tag.value);
+    getByText(item.info);
+  });
   it('renders primary tag when specified with theme prop', () => {
     const { container } = render(
-      <RichItem tag={{
-        value: 'Accepted',
-        theme: 'primary'
-      }} />
+      <RichItem
+        title="Accepted"
+        tag={{
+          value: 'Accepted',
+          theme: 'primary',
+        }}
+      />
     );
     expect(container).toMatchSnapshot();
   });
-  it("renders secondary tag when specified with theme prop", () => {
+  it('renders secondary tag when specified with theme prop', () => {
     const { container } = render(
-      <RichItem tag={{
-        value: 'Pending',
-        theme: 'secondary'
-      }} />
+      <RichItem
+        title="Pending"
+        tag={{
+          value: 'Pending',
+          theme: 'secondary',
+        }}
+      />
     );
     expect(container).toMatchSnapshot();
   });
 
   it('renders danger tag when specified with theme prop', () => {
     const { container } = render(
-      <RichItem tag={{
-        value: 'Declined',
-        theme: 'danger'
-      }} />
+      <RichItem
+        title="Declined"
+        tag={{
+          value: 'Declined',
+          theme: 'danger',
+        }}
+      />
     );
     expect(container).toMatchSnapshot();
   });
-})
+});
+
+describe('RichItem component with children', () => {
+  it('Should show children content if "expand" is truthy', async () => {
+    const myRender = expand => (
+      <RichItem {...item} expand={expand}>
+        <div data-testid="content">Hi 😎</div>
+      </RichItem>
+    );
+    const { getByTestId, queryByTestId, rerender } = render(myRender());
+
+    let contentEl = queryByTestId('content');
+    expect(contentEl).toBeFalsy();
+
+    rerender(myRender(true));
+
+    contentEl = getByTestId('content');
+
+    expect(contentEl).toBeTruthy();
+  });
+});
