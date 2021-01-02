@@ -6,9 +6,10 @@ import styled from 'styled-components';
 import UserContext from '../../context/userContext/UserContext';
 import RequestContent from './RequestContent';
 import { Loader } from '../../components/Loader';
+import { formatRequestTime } from '../../helpers/mentorship';
 
 const Root = styled.div`
-  ${Content} {
+  ${({ hasReq }) => hasReq && Content} {
     padding-left: 0;
     padding-right: 0;
   }
@@ -35,7 +36,7 @@ const mapData = res =>
       value: status,
       theme: STATUS_THEME[status],
     },
-    info: date,
+    info: formatRequestTime(date),
     children: message && background && expectation && (
       <RequestContent {...{ message, background, expectation }} />
     ),
@@ -84,7 +85,7 @@ const MentorshipReq = () => {
   };
 
   return (
-    <Root>
+    <Root hasReq={hasReq}>
       <Card title="Mentorship Requests">{render()}</Card>
     </Root>
   );
