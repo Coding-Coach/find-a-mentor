@@ -1,7 +1,7 @@
-const { cy } = global;
+const { before, cy } = global;
 
 describe('Mentor Filtering', () => {
-  beforeAll(() => {
+  before(() => {
     cy.login();
     cy.server({ urlMatchingOptions: { matchBase: false, dot: true } });
     cy.intercept('GET', '/users/current', { fixture: 'users/current/get' });

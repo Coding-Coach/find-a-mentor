@@ -1,5 +1,3 @@
-// import { createPublicKey } from 'crypto';
-
 const { cy } = global;
 
 describe('login', () => {
