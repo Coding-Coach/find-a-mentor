@@ -1,0 +1,97 @@
+import List from '../Me/components/List';
+import Card from '../Me/components/Card';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import items from './liststorydata.json';
+
+<Meta 
+  title="List - profile (specific)" 
+  component={List} 
+  
+/>
+
+export const Template = args => <List {...args} />
+
+# List and ListItem components
+## specific to profile
+
+The goal is to have a list and li item component, this component is a bit opinionated specifically for a user’s profile. The list li's are built to have 2 columns the first for the icon and the second for the text.
+## Props
+
+This takes the prop items: as Object or children
+
+
+- `items: Object`
+```json
+ [
+    {
+        "type": "email",
+        "value": "myemail@codecoache.com"
+    },
+    {
+        "type": "spokenLanguages",
+        "value": "EN"
+    },
+    {
+        "type": "country",
+        "value": "US"
+    },
+    {
+        "type": "title",
+        "value": "Sharing of Knowledge, regular weekly meetings"
+    },
+    {
+        "type": "tags",
+        "value": "front-end, reactjs, css, html, Ninja"
+    },
+    {
+        "type": "available",
+        "value": "unavailable"
+    },
+    {
+        "type": "description",
+        "value": "If you are up for more than once a week exploration." 
+    }
+]
+```  
+
+
+## List 
+
+<Canvas>
+    
+    <Story name="Props as Object">   
+        <h2> List props passed as an object is the expected scenerio for this. </h2>
+        <p> the items prop is of type object and first gets passed to the profile.js which formats data for list it will wind in the above code example</p>
+        <div style={{width: "368px"}}>
+        <Card title="Props as object" onEdit={() => console.log("Edit is Clicked!")}>
+            <List items={items}/>
+        </Card>
+        </div>
+    </Story>
+    
+</Canvas>
+
+
+<Canvas>
+    
+    <Story name="Props as children">  
+        <h2> List props passed as an object is the expected scenerio for this. </h2>
+        <p> the items prop is of type object and first gets passed to the profile.js which formats data for list</p>
+        <div style={{width: "368px"}}>
+        <Card title="Props as children" onEdit={() => console.log("Edit is Clicked!")} >
+            <List >
+                        <List.Item type="email" value="boValue@9k9.com"/>
+                        <List.Item type="spokenLanguages" value="EN,JP"/>
+                        <List.Item type="country" value="US"/>
+                        <List.Item type="title" value="I do code"/>
+                        <List.Item type="tags" value="front-end,reactjs, c#, php, html"/>
+                        <List.Item type="available" value="available"/>
+                        <List.Item type="description" value="Come study with me!"/>
+            </List>
+        </Card>
+        </div>
+        
+    </Story>
+    
+</Canvas>
+
