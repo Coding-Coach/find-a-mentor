@@ -1,11 +1,11 @@
 const { cy } = global;
 
 describe('Mentor Filtering', () => {
-  before(function() {
+  beforeAll(() => {
     cy.login();
     cy.server({ urlMatchingOptions: { matchBase: false, dot: true } });
-    cy.intercept('GET', '/users/current', {fixture: 'users/current/get'});
-    cy.intercept('GET', '/mentors?limit=*', {fixture: 'mentors/get'});
+    cy.intercept('GET', '/users/current', { fixture: 'users/current/get' });
+    cy.intercept('GET', '/mentors?limit=*', { fixture: 'mentors/get' });
     cy.visit('/');
   });
   it('can filter by technology', () => {

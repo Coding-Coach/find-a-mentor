@@ -9,6 +9,7 @@ const HeaderContainer = styled.div`
   background: radial-gradient(circle, #a5fcdb 0%, #12c395 100%);
   display: flex;
   justify-content: space-between;
+
   @media ${desktop} {
     height: 268px;
   }
@@ -37,6 +38,7 @@ const LogoContainer = styled.div`
   padding-right: 16px;
   height: 30px;
   padding-right: 1rem;
+
   @media ${desktop} {
     display: none;
   }
