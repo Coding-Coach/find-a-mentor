@@ -44,7 +44,7 @@
     "pretest:e2e:run": "yarn run build",
     "test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
     "test:e2e:dev": "start-server-and-test start http://localhost:3000 cy:open",
-    "storybook": "start-storybook",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook -c .storybook -o build/sb"
   },
   "eslintConfig": {
