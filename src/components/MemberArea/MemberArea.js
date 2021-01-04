@@ -19,7 +19,9 @@ function MemberArea({ onOpenModal }) {
   const isDesktop = useWindowSize().width > 800;
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const { currentUser, updateUser, isMentor, isAdmin } = useContext(UserContext);
+  const { currentUser, updateUser, isMentor, isAdmin } = useContext(
+    UserContext
+  );
   const history = useHistory();
 
   const openProfile = useCallback(() => {
@@ -100,9 +102,7 @@ function MemberArea({ onOpenModal }) {
                 </MemberMenuItem>
               )}
               <MemberMenuItem onClick={openProfile}>
-                {isMentor
-                  ? 'Edit your profile'
-                  : 'Become a mentor'}
+                {isMentor ? 'Edit your profile' : 'Become a mentor'}
               </MemberMenuItem>
               {isMentor && !isOpen('newBackoffice') && (
                 <MemberMenuItem>

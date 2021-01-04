@@ -9,5 +9,5 @@ export default {
     "Click here to Login / Register<br />to get the mentor's details",
   CARD_ANONYMOUS_LIKE_TOOLTIP:
     'Click here to Login / Register<br />to add this mentor to favorites',
-  LOGOUT: 'Logout'
+  LOGOUT: 'Logout',
 };

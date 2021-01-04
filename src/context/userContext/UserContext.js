@@ -9,7 +9,9 @@ export const UserProvider = ({ children }) => {
   const isAdmin = currentUser?.roles.includes('Admin');
 
   return (
-    <UserContext.Provider value={{ currentUser, isMentor, isAdmin, updateUser }}>
+    <UserContext.Provider
+      value={{ currentUser, isMentor, isAdmin, updateUser }}
+    >
       {children}
     </UserContext.Provider>
   );

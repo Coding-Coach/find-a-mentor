@@ -105,7 +105,7 @@ export default {
         label: 'Website',
         prefix: 'https://',
         validate: value => urlValidation(`https://${value}`),
-        helpText: 'https supported only'
+        helpText: 'https supported only',
       },
       {
         value: 'linkedin',
@@ -138,7 +138,7 @@ export default {
       {
         value: 'slack',
         label: 'Slack',
-        prefix: 'https://coding-coach.slack.com/team/',
+        prefix: 'https://codin...ck.com/team/',
         helpText: (
           <a
             target="_blank"

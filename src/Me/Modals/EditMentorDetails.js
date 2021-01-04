@@ -77,7 +77,8 @@ const InputContainer = styled.div`
   align-items: center;
 
   & input {
-    flex: 1
+    flex: 1;
+    width: 100%;
   }
 `;
 
