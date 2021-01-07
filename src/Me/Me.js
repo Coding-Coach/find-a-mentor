@@ -11,6 +11,7 @@ import { desktop } from './styles/shared/devices';
 import { GlobalStyle } from './styles/global';
 
 import 'react-toastify/dist/ReactToastify.css';
+import MentorshipReq from './MentorshipReq/MentorshipReq';
 
 const Me = ({ match: { url } }) => {
   const authenticated = auth.isAuthenticated();
@@ -25,6 +26,9 @@ const Me = ({ match: { url } }) => {
             <Switch>
               <Route path={`${url}/home`}>
                 <Home />
+              </Route>
+              <Route path={`${url}/requests`}>
+                <MentorshipReq />
               </Route>
             </Switch>
           </Main>

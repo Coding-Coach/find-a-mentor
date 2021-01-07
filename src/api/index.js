@@ -4,15 +4,16 @@ import { toast } from 'react-toastify';
 import messages from '../messages';
 import shuffle from 'lodash/shuffle';
 import * as Sentry from '@sentry/browser';
-
+import { reqData } from '../Me/MentorshipReq/test-setup';
 const API_ERROR_TOAST_ID = 'api-error-toast-id';
 const USER_LOCAL_KEY = 'user';
 const USER_MENTORSHIP_REQUEST = 'mentorship-request';
 
-const paths = {
+export const paths = {
   MENTORS: '/mentors',
   USERS: '/users',
   MENTORSHIPS: '/mentorships',
+  MENTORSHIP: '/mentorship',
 };
 
 let currentUser;
@@ -230,25 +231,20 @@ export async function rejectApplication(mentor, reason) {
   return res.success;
 }
 
-export async function sendMentorshipRequest(mentor, mentorshipRequest) {
-  const res = await makeApiCall(
-    `${paths.MENTORSHIPS}/${mentor._id}/apply`,
-    {
-      myBackground: mentorshipRequest.myBackground,
-      myExpectations: mentorshipRequest.myExpectations,
-      message: mentorshipRequest.message,
-    },
-    'POST'
-  );
-  if (res.success) {
-    localStorage.setItem(
-      USER_MENTORSHIP_REQUEST,
-      JSON.stringify(mentorshipRequest)
-    );
+export async function getMentorshipRequests(mentorId, mock) {
+  if (mock) {
+    const promise = new Promise(res => {
+      setTimeout(() => {
+        res(reqData.data);
+      }, 1000);
+    });
+    return promise;
   }
-  return res.success;
-}
 
-export function getMentorshipRequest() {
-  return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
+  const res = await makeApiCall(
+    `${paths.MENTORSHIP}/${mentorId}/requests`,
+    null,
+    'GET'
+  );
+  return res.data;
 }

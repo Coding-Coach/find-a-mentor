@@ -13,16 +13,17 @@ const Style = {
 export const RichList = ({ items }) => {
   const [state, setState] = useState('');
   const renderItems = ({ id, ...item }) => (
-    <RichItem
-      {...item}
-      key={id}
-      onClick={() => {
-        item.children && setState(state === id ? '' : id);
-      }}
-      expand={state === id}
-    >
-      {item.children}
-    </RichItem>
+    <i key={id}>
+      <RichItem
+        {...item}
+        onClick={() => {
+          item.children && setState(state === id ? '' : id);
+        }}
+        expand={state === id}
+      >
+        {item.children}
+      </RichItem>
+    </i>
   );
 
   return <Style.List>{items?.map(renderItems)}</Style.List>;
