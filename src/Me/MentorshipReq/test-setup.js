@@ -17,9 +17,9 @@ export const reqData = {
       },
       status: 'Approved',
       date: new Date(),
-      message: null,
-      background: null,
-      expectation: null,
+      message: 'hi',
+      background: 'yes',
+      expectation: 'the world',
       isMine: false,
     },
     {

@@ -6,11 +6,14 @@ import {
   cleanup,
   reqData,
   screen,
+  waitFor,
   waitForElementToBeRemoved,
   userData,
+  debug,
 } from './test-setup';
 import MentorshipReq from './MentorshipReq';
 import * as api from '../../api';
+import messages from '../../messages';
 
 describe('MentorshipReq', () => {
   jest.mock('../../api/index.js');
@@ -24,6 +27,11 @@ describe('MentorshipReq', () => {
   it('Fetch and render a list of mentorship requests', async () => {
     api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData));
     const { findAllByText } = render(<MentorshipReq />);
+
+    //FIX: await waitForElementToBeRemoved(() => screen.getByRole('status'));
+
+    await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
+
     const reqEls = await findAllByText(/User.*/);
 
     expect(reqEls.length).toBe(3);
@@ -35,17 +43,21 @@ describe('MentorshipReq', () => {
 
     await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
-    //FIX: await waitForElementToBeRemoved(() => screen.getByRole('status'));
-
     getByText(/No requests/);
   });
 
-  it('Render Loading component while waiting for mentorship requests to load', async () => {
-    const promise = Promise.resolve(reqData);
-    api.getMentorshipRequests = jest.fn(() => promise);
-    const { getByRole } = render(<MentorshipReq />);
-    getByRole('status');
+  // it('Show success modal when accepting new mentorship', async () => {
+  //   api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData));
+  //   const { getByText } = render(<MentorshipReq />);
 
-    await act(() => promise);
-  });
+  //   await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
+
+  //   const reqEl = getByText(reqData.data[2].user.name);
+
+  //   fireEvent.click(reqEl);
+
+  //   const acceptBtnEl = getByText('Accept');
+
+  //   fireEvent.click(acceptBtnEl);
+  // });
 });

@@ -34,9 +34,16 @@ const CallToAction = styled.div`
   }
 `;
 
-const RequestContent = ({ id, message, background, expectation }) => {
+const RequestContent = ({
+  id,
+  message,
+  background,
+  expectation,
+  onAccept,
+  onDeclined,
+}) => {
   return (
-    <div>
+    <div data-testid="request-content">
       <Block>
         <h4>Message</h4>
         <p>{message}</p>
@@ -50,8 +57,12 @@ const RequestContent = ({ id, message, background, expectation }) => {
         <p>{expectation}</p>
       </Block>
       <CallToAction>
-        <Button skin="secondary">Declined</Button>
-        <Button skin="primary">Accept</Button>
+        <Button skin="secondary" onClick={() => onDeclined(id)}>
+          Declined
+        </Button>
+        <Button skin="primary" onClick={onAccept(id)}>
+          Accept
+        </Button>
       </CallToAction>
     </div>
   );

@@ -1,4 +1,10 @@
-import React, { useRef, useEffect, useState, useContext } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useCallback,
+  useState,
+  useContext,
+} from 'react';
 import { getMentorshipRequests, getCurrentUser } from '../../api';
 import RichList from '../components/RichList';
 import Card, { Content } from '../components/Card';
@@ -36,7 +42,14 @@ const MentorshipReq = () => {
   const isLoading = !Array.isArray(currentUser?.mentorshipReq);
   const isMount = useRef(true);
 
-  const mapData = res =>
+  const acceptReq = id => {
+    toast.error(messages.GENERIC_ERROR);
+  };
+  const declinedReq = id => {
+    toast.error(messages.GENERIC_ERROR);
+  };
+
+  const mapData = (res = []) =>
     res.map(({ id, status, date, message, background, expectation, user }) => ({
       id: id,
       avatar: user.avatar,
@@ -46,44 +59,28 @@ const MentorshipReq = () => {
         value: status,
         theme: STATUS_THEME[status],
       },
-      info: formatRequestTime(date),
+      info: formatRequestTime(new Date(date)),
       children: message && background && expectation && (
         <RequestContent
           {...{ message, background, expectation }}
-          onClick={() => acceptReq(id)}
+          onAccept={acceptReq}
+          onDeclined={declinedReq}
         />
       ),
     }));
-
-  const acceptReq = id => {
-    toast.error(messages.GENERIC_ERROR);
-  };
 
   const setMentorshipReq = async () => {
     if (hasReq) {
       setState(mapData(currentUser?.mentorshipReq));
     } else {
-      getMentorshipRequests(userId).then(({ data }) => {
-        if (isMount.current) {
-          updateUser({ ...currentUser, mentorshipReq: data });
-          setState(mapData(data));
-        }
-      });
+      const { mentorshipReq = [] } = await getMentorshipRequests(userId, true);
+
+      if (isMount.current) {
+        updateUser({ ...currentUser, mentorshipReq });
+        setState(mapData(mentorshipReq));
+      }
     }
   };
-
-  const init = () =>
-    getCurrentUser().then(user => {
-      if (isMount.current) updateUser(user);
-    });
-
-  useEffect(() => {
-    if (userId) {
-      setMentorshipReq();
-    } else {
-      init();
-    }
-  }, [userId]);
 
   useEffect(() => {
     isMount.current = true;
@@ -91,6 +88,19 @@ const MentorshipReq = () => {
       isMount.current = false;
     };
   }, []);
+
+  useEffect(() => {
+    if (!userId) {
+      getCurrentUser().then(user => {
+        if (isMount.current) updateUser(user);
+      });
+    }
+  }, [userId, updateUser]);
+
+  useEffect(() => {
+    if (!userId) return;
+    setMentorshipReq();
+  }, [userId]);
 
   const render = () => {
     if (isLoading)
@@ -107,7 +117,7 @@ const MentorshipReq = () => {
   };
 
   return (
-    <Root hasReq={hasReq}>
+    <Root hasReq={hasReq} data-testid="mentorship-req">
       <Card title="Mentorship Requests">{render()}</Card>
     </Root>
   );
