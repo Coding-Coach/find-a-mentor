@@ -4,6 +4,7 @@ import App from '../components/App/App';
 import { act } from 'react-dom/test-utils';
 import nock from 'nock';
 import { UserProvider } from '../context/userContext/UserContext';
+import auth from '../utils/auth';
 
 jest.mock('react-router-dom', () => ({
   useHistory: () => ({
@@ -13,7 +14,9 @@ jest.mock('react-router-dom', () => ({
 
 jest.mock('@auth0/auth0-spa-js');
 
-it('renders without crashing', () => {
+it('renders without crashing', async () => {
+  const mockIsAuthenticated = Promise.resolve(true);
+  jest.spyOn(auth, 'isAuthenticated').mockReturnValueOnce(mockIsAuthenticated);
   nock('https://api.codingcoach.io/mentors')
     .get()
     .reply(() => []);
@@ -29,6 +32,7 @@ it('renders without crashing', () => {
     jest.runAllTimers();
   });
   expect(div.querySelector('.app')).toBeDefined();
+  await act(() => mockIsAuthenticated);
   // TODO
   // expect(div.querySelectorAll('.card').length).toBe(1);
 });
