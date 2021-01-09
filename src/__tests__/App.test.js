@@ -11,6 +11,8 @@ jest.mock('react-router-dom', () => ({
   }),
 }));
 
+jest.mock('@auth0/auth0-spa-js');
+
 it('renders without crashing', () => {
   nock('https://api.codingcoach.io/mentors')
     .get()
