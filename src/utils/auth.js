@@ -10,6 +10,8 @@ class Auth {
     client_id: Constants.auth.CLIENT_ID,
     redirect_uri: Constants.auth.CALLBACK_URL,
     audience: Constants.auth.API_IDENTIFIER,
+    cacheLocation: 'localstorage',
+    useRefreshTokens: true,
   });
 
   login = isMentorIntent => {
