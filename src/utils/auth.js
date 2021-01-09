@@ -43,51 +43,24 @@ class Auth {
   }
 
   async renewSession() {
-
-    const parseQueryResult = (queryString: string) => {
-      if (queryString.indexOf('#') > -1) {
-        queryString = queryString.substr(0, queryString.indexOf('#'));
-      }
-    
-      return queryString.split('&').reduce((acc, cur) => {
-        const [key, val] = cur.split('=');
-        acc[key] = decodeURIComponent(val);
-        return acc;
-      }, {});
-    };
-
-    const queryStringFragments = window.location.href.split('?').slice(1);
-
-    const { code, error, error_description } = parseQueryResult(
-      queryStringFragments.join('')
-    );
-
-    if (queryStringFragments.length > 0 && (code || error || error_description)) {
-      await this.auth0.handleRedirectCallback();
+    if (window.location.hash) {
+      const authResult = await this.auth0.handleRedirectCallback();
       window.history.replaceState({}, document.title, window.location.pathname);
-    } else {
-      const isAuthenticated = await this.isAuthenticated();
-      if (!isAuthenticated) {
-        await this.auth0.checkSession();
-      }
+      this.origin = authResult.appState.origin;
+    } else if (await this.isAuthenticated()) {
+      await this.auth0.checkSession();
     }
   }
 
-  logout = () => {
+  doLogout = () => {
+    clearCurrentUser();
     this.auth0.logout({
       returnTo: Constants.auth.CALLBACK_URL,
     });
   };
 
-  doLogout = () => {
-    this.logout();
-    clearCurrentUser();
-  };
-
-  async isAuthenticated() {
-    // Check whether the current time is past the
-    // access token's expiry time
-    return await this.auth0.isAuthenticated();
+  isAuthenticated() {
+    return this.auth0.isAuthenticated();
   }
 }
 
