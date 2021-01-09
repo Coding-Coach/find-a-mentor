@@ -28,10 +28,6 @@ class Auth {
     }
   }
 
-  getIdToken() {
-    return this.idToken;
-  }
-
   async onMentorRegistered(callback) {
     if (this.origin === 'mentor') {
       if (isMentor(await getCurrentUser())) {
