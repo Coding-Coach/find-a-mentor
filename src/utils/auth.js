@@ -9,7 +9,7 @@ class Auth {
     domain: Constants.auth.DOMAIN,
     client_id: Constants.auth.CLIENT_ID,
     redirect_uri: Constants.auth.CALLBACK_URL,
-    audience: `https://${Constants.auth.DOMAIN}/api/v2/`, // TEMP AUDIENCE TO ENSURE A JWT AT IS ISSUED
+    audience: Constants.auth.API_IDENTIFIER,
   });
 
   login = isMentorIntent => {
