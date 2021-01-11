@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component renders danger button when specified with skin prop 1`] = `
+exports[`Button theme renders danger button when specified with skin prop 1`] = `
 .c0 {
   box-sizing: border-box;
   height: 30px;
@@ -36,7 +36,7 @@ exports[`Button component renders danger button when specified with skin prop 1`
 </div>
 `;
 
-exports[`Button component renders primary button by default 1`] = `
+exports[`Button theme renders primary button by default 1`] = `
 .c0 {
   box-sizing: border-box;
   height: 30px;
@@ -70,7 +70,7 @@ exports[`Button component renders primary button by default 1`] = `
 </button>
 `;
 
-exports[`Button component renders secondary button when specified with skin prop 1`] = `
+exports[`Button theme renders secondary button when specified with skin prop 1`] = `
 .c0 {
   box-sizing: border-box;
   height: 30px;

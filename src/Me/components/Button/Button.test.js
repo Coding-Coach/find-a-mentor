@@ -3,7 +3,6 @@ import React from 'react';
 import Button from './';
 
 describe('Button component', () => {
-
   it('passes down other props to the button tag', () => {
     const { getByTestId } = render(
       <Button data-testid="test-button" onClick={() => {}}>
@@ -14,19 +13,15 @@ describe('Button component', () => {
   });
 
   it(`fires 'prop.onClick' upon user click`, () => {
-    const onClick = jest.fn(() => {})
-    const { getByText } = render(
-      <Button onClick={onClick}>Click Me</Button>
-    );
+    const onClick = jest.fn(() => {});
+    const { getByText } = render(<Button onClick={onClick}>Click Me</Button>);
 
-    const btn = getByText('Click Me')
+    const btn = getByText('Click Me');
 
-    fireEvent.click(btn)
+    fireEvent.click(btn);
 
-    expect(onClick).toHaveBeenCalledTimes(1)
-
-  })
-  
+    expect(onClick).toHaveBeenCalledTimes(1);
+  });
 });
 describe('Button theme', () => {
   it('renders primary button by default', () => {
@@ -53,5 +48,4 @@ describe('Button theme', () => {
     );
     expect(container).toMatchSnapshot();
   });
-
-})
+});
