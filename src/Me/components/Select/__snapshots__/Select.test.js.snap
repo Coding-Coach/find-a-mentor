@@ -25,7 +25,7 @@ exports[`Select component renders properly 1`] = `
           <input
             aria-autocomplete="list"
             autocapitalize="none"
-            autocomplete="off"
+            autocomplete="nope"
             autocorrect="off"
             id="react-select-2-input"
             spellcheck="false"
