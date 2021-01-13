@@ -1,0 +1,43 @@
+import Textarea from '../Me/components/Textarea';
+import FormField from '../Me/components/FormField';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title="Textarea"
+  component={Textarea}
+  argTypes={{ onChange: { action: 'change' }}}
+  decorators={[(Story) => <div style={{ maxWidth: '400px' }}><Story/></div>]}
+/>
+
+export const Template = args => <Textarea {...args} />
+
+# Input
+
+<Canvas>
+  <Story name="Default">
+    <FormField label="Why do you want to be a mentor?">
+      <Textarea placeholder="Coding Coach has helped me so much; I want to give back." />
+    </FormField>
+  </Story>
+</Canvas>
+
+## With Help Message
+
+<Canvas>
+  <Story name="With Help Message">
+    <FormField label="Why do you want to be a mentor?" helpText="max 255">
+      <Textarea placeholder="Coding Coach has helped me so much; I want to give back." />
+    </FormField>
+  </Story>
+</Canvas>
+
+## Without Label
+
+<Canvas>
+  <Story name="Without Label">
+    <FormField>
+      <Textarea placeholder="Tell us More!" />
+    </FormField>
+  </Story>
+</Canvas>
+

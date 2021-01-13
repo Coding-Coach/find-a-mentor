@@ -1,0 +1,45 @@
+import Input from '../Me/components/Input';
+import Textarea from '../Me/components/Textarea';
+import FormField from '../Me/components/FormField';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+<Meta title="Input" component={Input} argTypes={{ onChange: { action: 'change' } }}/>
+
+export const Template = args => <Input {...args} />
+
+# Input
+
+<Canvas>
+  <Story name="Default">
+    <div style={{maxWidth: '400px'}}>
+      <FormField label="Full Name">
+        <Input type="text" placeholder="John Smith" />
+      </FormField>
+    </div>
+  </Story>
+</Canvas>
+
+## With Help Message
+
+<Canvas>
+  <Story name="With Help Message">
+    <div style={{maxWidth: '400px'}}>
+      <FormField label="Full Name" helpText="help message">
+        <Input type="text" placeholder="With help message" />
+      </FormField>
+    </div>
+  </Story>
+</Canvas>
+
+## Without Label
+
+<Canvas>
+  <Story name="Without Label">
+    <div style={{maxWidth: '400px'}}>
+      <FormField>
+        <Input type="text" placeholder="Input Without Label" />
+      </FormField>
+    </div>
+  </Story>
+</Canvas>
+
