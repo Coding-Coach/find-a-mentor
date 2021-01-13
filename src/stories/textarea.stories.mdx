@@ -1,0 +1,53 @@
+import Textarea from '../Me/components/Textarea';
+import FormField from '../Me/components/FormField';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title="Textarea"
+  component={Textarea}
+  argTypes={{ onChange: { action: 'change' }}}
+  decorators={[(Story) => <div style={{ maxWidth: '400px' }}><Story/></div>]}
+/>
+
+export const Template = args => <Textarea {...args} />
+
+# Textarea
+
+The `Textarea` component is a styled component that wraps the primitive html element `textarea`.  All props are
+forwarded to the underlying `textarea` element. To render a `Textarea` with a label you need to use a `FormField` 
+component.
+
+<Canvas>
+  <Story name="Default">
+    <FormField label="Why do you want to be a mentor?">
+      <Textarea placeholder="Coding Coach has helped me so much; I want to give back." />
+    </FormField>
+  </Story>
+</Canvas>
+
+## With Help Message
+
+The `Textarea` component can be shown with an optional help message to the right of its label by passing along a 
+`helpText` prop to the `FormField` component.
+
+<Canvas>
+  <Story name="With Help Message">
+    <FormField label="Why do you want to be a mentor?" helpText="max 255">
+      <Textarea placeholder="Coding Coach has helped me so much; I want to give back." />
+    </FormField>
+  </Story>
+</Canvas>
+
+## Without Label
+
+The `Textarea` component can be shown without a label by omitting the `label` prop on the `FormField` component
+that wraps it. It's important to still use a `FormField` even when you don't want the label to show.
+
+<Canvas>
+  <Story name="Without Label">
+    <FormField>
+      <Textarea placeholder="Tell us More!" />
+    </FormField>
+  </Story>
+</Canvas>
+
