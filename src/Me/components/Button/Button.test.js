@@ -23,29 +23,3 @@ describe('Button component', () => {
     expect(onClick).toHaveBeenCalledTimes(1);
   });
 });
-describe('Button theme', () => {
-  it('renders primary button by default', () => {
-    const { container } = render(
-      <Button onClick={() => {}}>primary button</Button>
-    );
-    expect(container.firstChild).toMatchSnapshot();
-  });
-
-  it('renders secondary button when specified with skin prop', () => {
-    const { container } = render(
-      <Button skin="secondary" onClick={() => {}}>
-        secondary button
-      </Button>
-    );
-    expect(container).toMatchSnapshot();
-  });
-
-  it('renders danger button when specified with skin prop', () => {
-    const { container } = render(
-      <Button skin="danger" onClick={() => {}}>
-        danger button
-      </Button>
-    );
-    expect(container).toMatchSnapshot();
-  });
-});
