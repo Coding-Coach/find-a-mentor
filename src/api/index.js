@@ -11,7 +11,7 @@ const USER_LOCAL_KEY = 'user';
 export const paths = {
   MENTORS: '/mentors',
   USERS: '/users',
-  MENTORSHIP: '/mentorship',
+  MENTORSHIP: '/mentorships',
 };
 
 let currentUser;
@@ -229,7 +229,16 @@ export async function rejectApplication(mentor, reason) {
   return res.success;
 }
 
-export async function getMentorshipRequests(mentorId, mock) {
+export async function applyForMentorship(mentorId, data) {
+  const res = await makeApiCall(
+    `${paths.MENTORSHIP}/${mentorId}/apply`,
+    data,
+    'POST'
+  );
+  return res.data;
+}
+export async function getMentorshipRequests(userId, mock) {
+  //TODO Don't forget to remove
   if (mock) {
     const promise = new Promise(res => {
       setTimeout(() => {
@@ -240,7 +249,7 @@ export async function getMentorshipRequests(mentorId, mock) {
   }
 
   const res = await makeApiCall(
-    `${paths.MENTORSHIP}/${mentorId}/requests`,
+    `${paths.MENTORSHIP}/${userId}/requests`,
     null,
     'GET'
   );
