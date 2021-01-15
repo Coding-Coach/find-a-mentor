@@ -22,6 +22,7 @@ const style = <style>{`
   .item-content-enter-active,
   .item-content-enter-done {
     opacity: 1;
+    padding: 0 1px;
     overflow:hidden;
   }
 `}</style>
@@ -115,6 +116,7 @@ const ItemCol = styled.div`
 
 const Main = styled(ItemRow)`
   height: 80px;
+  padding: 0 1px;
   align-items: center;
   > div {
     flex: 1;

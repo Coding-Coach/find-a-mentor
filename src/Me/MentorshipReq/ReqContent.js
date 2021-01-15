@@ -34,7 +34,7 @@ const CallToAction = styled.div`
   }
 `;
 
-const RequestContent = ({
+const ReqContent = ({
   id,
   message,
   background,
@@ -60,7 +60,7 @@ const RequestContent = ({
         <Button skin="secondary" onClick={() => onDeclined(id)}>
           Declined
         </Button>
-        <Button skin="primary" onClick={onAccept(id)}>
+        <Button skin="primary" onClick={() => onAccept(id)}>
           Accept
         </Button>
       </CallToAction>
@@ -68,6 +68,6 @@ const RequestContent = ({
   );
 };
 
-RequestContent.propTypes = {};
+ReqContent.propTypes = {};
 
-export default RequestContent;
+export default ReqContent;

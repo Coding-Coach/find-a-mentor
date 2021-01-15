@@ -10,12 +10,14 @@ import RichList from '../components/RichList';
 import Card, { Content } from '../components/Card';
 import styled from 'styled-components';
 import UserContext from '../../context/userContext/UserContext';
-import RequestContent from './RequestContent';
+import ReqContent from './ReqContent';
 import { Loader } from '../../components/Loader';
 import { formatRequestTime } from '../../helpers/mentorship';
 import { toast } from 'react-toastify';
 import messages from '../../messages';
 import {getAvatarUrl} from '../../helpers/avatar';
+import { useModal } from '../../context/modalContext/ModalContext';
+import ReqModal from './ReqModal'
 
 const Root = styled.div`
   ${({ hasReq }) => hasReq && Content} {
@@ -44,9 +46,16 @@ const MentorshipReq = () => {
   const hasReq = currentUser?.mentorshipReq?.length > 0;
   const isLoading = !Array.isArray(currentUser?.mentorshipReq);
   const isMount = useRef(true);
+  const [openModal, closeModal] = useModal(
+    <ReqModal
+      
+    />
+  );
+
 
   const acceptReq = id => {
-    toast.error(messages.GENERIC_ERROR);
+    openModal()
+    // toast.error(messages.GENERIC_ERROR);
   };
   const declinedReq = id => {
     toast.error(messages.GENERIC_ERROR);
@@ -67,7 +76,7 @@ const MentorshipReq = () => {
         },
         info: formatRequestTime(Date.parse(date)),
         children: message && background && expectation && (
-          <RequestContent
+          <ReqContent
             {...{ message, background, expectation }}
             onAccept={acceptReq}
             onDeclined={declinedReq}

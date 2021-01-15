@@ -46,18 +46,20 @@ describe('MentorshipReq', () => {
     getByText(/No requests/);
   });
 
-  // it('Show success modal when accepting new mentorship', async () => {
-  //   api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData));
-  //   const { getByText } = render(<MentorshipReq />);
+  it('Show success modal when accepting new mentorship', async () => {
+    api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData));
+    const { getByText } = render(<MentorshipReq />);
 
-  //   await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
+    await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
-  //   const reqEl = getByText(reqData.data[2].user.name);
+    const reqEl = getByText(reqData.data[2].user.name);
 
-  //   fireEvent.click(reqEl);
+    fireEvent.click(reqEl);
 
-  //   const acceptBtnEl = getByText('Accept');
+    const acceptBtnEl = getByText('Accept');
 
-  //   fireEvent.click(acceptBtnEl);
-  // });
+    fireEvent.click(acceptBtnEl);
+
+    screen.getByText('Mentorship Started')
+  });
 });

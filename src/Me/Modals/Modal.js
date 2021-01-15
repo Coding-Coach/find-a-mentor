@@ -2,17 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { desktop } from '../styles/shared/devices';
 
-const ModalContainer = styled.div`
-  height: 100vh;
-  width: 100vw;
-  top: 0;
-  left: 0;
-  position: fixed;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-`;
-
 const CloseIconButton = styled.button`
   background-color: transparent;
   color: #000;
@@ -109,8 +98,36 @@ const SecondaryButton = styled(Button)`
   color: #69d5b1;
 `;
 
-export const Modal = ({ closeModal, onSave, title, children }) => (
-  <ModalContainer>
+const Center = {
+  left: '50%',
+  top: '50%',
+  //INFO: Taking sidenav into account (75px)
+  transform: 'translate(calc(-50% + 75px/2), -50%)',
+  [Footer]: {
+    position: 'relative',
+    'padding-bottom': '46px',
+  },
+};
+const Cover = {
+  height: '100vh',
+  width: '100vw',
+  top: 0,
+  left: 0,
+};
+
+const ModalContainer = styled.div(props => {
+  const style = props.posCenter ? Center : Cover;
+  return {
+    ...style,
+    position: 'fixed',
+    'background-color': '#fff',
+    display: 'flex',
+    'flex-direction': 'column',
+  };
+});
+
+export const Modal = ({ closeModal, onSave, title, center, children }) => (
+  <ModalContainer posCenter={center}>
     <CloseIconButton onClick={closeModal}>x</CloseIconButton>
     <ContentContainer>
       <Title>{title || null}</Title>
