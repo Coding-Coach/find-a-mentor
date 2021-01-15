@@ -25,6 +25,7 @@
     "react-select": "^3.0.4",
     "react-tippy": "^1.2.3",
     "react-toastify": "^5.3.2",
+    "react-transition-group": "^4.4.1",
     "styled-components": "^5.0.0-beta.8",
     "svg-country-flags": "^1.2.6"
   },
