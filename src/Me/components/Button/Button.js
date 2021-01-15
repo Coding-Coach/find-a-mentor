@@ -1,12 +1,13 @@
 // @ts-check
+import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { desktop } from '../../styles/shared/devices';
-import PropTypes from 'prop-types';
 
 /**
+ * @callback OnClick
  * @typedef {('primary' | 'secondary' | 'danger')} Skin
- * @typedef {Pick<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'onClick'>} ButtonProps
+ * @typedef {Pick<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'onClick' | 'id' | 'disabled' | 'type' | 'name'>} ButtonProps
  */
 
 const StyledButton = styled.button`
@@ -62,6 +63,7 @@ const getComponentBySkin = skin => {
 /**
  * @param {{
  *  skin: Skin,
+ *  onClick: OnClick,
  * } & ButtonProps
  * } params
  */
@@ -72,4 +74,10 @@ export const Button = ({ skin = 'primary', ...props }) => {
 
 Button.propTypes = {
   skin: PropTypes.oneOf(['primary', 'secondary', 'danger']),
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
+  disabled: PropTypes.bool,
+  id: PropTypes.string,
+  name: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  children: PropTypes.string.isRequired,
 };

@@ -1,5 +1,5 @@
 import Button from '../Me/components/Button';
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
 <Meta title="Button" component={Button} argTypes={{ onClick: { action: 'clicked' } }}/>
 
@@ -23,9 +23,7 @@ Buttons are interactive elements designed to grab a users attention.  They are o
 A primary button is the main CTA and is recommended to be used sparingly within a page.  In a perfect world only a single primary button would be shown in a section; this helps the users better understand the action they should take.
 
 <Canvas>
-    <Story
-        name="Primary"
-    >
+    <Story name="Primary">
         <Button>Primary</Button>
     </Story>
 </Canvas>

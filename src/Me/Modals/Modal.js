@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Button from '../components/Button';
 import { desktop } from '../styles/shared/devices';
 
 const CloseIconButton = styled.button`
@@ -64,39 +65,7 @@ const ButtonBar = styled.div`
     flex-direction: row;
   }
 `;
-
-const Button = styled.button`
-  height: 30px;
-  width: 285px;
-  border-radius: 3px;
-  font-family: Lato;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  margin-bottom: 1rem;
-  cursor: pointer;
-
-  @media ${desktop} {
-    height: 30px;
-    width: 151px;
-    margin: 1rem;
-  }
-`;
-
-const PrimaryButton = styled(Button)`
-  background-color: #69d5b1;
-  color: #fff;
-  font-family: Lato;
-  font-size: 14px;
-  order: -1;
-`;
-
-const SecondaryButton = styled(Button)`
-  box-sizing: border-box;
-  background-color: #fff;
-  border: 2px solid #69d5b1;
-  color: #69d5b1;
-`;
+//TODO: Use close icon
 
 const Center = {
   left: '50%',
@@ -135,8 +104,12 @@ export const Modal = ({ closeModal, onSave, title, center, children }) => (
     </ContentContainer>
     <Footer>
       <ButtonBar>
-        <SecondaryButton onClick={closeModal}>Close</SecondaryButton>
-        <PrimaryButton onClick={onSave}>Save</PrimaryButton>
+        <Button skin="primary" onClick={onSave}>
+          Save
+        </Button>
+        <Button skin="secondary" onClick={closeModal}>
+          Close
+        </Button>
       </ButtonBar>
     </Footer>
   </ModalContainer>

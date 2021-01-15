@@ -2,7 +2,7 @@ import { getFavorites, addMentorToFavorites } from './api';
 import { report } from './ga';
 const LOCAL_FAV_KEY = 'favs';
 
-export function toggle(mentor, favs) {
+export function toggleFavMentor(mentor, favs) {
   const favIndex = favs.indexOf(mentor._id);
 
   if (favIndex > -1) {

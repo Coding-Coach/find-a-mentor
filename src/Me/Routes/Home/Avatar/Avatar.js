@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useCallback, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import UserContext from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
@@ -9,13 +9,14 @@ import { getAvatarUrl } from '../../../../helpers/avatar';
 function Avatar() {
   let { currentUser, updateUser } = useContext(UserContext);
 
+  const initialize = useCallback(async () => {
+    const user = await getCurrentUser();
+    updateUser(user);
+  }, [updateUser]);
+
   useEffect(() => {
-    async function initialize() {
-      const user = await getCurrentUser();
-      updateUser(user);
-    }
     initialize();
-  });
+  }, [initialize]);
 
   const handleChange = async e => {
     if (e.target.files.length) {

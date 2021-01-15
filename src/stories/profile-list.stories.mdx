@@ -1,0 +1,105 @@
+import List from '../Me/components/List';
+import Card from '../Me/components/Card';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import items from './liststorydata.json';
+
+<Meta 
+  title="List - profile (specific)" 
+  component={List} 
+  
+/>
+
+export const Template = args => <List {...args} />
+
+# List and ListItem components
+## specific to profile
+
+List and ListItem component the goal is to have specific icons for the type and a text description next to this, for example a user's email would be the type and would display an envelope icon next to joeblow@yahoo.com. This component is opinionated specifically for a user’s profile. Additional icons might be planned.
+
+## Props
+```javascript
+<List items={Array}>
+    children //see children example
+</List>
+```
+
+#### props as array
+```javascript
+const items =
+ [
+    {
+        "type": "email",
+        "value": "myemail@codecoache.com"
+    },
+    {
+        "type": "spokenLanguages",
+        "value": "EN"
+    },
+    {
+        "type": "country",
+        "value": "US"
+    },
+    {
+        "type": "title",
+        "value": "Sharing of Knowledge, regular weekly meetings"
+    },
+    {
+        "type": "tags",
+        "value": "front-end, reactjs, css, html, Ninja"
+    },
+    {
+        "type": "available",
+        "value": "unavailable"
+    },
+    {
+        "type": "description",
+        "value": "If you are up for more than once a week exploration." 
+    }
+]
+```  
+Children as Prop Example:
+``` jsx
+        <List.Item type="DesiredIconType" value="SomeTextValue"/>
+```
+
+
+## List 
+
+<Canvas>
+    
+    <Story name="Props as an Array">   
+        <h2>Props passed as an Array.</h2>
+        <p> Props as array is the expected scenerio for this component. This data gets formated from the api to profile.js which formats the data for the list component. It will wind in the array format as the above code example.</p>
+        <div style={{width: "368px"}}>
+        <Card title="Props as Array">
+            <List items={items}/>
+        </Card>
+        </div>
+    </Story>
+    
+</Canvas>
+
+
+<Canvas>
+    
+    <Story name="Props as children">  
+        <h2> Props as children</h2>
+        <p> Its also possiable to get the desired icons using this formatting for the Children elements. See 'show code' lower right. :) </p>
+        <div style={{width: "368px"}}>
+        <Card title="Props as children">
+            <List >
+                        <List.Item type="email" value="boValue@9k9.com"/>
+                        <List.Item type="spokenLanguages" value="EN,JP"/>
+                        <List.Item type="country" value="US"/>
+                        <List.Item type="title" value="I do code"/>
+                        <List.Item type="tags" value="front-end,reactjs, c#, php, html"/>
+                        <List.Item type="available" value="available"/>
+                        <List.Item type="description" value="Come study with me!"/>
+            </List>
+        </Card>
+        </div>
+        
+    </Story>
+    
+</Canvas>
+
