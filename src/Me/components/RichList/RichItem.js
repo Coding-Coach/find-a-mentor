@@ -1,6 +1,30 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
+import { CSSTransition } from 'react-transition-group';
+
+const style = <style>{`
+  .item-content-enter {
+    opacity: 0;
+  }
+  .item-content-exit,
+  .item-content-exit-active,
+  .item-content-exit-done {
+    opacity: 0;
+    height: 0;
+  }
+  .item-content-enter,
+  .item-content-exit,
+  .item-content-enter-active {
+    transition: height 340ms ease, opacity 200ms;
+  }
+  .item-content-enter-active,
+  .item-content-enter-done {
+    opacity: 1;
+  }
+`}</style>
+
+  const PADDING_BOTTOM  =30;
 
 const RichItem = ({
   id,
@@ -13,8 +37,11 @@ const RichItem = ({
   onClick,
   children,
 }) => {
+  const contentElHeight = useRef(0);
+
   return (
     <Root highlight={!!children && !expand} expanded={expand}>
+      {style}
       <Main onClick={() => onClick(id)}>
         <ItemRow>
           <ItemAvatar>{avatar && <img src={avatar} alt="avatar" />}</ItemAvatar>
@@ -28,7 +55,25 @@ const RichItem = ({
           <Info>{info}</Info>
         </ItemRow>
       </Main>
-      {children && expand && <Content>{children}</Content>}
+      <CSSTransition
+        in={expand}
+        timeout={340}
+        classNames="item-content"
+        unmountOnExit
+        onEnter={(node) => {
+          contentElHeight.current = node.offsetHeight;
+          node.style.height = 0;
+        }}
+        onEntering={({style}) =>
+          (style.height = contentElHeight.current + PADDING_BOTTOM + 'px')
+        }
+        onEntered={({style}) =>
+          (style.height = contentElHeight.current + PADDING_BOTTOM + 'px')
+        }
+        onExit={({style}) => (style.height = 0)}
+      >
+        <div >{children}</div>
+      </CSSTransition>
     </Root>
   );
 };
@@ -109,7 +154,7 @@ const Info = styled.div`
 const Tag = styled.div`
   color: #fff;
   border-radius: 3px;
-  padding: 1px 6px 0;
+  padding: 1px 6px;
   user-select: none;
   font-size: 8px;
   line-height: 12px;
@@ -117,14 +162,11 @@ const Tag = styled.div`
   background-color: ${({ theme }) => themeColours[theme]};
 `;
 
-const Content = styled(ItemRow)`
-  padding-bottom: 30px;
-`;
-
 const Root = styled.div`
   position: relative;
   padding: 0 1rem;
-  font-family: Lato;
+  font-family: Lato, system-ui;
+  font-style: normal;
   &:hover {
     background-color: ${({ highlight }) => (highlight ? '#f2f2f2' : '')};
     ${Main} {
