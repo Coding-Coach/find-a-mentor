@@ -14,7 +14,7 @@ const StyledButton = styled.button`
   height: 30px;
   width: 285px;
   border-radius: 3px;
-  font-family: Lato;
+  font-family: Lato, sans-serif;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
