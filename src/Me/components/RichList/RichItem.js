@@ -12,15 +12,17 @@ const style = <style>{`
   .item-content-exit-done {
     opacity: 0;
     height: 0;
+    overflow:hidden;
   }
   .item-content-enter,
   .item-content-exit,
   .item-content-enter-active {
-    transition: height 340ms ease, opacity 200ms;
+    transition: height 350ms ease, opacity 260ms;
   }
   .item-content-enter-active,
   .item-content-enter-done {
     opacity: 1;
+    overflow:hidden;
   }
 `}</style>
 
@@ -57,7 +59,7 @@ const RichItem = ({
       </Main>
       <CSSTransition
         in={expand}
-        timeout={340}
+        timeout={350}
         classNames="item-content"
         unmountOnExit
         onEnter={(node) => {
@@ -96,6 +98,8 @@ const themeColours = {
   primary: '#69D5B1',
   secondary: '#F3CA3E',
   danger: '#FF5F58',
+  checked: '#69d579',
+  disabled: 'e0e0e0'
 };
 
 // Styled Components
