@@ -13,7 +13,7 @@ import { desktop } from '../../styles/shared/devices';
 const StyledButton = styled.button`
   box-sizing: border-box;
   height: 30px;
-  width: 285px;
+  max-width: 285px;
   border-radius: 3px;
   font-family: Lato, sans-serif;
   font-size: 14px;
@@ -21,11 +21,15 @@ const StyledButton = styled.button`
   text-align: center;
   margin-bottom: 1rem;
   cursor: pointer;
+  flex: 1;
 
   @media ${desktop} {
     height: 30px;
-    width: 151px;
     margin: 1rem;
+
+    & + & {
+      max-width: 151px;
+    }
   }
 `;
 

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import RichItem from './RichItem';
 
@@ -10,7 +10,7 @@ const Style = {
   `,
 };
 
-export const RichList = ({ items }) => {
+export const RichList = ({ items, closeOpenItem }) => {
   const [state, setState] = useState('');
   const renderItems = ({ id, ...item }) => (
     <i key={id}>
@@ -26,6 +26,10 @@ export const RichList = ({ items }) => {
     </i>
   );
 
+  useEffect(() => {
+    if (closeOpenItem) setState('');
+  }, [closeOpenItem]);
+
   return <Style.List>{items?.map(renderItems)}</Style.List>;
 };
 
@@ -36,6 +40,11 @@ RichList.propTypes = {
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     })
   ),
+  closeOpenItem: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.number,
+  ]),
 };
 
 export default RichList;

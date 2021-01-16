@@ -1,10 +1,4 @@
-import React, {
-  useRef,
-  useEffect,
-  useCallback,
-  useState,
-  useContext,
-} from 'react';
+import React, { useRef, useEffect, useState, useContext } from 'react';
 import { getMentorshipRequests, getCurrentUser } from '../../api';
 import RichList from '../components/RichList';
 import Card, { Content } from '../components/Card';
@@ -15,9 +9,9 @@ import { Loader } from '../../components/Loader';
 import { formatRequestTime } from '../../helpers/mentorship';
 import { toast } from 'react-toastify';
 import messages from '../../messages';
-import {getAvatarUrl} from '../../helpers/avatar';
+import { getAvatarUrl } from '../../helpers/avatar';
 import { useModal } from '../../context/modalContext/ModalContext';
-import ReqModal from './ReqModal'
+import ReqModal from './ReqModal';
 
 const Root = styled.div`
   ${({ hasReq }) => hasReq && Content} {
@@ -41,62 +35,78 @@ const STATUS_THEME = {
 
 const MentorshipReq = () => {
   const [state, setState] = useState();
+  const [selectedMentee, setSelectedMentee] = useState(null);
   const { currentUser, updateUser } = useContext(UserContext);
   const userId = currentUser?._id;
-  const hasReq = currentUser?.mentorshipReq?.length > 0;
-  const isLoading = !Array.isArray(currentUser?.mentorshipReq);
+  const hasReq = state?.length > 0;
+  const isLoading = !state;
   const isMount = useRef(true);
-  const [openModal, closeModal] = useModal(
-    <ReqModal
-      
-    />
-  );
 
-
-  const acceptReq = id => {
-    openModal()
+  const acceptReq = (id, { name }) => {
+    //await
+    setSelectedMentee({ name, isApproved: true });
+    openModal();
     // toast.error(messages.GENERIC_ERROR);
   };
-  const declinedReq = id => {
+  const declinedReq = (id, { name }) => {
+    setSelectedMentee({ name, isApproved: false });
+    openModal();
     toast.error(messages.GENERIC_ERROR);
   };
 
   const mapData = (res = []) =>
-    res.map(({ id, status, date, message, background, expectation, isMine, ...data }) => {
-      const user = isMine ? data.mentor : data.mentee;
+    res.map(
+      ({
+        id,
+        status,
+        date,
+        message,
+        background,
+        expectation,
+        isMine,
+        ...data
+      }) => {
+        const user = isMine ? data.mentor : data.mentee;
 
-      return {
-        id: id,
-        avatar: getAvatarUrl(user.avatar),
-        title: user.name,
-        subtitle: user.title,
-        tag: {
-          value: status,
-          theme: STATUS_THEME[status],
-        },
-        info: formatRequestTime(Date.parse(date)),
-        children: message && background && expectation && (
-          <ReqContent
-            {...{ message, background, expectation }}
-            onAccept={acceptReq}
-            onDeclined={declinedReq}
-          />
-        ),
+        return {
+          id: id,
+          avatar: getAvatarUrl(user.avatar),
+          title: user.name,
+          subtitle: user.title,
+          tag: {
+            value: status,
+            theme: STATUS_THEME[status],
+          },
+          info: formatRequestTime(Date.parse(date)),
+          children: message && background && expectation && (
+            <ReqContent
+              {...{ message, background, expectation }}
+              onAccept={() => acceptReq(id, user)}
+              onDeclined={() => declinedReq(id, user)}
+            />
+          ),
+        };
       }
-    });
+    );
 
   const setMentorshipReq = async () => {
-    if (hasReq) {
-      setState(mapData(currentUser?.mentorshipReq));
-    } else {
-      const mentorshipReq = await getMentorshipRequests(userId);
+    const mentorshipReq = await getMentorshipRequests(userId);
 
-      if (isMount.current) {
-        updateUser({ ...currentUser, mentorshipReq });
-        setState(mapData(mentorshipReq));
-      }
+    if (isMount.current) {
+      updateUser({ ...currentUser, mentorshipReq });
+      setState(mapData(mentorshipReq));
     }
   };
+
+  const [openModal] = useModal(
+    <ReqModal
+      onSave={() => {}}
+      username={selectedMentee?.name}
+      isApproved={selectedMentee?.isApproved}
+      onClose={() => setSelectedMentee(null)}
+    />,
+    [selectedMentee?.name?.name]
+  );
 
   useEffect(() => {
     isMount.current = true;
@@ -126,7 +136,8 @@ const MentorshipReq = () => {
         </StyledLoader>
       );
 
-    if (hasReq) return <RichList items={state} />;
+    if (hasReq)
+      return <RichList items={state} closeOpenItem={selectedMentee?.name} />;
     else {
       return <p>No requests</p>;
     }

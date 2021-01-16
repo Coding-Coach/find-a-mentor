@@ -23,11 +23,11 @@ const Me = ({ match: { url } }) => {
           <Header />
           <Main>
             <Switch>
-              <Route path={`${url}`}>
-                <Home />
-              </Route>
               <Route path={`${url}/requests`}>
                 <MentorshipReq />
+              </Route>
+              <Route path={`${url}`}>
+                <Home />
               </Route>
             </Switch>
           </Main>

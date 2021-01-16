@@ -104,9 +104,11 @@ export const Modal = ({ closeModal, onSave, title, center, children }) => (
     </ContentContainer>
     <Footer>
       <ButtonBar>
-        <Button skin="primary" onClick={onSave}>
-          Save
-        </Button>
+        {onSave && (
+          <Button skin="primary" onClick={onSave}>
+            Save
+          </Button>
+        )}
         <Button skin="secondary" onClick={closeModal}>
           Close
         </Button>

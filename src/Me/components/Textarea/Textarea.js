@@ -14,7 +14,7 @@ const StyledTextarea = styled.textarea`
   ::placeholder {
     color: #898889;
   }
-  height: 75px;
+  min-height: 75px;
 `;
 
 export const Textarea = props => {
