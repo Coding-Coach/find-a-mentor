@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import { desktop } from '../styles/shared/devices';
+import { CSSTransition } from 'react-transition-group';
 
 const CloseIconButton = styled.button`
   background-color: transparent;
@@ -95,24 +96,81 @@ const ModalContainer = styled.div(props => {
   };
 });
 
-export const Modal = ({ closeModal, onSave, title, center, children }) => (
-  <ModalContainer posCenter={center}>
-    <CloseIconButton onClick={closeModal}>x</CloseIconButton>
-    <ContentContainer>
-      <Title>{title || null}</Title>
-      {children}
-    </ContentContainer>
-    <Footer>
-      <ButtonBar>
-        {onSave && (
-          <Button skin="primary" onClick={onSave}>
-            Save
-          </Button>
-        )}
-        <Button skin="secondary" onClick={closeModal}>
-          Close
-        </Button>
-      </ButtonBar>
-    </Footer>
-  </ModalContainer>
+const transitionStyle = (
+  <style>{`
+  .modal-enter {
+    opacity: 0;
+    transform: scale(.9)
+  }
+  .modal-enter-active {
+    opacity: 1;
+    transition: opacity 250ms, transform 250ms;
+    transform: scale(1)
+
+  }
+  .modal-exit {
+    opacity: 1;
+  }
+  .modal-exit-active {
+    opacity: 0;
+    transition: opacity 250ms, transform 250ms;
+  }
+  
+`}</style>
 );
+
+const transitionCenter = (
+  <style>{`
+    .modal-enter {
+      transform: scale(.8) translate(calc(-50%), -60%)
+    }
+    .modal-enter-active {
+        transform: translate(calc(-50% + 75px/2), -50%)
+      }
+
+    `}</style>
+);
+
+export const Modal = ({ closeModal, onSave, title, center, children }) => {
+  const [state, setState] = useState(false);
+  useEffect(() => {
+    setState(true);
+  }, []);
+
+  return (
+    <>
+      {transitionStyle}
+      {center && transitionCenter}
+
+      <CSSTransition
+        in={state}
+        timeout={250}
+        classNames="modal"
+        mountOnEnter
+        unmountOnExit
+        // onEnter={() => setShowButton(false)}
+        onExited={closeModal}
+      >
+        <ModalContainer posCenter={center}>
+          <CloseIconButton onClick={closeModal}>x</CloseIconButton>
+          <ContentContainer>
+            <Title>{title || null}</Title>
+            {children}
+          </ContentContainer>
+          <Footer>
+            <ButtonBar>
+              {onSave && (
+                <Button skin="primary" onClick={onSave}>
+                  Save
+                </Button>
+              )}
+              <Button skin="secondary" onClick={closeModal}>
+                Close
+              </Button>
+            </ButtonBar>
+          </Footer>
+        </ModalContainer>
+      </CSSTransition>
+    </>
+  );
+};
