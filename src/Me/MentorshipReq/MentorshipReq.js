@@ -11,7 +11,7 @@ import { toast } from 'react-toastify';
 import messages from '../../messages';
 import { getAvatarUrl } from '../../helpers/avatar';
 import { useModal } from '../../context/modalContext/ModalContext';
-import ReqModal from './ReqModal';
+import { ApprovedModal, DeclinedModal } from '../Modals/MentorshipReqModals';
 
 const Root = styled.div`
   ${({ hasReq }) => hasReq && Content} {
@@ -20,9 +20,9 @@ const Root = styled.div`
   }
 `;
 
-const StyledLoader = styled.div`
-  margin: auto;
-  text-align: center;
+const Spinner = styled(Loader)`
+  position: absolute;
+  left: calc(50% - 10px);
 `;
 
 const STATUS_THEME = {
@@ -35,23 +35,27 @@ const STATUS_THEME = {
 
 const MentorshipReq = () => {
   const [state, setState] = useState();
-  const [selectedMentee, setSelectedMentee] = useState(null);
+  const [selectedReq, setSelectedReq] = useState(null);
   const { currentUser, updateUser } = useContext(UserContext);
   const userId = currentUser?._id;
   const hasReq = state?.length > 0;
   const isLoading = !state;
   const isMount = useRef(true);
 
-  const acceptReq = (id, { name }) => {
-    //await
-    setSelectedMentee({ name, isApproved: true });
-    openModal();
+  const acceptReq = (id, { name: username }) => {
+    //await id
+    setSelectedReq({ username });
+    openApprovedModal();
     // toast.error(messages.GENERIC_ERROR);
   };
-  const declinedReq = (id, { name }) => {
-    setSelectedMentee({ name, isApproved: false });
-    openModal();
-    toast.error(messages.GENERIC_ERROR);
+  const onDeclinedReq = (id, { name: username }) => {
+    setSelectedReq({ id, username });
+    openDeclinedModal();
+  };
+
+  const declineReq = async msg => {
+    //await
+    // closeDeclinedModal();
   };
 
   const mapData = (res = []) =>
@@ -82,7 +86,7 @@ const MentorshipReq = () => {
             <ReqContent
               {...{ message, background, expectation }}
               onAccept={() => acceptReq(id, user)}
-              onDeclined={() => declinedReq(id, user)}
+              onDeclined={() => onDeclinedReq(id, user)}
             />
           ),
         };
@@ -98,14 +102,21 @@ const MentorshipReq = () => {
     }
   };
 
-  const [openModal] = useModal(
-    <ReqModal
-      onSave={() => {}}
-      username={selectedMentee?.name}
-      isApproved={selectedMentee?.isApproved}
-      onClose={() => setSelectedMentee(null)}
+  const [openApprovedModal] = useModal(
+    <ApprovedModal
+      username={selectedReq?.username}
+      onClose={() => setSelectedReq(null)}
     />,
-    [selectedMentee?.name?.name]
+    [selectedReq?.id]
+  );
+
+  const [openDeclinedModal, closeDeclinedModal] = useModal(
+    <DeclinedModal
+      username={selectedReq?.username}
+      onSave={declineReq}
+      onClose={() => setSelectedReq(null)}
+    />,
+    [selectedReq?.id]
   );
 
   useEffect(() => {
@@ -129,15 +140,10 @@ const MentorshipReq = () => {
   }, [userId]);
 
   const render = () => {
-    if (isLoading)
-      return (
-        <StyledLoader>
-          <Loader />
-        </StyledLoader>
-      );
+    if (isLoading) return <Spinner />;
 
     if (hasReq)
-      return <RichList items={state} closeOpenItem={selectedMentee?.name} />;
+      return <RichList items={state} closeOpenItem={selectedReq?.name} />;
     else {
       return <p>No requests</p>;
     }

@@ -3,7 +3,8 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 
-const style = <style>{`
+const style = (
+  <style>{`
   .item-content-enter {
     opacity: 0;
   }
@@ -26,8 +27,9 @@ const style = <style>{`
     overflow:hidden;
   }
 `}</style>
+);
 
-  const PADDING_BOTTOM  =30;
+const PADDING_BOTTOM = 30;
 
 const RichItem = ({
   id,
@@ -63,19 +65,19 @@ const RichItem = ({
         timeout={350}
         classNames="item-content"
         unmountOnExit
-        onEnter={(node) => {
+        onEnter={node => {
           contentElHeight.current = node.offsetHeight;
           node.style.height = 0;
         }}
-        onEntering={({style}) =>
+        onEntering={({ style }) =>
           (style.height = contentElHeight.current + PADDING_BOTTOM + 'px')
         }
-        onEntered={({style}) =>
+        onEntered={({ style }) =>
           (style.height = contentElHeight.current + PADDING_BOTTOM + 'px')
         }
-        onExit={({style}) => (style.height = 0)}
+        onExit={({ style }) => (style.height = 0)}
       >
-        <div >{children}</div>
+        <div>{children}</div>
       </CSSTransition>
     </Root>
   );
@@ -100,7 +102,7 @@ const themeColours = {
   secondary: '#F3CA3E',
   danger: '#FF5F58',
   checked: '#69d579',
-  disabled: 'e0e0e0'
+  disabled: 'e0e0e0',
 };
 
 // Styled Components
