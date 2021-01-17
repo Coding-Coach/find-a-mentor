@@ -1,4 +1,4 @@
-import Body from './style';
+import BodyStyle from './style';
 import React, { useRef, useState } from 'react';
 import { Modal } from '../Modal';
 import PropTypes from 'prop-types';
@@ -9,6 +9,13 @@ import styled from 'styled-components';
 const Spinner = styled(Loader)`
   position: absolute;
   top: 25%;
+`;
+
+const Body = styled(BodyStyle)`
+  justify-content: flex-start;
+  p {
+    text-align: left;
+  }
 `;
 
 const DeclinedModal = ({ username, onSave, onClose, closeModal }) => {

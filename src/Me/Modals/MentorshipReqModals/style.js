@@ -14,8 +14,12 @@ export default styled.div`
     text-align: center;
   }
 
-  label > b {
+  label {
     display: block;
-    margin-bottom: 7px;
+    margin-top: 32px;
+    > b {
+      display: block;
+      margin-bottom: 7px;
+    }
   }
 `;

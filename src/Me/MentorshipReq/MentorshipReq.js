@@ -11,7 +11,10 @@ import { toast } from 'react-toastify';
 import messages from '../../messages';
 import { getAvatarUrl } from '../../helpers/avatar';
 import { useModal } from '../../context/modalContext/ModalContext';
-import { ApprovedModal, DeclinedModal } from '../Modals/MentorshipReqModals';
+import {
+  MentorApprovedModal as ApprovedModal,
+  DeclinedModal,
+} from '../Modals/MentorshipReqModals';
 
 const Root = styled.div`
   ${({ hasReq }) => hasReq && Content} {

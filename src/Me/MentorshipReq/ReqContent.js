@@ -68,6 +68,13 @@ const ReqContent = ({
   );
 };
 
-ReqContent.propTypes = {};
+ReqContent.propTypes = {
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  message: PropTypes.string.isRequired,
+  background: PropTypes.string.isRequired,
+  expectation: PropTypes.string.isRequired,
+  onAccept: PropTypes.func.isRequired,
+  onDeclined: PropTypes.func.isRequired,
+};
 
 export default ReqContent;

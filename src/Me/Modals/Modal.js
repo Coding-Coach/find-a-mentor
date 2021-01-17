@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import { desktop } from '../styles/shared/devices';
 import { CSSTransition } from 'react-transition-group';
+import { ReactComponent as CloseSvg } from '../../assets/me/close.svg';
 
 const CloseIconButton = styled.button`
   background-color: transparent;
@@ -66,13 +67,9 @@ const ButtonBar = styled.div`
     flex-direction: row;
   }
 `;
-//TODO: Use close icon
-
 const Center = {
   left: '50%',
   top: '50%',
-  //INFO: Taking sidenav into account (75px)
-  transform: 'translate(calc(-50% + 75px/2), -50%)',
   [Footer]: {
     position: 'relative',
     'padding-bottom': '46px',
@@ -88,11 +85,12 @@ const Cover = {
 const ModalContainer = styled.div(props => {
   const style = props.posCenter ? Center : Cover;
   return {
+    fontFamily: 'Lato, sans-serif',
     ...style,
-    position: 'fixed',
-    'background-color': '#fff',
     display: 'flex',
-    'flex-direction': 'column',
+    position: 'fixed',
+    backgroundColor: '#fff',
+    flexDirection: 'column',
   };
 });
 
@@ -106,14 +104,10 @@ const transitionStyle = (
     opacity: 1;
     transition: opacity 250ms, transform 250ms;
     transform: scale(1)
-
   }
   .modal-exit {
-    opacity: 1;
-  }
-  .modal-exit-active {
     opacity: 0;
-    transition: opacity 250ms, transform 250ms;
+    transition: opacity 200ms, transform 200ms ease;
   }
   
 `}</style>
@@ -121,12 +115,19 @@ const transitionStyle = (
 
 const transitionCenter = (
   <style>{`
+  
+  
+    .modal-exit,
     .modal-enter {
-      transform: scale(.8) translate(calc(-50%), -60%)
+      transform: scale(.8) translate(calc(-50%), -60%);
     }
-    .modal-enter-active {
-        transform: translate(calc(-50% + 75px/2), -50%)
-      }
+
+    .modal-enter-active,
+    .modal-enter-done {
+      /** INFO: Taking sidenav into account (75px) **/
+        transform: translate(calc(-50% + 75px/2), -50%);
+        transition-timing-function: cubic-bezier(0.18, 0.89, 0.04, 1.4)
+    }
 
     `}</style>
 );
@@ -152,7 +153,9 @@ export const Modal = ({ closeModal, onSave, title, center, children }) => {
         onExited={closeModal}
       >
         <ModalContainer posCenter={center}>
-          <CloseIconButton onClick={closeModal}>x</CloseIconButton>
+          <CloseIconButton onClick={() => setState(false)}>
+            <CloseSvg />
+          </CloseIconButton>
           <ContentContainer>
             <Title>{title || null}</Title>
             {children}
@@ -164,7 +167,7 @@ export const Modal = ({ closeModal, onSave, title, center, children }) => {
                   Save
                 </Button>
               )}
-              <Button skin="secondary" onClick={closeModal}>
+              <Button skin="secondary" onClick={() => setState(false)}>
                 Close
               </Button>
             </ButtonBar>
