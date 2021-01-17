@@ -35,7 +35,6 @@ const CallToAction = styled.div`
 `;
 
 const ReqContent = ({
-  id,
   message,
   background,
   expectation,
@@ -57,10 +56,10 @@ const ReqContent = ({
         <p>{expectation}</p>
       </Block>
       <CallToAction>
-        <Button skin="secondary" onClick={() => onDeclined(id)}>
+        <Button skin="secondary" onClick={onDeclined}>
           Declined
         </Button>
-        <Button skin="primary" onClick={() => onAccept(id)}>
+        <Button skin="primary" onClick={onAccept}>
           Accept
         </Button>
       </CallToAction>
@@ -69,7 +68,6 @@ const ReqContent = ({
 };
 
 ReqContent.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   message: PropTypes.string.isRequired,
   background: PropTypes.string.isRequired,
   expectation: PropTypes.string.isRequired,

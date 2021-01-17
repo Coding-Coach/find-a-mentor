@@ -25,7 +25,7 @@ describe('MentorshipReq', () => {
   afterEach(cleanup);
 
   it('Fetch and render a list of mentorship requests', async () => {
-    api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData));
+    api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData.data));
     const { findAllByText } = render(<MentorshipReq />);
 
     //FIX: await waitForElementToBeRemoved(() => screen.getByRole('status'));
@@ -37,7 +37,7 @@ describe('MentorshipReq', () => {
     expect(reqEls.length).toBe(3);
   });
   it('Shows appropriate message if there are no mentorship requests', async () => {
-    const promise = Promise.resolve({ ...reqData, data: [] });
+    const promise = Promise.resolve([]);
     api.getMentorshipRequests = jest.fn(() => promise);
     const { getByText } = render(<MentorshipReq />);
 
@@ -47,12 +47,12 @@ describe('MentorshipReq', () => {
   });
 
   it('Show success modal when accepting new mentorship', async () => {
-    api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData));
+    api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData.data));
     const { getByText } = render(<MentorshipReq />);
 
     await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
-    const reqEl = getByText(reqData.data[2].user.name);
+    const reqEl = getByText(reqData.data[2].mentee.name);
 
     fireEvent.click(reqEl);
 
@@ -60,6 +60,6 @@ describe('MentorshipReq', () => {
 
     fireEvent.click(acceptBtnEl);
 
-    screen.getByText('Mentorship Started')
+    screen.getByText('Mentorship Started');
   });
 });

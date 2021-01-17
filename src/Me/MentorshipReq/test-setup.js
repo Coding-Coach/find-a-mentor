@@ -9,7 +9,7 @@ export const reqData = {
   data: [
     {
       id: 123,
-      user: {
+      mentee: {
         id: '001',
         name: 'User 001',
         avatar: 'https://avatars0.githubusercontent.com/u/219207?s=88&v=4',
@@ -24,7 +24,7 @@ export const reqData = {
     },
     {
       id: 456,
-      user: {
+      mentee: {
         id: '002',
         name: 'User 002',
         avatar: 'https://avatars0.githubusercontent.com/u/219207?s=88&v=4',
@@ -40,7 +40,7 @@ export const reqData = {
     },
     {
       id: 789,
-      user: {
+      mentee: {
         id: '003',
         name: 'User 003',
         avatar: 'https://avatars0.githubusercontent.com/u/219207?s=88&v=4',
