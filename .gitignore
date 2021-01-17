@@ -38,3 +38,6 @@ cypress/screenshots
 
 # ESLint
 .eslintcache
+
+#debug
+debug.log
