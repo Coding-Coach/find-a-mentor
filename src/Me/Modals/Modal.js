@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Button from '../components/Button';
 import { desktop } from '../styles/shared/devices';
 import { CSSTransition } from 'react-transition-group';
@@ -67,32 +67,35 @@ const ButtonBar = styled.div`
     flex-direction: row;
   }
 `;
-const Center = {
-  left: '50%',
-  top: '50%',
-  [Footer]: {
-    position: 'relative',
-    'padding-bottom': '46px',
-  },
-};
-const Cover = {
-  height: '100vh',
-  width: '100vw',
-  top: 0,
-  left: 0,
-};
+const Center = css`
+  left: 50%;
+  top: 50%;
+  height: auto;
+  width: auto;
+  ${Footer} {
+    position: relative;
+    padding-bottom: 46px;
+  }
+`;
 
-const ModalContainer = styled.div(props => {
-  const style = props.posCenter ? Center : Cover;
-  return {
-    fontFamily: 'Lato, sans-serif',
-    ...style,
-    display: 'flex',
-    position: 'fixed',
-    backgroundColor: '#fff',
-    flexDirection: 'column',
-  };
-});
+const Cover = css`
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+`;
+
+const ModalContainer = styled.div`
+font-family: 'Lato, sans-serif';
+display: flex;
+position: fixed;
+background-color: #fff;
+flex-direction: column;
+${Cover}
+@media ${desktop} {
+  ${props => (props.posCenter ? Center : Cover)}
+}
+`;
 
 const transitionStyle = (
   <style>{`
@@ -115,21 +118,19 @@ const transitionStyle = (
 
 const transitionCenter = (
   <style>{`
-  
-  
+    @media ${desktop} {
     .modal-exit,
     .modal-enter {
       transform: scale(.8) translate(calc(-50%), -60%);
     }
-
     .modal-enter-active,
     .modal-enter-done {
-      /** INFO: Taking sidenav into account (75px) **/
+      /* INFO: Taking sidenav into account (75px) */
         transform: translate(calc(-50% + 75px/2), -50%);
         transition-timing-function: cubic-bezier(0.18, 0.89, 0.04, 1.4)
+      }
     }
-
-    `}</style>
+  `}</style>
 );
 
 export const Modal = ({ closeModal, onSave, title, center, children }) => {
