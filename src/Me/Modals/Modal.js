@@ -34,7 +34,6 @@ const ContentContainer = styled.div`
 const Title = styled.header`
   width: 100%;
   color: #4f4f4f;
-  font-family: Lato;
   font-size: 28px;
   font-weight: 700;
   line-height: 34px;
@@ -86,7 +85,7 @@ const Cover = css`
 `;
 
 const ModalContainer = styled.div`
-font-family: 'Lato, sans-serif';
+font-family: 'Lato', sans-serif;
 display: flex;
 position: fixed;
 background-color: #fff;
@@ -135,6 +134,13 @@ const transitionCenter = (
 
 export const Modal = ({ closeModal, onSave, title, center, children }) => {
   const [state, setState] = useState(false);
+  const [loadingState, setLoadingState] = useState(false);
+
+  const save = () => {
+    setLoadingState(true);
+    onSave();
+  };
+
   useEffect(() => {
     setState(true);
   }, []);
@@ -150,7 +156,6 @@ export const Modal = ({ closeModal, onSave, title, center, children }) => {
         classNames="modal"
         mountOnEnter
         unmountOnExit
-        // onEnter={() => setShowButton(false)}
         onExited={closeModal}
       >
         <ModalContainer posCenter={center}>
@@ -164,7 +169,7 @@ export const Modal = ({ closeModal, onSave, title, center, children }) => {
           <Footer>
             <ButtonBar>
               {onSave && (
-                <Button skin="primary" onClick={onSave}>
+                <Button skin="primary" onClick={save} isLoading={loadingState}>
                   Save
                 </Button>
               )}

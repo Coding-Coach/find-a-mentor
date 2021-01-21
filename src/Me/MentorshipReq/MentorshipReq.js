@@ -41,7 +41,7 @@ const MentorshipReq = () => {
     if (status !== PREV_STATUS[STATUS.viewed]) return;
     await updateReqStatus({ id, userId }, STATUS.viewed);
   };
-  const acceptReq = async ({ id, status, name: username }) => {
+  const acceptReq = async ({ id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.approved]) return;
 
     setLoadingState(true);
@@ -50,7 +50,7 @@ const MentorshipReq = () => {
     setSelectedReq({ id, username });
     openApprovedModal();
   };
-  const onDeclinedReq = ({ id, status, name: username }) => {
+  const onDeclinedReq = ({ id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.rejected]) return;
 
     setSelectedReq({ id, username });
@@ -58,8 +58,8 @@ const MentorshipReq = () => {
   };
 
   const declineReq = async msg => {
-    //    await updateReqStatus({ id, userId }, STATUS.rejected);
-    // closeDeclinedModal();
+    await updateReqStatus({ id: selectedReq.id, userId }, STATUS.rejected, msg);
+    closeDeclinedModal();
   };
 
   const setMentorshipReq = async () => {
@@ -132,9 +132,9 @@ const MentorshipReq = () => {
     setMentorshipReq();
   }, [userId]);
 
-  const render = () => {
-    if (hasReq)
-      return (
+  return (
+    <Root hasReq={hasReq} data-testid="mentorship-req">
+      <Card title="Mentorship Requests">
         <UsersList
           requests={state}
           onAccept={acceptReq}
@@ -143,15 +143,7 @@ const MentorshipReq = () => {
           onSelect={markViewed}
           closeOpenItem={selectedReq?.id}
         />
-      );
-    else {
-      return <p>No requests</p>;
-    }
-  };
-
-  return (
-    <Root hasReq={hasReq} data-testid="mentorship-req">
-      <Card title="Mentorship Requests">{render()}</Card>
+      </Card>
     </Root>
   );
 };

@@ -17,7 +17,7 @@ const SrOnly = styled.span`
 export function Loader({ className }) {
   return (
     <i className={`loader fa fa-spinner fa-spin ${className}`} role="status">
-      <SrOnly>Loading...</SrOnly>
+      <SrOnly data-testid="loading">Loading...</SrOnly>
     </i>
   );
 }

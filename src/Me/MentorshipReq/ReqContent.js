@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import { STATUS } from '../../helpers/mentorship';
-import { Loader } from '../../components/Loader';
 
 const Block = styled.div`
   & + div {
@@ -65,8 +64,8 @@ const ReqContent = ({
           <Button skin="secondary" onClick={onDeclined}>
             Declined
           </Button>
-          <Button skin="primary" onClick={onAccept}>
-            {isLoading ? <Loader /> : 'Accept'}
+          <Button skin="primary" onClick={onAccept} isLoading={isLoading}>
+            Accept
           </Button>
         </CallToAction>
       )}

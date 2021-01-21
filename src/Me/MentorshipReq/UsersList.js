@@ -29,7 +29,7 @@ const renderList = ({
   onDeclined,
   isLoading,
 }) =>
-  requests.map(
+  requests?.map(
     ({
       id,
       status,
@@ -41,6 +41,7 @@ const renderList = ({
       ...props
     }) => {
       const user = isMine ? props.mentor : props.mentee;
+      const username = user.name;
       return (
         <RichItem
           id={id}
@@ -62,8 +63,8 @@ const renderList = ({
             status={status}
             isLoading={isLoading}
             {...{ message, background, expectation }}
-            onAccept={() => onAccept({ id, status, user })}
-            onDeclined={() => onDeclined({ id, status, user })}
+            onAccept={() => onAccept({ id, status, username })}
+            onDeclined={() => onDeclined({ id, status, username })}
           />
         </RichItem>
       );

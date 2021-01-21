@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 import { desktop } from '../../styles/shared/devices';
+import { Loader } from '../../../components/Loader';
 
 /**
  * @callback OnClick
  * @typedef {('primary' | 'secondary' | 'danger')} Skin
- * @typedef {Pick<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'onClick' | 'id' | 'disabled' | 'type' | 'name'>} ButtonProps
+ * @typedef {boolean} IsLoading
+ * @typedef {Pick<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'onClick' | 'id' | 'disabled' | isLoading 'type' | 'name'>} ButtonProps
  */
 
 const StyledButton = styled.button`
@@ -68,18 +70,22 @@ const getComponentBySkin = skin => {
  * @param {{
  *  skin: Skin,
  *  onClick: OnClick,
+ *  isLoading: IsLoading,
  * } & ButtonProps
  * } params
  */
-export const Button = ({ skin = 'primary', ...props }) => {
+export const Button = ({ skin = 'primary', isLoading, children, ...props }) => {
   const ThemedButton = getComponentBySkin(skin);
-  return <ThemedButton {...props} />;
+  return (
+    <ThemedButton {...props}>{isLoading ? <Loader /> : children}</ThemedButton>
+  );
 };
 
 Button.propTypes = {
   skin: PropTypes.oneOf(['primary', 'secondary', 'danger']),
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   disabled: PropTypes.bool,
+  isLoading: PropTypes.bool,
   id: PropTypes.string,
   name: PropTypes.string,
   onClick: PropTypes.func.isRequired,
