@@ -10,36 +10,22 @@ const Style = {
   `,
 };
 
-export const RichList = ({ items, closeOpenItem }) => {
+export const RichList = ({ render, closeOpenItem }) => {
   const [state, setState] = useState('');
-  const renderItems = ({ id, ...item }) => (
-    <i key={id}>
-      <RichItem
-        {...item}
-        onClick={() => {
-          item.children && setState(state === id ? '' : id);
-        }}
-        expand={state === id}
-      >
-        {item.children}
-      </RichItem>
-    </i>
-  );
 
   useEffect(() => {
     if (closeOpenItem) setState('');
   }, [closeOpenItem]);
 
-  return <Style.List>{items?.map(renderItems)}</Style.List>;
+  const onSelect = id => {
+    setState(state === id ? '' : id);
+  };
+
+  return <Style.List>{render({ onSelect, expandId: state })}</Style.List>;
 };
 
 RichList.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      ...RichItem.propTypes,
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    })
-  ),
+  render: PropTypes.func.isRequired,
   closeOpenItem: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.bool,

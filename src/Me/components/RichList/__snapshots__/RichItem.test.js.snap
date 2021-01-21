@@ -20,6 +20,7 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
 
 .c5 {
   height: 80px;
+  padding: 0 1px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -83,7 +84,7 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
 .c10 {
   color: #fff;
   border-radius: 3px;
-  padding: 1px 6px 0;
+  padding: 1px 6px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -97,7 +98,8 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
 .c1 {
   position: relative;
   padding: 0 1rem;
-  font-family: Lato;
+  font-family: Lato,system-ui;
+  font-style: normal;
 }
 
 .c1:hover .c3 {
@@ -117,6 +119,31 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   <div
     class="c0 c1"
   >
+    <style>
+      
+  .item-content-enter {
+    opacity: 0;
+  }
+  .item-content-exit,
+  .item-content-exit-active,
+  .item-content-exit-done {
+    opacity: 0;
+    height: 0;
+    overflow:hidden;
+  }
+  .item-content-enter,
+  .item-content-exit,
+  .item-content-enter-active {
+    transition: height 350ms ease, opacity 260ms;
+  }
+  .item-content-enter-active,
+  .item-content-enter-done {
+    opacity: 1;
+    padding: 0 1px;
+    overflow:hidden;
+  }
+
+    </style>
     <div
       class="c2 c3 c4 c5"
     >
@@ -176,6 +203,7 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
 
 .c5 {
   height: 80px;
+  padding: 0 1px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -239,7 +267,7 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
 .c10 {
   color: #fff;
   border-radius: 3px;
-  padding: 1px 6px 0;
+  padding: 1px 6px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -253,7 +281,8 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
 .c1 {
   position: relative;
   padding: 0 1rem;
-  font-family: Lato;
+  font-family: Lato,system-ui;
+  font-style: normal;
 }
 
 .c1:hover .c3 {
@@ -273,6 +302,31 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   <div
     class="c0 c1"
   >
+    <style>
+      
+  .item-content-enter {
+    opacity: 0;
+  }
+  .item-content-exit,
+  .item-content-exit-active,
+  .item-content-exit-done {
+    opacity: 0;
+    height: 0;
+    overflow:hidden;
+  }
+  .item-content-enter,
+  .item-content-exit,
+  .item-content-enter-active {
+    transition: height 350ms ease, opacity 260ms;
+  }
+  .item-content-enter-active,
+  .item-content-enter-done {
+    opacity: 1;
+    padding: 0 1px;
+    overflow:hidden;
+  }
+
+    </style>
     <div
       class="c2 c3 c4 c5"
     >
@@ -332,6 +386,7 @@ exports[`RichItem component renders secondary tag when specified with theme prop
 
 .c5 {
   height: 80px;
+  padding: 0 1px;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -395,7 +450,7 @@ exports[`RichItem component renders secondary tag when specified with theme prop
 .c10 {
   color: #fff;
   border-radius: 3px;
-  padding: 1px 6px 0;
+  padding: 1px 6px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -409,7 +464,8 @@ exports[`RichItem component renders secondary tag when specified with theme prop
 .c1 {
   position: relative;
   padding: 0 1rem;
-  font-family: Lato;
+  font-family: Lato,system-ui;
+  font-style: normal;
 }
 
 .c1:hover .c3 {
@@ -429,6 +485,31 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   <div
     class="c0 c1"
   >
+    <style>
+      
+  .item-content-enter {
+    opacity: 0;
+  }
+  .item-content-exit,
+  .item-content-exit-active,
+  .item-content-exit-done {
+    opacity: 0;
+    height: 0;
+    overflow:hidden;
+  }
+  .item-content-enter,
+  .item-content-exit,
+  .item-content-enter-active {
+    transition: height 350ms ease, opacity 260ms;
+  }
+  .item-content-enter-active,
+  .item-content-enter-done {
+    opacity: 1;
+    padding: 0 1px;
+    overflow:hidden;
+  }
+
+    </style>
     <div
       class="c2 c3 c4 c5"
     >

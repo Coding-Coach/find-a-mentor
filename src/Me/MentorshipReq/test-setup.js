@@ -2,8 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { UserProvider } from '../../context/userContext/UserContext';
 import { ModalHookProvider } from '../../context/modalContext/ModalContext';
-import * as api from '../../api';
-
+import { STATUS } from './MentorshipReq';
 export const reqData = {
   success: true,
   data: [
@@ -15,7 +14,7 @@ export const reqData = {
         avatar: 'https://avatars0.githubusercontent.com/u/219207?s=88&v=4',
         title: 'J web dev',
       },
-      status: 'Approved',
+      status: STATUS.approved,
       date: new Date(),
       message: 'hi',
       background: 'yes',
@@ -30,7 +29,7 @@ export const reqData = {
         avatar: 'https://avatars0.githubusercontent.com/u/219207?s=88&v=4',
         title: 'J web dev',
       },
-      status: 'Rejected',
+      status: STATUS.rejected,
       date: new Date('Tue Dec 29 2020 23:18:59'),
       message: `Hi, I’m John Doe and I’m looking for a mentor who
         can help me find my first job as a software developer. I’ve been learning JavaScript for the last 6 months and I think I’m ready.`,
@@ -46,12 +45,27 @@ export const reqData = {
         avatar: 'https://avatars0.githubusercontent.com/u/219207?s=88&v=4',
         title: 'J web dev',
       },
-      status: 'Pending',
+      status: STATUS.new,
       date: new Date('Tue Oct 29 2019 23:18:59'),
       message: `Hi, I’m John Doe and I’m looking for a mentor who
         can help me find my first job as a software developer. I’ve been learning JavaScript for the last 6 months and I think I’m ready.`,
       background: `I’ve been working as an accountant for the last 2 years, but ever since I wrote my first line of code I enjoyed so much.`,
       expectation: `Would be nice to have weekly meetings, but I know you might be busy so please let me know if this works for you.`,
+      isMine: false,
+    },
+    {
+      id: 1011,
+      mentee: {
+        id: '004',
+        name: 'User 004',
+        avatar: 'https://avatars0.githubusercontent.com/u/219207?s=88&v=4',
+        title: 'J web dev',
+      },
+      status: STATUS.cancelled,
+      date: new Date('Tue Oct 29 2019 23:18:59'),
+      message: `Hi, I’m John Doe...`,
+      background: `I’ve been working as...`,
+      expectation: `Would be nice to ...`,
       isMine: false,
     },
   ],

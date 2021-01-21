@@ -229,14 +229,15 @@ export async function rejectApplication(mentor, reason) {
   return res.success;
 }
 
-export async function applyForMentorship(mentorId, data) {
+export async function applyForMentorship(mentorId, payload) {
   const res = await makeApiCall(
     `${paths.MENTORSHIP}/${mentorId}/apply`,
-    data,
+    payload,
     'POST'
   );
   return res.data;
 }
+
 export async function getMentorshipRequests(userId, mock) {
   //TODO Don't forget to remove
   if (mock) {
@@ -254,4 +255,13 @@ export async function getMentorshipRequests(userId, mock) {
     'GET'
   );
   return res.data;
+}
+
+export async function updateMentorshipReqStatus(reqId, userId, payload) {
+  const res = await makeApiCall(
+    `${paths.MENTORSHIP}/${userId}/requests/${reqId}`,
+    payload,
+    'PUT'
+  );
+  return res;
 }

@@ -1,4 +1,8 @@
-import { fireEvent, render } from '@testing-library/react';
+import {
+  fireEvent,
+  render,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import React from 'react';
 import RichList from '.';
 
@@ -29,6 +33,8 @@ const items = [
   },
 ];
 
+// jest.useFakeTimers()
+
 describe('RichList component', () => {
   it('Should render 2 items', async () => {
     const { findAllByText } = render(<RichList items={items} />);
@@ -38,7 +44,7 @@ describe('RichList component', () => {
     expect(itemsEl.length).toBe(2);
   });
 
-  it('Should show/hide children content on item click', () => {
+  it('Should show/hide children content on item click', async () => {
     const { id, title } = items[0];
     const { getByText, queryByText } = render(<RichList items={items} />);
     const titleEl = getByText(title);
@@ -48,6 +54,8 @@ describe('RichList component', () => {
     getByText(id);
 
     fireEvent.click(titleEl);
+
+    await waitForElementToBeRemoved(() => queryByText(id));
 
     expect(queryByText(id)).toBeFalsy();
   });

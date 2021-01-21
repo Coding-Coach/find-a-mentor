@@ -11,55 +11,88 @@ import {
   userData,
   debug,
 } from './test-setup';
-import MentorshipReq from './MentorshipReq';
+import MentorshipReq, { STATUS } from './MentorshipReq';
 import * as api from '../../api';
 import messages from '../../messages';
 
+function mockMentorshipApi({ getRes, statusRes }) {
+  api.getMentorshipRequests = jest.fn(() => Promise.resolve(getRes));
+  api.updateMentorshipReqStatus = jest.fn(() =>
+    Promise.resolve({ success: statusRes })
+  );
+}
+
 describe('MentorshipReq', () => {
   jest.mock('../../api/index.js');
-
   beforeEach(() => {
     api.getCurrentUser = jest.fn(() => Promise.resolve(userData));
   });
 
-  afterEach(cleanup);
+  describe('MentorshipReq List', () => {
+    afterEach(cleanup);
 
-  it('Fetch and render a list of mentorship requests', async () => {
-    api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData.data));
-    const { findAllByText } = render(<MentorshipReq />);
+    it('Fetch and render a list of mentorship requests', async () => {
+      mockMentorshipApi({ getRes: reqData.data });
+      const { findAllByText } = render(<MentorshipReq />);
 
-    //FIX: await waitForElementToBeRemoved(() => screen.getByRole('status'));
+      //FIX: await waitForElementToBeRemoved(() => screen.getByRole('status'));
 
-    await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
+      await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
-    const reqEls = await findAllByText(/User.*/);
+      const reqEls = await findAllByText(/User.*/);
 
-    expect(reqEls.length).toBe(3);
+      expect(reqEls.length).toBe(4);
+    });
+    it('Shows appropriate message if there are no mentorship requests', async () => {
+      const promise = Promise.resolve([]);
+      api.getMentorshipRequests = jest.fn(() => promise);
+      const { getByText } = render(<MentorshipReq />);
+
+      await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
+
+      getByText(/No requests/);
+    });
+
+    it(`Change request status to 'Viewed' on opening first time inspection`, async () => {
+      mockMentorshipApi({ getRes: reqData.data, statusRes: true });
+      const { getByText } = render(<MentorshipReq />);
+
+      await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
+
+      let statusEl = getByText(reqData.data[2].status);
+
+      await act(async () => {
+        fireEvent.click(statusEl);
+      });
+
+      statusEl = getByText(STATUS.viewed);
+
+      expect(statusEl).toBeInTheDocument();
+    });
   });
-  it('Shows appropriate message if there are no mentorship requests', async () => {
-    const promise = Promise.resolve([]);
-    api.getMentorshipRequests = jest.fn(() => promise);
-    const { getByText } = render(<MentorshipReq />);
 
-    await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
+  describe('MentorshipReq Modal', () => {
+    it('Show success modal when accepting new mentorship', async () => {
+      mockMentorshipApi({ getRes: reqData.data, statusRes: true });
+      const { getByText } = render(<MentorshipReq />);
 
-    getByText(/No requests/);
-  });
+      await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
-  it('Show success modal when accepting new mentorship', async () => {
-    api.getMentorshipRequests = jest.fn(() => Promise.resolve(reqData.data));
-    const { getByText } = render(<MentorshipReq />);
+      const reqEl = getByText(reqData.data[2].mentee.name);
 
-    await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
+      fireEvent.click(reqEl);
 
-    const reqEl = getByText(reqData.data[2].mentee.name);
+      const acceptBtnEl = getByText('Accept');
 
-    fireEvent.click(reqEl);
+      fireEvent.click(acceptBtnEl);
 
-    const acceptBtnEl = getByText('Accept');
+      screen.getByText('Mentorship Started');
 
-    fireEvent.click(acceptBtnEl);
+      fireEvent.click(screen.getByText('Close'));
 
-    screen.getByText('Mentorship Started');
+      await waitForElementToBeRemoved(() =>
+        screen.getByText('Mentorship Started')
+      );
+    });
   });
 });

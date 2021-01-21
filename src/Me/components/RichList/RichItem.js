@@ -91,7 +91,13 @@ RichItem.propTypes = {
   info: PropTypes.string,
   tag: PropTypes.shape({
     value: PropTypes.string.isRequired,
-    theme: PropTypes.oneOf(['primary', 'secondary', 'danger']),
+    theme: PropTypes.oneOf([
+      'primary',
+      'secondary',
+      'danger',
+      'checked',
+      'disabled',
+    ]),
   }),
   onClick: PropTypes.func,
   expand: PropTypes.bool,

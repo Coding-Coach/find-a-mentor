@@ -40,6 +40,7 @@ const ReqContent = ({
   expectation,
   onAccept,
   onDeclined,
+  isLoading,
 }) => {
   return (
     <div data-testid="request-content">
@@ -60,7 +61,7 @@ const ReqContent = ({
           Declined
         </Button>
         <Button skin="primary" onClick={onAccept}>
-          Accept
+          {isLoading ? 'loading' : 'Accept'}
         </Button>
       </CallToAction>
     </div>
