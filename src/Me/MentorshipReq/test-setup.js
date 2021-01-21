@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { UserProvider } from '../../context/userContext/UserContext';
 import { ModalHookProvider } from '../../context/modalContext/ModalContext';
-import { STATUS } from './MentorshipReq';
+import { STATUS } from '../../helpers/mentorship';
 export const reqData = {
   success: true,
   data: [

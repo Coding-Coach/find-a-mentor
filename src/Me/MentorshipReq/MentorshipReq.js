@@ -4,16 +4,11 @@ import {
   getCurrentUser,
   updateMentorshipReqStatus,
 } from '../../api';
-import RichList from '../components/RichList';
 import Card, { Content } from '../components/Card';
 import styled from 'styled-components';
 import UserContext from '../../context/userContext/UserContext';
-import { ReqContent, UsersList } from './';
-import { Loader } from '../../components/Loader';
-import { formatRequestTime } from '../../helpers/mentorship';
-import { toast } from 'react-toastify';
-import messages from '../../messages';
-import { getAvatarUrl } from '../../helpers/avatar';
+import { UsersList } from './';
+import { STATUS } from '../../helpers/mentorship';
 import { useModal } from '../../context/modalContext/ModalContext';
 import {
   MentorApprovedModal as ApprovedModal,
@@ -27,26 +22,10 @@ const Root = styled.div`
   }
 `;
 
-const Spinner = styled(Loader)`
-  position: absolute;
-  left: calc(50% - 10px);
-`;
-export const STATUS = {};
-const STATUS_THEME = {
-  Approved: 'primary',
-  Cancelled: 'disabled',
-  New: 'secondary',
-  Rejected: 'danger',
-  Viewed: 'checked',
-};
-
-Object.keys(STATUS_THEME).forEach(key => (STATUS[key.toLowerCase()] = key));
-
-export const NEXT_STATUS = {
-  ...STATUS,
-  New: 'Viewed',
-  // Approved: 'Cancelled',
-  Viewed: null,
+const PREV_STATUS = {
+  [STATUS.viewed]: STATUS.new,
+  [STATUS.approved]: STATUS.viewed,
+  [STATUS.rejected]: STATUS.viewed,
 };
 
 const MentorshipReq = () => {
@@ -55,24 +34,31 @@ const MentorshipReq = () => {
   const { currentUser, updateUser } = useContext(UserContext);
   const userId = currentUser?._id;
   const hasReq = state?.length > 0;
-  // const isLoading = !state;
   const [loadingState, setLoadingState] = useState(!state);
   const isMount = useRef(true);
 
-  const acceptReq = async ({ id, name: username }) => {
+  const markViewed = async ({ id, status }) => {
+    if (status !== PREV_STATUS[STATUS.viewed]) return;
+    await updateReqStatus({ id, userId }, STATUS.viewed);
+  };
+  const acceptReq = async ({ id, status, name: username }) => {
+    if (status !== PREV_STATUS[STATUS.approved]) return;
+
     setLoadingState(true);
-    await updateReqStatus({ id, userId, status: STATUS.approved });
+    await updateReqStatus({ id, userId }, STATUS.approved);
     setLoadingState(false);
-    setSelectedReq({ username });
+    setSelectedReq({ id, username });
     openApprovedModal();
   };
-  const onDeclinedReq = (id, { name: username }) => {
+  const onDeclinedReq = ({ id, status, name: username }) => {
+    if (status !== PREV_STATUS[STATUS.rejected]) return;
+
     setSelectedReq({ id, username });
     openDeclinedModal();
   };
 
   const declineReq = async msg => {
-    //await
+    //    await updateReqStatus({ id, userId }, STATUS.rejected);
     // closeDeclinedModal();
   };
 
@@ -81,22 +67,17 @@ const MentorshipReq = () => {
 
     if (isMount.current) {
       updateUser({ ...currentUser, mentorshipReq });
-      // setState(mapData(mentorshipReq));
       setState(mentorshipReq);
       setLoadingState(false);
     }
   };
 
-  const updateReqStatus = async ({ id, status, userId }, reason) => {
-    console.log(id, status);
-    // const nextStatus = NEXT_STATUS[status];
-    if (status === STATUS.viewed) return;
-
+  const updateReqStatus = async ({ id, userId }, nextStatus, reason) => {
     const { success, mentorship } = await updateMentorshipReqStatus(
       id,
       userId,
       {
-        status: status,
+        status: nextStatus,
         reason,
       }
     );
@@ -152,8 +133,6 @@ const MentorshipReq = () => {
   }, [userId]);
 
   const render = () => {
-    if (!hasReq && loadingState) return <Spinner />;
-
     if (hasReq)
       return (
         <UsersList
@@ -161,8 +140,8 @@ const MentorshipReq = () => {
           onAccept={acceptReq}
           onDeclined={onDeclinedReq}
           isLoading={loadingState}
-          onSelect={updateReqStatus}
-          closeOpenItem={selectedReq?.username}
+          onSelect={markViewed}
+          closeOpenItem={selectedReq?.id}
         />
       );
     else {

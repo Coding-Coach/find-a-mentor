@@ -10,3 +10,11 @@ export function formatRequestTime(timestamp) {
 
   return `${Math.floor(time / 30)} Months Ago`;
 }
+
+export const STATUS = {
+  approved: 'Approved',
+  cancelled: 'Cancelled',
+  new: 'New',
+  rejected: 'Rejected',
+  viewed: 'Viewed',
+};

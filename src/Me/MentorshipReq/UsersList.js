@@ -6,6 +6,7 @@ import { formatRequestTime } from '../../helpers/mentorship';
 import { RichList, RichItem } from '../components/RichList';
 import { Loader } from '../../components/Loader';
 import styled from 'styled-components';
+import { STATUS } from '../../helpers/mentorship';
 
 const Spinner = styled(Loader)`
   position: absolute;
@@ -13,11 +14,11 @@ const Spinner = styled(Loader)`
 `;
 
 const STATUS_THEME = {
-  Approved: 'primary',
-  Cancelled: 'disabled',
-  New: 'secondary',
-  Rejected: 'danger',
-  Viewed: 'checked',
+  [STATUS.approved]: 'primary',
+  [STATUS.cancelled]: 'disabled',
+  [STATUS.new]: 'secondary',
+  [STATUS.rejected]: 'danger',
+  [STATUS.viewed]: 'checked',
 };
 
 const renderList = ({
@@ -58,10 +59,11 @@ const renderList = ({
           info={formatRequestTime(Date.parse(date))}
         >
           <ReqContent
+            status={status}
             isLoading={isLoading}
             {...{ message, background, expectation }}
-            onAccept={() => onAccept({ id, user })}
-            onDeclined={() => onDeclined({ id, user })}
+            onAccept={() => onAccept({ id, status, user })}
+            onDeclined={() => onDeclined({ id, status, user })}
           />
         </RichItem>
       );
@@ -69,6 +71,7 @@ const renderList = ({
   );
 
 const UsersList = ({ isLoading, closeOpenItem, ...props }) => {
+  if (!isLoading && !(props.requests?.length > 0)) return <p>No requests</p>;
   return (
     <>
       {isLoading && <Spinner />}

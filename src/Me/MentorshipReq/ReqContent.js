@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from '../components/Button';
+import { STATUS } from '../../helpers/mentorship';
+import { Loader } from '../../components/Loader';
 
 const Block = styled.div`
   & + div {
@@ -38,10 +40,12 @@ const ReqContent = ({
   message,
   background,
   expectation,
+  status,
   onAccept,
   onDeclined,
   isLoading,
 }) => {
+  const hideBtns = [STATUS.approved, STATUS.rejected].includes(status);
   return (
     <div data-testid="request-content">
       <Block>
@@ -56,14 +60,16 @@ const ReqContent = ({
         <h4>Expectations</h4>
         <p>{expectation}</p>
       </Block>
-      <CallToAction>
-        <Button skin="secondary" onClick={onDeclined}>
-          Declined
-        </Button>
-        <Button skin="primary" onClick={onAccept}>
-          {isLoading ? 'loading' : 'Accept'}
-        </Button>
-      </CallToAction>
+      {hideBtns ? null : (
+        <CallToAction>
+          <Button skin="secondary" onClick={onDeclined}>
+            Declined
+          </Button>
+          <Button skin="primary" onClick={onAccept}>
+            {isLoading ? <Loader /> : 'Accept'}
+          </Button>
+        </CallToAction>
+      )}
     </div>
   );
 };
