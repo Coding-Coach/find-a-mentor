@@ -143,17 +143,23 @@ const Titles = styled(ItemCol)`
 const ItemAvatar = styled.div`
   margin-right: 20px;
   user-select: none;
-
+  width: 45px;
+  overflow: hidden;
   img {
     height: 45px;
+    width: 45px;
     border-radius: 50%;
   }
 `;
 
 const Title = styled.h5`
+  width: 94px;
   margin: 0 10px 0 0;
   font-size: 14px;
   font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Subtitle = styled(Title)`
@@ -166,6 +172,7 @@ const Info = styled.div`
 `;
 
 const Tag = styled.div`
+  width: 46px;
   color: #fff;
   border-radius: 3px;
   padding: 1px 6px;
