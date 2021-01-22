@@ -238,17 +238,7 @@ export async function applyForMentorship(mentorId, payload) {
   return res.data;
 }
 
-export async function getMentorshipRequests(userId, mock) {
-  //TODO Don't forget to remove
-  if (mock) {
-    const promise = new Promise(res => {
-      setTimeout(() => {
-        res(reqData.data);
-      }, 1000);
-    });
-    return promise;
-  }
-
+export async function getMentorshipRequests(userId) {
   const res = await makeApiCall(
     `${paths.MENTORSHIP}/${userId}/requests`,
     null,
