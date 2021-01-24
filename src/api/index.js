@@ -7,6 +7,7 @@ import * as Sentry from '@sentry/browser';
 import { reqData } from '../Me/MentorshipReq/test-setup';
 const API_ERROR_TOAST_ID = 'api-error-toast-id';
 const USER_LOCAL_KEY = 'user';
+const USER_MENTORSHIP_REQUEST = 'mentorship-request';
 
 export const paths = {
   MENTORS: '/mentors',
@@ -229,25 +230,31 @@ export async function rejectApplication(mentor, reason) {
   return res.success;
 }
 
-export async function applyForMentorship(mentorId, data) {
+export async function applyForMentorship(
+  mentor,
+  { myBackground, myExpectations, message }
+) {
+  const payload = {
+    myBackground,
+    myExpectations,
+    message,
+  };
   const res = await makeApiCall(
-    `${paths.MENTORSHIP}/${mentorId}/apply`,
-    data,
+    `${paths.MENTORSHIP}/${mentor._id}/apply`,
+    payload,
     'POST'
   );
-  return res.data;
-}
-export async function getMentorshipRequests(userId, mock) {
-  //TODO Don't forget to remove
-  if (mock) {
-    const promise = new Promise(res => {
-      setTimeout(() => {
-        res(reqData.data);
-      }, 1000);
-    });
-    return promise;
+  if (res.success) {
+    localStorage.setItem(USER_MENTORSHIP_REQUEST, JSON.stringify(payload));
   }
+  return res.success;
+}
 
+export function getMentorshipRequest() {
+  return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
+}
+
+export async function getMyMentorshipApplication(userId, mock) {
   const res = await makeApiCall(
     `${paths.MENTORSHIP}/${userId}/requests`,
     null,

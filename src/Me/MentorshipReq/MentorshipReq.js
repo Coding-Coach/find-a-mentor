@@ -5,7 +5,7 @@ import React, {
   useState,
   useContext,
 } from 'react';
-import { getMentorshipRequests, getCurrentUser } from '../../api';
+import { getMyMentorshipApplication, getCurrentUser } from '../../api';
 import RichList from '../components/RichList';
 import Card, { Content } from '../components/Card';
 import styled from 'styled-components';
@@ -15,7 +15,7 @@ import { Loader } from '../../components/Loader';
 import { formatRequestTime } from '../../helpers/mentorship';
 import { toast } from 'react-toastify';
 import messages from '../../messages';
-import {getAvatarUrl} from '../../helpers/avatar';
+import { getAvatarUrl } from '../../helpers/avatar';
 
 const Root = styled.div`
   ${({ hasReq }) => hasReq && Content} {
@@ -53,34 +53,45 @@ const MentorshipReq = () => {
   };
 
   const mapData = (res = []) =>
-    res.map(({ id, status, date, message, background, expectation, isMine, ...data }) => {
-      const user = isMine ? data.mentor : data.mentee;
+    res.map(
+      ({
+        id,
+        status,
+        date,
+        message,
+        background,
+        expectation,
+        isMine,
+        ...data
+      }) => {
+        const user = isMine ? data.mentor : data.mentee;
 
-      return {
-        id: id,
-        avatar: getAvatarUrl(user.avatar),
-        title: user.name,
-        subtitle: user.title,
-        tag: {
-          value: status,
-          theme: STATUS_THEME[status],
-        },
-        info: formatRequestTime(Date.parse(date)),
-        children: message && background && expectation && (
-          <RequestContent
-            {...{ message, background, expectation }}
-            onAccept={acceptReq}
-            onDeclined={declinedReq}
-          />
-        ),
+        return {
+          id: id,
+          avatar: getAvatarUrl(user.avatar),
+          title: user.name,
+          subtitle: user.title,
+          tag: {
+            value: status,
+            theme: STATUS_THEME[status],
+          },
+          info: formatRequestTime(Date.parse(date)),
+          children: message && background && expectation && (
+            <RequestContent
+              {...{ message, background, expectation }}
+              onAccept={acceptReq}
+              onDeclined={declinedReq}
+            />
+          ),
+        };
       }
-    });
+    );
 
   const setMentorshipReq = async () => {
     if (hasReq) {
       setState(mapData(currentUser?.mentorshipReq));
     } else {
-      const mentorshipReq = await getMentorshipRequests(userId);
+      const mentorshipReq = await getMyMentorshipApplication(userId);
 
       if (isMount.current) {
         updateUser({ ...currentUser, mentorshipReq });
