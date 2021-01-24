@@ -19,7 +19,7 @@ const Body = styled(BodyStyle)`
 `;
 
 const DeclinedModal = ({ username, onSave, onClose, closeModal }) => {
-  const [loadingState, setLoadingstate] = useState(null);
+  const [loadingState, setLoadingState] = useState(null);
   const msg = useRef(null);
 
   return (
@@ -27,7 +27,7 @@ const DeclinedModal = ({ username, onSave, onClose, closeModal }) => {
       center
       title="Mentorship Declined"
       onSave={() => {
-        setLoadingstate(true);
+        setLoadingState(true);
         onSave(msg.current);
       }}
       closeModal={() => {

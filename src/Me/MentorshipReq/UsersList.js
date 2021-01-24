@@ -83,8 +83,8 @@ const UsersList = ({ isLoading, closeOpenItem, ...props }) => {
             ...props,
             isLoading,
             onSelect: item => {
-              props?.onSelect(item);
-              onSelect(item.id);
+              props?.onSelect && props.onSelect(item);
+              onSelect && onSelect(item.id);
             },
             expandId,
           })

@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  height: 415px;
-  padding: 0 1.8rem;
+  min-height: 415px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   color: #4f4f4f;
+  width: 285px;
+  overflow: hidden;
 
   p {
-    width: 285px;
     text-align: center;
   }
 

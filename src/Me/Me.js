@@ -24,7 +24,8 @@ const Me = ({ match: { url } }) => {
           <Main>
             <Switch>
               <Route path={`${url}/requests`}>
-                <MentorshipReq />
+                <MentorshipReq as="mentor" />
+                {/* <MentorshipReq as="mentee" /> */}
               </Route>
               <Route path={`${url}`}>
                 <Home />

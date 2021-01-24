@@ -16,6 +16,7 @@ import {
 } from '../Modals/MentorshipReqModals';
 
 const Root = styled.div`
+  margin-bottom: 50px;
   ${({ hasReq }) => hasReq && Content} {
     padding-left: 0;
     padding-right: 0;
@@ -28,13 +29,14 @@ const PREV_STATUS = {
   [STATUS.rejected]: STATUS.viewed,
 };
 
-const MentorshipReq = () => {
-  const [state, setState] = useState();
+const MentorshipReq = ({ as }) => {
+  const [mentorState, setMentorState] = useState();
+  const [menteeState, setMenteeState] = useState();
   const [selectedReq, setSelectedReq] = useState(null);
   const { currentUser, updateUser } = useContext(UserContext);
   const userId = currentUser?._id;
-  const hasReq = state?.length > 0;
-  const [loadingState, setLoadingState] = useState(!state);
+  const hasReq = mentorState?.length > 0;
+  const [loadingState, setLoadingState] = useState(!mentorState);
   const isMount = useRef(true);
 
   const markViewed = async ({ id, status }) => {
@@ -62,12 +64,17 @@ const MentorshipReq = () => {
     closeDeclinedModal();
   };
 
-  const setMentorshipReq = async () => {
+  const getMentorshipReq = async () => {
     const mentorshipReq = await getMentorshipRequests(userId);
 
     if (isMount.current) {
-      updateUser({ ...currentUser, mentorshipReq });
-      setState(mentorshipReq);
+      const list = { asMentee: [], asMentor: [] };
+      mentorshipReq.forEach(({ isMine, ...req }) => {
+        if (isMine) list.asMentee.push({ ...req, isMine });
+        else list.asMentor.push({ ...req, isMine });
+      });
+      setMentorState(list.asMentor);
+      setMenteeState(list.asMentee);
       setLoadingState(false);
     }
   };
@@ -84,15 +91,15 @@ const MentorshipReq = () => {
 
     if (!success) return;
 
-    const itemIndex = state.findIndex(s => s.id === id);
-    const item = state[itemIndex];
-    let newState = [...state];
+    const itemIndex = mentorState.findIndex(s => s.id === id);
+    const item = mentorState[itemIndex];
+    let newState = [...mentorState];
     newState.splice(itemIndex, 1, {
       ...item,
       status: mentorship.status,
     });
 
-    setState(newState);
+    setMentorState(newState);
   };
 
   const [openApprovedModal] = useModal(
@@ -129,20 +136,23 @@ const MentorshipReq = () => {
 
   useEffect(() => {
     if (!userId) return;
-    setMentorshipReq();
+    getMentorshipReq();
   }, [userId]);
 
   return (
     <Root hasReq={hasReq} data-testid="mentorship-req">
       <Card title="Mentorship Requests">
         <UsersList
-          requests={state}
+          requests={mentorState}
           onAccept={acceptReq}
           onDeclined={onDeclinedReq}
           isLoading={loadingState}
           onSelect={markViewed}
           closeOpenItem={selectedReq?.id}
         />
+      </Card>
+      <Card title="My Mentorship Requests">
+        <UsersList requests={menteeState} isLoading={loadingState} />
       </Card>
     </Root>
   );
