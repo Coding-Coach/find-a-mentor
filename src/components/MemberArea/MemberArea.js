@@ -13,6 +13,7 @@ import useWindowSize from '../../utils/useWindowSize';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
+import { GlobalStyle } from '../../Me/styles/global';
 
 function MemberArea({ onOpenModal }) {
   const authenticated = auth.isAuthenticated();
@@ -123,6 +124,7 @@ function MemberArea({ onOpenModal }) {
       ) : (
         isDesktop && <LoginNavigation />
       )}
+      <GlobalStyle />
     </div>
   );
 }
@@ -139,6 +141,7 @@ const UserAvatar = styled.div`
   border: 4px solid #69d5b1;
   cursor: pointer;
   position: relative;
+  overflow: hidden;
 `;
 
 const AvatarPlaceHolder = styled.i`

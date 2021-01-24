@@ -11,7 +11,7 @@ import { UsersList } from './';
 import { STATUS } from '../../helpers/mentorship';
 import { useModal } from '../../context/modalContext/ModalContext';
 import {
-  MentorApprovedModal as ApprovedModal,
+  SuccessModal as ApprovedModal,
   DeclinedModal,
 } from '../Modals/MentorshipReqModals';
 

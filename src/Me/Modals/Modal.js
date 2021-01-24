@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import Button from '../components/Button';
+import _Button from '../components/Button';
 import { desktop } from '../styles/shared/devices';
 import { CSSTransition } from 'react-transition-group';
 import { ReactComponent as CloseSvg } from '../../assets/me/close.svg';
+
+const Button = styled(_Button)`
+  margin: 0;
+  & + & {
+    margin-left: 1rem;
+  }
+`;
 
 const CloseIconButton = styled.button`
   background-color: transparent;
@@ -24,7 +31,7 @@ const ContentContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   overflow-y: auto;
-  padding: 20px;
+  // padding: 20px;
 
   @media ${desktop} {
     height: 70%;
@@ -71,6 +78,9 @@ const Center = css`
   top: 50%;
   height: auto;
   width: auto;
+  box-shadow: 0 0 4px 0 rgba(17, 22, 26, 0.16),
+    0 2px 4px 0 rgba(17, 22, 26, 0.08), 0 4px 8px 0 rgba(17, 22, 26, 0.08);
+
   ${Footer} {
     position: relative;
     padding-bottom: 46px;
@@ -85,11 +95,13 @@ const Cover = css`
 `;
 
 const ModalContainer = styled.div`
+z-index: 99;
 font-family: 'Lato', sans-serif;
 display: flex;
 position: fixed;
 background-color: #fff;
 flex-direction: column;
+padding: 0 45px;
 ${Cover}
 @media ${desktop} {
   ${props => (props.posCenter ? Center : Cover)}
@@ -132,14 +144,26 @@ const transitionCenter = (
   `}</style>
 );
 
-export const Modal = ({ closeModal, onSave, title, center, children }) => {
+export const Modal = ({
+  closeModal,
+  onSave,
+  title,
+  submitLabel = 'Save',
+  center,
+  isValid = true,
+  children,
+}) => {
   const [state, setState] = useState(false);
   const [loadingState, setLoadingState] = useState(false);
 
   const save = () => {
-    setLoadingState(true);
+    setLoadingState(isValid);
     onSave();
   };
+
+  useEffect(() => {
+    if (!isValid) setLoadingState(isValid);
+  }, [isValid]);
 
   useEffect(() => {
     setState(true);
@@ -169,8 +193,13 @@ export const Modal = ({ closeModal, onSave, title, center, children }) => {
           <Footer>
             <ButtonBar>
               {onSave && (
-                <Button skin="primary" onClick={save} isLoading={loadingState}>
-                  Save
+                <Button
+                  skin="primary"
+                  onClick={save}
+                  isLoading={loadingState}
+                  disabled={loadingState}
+                >
+                  {submitLabel}
                 </Button>
               )}
               <Button skin="secondary" onClick={() => setState(false)}>

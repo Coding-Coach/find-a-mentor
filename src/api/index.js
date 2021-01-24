@@ -4,9 +4,10 @@ import { toast } from 'react-toastify';
 import messages from '../messages';
 import shuffle from 'lodash/shuffle';
 import * as Sentry from '@sentry/browser';
-import { reqData } from '../Me/MentorshipReq/test-setup';
+
 const API_ERROR_TOAST_ID = 'api-error-toast-id';
 const USER_LOCAL_KEY = 'user';
+const USER_MENTORSHIP_REQUEST = 'mentorship-request';
 
 export const paths = {
   MENTORS: '/mentors',
@@ -229,13 +230,28 @@ export async function rejectApplication(mentor, reason) {
   return res.success;
 }
 
-export async function applyForMentorship(mentorId, payload) {
+export async function applyForMentorship(
+  mentor,
+  { myBackground, myExpectations, message }
+) {
+  const payload = {
+    myBackground,
+    myExpectations,
+    message,
+  };
   const res = await makeApiCall(
-    `${paths.MENTORSHIP}/${mentorId}/apply`,
+    `${paths.MENTORSHIP}/${mentor._id}/apply`,
     payload,
     'POST'
   );
-  return res.data;
+  if (res.success) {
+    localStorage.setItem(USER_MENTORSHIP_REQUEST, JSON.stringify(payload));
+  }
+  return res.success;
+}
+
+export async function getMyMentorshipApplication() {
+  return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
 }
 
 export async function getMentorshipRequests(userId) {
