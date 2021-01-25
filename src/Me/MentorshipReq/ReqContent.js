@@ -43,8 +43,10 @@ const ReqContent = ({
   onAccept,
   onDeclined,
   isLoading,
+  isMine,
 }) => {
-  const hideBtns = [STATUS.approved, STATUS.rejected].includes(status);
+  const hideBtns =
+    isMine || [STATUS.approved, STATUS.rejected].includes(status);
   return (
     <div data-testid="request-content">
       <Block>

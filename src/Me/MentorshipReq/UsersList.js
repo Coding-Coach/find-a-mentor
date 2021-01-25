@@ -62,6 +62,7 @@ const renderList = ({
           <ReqContent
             status={status}
             isLoading={isLoading}
+            isMine={isMine}
             {...{ message, background, expectation }}
             onAccept={() => onAccept({ id, status, username })}
             onDeclined={() => onDeclined({ id, status, username })}
