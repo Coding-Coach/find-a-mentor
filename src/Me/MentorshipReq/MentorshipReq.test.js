@@ -9,16 +9,18 @@ import {
   waitFor,
   waitForElementToBeRemoved,
   userData,
-  debug,
 } from './test-setup';
-import MentorshipReq, { STATUS } from './MentorshipReq';
+import MentorshipReq from './MentorshipReq';
+import { STATUS } from '../../helpers/mentorship';
 import * as api from '../../api';
-import messages from '../../messages';
 
-function mockMentorshipApi({ getRes, statusRes }) {
-  api.getMentorshipRequests = jest.fn(() => Promise.resolve(getRes));
+function mockMentorshipApi({ getReq, updateStatus }) {
+  api.getMentorshipRequests = jest.fn(() => Promise.resolve(getReq));
   api.updateMentorshipReqStatus = jest.fn(() =>
-    Promise.resolve({ success: statusRes })
+    Promise.resolve({
+      success: updateStatus?.success,
+      mentorship: { status: updateStatus.status ?? STATUS.viewed },
+    })
   );
 }
 
@@ -32,7 +34,7 @@ describe('MentorshipReq', () => {
     afterEach(cleanup);
 
     it('Fetch and render a list of mentorship requests', async () => {
-      mockMentorshipApi({ getRes: reqData.data });
+      mockMentorshipApi({ getReq: reqData.data });
       const { findAllByText } = render(<MentorshipReq />);
 
       //FIX: await waitForElementToBeRemoved(() => screen.getByRole('status'));
@@ -44,17 +46,19 @@ describe('MentorshipReq', () => {
       expect(reqEls.length).toBe(4);
     });
     it('Shows appropriate message if there are no mentorship requests', async () => {
-      const promise = Promise.resolve([]);
-      api.getMentorshipRequests = jest.fn(() => promise);
-      const { getByText } = render(<MentorshipReq />);
+      mockMentorshipApi({ getReq: [] });
+      const { getAllByText } = render(<MentorshipReq />);
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
-      getByText(/No requests/);
+      getAllByText(/No requests/);
     });
 
     it(`Change request status to 'Viewed' on opening first time inspection`, async () => {
-      mockMentorshipApi({ getRes: reqData.data, statusRes: true });
+      mockMentorshipApi({
+        getReq: reqData.data,
+        updateStatus: { success: true },
+      });
       const { getByText } = render(<MentorshipReq />);
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
@@ -73,7 +77,10 @@ describe('MentorshipReq', () => {
 
   describe('MentorshipReq Modal', () => {
     it('Show success modal when accepting new mentorship', async () => {
-      mockMentorshipApi({ getRes: reqData.data, statusRes: true });
+      mockMentorshipApi({
+        getReq: reqData.data,
+        updateStatus: { success: true, status: STATUS.viewed },
+      });
       const { getByText } = render(<MentorshipReq />);
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
@@ -86,7 +93,7 @@ describe('MentorshipReq', () => {
 
       fireEvent.click(acceptBtnEl);
 
-      screen.getByText('Mentorship Started');
+      await screen.findByText('Mentorship Started');
 
       fireEvent.click(screen.getByText('Close'));
 

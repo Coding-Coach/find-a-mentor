@@ -45,7 +45,7 @@ export const reqData = {
         avatar: 'https://avatars0.githubusercontent.com/u/219207?s=88&v=4',
         title: 'J web dev',
       },
-      status: STATUS.new,
+      status: STATUS.viewed,
       date: new Date('Tue Oct 29 2019 23:18:59'),
       message: `Hi, I’m John Doe and I’m looking for a mentor who
         can help me find my first job as a software developer. I’ve been learning JavaScript for the last 6 months and I think I’m ready.`,

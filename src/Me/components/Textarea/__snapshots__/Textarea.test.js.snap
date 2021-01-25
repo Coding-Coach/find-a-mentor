@@ -10,7 +10,7 @@ exports[`Textarea component renders properly 1`] = `
   border: 1px solid #bfbfbf;
   padding: 7px 12px 6px 8px;
   color: #4f4f4f;
-  height: 75px;
+  min-height: 75px;
 }
 
 .c0::-webkit-input-placeholder {

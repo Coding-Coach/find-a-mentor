@@ -53,17 +53,24 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: 45px;
+  overflow: hidden;
 }
 
 .c6 img {
   height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
 .c9 {
+  width: 94px;
   margin: 0 10px 0 0;
   font-size: 14px;
   font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c11 {
@@ -82,6 +89,7 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
 }
 
 .c10 {
+  width: 46px;
   color: #fff;
   border-radius: 3px;
   padding: 1px 6px;
@@ -236,17 +244,24 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: 45px;
+  overflow: hidden;
 }
 
 .c6 img {
   height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
 .c9 {
+  width: 94px;
   margin: 0 10px 0 0;
   font-size: 14px;
   font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c11 {
@@ -265,6 +280,7 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
 }
 
 .c10 {
+  width: 46px;
   color: #fff;
   border-radius: 3px;
   padding: 1px 6px;
@@ -419,17 +435,24 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  width: 45px;
+  overflow: hidden;
 }
 
 .c6 img {
   height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
 .c9 {
+  width: 94px;
   margin: 0 10px 0 0;
   font-size: 14px;
   font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .c11 {
@@ -448,6 +471,7 @@ exports[`RichItem component renders secondary tag when specified with theme prop
 }
 
 .c10 {
+  width: 46px;
   color: #fff;
   border-radius: 3px;
   padding: 1px 6px;

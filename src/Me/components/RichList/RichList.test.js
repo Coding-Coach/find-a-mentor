@@ -4,7 +4,7 @@ import {
   waitForElementToBeRemoved,
 } from '@testing-library/react';
 import React from 'react';
-import RichList from '.';
+import { RichList, RichItem } from './';
 
 const items = [
   {
@@ -37,7 +37,11 @@ const items = [
 
 describe('RichList component', () => {
   it('Should render 2 items', async () => {
-    const { findAllByText } = render(<RichList items={items} />);
+    const { findAllByText } = render(
+      <RichList
+        render={() => items.map(item => <RichItem {...item} key={item.id} />)}
+      />
+    );
     const rgx = new RegExp(`${items[0].title}|${items[1].title}`);
     const itemsEl = await findAllByText(rgx);
 
@@ -46,7 +50,20 @@ describe('RichList component', () => {
 
   it('Should show/hide children content on item click', async () => {
     const { id, title } = items[0];
-    const { getByText, queryByText } = render(<RichList items={items} />);
+    const { getByText, queryByText } = render(
+      <RichList
+        render={({ onSelect, expandId }) =>
+          items.map(item => (
+            <RichItem
+              {...item}
+              key={item.id}
+              onClick={onSelect}
+              expand={item.id === expandId}
+            />
+          ))
+        }
+      />
+    );
     const titleEl = getByText(title);
 
     fireEvent.click(titleEl);
