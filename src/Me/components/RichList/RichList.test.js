@@ -4,7 +4,7 @@ import {
   waitForElementToBeRemoved,
 } from '@testing-library/react';
 import React from 'react';
-import { RichList, RichItem } from './';
+import { RichList, RichItem } from '.';
 
 const items = [
   {

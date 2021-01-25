@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { getAvatarUrl } from '../../helpers/avatar';
 import ReqContent from './ReqContent';
 import { formatRequestTime } from '../../helpers/mentorship';

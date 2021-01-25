@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import RichItem from './RichItem';
 
 const Style = {
   List: styled.ul`

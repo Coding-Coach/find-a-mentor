@@ -6,7 +6,6 @@ import {
   cleanup,
   reqData,
   screen,
-  waitFor,
   waitForElementToBeRemoved,
   userData,
 } from './test-setup';

@@ -1,4 +1,10 @@
-import React, { useRef, useEffect, useState, useContext } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useState,
+  useContext,
+  useCallback,
+} from 'react';
 import {
   getMentorshipRequests,
   getCurrentUser,
@@ -29,7 +35,7 @@ const PREV_STATUS = {
   [STATUS.rejected]: STATUS.viewed,
 };
 
-const MentorshipReq = ({ as }) => {
+const MentorshipReq = () => {
   const [mentorState, setMentorState] = useState();
   const [menteeState, setMenteeState] = useState();
   const [selectedReq, setSelectedReq] = useState(null);
@@ -64,7 +70,7 @@ const MentorshipReq = ({ as }) => {
     closeDeclinedModal();
   };
 
-  const getMentorshipReq = async () => {
+  const getMentorshipReq = useCallback(async () => {
     const mentorshipReq = await getMentorshipRequests(userId);
 
     if (isMount.current) {
@@ -77,7 +83,7 @@ const MentorshipReq = ({ as }) => {
       setMenteeState(list.asMentee);
       setLoadingState(false);
     }
-  };
+  }, [userId]);
 
   const updateReqStatus = async ({ id, userId }, nextStatus, reason) => {
     const { success, mentorship } = await updateMentorshipReqStatus(
@@ -137,7 +143,7 @@ const MentorshipReq = ({ as }) => {
   useEffect(() => {
     if (!userId) return;
     getMentorshipReq();
-  }, [userId]);
+  }, [userId, getMentorshipReq]);
 
   return (
     <Root hasReq={hasReq} data-testid="mentorship-req">
