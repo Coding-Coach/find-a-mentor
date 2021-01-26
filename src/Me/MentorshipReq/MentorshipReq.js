@@ -71,11 +71,14 @@ const MentorshipReq = () => {
   };
 
   const getMentorshipReq = useCallback(async () => {
-    const mentorshipReq = await getMentorshipRequests(userId);
-
     if (isMount.current) {
+      const mentorshipReq = await getMentorshipRequests(userId);
+      console.log(
+        '🚀 ~ file: MentorshipReq.js ~ line 79 ~ mentorshipReq?.forEach ~ mentorshipReq',
+        mentorshipReq
+      );
       const list = { asMentee: [], asMentor: [] };
-      mentorshipReq.forEach(({ isMine, ...req }) => {
+      mentorshipReq?.forEach(({ isMine, ...req }) => {
         if (isMine) list.asMentee.push({ ...req, isMine });
         else list.asMentor.push({ ...req, isMine });
       });
