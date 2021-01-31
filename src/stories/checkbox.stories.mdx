@@ -1,0 +1,46 @@
+import Checkbox from '../Me/components/Checkbox';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta title="Checkbox" component={Checkbox} argTypes={{ onChange: { action: 'changed' }}}/>
+
+export const Template = args => <Checkbox {...args} />
+
+# Checkbox
+
+The `Checkbox` component is a specialized component that brings cross-browser consistency to the appearance of the Checkbox
+instead of letting each browser do as they please, visually.  To accomplish this, we've wrapped some custom HTML and SVG
+around a primitive `<input type="checkbox" />` element, and then hide the underlying checkbox.
+
+With the exception of a `LabelComponent` prop, all props are forwarded to the underlying `input` primitive.
+
+## Checked
+
+<Canvas>
+  <Story name="Checked">
+    <Checkbox
+      name="availability"
+      checked={true}
+      LabelComponent={
+        <span>
+          Checked <b>label with bold text</b> !
+        </span>
+      }
+    />
+  </Story>
+</Canvas>
+
+## Unchecked
+
+<Canvas>
+  <Story name="Unchecked">
+    <Checkbox
+      name="availability"
+      checked={false}
+      LabelComponent={
+        <span>
+          Unchecked <b>label with bold text</b> !
+        </span>
+      }
+    />
+  </Story>
+</Canvas>

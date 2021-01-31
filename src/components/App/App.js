@@ -11,6 +11,7 @@ import React, {
 } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
+import { ToastContainer } from 'react-toastify';
 import MentorsList from '../MentorsList/MentorsList';
 import Filter from '../Filter/Filter';
 import SocialLinks from '../SocialLinks/SocialLinks';
@@ -18,7 +19,7 @@ import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
 import ModalContent from '../Modal/ModalContent';
 import {
-  toggle,
+  toggleFavMentor,
   get as getFavorites,
   readFavMentorsFromLocalStorage,
   updateFavMentorsForUser,
@@ -26,7 +27,6 @@ import {
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
-import { ToastContainer } from 'react-toastify';
 import { getCurrentUser } from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import UserContext from '../../context/userContext/UserContext';
@@ -99,7 +99,7 @@ const App = () => {
   };
 
   const onFavMentor = async mentor => {
-    const newFavorites = toggle(mentor, [...favorites]);
+    const newFavorites = toggleFavMentor(mentor, [...favorites]);
     setFavorites(newFavorites);
     report('Favorite');
   };
@@ -156,35 +156,36 @@ const App = () => {
     language,
   ]);
 
+  const initialize = useCallback(async () => {
+    reportPageView();
+    const user = await getCurrentUser();
+    updateUser(user);
+    const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
+    Promise.all([
+      user &&
+        getFavorites().then(favorites => {
+          if (
+            Array.isArray(favMentorsFromLocalStorage) &&
+            favMentorsFromLocalStorage.length > 0
+          ) {
+            const mentors = favMentorsFromLocalStorage.filter(
+              m => !favorites.includes(m)
+            );
+            if (mentors.length > 0) updateFavMentorsForUser(mentors);
+          }
+          setFavorites([
+            ...new Set([...favMentorsFromLocalStorage, ...favorites]),
+          ]);
+        }),
+      getMentors().then(setMentors),
+    ]).then(() => {
+      setIsReady(true);
+    });
+  }, [updateUser]);
+
   useEffect(() => {
-    async function initialize() {
-      reportPageView();
-      const user = await getCurrentUser();
-      updateUser(user);
-      const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
-      Promise.all([
-        user &&
-          getFavorites().then(favorites => {
-            if (
-              Array.isArray(favMentorsFromLocalStorage) &&
-              favMentorsFromLocalStorage.length > 0
-            ) {
-              const mentors = favMentorsFromLocalStorage.filter(
-                m => !favorites.includes(m)
-              );
-              if (mentors.length > 0) updateFavMentorsForUser(mentors);
-            }
-            setFavorites([
-              ...new Set([...favMentorsFromLocalStorage, ...favorites]),
-            ]);
-          }),
-        getMentors().then(setMentors),
-      ]).then(() => {
-        setIsReady(true);
-      });
-    }
     initialize();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [initialize]);
 
   const handleModal = (title, content, onClose) => {
     setModal({

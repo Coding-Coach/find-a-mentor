@@ -1,1 +1,2 @@
-export { RichList as default } from './RichList';
+export { default as RichItem } from './RichItem';
+export { default as RichList } from './RichList';

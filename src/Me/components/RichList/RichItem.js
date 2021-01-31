@@ -3,7 +3,8 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 
-const style = <style>{`
+const style = (
+  <style>{`
   .item-content-enter {
     opacity: 0;
   }
@@ -22,11 +23,13 @@ const style = <style>{`
   .item-content-enter-active,
   .item-content-enter-done {
     opacity: 1;
+    padding: 0 1px;
     overflow:hidden;
   }
 `}</style>
+);
 
-  const PADDING_BOTTOM  =30;
+const PADDING_BOTTOM = 30;
 
 const RichItem = ({
   id,
@@ -62,19 +65,19 @@ const RichItem = ({
         timeout={350}
         classNames="item-content"
         unmountOnExit
-        onEnter={(node) => {
+        onEnter={node => {
           contentElHeight.current = node.offsetHeight;
           node.style.height = 0;
         }}
-        onEntering={({style}) =>
+        onEntering={({ style }) =>
           (style.height = contentElHeight.current + PADDING_BOTTOM + 'px')
         }
-        onEntered={({style}) =>
+        onEntered={({ style }) =>
           (style.height = contentElHeight.current + PADDING_BOTTOM + 'px')
         }
-        onExit={({style}) => (style.height = 0)}
+        onExit={({ style }) => (style.height = 0)}
       >
-        <div >{children}</div>
+        <div>{children}</div>
       </CSSTransition>
     </Root>
   );
@@ -88,7 +91,13 @@ RichItem.propTypes = {
   info: PropTypes.string,
   tag: PropTypes.shape({
     value: PropTypes.string.isRequired,
-    theme: PropTypes.oneOf(['primary', 'secondary', 'danger']),
+    theme: PropTypes.oneOf([
+      'primary',
+      'secondary',
+      'danger',
+      'checked',
+      'disabled',
+    ]),
   }),
   onClick: PropTypes.func,
   expand: PropTypes.bool,
@@ -99,7 +108,7 @@ const themeColours = {
   secondary: '#F3CA3E',
   danger: '#FF5F58',
   checked: '#69d579',
-  disabled: 'e0e0e0'
+  disabled: 'e0e0e0',
 };
 
 // Styled Components
@@ -115,6 +124,7 @@ const ItemCol = styled.div`
 
 const Main = styled(ItemRow)`
   height: 80px;
+  padding: 0 1px;
   align-items: center;
   > div {
     flex: 1;
@@ -133,17 +143,23 @@ const Titles = styled(ItemCol)`
 const ItemAvatar = styled.div`
   margin-right: 20px;
   user-select: none;
-
+  width: 45px;
+  overflow: hidden;
   img {
     height: 45px;
+    width: 45px;
     border-radius: 50%;
   }
 `;
 
 const Title = styled.h5`
+  width: 94px;
   margin: 0 10px 0 0;
   font-size: 14px;
   font-weight: normal;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Subtitle = styled(Title)`
@@ -156,6 +172,7 @@ const Info = styled.div`
 `;
 
 const Tag = styled.div`
+  width: 46px;
   color: #fff;
   border-radius: 3px;
   padding: 1px 6px;

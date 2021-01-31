@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const SrOnly = styled.span`
   position: absolute;
@@ -13,10 +14,14 @@ const SrOnly = styled.span`
   border: 0;
 `;
 
-export function Loader() {
+export function Loader({ className }) {
   return (
-    <i className="loader fa fa-spinner fa-spin" role="status">
-      <SrOnly>Loading...</SrOnly>
+    <i className={`loader fa fa-spinner fa-spin ${className}`} role="status">
+      <SrOnly data-testid="loading">Loading...</SrOnly>
     </i>
   );
 }
+
+Loader.propTypes = {
+  className: PropTypes.string,
+};

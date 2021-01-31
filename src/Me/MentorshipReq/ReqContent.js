@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from '../components/Button';
+import { STATUS } from '../../helpers/mentorship';
 
 const Block = styled.div`
   & + div {
@@ -34,14 +35,18 @@ const CallToAction = styled.div`
   }
 `;
 
-const RequestContent = ({
-  id,
+const ReqContent = ({
   message,
   background,
   expectation,
+  status,
   onAccept,
   onDeclined,
+  isLoading,
+  isMine,
 }) => {
+  const hideBtns =
+    isMine || [STATUS.approved, STATUS.rejected].includes(status);
   return (
     <div data-testid="request-content">
       <Block>
@@ -56,18 +61,26 @@ const RequestContent = ({
         <h4>Expectations</h4>
         <p>{expectation}</p>
       </Block>
-      <CallToAction>
-        <Button skin="secondary" onClick={() => onDeclined(id)}>
-          Declined
-        </Button>
-        <Button skin="primary" onClick={onAccept(id)}>
-          Accept
-        </Button>
-      </CallToAction>
+      {hideBtns ? null : (
+        <CallToAction>
+          <Button skin="secondary" onClick={onDeclined}>
+            Declined
+          </Button>
+          <Button skin="primary" onClick={onAccept} isLoading={isLoading}>
+            Accept
+          </Button>
+        </CallToAction>
+      )}
     </div>
   );
 };
 
-RequestContent.propTypes = {};
+ReqContent.propTypes = {
+  message: PropTypes.string.isRequired,
+  background: PropTypes.string.isRequired,
+  expectation: PropTypes.string.isRequired,
+  onAccept: PropTypes.func.isRequired,
+  onDeclined: PropTypes.func.isRequired,
+};
 
-export default RequestContent;
+export default ReqContent;

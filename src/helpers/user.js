@@ -34,5 +34,6 @@ export function fromMtoVM(user) {
         }))
       : [],
     tags: user.tags ? user.tags.map(i => ({ label: i, value: i })) : [],
+    title: user.title ?? '',
   };
 }

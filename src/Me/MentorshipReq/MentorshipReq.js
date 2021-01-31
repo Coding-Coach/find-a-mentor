@@ -1,93 +1,132 @@
 import React, {
   useRef,
   useEffect,
-  useCallback,
   useState,
   useContext,
+  useCallback,
 } from 'react';
-import { getMentorshipRequests, getCurrentUser } from '../../api';
-import RichList from '../components/RichList';
+import {
+  getMentorshipRequests,
+  getCurrentUser,
+  updateMentorshipReqStatus,
+} from '../../api';
 import Card, { Content } from '../components/Card';
 import styled from 'styled-components';
 import UserContext from '../../context/userContext/UserContext';
-import RequestContent from './RequestContent';
-import { Loader } from '../../components/Loader';
-import { formatRequestTime } from '../../helpers/mentorship';
-import { toast } from 'react-toastify';
-import messages from '../../messages';
-import {getAvatarUrl} from '../../helpers/avatar';
+import { UsersList } from './';
+import { STATUS } from '../../helpers/mentorship';
+import { useModal } from '../../context/modalContext/ModalContext';
+import {
+  SuccessModal as ApprovedModal,
+  DeclinedModal,
+} from '../Modals/MentorshipReqModals';
 
 const Root = styled.div`
+  margin-bottom: 50px;
   ${({ hasReq }) => hasReq && Content} {
     padding-left: 0;
     padding-right: 0;
   }
 `;
 
-const StyledLoader = styled.div`
-  margin: auto;
-  text-align: center;
-`;
-
-const STATUS_THEME = {
-  Approved: 'primary',
-  Cancelled: 'disabled',
-  New: 'secondary',
-  Rejected: 'danger',
-  Viewed: 'checked',
+const PREV_STATUS = {
+  [STATUS.viewed]: STATUS.new,
+  [STATUS.approved]: STATUS.viewed,
+  [STATUS.rejected]: STATUS.viewed,
 };
 
 const MentorshipReq = () => {
-  const [state, setState] = useState();
+  const [mentorState, setMentorState] = useState();
+  const [menteeState, setMenteeState] = useState();
+  const [selectedReq, setSelectedReq] = useState(null);
   const { currentUser, updateUser } = useContext(UserContext);
   const userId = currentUser?._id;
-  const hasReq = currentUser?.mentorshipReq?.length > 0;
-  const isLoading = !Array.isArray(currentUser?.mentorshipReq);
+  const hasReq = mentorState?.length > 0;
+  const [loadingState, setLoadingState] = useState(!mentorState);
   const isMount = useRef(true);
 
-  const acceptReq = id => {
-    toast.error(messages.GENERIC_ERROR);
+  const markViewed = async ({ id, status }) => {
+    if (status !== PREV_STATUS[STATUS.viewed]) return;
+    await updateReqStatus({ id, userId }, STATUS.viewed);
   };
-  const declinedReq = id => {
-    toast.error(messages.GENERIC_ERROR);
+  const acceptReq = async ({ id, status, username }) => {
+    if (status !== PREV_STATUS[STATUS.approved]) return;
+
+    setLoadingState(true);
+    await updateReqStatus({ id, userId }, STATUS.approved);
+    setLoadingState(false);
+    setSelectedReq({ id, username });
+    openApprovedModal();
+  };
+  const onDeclinedReq = ({ id, status, username }) => {
+    if (status !== PREV_STATUS[STATUS.rejected]) return;
+
+    setSelectedReq({ id, username });
+    openDeclinedModal();
   };
 
-  const mapData = (res = []) =>
-    res.map(({ id, status, date, message, background, expectation, isMine, ...data }) => {
-      const user = isMine ? data.mentor : data.mentee;
+  const declineReq = async msg => {
+    await updateReqStatus({ id: selectedReq.id, userId }, STATUS.rejected, msg);
+    closeDeclinedModal();
+  };
 
-      return {
-        id: id,
-        avatar: getAvatarUrl(user.avatar),
-        title: user.name,
-        subtitle: user.title,
-        tag: {
-          value: status,
-          theme: STATUS_THEME[status],
-        },
-        info: formatRequestTime(Date.parse(date)),
-        children: message && background && expectation && (
-          <RequestContent
-            {...{ message, background, expectation }}
-            onAccept={acceptReq}
-            onDeclined={declinedReq}
-          />
-        ),
+  const getMentorshipReq = useCallback(async () => {
+    if (isMount.current) {
+      const mentorshipReq = await getMentorshipRequests(userId);
+      console.log(
+        '🚀 ~ file: MentorshipReq.js ~ line 79 ~ mentorshipReq?.forEach ~ mentorshipReq',
+        mentorshipReq
+      );
+      const list = { asMentee: [], asMentor: [] };
+      mentorshipReq?.forEach(({ isMine, ...req }) => {
+        if (isMine) list.asMentee.push({ ...req, isMine });
+        else list.asMentor.push({ ...req, isMine });
+      });
+      setMentorState(list.asMentor);
+      setMenteeState(list.asMentee);
+      setLoadingState(false);
+    }
+  }, [userId]);
+
+  const updateReqStatus = async ({ id, userId }, nextStatus, reason) => {
+    const { success, mentorship } = await updateMentorshipReqStatus(
+      id,
+      userId,
+      {
+        status: nextStatus,
+        reason,
       }
+    );
+
+    if (!success) return;
+
+    const itemIndex = mentorState.findIndex(s => s.id === id);
+    const item = mentorState[itemIndex];
+    let newState = [...mentorState];
+    newState.splice(itemIndex, 1, {
+      ...item,
+      status: mentorship.status,
     });
 
-  const setMentorshipReq = async () => {
-    if (hasReq) {
-      setState(mapData(currentUser?.mentorshipReq));
-    } else {
-      const mentorshipReq = await getMentorshipRequests(userId);
-
-      if (isMount.current) {
-        updateUser({ ...currentUser, mentorshipReq });
-        setState(mapData(mentorshipReq));
-      }
-    }
+    setMentorState(newState);
   };
+
+  const [openApprovedModal] = useModal(
+    <ApprovedModal
+      username={selectedReq?.username}
+      onClose={() => setSelectedReq(null)}
+    />,
+    [selectedReq?.id]
+  );
+
+  const [openDeclinedModal, closeDeclinedModal] = useModal(
+    <DeclinedModal
+      username={selectedReq?.username}
+      onSave={declineReq}
+      onClose={() => setSelectedReq(null)}
+    />,
+    [selectedReq?.id]
+  );
 
   useEffect(() => {
     isMount.current = true;
@@ -106,26 +145,24 @@ const MentorshipReq = () => {
 
   useEffect(() => {
     if (!userId) return;
-    setMentorshipReq();
-  }, [userId]);
-
-  const render = () => {
-    if (isLoading)
-      return (
-        <StyledLoader>
-          <Loader />
-        </StyledLoader>
-      );
-
-    if (hasReq) return <RichList items={state} />;
-    else {
-      return <p>No requests</p>;
-    }
-  };
+    getMentorshipReq();
+  }, [userId, getMentorshipReq]);
 
   return (
     <Root hasReq={hasReq} data-testid="mentorship-req">
-      <Card title="Mentorship Requests">{render()}</Card>
+      <Card title="Mentorship Requests">
+        <UsersList
+          requests={mentorState}
+          onAccept={acceptReq}
+          onDeclined={onDeclinedReq}
+          isLoading={loadingState}
+          onSelect={markViewed}
+          closeOpenItem={selectedReq?.id}
+        />
+      </Card>
+      <Card title="My Mentorship Requests">
+        <UsersList requests={menteeState} isLoading={loadingState} />
+      </Card>
     </Root>
   );
 };

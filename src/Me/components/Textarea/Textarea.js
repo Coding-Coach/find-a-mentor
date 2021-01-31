@@ -17,7 +17,7 @@ const StyledTextarea = styled.textarea`
         ? 'var(--form-text-invalid)'
         : 'var(--form-text-placeholder)'};
   }
-  height: 75px;
+  min-height: 75px;
 `;
 
 export const Textarea = props => {

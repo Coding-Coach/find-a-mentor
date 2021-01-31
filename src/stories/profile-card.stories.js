@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Card from '../Me/components/Card';
 
-export default { title: 'Card' };
+export default { title: 'Profile Card' };
 
 const CardContainer = styled.div`
   width: 375px;

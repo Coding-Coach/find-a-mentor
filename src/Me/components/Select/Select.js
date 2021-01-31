@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { formFieldContext } from '../FormField/formContext';
-import { default as ReactSelect } from 'react-select';
 import PropTypes from 'prop-types';
+import React, { useContext, useLayoutEffect, useRef } from 'react';
+import ReactSelect from 'react-select';
+import { formFieldContext } from '../FormField/formContext';
 
 const REACHED_MAX_OPTION = [
   {
@@ -20,8 +20,15 @@ export const Select = ({
   ...reactSelectOptions
 }) => {
   const id = useContext(formFieldContext);
+  const inputElRef = useRef(null);
+
+  useLayoutEffect(() => {
+    inputElRef.current.select.inputRef.autocomplete = 'nope';
+  }, []);
+
   return (
     <ReactSelect
+      ref={inputElRef}
       isMulti={isMulti}
       menuPlacement="auto"
       hideSelectedOptions

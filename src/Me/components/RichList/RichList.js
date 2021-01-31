@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import RichItem from './RichItem';
 
 const Style = {
   List: styled.ul`
@@ -10,32 +9,27 @@ const Style = {
   `,
 };
 
-export const RichList = ({ items }) => {
+export const RichList = ({ render, closeOpenItem }) => {
   const [state, setState] = useState('');
-  const renderItems = ({ id, ...item }) => (
-    <i key={id}>
-      <RichItem
-        {...item}
-        onClick={() => {
-          item.children && setState(state === id ? '' : id);
-        }}
-        expand={state === id}
-      >
-        {item.children}
-      </RichItem>
-    </i>
-  );
 
-  return <Style.List>{items?.map(renderItems)}</Style.List>;
+  useEffect(() => {
+    if (closeOpenItem) setState('');
+  }, [closeOpenItem]);
+
+  const onSelect = id => {
+    setState(state === id ? '' : id);
+  };
+
+  return <Style.List>{render({ onSelect, expandId: state })}</Style.List>;
 };
 
 RichList.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      ...RichItem.propTypes,
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-    })
-  ),
+  render: PropTypes.func.isRequired,
+  closeOpenItem: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.number,
+  ]),
 };
 
 export default RichList;
