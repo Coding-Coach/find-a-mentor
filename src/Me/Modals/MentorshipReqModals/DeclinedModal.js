@@ -39,7 +39,7 @@ const DeclinedModal = ({ username, onSave, onClose, closeModal }) => {
         {loadingState && <Spinner />}
         <div>
           <p>
-            You have rejected <b>{username}</b> and that’s ok, now is not a good
+            You have declined <b>{username}</b> and that’s ok, now is not a good
             time!
           </p>
           <p>

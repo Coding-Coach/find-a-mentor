@@ -33,8 +33,6 @@ const items = [
   },
 ];
 
-// jest.useFakeTimers()
-
 describe('RichList component', () => {
   it('Should render 2 items', async () => {
     const { findAllByText } = render(

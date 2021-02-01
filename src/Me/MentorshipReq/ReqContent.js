@@ -53,14 +53,18 @@ const ReqContent = ({
         <h4>Message</h4>
         <p>{message}</p>
       </Block>
-      <Block>
-        <h4>Background</h4>
-        <p>{background}</p>
-      </Block>
-      <Block>
-        <h4>Expectations</h4>
-        <p>{expectation}</p>
-      </Block>
+      {background && (
+        <Block>
+          <h4>Background</h4>
+          <p>{background}</p>
+        </Block>
+      )}
+      {expectation && (
+        <Block>
+          <h4>Expectations</h4>
+          <p>{expectation}</p>
+        </Block>
+      )}
       {hideBtns ? null : (
         <CallToAction>
           <Button skin="secondary" onClick={onDeclined}>
@@ -77,8 +81,8 @@ const ReqContent = ({
 
 ReqContent.propTypes = {
   message: PropTypes.string.isRequired,
-  background: PropTypes.string.isRequired,
-  expectation: PropTypes.string.isRequired,
+  background: PropTypes.string,
+  expectation: PropTypes.string,
   onAccept: PropTypes.func.isRequired,
   onDeclined: PropTypes.func.isRequired,
 };

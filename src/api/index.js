@@ -250,7 +250,7 @@ export async function applyForMentorship(
   return res.success;
 }
 
-export async function getMyMentorshipApplication() {
+export function getMyMentorshipApplication() {
   return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
 }
 

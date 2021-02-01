@@ -123,7 +123,6 @@ const transitionStyle = (
     opacity: 0;
     transition: opacity 200ms, transform 200ms ease;
   }
-  
 `}</style>
 );
 

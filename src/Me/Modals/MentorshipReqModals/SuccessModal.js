@@ -3,6 +3,7 @@ import React from 'react';
 import { Modal } from '../Modal';
 import PropTypes from 'prop-types';
 import { ReactComponent as MentorshipSvg } from '../../../assets/me/mentorship.svg';
+import { Link } from 'react-router-dom';
 
 const SuccessModal = ({ username, onClose, closeModal }) => (
   <Modal
@@ -17,7 +18,21 @@ const SuccessModal = ({ username, onClose, closeModal }) => (
       <MentorshipSvg />
       <p>
         Awesome! You are now Mentoring <b>{username}!</b> Please make sure to
-        follow our Guidelines and our Code of Conduct.
+        follow our{' '}
+        <a
+          href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit"
+          target="_blank"
+        >
+          Guidelines
+        </a>{' '}
+        and our{' '}
+        <a
+          href="https://github.com/Coding-Coach/find-a-mentor/blob/master/CODE_OF_CONDUCT.md#our-standards"
+          target="_blank"
+        >
+          Code of Conduct
+        </a>
+        .
       </p>
     </Body>
   </Modal>
