@@ -13,11 +13,14 @@ import { ReactComponent as IconLogout } from '../../assets/me/icon-door-exit.svg
 const MenuItem = ({ icon: Icon, label, to }) => {
   const location = useLocation();
   return (
-    <NavItemDecoration className={classNames({active: location.pathname === to})} to={to}>
+    <NavItemDecoration
+      className={classNames({ active: location.pathname === to })}
+      to={to}
+    >
       <Icon />
       <Label>{label}</Label>
     </NavItemDecoration>
-  )
+  );
 };
 
 const Navbar = () => {

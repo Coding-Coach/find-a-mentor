@@ -3,7 +3,6 @@ import React from 'react';
 import { Modal } from '../Modal';
 import PropTypes from 'prop-types';
 import { ReactComponent as MentorshipSvg } from '../../../assets/me/mentorship.svg';
-import { Link } from 'react-router-dom';
 
 const SuccessModal = ({ username, onClose, closeModal }) => (
   <Modal
@@ -22,6 +21,7 @@ const SuccessModal = ({ username, onClose, closeModal }) => (
         <a
           href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit"
           target="_blank"
+          rel="noreferrer"
         >
           Guidelines
         </a>{' '}
@@ -29,6 +29,7 @@ const SuccessModal = ({ username, onClose, closeModal }) => (
         <a
           href="https://github.com/Coding-Coach/find-a-mentor/blob/master/CODE_OF_CONDUCT.md#our-standards"
           target="_blank"
+          rel="noreferrer"
         >
           Code of Conduct
         </a>
