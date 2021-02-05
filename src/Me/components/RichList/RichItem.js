@@ -1,35 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useRef } from 'react';
 import styled from 'styled-components';
-import { CSSTransition } from 'react-transition-group';
-
-const style = (
-  <style>{`
-  .item-content-enter {
-    opacity: 0;
-  }
-  .item-content-exit,
-  .item-content-exit-active,
-  .item-content-exit-done {
-    opacity: 0;
-    height: 0;
-    overflow:hidden;
-  }
-  .item-content-enter,
-  .item-content-exit,
-  .item-content-enter-active {
-    transition: height 350ms ease, opacity 260ms;
-  }
-  .item-content-enter-active,
-  .item-content-enter-done {
-    opacity: 1;
-    padding: 0 1px;
-    overflow:hidden;
-  }
-`}</style>
-);
-
-const PADDING_BOTTOM = 30;
 
 const RichItem = ({
   id,
@@ -42,11 +13,8 @@ const RichItem = ({
   onClick,
   children,
 }) => {
-  const contentElHeight = useRef(0);
-
   return (
     <Root highlight={!!children && !expand} expanded={expand}>
-      {style}
       <Main onClick={() => onClick(id)}>
         <ItemRow>
           <ItemAvatar>{avatar && <img src={avatar} alt="avatar" />}</ItemAvatar>
@@ -60,25 +28,7 @@ const RichItem = ({
           <Info>{info}</Info>
         </ItemRow>
       </Main>
-      <CSSTransition
-        in={expand}
-        timeout={350}
-        classNames="item-content"
-        unmountOnExit
-        onEnter={node => {
-          contentElHeight.current = node.offsetHeight;
-          node.style.height = 0;
-        }}
-        onEntering={({ style }) =>
-          (style.height = contentElHeight.current + PADDING_BOTTOM + 'px')
-        }
-        onEntered={({ style }) =>
-          (style.height = contentElHeight.current + PADDING_BOTTOM + 'px')
-        }
-        onExit={({ style }) => (style.height = 0)}
-      >
-        <div>{children}</div>
-      </CSSTransition>
+      <Content expand={expand}>{children}</Content>
     </Root>
   );
 };
@@ -181,6 +131,18 @@ const Tag = styled.div`
   line-height: 12px;
   text-align: center;
   background-color: ${({ theme }) => themeColours[theme]};
+`;
+
+const Content = styled.div`
+  transition: max-height 350ms ease, padding 300ms 50ms, opacity 300ms;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  ${({ expand }) => ({
+    paddingBottom: expand ? '30px' : 0,
+    maxHeight: expand ? '450px' : 0,
+    opacity: expand ? 1 : 0,
+  })}
 `;
 
 const Root = styled.div`

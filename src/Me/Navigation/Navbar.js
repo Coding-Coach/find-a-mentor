@@ -24,7 +24,6 @@ const Navbar = () => {
           alt="Logo"
         />
         <MenuItem to="/me" icon={IconHome} label="Home" />
-        <MenuItem to="/me/requests" icon={IconHome} label="Req" />
         <MenuItem to="/" icon={IconMentors} label="Mentors" />
         <Logout to={window.location.pathname} onClick={auth.doLogout}>
           <IconLogout />

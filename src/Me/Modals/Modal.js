@@ -31,7 +31,6 @@ const ContentContainer = styled.div`
   width: 100%;
   margin: 0 auto;
   overflow-y: auto;
-  // padding: 20px;
 
   @media ${desktop} {
     height: 70%;

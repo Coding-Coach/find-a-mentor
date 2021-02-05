@@ -9,7 +9,6 @@ import Main from './Main';
 import Navbar from './Navigation/Navbar';
 import Home from './Routes/Home';
 import { GlobalStyle } from './styles/global';
-import MentorshipReq from './MentorshipReq/MentorshipReq';
 import { desktop } from './styles/shared/devices';
 
 const Me = ({ match: { url } }) => {
@@ -23,9 +22,6 @@ const Me = ({ match: { url } }) => {
           <Header />
           <Main>
             <Switch>
-              <Route path={`${url}/requests`}>
-                <MentorshipReq />
-              </Route>
               <Route path={`${url}`}>
                 <Home />
               </Route>
