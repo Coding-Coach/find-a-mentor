@@ -106,3 +106,21 @@ code {
   background: var(--success-background);
 }
 /* #endregion */
+
+/* #region nav icons */
+svg .primary {
+  fill: #e0e0e0;
+}
+
+svg .secondary {
+  fill: #898889;
+}
+
+.active svg .primary {
+  fill: #69d5b1;
+}
+
+.active svg .secondary {
+  fill: #179a6f;
+}
+/* #endregion */
