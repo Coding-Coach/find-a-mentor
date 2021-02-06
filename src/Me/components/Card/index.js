@@ -58,13 +58,13 @@ const Edit = ({ onEdit }) => {
   return onEdit ? <EditButton onClick={onEdit}>Edit</EditButton> : null;
 };
 
-const Card = ({ title, onEdit, children }) => (
-  <CardContainer>
+const Card = ({ title, onEdit, className = '', children }) => (
+  <CardContainer className={className}>
     <Header>
       <h4>{title}</h4>
       <Edit onEdit={onEdit} />
     </Header>
-    <Content>{children}</Content>
+    <Content className="card__content">{children}</Content>
   </CardContainer>
 );
 

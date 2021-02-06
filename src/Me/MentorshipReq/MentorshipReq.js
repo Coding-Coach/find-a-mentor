@@ -10,7 +10,7 @@ import {
   getCurrentUser,
   updateMentorshipReqStatus,
 } from '../../api';
-import Card, { Content } from '../components/Card';
+import _Card, { Content } from '../components/Card';
 import styled from 'styled-components';
 import UserContext from '../../context/userContext/UserContext';
 import { UsersList } from './';
@@ -21,11 +21,13 @@ import {
   DeclinedModal,
 } from '../Modals/MentorshipReqModals';
 
-const Root = styled.div`
-  margin-bottom: 50px;
-  ${({ hasReq }) => hasReq && Content} {
-    padding-left: 0;
-    padding-right: 0;
+const Card = styled(_Card)`
+  .card__content {
+    ${({ hasReq }) =>
+      hasReq && {
+        paddingLeft: 0,
+        paddingRight: 0,
+      }}
   }
 `;
 
@@ -145,8 +147,8 @@ const MentorshipReq = () => {
   }, [userId, getMentorshipReq]);
 
   return (
-    <Root hasReq={hasReq} data-testid="mentorship-req">
-      <Card title="Mentorship Requests">
+    <>
+      <Card title="Mentorship Requests" hasReq={true}>
         <UsersList
           requests={mentorState}
           onAccept={acceptReq}
@@ -159,7 +161,7 @@ const MentorshipReq = () => {
       <Card title="My Mentorship Requests">
         <UsersList requests={menteeState} isLoading={loadingState} />
       </Card>
-    </Root>
+    </>
   );
 };
 
