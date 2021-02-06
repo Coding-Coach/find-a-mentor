@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import React from 'react';
 import RichItem from './RichItem';
 
@@ -71,13 +71,14 @@ describe('RichItem component with children', () => {
     );
     const { getByTestId, queryByTestId, rerender } = render(myRender());
 
-    let contentEl = queryByTestId('content');
-    expect(contentEl).toBeFalsy();
+    await waitFor(() => {
+      expect(queryByTestId('content')).not.toBeVisible();
+    });
 
     rerender(myRender(true));
 
-    contentEl = getByTestId('content');
-
-    expect(contentEl).toBeTruthy();
+    await waitFor(() => {
+      expect(getByTestId('content')).toBeVisible();
+    });
   });
 });

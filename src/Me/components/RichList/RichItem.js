@@ -137,8 +137,11 @@ const Content = styled.div`
   transition: max-height 350ms ease, padding 300ms 50ms, opacity 300ms;
   max-height: 0;
   opacity: 0;
+  visibility: hidden;
   overflow: hidden;
+
   ${({ expand }) => ({
+    visibility: 'visible',
     paddingBottom: expand ? '30px' : 0,
     maxHeight: expand ? '450px' : 0,
     opacity: expand ? 1 : 0,

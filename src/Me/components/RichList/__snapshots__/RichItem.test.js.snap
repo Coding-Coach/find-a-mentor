@@ -103,6 +103,19 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   background-color: #FF5F58;
 }
 
+.c13 {
+  -webkit-transition: max-height 350ms ease,padding 300ms 50ms,opacity 300ms;
+  transition: max-height 350ms ease,padding 300ms 50ms,opacity 300ms;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  visibility: visible;
+  padding-bottom: 0;
+  max-height: 0;
+  opacity: 0;
+}
+
 .c1 {
   position: relative;
   padding: 0 1rem;
@@ -127,31 +140,6 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   <div
     class="c0 c1"
   >
-    <style>
-      
-  .item-content-enter {
-    opacity: 0;
-  }
-  .item-content-exit,
-  .item-content-exit-active,
-  .item-content-exit-done {
-    opacity: 0;
-    height: 0;
-    overflow:hidden;
-  }
-  .item-content-enter,
-  .item-content-exit,
-  .item-content-enter-active {
-    transition: height 350ms ease, opacity 260ms;
-  }
-  .item-content-enter-active,
-  .item-content-enter-done {
-    opacity: 1;
-    padding: 0 1px;
-    overflow:hidden;
-  }
-
-    </style>
     <div
       class="c2 c3 c4 c5"
     >
@@ -187,6 +175,9 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
         />
       </div>
     </div>
+    <div
+      class="c13"
+    />
   </div>
 </div>
 `;
@@ -294,6 +285,19 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   background-color: #69D5B1;
 }
 
+.c13 {
+  -webkit-transition: max-height 350ms ease,padding 300ms 50ms,opacity 300ms;
+  transition: max-height 350ms ease,padding 300ms 50ms,opacity 300ms;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  visibility: visible;
+  padding-bottom: 0;
+  max-height: 0;
+  opacity: 0;
+}
+
 .c1 {
   position: relative;
   padding: 0 1rem;
@@ -318,31 +322,6 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   <div
     class="c0 c1"
   >
-    <style>
-      
-  .item-content-enter {
-    opacity: 0;
-  }
-  .item-content-exit,
-  .item-content-exit-active,
-  .item-content-exit-done {
-    opacity: 0;
-    height: 0;
-    overflow:hidden;
-  }
-  .item-content-enter,
-  .item-content-exit,
-  .item-content-enter-active {
-    transition: height 350ms ease, opacity 260ms;
-  }
-  .item-content-enter-active,
-  .item-content-enter-done {
-    opacity: 1;
-    padding: 0 1px;
-    overflow:hidden;
-  }
-
-    </style>
     <div
       class="c2 c3 c4 c5"
     >
@@ -378,6 +357,9 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
         />
       </div>
     </div>
+    <div
+      class="c13"
+    />
   </div>
 </div>
 `;
@@ -485,6 +467,19 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   background-color: #F3CA3E;
 }
 
+.c13 {
+  -webkit-transition: max-height 350ms ease,padding 300ms 50ms,opacity 300ms;
+  transition: max-height 350ms ease,padding 300ms 50ms,opacity 300ms;
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  visibility: visible;
+  padding-bottom: 0;
+  max-height: 0;
+  opacity: 0;
+}
+
 .c1 {
   position: relative;
   padding: 0 1rem;
@@ -509,31 +504,6 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   <div
     class="c0 c1"
   >
-    <style>
-      
-  .item-content-enter {
-    opacity: 0;
-  }
-  .item-content-exit,
-  .item-content-exit-active,
-  .item-content-exit-done {
-    opacity: 0;
-    height: 0;
-    overflow:hidden;
-  }
-  .item-content-enter,
-  .item-content-exit,
-  .item-content-enter-active {
-    transition: height 350ms ease, opacity 260ms;
-  }
-  .item-content-enter-active,
-  .item-content-enter-done {
-    opacity: 1;
-    padding: 0 1px;
-    overflow:hidden;
-  }
-
-    </style>
     <div
       class="c2 c3 c4 c5"
     >
@@ -569,6 +539,9 @@ exports[`RichItem component renders secondary tag when specified with theme prop
         />
       </div>
     </div>
+    <div
+      class="c13"
+    />
   </div>
 </div>
 `;

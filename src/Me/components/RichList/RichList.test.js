@@ -1,8 +1,4 @@
-import {
-  fireEvent,
-  render,
-  waitForElementToBeRemoved,
-} from '@testing-library/react';
+import { fireEvent, render, waitFor } from '@testing-library/react';
 import React from 'react';
 import { RichList, RichItem } from '.';
 
@@ -70,8 +66,8 @@ describe('RichList component', () => {
 
     fireEvent.click(titleEl);
 
-    await waitForElementToBeRemoved(() => queryByText(id));
-
-    expect(queryByText(id)).toBeFalsy();
+    await waitFor(() => {
+      expect(queryByText(id)).not.toBeVisible();
+    });
   });
 });

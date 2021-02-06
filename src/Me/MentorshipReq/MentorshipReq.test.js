@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  fireEvent,
   act,
   render,
   cleanup,
@@ -9,6 +8,7 @@ import {
   waitForElementToBeRemoved,
   userData,
 } from './test-setup';
+import userEvent from '@testing-library/user-event';
 import MentorshipReq from './MentorshipReq';
 import { STATUS } from '../../helpers/mentorship';
 import * as api from '../../api';
@@ -35,8 +35,6 @@ describe('MentorshipReq', () => {
     it('Fetch and render a list of mentorship requests', async () => {
       mockMentorshipApi({ getReq: reqData.data });
       const { findAllByText } = render(<MentorshipReq />);
-
-      //FIX: await waitForElementToBeRemoved(() => screen.getByRole('status'));
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
@@ -65,7 +63,7 @@ describe('MentorshipReq', () => {
       let statusEl = getByText(reqData.data[2].status);
 
       await act(async () => {
-        fireEvent.click(statusEl);
+        userEvent.click(statusEl);
       });
 
       statusEl = getByText(STATUS.viewed);
@@ -80,21 +78,17 @@ describe('MentorshipReq', () => {
         getReq: reqData.data,
         updateStatus: { success: true, status: STATUS.viewed },
       });
-      const { getByText } = render(<MentorshipReq />);
+      const { debug, getByText, getAllByText } = render(<MentorshipReq />);
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
-      const reqEl = getByText(reqData.data[2].mentee.name);
+      const acceptBtnEl = getAllByText('Accept')[0];
 
-      fireEvent.click(reqEl);
-
-      const acceptBtnEl = getByText('Accept');
-
-      fireEvent.click(acceptBtnEl);
+      userEvent.click(acceptBtnEl);
 
       await screen.findByText('Mentorship Started');
 
-      fireEvent.click(screen.getByText('Close'));
+      userEvent.click(screen.getByText('Close'));
 
       await waitForElementToBeRemoved(() =>
         screen.getByText('Mentorship Started')
