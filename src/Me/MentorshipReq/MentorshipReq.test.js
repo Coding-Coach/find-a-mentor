@@ -78,7 +78,7 @@ describe('MentorshipReq', () => {
         getReq: reqData.data,
         updateStatus: { success: true, status: STATUS.viewed },
       });
-      const { debug, getByText, getAllByText } = render(<MentorshipReq />);
+      const { getAllByText } = render(<MentorshipReq />);
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
