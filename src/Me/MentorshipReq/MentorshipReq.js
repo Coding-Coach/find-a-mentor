@@ -10,7 +10,7 @@ import {
   getCurrentUser,
   updateMentorshipReqStatus,
 } from '../../api';
-import _Card, { Content } from '../components/Card';
+import CardStyle from '../components/Card';
 import styled from 'styled-components';
 import UserContext from '../../context/userContext/UserContext';
 import { UsersList } from './';
@@ -21,13 +21,10 @@ import {
   DeclinedModal,
 } from '../Modals/MentorshipReqModals';
 
-const Card = styled(_Card)`
+const Card = styled(CardStyle)`
   .card__content {
-    ${({ hasReq }) =>
-      hasReq && {
-        paddingLeft: 0,
-        paddingRight: 0,
-      }}
+    padding-left: 0;
+    padding-right: 0;
   }
 `;
 
@@ -43,7 +40,6 @@ const MentorshipReq = () => {
   const [selectedReq, setSelectedReq] = useState(null);
   const { currentUser, updateUser } = useContext(UserContext);
   const userId = currentUser?._id;
-  const hasReq = mentorState?.length > 0;
   const [loadingState, setLoadingState] = useState(!mentorState);
   const isMount = useRef(true);
 
@@ -148,7 +144,7 @@ const MentorshipReq = () => {
 
   return (
     <>
-      <Card title="Mentorship Requests" hasReq={true}>
+      <Card title="Mentorship Requests">
         <UsersList
           requests={mentorState}
           onAccept={acceptReq}
