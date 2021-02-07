@@ -1,5 +1,4 @@
 import React from 'react';
-import MentorshipReq from '../MentorshipReq/MentorshipReq';
 
 import Avatar from './Home/Avatar/Avatar';
 import Profile from '../../Me/Profile/Profile';
@@ -9,7 +8,6 @@ export const Home = () => {
     <>
       <Avatar />
       <Profile />
-      <MentorshipReq />
     </>
   );
 };
