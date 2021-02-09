@@ -43,7 +43,7 @@ const DeclinedModal = ({ username, onSave, onClose, closeModal }) => {
             time!
           </p>
           <p>
-            As a courtesy, please let John Doe know why you are rejecting the
+            As a courtesy, please let {username} know why you are rejecting the
             mentorship.
           </p>
           <label>
