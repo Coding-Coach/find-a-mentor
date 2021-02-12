@@ -39,7 +39,7 @@ function Navigation({ isAuthenticated, onOpenModal }) {
           Mentorship Guidelines
         </Link>
         {renderBecomeAMentor()}
-        <Link href="https://calendar.google.com/calendar/u/4?cid=YWRtaW5AY29kaW5nY29hY2guaW8" target="_blank">Sessions Calender</Link>
+        <Link href="https://calendar.google.com/calendar/u/0?cid=Y18xdmhxMWlzOTRqdHVwdHZnNTJrbzM0cW42a0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t" target="_blank">Sessions Calender</Link>
       </List>
     </Nav>
   );
