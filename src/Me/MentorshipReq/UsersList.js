@@ -42,31 +42,33 @@ const renderList = ({
       const user = isMine ? props.mentor : props.mentee;
       const username = user.name;
       return (
-        <RichItem
-          id={id}
-          key={id}
-          avatar={getAvatarUrl(user.avatar)}
-          title={user.name}
-          subtitle={user.title}
-          onClick={() => {
-            onSelect({ id, status });
-          }}
-          expand={id === expandId}
-          tag={{
-            value: status,
-            theme: STATUS_THEME[status],
-          }}
-          info={formatRequestTime(Date.parse(date))}
-        >
-          <ReqContent
-            status={status}
-            isLoading={isLoading}
-            isMine={isMine}
-            {...{ message, background, expectation }}
-            onAccept={() => onAccept({ id, status, username })}
-            onDeclined={() => onDeclined({ id, status, username })}
-          />
-        </RichItem>
+        <li>
+          <RichItem
+            id={id}
+            key={id}
+            avatar={getAvatarUrl(user.avatar)}
+            title={user.name}
+            subtitle={user.title}
+            onClick={() => {
+              onSelect({ id, status });
+            }}
+            expand={id === expandId}
+            tag={{
+              value: status,
+              theme: STATUS_THEME[status],
+            }}
+            info={formatRequestTime(Date.parse(date))}
+          >
+            <ReqContent
+              status={status}
+              isLoading={isLoading}
+              isMine={isMine}
+              {...{ message, background, expectation }}
+              onAccept={() => onAccept({ id, status, username })}
+              onDeclined={() => onDeclined({ id, status, username })}
+            />
+          </RichItem>
+        </li>
       );
     }
   );
