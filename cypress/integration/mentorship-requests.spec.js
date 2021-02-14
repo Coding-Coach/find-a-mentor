@@ -33,13 +33,13 @@ describe('Mentorship Requests', () => {
   // it('Should show spinner while loading requests', () => {
   //   cy.findAllByRole('status').should('exist');
   // });
-  it('got 3 requests', () => {
-    cy.findByText('Mentorship Requests')
-      .get('ul')
-      .findAllByText(/User.*/)
-      .should('exist')
-      .should('have.length', 3);
-  });
+  // it('got 3 requests', () => {
+  //   cy.findByText('Mentorship Requests')
+  //     .get('ul')
+  //     .findAllByText(/User.*/)
+  //     .should('exist')
+  //     .should('have.length', 3);
+  // });
 
   describe('Mentorship Content', () => {
     beforeEach(() => {

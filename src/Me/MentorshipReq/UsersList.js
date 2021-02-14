@@ -42,10 +42,9 @@ const renderList = ({
       const user = isMine ? props.mentor : props.mentee;
       const username = user.name;
       return (
-        <li>
+        <li key={id}>
           <RichItem
             id={id}
-            key={id}
             avatar={getAvatarUrl(user.avatar)}
             title={user.name}
             subtitle={user.title}
