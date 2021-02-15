@@ -18,13 +18,14 @@ let currentUser;
 export async function makeApiCall(path, body, method, jsonous = true) {
   const url = `${process.env.REACT_APP_API_ENDPOINT}${path}`;
   const optionBody = jsonous ? body && JSON.stringify(body) : body;
+  const token = await auth.getAccessToken();
   const optionHeader = jsonous
     ? {
-        Authorization: `Bearer ${auth.getIdToken()}`,
+        Authorization: `Bearer ${token}`,
         Accept: 'application/json',
         'Content-Type': 'application/json',
       }
-    : { Authorization: `Bearer ${auth.getIdToken()}` };
+    : { Authorization: `Bearer ${token}` };
   const options = {
     mode: 'cors',
     method,
@@ -82,7 +83,7 @@ async function fetchCurrentItem() {
 }
 
 export async function getCurrentUser() {
-  if (!currentUser && auth.isAuthenticated()) {
+  if (!currentUser && await auth.isAuthenticated()) {
     const userFromLocal = localStorage.getItem(USER_LOCAL_KEY);
     if (userFromLocal) {
       currentUser = JSON.parse(userFromLocal);
