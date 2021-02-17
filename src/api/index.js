@@ -9,10 +9,10 @@ const API_ERROR_TOAST_ID = 'api-error-toast-id';
 const USER_LOCAL_KEY = 'user';
 const USER_MENTORSHIP_REQUEST = 'mentorship-request';
 
-const paths = {
+export const paths = {
   MENTORS: '/mentors',
   USERS: '/users',
-  MENTORSHIPS: '/mentorships',
+  MENTORSHIP: '/mentorships',
 };
 
 let currentUser;
@@ -230,25 +230,44 @@ export async function rejectApplication(mentor, reason) {
   return res.success;
 }
 
-export async function sendMentorshipRequest(mentor, mentorshipRequest) {
+export async function applyForMentorship(
+  mentor,
+  { myBackground, myExpectations, message }
+) {
+  const payload = {
+    myBackground,
+    myExpectations,
+    message,
+  };
   const res = await makeApiCall(
-    `${paths.MENTORSHIPS}/${mentor._id}/apply`,
-    {
-      myBackground: mentorshipRequest.myBackground,
-      myExpectations: mentorshipRequest.myExpectations,
-      message: mentorshipRequest.message,
-    },
+    `${paths.MENTORSHIP}/${mentor._id}/apply`,
+    payload,
     'POST'
   );
   if (res.success) {
-    localStorage.setItem(
-      USER_MENTORSHIP_REQUEST,
-      JSON.stringify(mentorshipRequest)
-    );
+    localStorage.setItem(USER_MENTORSHIP_REQUEST, JSON.stringify(payload));
   }
   return res.success;
 }
 
-export function getMentorshipRequest() {
+export function getMyMentorshipApplication() {
   return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
+}
+
+export async function getMentorshipRequests(userId) {
+  const res = await makeApiCall(
+    `${paths.MENTORSHIP}/${userId}/requests`,
+    null,
+    'GET'
+  );
+  return res.data;
+}
+
+export async function updateMentorshipReqStatus(reqId, userId, payload) {
+  const res = await makeApiCall(
+    `${paths.MENTORSHIP}/${userId}/requests/${reqId}`,
+    payload,
+    'PUT'
+  );
+  return res;
 }

@@ -1,0 +1,54 @@
+import Input from '../Me/components/Input';
+import FormField from '../Me/components/FormField';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta
+  title="Input"
+  component={Input}
+  argTypes={{ onChange: { action: 'change' }}}
+  decorators={[(Story) => <div style={{ maxWidth: '400px' }}><Story/></div>]}
+/>
+
+export const Template = args => <Input {...args} />
+
+# Input
+
+The `<Input>` component is a styled component that wraps the primitive html element `input`.  All props
+are forwarded to the underlying `input` element.  To render an `Input` with a label you need to use a `FormField` 
+component.
+
+<Canvas>
+  <Story name="Default">
+    <FormField label="Full Name">
+      <Input type="text" placeholder="John Smith" />
+    </FormField>
+  </Story>
+</Canvas>
+
+## With Help Message
+
+The `Input` component can be shown with an optional help message to the right of its label by passing along a 
+`helpText` prop to the `FormField` component.
+
+<Canvas>
+  <Story name="With Help Message">
+    <FormField label="Full Name" helpText="help message">
+      <Input type="text" placeholder="With help message" />
+    </FormField>
+  </Story>
+</Canvas>
+
+## Without Label
+
+
+The `Input` component can be shown without a label by omitting the `label` prop on the `FormField` component that wraps it. 
+It's important to still use a `FormField` even when you don't want the label to show.
+
+<Canvas>
+  <Story name="Without Label">
+    <FormField>
+      <Input type="text" placeholder="Input Without Label" />
+    </FormField>
+  </Story>
+</Canvas>
+

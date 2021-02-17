@@ -1,0 +1,62 @@
+import Button from '../Me/components/Button';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+
+<Meta title="Button" component={Button} argTypes={{ onClick: { action: 'clicked' } }}/>
+
+export const Template = args => <Button {...args} />
+
+# Buttons
+
+Buttons are interactive elements designed to grab a users attention.  They are often used as a call to action (CTA) we want our users to take.  For example, navigating to another page, or completing a process like submitting a form.
+
+## Props
+
+- `skin: String`
+    - Default to `primary`
+    - Options: 
+        - `primary` (default)
+        - `secondary`
+        - `danger`
+
+## Primary Button
+
+A primary button is the main CTA and is recommended to be used sparingly within a page.  In a perfect world only a single primary button would be shown in a section; this helps the users better understand the action they should take.
+
+<Canvas>
+    <Story name="Primary">
+        <Button>Primary</Button>
+    </Story>
+</Canvas>
+
+## Secondary Button
+
+A secondary button represents actions that the user can take that are not part of the main flow.  For example, clearing a form or deleting an item from a shopping cart.
+
+<Canvas>
+    <Story name="Secondary">
+        <Button skin="secondary">Secondary</Button>
+    </Story>
+</Canvas>
+
+## Danger Button
+
+Danger buttons help the user understand that clicking the button will result in an outcome that they should consider thoroughly before they proceed.  Deleting an account or leaving a form without submitting all the values are good examples of how a Danger button can be used.
+
+<Canvas>
+    <Story name="Danger">
+        <Button skin="danger">Danger</Button>
+    </Story>
+</Canvas>
+
+## Kitchen Sink example
+
+Below is a "kitchen sink" example which is configured to allow the `controls` feature in the canvas.  Check it out to discover more about this component.
+
+<Canvas>
+    <Story
+        name="Kitchen Sink"
+        args={{children:"Kitchen Sink"}}
+    >
+        {Template.bind({})}
+    </Story>
+</Canvas>

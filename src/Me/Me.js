@@ -1,16 +1,16 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components/macro';
 import auth from '../utils/auth';
-import Main from './Main';
 import Header from './Header/Header';
+import Main from './Main';
 import Navbar from './Navigation/Navbar';
 import Home from './Routes/Home';
-import { desktop } from './styles/shared/devices';
+import MentorshipReq from '../Me/MentorshipReq';
 import { GlobalStyle } from './styles/global';
-
-import 'react-toastify/dist/ReactToastify.css';
+import { desktop } from './styles/shared/devices';
 
 const Me = ({ match: { url } }) => {
   const authenticated = auth.isAuthenticated();
@@ -23,7 +23,10 @@ const Me = ({ match: { url } }) => {
           <Header />
           <Main>
             <Switch>
-              <Route path={`${url}/home`}>
+              <Route path={`${url}/requests`}>
+                <MentorshipReq />
+              </Route>
+              <Route path={`${url}`}>
                 <Home />
               </Route>
             </Switch>

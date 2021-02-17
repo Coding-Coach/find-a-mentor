@@ -1,0 +1,50 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": 123,
+      "mentee": {
+        "id": "001",
+        "name": "User 001",
+        "avatar": "https://avatars0.githubusercontent.com/u/219207?s=88&v=4",
+        "title": "J web dev"
+      },
+      "status": "Approved",
+      "date": 1609748339000,
+      "message": "hi",
+      "background": "yes",
+      "expectation": "the world",
+      "isMine": false
+    },
+    {
+      "id": 456,
+      "mentee": {
+        "id": "002",
+        "name": "User 002",
+        "avatar": "https://avatars0.githubusercontent.com/u/219207?s=88&v=4",
+        "title": "J web dev"
+      },
+      "status": "Rejected",
+      "date": 1604013539000,
+      "message": "Hi, I’m JD and I’m looking for a mentor who can help me find my first job as a software developer. I’ve been learning JavaScript for the last 6 months and I think I’m ready.",
+      "background": "I’ve been working as an accountant for the last 2 years, but ever since I wrote my first line of code I enjoyed so much.",
+      "expectation": "Would be nice to have weekly meetings, but I know you might be busy so please let me know if this works for you.",
+      "isMine": false
+    },
+    {
+      "id": 789,
+      "mentee": {
+        "id": "003",
+        "name": "User 003",
+        "avatar": "https://avatars0.githubusercontent.com/u/219207?s=88&v=4",
+        "title": "J web dev"
+      },
+      "status": "New",
+      "date": 1609283939000,
+      "message": "Hi, I’m JD and I’m looking for a mentor who can help me find my first job as a software developer. I’ve been learning JavaScript for the last 6 months and I think I’m ready.",
+      "background": "I’ve been working as an accountant for the last 2 years, but ever since I wrote my first line of code I enjoyed so much.",
+      "expectation": "Would be nice to have weekly meetings, but I know you might be busy so please let me know if this works for you.",
+      "isMine": false
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "type": "email",
+    "value": "myemail@codecoache.com"
+  },
+  {
+    "type": "spokenLanguages",
+    "value": "EN"
+  },
+  {
+    "type": "country",
+    "value": "US"
+  },
+  {
+    "type": "title",
+    "value": "Sharing of Knowledge, regular weekly meetings"
+  },
+  {
+    "type": "tags",
+    "value": "front-end, reactjs, css, html, Ninja"
+  },
+  {
+    "type": "unavailable",
+    "value": "unavailable"
+  },
+  {
+    "type": "description",
+    "value": "If you are up for more than once a week exploration."
+  }
+]

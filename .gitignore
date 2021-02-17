@@ -35,3 +35,9 @@ public/sitemap.xml
 # Cypress
 cypress/videos
 cypress/screenshots
+
+# ESLint
+.eslintcache
+
+#debug
+debug.log
