@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "node scripts/pre-build.js && react-scripts build && yarn build-storybook",
+    "build": "node scripts/pre-build.js && react-scripts build",
     "test": "yarn react-scripts test && yarn test:e2e:run",
     "test:unit:update-snapshot": "react-scripts test -u",
     "eject": "react-scripts eject",
