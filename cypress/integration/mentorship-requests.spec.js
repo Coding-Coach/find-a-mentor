@@ -18,7 +18,6 @@ const regex = ({ mentee: { id } }) => new RegExp(`User ${id}`);
 describe('Mentorship Requests', () => {
   before(function() {
     cy.login();
-    cy.server({ urlMatchingOptions: { matchBase: false, dot: true } });
     cy.intercept('GET', '/users/current', { fixture: 'users/current/get' });
     cy.intercept('GET', `/mentorships/${user._id}/requests`, {
       fixture: 'mentorship-requests/get',
@@ -42,12 +41,6 @@ describe('Mentorship Requests', () => {
   // });
 
   describe('Mentorship Content', () => {
-    beforeEach(() => {
-      cy.findByText('Mentorship Requests')
-        .get('ul')
-        .findByText(regex(reqType.new))
-        .click();
-    });
     it('Should expand and show more details on request item click', () => {
       cy.findAllByTestId('request-content');
     });
