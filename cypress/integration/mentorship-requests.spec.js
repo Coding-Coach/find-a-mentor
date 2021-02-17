@@ -42,16 +42,16 @@ describe('Mentorship Requests', () => {
 
   describe('Mentorship Content', () => {
     it('Should expand and show more details on request item click', () => {
-      cy.findAllByTestId('request-content');
-    });
-    it('Should toggle item on Click', () => {
       const errorMessage =
         'Unable to find an element by: [data-testid="request-content"]';
 
       cy.on('fail', err => {
         expect(err.message).to.contain(errorMessage);
       });
-
+      
+      cy.findAllByTestId('request-content');
+    });
+    it('Should toggle item on Click', () => {
       cy.findByText('Mentorship Requests')
         .get('ul')
         .findByText(regex(reqType.new))
