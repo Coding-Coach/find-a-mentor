@@ -2,12 +2,8 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { updateMentorAvailability } from '../../../src/api/index';
-import Switch from '../../components/Switch/Switch';
 import { getAvatarUrl } from '../../helpers/avatar';
-import { isOpen } from '../../config/experiments';
 import UserContext from '../../context/userContext/UserContext';
-import { report } from '../../ga';
 import auth from '../../utils/auth';
 import useWindowSize from '../../utils/useWindowSize';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
@@ -20,18 +16,13 @@ function MemberArea({ onOpenModal }) {
   const isDesktop = useWindowSize().width > 800;
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const { currentUser, updateUser, isMentor, isAdmin } = useContext(
-    UserContext
-  );
+  const { currentUser, isMentor, isAdmin } = useContext(UserContext);
   const history = useHistory();
-
-  const openProfile = useCallback(() => {
-    if (isOpen('newBackoffice') && isMentor) {
-      history.push('/me');
-    } else {
-      onOpenModal('Edit Your Profile', <EditProfile />);
-    }
-  }, [isMentor, history, onOpenModal]);
+  const goToDashboard = () => history.push('/me');
+  const openBecomeMentor = useCallback(
+    () => onOpenModal('Edit Your Profile', <EditProfile />),
+    [onOpenModal]
+  );
 
   const openPendingApplications = () => {
     onOpenModal('Pending Applications', <PendingApplications />);
@@ -50,30 +41,13 @@ function MemberArea({ onOpenModal }) {
       return;
     }
     auth.onMentorRegistered(() => {
-      openProfile();
+      openBecomeMentor();
     });
-  }, [currentUser, openProfile]);
+  }, [currentUser, openBecomeMentor]);
 
   const logout = () => {
     auth.doLogout();
     setIsMemberMenuOpen(false);
-  };
-
-  const onToggleAvailability = async toggleState => {
-    if (!toggleState) {
-      if (
-        !window.confirm('Are you sure you want to set yourself as unavailable?')
-      ) {
-        return;
-      }
-    }
-    updateUser({ ...currentUser, available: toggleState });
-    const isSuccessful = await updateMentorAvailability(toggleState);
-    if (isSuccessful) {
-      report('Mentor availability', 'toggle', toggleState);
-    } else {
-      updateUser({ ...currentUser, available: !toggleState });
-    }
   };
 
   return (
@@ -102,19 +76,12 @@ function MemberArea({ onOpenModal }) {
                   Open pending applications
                 </MemberMenuItem>
               )}
-              <MemberMenuItem onClick={openProfile}>
-                {isMentor ? 'Edit your profile' : 'Become a mentor'}
+              <MemberMenuItem onClick={goToDashboard}>
+                Manage Account
               </MemberMenuItem>
-              {isMentor && !isOpen('newBackoffice') && (
-                <MemberMenuItem>
-                  <Switch
-                    label={'Available for new Mentees'}
-                    type={'small'}
-                    theme={'dark'}
-                    isChecked={currentUser.available}
-                    onToggle={onToggleAvailability}
-                    id="available"
-                  />
+              {!isMentor && (
+                <MemberMenuItem onClick={openBecomeMentor}>
+                  Become a mentor
                 </MemberMenuItem>
               )}
               <MemberMenuItem onClick={logout}>Logout</MemberMenuItem>

@@ -10,8 +10,7 @@ import {
   getCurrentUser,
   updateMentorshipReqStatus,
 } from '../../api';
-import CardStyle from '../components/Card';
-import styled from 'styled-components';
+import Card from '../components/Card';
 import UserContext from '../../context/userContext/UserContext';
 import { UsersList } from './';
 import { STATUS } from '../../helpers/mentorship';
@@ -21,12 +20,12 @@ import {
   DeclinedModal,
 } from '../Modals/MentorshipReqModals';
 
-const Card = styled(CardStyle)`
-  .card__content {
-    padding-left: 0;
-    padding-right: 0;
-  }
-`;
+// const Card = styled(CardStyle)`
+//   .card__content {
+//     padding-left: 0;
+//     padding-right: 0;
+//   }
+// `;
 
 const PREV_STATUS = {
   [STATUS.viewed]: STATUS.new,

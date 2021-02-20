@@ -20,7 +20,7 @@ const githubValidation = value => !value || githubPattern.test(value);
 const nameValidation = value =>
   value.length > 3 && value.length <= 50 && /^\S+(\s\S+)+$/.test(value);
 
-export default {
+export const userFields = {
   name: {
     label: 'Name',
     type: 'text',
@@ -157,6 +157,19 @@ export default {
       'This is how you will communicate with your mentees once you have accepted their mentorship requests, you can set up to three.',
     validate: options => options.length > 0,
   },
+  // capacity: {
+  //   label: 'Capacity',
+  //   type: 'select',
+  //   defaultValue: '',
+  //   options: [1, 2, 3, 4].map(item => ({
+  //     label: item,
+  //     value: item,
+  //   })),
+  // },
+};
+
+export const mentorFields = {
+  ...userFields,
   available: {
     label: 'Available for new mentees',
     type: 'checkbox',
@@ -199,13 +212,4 @@ export default {
       'Please define how would you like to drive the mentorship and how many mentees you can take.',
     // validate: value => value,
   },
-  // capacity: {
-  //   label: 'Capacity',
-  //   type: 'select',
-  //   defaultValue: '',
-  //   options: [1, 2, 3, 4].map(item => ({
-  //     label: item,
-  //     value: item,
-  //   })),
-  // },
-};
+}

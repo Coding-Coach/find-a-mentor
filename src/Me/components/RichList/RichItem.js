@@ -65,6 +65,7 @@ const themeColours = {
 
 const ItemRow = styled.div`
   display: flex;
+  gap: 5px
 `;
 
 const ItemCol = styled.div`
@@ -83,7 +84,7 @@ const Main = styled(ItemRow)`
 
 const Titles = styled(ItemCol)`
   flex: 1;
-  padding: 6px 0;
+  /* padding: 6px 0; */
 
   ${ItemRow} {
     align-items: center;
@@ -91,7 +92,7 @@ const Titles = styled(ItemCol)`
 `;
 
 const ItemAvatar = styled.div`
-  margin-right: 20px;
+  /* margin-right: 20px; */
   user-select: none;
   width: 45px;
   overflow: hidden;
@@ -150,9 +151,6 @@ const Content = styled.div`
 
 const Root = styled.div`
   position: relative;
-  padding: 0 1rem;
-  font-family: Lato, system-ui;
-  font-style: normal;
   &:hover {
     background-color: ${({ highlight }) => (highlight ? '#f2f2f2' : '')};
     ${Main} {

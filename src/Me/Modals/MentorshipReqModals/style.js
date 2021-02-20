@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { desktop } from '../../styles/shared/devices';
 
 export default styled.div`
   min-height: 415px;
@@ -7,8 +8,12 @@ export default styled.div`
   align-items: stretch;
   justify-content: center;
   color: #4f4f4f;
-  width: 285px;
+  margin: 0 auto;
   overflow: hidden;
+
+  @media ${desktop} {
+    max-width: 285px;
+  }
 
   p {
     text-align: center;
