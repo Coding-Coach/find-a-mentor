@@ -153,9 +153,9 @@ export const Modal = ({
   const [state, setState] = useState(false);
   const [loadingState, setLoadingState] = useState(false);
 
-  const save = () => {
+  const save = e => {
     setLoadingState(isValid);
-    onSave();
+    onSave(e);
   };
 
   useEffect(() => {
