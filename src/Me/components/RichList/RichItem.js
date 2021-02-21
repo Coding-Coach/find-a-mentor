@@ -84,7 +84,6 @@ const Main = styled(ItemRow)`
 
 const Titles = styled(ItemCol)`
   flex: 1;
-  /* padding: 6px 0; */
 
   ${ItemRow} {
     align-items: center;
@@ -92,7 +91,6 @@ const Titles = styled(ItemCol)`
 `;
 
 const ItemAvatar = styled.div`
-  /* margin-right: 20px; */
   user-select: none;
   width: 45px;
   overflow: hidden;

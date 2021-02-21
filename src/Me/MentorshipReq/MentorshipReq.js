@@ -20,13 +20,6 @@ import {
   DeclinedModal,
 } from '../Modals/MentorshipReqModals';
 
-// const Card = styled(CardStyle)`
-//   .card__content {
-//     padding-left: 0;
-//     padding-right: 0;
-//   }
-// `;
-
 const PREV_STATUS = {
   [STATUS.viewed]: STATUS.new,
   [STATUS.approved]: STATUS.viewed,
