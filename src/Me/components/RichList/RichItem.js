@@ -65,7 +65,7 @@ const themeColours = {
 
 const ItemRow = styled.div`
   display: flex;
-  gap: 5px
+  gap: 5px;
 `;
 
 const ItemCol = styled.div`

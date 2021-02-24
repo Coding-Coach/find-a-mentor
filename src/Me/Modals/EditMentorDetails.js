@@ -91,7 +91,6 @@ function EditMentorDetails({
 }) {
   const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
 
-
   // method to update user
   const { updateUser, isMentor } = useContext(UserContext);
 

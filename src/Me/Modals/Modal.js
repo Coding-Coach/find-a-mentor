@@ -57,7 +57,7 @@ const ButtonBar = styled.div`
 
   ${Button} {
     @media ${desktop} {
-      width: 150px
+      width: 150px;
     }
 
     @media ${mobile} {
