@@ -48,7 +48,7 @@ describe('Mentorship Requests', () => {
       cy.on('fail', err => {
         expect(err.message).to.contain(errorMessage);
       });
-      
+
       cy.findAllByTestId('request-content');
     });
     it('Should toggle item on Click', () => {

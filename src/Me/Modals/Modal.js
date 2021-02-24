@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import _Button from '../components/Button';
-import { desktop } from '../styles/shared/devices';
+import { desktop, mobile } from '../styles/shared/devices';
 import { CSSTransition } from 'react-transition-group';
 import { ReactComponent as CloseSvg } from '../../assets/me/close.svg';
 
@@ -27,14 +27,10 @@ const CloseIconButton = styled.button`
 `;
 
 const ContentContainer = styled.div`
-  height: 80%;
+  height: calc(100% - 30px); /* button height */
   width: 100%;
   margin: 0 auto;
   overflow-y: auto;
-
-  @media ${desktop} {
-    height: 70%;
-  }
 `;
 
 const Title = styled.header`
@@ -48,30 +44,28 @@ const Title = styled.header`
 `;
 
 const Footer = styled.footer`
-  position: absolute;
-  height: 20%;
-  width: 100%;
-  bottom: 0;
-  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  @media ${desktop} {
-    height: 30%;
-  }
+  padding: 20px 0;
 `;
 
 const ButtonBar = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  @media ${desktop} {
-    flex-direction: row;
+  ${Button} {
+    @media ${desktop} {
+      width: 150px;
+    }
+
+    @media ${mobile} {
+      flex: 1;
+    }
   }
 `;
+
 const Center = css`
   left: 50%;
   top: 50%;
@@ -94,17 +88,22 @@ const Cover = css`
 `;
 
 const ModalContainer = styled.div`
-z-index: 99;
-font-family: 'Lato', sans-serif;
-display: flex;
-position: fixed;
-background-color: #fff;
-flex-direction: column;
-padding: 0 45px;
-${Cover}
-@media ${desktop} {
-  ${props => (props.posCenter ? Center : Cover)}
-}
+  z-index: 99;
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  position: fixed;
+  background-color: #fff;
+  flex-direction: column;
+
+  ${Cover}
+  @media ${mobile} {
+    padding: 0 10px;
+  }
+
+  @media ${desktop} {
+    padding: 0 45px;
+    ${props => (props.posCenter ? Center : Cover)}
+  }
 `;
 
 const transitionStyle = (
@@ -154,9 +153,9 @@ export const Modal = ({
   const [state, setState] = useState(false);
   const [loadingState, setLoadingState] = useState(false);
 
-  const save = () => {
+  const save = e => {
     setLoadingState(isValid);
-    onSave();
+    onSave(e);
   };
 
   useEffect(() => {

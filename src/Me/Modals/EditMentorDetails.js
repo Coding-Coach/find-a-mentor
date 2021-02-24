@@ -13,7 +13,7 @@ import Textarea from '../components/Textarea';
 import Select from '../components/Select';
 import Checkbox from '../components/Checkbox';
 import { desktop } from '../styles/shared/devices';
-import model from './model';
+import { mentorFields, userFields } from './model';
 import { fromMtoVM, fromVMtoM } from '../../helpers/user';
 import Button from '../components/Button';
 import { toast } from 'react-toastify';
@@ -92,7 +92,7 @@ function EditMentorDetails({
   const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
 
   // method to update user
-  const { updateUser } = useContext(UserContext);
+  const { updateUser, isMentor } = useContext(UserContext);
 
   // textfields onChange function
   const handleInputChange = (fieldName, value) => {
@@ -101,6 +101,8 @@ function EditMentorDetails({
       [fieldName]: value,
     });
   };
+
+  const model = isMentor ? mentorFields : userFields;
 
   // channels onChange function
   const handleKeyValueChange = (fieldName, prop, value) => {

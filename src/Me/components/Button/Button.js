@@ -2,7 +2,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import { desktop } from '../../styles/shared/devices';
 import { Loader } from '../../../components/Loader';
 
 /**
@@ -15,24 +14,12 @@ import { Loader } from '../../../components/Loader';
 const StyledButton = styled.button`
   box-sizing: border-box;
   height: 30px;
-  max-width: 285px;
   border-radius: 3px;
   font-family: Lato, sans-serif;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
-  margin-bottom: 1rem;
   cursor: pointer;
-  flex: 1;
-
-  @media ${desktop} {
-    height: 30px;
-    margin: 1rem;
-
-    & + & {
-      max-width: 151px;
-    }
-  }
 `;
 
 const PrimaryButton = styled(StyledButton)`

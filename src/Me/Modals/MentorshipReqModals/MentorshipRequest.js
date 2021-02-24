@@ -149,7 +149,6 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
 
   return (
     <Modal
-      center
       title="Mentorship Request"
       onSave={confirmed ? null : onSubmit}
       closeModal={closeModal}

@@ -91,24 +91,6 @@ body {
   }
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-align: center;
-  background: #65d6af;
-  padding: 10px 0;
-  z-index: 100;
-}
-
-footer a,
-footer a:hover {
-  padding: 0 3px;
-  color: #fff;
-  text-decoration: underline;
-}
-
 @media all and (max-width: 800px) {
   .logo {
     margin: 10px;

@@ -6,6 +6,7 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  gap: 5px;
 }
 
 .c7 {
@@ -37,7 +38,6 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding: 6px 0;
 }
 
 .c8 .c2 {
@@ -48,7 +48,6 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
 }
 
 .c6 {
-  margin-right: 20px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -118,9 +117,6 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
 
 .c1 {
   position: relative;
-  padding: 0 1rem;
-  font-family: Lato,system-ui;
-  font-style: normal;
 }
 
 .c1:hover .c3 {
@@ -188,6 +184,7 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  gap: 5px;
 }
 
 .c7 {
@@ -219,7 +216,6 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding: 6px 0;
 }
 
 .c8 .c2 {
@@ -230,7 +226,6 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
 }
 
 .c6 {
-  margin-right: 20px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -300,9 +295,6 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
 
 .c1 {
   position: relative;
-  padding: 0 1rem;
-  font-family: Lato,system-ui;
-  font-style: normal;
 }
 
 .c1:hover .c3 {
@@ -370,6 +362,7 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  gap: 5px;
 }
 
 .c7 {
@@ -401,7 +394,6 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  padding: 6px 0;
 }
 
 .c8 .c2 {
@@ -412,7 +404,6 @@ exports[`RichItem component renders secondary tag when specified with theme prop
 }
 
 .c6 {
-  margin-right: 20px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -482,9 +473,6 @@ exports[`RichItem component renders secondary tag when specified with theme prop
 
 .c1 {
   position: relative;
-  padding: 0 1rem;
-  font-family: Lato,system-ui;
-  font-style: normal;
 }
 
 .c1:hover .c3 {
