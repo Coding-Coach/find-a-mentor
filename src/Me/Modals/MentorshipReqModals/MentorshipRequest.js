@@ -143,7 +143,10 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
   const onSubmit = async e => {
     e?.preventDefault();
     if (!validate()) return;
-    const success = applyForMentorship(mentor, mentorshipRequestDetails);
+    const success = await applyForMentorship(mentor, mentorshipRequestDetails);
+    if (!success) {
+      closeModal();
+    }
     setConfirmed(success);
   };
 

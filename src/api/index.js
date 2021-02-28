@@ -50,7 +50,7 @@ export async function makeApiCall(path, body, method, jsonous = true) {
     reportError('Api', `${error || 'unknown error'} at ${path}`);
     console.error(error);
     !toast.isActive(API_ERROR_TOAST_ID) &&
-      toast.error(messages.GENERIC_ERROR, {
+      toast.error(error || messages.GENERIC_ERROR, {
         toastId: API_ERROR_TOAST_ID,
       });
     return {
