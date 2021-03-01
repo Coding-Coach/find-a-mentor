@@ -32,7 +32,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "node scripts/pre-build.js && react-scripts build",
-    "test": "yarn react-scripts test && yarn test:e2e:run",
+    "test": "yarn test:unit && yarn test:e2e:run",
+    "test:unit": "react-scripts test",
     "test:unit:update-snapshot": "react-scripts test -u",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
