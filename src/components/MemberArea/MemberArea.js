@@ -5,15 +5,15 @@ import styled from 'styled-components';
 import { getAvatarUrl } from '../../helpers/avatar';
 import UserContext from '../../context/userContext/UserContext';
 import auth from '../../utils/auth';
-import useWindowSize from '../../utils/useWindowSize';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
 import { GlobalStyle } from '../../Me/styles/global';
+import { useDeviceType } from '../../utils/useDeviceType';
 
 function MemberArea({ onOpenModal }) {
   const authenticated = auth.isAuthenticated();
-  const isDesktop = useWindowSize().width > 800;
+  const { isDesktop } = useDeviceType();
   const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
   const { currentUser, isMentor, isAdmin } = useContext(UserContext);

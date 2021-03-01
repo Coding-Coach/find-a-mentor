@@ -85,7 +85,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
     },
   };
 
-  const formField = (fieldName, config) => {
+  const formField = (fieldName, config, autoFocus) => {
     switch (config.type) {
       case 'longtext':
         return (
@@ -96,6 +96,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
             invalid={errors[fieldName]}
           >
             <Textarea
+              autoFocus={autoFocus}
               name={fieldName}
               onChange={handleInputChange}
               required={config.required}
@@ -169,8 +170,8 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
       ) : (
         <Body>
           <FormFields>
-            {Object.entries(model).map(([fieldName, field]) =>
-              formField(fieldName, field)
+            {Object.entries(model).map(([fieldName, field], i) =>
+              formField(fieldName, field, i === 0)
             )}
           </FormFields>
         </Body>

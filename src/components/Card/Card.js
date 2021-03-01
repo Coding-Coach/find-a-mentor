@@ -10,6 +10,7 @@ import { useFilters } from '../../context/filtersContext/FiltersContext';
 import UserContext from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipReqModals/MentorshipRequest';
+import { useDeviceType } from '../../utils/useDeviceType';
 
 function handleAnalytic(channelName) {
   report('Channel', 'click', channelName);
@@ -35,6 +36,7 @@ const applyOnClick = () => {
 };
 
 const ApplyButton = ({ mentor }) => {
+  const isDesktop = useDeviceType();
   const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
   const isAuth = auth.isAuthenticated();
   const tooltipMessage = isAuth
@@ -42,7 +44,12 @@ const ApplyButton = ({ mentor }) => {
     : messages.CARD_APPLY_TOOLTIP;
   const handleClick = isAuth ? openModal : applyOnClick;
   return (
-    <Tooltip title={tooltipMessage} size="big" arrow={true}>
+    <Tooltip
+      disabled={!isDesktop}
+      title={tooltipMessage}
+      size="big"
+      arrow={true}
+    >
       <button onClick={handleClick}>
         <div className="icon">
           <i className="fa fa-hand-o-right fa-lg" />
