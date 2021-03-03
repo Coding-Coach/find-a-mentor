@@ -6,10 +6,19 @@ import { RichList, RichItem } from '../components/RichList';
 import { Loader } from '../../components/Loader';
 import styled from 'styled-components';
 import { STATUS } from '../../helpers/mentorship';
+import { ReactComponent as UserWasRemovedIcon } from '../../assets/me/icon-user-remove.svg';
 
 const Spinner = styled(Loader)`
   position: absolute;
   left: calc(50% - 10px);
+`;
+
+const UserWasRemoved = styled.div`
+  display: grid;
+  grid-template-columns: 21px auto;
+  align-items: center;
+  grid-gap: 10px;
+  height: 40px;
 `;
 
 const STATUS_THEME = {
@@ -40,6 +49,16 @@ const renderList = ({
       ...props
     }) => {
       const user = isMine ? props.mentor : props.mentee;
+      if (!user) {
+        return (
+          <li key={id}>
+            <UserWasRemoved>
+              <UserWasRemovedIcon />
+              User was removed
+            </UserWasRemoved>
+          </li>
+        );
+      }
       const username = user.name;
       return (
         <li key={id}>

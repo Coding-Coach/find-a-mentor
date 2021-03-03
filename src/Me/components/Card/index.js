@@ -27,6 +27,8 @@ export const Content = styled.div`
 `;
 
 const CardContainer = styled.div`
+  --padding-inline: 14px;
+
   position: relative;
   background-color: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
@@ -38,8 +40,8 @@ const CardContainer = styled.div`
   }
   ${Header},
   ${Content} {
-    padding-left: 14px;
-    padding-right: 14px;
+    padding-left: var(--padding-inline);
+    padding-right: var(--padding-inline);
   }
 
   & + & {

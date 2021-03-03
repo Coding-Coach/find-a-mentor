@@ -149,6 +149,10 @@ const Content = styled.div`
 
 const Root = styled.div`
   position: relative;
+  margin: 0 calc(-1 * var(--padding-inline));
+  padding: 0 var(--padding-inline);
+  transition: background-color 0.15s ease;
+
   &:hover {
     background-color: ${({ highlight }) => (highlight ? '#f2f2f2' : '')};
     ${Main} {
