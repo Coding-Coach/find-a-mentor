@@ -1,5 +1,8 @@
 import React, { useContext } from 'react';
+import Obfuscate from 'react-obfuscate';
+import { orderBy } from 'lodash';
 import './Card.css';
+import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
 import { report } from '../../ga';
 import auth from '../../utils/auth';
@@ -162,7 +165,7 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
         <div className="channels">
           {availability ? (
             <div className="channel-inner">
-              <ApplyButton mentor={mentor} />
+              <Channels channels={mentor.channels} />
             </div>
           ) : (
             <MentorNotAvailable />
@@ -192,6 +195,47 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
         <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
     );
+  };
+
+  const Channels = ({ channels }) => {
+    if (!channels.length) {
+      return <ApplyButton mentor={mentor} />
+    }
+    const orderedChannels = orderBy(channels, ['type'], ['asc']);
+    return orderedChannels.map(channel => {
+      const { icon, url } = getChannelInfo(channel);
+      if (channel.type === 'email') {
+        return (
+          <Obfuscate
+            key={channel.type}
+            email={url.substring('mailto:'.length)}
+            linkText=""
+            onClick={() => handleAnalytic(`${channel.type}`)}
+          >
+            <div className="icon">
+              <i className={`fa fa-${icon} fa-lg`} />
+            </div>
+            <p className="type">{channel.type}</p>
+          </Obfuscate>
+        );
+      } else {
+        return (
+          <a
+            key={channel.type}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="channel-label"
+            onClick={() => handleAnalytic(`${channel.type}`)}
+          >
+            <div className="icon">
+              <i className={`fa fa-${icon} fa-lg`} />
+            </div>
+            <p className="type">{channel.type}</p>
+          </a>
+        );
+      }
+    });
   };
 
   return (
