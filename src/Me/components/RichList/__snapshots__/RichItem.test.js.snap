@@ -117,6 +117,10 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
 
 .c1 {
   position: relative;
+  margin: 0 calc(-1 * var(--padding-inline));
+  padding: 0 var(--padding-inline);
+  -webkit-transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .c1:hover .c3 {
@@ -295,6 +299,10 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
 
 .c1 {
   position: relative;
+  margin: 0 calc(-1 * var(--padding-inline));
+  padding: 0 var(--padding-inline);
+  -webkit-transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .c1:hover .c3 {
@@ -473,6 +481,10 @@ exports[`RichItem component renders secondary tag when specified with theme prop
 
 .c1 {
   position: relative;
+  margin: 0 calc(-1 * var(--padding-inline));
+  padding: 0 var(--padding-inline);
+  -webkit-transition: background-color 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .c1:hover .c3 {
