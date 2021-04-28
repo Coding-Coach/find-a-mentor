@@ -47,10 +47,13 @@ export async function makeApiCall(path, body, method, jsonous = true) {
     }
     return res;
   } catch (error) {
-    reportError('Api', `${error || 'unknown error'} at ${path}`);
     console.error(error);
+
+    const errorMessage = getErrorMessage(error);
+    reportError('Api', `${errorMessage || 'unknown error'} at ${path}`);
+
     !toast.isActive(API_ERROR_TOAST_ID) &&
-      toast.error(error || messages.GENERIC_ERROR, {
+      toast.error(errorMessage, {
         toastId: API_ERROR_TOAST_ID,
       });
     return {
@@ -58,6 +61,16 @@ export async function makeApiCall(path, body, method, jsonous = true) {
       message: error,
     };
   }
+}
+
+function getErrorMessage(error) {
+  if (Array.isArray(error)) {
+    return Object.values(error[0].constraints)[0];
+  }
+  if (error) {
+    return error;
+  }
+  return messages.GENERIC_ERROR;
 }
 
 function storeUserInLocalStorage(user = currentUser) {

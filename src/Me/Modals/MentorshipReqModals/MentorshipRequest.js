@@ -38,6 +38,7 @@ const ErrorMessage = styled.div`
 
 const MentorshipRequest = ({ mentor, closeModal }) => {
   const [confirmed, setConfirmed] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [mentorshipRequestDetails, setMentorshipRequestDetails] = useState(
     getMyMentorshipApplication()
   );
@@ -143,12 +144,11 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
 
   const onSubmit = async e => {
     e?.preventDefault();
+    setIsLoading(true);
     if (!validate()) return;
     const success = await applyForMentorship(mentor, mentorshipRequestDetails);
-    if (!success) {
-      closeModal();
-    }
     setConfirmed(success);
+    setIsLoading(false);
   };
 
   return (
@@ -158,6 +158,7 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
       closeModal={closeModal}
       submitLabel="Send Request"
       isValid={errors?.isValid}
+      isLoading={isLoading}
     >
       {confirmed ? (
         <Body>
