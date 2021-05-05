@@ -147,20 +147,14 @@ export const Modal = ({
   title,
   submitLabel = 'Save',
   center,
-  isValid = true,
   children,
+  isLoading,
 }) => {
   const [state, setState] = useState(false);
-  const [loadingState, setLoadingState] = useState(false);
 
   const save = e => {
-    setLoadingState(isValid);
     onSave(e);
   };
-
-  useEffect(() => {
-    if (!isValid) setLoadingState(isValid);
-  }, [isValid]);
 
   useEffect(() => {
     setState(true);
@@ -193,8 +187,8 @@ export const Modal = ({
                 <Button
                   skin="primary"
                   onClick={save}
-                  isLoading={loadingState}
-                  disabled={loadingState}
+                  isLoading={isLoading}
+                  disabled={isLoading}
                 >
                   {submitLabel}
                 </Button>
