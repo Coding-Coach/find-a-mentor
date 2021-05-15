@@ -11,6 +11,7 @@ import model from './model';
 import Select from 'react-select';
 import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
+import Switch from '../Switch/Switch';
 import { getAvatarUrl } from '../../helpers/avatar';
 import { providers } from '../../channelProvider';
 import auth from '../../utils/auth';
@@ -23,11 +24,12 @@ export default class EditProfile extends Component {
   state = {
     user: fromMtoVM(this.context.currentUser),
     errors: [],
+    agree: false,
   };
 
   validate() {
     const errors = [];
-    const { user } = this.state;
+    const { user, agree } = this.state;
     Object.entries(model).forEach(([field, config]) => {
       if (config.validate && !config.validate(user[field])) {
         errors.push(config.label);
@@ -42,6 +44,9 @@ export default class EditProfile extends Component {
         }
       }
     });
+    if (!agree) {
+      errors.push('Read the guidelines');
+    }
     this.setState({
       errors,
     });
@@ -330,7 +335,7 @@ export default class EditProfile extends Component {
   };
 
   render() {
-    const { disabled, errors, user } = this.state;
+    const { disabled, errors, user, agree } = this.state;
     return (
       <>
         <form onSubmit={this.onSubmit} className="edit-profile">
@@ -338,6 +343,24 @@ export default class EditProfile extends Component {
             {Object.entries(model).map(([fieldName, field]) =>
               this.formField(fieldName, field)
             )}
+            <div className="form-field read-guidelines">
+              <Switch
+                id="read-guidelines-switch"
+                value={agree}
+                theme="small"
+                onToggle={agreed => this.setState({ agree: agreed })}
+              />
+              <label htmlFor="switch-input-read-guidelines-switch">
+                I read the{' '}
+                <a
+                  href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Mentoship Guidelines
+                </a>
+              </label>
+            </div>
           </div>
           <div className="form-submit">
             {!!errors.length && (

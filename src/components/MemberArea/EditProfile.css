@@ -137,6 +137,14 @@
   white-space: nowrap;
 }
 
+.edit-profile .read-guidelines {
+  display: flex;
+}
+
+.edit-profile .read-guidelines > label {
+  margin-left: 5px;
+}
+
 .edit-profile .form-errors {
   color: red;
   margin: 5px 0;
