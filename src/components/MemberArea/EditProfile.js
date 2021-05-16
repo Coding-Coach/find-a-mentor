@@ -357,8 +357,9 @@ export default class EditProfile extends Component {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Mentorship Guidelines and I understand that the mentorship free
+                  Mentorship Guidelines
                 </a>
+                {' '}and I understand that the mentorship is <b>free</b>
               </label>
             </div>
           </div>

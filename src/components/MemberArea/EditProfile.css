@@ -139,6 +139,7 @@
 
 .edit-profile .read-guidelines {
   display: flex;
+  width: 100%;
 }
 
 .edit-profile .read-guidelines > label {
