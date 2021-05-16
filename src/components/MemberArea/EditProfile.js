@@ -351,13 +351,13 @@ export default class EditProfile extends Component {
                 onToggle={agreed => this.setState({ agree: agreed })}
               />
               <label htmlFor="switch-input-read-guidelines-switch">
-                I read the{' '}
+                I've read the{' '}
                 <a
                   href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  Mentoship Guidelines
+                  Mentorship Guidelines and I understand that the mentorship free
                 </a>
               </label>
             </div>
