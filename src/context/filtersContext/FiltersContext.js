@@ -1,8 +1,8 @@
 import React, { useReducer, createContext, useContext, useEffect } from 'react';
-import { getPermalinkParamsValues } from '../../utils/permaLinkService';
+import { useFilterParams } from '../../utils/permaLinkService';
 
 const FiltersStateContext = createContext({});
-const FiltersDispatchContext = createContext({});
+const FiltersDispatchContext = createContext(() => {});
 
 const filterReducer = (state, action) => {
   switch (action.type) {
@@ -27,8 +27,9 @@ const filterReducer = (state, action) => {
 
 const FiltersProvider = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, {});
+  const {getFilterParams} = useFilterParams();
   useEffect(() => {
-    const initialFilters = getPermalinkParamsValues();
+    const initialFilters = getFilterParams();
     dispatch({
       type: 'setFilters',
       payload: { ...initialFilters, showFilters: false },
@@ -59,6 +60,11 @@ const useFiltersDispatch = () => {
   return context;
 };
 
-const useFilters = () => [useFiltersState(), useFiltersDispatch()];
+const useFilters = () => {
+  const state = useFiltersState();
+  const dispatch = useFiltersDispatch();
+  console.log(state, dispatch);
+  return [state, dispatch];
+}
 
 export { FiltersProvider, useFilters };

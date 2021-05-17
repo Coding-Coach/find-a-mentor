@@ -22,11 +22,9 @@ import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
+import { useFilterParams } from '../../utils/permaLinkService';
+import { useParams, withRouter } from 'react-router';
 import { useUser } from '../../context/userContext/UserContext';
-import {
-  setPermalinkParams,
-  getPermalinkParamsValues,
-} from '../../utils/permaLinkService';
 import { ActionsHandler } from './ActionsHandler';
 import { toast } from 'react-toastify';
 
@@ -46,10 +44,12 @@ function scrollToTop() {
 }
 
 const App = () => {
+  const params = useParams();
+  const { getFilterParams } = useFilterParams();
   const [mentors, setMentors] = useState([]);
   const [isReady, setIsReady] = useState(false);
   const [filters, setFilters] = useFilters();
-  const { tag, country, name, language, onPopState } = filters;
+  const { tag, country, name, language } = filters;
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
   const [fieldsIsActive, setFieldsIsActive] = useState(false);
@@ -62,10 +62,10 @@ const App = () => {
 
   useEffect(() => {
     window.onpopstate = () => {
-      const urlFilters = getPermalinkParamsValues();
+      const urlFilters = getFilterParams();
       setFilters({ type: 'setFilters', payload: urlFilters });
     };
-  }, [setFilters]);
+  }, [setFilters, getFilterParams]);
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -92,7 +92,8 @@ const App = () => {
         (!language ||
           (mentor.spokenLanguages &&
             mentor.spokenLanguages.includes(language))) &&
-        (!showFavorites || favorites.indexOf(mentor._id) > -1)
+        (!showFavorites || favorites.indexOf(mentor._id) > -1) &&
+        mentor.available
       );
     },
     [filters, favorites, showFavorites]
@@ -113,51 +114,6 @@ const App = () => {
     setFavorites(newFavorites);
     report('Favorite');
   };
-
-  const onUpdateFilter = useCallback(
-    async (value, param) => {
-      if (typeof value === 'undefined') {
-        return;
-      }
-      await scrollToTop();
-      if (!onPopState) {
-        setPermalinkParams(param, value);
-        if (value) {
-          report('Filter', param, value);
-        }
-      }
-    },
-    [onPopState]
-  );
-
-  useEffect(() => {
-    onUpdateFilter(tag, 'technology');
-  }, [tag, onUpdateFilter]);
-
-  useEffect(() => {
-    onUpdateFilter(country, 'country');
-  }, [country, onUpdateFilter]);
-
-  useEffect(() => {
-    onUpdateFilter(language, 'language');
-  }, [language, onUpdateFilter]);
-
-  const onUpdateName = useCallback(async () => {
-    if (typeof name === 'undefined') {
-      return;
-    }
-    await scrollToTop();
-    if (!onPopState) {
-      setPermalinkParams('name', name);
-      if (name) {
-        report('Filter', 'name', 'name');
-      }
-    }
-  }, [name, onPopState]);
-
-  useEffect(() => {
-    onUpdateName();
-  }, [name, onUpdateName]);
 
   useEffect(
     () => set({ tag, country, name, language }),
@@ -207,10 +163,15 @@ const App = () => {
     report('Modal', 'open', title);
   };
 
-  const mentorsInList = useMemo(
+  const filteredMentors = useMemo(
     () => mentors.filter(filterMentors),
     [mentors, filterMentors]
   );
+
+  const mentorsInList =
+    params.id && isReady
+      ? [mentors.find(({ _id }) => _id === params.id)]
+      : filteredMentors;
 
   return (
     <div className="app">
@@ -223,8 +184,8 @@ const App = () => {
             <Filter
               onToggleFilter={toggleFields}
               onToggleSwitch={toggleSwitch}
-              mentorCount={mentorsInList.length}
-              mentors={mentorsInList}
+              mentorCount={filteredMentors.length}
+              mentors={filteredMentors}
               showFavorite={showFavorites}
             />
             <SocialLinks />
@@ -278,11 +239,11 @@ const App = () => {
   );
 };
 
-const AppWithActionHandlers = () => (
+const AppWithActionHandlers = withRouter(() => (
   <ActionsHandler>
     <App />
   </ActionsHandler>
-);
+));
 
 const Main = styled.main`
   display: flex;
