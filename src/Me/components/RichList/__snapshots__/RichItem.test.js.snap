@@ -54,11 +54,18 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   user-select: none;
   width: 45px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c6 img {
-  height: 45px;
-  width: 45px;
+  width: 100%;
   border-radius: 50%;
 }
 
@@ -236,11 +243,18 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   user-select: none;
   width: 45px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c6 img {
-  height: 45px;
-  width: 45px;
+  width: 100%;
   border-radius: 50%;
 }
 
@@ -418,11 +432,18 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   user-select: none;
   width: 45px;
   overflow: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .c6 img {
-  height: 45px;
-  width: 45px;
+  width: 100%;
   border-radius: 50%;
 }
 
