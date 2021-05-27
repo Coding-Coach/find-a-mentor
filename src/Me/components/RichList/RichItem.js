@@ -94,9 +94,11 @@ const ItemAvatar = styled.div`
   user-select: none;
   width: 45px;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+
   img {
-    height: 45px;
-    width: 45px;
+    width: 100%;
     border-radius: 50%;
   }
 `;

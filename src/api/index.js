@@ -115,13 +115,13 @@ export function clearCurrentUser() {
   localStorage.removeItem(USER_LOCAL_KEY);
 }
 
+let mentorsPromise;
 export async function getMentors() {
-  // TODO remove prepage: 1000 once the pagination will be ready
-  const res = await makeApiCall(`${paths.MENTORS}?limit=1000`);
-  if (res.data) {
-    return shuffle(res.data);
+  if (!mentorsPromise) {
+    mentorsPromise = makeApiCall(`${paths.MENTORS}?limit=1200`)
+      .then(response => shuffle(response?.data || []));
   }
-  return [];
+  return mentorsPromise;
 }
 
 export async function getFavorites() {

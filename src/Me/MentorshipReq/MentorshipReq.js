@@ -50,7 +50,6 @@ const MentorshipReq = () => {
   };
   const onDeclinedReq = ({ id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.rejected]) return;
-
     setSelectedReq({ id, username });
     openDeclinedModal();
   };
@@ -133,7 +132,7 @@ const MentorshipReq = () => {
     if (!userId) return;
     getMentorshipReq();
   }, [userId, getMentorshipReq]);
-
+console.log(444444444, selectedReq?.id);
   return (
     <>
       <Card title="Mentorship Requests">

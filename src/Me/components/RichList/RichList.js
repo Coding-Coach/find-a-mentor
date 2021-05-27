@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Style = {
@@ -11,17 +11,13 @@ const Style = {
 };
 
 export const RichList = ({ render, closeOpenItem }) => {
-  const [state, setState] = useState('');
-
-  useEffect(() => {
-    if (closeOpenItem) setState('');
-  }, [closeOpenItem]);
+  const [expandId, setExpandId] = useState('');
 
   const onSelect = id => {
-    setState(state === id ? '' : id);
+    setExpandId(expandId === id ? '' : id);
   };
 
-  return <Style.List>{render({ onSelect, expandId: state })}</Style.List>;
+  return <Style.List>{render({ onSelect, expandId })}</Style.List>;
 };
 
 RichList.propTypes = {
