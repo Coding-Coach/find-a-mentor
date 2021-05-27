@@ -8,7 +8,7 @@ import { Loader } from '../../../components/Loader';
  * @callback OnClick
  * @typedef {('primary' | 'secondary' | 'danger')} Skin
  * @typedef {boolean} IsLoading
- * @typedef {Pick<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'onClick' | 'id' | 'disabled' | isLoading 'type' | 'name'>} ButtonProps
+ * @typedef {Pick<React.DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'onClick' | 'id' | 'disabled' | 'type' | 'name' | 'children'>} ButtonProps
  */
 
 const StyledButton = styled.button`

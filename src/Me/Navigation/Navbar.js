@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import classNames from 'classnames';
 import auth from '../../utils/auth';
 import { mobile, desktop } from '../styles/shared/devices';
 import messages from '../../messages';
