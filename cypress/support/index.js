@@ -5,7 +5,7 @@ let polyfill;
 
 const { before, cy, Cypress } = global;
 
-// Polyfill window.fetch because thre is no native support from Cypress yet
+// Polyfill window.fetch because there is no native support from Cypress yet
 // Adapted from: https://github.com/cypress-io/cypress/issues/95#issuecomment-517594737
 before(() => {
   cy.readFile('node_modules/whatwg-fetch/dist/fetch.umd.js').then(contents => {

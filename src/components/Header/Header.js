@@ -7,9 +7,9 @@ import { report } from '../../ga';
 import Logo from '../Logo';
 import Title from '../SiteTitle';
 import Navigation from '../Navigation/Navigation';
-import useWindowSize from '../../utils/useWindowSize';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import auth from '../../utils/auth';
+import { useDeviceType } from '../../utils/useDeviceType';
 
 function Header() {
   const [modal, setModal] = useState({
@@ -18,7 +18,7 @@ function Header() {
     onClose: null,
   });
   const [isOpen, setIsOpen] = useState(false);
-  const isDesktop = useWindowSize().width > 800;
+  const { isDesktop } = useDeviceType();
   const authenticated = auth.isAuthenticated();
 
   const handleModal = ({ title, content, onClose }) => {

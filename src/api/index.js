@@ -7,10 +7,12 @@ import * as Sentry from '@sentry/browser';
 
 const API_ERROR_TOAST_ID = 'api-error-toast-id';
 const USER_LOCAL_KEY = 'user';
+const USER_MENTORSHIP_REQUEST = 'mentorship-request';
 
-const paths = {
+export const paths = {
   MENTORS: '/mentors',
   USERS: '/users',
+  MENTORSHIP: '/mentorships',
 };
 
 let currentUser;
@@ -45,10 +47,13 @@ export async function makeApiCall(path, body, method, jsonous = true) {
     }
     return res;
   } catch (error) {
-    reportError('Api', `${error || 'unknown error'} at ${path}`);
     console.error(error);
+
+    const errorMessage = getErrorMessage(error);
+    reportError('Api', `${errorMessage || 'unknown error'} at ${path}`);
+
     !toast.isActive(API_ERROR_TOAST_ID) &&
-      toast.error(messages.GENERIC_ERROR, {
+      toast.error(errorMessage, {
         toastId: API_ERROR_TOAST_ID,
       });
     return {
@@ -56,6 +61,16 @@ export async function makeApiCall(path, body, method, jsonous = true) {
       message: error,
     };
   }
+}
+
+function getErrorMessage(error) {
+  if (Array.isArray(error)) {
+    return Object.values(error[0].constraints)[0];
+  }
+  if (error) {
+    return error;
+  }
+  return messages.GENERIC_ERROR;
 }
 
 function storeUserInLocalStorage(user = currentUser) {
@@ -100,13 +115,13 @@ export function clearCurrentUser() {
   localStorage.removeItem(USER_LOCAL_KEY);
 }
 
+let mentorsPromise;
 export async function getMentors() {
-  // TODO remove prepage: 1000 once the pagination will be ready
-  const res = await makeApiCall(`${paths.MENTORS}?limit=1200`);
-  if (res.data) {
-    return shuffle(res.data);
+  if (!mentorsPromise) {
+    mentorsPromise = makeApiCall(`${paths.MENTORS}?limit=1200`)
+      .then(response => shuffle(response?.data || []));
   }
-  return [];
+  return mentorsPromise;
 }
 
 export async function getFavorites() {
@@ -226,4 +241,46 @@ export async function rejectApplication(mentor, reason) {
     'PUT'
   );
   return res.success;
+}
+
+export async function applyForMentorship(
+  mentor,
+  { myBackground, myExpectations, message }
+) {
+  const payload = {
+    myBackground,
+    myExpectations,
+    message,
+  };
+  const res = await makeApiCall(
+    `${paths.MENTORSHIP}/${mentor._id}/apply`,
+    payload,
+    'POST'
+  );
+  if (res.success) {
+    localStorage.setItem(USER_MENTORSHIP_REQUEST, JSON.stringify(payload));
+  }
+  return res.success;
+}
+
+export function getMyMentorshipApplication() {
+  return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
+}
+
+export async function getMentorshipRequests(userId) {
+  const res = await makeApiCall(
+    `${paths.MENTORSHIP}/${userId}/requests`,
+    null,
+    'GET'
+  );
+  return res.data;
+}
+
+export async function updateMentorshipReqStatus(reqId, userId, payload) {
+  const res = await makeApiCall(
+    `${paths.MENTORSHIP}/${userId}/requests/${reqId}`,
+    payload,
+    'PUT'
+  );
+  return res;
 }

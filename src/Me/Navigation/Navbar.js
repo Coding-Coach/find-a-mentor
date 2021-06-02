@@ -1,19 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import classNames from 'classnames';
 import auth from '../../utils/auth';
 import { mobile, desktop } from '../styles/shared/devices';
 import messages from '../../messages';
 import styled from 'styled-components/macro';
 import { ReactComponent as IconHome } from '../../assets/me/home.svg';
+import { ReactComponent as Mentorships } from '../../assets/me/icon-survey.svg';
 import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
 import { ReactComponent as IconLogout } from '../../assets/me/icon-door-exit.svg';
 
-const MenuItem = ({ icon: Icon, label, to }) => (
-  <NavItemDecoration to={to}>
-    <Icon />
-    <Label>{label}</Label>
-  </NavItemDecoration>
-);
+const MenuItem = ({ icon: Icon, label, to }) => {
+  const location = useLocation();
+  return (
+    <NavItemDecoration
+      className={classNames({ active: location.pathname === to })}
+      to={to}
+    >
+      <Icon />
+      <Label>{label}</Label>
+    </NavItemDecoration>
+  );
+};
 
 const Navbar = () => {
   return (
@@ -24,6 +32,7 @@ const Navbar = () => {
           alt="Logo"
         />
         <MenuItem to="/me" icon={IconHome} label="Home" />
+        <MenuItem to="/me/requests" icon={Mentorships} label="Mentorships" />
         <MenuItem to="/" icon={IconMentors} label="Mentors" />
         <Logout to={window.location.pathname} onClick={auth.doLogout}>
           <IconLogout />
@@ -46,7 +55,7 @@ const Menu = styled.nav`
 
   @media ${desktop} {
     height: 100%;
-    width: 75px;
+    width: 85px;
     top: 0;
   }
 
@@ -56,6 +65,7 @@ const Menu = styled.nav`
     bottom: 0;
     display: flex;
     align-items: center;
+    z-index: 1;
 
     > * {
       flex: 1;
@@ -78,8 +88,8 @@ const NavItemDecoration = styled(Link)`
 `;
 
 const Logo = styled.img`
-  height: 79px;
-  width: 75px;
+  height: auto;
+  width: 100%;
   margin-bottom: 70px;
 
   @media ${mobile} {

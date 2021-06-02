@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Obfuscate from 'react-obfuscate';
-import orderBy from 'lodash/orderBy';
+import { orderBy } from 'lodash';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
@@ -11,6 +11,9 @@ import { Tooltip } from 'react-tippy';
 import messages from '../../messages';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import UserContext from '../../context/userContext/UserContext';
+import { useModal } from '../../context/modalContext/ModalContext';
+import MentorshipRequest from '../../Me/Modals/MentorshipReqModals/MentorshipRequest';
+import { useDeviceType } from '../../utils/useDeviceType';
 
 function handleAnalytic(channelName) {
   report('Channel', 'click', channelName);
@@ -35,10 +38,22 @@ const applyOnClick = () => {
   auth.login();
 };
 
-const nonLoggedinChannels = () => {
+const ApplyButton = ({ mentor }) => {
+  const isDesktop = useDeviceType();
+  const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
+  const isAuth = auth.isAuthenticated();
+  const tooltipMessage = isAuth
+    ? messages.CARD_APPLY_REQUEST_TOOLTIP
+    : messages.CARD_APPLY_TOOLTIP;
+  const handleClick = isAuth ? openModal : applyOnClick;
   return (
-    <Tooltip title={messages.CARD_APPLY_TOOLTIP} size="big" arrow={true}>
-      <button onClick={applyOnClick}>
+    <Tooltip
+      disabled={!isDesktop}
+      title={tooltipMessage}
+      size="big"
+      arrow={true}
+    >
+      <button onClick={handleClick}>
         <div className="icon">
           <i className="fa fa-hand-o-right fa-lg" />
         </div>
@@ -46,47 +61,6 @@ const nonLoggedinChannels = () => {
       </button>
     </Tooltip>
   );
-};
-
-const channelsList = channels => {
-  if (!auth.isAuthenticated()) {
-    return nonLoggedinChannels();
-  }
-  const orderedChannels = orderBy(channels, ['type'], ['asc']);
-  return orderedChannels.map(channel => {
-    const { icon, url } = getChannelInfo(channel);
-    if (channel.type === 'email') {
-      return (
-        <Obfuscate
-          key={channel.type}
-          email={url.substring('mailto:'.length)}
-          linkText=""
-          onClick={() => handleAnalytic(`${channel.type}`)}
-        >
-          <div className="icon">
-            <i className={`fa fa-${icon} fa-lg`} />
-          </div>
-          <p className="type">{channel.type}</p>
-        </Obfuscate>
-      );
-    } else {
-      return (
-        <a
-          key={channel.type}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="channel-label"
-          onClick={() => handleAnalytic(`${channel.type}`)}
-        >
-          <div className="icon">
-            <i className={`fa fa-${icon} fa-lg`} />
-          </div>
-          <p className="type">{channel.type}</p>
-        </a>
-      );
-    }
-  });
 };
 
 const Avatar = ({ mentor, id, handleAvatarClick }) => {
@@ -126,7 +100,6 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
     tags,
     title,
     _id: mentorID,
-    channels,
     available: availability,
   } = mentor;
 
@@ -191,7 +164,9 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
         <div className="wave" />
         <div className="channels">
           {availability ? (
-            <div className="channel-inner">{channelsList(channels)}</div>
+            <div className="channel-inner">
+              <Channels channels={mentor.channels} />
+            </div>
           ) : (
             <MentorNotAvailable />
           )}
@@ -220,6 +195,47 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
         <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
     );
+  };
+
+  const Channels = ({ channels }) => {
+    if (!channels.length) {
+      return <ApplyButton mentor={mentor} />
+    }
+    const orderedChannels = orderBy(channels, ['type'], ['asc']);
+    return orderedChannels.map(channel => {
+      const { icon, url } = getChannelInfo(channel);
+      if (channel.type === 'email') {
+        return (
+          <Obfuscate
+            key={channel.type}
+            email={url.substring('mailto:'.length)}
+            linkText=""
+            onClick={() => handleAnalytic(`${channel.type}`)}
+          >
+            <div className="icon">
+              <i className={`fa fa-${icon} fa-lg`} />
+            </div>
+            <p className="type">{channel.type}</p>
+          </Obfuscate>
+        );
+      } else {
+        return (
+          <a
+            key={channel.type}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="channel-label"
+            onClick={() => handleAnalytic(`${channel.type}`)}
+          >
+            <div className="icon">
+              <i className={`fa fa-${icon} fa-lg`} />
+            </div>
+            <p className="type">{channel.type}</p>
+          </a>
+        );
+      }
+    });
   };
 
   return (

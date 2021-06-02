@@ -6,7 +6,6 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 
 
-
 ## Support Us
 
 CodingCoach is a FREE platform that is built and managed entirely by volunteers. As always, there are ongoing costs to run this site such as servers, domains, email, and more.  Please consider becoming a patron so we can continue our mission of being accessible and free ❤️
@@ -20,9 +19,16 @@ Pre-release version of Coding Coach.
 **Please read our [Mentorships Guideline](https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit?ts=5dc96ff1)**
 
 1. Go to https://mentors.codingcoach.io/
-1. Search for a mentor - use the filters for better matching
-1. Find one or more? Register to get their details.
-1. Reach out to them.
+2. Register (or Login)
+3. Search for a mentor - use the filters for better matching
+4. Find one or more? Hit the "Apply" button in their card
+5. Fill the request form
+6. Wait for the mentor accept your request (We'll send you an email either if the mentor accepts or declines your request)
+7. Contact them using one of their channels
+
+We're aware that some mentors are not active and we are working on ways to keep only the active mentors.
+If you didn't receive any response, you can apply to more mentors.
+**Don't forget** to let the the other mentors to know once you started a mentorship.
 
 ## Want to be a mentor?
 
