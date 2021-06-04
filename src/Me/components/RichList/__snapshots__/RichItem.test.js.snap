@@ -115,7 +115,7 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   max-height: 0;
   opacity: 0;
   visibility: hidden;
-  overflow: hidden;
+  overflow-y: auto;
   visibility: visible;
   padding-bottom: 0;
   max-height: 0;
@@ -304,7 +304,7 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   max-height: 0;
   opacity: 0;
   visibility: hidden;
-  overflow: hidden;
+  overflow-y: auto;
   visibility: visible;
   padding-bottom: 0;
   max-height: 0;
@@ -493,7 +493,7 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   max-height: 0;
   opacity: 0;
   visibility: hidden;
-  overflow: hidden;
+  overflow-y: auto;
   visibility: visible;
   padding-bottom: 0;
   max-height: 0;
