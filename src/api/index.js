@@ -245,11 +245,11 @@ export async function rejectApplication(mentor, reason) {
 
 export async function applyForMentorship(
   mentor,
-  { myBackground, myExpectations, message }
+  { background, expectation, message }
 ) {
   const payload = {
-    myBackground,
-    myExpectations,
+    background,
+    expectation,
     message,
   };
   const res = await makeApiCall(

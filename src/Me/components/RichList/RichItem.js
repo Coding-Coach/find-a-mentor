@@ -144,7 +144,7 @@ const Content = styled.div`
   ${({ expand }) => ({
     visibility: 'visible',
     paddingBottom: expand ? '30px' : 0,
-    maxHeight: expand ? '450px' : 0,
+    maxHeight: expand ? '1000px' : 0,
     opacity: expand ? 1 : 0,
   })}
 `;

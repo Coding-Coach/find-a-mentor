@@ -55,19 +55,19 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
   };
 
   const model = {
-    myBackground: {
+    background: {
       label: 'My Background',
       type: 'longtext',
-      defaultValue: mentorshipRequestDetails.myBackground,
+      defaultValue: mentorshipRequestDetails.background,
       placeholder: 'Tell the mentor about yourself.',
       style: {
         height: '121px',
       },
     },
-    myExpectations: {
+    expectation: {
       label: 'My Expectations',
       type: 'longtext',
-      defaultValue: mentorshipRequestDetails.myExpectations,
+      defaultValue: mentorshipRequestDetails.expectation,
       placeholder: 'What do you expect from this mentorship?',
       style: {
         height: '121px',
