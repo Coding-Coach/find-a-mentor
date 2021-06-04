@@ -139,12 +139,12 @@ const Content = styled.div`
   max-height: 0;
   opacity: 0;
   visibility: hidden;
-  overflow: hidden;
+  overflow-y: auto;
 
   ${({ expand }) => ({
     visibility: 'visible',
     paddingBottom: expand ? '30px' : 0,
-    maxHeight: expand ? '1000px' : 0,
+    maxHeight: expand ? '500px' : 0,
     opacity: expand ? 1 : 0,
   })}
 `;

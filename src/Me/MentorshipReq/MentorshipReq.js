@@ -132,7 +132,6 @@ const MentorshipReq = () => {
     if (!userId) return;
     getMentorshipReq();
   }, [userId, getMentorshipReq]);
-console.log(444444444, selectedReq?.id);
   return (
     <>
       <Card title="Mentorship Requests">
