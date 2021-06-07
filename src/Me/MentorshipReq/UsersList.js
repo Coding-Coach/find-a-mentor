@@ -78,6 +78,7 @@ const renderList = ({
             info={formatRequestTime(Date.parse(date))}
           >
             <ReqContent
+              menteeEmail={props.mentee.email}
               status={status}
               isLoading={isLoading}
               isMine={isMine}

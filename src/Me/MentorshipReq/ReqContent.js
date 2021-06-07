@@ -23,13 +23,15 @@ const CallToAction = styled.div`
   margin-top: 1rem;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+
   > button {
     width: 110px;
     height: 36px;
     border-radius: 3px;
     margin: 0;
 
-    & + button {
+    &:not(:first-child) {
       margin-left: 8px;
     }
   }
@@ -44,6 +46,7 @@ const ReqContent = ({
   onDeclined,
   isLoading,
   isMine,
+  menteeEmail
 }) => {
   const hideBtns =
     isMine || [STATUS.approved, STATUS.rejected].includes(status);
@@ -67,8 +70,11 @@ const ReqContent = ({
       )}
       {hideBtns ? null : (
         <CallToAction>
+          <a href={`mailto:${menteeEmail}`}>
+            Send a message
+          </a>
           <Button skin="secondary" onClick={onDeclined}>
-            Declined
+            Decline
           </Button>
           <Button skin="primary" onClick={onAccept} isLoading={isLoading}>
             Accept
