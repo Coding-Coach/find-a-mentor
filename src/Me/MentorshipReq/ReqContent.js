@@ -19,6 +19,12 @@ const Block = styled.div`
   }
 `;
 
+const RequestFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
+
 const CallToAction = styled.div`
   margin-top: 1rem;
   display: flex;
@@ -46,7 +52,7 @@ const ReqContent = ({
   onDeclined,
   isLoading,
   isMine,
-  menteeEmail
+  menteeEmail,
 }) => {
   const hideBtns =
     isMine || [STATUS.approved, STATUS.rejected].includes(status);
@@ -69,17 +75,19 @@ const ReqContent = ({
         </Block>
       )}
       {hideBtns ? null : (
-        <CallToAction>
-          <a href={`mailto:${menteeEmail}`}>
-            Send a message
-          </a>
-          <Button skin="secondary" onClick={onDeclined}>
-            Decline
-          </Button>
-          <Button skin="primary" onClick={onAccept} isLoading={isLoading}>
-            Accept
-          </Button>
-        </CallToAction>
+        <RequestFooter>
+          <CallToAction>
+            <Button skin="secondary" onClick={onDeclined}>
+              Decline
+            </Button>
+            <Button skin="primary" onClick={onAccept} isLoading={isLoading}>
+              Accept
+            </Button>
+          </CallToAction>
+          <CallToAction>
+            <a href={`mailto:${menteeEmail}`}>Send a message</a>
+          </CallToAction>
+        </RequestFooter>
       )}
     </div>
   );
