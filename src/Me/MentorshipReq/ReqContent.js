@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import { STATUS } from '../../helpers/mentorship';
+import { Tooltip } from 'react-tippy';
+import { report } from '../../ga';
 
 const Block = styled.div`
   & + div {
@@ -85,7 +87,19 @@ const ReqContent = ({
             </Button>
           </CallToAction>
           <CallToAction>
-            <a href={`mailto:${menteeEmail}`}>Send a message</a>
+            <Tooltip
+              title="Don't forget to approve the request if it works for you"
+              size="regular"
+              arrow={true}
+              position="top"
+            >
+              <a
+                onClick={() => report('mentorship request', 'send message')}
+                href={`mailto:${menteeEmail}`}
+              >
+                Send a message
+              </a>
+            </Tooltip>
           </CallToAction>
         </RequestFooter>
       )}
