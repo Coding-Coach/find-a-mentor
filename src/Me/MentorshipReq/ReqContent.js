@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import { STATUS } from '../../helpers/mentorship';
+import { Tooltip } from 'react-tippy';
+import { report } from '../../ga';
 
 const Block = styled.div`
   & + div {
@@ -19,17 +21,25 @@ const Block = styled.div`
   }
 `;
 
+const RequestFooter = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+`;
+
 const CallToAction = styled.div`
   margin-top: 1rem;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+
   > button {
     width: 110px;
     height: 36px;
     border-radius: 3px;
     margin: 0;
 
-    & + button {
+    &:not(:first-child) {
       margin-left: 8px;
     }
   }
@@ -44,6 +54,7 @@ const ReqContent = ({
   onDeclined,
   isLoading,
   isMine,
+  menteeEmail,
 }) => {
   const hideBtns =
     isMine || [STATUS.approved, STATUS.rejected].includes(status);
@@ -66,14 +77,31 @@ const ReqContent = ({
         </Block>
       )}
       {hideBtns ? null : (
-        <CallToAction>
-          <Button skin="secondary" onClick={onDeclined}>
-            Declined
-          </Button>
-          <Button skin="primary" onClick={onAccept} isLoading={isLoading}>
-            Accept
-          </Button>
-        </CallToAction>
+        <RequestFooter>
+          <CallToAction>
+            <Button skin="secondary" onClick={onDeclined}>
+              Decline
+            </Button>
+            <Button skin="primary" onClick={onAccept} isLoading={isLoading}>
+              Accept
+            </Button>
+          </CallToAction>
+          <CallToAction>
+            <Tooltip
+              title="Don't forget to approve the request if it works for you"
+              size="regular"
+              arrow={true}
+              position="top"
+            >
+              <a
+                onClick={() => report('mentorship request', 'send message')}
+                href={`mailto:${menteeEmail}`}
+              >
+                Send a message
+              </a>
+            </Tooltip>
+          </CallToAction>
+        </RequestFooter>
       )}
     </div>
   );
