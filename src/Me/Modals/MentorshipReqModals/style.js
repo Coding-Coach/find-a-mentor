@@ -9,7 +9,7 @@ export default styled.div`
   justify-content: center;
   color: #4f4f4f;
   margin: 0 auto;
-  overflow: hidden;
+  overflow-y: auto;
 
   @media ${desktop} {
     max-width: 285px;

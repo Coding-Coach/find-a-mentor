@@ -1,5 +1,5 @@
-import Body from './style';
 import React from 'react';
+import Body from './style';
 import { Modal } from '../Modal';
 import PropTypes from 'prop-types';
 import { ReactComponent as MentorshipSvg } from '../../../assets/me/mentorship.svg';
@@ -35,6 +35,13 @@ const SuccessModal = ({ username, onClose, closeModal }) => (
         </a>
         .
       </p>
+      <h3>What's next?</h3>
+      <div>
+        We just sent an email to <b>{username}</b> to inform them the happy
+        news. In this email we also included one of your contact channels.
+        At this point they also have access to your
+        channels so they probably will contact you soon.
+      </div>
     </Body>
   </Modal>
 );
