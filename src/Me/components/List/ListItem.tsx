@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as AvailableIcon } from '../../../assets/me/icon-available.svg';
 import { ReactComponent as CountryIcon } from '../../../assets/me/icon-country.svg';
@@ -10,7 +9,11 @@ import { ReactComponent as TagsIcon } from '../../../assets/me/icon-tags.svg';
 import { ReactComponent as TitleIcon } from '../../../assets/me/icon-title.svg';
 import { ReactComponent as UnavailableIcon } from '../../../assets/me/icon-unavailable.svg';
 
-// Object w/ keyed SVG Components
+export type ListItemProps = {
+  type: keyof typeof icons;
+  value: string;
+};
+
 const icons = {
   email: EmailIcon,
   spokenLanguages: SpokenLanguagesIcon,
@@ -22,7 +25,6 @@ const icons = {
   description: DescriptionIcon,
 };
 
-// Styled Components
 const ItemRow = styled.div`
   display: grid;
   grid-template-columns: 40px auto;
@@ -39,7 +41,7 @@ const ItemText = styled.div`
   padding-top: 4px;
 `;
 
-const ListItem = ({ type, value }) => {
+const ListItem = ({ type, value }: ListItemProps) => {
   const Icon = icons[type];
   return (
     <ItemRow>

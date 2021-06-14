@@ -1,5 +1,5 @@
 import ISO6391 from 'iso-639-1';
-import React, { useContext } from 'react';
+import { FC } from 'react';
 import { toast } from 'react-toastify';
 import countries from 'svg-country-flags/countries.json';
 import {
@@ -8,13 +8,18 @@ import {
   updateMentor,
 } from '../../api/index';
 import { useModal } from '../../context/modalContext/ModalContext';
-import UserContext from '../../context/userContext/UserContext';
+import { useUser } from '../../context/userContext/UserContext';
 import messages from '../../messages';
+import { Mentor } from '../../types/models';
 import Card from '../components/Card';
 import List from '../components/List';
 import EditMentorDetails from '../Modals/EditMentorDetails';
 
-const handleUpdateMentor = async (updatedUserInfo, updateUser, closeModal: () => void) => {
+const handleUpdateMentor = async (
+  updatedUserInfo: Mentor,
+  updateUser: (mentor?: Mentor) => void,
+  closeModal: () => void
+) => {
   try {
     const updateMentorResult = await updateMentor(updatedUserInfo);
     if (updateMentorResult) {
@@ -31,15 +36,14 @@ const handleUpdateMentor = async (updatedUserInfo, updateUser, closeModal: () =>
   }
 };
 
-//--- Profile Component ---//
-const Profile = () => {
-  // get user from context
-  const { currentUser } = useContext(UserContext);
+const Profile: FC = () => {
+  const { currentUser } = useUser();
 
   const [openModal] = useModal(
     <EditMentorDetails
-      userDetails={currentUser}
+      userDetails={currentUser!}
       updateMentor={handleUpdateMentor}
+      closeModal={() => {}}
     />
   );
 

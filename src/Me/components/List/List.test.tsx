@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import React from 'react';
 import List from './';
+import { ListItemProps } from './ListItem';
 
 describe('List component', () => {
-  const items = [
+  const items: ListItemProps[] = [
     {
       type: 'email',
       value: 'myemail@codecoache.com',

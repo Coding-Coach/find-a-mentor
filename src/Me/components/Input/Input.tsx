@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { InputHTMLAttributes, useContext } from 'react';
 import styled from 'styled-components';
 import { formFieldContext } from '../FormField/formContext';
 
@@ -19,7 +19,7 @@ const StyledInput = styled.input`
   }
 `;
 
-export const Input = props => {
+export const Input = (props: InputHTMLAttributes<unknown>) => {
   const id = useContext(formFieldContext);
-  return <StyledInput id={id} {...props} />;
+  return <StyledInput placeholder="bbb" id={id} {...props} />;
 };

@@ -10,7 +10,15 @@ import { ReactComponent as Mentorships } from '../../assets/me/icon-survey.svg';
 import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
 import { ReactComponent as IconLogout } from '../../assets/me/icon-door-exit.svg';
 
-const MenuItem = ({ icon: Icon, label, to }) => {
+const MenuItem = ({
+  icon: Icon,
+  label,
+  to,
+}: {
+  icon: React.FunctionComponent;
+  label: string;
+  to: string;
+}) => {
   const location = useLocation();
   return (
     <NavItemDecoration

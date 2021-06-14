@@ -1,18 +1,20 @@
-import React, { useCallback, useContext, useEffect } from 'react';
+import React, { useCallback, useEffect, FC } from 'react';
 import styled from 'styled-components';
-import UserContext from '../../../../context/userContext/UserContext';
+import { useUser } from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
 import { updateMentorAvatar, getCurrentUser } from '../../../../api';
 import CardContainer from '../../../components/Card/index';
 import { getAvatarUrl } from '../../../../helpers/avatar';
 
-const Avatar = () => {
-  let { currentUser, updateUser } = useContext(UserContext);
+const Avatar: FC = () => {
+  const { currentUser, updateCurrentUser } = useUser<true>();
 
   const initialize = useCallback(async () => {
-    const user = await getCurrentUser();
-    updateUser(user);
-  }, [updateUser]);
+    const user = (await getCurrentUser())!;
+    updateCurrentUser(user);
+    if (user) {
+    }
+  }, [updateCurrentUser]);
 
   useEffect(() => {
     initialize();
@@ -24,7 +26,7 @@ const Avatar = () => {
       formData.append('image', e.target.files[0]);
 
       const updatedUser = await updateMentorAvatar(currentUser, formData);
-      updateUser(updatedUser);
+      updateCurrentUser(updatedUser);
     }
   };
 

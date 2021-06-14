@@ -219,7 +219,7 @@ export async function updateMentor(mentor: Mentor) {
   return !!response?.success;
 }
 
-export async function updateMentorAvatar(mentor: Mentor, value: string) {
+export async function updateMentorAvatar(mentor: Mentor, value: FormData) {
   const response = await makeApiCall(
     `${paths.USERS}/${mentor._id}/avatar`,
     value,
@@ -229,7 +229,7 @@ export async function updateMentorAvatar(mentor: Mentor, value: string) {
   if (response?.success) {
     await fetchCurrentItem();
   }
-  return currentUser;
+  return currentUser!;
 }
 
 export async function updateMentorAvailability(isAvailable: boolean) {
