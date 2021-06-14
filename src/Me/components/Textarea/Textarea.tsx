@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
+import React, { TextareaHTMLAttributes, useContext } from 'react';
 import styled from 'styled-components';
 import { formFieldContext } from '../FormField/formContext';
 
-const StyledTextarea = styled.textarea`
+const StyledTextarea = styled.textarea<{ invalid?: boolean }>`
   font-family: Lato, sans-serif;
   font-size: 14px;
   line-height: 17px;
@@ -20,7 +20,7 @@ const StyledTextarea = styled.textarea`
   min-height: 75px;
 `;
 
-export const Textarea = props => {
+export const Textarea = (props: TextareaHTMLAttributes<unknown>) => {
   const id = useContext(formFieldContext);
   return <StyledTextarea id={id} {...props} />;
 };

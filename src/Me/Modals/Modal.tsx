@@ -1,9 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import _Button from '../components/Button';
 import { desktop, mobile } from '../styles/shared/devices';
 import { CSSTransition } from 'react-transition-group';
 import { ReactComponent as CloseSvg } from '../../assets/me/close.svg';
+
+type ModalProps = {
+  title: string;
+  center?: boolean;
+  isLoading?: boolean;
+  submitLabel?: string;
+  closeModal: () => void;
+  onSave?: (e: React.SyntheticEvent) => void;
+};
 
 const Button = styled(_Button)`
   margin: 0;
@@ -87,7 +96,7 @@ const Cover = css`
   left: 0;
 `;
 
-const ModalContainer = styled.div`
+const ModalContainer = styled.div<{ posCenter: boolean }>`
   z-index: 99;
   font-family: 'Lato', sans-serif;
   display: flex;
@@ -141,19 +150,19 @@ const transitionCenter = (
   `}</style>
 );
 
-export const Modal = ({
-  closeModal,
-  onSave,
+export const Modal: FC<ModalProps> = ({
   title,
-  submitLabel = 'Save',
-  center,
+  onSave,
   children,
-  isLoading,
+  closeModal,
+  center = false,
+  isLoading = false,
+  submitLabel = 'Save',
 }) => {
   const [state, setState] = useState(false);
 
-  const save = e => {
-    onSave(e);
+  const save = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    onSave?.(e);
   };
 
   useEffect(() => {

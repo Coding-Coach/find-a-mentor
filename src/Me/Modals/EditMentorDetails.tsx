@@ -1,11 +1,11 @@
-import React, { useState, useContext } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 
 import { report } from '../../ga';
 import { deleteMentor } from '../../api';
 import auth from '../../utils/auth';
 import messages from '../../messages';
-import UserContext from '../../context/userContext/UserContext';
+import { useUser } from '../../context/userContext/UserContext';
 import { Modal } from './Modal';
 import FormField from '../components/FormField';
 import Input from '../components/Input';
@@ -13,10 +13,17 @@ import Textarea from '../components/Textarea';
 import Select from '../components/Select';
 import Checkbox from '../components/Checkbox';
 import { desktop } from '../styles/shared/devices';
-import { mentorFields, userFields } from './model';
+import { mentorFields, ModelConfig, userFields } from './model';
 import { fromMtoVM, fromVMtoM } from '../../helpers/user';
 import Button from '../components/Button';
 import { toast } from 'react-toastify';
+import { User } from '../../types/models';
+
+type EditMentorDetailsProps = {
+  userDetails: User;
+  updateMentor: (userInfo: User) => void;
+  closeModal: () => void;
+};
 
 const EditDetails = styled.div`
   margin: 0 auto;
@@ -38,7 +45,7 @@ const FormFields = styled.div`
   width: 100%;
 `;
 
-const ExtendedFormField = styled(FormField)`
+const ExtendedFormField = styled(FormField)<{ customFormField?: boolean }>`
   flex: 1 1 100%;
   max-width: 355px;
   display: flex;
@@ -84,16 +91,16 @@ const InputContainer = styled.div`
 
 const DeleteAccountContainer = styled.div``;
 
-function EditMentorDetails({
+const EditMentorDetails = ({
   userDetails: { avatar, ...details },
   updateMentor,
   closeModal,
-}) {
+}: EditMentorDetailsProps) => {
   const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
 
-  const { updateUser, isMentor } = useContext(UserContext);
+  const { isMentor } = useUser();
 
-  const handleInputChange = (fieldName, value) => {
+  const handleInputChange = (fieldName: string, value: string | boolean) => {
     setMentorDetails({
       ...mentorDetails,
       [fieldName]: value,
@@ -103,7 +110,11 @@ function EditMentorDetails({
   const model = isMentor ? mentorFields : userFields;
 
   // channels onChange function
-  const handleKeyValueChange = (fieldName, prop, value) => {
+  const handleKeyValueChange = (
+    fieldName: string,
+    prop: string,
+    value: string
+  ) => {
     const user = { ...mentorDetails };
     const itemIndex = user[fieldName].findIndex(x => x.type === prop);
     const isItemExist = itemIndex > -1;
@@ -126,7 +137,7 @@ function EditMentorDetails({
     setMentorDetails(user);
   };
 
-  const formField = (fieldName, config) => {
+  const formField = (fieldName: string, config: ModelConfig) => {
     switch (config.type) {
       case 'text':
         return (
@@ -134,12 +145,18 @@ function EditMentorDetails({
             key={fieldName}
             label={config.label}
             helpText={config.helpText}
+            className=""
           >
             <Input
               type={config.type}
               name={fieldName}
               value={mentorDetails[fieldName]}
-              onChange={e => handleInputChange(fieldName, e.target.value)}
+              onChange={e =>
+                handleInputChange(
+                  fieldName,
+                  (e.target as HTMLInputElement).value
+                )
+              }
               style={config.style}
             />
           </ExtendedFormField>
@@ -154,7 +171,12 @@ function EditMentorDetails({
             <Textarea
               name={fieldName}
               value={mentorDetails[fieldName]}
-              onChange={e => handleInputChange(fieldName, e.target.value)}
+              onChange={e =>
+                handleInputChange(
+                  fieldName,
+                  (e.target as HTMLTextAreaElement).value
+                )
+              }
               style={config.style}
             />
           </ExtendedFormField>
@@ -171,6 +193,7 @@ function EditMentorDetails({
               name={fieldName}
               isMulti={config.type === 'tags'}
               options={config.options}
+              maxSelections={5}
               value={mentorDetails[fieldName]}
               onChange={(selected, data) => {
                 handleInputChange(data.name, selected);
@@ -212,7 +235,7 @@ function EditMentorDetails({
                           handleKeyValueChange(
                             fieldName,
                             option.value,
-                            e.target.value
+                            (e.target as HTMLInputElement).value
                           );
                         }}
                         disabled={isDisabled}
@@ -253,12 +276,12 @@ function EditMentorDetails({
 
   // validate form details
   const validate = () => {
-    const errors = [];
+    const errors: string[] = [];
 
     Object.entries(model).forEach(([field, config]) => {
       if (config.validate && !config.validate(mentorDetails[field])) {
         errors.push(config.label);
-      } else if (config.options) {
+      } else if ('options' in config) {
         if (mentorDetails[field] instanceof Array) {
           config.options.forEach(option => {
             const item = mentorDetails[field].find(
@@ -280,20 +303,20 @@ function EditMentorDetails({
     return !errors.length;
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e: React.SyntheticEvent) => {
     report('Member Area', 'Submit start', 'User details');
     e.preventDefault();
     if (!validate()) {
       return;
     }
     const userInfo = fromVMtoM(mentorDetails);
-    updateMentor(userInfo, updateUser, closeModal);
+    updateMentor(userInfo);
   };
 
   const onDelete = async () => {
     report('Member Area', 'Delete start', 'User details');
     if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
-      await deleteMentor(details);
+      await deleteMentor(details._id);
       report('Member Area', 'Delete success', 'User details');
       auth.doLogout();
     }
@@ -305,7 +328,7 @@ function EditMentorDetails({
         <EditDetailsForm onSubmit={onSubmit}>
           <FormFields>
             {Object.entries(model).map(([fieldName, field]) =>
-              formField(fieldName, field)
+              formField(fieldName, field as ModelConfig)
             )}
           </FormFields>
         </EditDetailsForm>
@@ -317,6 +340,6 @@ function EditMentorDetails({
       </EditDetails>
     </Modal>
   );
-}
+};
 
 export default EditMentorDetails;

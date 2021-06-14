@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 import styled from 'styled-components';
 import uniqueId from 'lodash/uniqueId';
 import { formFieldContext } from './formContext';
@@ -30,7 +30,18 @@ const Label = styled.label`
   margin-bottom: 6px;
 `;
 
-export const FormField = ({ label, className, children, helpText }) => {
+type FormFieldProps = {
+  label: string;
+  className?: string;
+  helpText?: string;
+};
+
+export const FormField: FC<FormFieldProps> = ({
+  label,
+  className,
+  children,
+  helpText,
+}) => {
   const [id] = useState(() => uniqueId('form-field-'));
   return (
     <FormFieldContainer className={className}>

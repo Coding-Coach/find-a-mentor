@@ -117,9 +117,9 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   visibility: hidden;
   overflow-y: auto;
   visibility: visible;
-  padding-bottom: 0;
-  max-height: 0;
-  opacity: 0;
+  padding-bottom: 30px;
+  max-height: 500px;
+  opacity: 1;
 }
 
 .c1 {
@@ -131,7 +131,7 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
 }
 
 .c1:hover .c3 {
-  cursor: default;
+  cursor: pointer;
 }
 
 .c0 + .c0::before {
@@ -155,7 +155,12 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
       >
         <div
           class="c6"
-        />
+        >
+          <img
+            alt="avatar"
+            src="../../assets/me/mentors.svg"
+          />
+        </div>
         <div
           class="c7 c8"
         >
@@ -175,11 +180,15 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
           </div>
           <h5
             class="c9 c11"
-          />
+          >
+            web dev
+          </h5>
         </div>
         <div
           class="c12"
-        />
+        >
+          3 days ago
+        </div>
       </div>
     </div>
     <div
@@ -306,9 +315,9 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   visibility: hidden;
   overflow-y: auto;
   visibility: visible;
-  padding-bottom: 0;
-  max-height: 0;
-  opacity: 0;
+  padding-bottom: 30px;
+  max-height: 500px;
+  opacity: 1;
 }
 
 .c1 {
@@ -320,7 +329,7 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
 }
 
 .c1:hover .c3 {
-  cursor: default;
+  cursor: pointer;
 }
 
 .c0 + .c0::before {
@@ -344,7 +353,12 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
       >
         <div
           class="c6"
-        />
+        >
+          <img
+            alt="avatar"
+            src="../../assets/me/mentors.svg"
+          />
+        </div>
         <div
           class="c7 c8"
         >
@@ -364,11 +378,15 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
           </div>
           <h5
             class="c9 c11"
-          />
+          >
+            web dev
+          </h5>
         </div>
         <div
           class="c12"
-        />
+        >
+          3 days ago
+        </div>
       </div>
     </div>
     <div
@@ -495,9 +513,9 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   visibility: hidden;
   overflow-y: auto;
   visibility: visible;
-  padding-bottom: 0;
-  max-height: 0;
-  opacity: 0;
+  padding-bottom: 30px;
+  max-height: 500px;
+  opacity: 1;
 }
 
 .c1 {
@@ -509,7 +527,7 @@ exports[`RichItem component renders secondary tag when specified with theme prop
 }
 
 .c1:hover .c3 {
-  cursor: default;
+  cursor: pointer;
 }
 
 .c0 + .c0::before {
@@ -533,7 +551,12 @@ exports[`RichItem component renders secondary tag when specified with theme prop
       >
         <div
           class="c6"
-        />
+        >
+          <img
+            alt="avatar"
+            src="../../assets/me/mentors.svg"
+          />
+        </div>
         <div
           class="c7 c8"
         >
@@ -553,11 +576,15 @@ exports[`RichItem component renders secondary tag when specified with theme prop
           </div>
           <h5
             class="c9 c11"
-          />
+          >
+            web dev
+          </h5>
         </div>
         <div
           class="c12"
-        />
+        >
+          3 days ago
+        </div>
       </div>
     </div>
     <div

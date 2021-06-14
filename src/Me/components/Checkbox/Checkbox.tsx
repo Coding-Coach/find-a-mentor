@@ -1,11 +1,11 @@
-import { useContext } from 'react';
+import { InputHTMLAttributes, useContext } from 'react';
 import { formFieldContext } from '../FormField/formContext';
 import styled from 'styled-components';
 
 type CheckboxProps = {
   LabelComponent: string;
   checked: boolean;
-}
+};
 
 const CheckboxContainer = styled.div`
   width: fit-content;
@@ -61,11 +61,20 @@ const Label = styled.label`
   font-size: 14px;
 `;
 
-export const Checkbox = ({ LabelComponent, checked, ...props }: CheckboxProps) => {
+export const Checkbox = ({
+  LabelComponent,
+  checked,
+  ...props
+}: CheckboxProps & InputHTMLAttributes<HTMLInputElement>) => {
   const id = useContext(formFieldContext);
   return (
     <CheckboxContainer>
-      <HiddenCheckbox id={id} defaultChecked={checked} {...props} />
+      <HiddenCheckbox
+        id={id}
+        defaultChecked={checked}
+        {...props}
+        type="checkbox"
+      />
       <StyledCheckbox checked={checked}>
         <Icon viewBox="0 24 24" width="22px" height="22px">
           <polyline points="20 6 9 17 4 12" />

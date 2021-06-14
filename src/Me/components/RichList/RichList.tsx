@@ -1,6 +1,10 @@
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import type { ReactNode } from 'react';
 import styled from 'styled-components';
+
+type RichListProps = {
+  render: (props: { onSelect: (id: string) => void; expandId: string }) => ReactNode;
+};
 
 const Style = {
   List: styled.ul`
@@ -10,23 +14,14 @@ const Style = {
   `,
 };
 
-export const RichList = ({ render, closeOpenItem }) => {
+export const RichList = ({ render }: RichListProps) => {
   const [expandId, setExpandId] = useState('');
 
-  const onSelect = id => {
+  const onSelect = (id: string) => {
     setExpandId(expandId === id ? '' : id);
   };
 
   return <Style.List>{render({ onSelect, expandId })}</Style.List>;
-};
-
-RichList.propTypes = {
-  render: PropTypes.func.isRequired,
-  closeOpenItem: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.bool,
-    PropTypes.number,
-  ]),
 };
 
 export default RichList;

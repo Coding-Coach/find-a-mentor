@@ -1,8 +1,21 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
 
-const RichItem = ({
+export type RichItemProps = {
+  id: string | number;
+  avatar: string;
+  title: string;
+  subtitle: string;
+  tag: {
+    value: string;
+    theme: 'primary' | 'secondary' | 'danger' | 'checked' | 'disabled';
+  };
+  info: string;
+  expand: boolean;
+  onClick: (id: string | number) => void;
+};
+
+const RichItem: FC<RichItemProps> = ({
   id,
   avatar,
   title,
@@ -33,26 +46,6 @@ const RichItem = ({
   );
 };
 
-RichItem.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  avatar: PropTypes.string,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
-  info: PropTypes.string,
-  tag: PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    theme: PropTypes.oneOf([
-      'primary',
-      'secondary',
-      'danger',
-      'checked',
-      'disabled',
-    ]),
-  }),
-  onClick: PropTypes.func,
-  expand: PropTypes.bool,
-};
-
 const themeColours = {
   primary: '#69D5B1',
   secondary: '#F3CA3E',
@@ -60,8 +53,6 @@ const themeColours = {
   checked: '#69d579',
   disabled: 'e0e0e0',
 };
-
-// Styled Components
 
 const ItemRow = styled.div`
   display: flex;
@@ -122,6 +113,8 @@ const Info = styled.div`
   justify-content: center;
 `;
 
+type TagTheme = keyof typeof themeColours;
+
 const Tag = styled.div`
   width: 46px;
   color: #fff;
@@ -131,10 +124,10 @@ const Tag = styled.div`
   font-size: 8px;
   line-height: 12px;
   text-align: center;
-  background-color: ${({ theme }) => themeColours[theme]};
+  background-color: ${({ theme }: { theme: TagTheme }) => themeColours[theme]};
 `;
 
-const Content = styled.div`
+const Content = styled.div<{ expand: boolean }>`
   transition: max-height 350ms ease, padding 300ms 50ms, opacity 300ms;
   max-height: 0;
   opacity: 0;
@@ -149,7 +142,7 @@ const Content = styled.div`
   })}
 `;
 
-const Root = styled.div`
+const Root = styled.div<{ highlight: boolean; expanded: boolean }>`
   position: relative;
   margin: 0 calc(-1 * var(--padding-inline));
   padding: 0 var(--padding-inline);

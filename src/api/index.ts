@@ -35,7 +35,9 @@ export async function makeApiCall<T>(
   jsonous = true
 ): Promise<OkResponse<T> | ErrorResponse | null> {
   const url = `${process.env.REACT_APP_API_ENDPOINT}${path}`;
-  const optionBody = jsonous ? body && JSON.stringify(body) : body as FormData;
+  const optionBody = jsonous
+    ? body && JSON.stringify(body)
+    : (body as FormData);
   const optionHeader: HeadersInit = {
     Authorization: `Bearer ${auth.getIdToken()}`,
     ...(jsonous
@@ -141,15 +143,15 @@ let mentorsPromise: Promise<Mentor[]>;
 
 export async function getMentors() {
   if (!mentorsPromise) {
-    mentorsPromise = makeApiCall<Mentor[]>(
-      `${paths.MENTORS}?limit=1200`
-    ).then(response => {
-      if (response?.success) {
-        return shuffle(response.data || []);
-      } else {
-        return [];
+    mentorsPromise = makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1200`).then(
+      response => {
+        if (response?.success) {
+          return shuffle(response.data || []);
+        } else {
+          return [];
+        }
       }
-    });
+    );
   }
   return mentorsPromise;
 }
@@ -246,9 +248,9 @@ export async function updateMentorAvailability(isAvailable: boolean) {
   return !!response?.success;
 }
 
-export async function deleteMentor(mentor: Mentor) {
+export async function deleteMentor(mentorId: string) {
   const response = await makeApiCall(
-    `${paths.USERS}/${mentor._id}`,
+    `${paths.USERS}/${mentorId}`,
     null,
     'DELETE'
   );

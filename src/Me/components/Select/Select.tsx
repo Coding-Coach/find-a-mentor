@@ -1,9 +1,36 @@
-import PropTypes from 'prop-types';
-import React, { useContext, useLayoutEffect, useRef } from 'react';
+import { useContext, useLayoutEffect, useRef } from 'react';
 import ReactSelect from 'react-select';
+import type {Props} from 'react-select';
 import { formFieldContext } from '../FormField/formContext';
+import StateManager from 'react-select';
 
-const REACHED_MAX_OPTION = [
+type SelectValue = {
+  value: any;
+  label: string;
+}
+
+type Option = SelectValue & {
+  isDisabled?: boolean;
+}
+
+type SelectSingleProps = {
+  isMulti: false;
+  value: SelectValue;
+  onChange: (value: SelectValue) => void;
+}
+
+type SelectMultipleProps = {
+  isMulti: true;
+  value: SelectValue[];
+  onChange: (value: SelectValue[]) => void;
+}
+
+type SelectProps = (SelectSingleProps | SelectMultipleProps) & {
+  maxSelections?: number;
+  options: Option[];
+}
+
+const REACHED_MAX_OPTION: Option[] = [
   {
     label: 'Reached max items',
     value: undefined,
@@ -12,18 +39,20 @@ const REACHED_MAX_OPTION = [
 ];
 
 export const Select = ({
-  isMulti = false,
+  isMulti = true,
   value,
   onChange,
   maxSelections = Infinity,
   options,
   ...reactSelectOptions
-}) => {
+}: SelectProps) => {
   const id = useContext(formFieldContext);
-  const inputElRef = useRef(null);
+  const inputElRef = useRef<StateManager>(null);
 
   useLayoutEffect(() => {
-    inputElRef.current.select.inputRef.autocomplete = 'nope';
+    if (inputElRef.current !== null) {
+      (inputElRef.current.select.inputRef as unknown as HTMLInputElement).autocomplete = 'nope';
+    }
   }, []);
 
   return (
@@ -35,9 +64,9 @@ export const Select = ({
       inputId={id}
       isSearchable
       value={value}
-      onChange={onChange}
+      onChange={onChange as any}
       options={
-        isMulti && value && value.length && value.length >= maxSelections
+        isMulti && Array.isArray(value) && value.length >= maxSelections
           ? REACHED_MAX_OPTION
           : options
       }
@@ -48,21 +77,7 @@ export const Select = ({
   );
 };
 
-const selectValueShape = PropTypes.shape({
-  label: PropTypes.string.isRequired,
-  value: PropTypes.any.isRequired,
-  isDisabled: PropTypes.bool,
-});
-
-Select.propTypes = {
-  isMulti: PropTypes.bool,
-  value: PropTypes.any,
-  onChange: PropTypes.func.isRequired,
-  maxSelections: PropTypes.number,
-  options: PropTypes.arrayOf(selectValueShape),
-};
-
-const reactSelectStyles = {
+const reactSelectStyles: Props["styles"] = {
   container: base => ({ ...base, width: '100%' }),
   control: base => ({
     ...base,

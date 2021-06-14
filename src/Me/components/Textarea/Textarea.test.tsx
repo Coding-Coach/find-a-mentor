@@ -1,4 +1,3 @@
-import React from 'react';
 import Textarea from './';
 import { render } from '@testing-library/react';
 

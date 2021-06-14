@@ -15,37 +15,33 @@ import Card from '../components/Card';
 import List from '../components/List';
 import EditMentorDetails from '../Modals/EditMentorDetails';
 
-const handleUpdateMentor = async (
-  updatedUserInfo: Mentor,
-  updateUser: (mentor?: Mentor) => void,
-  closeModal: () => void
-) => {
-  try {
-    const updateMentorResult = await updateMentor(updatedUserInfo);
-    if (updateMentorResult) {
-      clearCurrentUser();
-      toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
-      const updatedUserDetails = await getCurrentUser();
-      updateUser(updatedUserDetails);
-      closeModal();
-    } else {
-      toast.error(messages.GENERIC_ERROR);
-    }
-  } catch (error) {
-    toast.error(messages.GENERIC_ERROR);
-  }
-};
-
 const Profile: FC = () => {
-  const { currentUser } = useUser();
+  const { currentUser, updateCurrentUser } = useUser();
 
-  const [openModal] = useModal(
+  const [openModal, closeModal] = useModal(
     <EditMentorDetails
       userDetails={currentUser!}
       updateMentor={handleUpdateMentor}
       closeModal={() => {}}
     />
   );
+
+  async function handleUpdateMentor(updatedUserInfo: Mentor) {
+    try {
+      const updateMentorResult = await updateMentor(updatedUserInfo);
+      if (updateMentorResult) {
+        clearCurrentUser();
+        toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
+        const updatedUserDetails = (await getCurrentUser())!;
+        updateCurrentUser(updatedUserDetails);
+        closeModal();
+      } else {
+        toast.error(messages.GENERIC_ERROR);
+      }
+    } catch (error) {
+      toast.error(messages.GENERIC_ERROR);
+    }
+  }
 
   return (
     <Card title="My Profile" onEdit={openModal}>
