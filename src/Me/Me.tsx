@@ -1,5 +1,5 @@
-import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
+import type { RouteComponentProps } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components/macro';
@@ -11,6 +11,8 @@ import Home from './Routes/Home';
 import MentorshipReq from '../Me/MentorshipReq';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
+
+type MeProps = RouteComponentProps & {};
 
 
 const meRoutes = [
@@ -25,15 +27,14 @@ const meRoutes = [
 ];
 
 //function to find the header title based on the path
-const getHeaderNameByPath = path => {
-  return meRoutes.find(route => route.path === path).name;
+const getHeaderNameByPath = (path: string) => {
+  return meRoutes.find(route => route.path === path)?.name ?? '';
 };
 
-const Me = props => {
-  const {
-    match: { url },
-    location: { pathname },
-  } = props;
+const Me = ({
+  match: { url },
+  location: { pathname },
+}: MeProps) => {
   const authenticated = auth.isAuthenticated();
 
   return (

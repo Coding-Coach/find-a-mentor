@@ -1,5 +1,5 @@
 import ISO6391 from 'iso-639-1';
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { toast } from 'react-toastify';
 import countries from 'svg-country-flags/countries.json';
 import {
@@ -14,7 +14,7 @@ import Card from '../components/Card';
 import List from '../components/List';
 import EditMentorDetails from '../Modals/EditMentorDetails';
 
-const handleUpdateMentor = async (updatedUserInfo, updateUser, closeModal) => {
+const handleUpdateMentor = async (updatedUserInfo, updateUser, closeModal: () => void) => {
   try {
     const updateMentorResult = await updateMentor(updatedUserInfo);
     if (updateMentorResult) {
@@ -31,7 +31,9 @@ const handleUpdateMentor = async (updatedUserInfo, updateUser, closeModal) => {
   }
 };
 
+//--- Profile Component ---//
 const Profile = () => {
+  // get user from context
   const { currentUser } = useContext(UserContext);
 
   const [openModal] = useModal(

@@ -1,6 +1,11 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { formFieldContext } from '../FormField/formContext';
 import styled from 'styled-components';
+
+type CheckboxProps = {
+  LabelComponent: string;
+  checked: boolean;
+}
 
 const CheckboxContainer = styled.div`
   width: fit-content;
@@ -32,7 +37,7 @@ const HiddenCheckbox = styled.input.attrs({ type: 'checkbox' })`
   white-space: nowrap;
 `;
 
-const StyledCheckbox = styled.div`
+const StyledCheckbox = styled.div<Pick<CheckboxProps, 'checked'>>`
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -56,13 +61,13 @@ const Label = styled.label`
   font-size: 14px;
 `;
 
-export const Checkbox = ({ LabelComponent, checked, ...props }) => {
+export const Checkbox = ({ LabelComponent, checked, ...props }: CheckboxProps) => {
   const id = useContext(formFieldContext);
   return (
     <CheckboxContainer>
       <HiddenCheckbox id={id} defaultChecked={checked} {...props} />
       <StyledCheckbox checked={checked}>
-        <Icon viewbox="0 24 24" width="22px" height="22px">
+        <Icon viewBox="0 24 24" width="22px" height="22px">
           <polyline points="20 6 9 17 4 12" />
         </Icon>
       </StyledCheckbox>

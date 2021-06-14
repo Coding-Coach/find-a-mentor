@@ -6,7 +6,7 @@ import { updateMentorAvatar, getCurrentUser } from '../../../../api';
 import CardContainer from '../../../components/Card/index';
 import { getAvatarUrl } from '../../../../helpers/avatar';
 
-function Avatar() {
+const Avatar = () => {
   let { currentUser, updateUser } = useContext(UserContext);
 
   const initialize = useCallback(async () => {
@@ -18,8 +18,8 @@ function Avatar() {
     initialize();
   }, [initialize]);
 
-  const handleChange = async e => {
-    if (e.target.files.length) {
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files?.length) {
       const formData = new FormData();
       formData.append('image', e.target.files[0]);
 

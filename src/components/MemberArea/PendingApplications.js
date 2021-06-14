@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import {
   getPendingApplications,
   approveApplication,
-  rejectApplication,
+  declineApplication,
 } from '../../api';
 import { Loader } from '../Loader';
 import { getChannelInfo } from '../../channelProvider';
@@ -50,7 +50,7 @@ export default class PendingApplications extends Component {
     const reason = prompt('Why you reject that poor gentleman / lady?');
     if (reason) {
       this.toggleLoader(application, true);
-      await rejectApplication(application, reason);
+      await declineApplication(application, reason);
       await this.refreshApplications();
     }
   };

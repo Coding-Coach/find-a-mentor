@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components/macro';
 import { desktop, mobile } from './styles/shared/devices';
 import { mobileNavHeight } from './Navigation/Navbar';
 
-const Main = ({ children }) => {
+const Main: FC = ({ children }) => {
   return <Content>{children}</Content>;
 };
 

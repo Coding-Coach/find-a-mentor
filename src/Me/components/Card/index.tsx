@@ -1,5 +1,11 @@
-import React from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
+
+type CardProps = {
+  title?: string;
+  onEdit?(): void;
+  className?: string;
+};
 
 const Header = styled.div`
   display: flex;
@@ -56,11 +62,11 @@ const CardContainer = styled.div`
   }
 `;
 
-const Edit = ({ onEdit }) => {
+const Edit = ({ onEdit }: Pick<CardProps, 'onEdit'>) => {
   return onEdit ? <EditButton onClick={onEdit}>Edit</EditButton> : null;
 };
 
-const Card = ({ title, onEdit, className = '', children }) => (
+const Card: FC<CardProps> = ({ title, onEdit, className = '', children }) => (
   <CardContainer className={className}>
     <Header>
       <h4>{title}</h4>
