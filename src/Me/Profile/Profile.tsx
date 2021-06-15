@@ -61,7 +61,7 @@ const Profile: FC = () => {
             type="available"
             value={currentUser.available ? 'available' : 'unavailable'}
           />
-          <List.Item type="description" value={currentUser.description} />
+          <List.Item type="description" value={currentUser.description || ''} />
         </List>
       )}
     </Card>

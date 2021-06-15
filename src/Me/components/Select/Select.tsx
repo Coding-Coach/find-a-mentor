@@ -13,21 +13,15 @@ type Option = SelectValue & {
   isDisabled?: boolean;
 }
 
-type SelectSingleProps = {
-  isMulti: false;
-  value: SelectValue;
-  onChange: (value: SelectValue) => void;
-}
+type OptionData = {name: string};
 
-type SelectMultipleProps = {
-  isMulti: true;
-  value: SelectValue[];
-  onChange: (value: SelectValue[]) => void;
-}
-
-type SelectProps = (SelectSingleProps | SelectMultipleProps) & {
+export type SelectProps = {
+  name?: string;
   maxSelections?: number;
   options: Option[];
+  isMulti?: boolean;
+  value: SelectValue | SelectValue[];
+  onChange: (value: SelectProps["value"], data: OptionData) => void;
 }
 
 const REACHED_MAX_OPTION: Option[] = [

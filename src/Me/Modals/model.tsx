@@ -11,6 +11,7 @@ type BaseConfig = {
   label: string;
   type: string;
   helpText: string;
+  validate?: (...args: any[]) => boolean;
 };
 
 type TextBaseConfig = BaseConfig & {

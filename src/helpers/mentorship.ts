@@ -1,6 +1,6 @@
 const DAY = 86400e3;
 
-export function formatRequestTime(timestamp) {
+export function formatRequestTime(timestamp: number) {
   const now = Date.now();
   const time = Math.floor((now - timestamp) / DAY);
 
@@ -17,4 +17,6 @@ export const STATUS = {
   new: 'New',
   rejected: 'Rejected',
   viewed: 'Viewed',
-};
+} as const;
+
+export type Status = typeof STATUS[keyof typeof STATUS];

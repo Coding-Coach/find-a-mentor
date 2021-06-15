@@ -14,10 +14,11 @@ import Select from '../components/Select';
 import Checkbox from '../components/Checkbox';
 import { desktop } from '../styles/shared/devices';
 import { mentorFields, ModelConfig, userFields } from './model';
-import { fromMtoVM, fromVMtoM } from '../../helpers/user';
+import { fromMtoVM, fromVMtoM, UserVM } from '../../helpers/user';
 import Button from '../components/Button';
 import { toast } from 'react-toastify';
 import { User } from '../../types/models';
+import { SelectProps } from '../components/Select/Select';
 
 type EditMentorDetailsProps = {
   userDetails: User;
@@ -100,7 +101,10 @@ const EditMentorDetails = ({
 
   const { isMentor } = useUser();
 
-  const handleInputChange = (fieldName: string, value: string | boolean) => {
+  const handleInputChange = (
+    fieldName: string,
+    value: string | boolean | SelectProps['value']
+  ) => {
     setMentorDetails({
       ...mentorDetails,
       [fieldName]: value,
@@ -111,12 +115,13 @@ const EditMentorDetails = ({
 
   // channels onChange function
   const handleKeyValueChange = (
-    fieldName: string,
+    fieldName: 'channels',
     prop: string,
     value: string
   ) => {
     const user = { ...mentorDetails };
-    const itemIndex = user[fieldName].findIndex(x => x.type === prop);
+    const field = user[fieldName];
+    const itemIndex = field.findIndex(x => x.type === prop);
     const isItemExist = itemIndex > -1;
     if (isItemExist) {
       if (value) {
@@ -137,7 +142,7 @@ const EditMentorDetails = ({
     setMentorDetails(user);
   };
 
-  const formField = (fieldName: string, config: ModelConfig) => {
+  const formField = (fieldName: keyof UserVM, config: ModelConfig) => {
     switch (config.type) {
       case 'text':
         return (
@@ -150,7 +155,7 @@ const EditMentorDetails = ({
             <Input
               type={config.type}
               name={fieldName}
-              value={mentorDetails[fieldName]}
+              value={mentorDetails[fieldName] as string}
               onChange={e =>
                 handleInputChange(
                   fieldName,
@@ -170,7 +175,7 @@ const EditMentorDetails = ({
           >
             <Textarea
               name={fieldName}
-              value={mentorDetails[fieldName]}
+              value={mentorDetails[fieldName] as string}
               onChange={e =>
                 handleInputChange(
                   fieldName,
@@ -190,11 +195,11 @@ const EditMentorDetails = ({
             helpText={config.helpText}
           >
             <Select
-              name={fieldName}
+              name={fieldName as string}
               isMulti={config.type === 'tags'}
               options={config.options}
               maxSelections={5}
-              value={mentorDetails[fieldName]}
+              value={mentorDetails[fieldName] as SelectProps['value']}
               onChange={(selected, data) => {
                 handleInputChange(data.name, selected);
               }}
@@ -202,7 +207,7 @@ const EditMentorDetails = ({
           </ExtendedFormField>
         );
       case 'keyvalue':
-        const filledChannel = mentorDetails[fieldName].filter(x => x.id);
+        const filledChannel = mentorDetails.channels.filter(x => x.id);
         return (
           <ExtendedFormField
             key={fieldName}
@@ -212,7 +217,7 @@ const EditMentorDetails = ({
             <HelpText>{config.helpText}</HelpText>
             <InnerFieldsContainer>
               {config.options.map((option, index) => {
-                const propData = mentorDetails[fieldName].find(
+                const propData = mentorDetails.channels.find(
                   x => x.type === option.value
                 );
                 const isDisabled =
@@ -233,7 +238,7 @@ const EditMentorDetails = ({
                         value={propData ? propData.id : ''}
                         onChange={e => {
                           handleKeyValueChange(
-                            fieldName,
+                            'channels',
                             option.value,
                             (e.target as HTMLInputElement).value
                           );
@@ -259,7 +264,7 @@ const EditMentorDetails = ({
             <SubFieldContainer>
               <Checkbox
                 checked={mentorDetails[fieldName] === true}
-                value={mentorDetails[fieldName]}
+                value={mentorDetails[fieldName] as string}
                 onChange={e => {
                   handleInputChange(fieldName, e.target.checked);
                 }}
@@ -277,18 +282,21 @@ const EditMentorDetails = ({
   // validate form details
   const validate = () => {
     const errors: string[] = [];
+    const entries = Object.entries(model) as [keyof UserVM, ModelConfig][];
 
-    Object.entries(model).forEach(([field, config]) => {
-      if (config.validate && !config.validate(mentorDetails[field])) {
+    entries.forEach(([field, config]) => {
+      if (!config.validate?.(mentorDetails[field])) {
         errors.push(config.label);
       } else if ('options' in config) {
-        if (mentorDetails[field] instanceof Array) {
+        if (config.type === 'keyvalue' && field === 'channels') {
           config.options.forEach(option => {
-            const item = mentorDetails[field].find(
-              opt => opt.type === option.value
-            );
-            if (option.validate && item && !option.validate(item.id)) {
-              errors.push(`${config.label}:${option.label}`);
+            if ('validate' in option) {
+              const item = mentorDetails[field].find(
+                opt => opt.type === option.value
+              );
+              if (!option.validate?.(item?.id)) {
+                errors.push(`${config.label}:${option.label}`);
+              }
             }
           });
         }
@@ -328,7 +336,7 @@ const EditMentorDetails = ({
         <EditDetailsForm onSubmit={onSubmit}>
           <FormFields>
             {Object.entries(model).map(([fieldName, field]) =>
-              formField(fieldName, field as ModelConfig)
+              formField(fieldName as keyof UserVM, field as ModelConfig)
             )}
           </FormFields>
         </EditDetailsForm>
