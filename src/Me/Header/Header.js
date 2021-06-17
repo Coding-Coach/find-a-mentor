@@ -46,7 +46,7 @@ const LogoContainer = styled.div`
 
 const Header = () => (
   <HeaderContainer>
-    <Home>Home</Home>
+    <Home>Mentorships</Home>
     <LogoContainer>
       <Logo />
     </LogoContainer>
