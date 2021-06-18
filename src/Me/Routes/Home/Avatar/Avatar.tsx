@@ -1,24 +1,13 @@
-import React, { useCallback, useEffect, FC } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { useUser } from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
-import { updateMentorAvatar, getCurrentUser } from '../../../../api';
+import { updateMentorAvatar } from '../../../../api';
 import CardContainer from '../../../components/Card/index';
 import { getAvatarUrl } from '../../../../helpers/avatar';
 
 const Avatar: FC = () => {
   const { currentUser, updateCurrentUser } = useUser<true>();
-
-  const initialize = useCallback(async () => {
-    const user = (await getCurrentUser())!;
-    updateCurrentUser(user);
-    if (user) {
-    }
-  }, [updateCurrentUser]);
-
-  useEffect(() => {
-    initialize();
-  }, [initialize]);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.length) {
@@ -56,7 +45,7 @@ const Avatar: FC = () => {
       </Container>
     </CardContainer>
   );
-}
+};
 
 const UserAvatar = styled.div`
   height: 100px;

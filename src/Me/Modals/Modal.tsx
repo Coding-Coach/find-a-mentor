@@ -159,14 +159,14 @@ export const Modal: FC<ModalProps> = ({
   isLoading = false,
   submitLabel = 'Save',
 }) => {
-  const [state, setState] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const save = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     onSave?.(e);
   };
 
   useEffect(() => {
-    setState(true);
+    setVisible(true);
   }, []);
 
   return (
@@ -175,7 +175,7 @@ export const Modal: FC<ModalProps> = ({
       {center && transitionCenter}
 
       <CSSTransition
-        in={state}
+        in={visible}
         timeout={250}
         classNames="modal"
         mountOnEnter
@@ -183,7 +183,7 @@ export const Modal: FC<ModalProps> = ({
         onExited={closeModal}
       >
         <ModalContainer posCenter={center}>
-          <CloseIconButton onClick={() => setState(false)}>
+          <CloseIconButton onClick={() => setVisible(false)}>
             <CloseSvg />
           </CloseIconButton>
           <ContentContainer>
@@ -202,7 +202,7 @@ export const Modal: FC<ModalProps> = ({
                   {submitLabel}
                 </Button>
               )}
-              <Button skin="secondary" onClick={() => setState(false)}>
+              <Button skin="secondary" onClick={() => setVisible(false)}>
                 Close
               </Button>
             </ButtonBar>

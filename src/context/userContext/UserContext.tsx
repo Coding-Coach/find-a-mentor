@@ -1,10 +1,13 @@
-import React, { FC, useContext, useState } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import { User } from '../../types/models';
+import { getCurrentUser } from '../../api';
+import auth from '../../utils/auth';
 
 type UserProviderContext = {
   isAdmin: boolean;
   isMentor: boolean;
   currentUser?: User;
+  isAuthenticated: boolean;
   updateCurrentUser(user: User): void;
 };
 
@@ -16,12 +19,26 @@ export const UserProvider: FC = ({ children }) => {
   const [currentUser, updateCurrentUser] = useState<User | undefined>(
     undefined
   );
+  const isAuthenticated = auth.isAuthenticated();
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');
 
+  useEffect(() => {
+    getCurrentUser().then(user => {
+      updateCurrentUser(user);
+      console.log(4444444, user);
+    });
+  }, []);
+
   return (
     <UserContext.Provider
-      value={{ currentUser, isMentor, isAdmin, updateCurrentUser }}
+      value={{
+        currentUser,
+        isMentor,
+        isAdmin,
+        updateCurrentUser,
+        isAuthenticated,
+      }}
     >
       {children}
     </UserContext.Provider>

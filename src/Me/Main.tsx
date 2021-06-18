@@ -2,8 +2,13 @@ import { FC } from 'react';
 import styled from 'styled-components/macro';
 import { desktop, mobile } from './styles/shared/devices';
 import { mobileNavHeight } from './Navigation/Navbar';
+import { useUser } from '../context/userContext/UserContext';
 
 const Main: FC = ({ children }) => {
+  const { currentUser } = useUser();
+  if (!currentUser) {
+    return null;
+  }
   return <Content>{children}</Content>;
 };
 

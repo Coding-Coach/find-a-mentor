@@ -285,7 +285,7 @@ const EditMentorDetails = ({
     const entries = Object.entries(model) as [keyof UserVM, ModelConfig][];
 
     entries.forEach(([field, config]) => {
-      if (!config.validate?.(mentorDetails[field])) {
+      if (config.validate?.(mentorDetails[field]) === false) {
         errors.push(config.label);
       } else if ('options' in config) {
         if (config.type === 'keyvalue' && field === 'channels') {

@@ -33,7 +33,7 @@ const REACHED_MAX_OPTION: Option[] = [
 ];
 
 export const Select = ({
-  isMulti = true,
+  isMulti = false,
   value,
   onChange,
   maxSelections = Infinity,

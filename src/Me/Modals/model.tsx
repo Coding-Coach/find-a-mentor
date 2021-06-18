@@ -72,7 +72,8 @@ const twitterPattern = /^[A-Za-z0-9_]{1,15}$/;
 const githubPattern = /^([a-z\d]+-)*[a-z\d]+$/i;
 
 const emailValidation = (value: string) => !value || emailPattern.test(value);
-const urlValidation = (value: string) => !value || urlPattern.test(value);
+const urlValidation = (value: string) =>
+  !value || urlPattern.test(`https://${value}`);
 const linkedinValidation = (value: string) =>
   !value || linkedinPattern.test(value);
 const facebookValidation = (value: string) =>
@@ -169,7 +170,7 @@ export const userFields = {
         value: 'website',
         label: 'Website',
         prefix: 'https://',
-        validate: (value: string) => urlValidation(`https://${value}`),
+        validate: (value: string) => urlValidation(value),
         helpText: 'https supported only',
       },
       {
