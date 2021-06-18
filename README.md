@@ -1,5 +1,5 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/a3969a16-d0ad-4485-b205-d2b297f99051/deploy-status)](https://app.netlify.com/sites/codingcoach-io/deploys)
-[![Build Status](https://travis-ci.com/Coding-Coach/find-a-mentor.svg?branch=master)](https://travis-ci.com/Coding-Coach/find-a-mentor)
+[![Tests](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml/badge.svg)](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
 ![create-react-app supported](https://img.shields.io/badge/CRA-supported-green.svg)
 [![storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://mentors.codingcoach.io/sb/)
