@@ -26,7 +26,6 @@ export const UserProvider: FC = ({ children }) => {
   useEffect(() => {
     getCurrentUser().then(user => {
       updateCurrentUser(user);
-      console.log(4444444, user);
     });
   }, []);
 

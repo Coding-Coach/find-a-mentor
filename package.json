@@ -53,7 +53,8 @@
   "eslintConfig": {
     "extends": "react-app",
     "rules": {
-      "import/no-anonymous-default-export": "off"
+      "import/no-anonymous-default-export": "off",
+      "no-console": "warn"
     }
   },
   "browserslist": [
