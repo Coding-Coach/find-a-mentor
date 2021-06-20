@@ -50,7 +50,7 @@ const ListItem = ({ type, value }: ListItemProps) => {
           <Icon />
         </ItemIcon>
       )}
-      <ItemText>{value}</ItemText>
+      <ItemText data-testid={`${type}-label`}>{value}</ItemText>
     </ItemRow>
   );
 };
