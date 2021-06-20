@@ -21,5 +21,5 @@ const StyledInput = styled.input`
 
 export const Input = (props: InputHTMLAttributes<unknown>) => {
   const id = useContext(formFieldContext);
-  return <StyledInput placeholder="bbb" id={id} {...props} />;
+  return <StyledInput id={id} {...props} />;
 };

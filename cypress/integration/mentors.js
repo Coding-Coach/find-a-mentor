@@ -1,10 +1,13 @@
+import { withSuccess } from '../builders/response';
+import { userBuilder } from '../builders/users/current/get';
+
 const { before, cy } = global;
 
 describe('Mentor Filtering', () => {
   before(() => {
     cy.login();
     cy.server({ urlMatchingOptions: { matchBase: false, dot: true } });
-    cy.intercept('GET', '/users/current', { fixture: 'users/current/get' });
+    cy.intercept('GET', '/users/current', withSuccess(userBuilder()));
     cy.intercept('GET', '/mentors?limit=*', { fixture: 'mentors/get' });
     cy.visit('/');
   });

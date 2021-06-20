@@ -1,11 +1,14 @@
 /* eslint-disable no-undef */
-import userData from '../fixtures/users/current/get.json';
+import { userBuilder } from '../builders/users/current/get';
+import { withSuccess } from '../builders/response';
+
 import reqData from '../fixtures/mentorship-requests/get.json';
 import { STATUS } from '../../src/helpers/mentorship';
 
 const { cy } = global;
 
-const { data: user } = userData;
+const response = withSuccess(userBuilder());
+const { data: user } = response;
 const { data: requests } = reqData;
 const reqType = {
   approved: requests.find(({ status }) => status === STATUS.approved),
@@ -18,7 +21,7 @@ const regex = ({ mentee: { id } }) => new RegExp(`User ${id}`);
 describe('Mentorship Requests', () => {
   before(function() {
     cy.login();
-    cy.intercept('GET', '/users/current', { fixture: 'users/current/get' });
+    cy.intercept('GET', '/users/current', withSuccess(user));
     cy.intercept('GET', `/mentorships/${user._id}/requests`, {
       fixture: 'mentorship-requests/get',
     });

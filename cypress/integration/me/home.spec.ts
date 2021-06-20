@@ -1,7 +1,9 @@
+import { withSuccess } from '../../builders/response';
+import { userBuilder } from '../../builders/users/current/get';
+
 describe('Me / home', () => {
   before(() => {
-    cy.intercept('GET', '/mentors?limit=*', { fixture: 'mentors/get' });
-    cy.intercept('GET', '/users/current', { fixture: 'users/current/get' });
+    cy.intercept('GET', '/users/current', withSuccess(userBuilder()));
     cy.login();
     cy.visit('/me');
   });
