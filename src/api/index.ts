@@ -69,6 +69,7 @@ export async function makeApiCall<T>(
     }
     return res;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.error(error);
 
     const errorMessage = getErrorMessage(error);

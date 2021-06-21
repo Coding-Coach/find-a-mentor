@@ -97,6 +97,7 @@ function registerValidSW(swUrl, config) {
       };
     })
     .catch(error => {
+      // eslint-disable-next-line no-console
       console.error('Error during service worker registration:', error);
     });
 }
