@@ -4,7 +4,7 @@ import Header from './Header';
 
 describe('Header', () => {
   test('Header renders', () => {
-    const { getByText } = render(<Header />);
-    expect(getByText('Mentorships')).toBeTruthy();
+    const { getByText } = render(<Header  title ='Home' />);
+    expect(getByText('Home')).toBeTruthy();
   });
 });
