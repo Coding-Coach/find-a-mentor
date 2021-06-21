@@ -12,7 +12,28 @@ import MentorshipReq from '../Me/MentorshipReq';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
 
-const Me = ({ match: { url } }) => {
+
+const meRoutes = [
+  {
+    path: '/me',
+    name: 'Home',
+  },
+  {
+    path: '/me/requests',
+    name: 'Mentorships',
+  },
+];
+
+//function to find the header title based on the path
+const getHeaderNameByPath = path => {
+  return meRoutes.find(route => route.path === path).name;
+};
+
+const Me = props => {
+  const {
+    match: { url },
+    location: { pathname },
+  } = props;
   const authenticated = auth.isAuthenticated();
 
   return (
@@ -20,7 +41,7 @@ const Me = ({ match: { url } }) => {
       {authenticated ? (
         <>
           <Navbar />
-          <Header />
+          <Header title={getHeaderNameByPath(pathname)} />
           <Main>
             <Switch>
               <Route path={`${url}/requests`}>
@@ -40,6 +61,7 @@ const Me = ({ match: { url } }) => {
     </Container>
   );
 };
+
 
 export default Me;
 

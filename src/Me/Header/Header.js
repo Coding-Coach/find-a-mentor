@@ -44,13 +44,14 @@ const LogoContainer = styled.div`
   }
 `;
 
-const Header = () => (
+const Header = ({title}) => {
+  return (
   <HeaderContainer>
-    <Home>Home</Home>
+    <Home>{title}</Home>
     <LogoContainer>
       <Logo />
     </LogoContainer>
   </HeaderContainer>
-);
+)};
 
 export default Header;
