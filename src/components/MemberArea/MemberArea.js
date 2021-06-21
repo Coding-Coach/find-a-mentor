@@ -1,9 +1,9 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import { getAvatarUrl } from '../../helpers/avatar';
-import UserContext from '../../context/userContext/UserContext';
+import { useUser } from '../../context/userContext/UserContext';
 import auth from '../../utils/auth';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import EditProfile from './EditProfile';
@@ -12,11 +12,9 @@ import { GlobalStyle } from '../../Me/styles/global';
 import { useDeviceType } from '../../utils/useDeviceType';
 
 function MemberArea({ onOpenModal }) {
-  const authenticated = auth.isAuthenticated();
   const { isDesktop } = useDeviceType();
-  const [isAuthenticated, setIsAuthenticated] = useState(authenticated);
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const { currentUser, isMentor, isAdmin } = useContext(UserContext);
+  const { currentUser, isMentor, isAdmin, isAuthenticated } = useUser();
   const history = useHistory();
   const goToDashboard = () => history.push('/me');
   const openBecomeMentor = useCallback(
@@ -29,12 +27,6 @@ function MemberArea({ onOpenModal }) {
   };
 
   MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
-
-  useEffect(() => {
-    (async () => {
-      setIsAuthenticated(auth.isAuthenticated());
-    })();
-  }, []);
 
   useEffect(() => {
     if (!currentUser) {

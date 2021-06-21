@@ -1,17 +1,7 @@
-import React, {
-  useRef,
-  useEffect,
-  useState,
-  useContext,
-  useCallback,
-} from 'react';
-import {
-  getMentorshipRequests,
-  getCurrentUser,
-  updateMentorshipReqStatus,
-} from '../../api';
+import { useRef, useEffect, useState, useCallback } from 'react';
+import { getMentorshipRequests, updateMentorshipReqStatus } from '../../api';
 import Card from '../components/Card';
-import UserContext from '../../context/userContext/UserContext';
+import { useUser } from '../../context/userContext/UserContext';
 import { UsersList } from './';
 import { STATUS } from '../../helpers/mentorship';
 import { useModal } from '../../context/modalContext/ModalContext';
@@ -30,7 +20,7 @@ const MentorshipReq = () => {
   const [mentorState, setMentorState] = useState();
   const [menteeState, setMenteeState] = useState();
   const [selectedReq, setSelectedReq] = useState(null);
-  const { currentUser, updateUser } = useContext(UserContext);
+  const { currentUser } = useUser();
   const userId = currentUser?._id;
   const [loadingState, setLoadingState] = useState(!mentorState);
   const isMount = useRef(true);
@@ -119,14 +109,6 @@ const MentorshipReq = () => {
       isMount.current = false;
     };
   }, []);
-
-  useEffect(() => {
-    if (!userId) {
-      getCurrentUser().then(user => {
-        if (isMount.current) updateUser(user);
-      });
-    }
-  }, [userId, updateUser]);
 
   useEffect(() => {
     if (!userId) return;

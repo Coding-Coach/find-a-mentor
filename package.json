@@ -5,7 +5,7 @@
   "dependencies": {
     "@sentry/browser": "^5.6.3",
     "auth0-js": "^9.13.2",
-    "classnames": "^2.2.6",
+    "classnames": "^2.3.1",
     "express": "^4.17.1",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "inquirer-checkbox-plus-prompt": "^1.0.1",
@@ -43,6 +43,7 @@
     "prettier:fix": "prettier \"**/*.{json,js}\" --write",
     "cy:run": "concurrently -kill-others --success first \"yarn storybook\" \"cypress run\"",
     "cy:open": "concurrently -kill-others --success first \"yarn storybook\" \"cypress open\"",
+    "cy:open:tests": "concurrently -kill-others --success first \"BROWSER=none yarn start | cypress open\" \"cypress open\"",
     "test:e2e": "is-ci \"test:e2e:run\" \"test:e2e:dev\"",
     "test:e2e:run": "start-server-and-test start http://localhost:3000 cy:run",
     "test:e2e:dev": "start-server-and-test start http://localhost:3000 cy:open",
@@ -52,7 +53,8 @@
   "eslintConfig": {
     "extends": "react-app",
     "rules": {
-      "import/no-anonymous-default-export": "off"
+      "import/no-anonymous-default-export": "off",
+      "no-console": "warn"
     }
   },
   "browserslist": [
@@ -69,7 +71,14 @@
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.3",
+    "@types/classnames": "^2.3.1",
+    "@types/jest": "^26.0.23",
+    "@types/lodash": "^4.14.170",
+    "@types/node": "^15.12.2",
+    "@types/react": "^17.0.11",
+    "@types/react-dom": "^17.0.7",
     "@types/react-router-dom": "^5.1.4",
+    "@types/react-select": "^4.0.15",
     "@types/styled-components": "^5.1.0",
     "ajv": "^6.10.2",
     "concurrently": "^5.3.0",
@@ -88,7 +97,8 @@
     "object-path": "^0.11.5",
     "ora": "^3.4.0",
     "prettier": "^1.18.2",
-    "start-server-and-test": "^1.10.0"
+    "start-server-and-test": "^1.10.0",
+    "typescript": "^4.3.2"
   },
   "license": "MIT",
   "resolutions": {

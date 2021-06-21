@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   act,
   render,
@@ -24,7 +23,7 @@ function mockMentorshipApi({ getReq, updateStatus }) {
 }
 
 describe('MentorshipReq', () => {
-  jest.mock('../../api/index.js');
+  jest.mock('../../api/index.ts');
   beforeEach(() => {
     api.getCurrentUser = jest.fn(() => Promise.resolve(userData));
   });

@@ -1,12 +1,10 @@
+import type { User } from '../types/models';
+
 export function overwriteProfileDefaults({
   email,
   name,
   avatar,
-}: {
-  email: string,
-  name: string,
-  avatar: string,
-}) {
+}: Pick<User, 'email' | 'name' | 'avatar'>) {
   const [emailName] = email.split('@');
 
   return {

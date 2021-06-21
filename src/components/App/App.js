@@ -2,13 +2,7 @@ import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
 
-import React, {
-  useCallback,
-  useEffect,
-  useState,
-  useContext,
-  useMemo,
-} from 'react';
+import { useCallback, useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { ToastContainer } from 'react-toastify';
@@ -27,9 +21,8 @@ import {
 import { set } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
-import { getCurrentUser } from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
-import UserContext from '../../context/userContext/UserContext';
+import { useUser } from '../../context/userContext/UserContext';
 import {
   setPermalinkParams,
   getPermalinkParamsValues,
@@ -58,7 +51,7 @@ const App = () => {
   const [favorites, setFavorites] = useState([]);
   const [showFavorites, setShowFavorites] = useState(false);
   const [fieldsIsActive, setFieldsIsActive] = useState(false);
-  const { updateUser } = useContext(UserContext);
+  const { currentUser } = useUser();
   const [modal, setModal] = useState({
     title: null,
     content: null,
@@ -158,11 +151,9 @@ const App = () => {
 
   const initialize = useCallback(async () => {
     reportPageView();
-    const user = await getCurrentUser();
-    updateUser(user);
     const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
     Promise.all([
-      user &&
+      currentUser &&
         getFavorites().then(favorites => {
           if (
             Array.isArray(favMentorsFromLocalStorage) &&
@@ -181,7 +172,7 @@ const App = () => {
     ]).then(() => {
       setIsReady(true);
     });
-  }, [updateUser]);
+  }, [currentUser]);
 
   useEffect(() => {
     initialize();

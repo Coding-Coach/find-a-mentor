@@ -9,6 +9,7 @@ const CardContainer = styled.div`
   padding: 15px;
 `;
 
+// eslint-disable-next-line no-console
 const action = () => console.log('Clicked');
 
 export const empty = () => (
