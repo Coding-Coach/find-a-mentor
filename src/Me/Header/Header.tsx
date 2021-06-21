@@ -44,14 +44,19 @@ const LogoContainer = styled.div`
   }
 `;
 
-const Header = ({title}) => {
+type HeaderProps = {
+  title: string;
+};
+
+const Header = ({ title }: HeaderProps) => {
   return (
-  <HeaderContainer>
-    <Home>{title}</Home>
-    <LogoContainer>
-      <Logo />
-    </LogoContainer>
-  </HeaderContainer>
-)};
+    <HeaderContainer>
+      <Home>{title}</Home>
+      <LogoContainer>
+        <Logo />
+      </LogoContainer>
+    </HeaderContainer>
+  );
+};
 
 export default Header;
