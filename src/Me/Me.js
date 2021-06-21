@@ -44,10 +44,10 @@ const Me = props => {
           <Header title={getHeaderNameByPath(pathname)} />
           <Main>
             <Switch>
-              <Route path={`${url}/requests`} title="Mentorships">
+              <Route path={`${url}/requests`}>
                 <MentorshipReq />
               </Route>
-              <Route path={`${url}`} title="Home">
+              <Route path={`${url}`}>
                 <Home />
               </Route>
             </Switch>
