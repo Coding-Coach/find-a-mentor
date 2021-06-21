@@ -41,7 +41,6 @@ function MemberArea({ onOpenModal }) {
     auth.doLogout();
     setIsMemberMenuOpen(false);
   };
-  console.log(33333333, isAuthenticated, currentUser);
 
   return (
     <div className="auth">
