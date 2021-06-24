@@ -1,19 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-
-export type RichItemProps = {
-  id: string | number;
-  avatar: string;
-  title: string;
-  subtitle: string;
-  tag: {
-    value: string;
-    theme: 'primary' | 'secondary' | 'danger' | 'checked' | 'disabled';
-  };
-  info: string;
-  expand: boolean;
-  onClick: (id: string | number) => void;
-};
+import { RichItemProps } from './ReachItemTypes';
 
 const RichItem: FC<RichItemProps> = ({
   id,

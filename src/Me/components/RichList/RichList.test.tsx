@@ -1,8 +1,10 @@
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import React from 'react';
+import { PropsWithChildren } from 'react';
 import { RichList, RichItem } from '.';
+import { RichItemProps } from './ReachItemTypes';
+import { useExpendableRichItems } from './RichList';
 
-const items = [
+const items: PropsWithChildren<Omit<RichItemProps, 'onClick'>>[] = [
   {
     id: '123',
     avatar: '../../assets/me/mentors.svg',
@@ -14,6 +16,7 @@ const items = [
     },
     info: '3 days ago',
     children: <h1>123</h1>,
+    expand: false,
   },
   {
     id: '456',
@@ -26,15 +29,18 @@ const items = [
     },
     info: '6 days ago',
     children: <h1>456</h1>,
+    expand: false,
   },
 ];
 
 describe('RichList component', () => {
   it('Should render 2 items', async () => {
     const { findAllByText } = render(
-      <RichList
-        render={() => items.map(item => <RichItem {...item} key={item.id} />)}
-      />
+      <RichList>
+        {items.map(item => (
+          <RichItem {...item} key={item.id} onClick={() => {}} />
+        ))}
+      </RichList>
     );
     const rgx = new RegExp(`${items[0].title}|${items[1].title}`);
     const itemsEl = await findAllByText(rgx);
@@ -43,21 +49,24 @@ describe('RichList component', () => {
   });
 
   it('Should show/hide children content on item click', async () => {
-    const { id, title } = items[0];
-    const { getByText, queryByText } = render(
-      <RichList
-        render={({ onSelect, expandId }) =>
-          items.map(item => (
+    const RichListWrapper = () => {
+      const { expandId, onSelect } = useExpendableRichItems();
+      return (
+        <RichList>
+          {items.map(item => (
             <RichItem
               {...item}
               key={item.id}
               onClick={onSelect}
               expand={item.id === expandId}
             />
-          ))
-        }
-      />
-    );
+          ))}
+        </RichList>
+      );
+    };
+    const { id, title } = items[0];
+    const { getByText, queryByText } = render(<RichListWrapper />);
+
     const titleEl = getByText(title);
 
     fireEvent.click(titleEl);

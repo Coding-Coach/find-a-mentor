@@ -2,7 +2,7 @@ import { useRef, useEffect, useState, useCallback } from 'react';
 import { getMentorshipRequests, updateMentorshipReqStatus } from '../../api';
 import Card from '../components/Card';
 import { useUser } from '../../context/userContext/UserContext';
-import { UsersList } from './';
+import { UsersList } from './UsersList';
 import { STATUS } from '../../helpers/mentorship';
 import { useModal } from '../../context/modalContext/ModalContext';
 import {
@@ -38,7 +38,7 @@ const MentorshipReq = () => {
     setSelectedReq({ id, username });
     openApprovedModal();
   };
-  const onDeclinedReq = ({ id, status, username }) => {
+  const onDeclineReq = ({ id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.rejected]) return;
     setSelectedReq({ id, username });
     openDeclinedModal();
@@ -120,7 +120,7 @@ const MentorshipReq = () => {
         <UsersList
           requests={mentorState}
           onAccept={acceptReq}
-          onDeclined={onDeclinedReq}
+          onDecline={onDeclineReq}
           isLoading={loadingState}
           onSelect={markViewed}
           closeOpenItem={selectedReq?.id}

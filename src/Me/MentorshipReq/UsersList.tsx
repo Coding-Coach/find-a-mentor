@@ -1,12 +1,14 @@
-import React from 'react';
 import { getAvatarUrl } from '../../helpers/avatar';
 import ReqContent from './ReqContent';
-import { formatRequestTime } from '../../helpers/mentorship';
+import { formatRequestTime, Status } from '../../helpers/mentorship';
 import { RichList, RichItem } from '../components/RichList';
 import { Loader } from '../../components/Loader';
 import styled from 'styled-components';
 import { STATUS } from '../../helpers/mentorship';
 import { ReactComponent as UserWasRemovedIcon } from '../../assets/me/icon-user-remove.svg';
+import { MentorshipRequest } from '../../types/models';
+import { useExpendableRichItems } from '../components/RichList/RichList';
+import { RichItemTagTheme } from '../components/RichList/ReachItemTypes';
 
 const Spinner = styled(Loader)`
   position: absolute;
@@ -21,22 +23,45 @@ const UserWasRemoved = styled.div`
   height: 40px;
 `;
 
-const STATUS_THEME = {
+type MentorshipRequestOnResponsePayload = {
+  id: string;
+  status: Status;
+  username: string;
+};
+
+type MentorshipRequestOnSelectPayload = {
+  id: string;
+  status: Status;
+};
+
+type UsersListProps = {
+  isLoading: boolean;
+  requests: MentorshipRequest[];
+  onSelect(params: MentorshipRequestOnSelectPayload): void;
+  onDecline(params: MentorshipRequestOnResponsePayload): Promise<void>;
+  onAccept(params: MentorshipRequestOnResponsePayload): Promise<void>;
+};
+
+type RenderListPayload = UsersListProps & {
+  expandId: string;
+};
+
+const STATUS_THEME: { [key in Status]: RichItemTagTheme } = {
   [STATUS.approved]: 'primary',
   [STATUS.cancelled]: 'disabled',
   [STATUS.new]: 'secondary',
   [STATUS.rejected]: 'danger',
   [STATUS.viewed]: 'checked',
-};
+} as const;
 
 const renderList = ({
   requests,
   expandId,
   onSelect,
   onAccept,
-  onDeclined,
+  onDecline,
   isLoading,
-}) =>
+}: RenderListPayload) =>
   requests?.map(
     ({
       id,
@@ -46,9 +71,10 @@ const renderList = ({
       background,
       expectation,
       isMine,
-      ...props
+      mentee,
+      mentor,
     }) => {
-      const user = isMine ? props.mentor : props.mentee;
+      const user = isMine ? mentor : mentee;
       if (!user) {
         return (
           <li key={id}>
@@ -78,13 +104,15 @@ const renderList = ({
             info={formatRequestTime(Date.parse(date))}
           >
             <ReqContent
-              menteeEmail={props.mentee.email}
               status={status}
-              isLoading={isLoading}
               isMine={isMine}
-              {...{ message, background, expectation }}
+              message={message}
+              isLoading={isLoading}
+              background={background}
+              expectation={expectation}
+              menteeEmail={mentee.email}
               onAccept={() => onAccept({ id, status, username })}
-              onDeclined={() => onDeclined({ id, status, username })}
+              onDecline={() => onDecline({ id, status, username })}
             />
           </RichItem>
         </li>
@@ -92,29 +120,35 @@ const renderList = ({
     }
   );
 
-const UsersList = ({ isLoading, closeOpenItem, ...props }) => {
-  if (!isLoading && !(props.requests?.length > 0)) return <p>No requests</p>;
+export const UsersList = ({
+  isLoading,
+  requests,
+  onAccept,
+  onDecline,
+  onSelect: onItemSelect,
+}: UsersListProps) => {
+  const { expandId, onSelect } = useExpendableRichItems();
+
+  if (!isLoading && !(requests?.length > 0)) {
+    return <p>No requests</p>;
+  }
+
   return (
     <>
       {isLoading && <Spinner />}
-      <RichList
-        closeOpenItem={closeOpenItem}
-        render={({ onSelect, expandId }) =>
-          renderList({
-            ...props,
-            isLoading,
-            onSelect: item => {
-              props?.onSelect && props.onSelect(item);
-              onSelect && onSelect(item.id);
-            },
-            expandId,
-          })
-        }
-      />
+      <RichList>
+        {renderList({
+          requests,
+          expandId,
+          isLoading,
+          onAccept,
+          onDecline,
+          onSelect: (item: MentorshipRequestOnSelectPayload) => {
+            onItemSelect?.(item);
+            onSelect?.(item.id);
+          },
+        })}
+      </RichList>
     </>
   );
 };
-
-UsersList.propTypes = {};
-
-export default UsersList;

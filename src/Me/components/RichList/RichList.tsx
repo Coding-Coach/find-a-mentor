@@ -1,10 +1,5 @@
-import { useState } from 'react';
-import type { ReactNode } from 'react';
+import { FC, useState } from 'react';
 import styled from 'styled-components';
-
-type RichListProps = {
-  render: (props: { onSelect: (id: string) => void; expandId: string }) => ReactNode;
-};
 
 const Style = {
   List: styled.ul`
@@ -14,14 +9,18 @@ const Style = {
   `,
 };
 
-export const RichList = ({ render }: RichListProps) => {
+export const useExpendableRichItems = () => {
   const [expandId, setExpandId] = useState('');
 
   const onSelect = (id: string) => {
     setExpandId(expandId === id ? '' : id);
   };
 
-  return <Style.List>{render({ onSelect, expandId })}</Style.List>;
+  return { expandId, onSelect };
+};
+
+export const RichList: FC = ({ children }) => {
+  return <Style.List>{children}</Style.List>;
 };
 
 export default RichList;
