@@ -1,4 +1,5 @@
 import countries from 'svg-country-flags/countries.json';
+import { Status } from '../helpers/mentorship';
 
 type ObjectID = {
   _id: string;
@@ -26,3 +27,15 @@ export type User = ObjectID & {
 };
 export type Mentor = User & {};
 export type Application = ObjectID & {};
+
+export type MentorshipRequest = {
+  id: string;
+  status: Status;
+  date: string;
+  message: string;
+  background: string;
+  expectation: string;
+  isMine: boolean;
+  mentor: Mentor;
+  mentee: User;
+};

@@ -51,7 +51,7 @@ const ReqContent = ({
   expectation,
   status,
   onAccept,
-  onDeclined,
+  onDecline,
   isLoading,
   isMine,
   menteeEmail,
@@ -79,7 +79,7 @@ const ReqContent = ({
       {hideBtns ? null : (
         <RequestFooter>
           <CallToAction>
-            <Button skin="secondary" onClick={onDeclined}>
+            <Button skin="secondary" onClick={onDecline}>
               Decline
             </Button>
             <Button skin="primary" onClick={onAccept} isLoading={isLoading}>
@@ -112,7 +112,7 @@ ReqContent.propTypes = {
   background: PropTypes.string,
   expectation: PropTypes.string,
   onAccept: PropTypes.func.isRequired,
-  onDeclined: PropTypes.func.isRequired,
+  onDecline: PropTypes.func.isRequired,
 };
 
 export default ReqContent;
