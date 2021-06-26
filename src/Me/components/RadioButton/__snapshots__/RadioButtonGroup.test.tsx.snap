@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioButtonGroup should match snapshot 1`] = `
+.c2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  vertical-align: middle;
+}
+
+.c1 + .c1 {
+  margin-top: 10px;
+}
+
+.c4 {
+  border: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 0;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.c6 {
+  border: 2px solid #69d5b1;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+
+input:checked + .c5:before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: #179a6f;
+  border-radius: 50%;
+  display: block;
+}
+
+.c3 {
+  margin-left: 0.9rem;
+  color: #4f4f4f;
+  font-size: 14px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.c0 .c1 + .c1 {
+  margin-top: 10px;
+}
+
+<div
+  class="c0"
+>
+  <div
+    class="c1 c2"
+  >
+    <label
+      class="c3"
+    >
+      <input
+        class="c4"
+        name="options"
+        type="radio"
+        value="1"
+      />
+      <span
+        class="c5 c6"
+      />
+      Option 1
+    </label>
+  </div>
+  <div
+    class="c1 c2"
+  >
+    <label
+      class="c3"
+    >
+      <input
+        checked=""
+        class="c4"
+        name="options"
+        type="radio"
+        value="2"
+      />
+      <span
+        class="c5 c6"
+      />
+      Option 2
+    </label>
+  </div>
+  <div
+    class="c1 c2"
+  >
+    <label
+      class="c3"
+    >
+      <input
+        class="c4"
+        name="options"
+        type="radio"
+        value="3"
+      />
+      <span
+        class="c5 c6"
+      />
+      Option 3
+    </label>
+  </div>
+</div>
+`;
