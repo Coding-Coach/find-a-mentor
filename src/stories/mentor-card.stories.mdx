@@ -1,35 +1,41 @@
 import Card from '../components/Card/Card';
-import {UserProvider} from '../context/userContext/UserContext'
+import { UserProvider } from '../context/userContext/UserContext';
 import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 
-<Meta title="Mentor Card" component={Card} argTypes={{ onClick: { action: 'clicked' } }}/>
+<Meta
+  title="Mentor Card"
+  component={Card}
+  argTypes={{ onClick: { action: 'clicked' } }}
+/>
 
-export const Template = args => <Card {...args} />
-
-
+export const Template = args => <Card {...args} />;
 
 <Canvas>
-    <Story
-        name="Available Mentor Card"
-    >
+  <Story name="Available Mentor Card">
     <UserProvider>
-        <Card
-            mentor={{
-                _id: 1,
-                email: "brentmclark@gmail.com",
-                username: "brentmclark",
-                roles: ["Mentor"],
-                avatar: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtBAMAAADINP+pAAAAG1BMVEXMzMyWlpa+vr6xsbG3t7fFxcWqqqqjo6OcnJzvcxCxAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANElEQVQ4jWNgGAUjGDCZpcBJZMBsgiCRgat5M4OJAohEBYlCigzhYBINGCcD1YPIUTCsAADs9gb4p4yG2QAAAABJRU5ErkJggg==",
-                name: 'Brent M. Clark',
-                country: 'US',
-                description: "Totally Awesome!",
-                tags: ["Reactjs", "node", "javascript"],
-                title: "OSS Engineer at Coding Coach",
-                channels: null,
-                available: true
-            }}
-            isFav={false}
-        />
+      <Card
+        mentor={{
+          _id: 1,
+          email: 'brentmclark@gmail.com',
+          username: 'brentmclark',
+          roles: ['Mentor'],
+          avatar:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtBAMAAADINP+pAAAAG1BMVEXMzMyWlpa+vr6xsbG3t7fFxcWqqqqjo6OcnJzvcxCxAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAANElEQVQ4jWNgGAUjGDCZpcBJZMBsgiCRgat5M4OJAohEBYlCigzhYBINGCcD1YPIUTCsAADs9gb4p4yG2QAAAABJRU5ErkJggg==',
+          name: 'Brent M. Clark',
+          country: 'US',
+          description: 'Totally Awesome!',
+          tags: ['Reactjs', 'node', 'javascript'],
+          title: 'OSS Engineer at Coding Coach',
+          available: true,
+          channels: [
+            {
+              id: 'email@codingcoach.io',
+              type: 'email',
+            },
+          ],
+        }}
+        isFav={false}
+      />
     </UserProvider>
-    </Story>
+  </Story>
 </Canvas>
