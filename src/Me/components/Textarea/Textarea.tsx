@@ -20,7 +20,9 @@ const StyledTextarea = styled.textarea<{ invalid?: boolean }>`
   min-height: 75px;
 `;
 
-export const Textarea = (props: TextareaHTMLAttributes<unknown>) => {
+export const Textarea = (
+  props: TextareaHTMLAttributes<HTMLTextAreaElement>
+) => {
   const id = useContext(formFieldContext);
   return <StyledTextarea id={id} {...props} />;
 };
