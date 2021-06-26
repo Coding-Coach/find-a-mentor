@@ -59,6 +59,7 @@ const Label = styled.label`
   margin-left: 0.9rem;
   color: #4f4f4f;
   font-size: 14px;
+  cursor: pointer;
 `;
 
 export const Checkbox = ({
