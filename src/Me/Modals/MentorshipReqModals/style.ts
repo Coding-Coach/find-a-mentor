@@ -18,13 +18,4 @@ export default styled.div`
   p {
     text-align: center;
   }
-
-  label {
-    display: block;
-    margin-top: 32px;
-    > b {
-      display: block;
-      margin-bottom: 7px;
-    }
-  }
 `;

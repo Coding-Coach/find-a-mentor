@@ -5,10 +5,7 @@ import { useUser } from '../../context/userContext/UserContext';
 import { UsersList } from './UsersList';
 import { STATUS } from '../../helpers/mentorship';
 import { useModal } from '../../context/modalContext/ModalContext';
-import {
-  SuccessModal as ApprovedModal,
-  DeclinedModal,
-} from '../Modals/MentorshipReqModals';
+import { AcceptModal, DeclineModal } from '../Modals/MentorshipReqModals';
 
 const PREV_STATUS = {
   [STATUS.viewed]: STATUS.new,
@@ -36,17 +33,17 @@ const MentorshipReq = () => {
     await updateReqStatus({ id, userId }, STATUS.approved);
     setLoadingState(false);
     setSelectedReq({ id, username });
-    openApprovedModal();
+    openAcceptModal();
   };
   const onDeclineReq = ({ id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.rejected]) return;
     setSelectedReq({ id, username });
-    openDeclinedModal();
+    openDeclineModal();
   };
 
   const declineReq = async msg => {
     await updateReqStatus({ id: selectedReq.id, userId }, STATUS.rejected, msg);
-    closeDeclinedModal();
+    closeDeclineModal();
   };
 
   const getMentorshipReq = useCallback(async () => {
@@ -86,16 +83,16 @@ const MentorshipReq = () => {
     setMentorState(newState);
   };
 
-  const [openApprovedModal] = useModal(
-    <ApprovedModal
+  const [openAcceptModal] = useModal(
+    <AcceptModal
       username={selectedReq?.username}
       onClose={() => setSelectedReq(null)}
     />,
     [selectedReq?.id]
   );
 
-  const [openDeclinedModal, closeDeclinedModal] = useModal(
-    <DeclinedModal
+  const [openDeclineModal, closeDeclineModal] = useModal(
+    <DeclineModal
       username={selectedReq?.username}
       onSave={declineReq}
       onClose={() => setSelectedReq(null)}
