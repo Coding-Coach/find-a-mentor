@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import styled from 'styled-components';
 import { RadioButtonContainer } from './RadioButton';
 import { RadioButtonContext } from './RadioButtonContext';
@@ -9,19 +9,19 @@ const StyledRadioButtonGroup = styled.div`
   }
 `;
 
-export type RadioButtonGroupProps = {
-  value: string;
-  onChange(value: string): void;
+export type RadioButtonGroupProps<T = string> = {
+  value: T;
+  onChange(value: T): void;
 };
 
-const RadioButtonGroup: FC<RadioButtonGroupProps> = ({
+const RadioButtonGroup = <T extends string>({
   value: defaultValue,
   onChange,
   children,
-}) => {
-  const [value, setValue] = useState(defaultValue);
+}: PropsWithChildren<RadioButtonGroupProps<T>>) => {
+  const [value, setValue] = useState<T>(defaultValue);
 
-  const onRadioButtonChange = (newValue: string) => {
+  const onRadioButtonChange = (newValue: T) => {
     setValue(newValue);
     onChange(newValue);
   };
