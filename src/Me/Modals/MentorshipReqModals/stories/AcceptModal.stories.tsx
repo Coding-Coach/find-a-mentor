@@ -11,6 +11,6 @@ const onClose = action('onClose');
 
 export const Default = () => (
   <StoriesContainer>
-    <AcceptModal username="John Doe" onClose={onClose} closeModal={() => {}} />
+    <AcceptModal username="John Doe" onClose={onClose} />
   </StoriesContainer>
 );

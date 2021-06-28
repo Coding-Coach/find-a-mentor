@@ -36,7 +36,7 @@ const ErrorMessage = styled.div`
   color: var(--form-text-invalid);
 `;
 
-const MentorshipRequest = ({ mentor, closeModal }) => {
+const MentorshipRequest = ({ mentor }) => {
   const [confirmed, setConfirmed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [mentorshipRequestDetails, setMentorshipRequestDetails] = useState(
@@ -155,10 +155,10 @@ const MentorshipRequest = ({ mentor, closeModal }) => {
     <Modal
       title="Mentorship Request"
       onSave={confirmed ? null : onSubmit}
-      closeModal={closeModal}
       submitLabel="Send Request"
       isValid={errors?.isValid}
       isLoading={isLoading}
+      center
     >
       {confirmed ? (
         <Body>

@@ -23,7 +23,6 @@ import { SelectProps } from '../components/Select/Select';
 type EditMentorDetailsProps = {
   userDetails: User;
   updateMentor: (userInfo: User) => void;
-  closeModal: () => void;
 };
 
 const EditDetails = styled.div`
@@ -95,7 +94,6 @@ const DeleteAccountContainer = styled.div``;
 const EditMentorDetails = ({
   userDetails: { avatar, ...details },
   updateMentor,
-  closeModal,
 }: EditMentorDetailsProps) => {
   const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
 
@@ -331,7 +329,7 @@ const EditMentorDetails = ({
   };
 
   return (
-    <Modal title="Update Profile" onSave={onSubmit} closeModal={closeModal}>
+    <Modal title="Update Profile" onSave={onSubmit}>
       <EditDetails>
         <EditDetailsForm onSubmit={onSubmit}>
           <FormFields>

@@ -12,11 +12,6 @@ const onSave = action('onSave');
 
 export const Default = () => (
   <StoriesContainer>
-    <DeclineModal
-      username="Brent M Clark"
-      onClose={onClose}
-      onSave={onSave}
-      closeModal={() => {}}
-    />
+    <DeclineModal username="Brent M Clark" onClose={onClose} onSave={onSave} />
   </StoriesContainer>
 );

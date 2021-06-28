@@ -22,29 +22,20 @@ type DeclineModalProps = {
   username: string;
   onSave(message: string | null): void;
   onClose(): void;
-  closeModal(): void;
 };
 
-const DeclineModal = ({
-  username,
-  onSave,
-  onClose,
-  closeModal,
-}: DeclineModalProps) => {
+const DeclineModal = ({ username, onSave, onClose }: DeclineModalProps) => {
   const [loadingState, setLoadingState] = useState(false);
   const message = useRef<string | null>(null);
 
   return (
     <Modal
       center
-      title="Mentorship Declined"
+      title="Decline Mentorship"
+      onClose={onClose}
       onSave={() => {
         setLoadingState(true);
         onSave(message.current);
-      }}
-      closeModal={() => {
-        onClose();
-        closeModal();
       }}
     >
       <Body>
