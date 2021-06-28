@@ -11,13 +11,18 @@ const StyledTextarea = styled.textarea<{ invalid?: boolean }>`
   border: 1px solid #bfbfbf;
   padding: 7px 12px 6px 8px;
   color: #4f4f4f;
+  min-height: 75px;
+
   ::placeholder {
     color: ${props =>
       props.invalid
         ? 'var(--form-text-invalid)'
         : 'var(--form-text-placeholder)'};
   }
-  min-height: 75px;
+
+  :disabled {
+    opacity: 0.7;
+  }
 `;
 
 export const Textarea = (

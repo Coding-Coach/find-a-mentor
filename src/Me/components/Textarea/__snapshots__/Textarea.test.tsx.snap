@@ -29,6 +29,10 @@ exports[`Textarea component renders properly 1`] = `
   color: var(--form-text-placeholder);
 }
 
+.c0:disabled {
+  opacity: 0.7;
+}
+
 <textarea
   class="c0"
   placeholder="test"
