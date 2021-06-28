@@ -1,10 +1,10 @@
 import BodyStyle from './style';
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Modal } from '../Modal';
-import PropTypes from 'prop-types';
 import TextArea from '../../components/Textarea';
 import { Loader } from '../../../components/Loader';
 import styled from 'styled-components';
+import FormField from '../../components/FormField';
 
 const Spinner = styled(Loader)`
   position: absolute;
@@ -18,9 +18,21 @@ const Body = styled(BodyStyle)`
   }
 `;
 
-const DeclinedModal = ({ username, onSave, onClose, closeModal }) => {
-  const [loadingState, setLoadingState] = useState(null);
-  const msg = useRef(null);
+type DeclineModalProps = {
+  username: string;
+  onSave(message: string | null): void;
+  onClose(): void;
+  closeModal(): void;
+};
+
+const DeclineModal = ({
+  username,
+  onSave,
+  onClose,
+  closeModal,
+}: DeclineModalProps) => {
+  const [loadingState, setLoadingState] = useState(false);
+  const message = useRef<string | null>(null);
 
   return (
     <Modal
@@ -28,7 +40,7 @@ const DeclinedModal = ({ username, onSave, onClose, closeModal }) => {
       title="Mentorship Declined"
       onSave={() => {
         setLoadingState(true);
-        onSave(msg.current);
+        onSave(message.current);
       }}
       closeModal={() => {
         onClose();
@@ -43,26 +55,23 @@ const DeclinedModal = ({ username, onSave, onClose, closeModal }) => {
             time!
           </p>
           <p>
-            As a courtesy, please let {username} know why you are rejecting the
+            As a courtesy, please let {username} know why you are declining the
             mentorship.
           </p>
-          <label>
-            <b>Reason</b>
+          <FormField label="Reason">
             <TextArea
-              onChange={({ target }) => (msg.current = target.value)}
-              placeholder="Short explanation why the rejection."
-              cols="35"
-              rows="7"
+              onChange={({ target }) => {
+                message.current = target.value;
+              }}
+              placeholder="I'm declining the mentorship because..."
+              cols={35}
+              rows={7}
             />
-          </label>
+          </FormField>
         </div>
       </Body>
     </Modal>
   );
 };
 
-DeclinedModal.propTypes = {
-  username: PropTypes.string,
-};
-
-export default DeclinedModal;
+export default DeclineModal;
