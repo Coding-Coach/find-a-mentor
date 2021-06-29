@@ -8,6 +8,6 @@ export default {
 
 export const Default = () => (
   <StoriesContainer>
-    <MentorshipRequest mentor="John Doe" closeModal={() => {}} />
+    <MentorshipRequest mentor="John Doe" />
   </StoriesContainer>
 );

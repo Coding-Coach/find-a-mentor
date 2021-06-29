@@ -1,17 +1,18 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useContext, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import _Button from '../components/Button';
 import { desktop, mobile } from '../styles/shared/devices';
 import { CSSTransition } from 'react-transition-group';
 import { ReactComponent as CloseSvg } from '../../assets/me/close.svg';
+import { ModalContext } from '../../context/modalContext/ModalContext';
 
 type ModalProps = {
   title: string;
   center?: boolean;
   isLoading?: boolean;
   submitLabel?: string;
-  closeModal: () => void;
-  onSave?: (e: React.SyntheticEvent) => void;
+  onSave?(e: React.SyntheticEvent): void;
+  onClose?(): void;
 };
 
 const Button = styled(_Button)`
@@ -49,7 +50,7 @@ const Title = styled.header`
   font-weight: 700;
   line-height: 34px;
   text-align: center;
-  margin: 50px 0;
+  margin: 40px 0 20px;
 `;
 
 const Footer = styled.footer`
@@ -76,8 +77,6 @@ const ButtonBar = styled.div`
 `;
 
 const Center = css`
-  left: 50%;
-  top: 50%;
   height: auto;
   width: auto;
   box-shadow: 0 0 4px 0 rgba(17, 22, 26, 0.16),
@@ -92,17 +91,31 @@ const Center = css`
 const Cover = css`
   height: 100vh;
   width: 100vw;
-  top: 0;
-  left: 0;
+`;
+
+const Overlay = styled.div<{ posCenter: boolean }>`
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${props =>
+    props.posCenter &&
+    `
+    backdrop-filter: blur(1px);
+    background: #00000030;
+  `}
 `;
 
 const ModalContainer = styled.div<{ posCenter: boolean }>`
-  z-index: 99;
-  font-family: 'Lato', sans-serif;
   display: flex;
-  position: fixed;
-  background-color: #fff;
+  position: relative;
   flex-direction: column;
+  background-color: #fff;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
 
   ${Cover}
   @media ${mobile} {
@@ -119,7 +132,7 @@ const transitionStyle = (
   <style>{`
   .modal-enter {
     opacity: 0;
-    transform: scale(.9)
+    transform: scale(.9);
   }
   .modal-enter-active {
     opacity: 1;
@@ -136,14 +149,8 @@ const transitionStyle = (
 const transitionCenter = (
   <style>{`
     @media ${desktop} {
-    .modal-exit,
-    .modal-enter {
-      transform: scale(.8) translate(calc(-50%), -60%);
-    }
-    .modal-enter-active,
-    .modal-enter-done {
-      /* INFO: Taking sidenav into account (75px) */
-        transform: translate(calc(-50% + 75px/2), -50%);
+      .modal-enter-active,
+      .modal-enter-done {
         transition-timing-function: cubic-bezier(0.18, 0.89, 0.04, 1.4)
       }
     }
@@ -153,16 +160,22 @@ const transitionCenter = (
 export const Modal: FC<ModalProps> = ({
   title,
   onSave,
+  onClose,
   children,
-  closeModal,
   center = false,
   isLoading = false,
   submitLabel = 'Save',
 }) => {
+  const { closeModal } = useContext(ModalContext);
   const [visible, setVisible] = useState(false);
 
   const save = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     onSave?.(e);
+  };
+
+  const close = () => {
+    closeModal();
+    onClose?.();
   };
 
   useEffect(() => {
@@ -170,7 +183,7 @@ export const Modal: FC<ModalProps> = ({
   }, []);
 
   return (
-    <>
+    <Overlay posCenter={center}>
       {transitionStyle}
       {center && transitionCenter}
 
@@ -180,7 +193,7 @@ export const Modal: FC<ModalProps> = ({
         classNames="modal"
         mountOnEnter
         unmountOnExit
-        onExited={closeModal}
+        onExited={close}
       >
         <ModalContainer posCenter={center}>
           <CloseIconButton onClick={() => setVisible(false)}>
@@ -209,6 +222,6 @@ export const Modal: FC<ModalProps> = ({
           </Footer>
         </ModalContainer>
       </CSSTransition>
-    </>
+    </Overlay>
   );
 };

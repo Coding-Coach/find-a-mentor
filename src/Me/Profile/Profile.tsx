@@ -22,7 +22,6 @@ const Profile: FC = () => {
     <EditMentorDetails
       userDetails={currentUser!}
       updateMentor={handleUpdateMentor}
-      closeModal={() => {}}
     />
   );
 
