@@ -6,6 +6,7 @@ import { UsersList } from './UsersList';
 import { STATUS } from '../../helpers/mentorship';
 import { useModal } from '../../context/modalContext/ModalContext';
 import { AcceptModal, DeclineModal } from '../Modals/MentorshipReqModals';
+import CancelModal from '../Modals/MentorshipReqModals/CancelModal';
 
 const PREV_STATUS = {
   [STATUS.viewed]: STATUS.new,
@@ -35,6 +36,21 @@ const MentorshipReq = () => {
     setSelectedReq({ id, username });
     openAcceptModal();
   };
+
+  const onCancel = ({ id, username }) => {
+    setSelectedReq({ id, username });
+    openCancelModal();
+  };
+
+  const cancelRequest = async message => {
+    await updateReqStatus(
+      { id: selectedReq.id, userId },
+      STATUS.cancelled,
+      message
+    );
+    closeCancelModal();
+  };
+
   const onDeclineReq = ({ id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.rejected]) return;
     setSelectedReq({ id, username });
@@ -100,6 +116,15 @@ const MentorshipReq = () => {
     [selectedReq?.id]
   );
 
+  const [openCancelModal, closeCancelModal] = useModal(
+    <CancelModal
+      username={selectedReq?.username}
+      onSave={cancelRequest}
+      onClose={() => setSelectedReq(null)}
+    />,
+    [selectedReq?.id]
+  );
+
   useEffect(() => {
     isMount.current = true;
     return () => {
@@ -124,7 +149,11 @@ const MentorshipReq = () => {
         />
       </Card>
       <Card title="My Mentorship Requests">
-        <UsersList requests={menteeState} isLoading={loadingState} />
+        <UsersList
+          requests={menteeState}
+          isLoading={loadingState}
+          onCancel={onCancel}
+        />
       </Card>
     </>
   );

@@ -40,6 +40,7 @@ type UsersListProps = {
   onSelect(params: MentorshipRequestOnSelectPayload): void;
   onDecline(params: MentorshipRequestOnResponsePayload): Promise<void>;
   onAccept(params: MentorshipRequestOnResponsePayload): Promise<void>;
+  onCancel(params: MentorshipRequestOnResponsePayload): Promise<void>;
 };
 
 type RenderListPayload = UsersListProps & {
@@ -48,7 +49,7 @@ type RenderListPayload = UsersListProps & {
 
 const STATUS_THEME: { [key in Status]: RichItemTagTheme } = {
   [STATUS.approved]: 'primary',
-  [STATUS.cancelled]: 'disabled',
+  [STATUS.cancelled]: 'cancelled',
   [STATUS.new]: 'secondary',
   [STATUS.rejected]: 'danger',
   [STATUS.viewed]: 'checked',
@@ -60,6 +61,7 @@ const renderList = ({
   onSelect,
   onAccept,
   onDecline,
+  onCancel,
   isLoading,
 }: RenderListPayload) =>
   requests?.map(
@@ -105,14 +107,20 @@ const renderList = ({
           >
             <ReqContent
               status={status}
-              isMine={isMine}
               message={message}
               isLoading={isLoading}
               background={background}
               expectation={expectation}
               menteeEmail={mentee.email}
-              onAccept={() => onAccept({ id, status, username })}
-              onDecline={() => onDecline({ id, status, username })}
+              onAccept={
+                onAccept ? () => onAccept({ id, status, username }) : null
+              }
+              onDecline={
+                onDecline ? () => onDecline({ id, status, username }) : null
+              }
+              onCancel={
+                onCancel ? () => onCancel({ id, status, username }) : null
+              }
             />
           </RichItem>
         </li>
@@ -125,6 +133,7 @@ export const UsersList = ({
   requests,
   onAccept,
   onDecline,
+  onCancel,
   onSelect: onItemSelect,
 }: UsersListProps) => {
   const { expandId, onSelect } = useExpendableRichItems();
@@ -143,6 +152,7 @@ export const UsersList = ({
           isLoading,
           onAccept,
           onDecline,
+          onCancel,
           onSelect: (item: MentorshipRequestOnSelectPayload) => {
             onItemSelect?.(item);
             onSelect?.(item.id);
