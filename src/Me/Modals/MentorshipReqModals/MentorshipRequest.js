@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import { Modal } from '../Modal';
 import FormField from '../../components/FormField';
@@ -27,6 +27,7 @@ const ExtendedFormField = styled(FormField)`
   justify-content: flex-start;
 
   & label {
+    margin-top: 32px;
     color: ${props =>
       props.invalid ? 'var(--form-text-invalid)' : 'var(--form-text-default)'};
   }
