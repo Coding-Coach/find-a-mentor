@@ -111,6 +111,7 @@ const Overlay = styled.div<{ posCenter: boolean }>`
 const ModalContainer = styled.div<{ posCenter: boolean }>`
   display: flex;
   position: relative;
+  max-height: 100vh;
   flex-direction: column;
   background-color: #fff;
   backface-visibility: hidden;
