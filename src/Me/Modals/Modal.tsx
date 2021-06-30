@@ -104,7 +104,6 @@ const Overlay = styled.div<{ posCenter: boolean }>`
   ${props =>
     props.posCenter &&
     `
-    backdrop-filter: blur(1px);
     background: #00000030;
   `}
 `;
