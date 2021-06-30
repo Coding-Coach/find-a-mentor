@@ -8,7 +8,7 @@ import Header from './Header/Header';
 import Main from './Main';
 import Navbar from './Navigation/Navbar';
 import Home from './Routes/Home';
-import MentorshipReq from '../Me/MentorshipReq';
+import MentorshipRequests from '../Me/MentorshipRequests';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
 
@@ -46,7 +46,7 @@ const Me = ({
           <Main>
             <Switch>
               <Route path={`${url}/requests`}>
-                <MentorshipReq />
+                <MentorshipRequests />
               </Route>
               <Route path={`${url}`}>
                 <Home />

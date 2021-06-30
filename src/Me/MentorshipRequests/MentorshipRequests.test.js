@@ -8,7 +8,7 @@ import {
   userData,
 } from './test-setup';
 import userEvent from '@testing-library/user-event';
-import MentorshipReq from './MentorshipReq';
+import MentorshipRequests from './MentorshipRequests';
 import { STATUS } from '../../helpers/mentorship';
 import * as api from '../../api';
 
@@ -22,18 +22,18 @@ function mockMentorshipApi({ getReq, updateStatus }) {
   );
 }
 
-describe('MentorshipReq', () => {
+describe('MentorshipRequests', () => {
   jest.mock('../../api/index.ts');
   beforeEach(() => {
     api.getCurrentUser = jest.fn(() => Promise.resolve(userData));
   });
 
-  describe('MentorshipReq List', () => {
+  describe('MentorshipRequests List', () => {
     afterEach(cleanup);
 
     it('Fetch and render a list of mentorship requests', async () => {
       mockMentorshipApi({ getReq: reqData.data });
-      const { findAllByText } = render(<MentorshipReq />);
+      const { findAllByText } = render(<MentorshipRequests />);
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
@@ -43,7 +43,7 @@ describe('MentorshipReq', () => {
     });
     it('Shows appropriate message if there are no mentorship requests', async () => {
       mockMentorshipApi({ getReq: [] });
-      const { getAllByText } = render(<MentorshipReq />);
+      const { getAllByText } = render(<MentorshipRequests />);
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
@@ -55,7 +55,7 @@ describe('MentorshipReq', () => {
         getReq: reqData.data,
         updateStatus: { success: true },
       });
-      const { getByText } = render(<MentorshipReq />);
+      const { getByText } = render(<MentorshipRequests />);
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
@@ -77,7 +77,7 @@ describe('MentorshipReq', () => {
         getReq: reqData.data,
         updateStatus: { success: true, status: STATUS.viewed },
       });
-      const { getAllByText } = render(<MentorshipReq />);
+      const { getAllByText } = render(<MentorshipRequests />);
 
       await waitForElementToBeRemoved(() => document.querySelector('i.loader'));
 
