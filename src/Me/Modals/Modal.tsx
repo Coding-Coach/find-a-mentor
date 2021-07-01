@@ -17,8 +17,15 @@ type ModalProps = {
 
 const Button = styled(_Button)`
   margin: 0;
+  transition: opacity 0.15s ease;
+
   & + & {
     margin-left: 1rem;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
   }
 `;
 
