@@ -5,6 +5,7 @@ import messages from '../messages';
 import shuffle from 'lodash/shuffle';
 import * as Sentry from '@sentry/browser';
 import { Application, Mentor, User } from '../types/models';
+import { setVisitor } from '../utils/tawk';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -106,12 +107,20 @@ async function fetchCurrentItem() {
   currentUser = await makeApiCall<User>(`${paths.USERS}/current`).then(
     response => {
       if (response?.success) {
+        const { _id, email, name, roles } = response.data;
+
         Sentry.configureScope(scope => {
           scope.setUser({
-            id: response.data._id,
-            email: response.data.email,
-            username: response.data.name,
+            email,
+            id: _id,
+            username: name,
           });
+        });
+
+        setVisitor({
+          name,
+          email,
+          roles,
         });
 
         return response.data;
