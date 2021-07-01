@@ -2,14 +2,8 @@ import BodyStyle from './style';
 import { useRef, useState } from 'react';
 import { Modal } from '../Modal';
 import TextArea from '../../components/Textarea';
-import { Loader } from '../../../components/Loader';
 import styled from 'styled-components';
 import FormField from '../../components/FormField';
-
-const Spinner = styled(Loader)`
-  position: absolute;
-  top: 25%;
-`;
 
 const Body = styled(BodyStyle)`
   justify-content: flex-start;
@@ -33,13 +27,14 @@ const DeclineModal = ({ username, onSave, onClose }: DeclineModalProps) => {
       center
       title="Decline Mentorship"
       onClose={onClose}
+      isLoading={loadingState}
+      submitLabel="Decline"
       onSave={() => {
         setLoadingState(true);
         onSave(message.current);
       }}
     >
       <Body>
-        {loadingState && <Spinner />}
         <div>
           <p>
             You have declined <b>{username}</b> and that’s ok, now is not a good

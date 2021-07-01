@@ -38,6 +38,7 @@ const CancelModal = ({ username, onSave, onClose }: CanceledModalProps) => {
       title="Cancel mentorship request"
       onClose={onClose}
       isLoading={isLoading}
+      submitLabel="Cancel"
       onSave={() => {
         setIsLoading(true);
         onSave(reasonOption === '3' ? reason.current : REASONS[reasonOption]);

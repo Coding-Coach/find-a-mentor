@@ -49,7 +49,8 @@ const MentorshipReq = () => {
     await updateReqStatus(
       { id: selectedReq.id, userId },
       STATUS.cancelled,
-      message
+      message,
+      'mentee'
     );
     closeCancelModal();
   };
@@ -78,8 +79,18 @@ const MentorshipReq = () => {
       setLoadingState(false);
     }
   }, [userId]);
-
-  const updateReqStatus = async ({ id, userId }, nextStatus, reason) => {
+  /**
+   * @param  {import('../../types/models').User} user
+   * @param  {import('../../helpers/mentorship').Status} nextStatus
+   * @param  {string} reason
+   * @param  {'mentee' | 'mentor'} listType
+   */
+  const updateReqStatus = async (
+    { id, userId },
+    nextStatus,
+    reason,
+    listType = 'mentor'
+  ) => {
     const { success, mentorship } = await updateMentorshipReqStatus(
       id,
       userId,
@@ -91,15 +102,20 @@ const MentorshipReq = () => {
 
     if (!success) return;
 
-    const itemIndex = mentorState.findIndex(s => s.id === id);
-    const item = mentorState[itemIndex];
-    let newState = [...mentorState];
+    const [list, setList] =
+      listType === 'mentor'
+        ? [mentorState, setMentorState]
+        : [menteeState, setMenteeState];
+
+    const itemIndex = list.findIndex(s => s.id === id);
+    const item = list[itemIndex];
+    let newState = [...list];
     newState.splice(itemIndex, 1, {
       ...item,
       status: mentorship.status,
     });
 
-    setMentorState(newState);
+    setList(newState);
   };
 
   const [openAcceptModal] = useModal(
