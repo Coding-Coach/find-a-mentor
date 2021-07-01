@@ -3,6 +3,7 @@ import { reportError } from '../ga';
 import { toast } from 'react-toastify';
 import messages from '../messages';
 import shuffle from 'lodash/shuffle';
+import partition from 'lodash/partition';
 import * as Sentry from '@sentry/browser';
 import { Application, Mentor, User } from '../types/models';
 import { setVisitor } from '../utils/tawk';
@@ -153,10 +154,14 @@ let mentorsPromise: Promise<Mentor[]>;
 
 export async function getMentors() {
   if (!mentorsPromise) {
-    mentorsPromise = makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1200`).then(
+    mentorsPromise = makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300`).then(
       response => {
         if (response?.success) {
-          return shuffle(response.data || []);
+          const [available, unavailable] = partition(
+            response.data || [],
+            mentor => mentor.available
+          );
+          return [...shuffle(available), ...unavailable];
         } else {
           return [];
         }
