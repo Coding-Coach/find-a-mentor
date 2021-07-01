@@ -145,8 +145,8 @@ const MentorshipRequest = ({ mentor }) => {
 
   const onSubmit = async e => {
     e?.preventDefault();
-    setIsLoading(true);
     if (!validate()) return;
+    setIsLoading(true);
     const success = await applyForMentorship(mentor, mentorshipRequestDetails);
     setConfirmed(success);
     setIsLoading(false);
