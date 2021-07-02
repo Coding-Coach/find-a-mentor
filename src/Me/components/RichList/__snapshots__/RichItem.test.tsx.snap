@@ -106,7 +106,7 @@ exports[`RichItem component renders danger tag when specified with theme prop 1`
   font-size: 8px;
   line-height: 12px;
   text-align: center;
-  background-color: #FF5F58;
+  background-color: #ff5f58;
 }
 
 .c13 {
@@ -304,7 +304,7 @@ exports[`RichItem component renders primary tag when specified with theme prop 1
   font-size: 8px;
   line-height: 12px;
   text-align: center;
-  background-color: #69D5B1;
+  background-color: #69d5b1;
 }
 
 .c13 {
@@ -502,7 +502,7 @@ exports[`RichItem component renders secondary tag when specified with theme prop
   font-size: 8px;
   line-height: 12px;
   text-align: center;
-  background-color: #F3CA3E;
+  background-color: #f3ca3e;
 }
 
 .c13 {
