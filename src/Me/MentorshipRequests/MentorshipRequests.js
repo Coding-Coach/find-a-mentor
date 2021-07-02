@@ -33,9 +33,7 @@ const MentorshipReq = () => {
   const acceptReq = async ({ id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.approved]) return;
 
-    setLoadingState(true);
     await updateReqStatus({ id, userId }, STATUS.approved);
-    setLoadingState(false);
     setSelectedReq({ id, username });
     openAcceptModal();
   };

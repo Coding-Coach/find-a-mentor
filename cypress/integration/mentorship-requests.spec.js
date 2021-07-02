@@ -31,17 +31,17 @@ describe('Mentorship Requests', () => {
     cy.visit(`/me/requests`);
   });
 
-  // TODO enable it if possible
-  // it('Should show spinner while loading requests', () => {
-  //   cy.findAllByRole('status').should('exist');
-  // });
-  // it('got 3 requests', () => {
-  //   cy.findByText('Mentorship Requests')
-  //     .get('ul')
-  //     .findAllByText(/User.*/)
-  //     .should('exist')
-  //     .should('have.length', 3);
-  // });
+  it('Should show spinner while loading requests', () => {
+    cy.findAllByRole('status').should('exist');
+  });
+
+  it('got 3 requests', () => {
+    cy.findByText('Mentorship Requests')
+      .get('ul')
+      .findAllByText(/User.*/)
+      .should('exist')
+      .should('have.length', 3);
+  });
 
   describe('Mentorship Content', () => {
     it('Should expand and show more details on request item click', () => {
@@ -54,6 +54,7 @@ describe('Mentorship Requests', () => {
 
       cy.findAllByTestId('request-content');
     });
+
     it('Should toggle item on Click', () => {
       cy.findByText('Mentorship Requests')
         .get('ul')
@@ -62,6 +63,7 @@ describe('Mentorship Requests', () => {
 
       cy.findAllByTestId('request-content');
     });
+
     it('Should only expand one item at a time', () => {
       const { message } = reqType.new;
       const errorMessage = `Unable to find an element with the text: ${message}`;
@@ -78,6 +80,7 @@ describe('Mentorship Requests', () => {
         cy.findByText(message).should('not.exist');
       });
     });
+
     it('Should have Message, Background and Expectation', () => {
       cy.findAllByTestId('request-content')
         .findAllByText(/Message|Background|Expectations/)
