@@ -21,7 +21,9 @@ const RichItem: FC<RichItemProps> = ({
           <Titles>
             <ItemRow>
               <Title>{title}</Title>
-              <Tag theme={tag.theme}>{tag.value}</Tag>
+              <Tag role="status" theme={tag.theme}>
+                {tag.value}
+              </Tag>
             </ItemRow>
             <Subtitle>{subtitle}</Subtitle>
           </Titles>

@@ -58,6 +58,7 @@ const CancelModal = ({ username, onSave, onClose }: CanceledModalProps) => {
             >
               {Object.entries(REASONS).map(([value, label]) => (
                 <RadioButton
+                  key={value}
                   name="reason"
                   LabelComponent={label}
                   value={value}
