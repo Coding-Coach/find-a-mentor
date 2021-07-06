@@ -34,7 +34,7 @@ const CallToAction = styled.div`
   align-items: center;
 
   > button {
-    width: 110px;
+    min-width: 110px;
     height: 36px;
     border-radius: 3px;
     margin: 0;
@@ -52,12 +52,25 @@ const ReqContent = ({
   status,
   onAccept,
   onDecline,
+  onCancel,
   isLoading,
-  isMine,
   menteeEmail,
 }) => {
-  const hideBtns =
-    isMine || [STATUS.approved, STATUS.rejected].includes(status);
+  const shouldShowButtons = () => {
+    const requestReviewed = [
+      STATUS.approved,
+      STATUS.rejected,
+      STATUS.cancelled,
+    ].includes(status);
+
+    return {
+      showAccept: onAccept && !requestReviewed,
+      showDecline: onDecline && !requestReviewed,
+      showCancel: onCancel && !requestReviewed,
+    };
+  };
+
+  const { showAccept, showDecline, showCancel } = shouldShowButtons();
   return (
     <div data-testid="request-content">
       <Block>
@@ -76,16 +89,25 @@ const ReqContent = ({
           <p>{expectation}</p>
         </Block>
       )}
-      {hideBtns ? null : (
-        <RequestFooter>
-          <CallToAction>
+      <RequestFooter>
+        <CallToAction>
+          {showCancel && (
+            <Button skin="secondary" onClick={onCancel}>
+              Cancel request
+            </Button>
+          )}
+          {showDecline && (
             <Button skin="secondary" onClick={onDecline}>
               Decline
             </Button>
+          )}
+          {showAccept && (
             <Button skin="primary" onClick={onAccept} isLoading={isLoading}>
               Accept
             </Button>
-          </CallToAction>
+          )}
+        </CallToAction>
+        {showAccept && (
           <CallToAction>
             <Tooltip
               title="Don't forget to approve the request if it works for you"
@@ -101,8 +123,8 @@ const ReqContent = ({
               </a>
             </Tooltip>
           </CallToAction>
-        </RequestFooter>
-      )}
+        )}
+      </RequestFooter>
     </div>
   );
 };
@@ -111,8 +133,9 @@ ReqContent.propTypes = {
   message: PropTypes.string.isRequired,
   background: PropTypes.string,
   expectation: PropTypes.string,
-  onAccept: PropTypes.func.isRequired,
-  onDecline: PropTypes.func.isRequired,
+  onAccept: PropTypes.func,
+  onDecline: PropTypes.func,
+  onCancel: PropTypes.func,
 };
 
 export default ReqContent;

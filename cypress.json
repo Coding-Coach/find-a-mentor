@@ -1,7 +1,7 @@
 {
   "baseUrl": "http://localhost:3000",
   "videoUploadOnPasses": false,
-  "defaultCommandTimeout": 60000,
-  "responseTimeout": 60000,
+  "defaultCommandTimeout": 30000,
+  "responseTimeout": 30000,
   "supportFile": "cypress/support/index.ts"
 }

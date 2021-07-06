@@ -13,6 +13,9 @@ export type TawkAPI = {
 };
 
 function init() {
+  if (process.env.NODE_ENV === 'development') {
+    return;
+  }
   (function() {
     const s1 = document.createElement('script');
     s1.async = true;
@@ -28,6 +31,9 @@ function init() {
 }
 
 export function setVisitor(visitor: Visitor): void {
+  if (!window.Tawk_API) {
+    return;
+  }
   window.Tawk_API.visitor = visitor;
 }
 

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-import { RichItemProps } from './ReachItemTypes';
+import { RichItemProps, RichItemTagTheme } from './ReachItemTypes';
 
 const RichItem: FC<RichItemProps> = ({
   id,
@@ -21,7 +21,9 @@ const RichItem: FC<RichItemProps> = ({
           <Titles>
             <ItemRow>
               <Title>{title}</Title>
-              <Tag theme={tag.theme}>{tag.value}</Tag>
+              <Tag role="status" theme={tag.theme}>
+                {tag.value}
+              </Tag>
             </ItemRow>
             <Subtitle>{subtitle}</Subtitle>
           </Titles>
@@ -33,12 +35,13 @@ const RichItem: FC<RichItemProps> = ({
   );
 };
 
-const themeColours = {
-  primary: '#69D5B1',
-  secondary: '#F3CA3E',
-  danger: '#FF5F58',
+const themeColours: { [key in RichItemTagTheme]: string } = {
+  primary: '#69d5b1',
+  secondary: '#f3ca3e',
+  danger: '#ff5f58',
   checked: '#69d579',
-  disabled: 'e0e0e0',
+  disabled: '#e0e0e0',
+  cancelled: '#ff5f58',
 };
 
 const ItemRow = styled.div`

@@ -3,7 +3,8 @@ export type RichItemTagTheme =
   | 'secondary'
   | 'danger'
   | 'checked'
-  | 'disabled';
+  | 'disabled'
+  | 'cancelled';
 
 export type RichItemProps = {
   id: string;

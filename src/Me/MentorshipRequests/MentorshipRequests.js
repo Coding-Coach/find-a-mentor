@@ -5,7 +5,11 @@ import { useUser } from '../../context/userContext/UserContext';
 import { UsersList } from './UsersList';
 import { STATUS } from '../../helpers/mentorship';
 import { useModal } from '../../context/modalContext/ModalContext';
-import { AcceptModal, DeclineModal } from '../Modals/MentorshipReqModals';
+import {
+  AcceptModal,
+  DeclineModal,
+  CancelModal,
+} from '../Modals/MentorshipRequestModals';
 
 const PREV_STATUS = {
   [STATUS.viewed]: STATUS.new,
@@ -29,12 +33,26 @@ const MentorshipReq = () => {
   const acceptReq = async ({ id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.approved]) return;
 
-    setLoadingState(true);
     await updateReqStatus({ id, userId }, STATUS.approved);
-    setLoadingState(false);
     setSelectedReq({ id, username });
     openAcceptModal();
   };
+
+  const onCancel = ({ id, username }) => {
+    setSelectedReq({ id, username });
+    openCancelModal();
+  };
+
+  const cancelRequest = async message => {
+    await updateReqStatus(
+      { id: selectedReq.id, userId },
+      STATUS.cancelled,
+      message,
+      'mentee'
+    );
+    closeCancelModal();
+  };
+
   const onDeclineReq = ({ id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.rejected]) return;
     setSelectedReq({ id, username });
@@ -59,8 +77,18 @@ const MentorshipReq = () => {
       setLoadingState(false);
     }
   }, [userId]);
-
-  const updateReqStatus = async ({ id, userId }, nextStatus, reason) => {
+  /**
+   * @param  {import('../../types/models').User} user
+   * @param  {import('../../helpers/mentorship').Status} nextStatus
+   * @param  {string} reason
+   * @param  {'mentee' | 'mentor'} listType
+   */
+  const updateReqStatus = async (
+    { id, userId },
+    nextStatus,
+    reason,
+    listType = 'mentor'
+  ) => {
     const { success, mentorship } = await updateMentorshipReqStatus(
       id,
       userId,
@@ -72,15 +100,20 @@ const MentorshipReq = () => {
 
     if (!success) return;
 
-    const itemIndex = mentorState.findIndex(s => s.id === id);
-    const item = mentorState[itemIndex];
-    let newState = [...mentorState];
+    const [list, setList] =
+      listType === 'mentor'
+        ? [mentorState, setMentorState]
+        : [menteeState, setMenteeState];
+
+    const itemIndex = list.findIndex(s => s.id === id);
+    const item = list[itemIndex];
+    let newState = [...list];
     newState.splice(itemIndex, 1, {
       ...item,
       status: mentorship.status,
     });
 
-    setMentorState(newState);
+    setList(newState);
   };
 
   const [openAcceptModal] = useModal(
@@ -95,6 +128,15 @@ const MentorshipReq = () => {
     <DeclineModal
       username={selectedReq?.username}
       onSave={declineReq}
+      onClose={() => setSelectedReq(null)}
+    />,
+    [selectedReq?.id]
+  );
+
+  const [openCancelModal, closeCancelModal] = useModal(
+    <CancelModal
+      username={selectedReq?.username}
+      onSave={cancelRequest}
       onClose={() => setSelectedReq(null)}
     />,
     [selectedReq?.id]
@@ -124,7 +166,11 @@ const MentorshipReq = () => {
         />
       </Card>
       <Card title="My Mentorship Requests">
-        <UsersList requests={menteeState} isLoading={loadingState} />
+        <UsersList
+          requests={menteeState}
+          isLoading={loadingState}
+          onCancel={onCancel}
+        />
       </Card>
     </>
   );

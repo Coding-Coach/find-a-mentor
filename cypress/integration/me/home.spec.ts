@@ -1,5 +1,6 @@
 import { withSuccess } from '../../builders/response';
 import { userBuilder } from '../../builders/users/current/get';
+import { getByTestId } from '../../support';
 
 describe('Me / home', () => {
   before(() => {

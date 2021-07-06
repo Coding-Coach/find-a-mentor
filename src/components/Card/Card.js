@@ -12,7 +12,7 @@ import messages from '../../messages';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import UserContext from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
-import MentorshipRequest from '../../Me/Modals/MentorshipReqModals/MentorshipRequest';
+import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
 import { useDeviceType } from '../../utils/useDeviceType';
 
 function handleAnalytics(channelName) {
