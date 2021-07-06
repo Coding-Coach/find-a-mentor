@@ -34,7 +34,7 @@ const CallToAction = styled.div`
   align-items: center;
 
   > button {
-    width: 110px;
+    min-width: 110px;
     height: 36px;
     border-radius: 3px;
     margin: 0;
