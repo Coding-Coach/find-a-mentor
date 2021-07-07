@@ -31,7 +31,8 @@ export type Application = ObjectID & {};
 export type MentorshipRequest = {
   id: string;
   status: Status;
-  date: string;
+  readonly createdAt: string;
+  readonly updatedAt: string;
   message: string;
   background: string;
   expectation: string;

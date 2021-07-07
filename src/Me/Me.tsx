@@ -1,3 +1,4 @@
+import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import type { RouteComponentProps } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -12,6 +13,9 @@ import MentorshipRequests from '../Me/MentorshipRequests';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
 
+
+const Admin = React.lazy(() => import(/* webpackChunkName: "Admin" */ './Routes/Admin'));
+
 type MeProps = RouteComponentProps & {};
 
 
@@ -23,6 +27,10 @@ const meRoutes = [
   {
     path: '/me/requests',
     name: 'Mentorships',
+  },
+  {
+    path: '/me/admin',
+    name: 'Admin',
   },
 ];
 
@@ -47,6 +55,9 @@ const Me = ({
             <Switch>
               <Route path={`${url}/requests`}>
                 <MentorshipRequests />
+              </Route>
+              <Route path={`${url}/admin`}>
+                <Admin />
               </Route>
               <Route path={`${url}`}>
                 <Home />

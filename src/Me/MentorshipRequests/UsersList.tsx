@@ -68,7 +68,7 @@ const renderList = ({
     ({
       id,
       status,
-      date,
+      createdAt: date,
       message,
       background,
       expectation,
@@ -103,7 +103,7 @@ const renderList = ({
               value: status,
               theme: STATUS_THEME[status],
             }}
-            info={formatRequestTime(Date.parse(date))}
+            info={formatRequestTime(new Date(date))}
           >
             <ReqContent
               status={status}

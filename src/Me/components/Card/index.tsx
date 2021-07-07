@@ -30,6 +30,7 @@ export const Content = styled.div`
   font-family: Lato;
   font-size: 1rem;
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  overflow-x: auto;
 `;
 
 const CardContainer = styled.div`

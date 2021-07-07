@@ -1,6 +1,9 @@
 const DAY = 86400e3;
 
-export function formatRequestTime(timestamp: number) {
+export function formatRequestTime(timestamp: number | Date) {
+  if (timestamp instanceof Date) {
+    timestamp = timestamp.getTime();
+  }
   const now = Date.now();
   const time = Math.floor((now - timestamp) / DAY);
 
