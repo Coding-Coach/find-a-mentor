@@ -1,5 +1,5 @@
 import ISO6391 from 'iso-639-1';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { toast } from 'react-toastify';
 import countries from 'svg-country-flags/countries.json';
 import {
@@ -17,15 +17,19 @@ import EditMentorDetails from '../Modals/EditMentorDetails';
 
 const Profile: FC = () => {
   const { currentUser, updateCurrentUser } = useUser();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [openModal, closeModal] = useModal(
     <EditMentorDetails
+      isLoading={isLoading}
       userDetails={currentUser!}
       updateMentor={handleUpdateMentor}
-    />
+    />,
+    [isLoading]
   );
 
   async function handleUpdateMentor(updatedUserInfo: Mentor) {
+    setIsLoading(true);
     try {
       const updateMentorResult = await updateMentor(updatedUserInfo);
       if (updateMentorResult) {
@@ -39,6 +43,8 @@ const Profile: FC = () => {
       }
     } catch (error) {
       toast.error(messages.GENERIC_ERROR);
+    } finally {
+      setIsLoading(false);
     }
   }
 
