@@ -12,6 +12,7 @@ import Home from './Routes/Home';
 import MentorshipRequests from '../Me/MentorshipRequests';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
+import { AuthorizationRoute } from './AuthorizationRoute';
 
 
 const Admin = React.lazy(() => import(/* webpackChunkName: "Admin" */ './Routes/Admin'));
@@ -56,9 +57,9 @@ const Me = ({
               <Route path={`${url}/requests`}>
                 <MentorshipRequests />
               </Route>
-              <Route path={`${url}/admin`}>
+              <AuthorizationRoute path={`${url}/admin`} role={'Admin'}>
                 <Admin />
-              </Route>
+              </AuthorizationRoute>
               <Route path={`${url}`}>
                 <Home />
               </Route>

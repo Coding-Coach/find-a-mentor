@@ -18,7 +18,9 @@ const Admin = () => {
   useEffect(() => {
     getAllMentorshipRequests().then(response => {
       if (response?.success) {
-        setMentorshipRequests(response.data);
+        setMentorshipRequests(
+          response.data.filter(({ mentor, mentee }) => !!mentor && !!mentee)
+        );
       }
     });
   }, []);
@@ -31,7 +33,7 @@ const Admin = () => {
         if (mentorship.id === mentorshipId) {
           return {
             ...mentorship,
-            reminderSentAt: new Date().toDateString(),
+            reminderSentAt: new Date().toString(),
           };
         }
         return mentorship;
