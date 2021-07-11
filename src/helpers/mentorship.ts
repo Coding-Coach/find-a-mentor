@@ -1,12 +1,15 @@
 const DAY = 86400e3;
 
-export function formatRequestTime(timestamp: number) {
+export function formatRequestTime(timestamp: number | Date) {
+  if (timestamp instanceof Date) {
+    timestamp = timestamp.getTime();
+  }
   const now = Date.now();
-  const time = Math.floor((now - timestamp) / DAY);
+  const time = (now - timestamp) / DAY;
 
   if (time < 0.2) return 'Just now';
-  if (time < 1) return `${time * 24} Hours Ago`;
-  if (time < 30) return `${time} Days Ago`;
+  if (time < 1) return `${Math.floor(time * 24)} Hours Ago`;
+  if (time < 30) return `${Math.floor(time)} Days Ago`;
 
   return `${Math.floor(time / 30)} Months Ago`;
 }

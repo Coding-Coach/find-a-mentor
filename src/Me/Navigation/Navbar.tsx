@@ -9,6 +9,7 @@ import { ReactComponent as IconHome } from '../../assets/me/home.svg';
 import { ReactComponent as Mentorships } from '../../assets/me/icon-survey.svg';
 import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
 import { ReactComponent as IconLogout } from '../../assets/me/icon-door-exit.svg';
+import { useUser } from '../../context/userContext/UserContext';
 
 const MenuItem = ({
   icon: Icon,
@@ -32,6 +33,7 @@ const MenuItem = ({
 };
 
 const Navbar = () => {
+  const { isAdmin } = useUser();
   return (
     <>
       <Menu>
@@ -42,6 +44,9 @@ const Navbar = () => {
         <MenuItem to="/me" icon={IconHome} label="Home" />
         <MenuItem to="/me/requests" icon={Mentorships} label="Mentorships" />
         <MenuItem to="/" icon={IconMentors} label="Mentors" />
+        {isAdmin && (
+          <MenuItem to="/me/admin" icon={IconMentors} label="Admin" />
+        )}
         <Logout to={window.location.pathname} onClick={auth.doLogout}>
           <IconLogout />
           <Label>{messages.LOGOUT}</Label>

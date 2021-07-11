@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import { desktop, mobile } from '../../styles/shared/devices';
 
 type CardProps = {
   title?: string;
@@ -30,6 +31,7 @@ export const Content = styled.div`
   font-family: Lato;
   font-size: 1rem;
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  overflow-x: auto;
 `;
 
 const CardContainer = styled.div`
@@ -38,6 +40,18 @@ const CardContainer = styled.div`
   position: relative;
   background-color: #ffffff;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.3);
+
+  @media ${desktop} {
+    min-width: 400px;
+  }
+
+  @media ${mobile} {
+    max-width: 100%;
+    /* & + & {
+      margin-top: 30px;
+    } */
+  }
+
   ${Header} {
     padding-top: 20px;
   }
@@ -48,10 +62,6 @@ const CardContainer = styled.div`
   ${Content} {
     padding-left: var(--padding-inline);
     padding-right: var(--padding-inline);
-  }
-
-  & + & {
-    margin-top: 30px;
   }
 
   h4 {

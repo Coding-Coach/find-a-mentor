@@ -8,7 +8,7 @@ type ButtonProps = Pick<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   >,
-  'onClick' | 'id' | 'disabled' | 'type' | 'name' | 'children'
+  'onClick' | 'id' | 'disabled' | 'type' | 'name' | 'children' | 'title'
 > & {
   skin?: Skin;
   isLoading?: boolean;
@@ -23,6 +23,10 @@ const StyledButton = styled.button`
   line-height: 17px;
   text-align: center;
   cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+  }
 `;
 
 const PrimaryButton = styled(StyledButton)`

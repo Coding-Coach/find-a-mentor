@@ -38,4 +38,5 @@ export type MentorshipRequest = {
   isMine: boolean;
   mentor: Mentor;
   mentee: User;
+  readonly reminderSentAt?: string;
 };

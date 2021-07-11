@@ -15,11 +15,15 @@ const Main: FC = ({ children }) => {
 export default Main;
 
 const Content = styled.div`
-  margin-top: -50px;
+  gap: 10px;
+  display: flex;
+  flex-wrap: wrap;
   padding: 0 16px;
+  margin-top: -50px;
+  justify-content: center;
 
   @media ${desktop} {
-    width: 400px;
+    /* width: 400px; */
     margin-right: auto;
     margin-left: auto;
     padding-bottom: 10px;
@@ -27,5 +31,7 @@ const Content = styled.div`
 
   @media ${mobile} {
     padding-bottom: ${mobileNavHeight + 8}px;
+    flex-direction: column;
+    gap: 20px;
   }
 `;
