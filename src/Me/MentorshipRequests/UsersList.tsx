@@ -68,7 +68,7 @@ const renderList = ({
     ({
       id,
       status,
-      createdAt: date,
+      date,
       message,
       background,
       expectation,

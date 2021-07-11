@@ -19,7 +19,7 @@ const Content = styled.div`
   padding: 0 16px;
 
   @media ${desktop} {
-    width: 400px;
+    /* width: 400px; */
     margin-right: auto;
     margin-left: auto;
     padding-bottom: 10px;

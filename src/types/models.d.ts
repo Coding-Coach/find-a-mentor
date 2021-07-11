@@ -31,12 +31,12 @@ export type Application = ObjectID & {};
 export type MentorshipRequest = {
   id: string;
   status: Status;
-  readonly createdAt: string;
-  readonly updatedAt: string;
+  date: string;
   message: string;
   background: string;
   expectation: string;
   isMine: boolean;
   mentor: Mentor;
   mentee: User;
+  readonly reminderSentAt?: string;
 };
