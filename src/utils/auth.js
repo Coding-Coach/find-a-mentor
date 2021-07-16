@@ -25,6 +25,7 @@ class Auth {
       appState: {
         origin: isMentorIntent ? 'mentor' : 'user',
       },
+      redirectUri: window.location.href
     });
   };
 
