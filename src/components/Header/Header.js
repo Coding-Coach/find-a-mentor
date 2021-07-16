@@ -28,14 +28,14 @@ function Header() {
 
   return (
     <HeaderWrapper>
-      <LogoTitleWrapper>
-        <LogoWrapper>
-          <LogoLink href="https://codingcoach.io/">
-            <Logo />
-          </LogoLink>
-        </LogoWrapper>
-        {isDesktop && <Title />}
-      </LogoTitleWrapper>
+        <LogoTitleWrapper>
+            <LogoWrapper>
+                <LogoLink href="https://codingcoach.io/">
+                    <Logo />
+                </LogoLink>
+            </LogoWrapper>
+            {isDesktop && <Title />}
+        </LogoTitleWrapper>
 
       {isDesktop ? (
         <>

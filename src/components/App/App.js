@@ -27,6 +27,7 @@ import {
   setPermalinkParams,
   getPermalinkParamsValues,
 } from '../../utils/permaLinkService';
+import { Helmet } from "react-helmet";
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -196,6 +197,10 @@ const App = () => {
     <div className="app">
       <ToastContainer />
       <Modal title={modal.title}>{modal.content}</Modal>
+      <Helmet>
+        <title>{modal.title}</title>
+        <meta name="description" content="codingcoach.io application" />
+      </Helmet>
       <Main>
         <Header />
         <Content>

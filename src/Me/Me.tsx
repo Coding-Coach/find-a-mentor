@@ -13,6 +13,7 @@ import MentorshipRequests from '../Me/MentorshipRequests';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
 import { AuthorizationRoute } from './AuthorizationRoute';
+import { Helmet } from "react-helmet";
 
 
 const Admin = React.lazy(() => import(/* webpackChunkName: "Admin" */ './Routes/Admin'));
@@ -50,6 +51,10 @@ const Me = ({
     <Container>
       {authenticated ? (
         <>
+          <Helmet>
+            <title>{getHeaderNameByPath(pathname)} | CodingCoach</title>
+            <meta name="description" content="codingcoach.io application" />
+          </Helmet>
           <Navbar />
           <Header title={getHeaderNameByPath(pathname)} />
           <Main>
