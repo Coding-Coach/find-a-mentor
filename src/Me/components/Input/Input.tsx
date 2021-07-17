@@ -19,7 +19,7 @@ const StyledInput = styled.input`
   }
 `;
 
-export const Input = (props: InputHTMLAttributes<unknown>) => {
+export const Input = (props: InputHTMLAttributes<HTMLInputElement>) => {
   const id = useContext(formFieldContext);
   return <StyledInput id={id} {...props} />;
 };
