@@ -31,7 +31,7 @@ const Label = styled.label`
 `;
 
 type FormFieldProps = {
-  label: string;
+  label?: string;
   className?: string;
   helpText?: string;
 };

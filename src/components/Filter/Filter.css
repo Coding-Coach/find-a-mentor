@@ -42,12 +42,12 @@
     width: 100%;
   }
 
-  .inputs[aria-expanded="false"] {
+  .inputs[aria-expanded='false'] {
     pointer-events: none;
     opacity: 0;
   }
 
-  .inputs[aria-expanded="true"] {
+  .inputs[aria-expanded='true'] {
     transition: opacity 0.5s ease-in-out;
   }
 
@@ -73,7 +73,7 @@
   }
 }
 
-.switch-container.fav-filter {
+.fav-filter {
   position: relative;
   margin-top: 20px;
   padding-left: 18px;
@@ -84,7 +84,7 @@
 }
 
 @media all and (max-width: 576px) {
-  .switch-container.fav-filter {
+  .fav-filter {
     padding: 0 15px;
   }
 }
