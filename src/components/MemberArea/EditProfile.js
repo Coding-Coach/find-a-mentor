@@ -347,7 +347,7 @@ export default class EditProfile extends Component {
               <Switch
                 id="read-guidelines-switch"
                 value={agree}
-                theme="small"
+                size="small"
                 onToggle={agreed => this.setState({ agree: agreed })}
               />
               <label htmlFor="switch-input-read-guidelines-switch">
