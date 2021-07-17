@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch component renders properly 1`] = `
+<div
+  class="switch-container"
+>
+  <label>
+    label
+  </label>
+  <div
+    class="switch-input regular regular"
+  >
+    <input
+      id="switch-input-undefined"
+      type="checkbox"
+    />
+    <label
+      for="switch-input-undefined"
+      id="switch-label-undefined"
+    >
+      Toggle
+    </label>
+  </div>
+</div>
+`;
