@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   getAllMentorshipRequests,
   sendStaledRequestEmail,
@@ -8,8 +8,31 @@ import { MentorshipRequest } from '../../types/models';
 import { formatRequestTime } from '../../helpers/mentorship';
 import Button from '../components/Button';
 import { toast } from 'react-toastify';
+import styled from 'styled-components';
+import FormField from '../components/FormField';
+import Switch from '../../components/Switch/Switch';
+import Input from '../components/Input';
+
+const Mentee = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  img {
+    border-radius: 50%;
+  }
+`;
+
+const includeStr = (str1: string, str2: string) =>
+  str1.toLocaleLowerCase().includes(str2.toLocaleLowerCase());
+
+const Filters = styled.div`
+  width: 150px;
+`;
 
 const Admin = () => {
+  const [sentOnly, setSentOnly] = useState(false);
+  const [name, setName] = useState('');
   const [mentorshipLoading, setMentorshipLoading] = useState<string | null>();
   const [mentorshipRequests, setMentorshipRequests] = useState<
     MentorshipRequest[]
@@ -25,64 +48,115 @@ const Admin = () => {
     });
   }, []);
 
-  const sendEmail = async (mentorshipId: string) => {
-    setMentorshipLoading(mentorshipId);
-    await sendStaledRequestEmail(mentorshipId);
-    setMentorshipRequests(
-      mentorshipRequests.map(mentorship => {
-        if (mentorship.id === mentorshipId) {
-          return {
-            ...mentorship,
-            reminderSentAt: new Date().toString(),
-          };
-        }
-        return mentorship;
-      })
-    );
-    setMentorshipLoading(null);
-    toast.success('Email sent');
-  };
-
-  const columns = [
-    'Mentor',
-    'Mentee',
-    'Status',
-    'Created',
-    'Sent',
-  ].map(column => <td key={column}>{column}</td>);
-
-  const rows = mentorshipRequests
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .map(({ mentor, mentee, status, date, id, reminderSentAt }) => {
-      const pending = status === 'New' || status === 'Viewed';
-      return (
-        <tr key={id}>
-          <td>{mentor.name}</td>
-          <td>{mentee.name}</td>
-          <td>{status}</td>
-          <td>{pending ? formatRequestTime(new Date(date)) : 0}</td>
-          <td>
-            {reminderSentAt ? formatRequestTime(new Date(reminderSentAt)) : 0}
-          </td>
-          <td>
-            {pending && (
-              <Button
-                disabled={!!reminderSentAt}
-                title={reminderSentAt && `Sent at ${new Date(reminderSentAt)}`}
-                isLoading={id === mentorshipLoading}
-                onClick={() => sendEmail(id)}
-              >
-                Send Email
-              </Button>
-            )}
-          </td>
-        </tr>
+  const sendEmail = useCallback(
+    async (mentorshipId: string) => {
+      setMentorshipLoading(mentorshipId);
+      await sendStaledRequestEmail(mentorshipId);
+      setMentorshipRequests(
+        mentorshipRequests.map(mentorship => {
+          if (mentorship.id === mentorshipId) {
+            return {
+              ...mentorship,
+              reminderSentAt: new Date().toString(),
+            };
+          }
+          return mentorship;
+        })
       );
-    });
+      setMentorshipLoading(null);
+      toast.success('Email sent');
+    },
+    [mentorshipRequests]
+  );
+
+  const columns = useMemo(
+    () =>
+      ['Mentor', 'Mentee', 'Status', 'Created', 'Sent'].map(column => (
+        <td key={column}>{column}</td>
+      )),
+    []
+  );
+
+  const rows = useMemo(
+    () =>
+      mentorshipRequests
+        .filter(({ reminderSentAt, mentor, mentee }) => {
+          return (
+            (!sentOnly || !!reminderSentAt) &&
+            (!name ||
+              includeStr(mentor.name, name) ||
+              includeStr(mentee.name, name))
+          );
+        })
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .map(({ mentor, mentee, status, date, id, reminderSentAt }) => {
+          const pending = status === 'New' || status === 'Viewed';
+          return (
+            <tr key={id}>
+              <td>
+                <a
+                  onClick={() => setName(mentor.name)}
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`/?name=${mentor.name}`}
+                >
+                  {mentor.name}
+                </a>
+              </td>
+              <td>
+                <Mentee
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`mailto:${mentee.email}`}
+                  onClick={() => setName(mentee.name)}
+                >
+                  <img src={mentee.avatar} width="20" alt="" />
+                  {mentee.name}
+                </Mentee>
+              </td>
+              <td>{status}</td>
+              <td>{formatRequestTime(new Date(date))}</td>
+              <td>
+                {reminderSentAt
+                  ? formatRequestTime(new Date(reminderSentAt))
+                  : 0}
+              </td>
+              <td>
+                {pending && (
+                  <Button
+                    disabled={!!reminderSentAt}
+                    title={
+                      reminderSentAt && `Sent at ${new Date(reminderSentAt)}`
+                    }
+                    isLoading={id === mentorshipLoading}
+                    onClick={() => sendEmail(id)}
+                  >
+                    Send Email
+                  </Button>
+                )}
+              </td>
+            </tr>
+          );
+        }),
+    [mentorshipLoading, mentorshipRequests, name, sendEmail, sentOnly]
+  );
 
   return (
     <Card>
-      {mentorshipRequests.length ? (
+      <Filters>
+        <FormField>
+          <Switch
+            isChecked={sentOnly}
+            label="Sent Only"
+            onToggle={setSentOnly}
+            size="small"
+          />
+        </FormField>
+        <FormField label="Mentor">
+          <Input value={name} onChange={e => setName(e.target.value)} />
+        </FormField>
+      </Filters>
+      {rows.length ? (
         <table>
           <thead>
             <tr>{columns}</tr>
