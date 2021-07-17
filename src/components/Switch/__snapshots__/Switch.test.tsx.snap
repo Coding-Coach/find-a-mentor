@@ -1,14 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Switch component renders properly 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 {
+  height: 20px;
+}
+
+.c1 input[type='checkbox'] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+.c1 input[type='checkbox']:checked + label {
+  background-color: var(--tag-color);
+}
+
+.c1 input[type='checkbox']:checked + label:after {
+  -webkit-transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  transform: translateX(-100%);
+  left: calc(100% - 5px);
+}
+
+.c1 label {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  text-indent: -9999px;
+  border-radius: 100px;
+  background-color: grey;
+  -webkit-transition: background-color 0.35s ease-in-out;
+  transition: background-color 0.35s ease-in-out;
+  top: -25px;
+  width: 60px;
+  height: 30px;
+}
+
+.c1 label:after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  -webkit-transition: left 0.2s ease-in-out,-webkit-transform 0.2s ease-in-out;
+  -webkit-transition: left 0.2s ease-in-out,transform 0.2s ease-in-out;
+  transition: left 0.2s ease-in-out,transform 0.2s ease-in-out;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+}
+
 <div
-  class="switch-container"
+  class="c0"
 >
-  <label>
+  <label
+    for="switch-input-undefined"
+  >
     label
   </label>
   <div
-    class="switch-input regular regular"
+    class="c1"
   >
     <input
       id="switch-input-undefined"
