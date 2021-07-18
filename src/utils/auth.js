@@ -23,7 +23,7 @@ class Auth {
   login = isMentorIntent => {
     this.auth0.authorize({
       appState: {
-        origin: isMentorIntent ? 'mentor' : 'user',
+        origin: isMentorIntent ? 'mentor' : 'user'
       },
       redirectUri: window.location.href
     });

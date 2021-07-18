@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import auth from '../../utils/auth';
 
 function LoginNavigation() {
+
   const login = () => {
     auth.login();
   };

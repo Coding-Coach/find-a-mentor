@@ -40,6 +40,7 @@ const getHeaderNameByPath = (path: string) => {
   return meRoutes.find(route => route.path === path)?.name ?? '';
 };
 
+
 const Me = ({
   match: { url },
   location: { pathname },
@@ -66,9 +67,7 @@ const Me = ({
             </Switch>
           </Main>
         </>
-      ) : (
-        <Redirect to="/" />
-      )}
+      ) : auth.login() }
       <ToastContainer />
       <GlobalStyle />
     </Container>
