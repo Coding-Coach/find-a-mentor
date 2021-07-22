@@ -5,7 +5,7 @@ import {
 } from '../../api/admin';
 import Card from '../components/Card';
 import { MentorshipRequest } from '../../types/models';
-import { formatRequestTime } from '../../helpers/mentorship';
+import { daysAgo, formatRequestTime } from '../../helpers/mentorship';
 import Button from '../components/Button';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
@@ -13,7 +13,7 @@ import FormField from '../components/FormField';
 import Switch from '../../components/Switch/Switch';
 import Input from '../components/Input';
 
-const Mentee = styled.a`
+const Mentee = styled.span`
   display: flex;
   align-items: center;
   gap: 2px;
@@ -32,6 +32,7 @@ const Filters = styled.div`
 
 const Admin = () => {
   const [sentOnly, setSentOnly] = useState(false);
+  const [showDaysAgo, setShowDaysAgo] = useState<number>(7);
   const [name, setName] = useState('');
   const [mentorshipLoading, setMentorshipLoading] = useState<string | null>();
   const [mentorshipRequests, setMentorshipRequests] = useState<
@@ -80,9 +81,12 @@ const Admin = () => {
   const rows = useMemo(
     () =>
       mentorshipRequests
-        .filter(({ reminderSentAt, mentor, mentee }) => {
+        .filter(({ reminderSentAt, mentor, mentee, date }) => {
           return (
             (!sentOnly || !!reminderSentAt) &&
+            (!showDaysAgo ||
+              name ||
+              Math.floor(daysAgo(new Date(date))) === showDaysAgo) &&
             (!name ||
               includeStr(mentor.name, name) ||
               includeStr(mentee.name, name))
@@ -94,24 +98,26 @@ const Admin = () => {
           return (
             <tr key={id}>
               <td>
+                <span onClick={() => setName(mentor.name)}>{mentor.name}</span>
                 <a
-                  onClick={() => setName(mentor.name)}
                   target="_blank"
                   rel="noreferrer"
                   href={`/?name=${mentor.name}`}
                 >
-                  {mentor.name}
+                  🔗
                 </a>
               </td>
               <td>
-                <Mentee
-                  target="_blank"
-                  rel="noreferrer"
-                  href={`mailto:${mentee.email}`}
-                  onClick={() => setName(mentee.name)}
-                >
+                <Mentee onClick={() => setName(mentee.name)}>
                   <img src={mentee.avatar} width="20" alt="" />
                   {mentee.name}
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`mailto:${mentee.email}`}
+                  >
+                    🔗
+                  </a>
                 </Mentee>
               </td>
               <td>{status}</td>
@@ -138,7 +144,14 @@ const Admin = () => {
             </tr>
           );
         }),
-    [mentorshipLoading, mentorshipRequests, name, sendEmail, sentOnly]
+    [
+      mentorshipLoading,
+      mentorshipRequests,
+      name,
+      sendEmail,
+      sentOnly,
+      showDaysAgo,
+    ]
   );
 
   return (
@@ -152,8 +165,19 @@ const Admin = () => {
             size="small"
           />
         </FormField>
-        <FormField label="Mentor">
-          <Input value={name} onChange={e => setName(e.target.value)} />
+        <FormField>
+          <Input
+            type="number"
+            value={showDaysAgo}
+            onChange={e => setShowDaysAgo(e.target.valueAsNumber || 0)}
+          />
+        </FormField>
+        <FormField label="User">
+          <Input
+            type="search"
+            value={name}
+            onChange={e => setName(e.target.value)}
+          />
         </FormField>
       </Filters>
       {rows.length ? (
