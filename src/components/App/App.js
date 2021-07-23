@@ -7,11 +7,8 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { ToastContainer } from 'react-toastify';
 import MentorsList from '../MentorsList/MentorsList';
-import Filter from '../Filter/Filter';
-import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
-import ModalContent from '../Modal/ModalContent';
 import {
   toggleFavMentor,
   get as getFavorites,
@@ -27,21 +24,7 @@ import { useParams, withRouter } from 'react-router';
 import { useUser } from '../../context/userContext/UserContext';
 import { ActionsHandler } from './ActionsHandler';
 import { toast } from 'react-toastify';
-
-function scrollToTop() {
-  const scrollDuration = 200;
-  return new Promise((resolve) => {
-    const scrollStep = -window.scrollY / (scrollDuration / 15),
-      scrollInterval = setInterval(function () {
-        if (window.scrollY !== 0) {
-          window.scrollBy(0, scrollStep);
-        } else {
-          clearInterval(scrollInterval);
-          resolve();
-        }
-      }, 15);
-  });
-}
+import { Sidebar } from '../Sidebar/Sidebar';
 
 const App = () => {
   const params = useParams();
@@ -49,10 +32,8 @@ const App = () => {
   const [mentors, setMentors] = useState([]);
   const [isReady, setIsReady] = useState(false);
   const [filters, setFilters] = useFilters();
-  const { tag, country, name, language } = filters;
+  const { tag, country, name, language, showFavorites, showFilters } = filters;
   const [favorites, setFavorites] = useState([]);
-  const [showFavorites, setShowFavorites] = useState(false);
-  const [fieldsIsActive, setFieldsIsActive] = useState(false);
   const { currentUser } = useUser();
   const [modal, setModal] = useState({
     title: null,
@@ -98,16 +79,6 @@ const App = () => {
     },
     [filters, favorites, showFavorites]
   );
-
-  const toggleFields = () => {
-    setFieldsIsActive((fieldsIsActive) => !fieldsIsActive);
-  };
-
-  const toggleSwitch = async (showFavorite) => {
-    await scrollToTop();
-    setShowFavorites(showFavorite);
-    report('Show Favorite', 'switch', showFavorite);
-  };
 
   const onFavMentor = async (mentor) => {
     const newFavorites = toggleFavMentor(mentor, [...favorites]);
@@ -180,53 +151,10 @@ const App = () => {
       <Main>
         <Header />
         <Content>
-          <aside className="sidebar">
-            <Filter
-              onToggleFilter={toggleFields}
-              onToggleSwitch={toggleSwitch}
-              mentorCount={filteredMentors.length}
-              mentors={filteredMentors}
-              showFavorite={showFavorites}
-            />
-            <SocialLinks />
-            <nav className="sidebar-nav">
-              <ModalContent
-                policyTitle={'Cookies policy'}
-                content={'cookies-policy'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-              <ModalContent
-                policyTitle={'Code of Conduct'}
-                content={'code-conduct'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-              <ModalContent
-                policyTitle={'Terms & Conditions'}
-                content={'terms-conditions'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-              <ModalContent
-                policyTitle={'Privacy Statement'}
-                content={'privacy-policy'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-            </nav>
-            <a
-              href="https://www.patreon.com/codingcoach_io"
-              className="patreon-link"
-              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <img
-                src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
-                alt="Become a Patron"
-              />
-            </a>
-          </aside>
+          <Sidebar mentors={mentors} handleModal={handleModal} />
           <MentorsList
             className={classNames({
-              active: fieldsIsActive,
+              active: showFilters,
             })}
             mentors={mentorsInList}
             favorites={favorites}

@@ -3,12 +3,6 @@ body {
   overflow-x: hidden;
 }
 
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  margin-top: 20px;
-}
-
 .app {
   padding-bottom: 50px;
 }
@@ -33,52 +27,15 @@ body {
   margin-top: 10px;
 }
 
-.sidebar-nav {
-  list-style: none;
-  padding-left: 20px;
-  position: fixed;
-  bottom: 0;
-}
-
-.sidebar-nav li {
-  margin-bottom: 10px;
-  color: var(--link-color);
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.patreon-link {
-  display: block;
-  margin: 20px auto 0;
-  width: 150px;
-}
-
-.patreon-link img {
-  max-width: 100%;
-}
-
 @media screen and (max-height: 650px) {
-    .social-wrapper {
-      margin-top: 10px !important;
-    }
+  .social-wrapper {
+    margin-top: 10px !important;
+  }
 }
 @media screen and (max-height: 677px) {
-    .sidebar-nav {
-        margin-top: 5px;
-        position: relative;
-    }
-    .sidebar-nav li {
-      margin-bottom: 5px;
-    }
-    .sidebar {
-        overflow-y: auto;
-    }
-    .patreon-link {
-      margin: 5px auto 0;
-    }
-    .logo {
-      margin: 5px 30px;
-    }
+  .logo {
+    margin: 5px 30px;
+  }
 }
 
 @media all and (max-width: 800px) {

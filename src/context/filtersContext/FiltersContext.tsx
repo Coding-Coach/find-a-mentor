@@ -1,10 +1,20 @@
-import React, { useReducer, createContext, useContext, useEffect } from 'react';
+import React, {
+  useReducer,
+  createContext,
+  useContext,
+  useEffect,
+  FC,
+} from 'react';
+import { AnyFixMe } from '../../types/global';
 import { useFilterParams } from '../../utils/permaLinkService';
 
-const FiltersStateContext = createContext({});
-const FiltersDispatchContext = createContext(() => {});
+type FiltersContextState = AnyFixMe;
+type FiltersContextDispatch = React.Dispatch<AnyFixMe>;
 
-const filterReducer = (state, action) => {
+const FiltersStateContext = createContext({});
+const FiltersDispatchContext = createContext<FiltersContextDispatch>(() => {});
+
+const filterReducer = (state: FiltersContextState, action: AnyFixMe) => {
   switch (action.type) {
     case 'filterTag':
       return { ...state, tag: action.payload, onPopState: false };
@@ -14,6 +24,8 @@ const filterReducer = (state, action) => {
       return { ...state, name: action.payload, onPopState: false };
     case 'filterLanguage':
       return { ...state, language: action.payload, onPopState: false };
+    case 'showFavorites':
+      return { ...state, showFavorites: action.payload, onPopState: false };
     case 'showFilters':
       return { ...state, showFilters: action.payload, onPopState: false };
     case 'setFilters':
@@ -25,16 +37,16 @@ const filterReducer = (state, action) => {
   }
 };
 
-const FiltersProvider = ({ children }) => {
+const FiltersProvider: FC = ({ children }) => {
   const [state, dispatch] = useReducer(filterReducer, {});
-  const {getFilterParams} = useFilterParams();
+  const { getFilterParams } = useFilterParams();
   useEffect(() => {
     const initialFilters = getFilterParams();
     dispatch({
       type: 'setFilters',
       payload: { ...initialFilters, showFilters: false },
     });
-  }, []);
+  }, [getFilterParams]);
 
   return (
     <FiltersStateContext.Provider value={state}>
@@ -60,11 +72,10 @@ const useFiltersDispatch = () => {
   return context;
 };
 
-const useFilters = () => {
+const useFilters = (): [FiltersContextState, FiltersContextDispatch] => {
   const state = useFiltersState();
   const dispatch = useFiltersDispatch();
-  console.log(state, dispatch);
   return [state, dispatch];
-}
+};
 
 export { FiltersProvider, useFilters };
