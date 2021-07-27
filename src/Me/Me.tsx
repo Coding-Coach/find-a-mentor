@@ -46,6 +46,7 @@ const Me = ({
   location: { pathname },
 }: MeProps) => {
   const authenticated = auth.isAuthenticated();
+  localStorage.setItem("previous", pathname);
 
   return (
     <Container>
@@ -67,7 +68,12 @@ const Me = ({
             </Switch>
           </Main>
         </>
-      ) : auth.login() }
+      ) : (
+        <Redirect to={{
+          pathname: "/",
+          search: "login"
+        }} />
+      )}
       <ToastContainer />
       <GlobalStyle />
     </Container>

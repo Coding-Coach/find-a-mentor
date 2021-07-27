@@ -5,14 +5,20 @@ import auth from '../../utils/auth';
 function LoginNavigation() {
 
   const login = () => {
+    localStorage.setItem("previous", window.location.href);
     auth.login();
   };
+
+  if (window.location.href.includes("?login") && !auth.isAuthenticated()){
+    auth.login();
+  }
 
   return (
     <LoginArea>
       <LoginAreaItem onClick={login}>Login / Sign up</LoginAreaItem>
     </LoginArea>
   );
+
 }
 
 const LoginAreaItem = styled.div`

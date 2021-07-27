@@ -3,6 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
 
 import { useCallback, useEffect, useState, useMemo } from 'react';
+import { useHistory } from "react-router";
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { ToastContainer } from 'react-toastify';
@@ -57,6 +58,7 @@ const App = () => {
     content: null,
     onClose: null,
   });
+  const history = useHistory();
 
   useEffect(() => {
     window.onpopstate = () => {
@@ -191,6 +193,10 @@ const App = () => {
     mentors,
     filterMentors,
   ]);
+
+  if (window.location.href.includes("?success")){
+    history.replace(localStorage.getItem("previous"))
+  }
 
   return (
     <div className="app">

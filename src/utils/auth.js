@@ -12,6 +12,8 @@ class Auth {
 
   expiresAt;
 
+  requested;
+
   auth0 = new auth0.WebAuth({
     domain: Constants.auth.DOMAIN,
     clientID: Constants.auth.CLIENT_ID,
@@ -21,11 +23,12 @@ class Auth {
   });
 
   login = isMentorIntent => {
+    let isBackOffice = localStorage.getItem("previous").includes("/me");
     this.auth0.authorize({
       appState: {
         origin: isMentorIntent ? 'mentor' : 'user'
       },
-      redirectUri: window.location.href
+      redirectUri: isBackOffice ? Constants.auth.CALLBACK_URL + "?success" : localStorage.getItem("previous")
     });
   };
 
