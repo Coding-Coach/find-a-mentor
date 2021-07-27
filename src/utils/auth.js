@@ -21,11 +21,10 @@ class Auth {
   });
 
   login = isMentorIntent => {
-    localStorage.setItem("loggingOut", "false");
     let isBackOffice = localStorage.getItem("previous").includes("/me");
     this.auth0.authorize({
       appState: {
-        origin: isMentorIntent ? 'mentor' : 'user'
+        origin: isMentorIntent ? 'mentor' : 'user',
       },
       redirectUri: isBackOffice ? Constants.auth.CALLBACK_URL + "?success" : localStorage.getItem("previous")
     });
@@ -134,7 +133,7 @@ class Auth {
   };
 
   doLogout = () => {
-    localStorage.setItem("loggingOut", "true");
+    localStorage.setItem("loggingOut", "true"); // Required for logging out of Back Office
     this.logout();
     clearCurrentUser();
     this.auth0.logout({

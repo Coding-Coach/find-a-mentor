@@ -4,14 +4,14 @@ import auth from '../../utils/auth';
 
 function LoginNavigation() {
 
-  localStorage.setItem("loggingOut", "false");
+  localStorage.setItem("loggingOut", "false"); // Resets loggingOut to false
 
   const login = () => {
-    localStorage.setItem("previous", window.location.href);
+    localStorage.setItem("previous", window.location.href); // For redirecting back to previous page after login
     auth.login();
   };
 
-  if (window.location.href.includes("?login") && !auth.isAuthenticated()){
+  if (window.location.href.includes("?login") && !auth.isAuthenticated()){ // Calls Auth Login Function after being redirected from Back Office
     auth.login();
   }
 
@@ -20,7 +20,6 @@ function LoginNavigation() {
       <LoginAreaItem onClick={login}>Login / Sign up</LoginAreaItem>
     </LoginArea>
   );
-
 }
 
 const LoginAreaItem = styled.div`

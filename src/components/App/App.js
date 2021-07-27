@@ -194,7 +194,7 @@ const App = () => {
     filterMentors,
   ]);
 
-  if (window.location.href.includes("?success")){
+  if (window.location.href.includes("?success")){ // If Login was successful then redirect to requested Back Office URL
     history.replace(localStorage.getItem("previous"))
   }
 

@@ -40,14 +40,15 @@ const getHeaderNameByPath = (path: string) => {
   return meRoutes.find(route => route.path === path)?.name ?? '';
 };
 
-
 const Me = ({
   match: { url },
   location: { pathname },
 }: MeProps) => {
   const authenticated = auth.isAuthenticated();
+  // store current pathname as "previous" in Local Storage
   localStorage.setItem("previous", pathname);
-  let bool = (localStorage.getItem("loggingOut") === "true" || localStorage.getItem("loggingOut") === null);
+  // Verifies if "loggingOut" in Local Storage
+  let isLoggingOut = (localStorage.getItem("loggingOut") === "true" || localStorage.getItem("loggingOut") === null);
 
   return (
     <Container>
@@ -69,10 +70,10 @@ const Me = ({
             </Switch>
           </Main>
         </>
-      ) : bool ? (
-        <Redirect to="/" />
+      ) : isLoggingOut ? (
+        <Redirect to="/" /> // If Logging out redirect to root
       ) : (
-        <Redirect to="/?login" />
+        <Redirect to="/?login" /> // If not logging out then Log In
       )}
       <ToastContainer />
       <GlobalStyle />
