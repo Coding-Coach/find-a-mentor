@@ -47,6 +47,7 @@ const Me = ({
 }: MeProps) => {
   const authenticated = auth.isAuthenticated();
   localStorage.setItem("previous", pathname);
+  let bool = (localStorage.getItem("loggingOut") === "true" || localStorage.getItem("loggingOut") === null);
 
   return (
     <Container>
@@ -68,11 +69,10 @@ const Me = ({
             </Switch>
           </Main>
         </>
+      ) : bool ? (
+        <Redirect to="/" />
       ) : (
-        <Redirect to={{
-          pathname: "/",
-          search: "login"
-        }} />
+        <Redirect to="/?login" />
       )}
       <ToastContainer />
       <GlobalStyle />

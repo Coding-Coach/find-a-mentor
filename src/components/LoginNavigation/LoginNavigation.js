@@ -4,6 +4,8 @@ import auth from '../../utils/auth';
 
 function LoginNavigation() {
 
+  localStorage.setItem("loggingOut", "false");
+
   const login = () => {
     localStorage.setItem("previous", window.location.href);
     auth.login();

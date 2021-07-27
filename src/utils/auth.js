@@ -12,8 +12,6 @@ class Auth {
 
   expiresAt;
 
-  requested;
-
   auth0 = new auth0.WebAuth({
     domain: Constants.auth.DOMAIN,
     clientID: Constants.auth.CLIENT_ID,
@@ -23,6 +21,7 @@ class Auth {
   });
 
   login = isMentorIntent => {
+    localStorage.setItem("loggingOut", "false");
     let isBackOffice = localStorage.getItem("previous").includes("/me");
     this.auth0.authorize({
       appState: {
@@ -135,6 +134,7 @@ class Auth {
   };
 
   doLogout = () => {
+    localStorage.setItem("loggingOut", "true");
     this.logout();
     clearCurrentUser();
     this.auth0.logout({
