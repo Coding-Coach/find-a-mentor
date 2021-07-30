@@ -1,9 +1,8 @@
-import { lazy } from 'react';
+import { lazy, Suspense } from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import auth from './utils/auth';
-import { getCurrentUser } from './api';
 import './index.css';
 import { reportError } from './ga';
 import * as Sentry from '@sentry/browser';
@@ -13,6 +12,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ModalHookProvider } from './context/modalContext/ModalContext';
 import { LazyRoute } from './CustomRoutes/LazyRoute';
 import { AuthorizationRoute } from './CustomRoutes/AuthorizedRoute';
+import { Loader } from './components/Loader';
+import styled from 'styled-components';
 
 const PageNotFound = lazy(
   () => import(/* webpackChunkName: "PageNotFound" */ './PageNotFound')
@@ -23,21 +24,29 @@ Sentry.init({
   dsn: 'https://bcc1baf038b847258b4307e6ca5777e2@sentry.io/1542584',
 });
 
+const RouterLoader = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: font;
+  z-index: 1;
+  background: #fff;
+`;
+
 (async () => {
   try {
     await auth.renewSession();
-    // prepare user - don't wait for it
-    getCurrentUser();
     ReactDOM.render(
       <UserProvider>
         <ModalHookProvider>
           <Router>
             <FiltersProvider>
               <Switch>
-                <Route exact path="/">
-                  <App />
-                </Route>
-                <Route path="/s/:id" component={App} />
                 <AuthorizationRoute
                   lazy={true}
                   path="/me"
@@ -48,6 +57,10 @@ Sentry.init({
                 <LazyRoute path="*">
                   <PageNotFound />
                 </LazyRoute>
+                <Route path="/me" component={Me} />
+                <Route path={['/', '/u/:id']} exact>
+                  <App />
+                </Route>
               </Switch>
             </FiltersProvider>
           </Router>
@@ -56,7 +69,7 @@ Sentry.init({
       document.getElementById('root')
     );
   } catch (error) {
-    reportError('Init', error.toString());
+    reportError('Init', `${error}`);
   }
 })();
 

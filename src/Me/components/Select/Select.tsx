@@ -44,8 +44,8 @@ export const Select = ({
   const inputElRef = useRef<StateManager>(null);
 
   useLayoutEffect(() => {
-    if (inputElRef.current !== null) {
-      (inputElRef.current.select.inputRef as unknown as HTMLInputElement).autocomplete = 'nope';
+    if (inputElRef.current) {
+      ((inputElRef.current as any).select.inputRef as unknown as HTMLInputElement).autocomplete = 'nope';
     }
   }, []);
 

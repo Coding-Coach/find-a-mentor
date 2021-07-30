@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { ToastContainer } from 'react-toastify';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import MentorsList from '../MentorsList/MentorsList';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
@@ -20,14 +21,14 @@ import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useFilterParams } from '../../utils/permaLinkService';
-import { useParams, withRouter } from 'react-router';
 import { useUser } from '../../context/userContext/UserContext';
 import { ActionsHandler } from './ActionsHandler';
 import { toast } from 'react-toastify';
 import { Sidebar } from '../Sidebar/Sidebar';
+import { UserProfile } from '../UserProfile/UserProfile';
+import { desktop, mobile } from '../../Me/styles/shared/devices';
 
 const App = () => {
-  const params = useParams();
   const { getFilterParams } = useFilterParams();
   const [mentors, setMentors] = useState([]);
   const [isReady, setIsReady] = useState(false);
@@ -134,35 +135,39 @@ const App = () => {
     report('Modal', 'open', title);
   };
 
-  const filteredMentors = useMemo(
+  const mentorsInList = useMemo(
     () => mentors.filter(filterMentors),
     [mentors, filterMentors]
   );
-
-  const mentorsInList =
-    params.id && isReady
-      ? [mentors.find(({ _id }) => _id === params.id)]
-      : filteredMentors;
 
   return (
     <div className="app">
       <ToastContainer />
       <Modal title={modal.title}>{modal.content}</Modal>
-      <Main>
+      <Layout>
         <Header />
-        <Content>
+        <Body>
           <Sidebar mentors={mentors} handleModal={handleModal} />
-          <MentorsList
-            className={classNames({
-              active: showFilters,
-            })}
-            mentors={mentorsInList}
-            favorites={favorites}
-            onFavMentor={onFavMentor}
-            ready={isReady}
-          />
-        </Content>
-      </Main>
+          <Main>
+            <Switch>
+              <Route path="/" exact>
+                <MentorsList
+                  className={classNames({
+                    active: showFilters,
+                  })}
+                  mentors={mentorsInList}
+                  favorites={favorites}
+                  onFavMentor={onFavMentor}
+                  ready={isReady}
+                />
+              </Route>
+              <Route path={`/u/:id`} exact>
+                <UserProfile favorites={favorites} onFavMentor={onFavMentor} />
+              </Route>
+            </Switch>
+          </Main>
+        </Body>
+      </Layout>
     </div>
   );
 };
@@ -173,15 +178,38 @@ const AppWithActionHandlers = withRouter(() => (
   </ActionsHandler>
 ));
 
-const Main = styled.main`
+const Layout = styled.main`
   display: flex;
   flex-direction: column;
 `;
 
-const Content = styled.div`
+const Body = styled.div`
   display: flex;
   @media all and (max-width: 800px) {
     flex-direction: column;
+  }
+`;
+
+const Main = styled.section`
+  @media ${desktop} {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    margin-left: 276px;
+    padding-bottom: 30px;
+  }
+
+  @media ${mobile} {
+    background: #fff;
+    padding: 0 18px;
+    position: relative;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+
+    &.active {
+      transform: translateY(300px);
+      margin-bottom: 50px;
+    }
   }
 `;
 

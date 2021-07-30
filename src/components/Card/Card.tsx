@@ -1,6 +1,5 @@
 import React from 'react';
 import Obfuscate from 'react-obfuscate';
-import { useHistory, withRouter } from 'react-router-dom';
 import orderBy from 'lodash/orderBy';
 import './Card.css';
 import { getChannelInfo } from '../../channelProvider';
@@ -15,12 +14,20 @@ import { useUser } from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
 import { useDeviceType } from '../../utils/useDeviceType';
+import { Channel, Country, Mentor } from '../../types/models';
 
-function handleAnalytics(channelName) {
+type CardProps = {
+  mentor: Mentor;
+  isFav: boolean;
+  onAvatarClick?(): void;
+  onFavMentor(mentor: Mentor): void;
+};
+
+function handleAnalytics(channelName: string) {
   report('Channel', 'click', channelName);
 }
 
-const tagsList = (tags, handleTagClick) =>
+const tagsList = (tags: string[], handleTagClick: (tag: string) => void) =>
   tags.map((tag, index) => {
     return (
       <button
@@ -39,14 +46,16 @@ const applyOnClick = () => {
   auth.login();
 };
 
-const ApplyButton = ({ mentor }) => {
-  const { isAuthenticated } = useUser();
+const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
   const isDesktop = useDeviceType();
   const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
+  const { isAuthenticated } = useUser();
+
   const tooltipMessage = isAuthenticated
     ? messages.CARD_APPLY_REQUEST_TOOLTIP
     : messages.CARD_APPLY_TOOLTIP;
   const handleClick = isAuthenticated ? openModal : applyOnClick;
+
   return (
     <Tooltip
       disabled={!isDesktop}
@@ -64,7 +73,15 @@ const ApplyButton = ({ mentor }) => {
   );
 };
 
-const Avatar = ({ mentor, id, handleAvatarClick }) => {
+const Avatar = ({
+  mentor,
+  id,
+  handleAvatarClick,
+}: {
+  mentor: Mentor;
+  id: string;
+  handleAvatarClick: () => void;
+}) => {
   return (
     <button className="avatar" onClick={handleAvatarClick}>
       <i className="fa fa-user-circle" />
@@ -72,13 +89,21 @@ const Avatar = ({ mentor, id, handleAvatarClick }) => {
         src={getAvatarUrl(mentor.avatar)}
         aria-labelledby={`${id}`}
         alt={`${mentor.name}`}
-        onError={e => e.currentTarget.classList.add('broken')}
+        onError={(e) => e.currentTarget.classList.add('broken')}
       />
     </button>
   );
 };
 
-const LikeButton = ({ onClick, liked, tooltip }) => (
+const LikeButton = ({
+  onClick,
+  liked,
+  tooltip,
+}: {
+  onClick: () => void;
+  liked: boolean;
+  tooltip?: string;
+}) => (
   <Tooltip disabled={!tooltip} title={tooltip} size="big" arrow={true}>
     <button onClick={onClick} className="like-button" aria-label="Save Mentor">
       <i
@@ -91,8 +116,12 @@ const LikeButton = ({ onClick, liked, tooltip }) => (
   </Tooltip>
 );
 
-const Card = ({ mentor, onFavMentor, isFav }) => {
-  const history = useHistory();
+const Card = ({
+  mentor,
+  onFavMentor,
+  isFav,
+  onAvatarClick = () => {},
+}: CardProps) => {
   const [, dispatch] = useFilters();
   const { currentUser } = useUser();
   const {
@@ -114,15 +143,11 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
     }
   };
 
-  const handleTagClick = tag => {
+  const handleTagClick = (tag: string) => {
     dispatch({ type: 'filterTag', payload: tag });
   };
 
-  const handleAvatarClick = () => {
-    history.push(`/s/${mentor._id}`);
-  };
-
-  const handleCountryClick = country => {
+  const handleCountryClick = (country: Country) => {
     dispatch({ type: 'filterCountry', payload: country });
   };
 
@@ -178,7 +203,9 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
   };
 
   const CardHeader = () => {
-    const tooltip = currentUser ? null : messages.CARD_ANONYMOUS_LIKE_TOOLTIP;
+    const tooltip = currentUser
+      ? undefined
+      : messages.CARD_ANONYMOUS_LIKE_TOOLTIP;
     return (
       <div className="header">
         <button
@@ -192,52 +219,56 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
         <Avatar
           mentor={mentor}
           id={mentorID}
-          handleAvatarClick={handleAvatarClick}
+          handleAvatarClick={onAvatarClick}
         />
         <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
     );
   };
 
-  const Channels = ({ channels }) => {
+  const Channels = ({ channels }: { channels: Channel[] }) => {
     if (!channels.length) {
       return <ApplyButton mentor={mentor} />;
     }
     const orderedChannels = orderBy(channels, ['type'], ['asc']);
-    return orderedChannels.map(channel => {
-      const { icon, url } = getChannelInfo(channel);
-      if (channel.type === 'email') {
-        return (
-          <Obfuscate
-            key={channel.type}
-            email={url.substring('mailto:'.length)}
-            linkText=""
-            onClick={() => handleAnalytics(`${channel.type}`)}
-          >
-            <div className="icon">
-              <i className={`fa fa-${icon} fa-lg`} />
-            </div>
-            <p className="type">{channel.type}</p>
-          </Obfuscate>
-        );
-      } else {
-        return (
-          <a
-            key={channel.type}
-            href={url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="channel-label"
-            onClick={() => handleAnalytics(`${channel.type}`)}
-          >
-            <div className="icon">
-              <i className={`fa fa-${icon} fa-lg`} />
-            </div>
-            <p className="type">{channel.type}</p>
-          </a>
-        );
-      }
-    });
+    return (
+      <>
+        {orderedChannels.map((channel) => {
+          const { icon, url } = getChannelInfo(channel);
+          if (channel.type === 'email') {
+            return (
+              <Obfuscate
+                key={channel.type}
+                email={url.substring('mailto:'.length)}
+                linkText=""
+                onClick={() => handleAnalytics(`${channel.type}`)}
+              >
+                <div className="icon">
+                  <i className={`fa fa-${icon} fa-lg`} />
+                </div>
+                <p className="type">{channel.type}</p>
+              </Obfuscate>
+            );
+          } else {
+            return (
+              <a
+                key={channel.type}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="channel-label"
+                onClick={() => handleAnalytics(`${channel.type}`)}
+              >
+                <div className="icon">
+                  <i className={`fa fa-${icon} fa-lg`} />
+                </div>
+                <p className="type">{channel.type}</p>
+              </a>
+            );
+          }
+        })}
+      </>
+    );
   };
 
   return (
@@ -250,4 +281,4 @@ const Card = ({ mentor, onFavMentor, isFav }) => {
   );
 };
 
-export default withRouter(Card);
+export default Card;
