@@ -119,7 +119,7 @@ const UserDetails = ({
 
 const Admin = () => {
   const [sentOnly, setSentOnly] = useState(false);
-  const [showDaysAgo, setShowDaysAgo] = useState<number>(0);
+  const [showDaysAgo, setShowDaysAgo] = useState<number>(7);
   const [name, setName] = useState('');
   const [user, setUser] = useState<MentorshipUser>();
   const [mentorshipLoading, setMentorshipLoading] = useState<string | null>();
