@@ -26,6 +26,7 @@ export const paths = {
   MENTORS: '/mentors',
   USERS: '/users',
   MENTORSHIP: '/mentorships',
+  ADMIN: '/admin',
 };
 
 let currentUser: User | undefined;
@@ -44,9 +45,9 @@ export async function makeApiCall<T>(
     Authorization: `Bearer ${auth.getIdToken()}`,
     ...(jsonous
       ? {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        }
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }
       : {}),
   };
 
@@ -355,4 +356,18 @@ export async function updateMentorshipReqStatus(
     'PUT'
   );
   return res;
+}
+
+export async function getUser(userId: string) {
+  if (mentorsPromise !== undefined) {
+    const mentors = await mentorsPromise;
+    const mentor = mentors.find(mentor => mentor._id === userId);
+    if (mentor) {
+      return mentor;
+    }
+  }
+  const response = await makeApiCall<User>(`${paths.USERS}/${userId}`);
+  if (response?.success) {
+    return response.data;
+  }
 }

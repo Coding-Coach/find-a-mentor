@@ -48,9 +48,9 @@ export function fromMtoVM(user: User): UserVM {
       : { label: '', value: '' },
     spokenLanguages: user.spokenLanguages
       ? user.spokenLanguages.map(i => ({
-          label: ISO6391.getName(i),
-          value: i,
-        }))
+        label: ISO6391.getName(i),
+        value: i,
+      }))
       : [],
     tags: user.tags ? user.tags.map(i => ({ label: i, value: i })) : [],
     title: user.title ?? '',

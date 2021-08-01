@@ -28,6 +28,7 @@ export type User = ObjectID & {
 export type Mentor = User & {};
 export type Application = ObjectID & {};
 
+export type MentorshipUser = Pick<User, 'avatar' | 'name' | 'email' | 'title'> & { id: string };
 export type MentorshipRequest = {
   id: string;
   status: Status;
@@ -36,7 +37,17 @@ export type MentorshipRequest = {
   background: string;
   expectation: string;
   isMine: boolean;
-  mentor: Mentor;
-  mentee: User;
+  mentor: MentorshipUser;
+  mentee: MentorshipUser;
   readonly reminderSentAt?: string;
 };
+
+export enum UserRecordType {
+  MentorNotResponding = 1
+}
+
+export type UserRecord = {
+  id: ObjectID;
+  userId: string;
+  type: UserRecordType;
+}
