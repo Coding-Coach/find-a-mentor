@@ -75,7 +75,7 @@ const UserDetails = ({
   const showCard =
     (!user || user.available) &&
     mentorships.some(({ reminderSentAt }) => !!reminderSentAt) &&
-    !mentorships.some(({ status }) => !pending(status) || status === STATUS.cancelled);
+    !mentorships.some(({ status }) => status === STATUS.approved || status === STATUS.rejected);
 
   return showCard ? (
     isLoading ? (
