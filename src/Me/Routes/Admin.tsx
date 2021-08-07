@@ -28,6 +28,7 @@ import Switch from '../../components/Switch/Switch';
 import Input from '../components/Input';
 import { getUser } from '../../api';
 import { Loader } from '../../components/Loader';
+import { getChannelInfo } from '../../channelProvider';
 
 const Mentee = styled.span`
   display: flex;
@@ -114,6 +115,23 @@ const UserDetails = ({
           Send Not Active mail
         </Button>
       )}
+      {
+        user?.channels.map(channel => {
+          const { url, icon } = getChannelInfo(channel);
+          return (
+            <div>
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className={`fa fa-${icon}`} />
+                {channel.id}
+              </a>
+            </div>
+          );
+        })
+      }
     </Card>
   ) : (
     <></>
