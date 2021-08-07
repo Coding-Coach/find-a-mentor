@@ -1,8 +1,9 @@
 import countries from 'svg-country-flags/countries.json';
 import { Status } from '../helpers/mentorship';
 
-type ObjectID = {
+type BaseDBObject = {
   _id: string;
+  createdAt: string;
 };
 
 type Country = keyof typeof countries;
@@ -12,7 +13,7 @@ type Channel = {
   type: string;
 };
 
-export type User = ObjectID & {
+export type User = BaseDBObject & {
   name: string;
   title: string;
   email: string;
@@ -26,9 +27,9 @@ export type User = ObjectID & {
   channels: Channel[];
 };
 export type Mentor = User & {};
-export type Application = ObjectID & {};
+export type Application = BaseDBObject & {};
 
-export type MentorshipUser = Pick<User, 'avatar' | 'name' | 'email' | 'title'> & { id: string };
+export type MentorshipUser = Pick<User, 'avatar' | 'name' | 'email' | 'title' | 'available'> & { id: string };
 export type MentorshipRequest = {
   id: string;
   status: Status;
@@ -46,8 +47,7 @@ export enum UserRecordType {
   MentorNotResponding = 1
 }
 
-export type UserRecord = {
-  id: ObjectID;
+export type UserRecord = BaseDBObject & {
   userId: string;
   type: UserRecordType;
 }

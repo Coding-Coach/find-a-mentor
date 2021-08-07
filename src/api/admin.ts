@@ -14,11 +14,14 @@ export async function sendStaledRequestEmail(mentorshipId: string) {
 }
 
 export async function sendMentorNotActive(mentorId: string) {
-  await makeApiCall(
+  const response = await makeApiCall<UserRecord>(
     `${paths.ADMIN}/mentor/${mentorId}/notActive`,
     null,
     'PUT'
   );
+  if (response?.success) {
+    return response.data;
+  }
 }
 
 export async function freezeMentor(mentorId: string) {
