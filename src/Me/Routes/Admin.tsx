@@ -8,7 +8,12 @@ import {
   sendStaledRequestEmail,
 } from '../../api/admin';
 import Card from '../components/Card';
-import type { MentorshipUser, MentorshipRequest, User } from '../../types/models';
+import type {
+  MentorshipUser,
+  MentorshipRequest,
+  User,
+  UserRecord,
+} from '../../types/models';
 import {
   daysAgo,
   formatRequestTime,
@@ -52,38 +57,35 @@ const UserDetails = ({
   mentorships: MentorshipRequest[];
 }) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [dontActiveSent, setDontActiveSent] = useState(false);
+  const [dontActiveSent, setDontActiveSent] = useState<UserRecord>();
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    Promise.all([
-      getUserRecords(userId),
-      getUser(userId)
-    ]).then(([recordsRes, userRes]) => {
-      setUser(userRes);
-      if (recordsRes?.success) {
-        setDontActiveSent(
-          !!recordsRes.data.find(
-            ({ type }) => type === 1
-          )
-        );
-      }
-    })
-    .finally(() => setIsLoading(false));
+    Promise.all([getUserRecords(userId), getUser(userId)])
+      .then(([recordsRes, userRes]) => {
+        setUser(userRes);
+        if (recordsRes?.success) {
+          setDontActiveSent(recordsRes.data.find(({ type }) => type === 1));
+        }
+      })
+      .finally(() => setIsLoading(false));
   }, [userId]);
 
   const showCard =
     (!user || user.available) &&
     mentorships.some(({ reminderSentAt }) => !!reminderSentAt) &&
-    !mentorships.some(({ status }) => status === STATUS.approved || status === STATUS.rejected);
+    !mentorships.some(
+      ({ status }) => status === STATUS.approved || status === STATUS.rejected
+    );
 
-  return showCard ? (
-    isLoading ? (
-      <Loader />
-    ) : (
-      <Card>
-        <div>{user!.name}</div>
-        {dontActiveSent ? (
+  return isLoading ? (
+    <Loader />
+  ) : showCard ? (
+    <Card>
+      <div>{user!.name}</div>
+      {dontActiveSent ? (
+        <>
+          <div>Sent {formatRequestTime(dontActiveSent.createdAt)}</div>
           <Button
             onClick={async () => {
               if (
@@ -100,22 +102,23 @@ const UserDetails = ({
           >
             Freeze Mentor
           </Button>
-        ) : (
-          <Button onClick={async () => {
-            await sendMentorNotActive(user!._id);
-            setDontActiveSent(true);
+        </>
+      ) : (
+        <Button
+          onClick={async () => {
+            const record = await sendMentorNotActive(user!._id);
+            setDontActiveSent(record);
             toast.success('Done');
-          }}>
-            Send Not Active mail
-          </Button>
-        )}
-      </Card>
-    )
+          }}
+        >
+          Send Not Active mail
+        </Button>
+      )}
+    </Card>
   ) : (
     <></>
   );
 };
-
 
 const Admin = () => {
   const [sentOnly, setSentOnly] = useState(false);
@@ -191,7 +194,7 @@ const Admin = () => {
       filteredMentorshipRequests.map(
         ({ mentor, mentee, status, date, id, reminderSentAt }) => {
           return (
-            <tr key={id}>
+            <tr style={{opacity: mentor.available ? 1 : 0.5}} key={id}>
               <td>
                 <span onClick={() => setUser(mentor)}>{mentor.name}</span>
                 <a
@@ -246,7 +249,10 @@ const Admin = () => {
   return (
     <>
       {user && (
-        <UserDetails userId={user.id} mentorships={filteredMentorshipRequests} />
+        <UserDetails
+          userId={user.id}
+          mentorships={filteredMentorshipRequests}
+        />
       )}
       <Card>
         <Filters>
