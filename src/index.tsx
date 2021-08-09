@@ -12,6 +12,7 @@ import { FiltersProvider } from './context/filtersContext/FiltersContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ModalHookProvider } from './context/modalContext/ModalContext';
 import styled from 'styled-components';
+import ErrorPage from './404';
 
 const Me = React.lazy(() => import(/* webpackChunkName: "Me" */ './Me/Me'));
 
@@ -55,6 +56,7 @@ const RouterLoader = styled.div`
                     <App />
                   </Route>
                   <Route path="/me" component={Me} />
+                  <Route path = ""component={ErrorPage} />
                 </Suspense>
               </Switch>
             </Router>
