@@ -12,7 +12,9 @@ import { FiltersProvider } from './context/filtersContext/FiltersContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ModalHookProvider } from './context/modalContext/ModalContext';
 import styled from 'styled-components';
-import ErrorPage from './404';
+const ErrorPage = React.lazy(() =>
+  import(/* webpackChunkName: "ErrorPage" */ './404')
+);
 
 const Me = React.lazy(() => import(/* webpackChunkName: "Me" */ './Me/Me'));
 
