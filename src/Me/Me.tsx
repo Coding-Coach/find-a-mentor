@@ -72,7 +72,7 @@ const Me = ({
           </Main>
         </>
       ) : (
-        <Redirect to="/" />
+        <Redirect to={"/?from=" + pathname} />
       )}
       <ToastContainer />
       <GlobalStyle />

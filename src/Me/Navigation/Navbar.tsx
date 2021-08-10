@@ -47,7 +47,7 @@ const Navbar = () => {
         {isAdmin && (
           <MenuItem to="/me/admin" icon={IconMentors} label="Admin" />
         )}
-        <Logout to={window.location.pathname} onClick={auth.doLogout}>
+        <Logout to={(window.location.pathname.includes("/me")) ? "/" : window.location.pathname} onClick={auth.doLogout}>
           <IconLogout />
           <Label>{messages.LOGOUT}</Label>
         </Logout>
