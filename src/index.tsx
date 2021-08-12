@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ModalHookProvider } from './context/modalContext/ModalContext';
 import styled from 'styled-components';
 
+const PageNotFound = React.lazy(() =>import(/* webpackChunkName: "PageNotFounb" */ './PageNotFound'));
 const Me = React.lazy(() => import(/* webpackChunkName: "Me" */ './Me/Me'));
 
 Sentry.init({
@@ -55,6 +56,7 @@ const RouterLoader = styled.div`
                     <App />
                   </Route>
                   <Route path="/me" component={Me} />
+                  <Route component={PageNotFound} />
                 </Suspense>
               </Switch>
             </Router>

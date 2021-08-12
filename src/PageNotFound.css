@@ -1,0 +1,18 @@
+.errimg{
+    max-width: 35vw;
+    max-height: 35vh;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 15vh;
+} 
+.row{
+    display: inline-grid;
+    grid-template-columns: auto auto ;
+}
+.col{
+    padding-right: 20px;
+}
