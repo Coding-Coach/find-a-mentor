@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import { lazy } from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
@@ -11,27 +11,16 @@ import { UserProvider } from './context/userContext/UserContext';
 import { FiltersProvider } from './context/filtersContext/FiltersContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ModalHookProvider } from './context/modalContext/ModalContext';
-import styled from 'styled-components';
+import { LazyRoute } from './components/LazyRoute/LazyRoute';
 
-const Me = React.lazy(() => import(/* webpackChunkName: "Me" */ './Me/Me'));
+const PageNotFound = lazy(() =>
+  import(/* webpackChunkName: "PageNotFound" */ './PageNotFound')
+);
+const Me = lazy(() => import(/* webpackChunkName: "Me" */ './Me/Me'));
 
 Sentry.init({
   dsn: 'https://bcc1baf038b847258b4307e6ca5777e2@sentry.io/1542584',
 });
-
-const RouterLoader = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: font;
-  z-index: 1;
-  background: #fff;
-`;
 
 (async () => {
   try {
@@ -44,18 +33,15 @@ const RouterLoader = styled.div`
           <ModalHookProvider>
             <Router>
               <Switch>
-                <Suspense
-                  fallback={
-                    <RouterLoader>
-                      <i className="fa fa-2x fa-spin fa-spinner" />
-                    </RouterLoader>
-                  }
-                >
-                  <Route exact path="/">
-                    <App />
-                  </Route>
-                  <Route path="/me" component={Me} />
-                </Suspense>
+                <Route exact path="/">
+                  <App />
+                </Route>
+                <LazyRoute path="/me">
+                  <Me />
+                </LazyRoute>
+                <LazyRoute path="*">
+                  <PageNotFound />
+                </LazyRoute>
               </Switch>
             </Router>
           </ModalHookProvider>

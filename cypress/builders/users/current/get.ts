@@ -12,6 +12,7 @@ const defaults: User = {
   country: 'US',
   tags: ['cypress', 'react', 'typescript'],
   available: false,
+  createdAt: '2021-01-01T00:00:00.000Z',
   channels: [
     {
       id: 'email@codingcoach.io',

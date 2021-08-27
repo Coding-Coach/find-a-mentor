@@ -1,6 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import type { RouteComponentProps } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components/macro';
@@ -13,13 +12,13 @@ import MentorshipRequests from '../Me/MentorshipRequests';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
 import { AuthorizationRoute } from './AuthorizationRoute';
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet';
 
+const Admin = React.lazy(() =>
+  import(/* webpackChunkName: "Admin" */ './Routes/Admin')
+);
 
-const Admin = React.lazy(() => import(/* webpackChunkName: "Admin" */ './Routes/Admin'));
-
-type MeProps = RouteComponentProps & {};
-
+const url = '/me';
 
 const meRoutes = [
   {
@@ -41,22 +40,21 @@ const getHeaderNameByPath = (path: string) => {
   return meRoutes.find(route => route.path === path)?.name ?? '';
 };
 
-const Me = ({
-  match: { url },
-  location: { pathname },
-}: MeProps) => {
+const Me = () => {
   const authenticated = auth.isAuthenticated();
+  const { pathname } = useLocation();
+  const title = getHeaderNameByPath(pathname);
 
   return (
     <Container>
       {authenticated ? (
         <>
           <Helmet>
-            <title>{getHeaderNameByPath(pathname)} | CodingCoach</title>
+            <title>{title} | CodingCoach</title>
             <meta name="description" content="codingcoach.io application" />
           </Helmet>
           <Navbar />
-          <Header title={getHeaderNameByPath(pathname)} />
+          <Header title={title} />
           <Main>
             <Switch>
               <Route path={`${url}/requests`}>
@@ -79,7 +77,6 @@ const Me = ({
     </Container>
   );
 };
-
 
 export default Me;
 
