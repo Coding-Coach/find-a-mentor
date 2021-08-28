@@ -10,7 +10,7 @@ import Home from './Routes/Home';
 import MentorshipRequests from '../Me/MentorshipRequests';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
-import { AuthorizationRoute } from './AuthorizationRoute';
+import { AuthorizationRoute } from '../CustomRoutes/AuthorizedRoute';
 import { Helmet } from 'react-helmet';
 
 const Admin = React.lazy(() =>

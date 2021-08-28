@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Redirect, Route, RouteProps, useLocation } from 'react-router-dom';
-import { LazyRoute } from '../components/Routers/LazyRoute';
-import { RouterLoader } from '../components/Routers/RouterLoader';
+import { LazyRoute } from './LazyRoute';
+import { RouterLoader } from './RouterLoader';
 import { useUser } from '../context/userContext/UserContext';
 import { UserRole } from '../types/models';
 

@@ -194,72 +194,76 @@ const App = () => {
   ]);
 
   return (
-    <ActionsHandler>
-      <div className="app">
-        <ToastContainer />
-        <Modal title={modal.title}>{modal.content}</Modal>
-        <Main>
-          <Header />
-          <Content>
-            <aside className="sidebar">
-              <Filter
-                onToggleFilter={toggleFields}
-                onToggleSwitch={toggleSwitch}
-                mentorCount={mentorsInList.length}
-                mentors={mentorsInList}
-                showFavorite={showFavorites}
-              />
-              <SocialLinks />
-              <nav className="sidebar-nav">
-                <ModalContent
-                  policyTitle={'Cookies policy'}
-                  content={'cookies-policy'}
-                  handleModal={(title, content) => handleModal(title, content)}
-                />
-                <ModalContent
-                  policyTitle={'Code of Conduct'}
-                  content={'code-conduct'}
-                  handleModal={(title, content) => handleModal(title, content)}
-                />
-                <ModalContent
-                  policyTitle={'Terms & Conditions'}
-                  content={'terms-conditions'}
-                  handleModal={(title, content) => handleModal(title, content)}
-                />
-                <ModalContent
-                  policyTitle={'Privacy Statement'}
-                  content={'privacy-policy'}
-                  handleModal={(title, content) => handleModal(title, content)}
-                />
-              </nav>
-              <a
-                href="https://www.patreon.com/codingcoach_io"
-                className="patreon-link"
-                aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
-                  alt="Become a Patron"
-                />
-              </a>
-            </aside>
-            <MentorsList
-              className={classNames({
-                active: fieldsIsActive,
-              })}
+    <div className="app">
+      <ToastContainer />
+      <Modal title={modal.title}>{modal.content}</Modal>
+      <Main>
+        <Header />
+        <Content>
+          <aside className="sidebar">
+            <Filter
+              onToggleFilter={toggleFields}
+              onToggleSwitch={toggleSwitch}
+              mentorCount={mentorsInList.length}
               mentors={mentorsInList}
-              favorites={favorites}
-              onFavMentor={onFavMentor}
-              ready={isReady}
+              showFavorite={showFavorites}
             />
-          </Content>
-        </Main>
-      </div>
-    </ActionsHandler>
+            <SocialLinks />
+            <nav className="sidebar-nav">
+              <ModalContent
+                policyTitle={'Cookies policy'}
+                content={'cookies-policy'}
+                handleModal={(title, content) => handleModal(title, content)}
+              />
+              <ModalContent
+                policyTitle={'Code of Conduct'}
+                content={'code-conduct'}
+                handleModal={(title, content) => handleModal(title, content)}
+              />
+              <ModalContent
+                policyTitle={'Terms & Conditions'}
+                content={'terms-conditions'}
+                handleModal={(title, content) => handleModal(title, content)}
+              />
+              <ModalContent
+                policyTitle={'Privacy Statement'}
+                content={'privacy-policy'}
+                handleModal={(title, content) => handleModal(title, content)}
+              />
+            </nav>
+            <a
+              href="https://www.patreon.com/codingcoach_io"
+              className="patreon-link"
+              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
+                alt="Become a Patron"
+              />
+            </a>
+          </aside>
+          <MentorsList
+            className={classNames({
+              active: fieldsIsActive,
+            })}
+            mentors={mentorsInList}
+            favorites={favorites}
+            onFavMentor={onFavMentor}
+            ready={isReady}
+          />
+        </Content>
+      </Main>
+    </div>
   );
 };
+
+const AppWithActionHandlers = () => (
+  <ActionsHandler>
+    <App />
+  </ActionsHandler>
+);
 
 const Main = styled.main`
   display: flex;
@@ -273,4 +277,4 @@ const Content = styled.div`
   }
 `;
 
-export default App;
+export default AppWithActionHandlers;
