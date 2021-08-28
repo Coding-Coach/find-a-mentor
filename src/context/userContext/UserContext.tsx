@@ -6,6 +6,7 @@ import auth from '../../utils/auth';
 type UserProviderContext = {
   isAdmin: boolean;
   isMentor: boolean;
+  isLoading: boolean;
   currentUser?: User;
   isAuthenticated: boolean;
   updateCurrentUser(user: User): void;
@@ -16,9 +17,8 @@ const UserContext = React.createContext<UserProviderContext | undefined>(
 );
 
 export const UserProvider: FC = ({ children }) => {
-  const [currentUser, updateCurrentUser] = useState<User | undefined>(
-    undefined
-  );
+  const [isLoading, setIsloading] = useState(true);
+  const [currentUser, updateCurrentUser] = useState<User>();
   const isAuthenticated = auth.isAuthenticated();
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');
@@ -26,17 +26,19 @@ export const UserProvider: FC = ({ children }) => {
   useEffect(() => {
     getCurrentUser().then(user => {
       updateCurrentUser(user);
+      setIsloading(false);
     });
   }, []);
 
   return (
     <UserContext.Provider
       value={{
-        currentUser,
-        isMentor,
         isAdmin,
-        updateCurrentUser,
+        isMentor,
+        isLoading,
+        currentUser,
         isAuthenticated,
+        updateCurrentUser,
       }}
     >
       {children}

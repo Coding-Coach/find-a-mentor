@@ -11,7 +11,8 @@ import { UserProvider } from './context/userContext/UserContext';
 import { FiltersProvider } from './context/filtersContext/FiltersContext';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ModalHookProvider } from './context/modalContext/ModalContext';
-import { LazyRoute } from './components/LazyRoute/LazyRoute';
+import { LazyRoute } from './components/Routers/LazyRoute';
+import { AuthorizationRoute } from './Me/AuthorizationRoute';
 
 const PageNotFound = lazy(() =>
   import(/* webpackChunkName: "PageNotFound" */ './PageNotFound')
@@ -36,9 +37,14 @@ Sentry.init({
                 <Route exact path="/">
                   <App />
                 </Route>
-                <LazyRoute path="/me">
+                <AuthorizationRoute
+                  lazy={true}
+                  role={'Mentor'}
+                  path="/me"
+                  redirectAfterLogin={true}
+                >
                   <Me />
-                </LazyRoute>
+                </AuthorizationRoute>
                 <LazyRoute path="*">
                   <PageNotFound />
                 </LazyRoute>

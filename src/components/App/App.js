@@ -3,7 +3,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
 
 import React, { useCallback, useEffect, useState, useMemo } from 'react';
-import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { ToastContainer } from 'react-toastify';
@@ -28,7 +27,7 @@ import {
   setPermalinkParams,
   getPermalinkParamsValues,
 } from '../../utils/permaLinkService';
-import auth from "./../../utils/auth";
+import { ActionsHandler } from './ActionsHandler';
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -194,85 +193,71 @@ const App = () => {
     filterMentors,
   ]);
 
-  let queryString = window.location.search;
-  let params = new URLSearchParams(queryString);
-
-  // If logged in by backend URL redirect to back office
-  let url = "?redirect=" + params.get("from");
-  if (queryString.includes("?from=/me")) {
-    auth.login(url);
-  }
-
-  if (queryString.includes("?redirect=")) {
-    let redirect = params.get("redirect");
-    //logged in
-    //redirect to backend
-    return <Redirect to={redirect} />
-  }
-
   return (
-    <div className="app">
-      <ToastContainer />
-      <Modal title={modal.title}>{modal.content}</Modal>
-      <Main>
-        <Header />
-        <Content>
-          <aside className="sidebar">
-            <Filter
-              onToggleFilter={toggleFields}
-              onToggleSwitch={toggleSwitch}
-              mentorCount={mentorsInList.length}
+    <ActionsHandler>
+      <div className="app">
+        <ToastContainer />
+        <Modal title={modal.title}>{modal.content}</Modal>
+        <Main>
+          <Header />
+          <Content>
+            <aside className="sidebar">
+              <Filter
+                onToggleFilter={toggleFields}
+                onToggleSwitch={toggleSwitch}
+                mentorCount={mentorsInList.length}
+                mentors={mentorsInList}
+                showFavorite={showFavorites}
+              />
+              <SocialLinks />
+              <nav className="sidebar-nav">
+                <ModalContent
+                  policyTitle={'Cookies policy'}
+                  content={'cookies-policy'}
+                  handleModal={(title, content) => handleModal(title, content)}
+                />
+                <ModalContent
+                  policyTitle={'Code of Conduct'}
+                  content={'code-conduct'}
+                  handleModal={(title, content) => handleModal(title, content)}
+                />
+                <ModalContent
+                  policyTitle={'Terms & Conditions'}
+                  content={'terms-conditions'}
+                  handleModal={(title, content) => handleModal(title, content)}
+                />
+                <ModalContent
+                  policyTitle={'Privacy Statement'}
+                  content={'privacy-policy'}
+                  handleModal={(title, content) => handleModal(title, content)}
+                />
+              </nav>
+              <a
+                href="https://www.patreon.com/codingcoach_io"
+                className="patreon-link"
+                aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <img
+                  src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
+                  alt="Become a Patron"
+                />
+              </a>
+            </aside>
+            <MentorsList
+              className={classNames({
+                active: fieldsIsActive,
+              })}
               mentors={mentorsInList}
-              showFavorite={showFavorites}
+              favorites={favorites}
+              onFavMentor={onFavMentor}
+              ready={isReady}
             />
-            <SocialLinks />
-            <nav className="sidebar-nav">
-              <ModalContent
-                policyTitle={'Cookies policy'}
-                content={'cookies-policy'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-              <ModalContent
-                policyTitle={'Code of Conduct'}
-                content={'code-conduct'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-              <ModalContent
-                policyTitle={'Terms & Conditions'}
-                content={'terms-conditions'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-              <ModalContent
-                policyTitle={'Privacy Statement'}
-                content={'privacy-policy'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-            </nav>
-            <a
-              href="https://www.patreon.com/codingcoach_io"
-              className="patreon-link"
-              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <img
-                src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
-                alt="Become a Patron"
-              />
-            </a>
-          </aside>
-          <MentorsList
-            className={classNames({
-              active: fieldsIsActive,
-            })}
-            mentors={mentorsInList}
-            favorites={favorites}
-            onFavMentor={onFavMentor}
-            ready={isReady}
-          />
-        </Content>
-      </Main>
-    </div>
+          </Content>
+        </Main>
+      </div>
+    </ActionsHandler>
   );
 };
 

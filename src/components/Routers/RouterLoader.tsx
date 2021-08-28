@@ -1,5 +1,3 @@
-import { FC, Suspense } from 'react';
-import { Route, RouteProps } from 'react-router-dom';
 import styled from 'styled-components';
 
 const RouterLoaderContainer = styled.div`
@@ -15,20 +13,8 @@ const RouterLoaderContainer = styled.div`
   background: #fff;
 `;
 
-const RouterLoader = () => (
+export const RouterLoader = () => (
   <RouterLoaderContainer>
     <i className="fa fa-2x fa-spin fa-spinner" />
   </RouterLoaderContainer>
 );
-
-export const LazyRoute: FC<RouteProps> = ({
-  children,
-  component,
-  ...routeProps
-}) => {
-  return (
-    <Route {...routeProps}>
-      <Suspense fallback={<RouterLoader />}>{children || component}</Suspense>
-    </Route>
-  );
-};
