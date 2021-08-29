@@ -8,11 +8,9 @@ export const LazyRoute: FC<RouteProps> = ({
   render,
   ...routeProps
 }) => {
-  const renderMethod =
+  const renderMethod: RouteProps['render'] =
     render &&
-    (() => (
-      <Suspense fallback={<RouterLoader />}>{render({} as any)}</Suspense>
-    ));
+    (props => <Suspense fallback={<RouterLoader />}>{render(props)}</Suspense>);
 
   return (
     <Route {...routeProps} render={renderMethod}>
