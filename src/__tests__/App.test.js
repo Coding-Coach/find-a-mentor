@@ -1,32 +1,37 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../components/App/App';
-import { act } from 'react-dom/test-utils';
 import nock from 'nock';
+import { act } from 'react-dom/test-utils';
+import { Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
+
+import App from '../components/App/App';
 import { UserProvider } from '../context/userContext/UserContext';
 
-jest.mock('react-router-dom', () => ({
-  useHistory: () => ({
-    push: jest.fn(),
-  }),
-}));
+const API_BASE_URL = 'https://api.codingcoach.io';
 
-it('renders without crashing', () => {
-  nock('https://api.codingcoach.io/mentors')
-    .get()
-    .reply(() => []);
-  jest.useFakeTimers();
+it('renders without crashing', async () => {
+  nock(API_BASE_URL)
+    .options('/mentors')
+    .query(true)
+    .reply(200)
+    .get('/mentors')
+    .reply(() => [])
+    .get('/current')
+    .reply(() => ({}));
+
   const div = document.createElement('div');
+  const history = createMemoryHistory();
+
   act(() => {
     ReactDOM.render(
-      <UserProvider>
-        <App />
-      </UserProvider>,
+      <Router history={history}>
+        <UserProvider>
+          <App />
+        </UserProvider>
+      </Router>,
       div
     );
-    jest.runAllTimers();
   });
   expect(div.querySelector('.app')).toBeDefined();
-  // TODO
-  // expect(div.querySelectorAll('.card').length).toBe(1);
+  await act(() => Promise.resolve());
 });

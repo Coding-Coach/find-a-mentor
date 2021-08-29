@@ -1,9 +1,8 @@
 import React from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components/macro';
-import auth from '../utils/auth';
 import Header from './Header/Header';
 import Main from './Main';
 import Navbar from './Navigation/Navbar';
@@ -11,7 +10,7 @@ import Home from './Routes/Home';
 import MentorshipRequests from '../Me/MentorshipRequests';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
-import { AuthorizationRoute } from './AuthorizationRoute';
+import { AuthorizationRoute } from '../CustomRoutes/AuthorizedRoute';
 import { Helmet } from 'react-helmet';
 
 const Admin = React.lazy(() =>
@@ -41,37 +40,32 @@ const getHeaderNameByPath = (path: string) => {
 };
 
 const Me = () => {
-  const authenticated = auth.isAuthenticated();
   const { pathname } = useLocation();
   const title = getHeaderNameByPath(pathname);
 
   return (
     <Container>
-      {authenticated ? (
-        <>
-          <Helmet>
-            <title>{title} | CodingCoach</title>
-            <meta name="description" content="codingcoach.io application" />
-          </Helmet>
-          <Navbar />
-          <Header title={title} />
-          <Main>
-            <Switch>
-              <Route path={`${url}/requests`}>
-                <MentorshipRequests />
-              </Route>
-              <AuthorizationRoute path={`${url}/admin`} role={'Admin'}>
-                <Admin />
-              </AuthorizationRoute>
-              <Route path={`${url}`}>
-                <Home />
-              </Route>
-            </Switch>
-          </Main>
-        </>
-      ) : (
-        <Redirect to={"/?from=" + pathname} />
-      )}
+      <>
+        <Helmet>
+          <title>{title} | CodingCoach</title>
+          <meta name="description" content="codingcoach.io application" />
+        </Helmet>
+        <Navbar />
+        <Header title={title} />
+        <Main>
+          <Switch>
+            <Route path={`${url}/requests`}>
+              <MentorshipRequests />
+            </Route>
+            <AuthorizationRoute path={`${url}/admin`} role={'Admin'}>
+              <Admin />
+            </AuthorizationRoute>
+            <Route path={`${url}`}>
+              <Home />
+            </Route>
+          </Switch>
+        </Main>
+      </>
       <ToastContainer />
       <GlobalStyle />
     </Container>

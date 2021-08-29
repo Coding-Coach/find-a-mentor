@@ -20,12 +20,14 @@ class Auth {
     scope: 'openid',
   });
 
-  login = (queryString, isMentorIntent) => {
+  login = (redirectTo, isMentorIntent) => {
     this.auth0.authorize({
       appState: {
         origin: isMentorIntent ? 'mentor' : 'user',
       },
-      redirectUri: queryString ? Constants.auth.CALLBACK_URL + queryString : window.location.href // QueryString is for Backend & window.location.href is for frontend/filterCards (needs to be at high level)
+      redirectUri: redirectTo
+        ? `${Constants.auth.CALLBACK_URL}?redirectTo=${redirectTo}`
+        : window.location.href,
     });
   };
 

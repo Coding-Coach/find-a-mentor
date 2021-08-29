@@ -109,7 +109,10 @@ async function fetchCurrentItem() {
   currentUser = await makeApiCall<User>(`${paths.USERS}/current`).then(
     response => {
       if (response?.success) {
-        const { _id, email, name, roles } = response.data;
+        const { _id, email, name, roles } = response.data || {};
+        if (!_id) {
+          return;
+        }
 
         Sentry.configureScope(scope => {
           scope.setUser({

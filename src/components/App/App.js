@@ -2,8 +2,7 @@ import './App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
 
-import React, { useCallback, useEffect, useState, useMemo } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useCallback, useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import classNames from 'classnames';
 import { ToastContainer } from 'react-toastify';
@@ -28,7 +27,7 @@ import {
   setPermalinkParams,
   getPermalinkParamsValues,
 } from '../../utils/permaLinkService';
-import auth from "./../../utils/auth";
+import { ActionsHandler } from './ActionsHandler';
 
 function scrollToTop() {
   const scrollDuration = 200;
@@ -194,22 +193,6 @@ const App = () => {
     filterMentors,
   ]);
 
-  let queryString = window.location.search;
-  let params = new URLSearchParams(queryString);
-
-  // If logged in by backend URL redirect to back office
-  let url = "?redirect=" + params.get("from");
-  if (queryString.includes("?from=/me")) {
-    auth.login(url);
-  }
-
-  if (queryString.includes("?redirect=")) {
-    let redirect = params.get("redirect");
-    //logged in
-    //redirect to backend
-    return <Redirect to={redirect} />
-  }
-
   return (
     <div className="app">
       <ToastContainer />
@@ -276,6 +259,12 @@ const App = () => {
   );
 };
 
+const AppWithActionHandlers = () => (
+  <ActionsHandler>
+    <App />
+  </ActionsHandler>
+);
+
 const Main = styled.main`
   display: flex;
   flex-direction: column;
@@ -288,4 +277,4 @@ const Content = styled.div`
   }
 `;
 
-export default App;
+export default AppWithActionHandlers;
