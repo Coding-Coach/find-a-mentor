@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
 import {
@@ -14,7 +14,6 @@ import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
 import Switch from '../Switch/Switch';
 import { getAvatarUrl } from '../../helpers/avatar';
 import { providers } from '../../channelProvider';
-import auth from '../../utils/auth';
 import messages from '../../messages';
 import { report, reportError } from '../../ga';
 import UserContext from '../../context/userContext/UserContext';
@@ -100,7 +99,7 @@ export default class EditProfile extends Component {
     if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
       await deleteMentor(this.state.user);
       report('Member Area', 'Delete success', 'User details');
-      auth.doLogout();
+      this.context.logout();
     }
   };
 

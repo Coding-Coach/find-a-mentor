@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Obfuscate from 'react-obfuscate';
 import { orderBy } from 'lodash';
 import './Card.css';
@@ -10,7 +10,7 @@ import { getAvatarUrl } from '../../helpers/avatar';
 import { Tooltip } from 'react-tippy';
 import messages from '../../messages';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
-import UserContext from '../../context/userContext/UserContext';
+import { useUser } from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
 import { useDeviceType } from '../../utils/useDeviceType';
@@ -39,13 +39,13 @@ const applyOnClick = () => {
 };
 
 const ApplyButton = ({ mentor }) => {
+  const { isAuthenticated } = useUser();
   const isDesktop = useDeviceType();
   const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
-  const isAuth = auth.isAuthenticated();
-  const tooltipMessage = isAuth
+  const tooltipMessage = isAuthenticated
     ? messages.CARD_APPLY_REQUEST_TOOLTIP
     : messages.CARD_APPLY_TOOLTIP;
-  const handleClick = isAuth ? openModal : applyOnClick;
+  const handleClick = isAuthenticated ? openModal : applyOnClick;
   return (
     <Tooltip
       disabled={!isDesktop}
@@ -92,7 +92,7 @@ const LikeButton = ({ onClick, liked, tooltip }) => (
 
 const Card = ({ mentor, onFavMentor, isFav }) => {
   const [, dispatch] = useFilters();
-  const { currentUser } = useContext(UserContext);
+  const { currentUser } = useUser();
   const {
     name,
     country,

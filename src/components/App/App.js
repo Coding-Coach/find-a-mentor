@@ -169,7 +169,12 @@ const App = () => {
             ...new Set([...favMentorsFromLocalStorage, ...favorites]),
           ]);
         }),
-      getMentors().then(setMentors),
+      getMentors()
+        .then(setMentors)
+        .catch(e => {
+          // eslint-disable-next-line no-console
+          console.error(e);
+        }),
     ]).then(() => {
       setIsReady(true);
     });

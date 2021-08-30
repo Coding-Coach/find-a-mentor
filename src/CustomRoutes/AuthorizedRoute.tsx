@@ -6,13 +6,13 @@ import { useUser } from '../context/userContext/UserContext';
 import { UserRole } from '../types/models';
 
 type AuthorizationRouteProps = RouteProps & {
-  role: UserRole;
+  roles?: UserRole[];
   lazy?: boolean;
   redirectAfterLogin?: boolean;
 };
 
 export const AuthorizationRoute: FC<AuthorizationRouteProps> = ({
-  role,
+  roles,
   children,
   lazy = false,
   redirectAfterLogin = false,
@@ -22,7 +22,10 @@ export const AuthorizationRoute: FC<AuthorizationRouteProps> = ({
   return (
     <RouteComponent
       render={() => (
-        <AuthorizedContent role={role} redirectAfterLogin={redirectAfterLogin}>
+        <AuthorizedContent
+          roles={roles}
+          redirectAfterLogin={redirectAfterLogin}
+        >
           {children}
         </AuthorizedContent>
       )}
@@ -31,21 +34,31 @@ export const AuthorizationRoute: FC<AuthorizationRouteProps> = ({
 };
 
 const AuthorizedContent: FC<{
-  role: UserRole;
+  roles?: UserRole[];
   redirectAfterLogin: boolean;
-}> = ({ children, role, redirectAfterLogin }) => {
+}> = ({ children, roles, redirectAfterLogin }) => {
   const { currentUser, isLoading } = useUser();
   const { pathname, search } = useLocation();
+  const redirect = () => (
+    <Redirect
+      to={`/${redirectAfterLogin ? `?from=${pathname}${search}` : ''}`}
+    />
+  );
 
   if (isLoading) {
     return <RouterLoader />;
   }
 
-  return currentUser?.roles.includes(role) ? (
-    <>{children}</>
-  ) : (
-    <Redirect
-      to={`/${redirectAfterLogin ? `?from=${pathname}${search}` : ''}`}
-    />
-  );
+  if (!currentUser) {
+    return redirect();
+  }
+
+  const authorized =
+    !roles || currentUser.roles.some(role => roles.includes(role));
+
+  if (authorized) {
+    return <>{children}</>;
+  }
+
+  return redirect();
 };

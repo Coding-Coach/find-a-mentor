@@ -14,7 +14,7 @@ import { useDeviceType } from '../../utils/useDeviceType';
 function MemberArea({ onOpenModal }) {
   const { isDesktop } = useDeviceType();
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const { currentUser, isMentor, isAdmin, isAuthenticated } = useUser();
+  const { currentUser, isMentor, isAdmin, isAuthenticated, logout } = useUser();
   const history = useHistory();
   const goToDashboard = () => history.push('/me');
   const openBecomeMentor = useCallback(
@@ -37,8 +37,8 @@ function MemberArea({ onOpenModal }) {
     });
   }, [currentUser, openBecomeMentor]);
 
-  const logout = () => {
-    auth.doLogout();
+  const onClickLogout = () => {
+    logout();
     setIsMemberMenuOpen(false);
   };
 
@@ -76,7 +76,7 @@ function MemberArea({ onOpenModal }) {
                   Become a mentor
                 </MemberMenuItem>
               )}
-              <MemberMenuItem onClick={logout}>Logout</MemberMenuItem>
+              <MemberMenuItem onClick={onClickLogout}>Logout</MemberMenuItem>
             </MemberMenu>
           )}
         </>
@@ -92,7 +92,8 @@ export default onClickOutside(MemberArea, {
   handleClickOutside: () => MemberArea.handleClickOutside,
 });
 
-const UserAvatar = styled.div`
+const UserAvatar = styled.button`
+  background: none;
   height: 50px;
   width: 50px;
   margin-right: 20px;
@@ -125,12 +126,13 @@ const MemberMenu = styled.div`
   background-color: white;
 `;
 
-const MemberMenuItem = styled.div`
+const MemberMenuItem = styled.a`
   font-size: 16px;
   padding: 15px;
   color: #4a4a4a;
   display: flex;
   justify-content: space-between;
+
   &:hover {
     background-color: #69d5b1;
     cursor: pointer;
