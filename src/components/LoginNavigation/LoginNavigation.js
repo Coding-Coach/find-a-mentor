@@ -1,5 +1,5 @@
-import React from 'react';
 import styled from 'styled-components';
+import { desktop, mobile } from '../../Me/styles/shared/devices';
 import auth from '../../utils/auth';
 
 function LoginNavigation() {
@@ -9,22 +9,28 @@ function LoginNavigation() {
 
   return (
     <LoginArea>
-      <LoginAreaItem onClick={login}>Login / Sign up</LoginAreaItem>
+      <LoginAreaItem onClick={login}>Login / Register</LoginAreaItem>
     </LoginArea>
   );
 }
 
-const LoginAreaItem = styled.div`
+const LoginAreaItem = styled.button`
+  background: none;
   font-size: 16px;
-  color: #fff;
   cursor: pointer;
+  padding: 0;
 
-  &:hover {
-    color: #54aa8d;
+  @media ${mobile} {
+    color: #fff;
+    text-align: start;
   }
 
-  @media all and (min-width: 800px) {
+  @media ${desktop} {
     color: #69d5b1;
+
+    &:hover {
+      color: #54aa8d;
+    }
   }
 `;
 
