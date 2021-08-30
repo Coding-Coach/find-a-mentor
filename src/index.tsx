@@ -39,7 +39,6 @@ Sentry.init({
                 </Route>
                 <AuthorizationRoute
                   lazy={true}
-                  role={'Mentor'}
                   path="/me"
                   redirectAfterLogin={true}
                 >

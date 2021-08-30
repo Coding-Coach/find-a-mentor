@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import { report } from '../../ga';
 import { deleteMentor } from '../../api';
-import auth from '../../utils/auth';
 import messages from '../../messages';
 import { useUser } from '../../context/userContext/UserContext';
 import { Modal } from './Modal';
@@ -99,7 +98,7 @@ const EditMentorDetails = ({
 }: EditMentorDetailsProps) => {
   const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
 
-  const { isMentor } = useUser();
+  const { isMentor, logout } = useUser();
 
   const handleInputChange = (
     fieldName: string,
@@ -326,7 +325,7 @@ const EditMentorDetails = ({
     if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
       await deleteMentor(details._id);
       report('Member Area', 'Delete success', 'User details');
-      auth.doLogout();
+      logout();
     }
   };
 

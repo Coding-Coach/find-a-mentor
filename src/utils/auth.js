@@ -123,7 +123,7 @@ class Auth {
     });
   }
 
-  logout = () => {
+  #logout = () => {
     // Remove tokens and expiry time from memory
     this.accessToken = null;
     this.idToken = null;
@@ -134,7 +134,7 @@ class Auth {
   };
 
   doLogout = () => {
-    this.logout();
+    this.#logout();
     clearCurrentUser();
     this.auth0.logout({
       returnTo: Constants.auth.CALLBACK_URL,

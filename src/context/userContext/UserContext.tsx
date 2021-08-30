@@ -10,6 +10,7 @@ type UserProviderContext = {
   currentUser?: User;
   isAuthenticated: boolean;
   updateCurrentUser(user: User): void;
+  logout(): void;
 };
 
 const UserContext = React.createContext<UserProviderContext | undefined>(
@@ -22,6 +23,11 @@ export const UserProvider: FC = ({ children }) => {
   const isAuthenticated = auth.isAuthenticated();
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');
+
+  const logout = () => {
+    updateCurrentUser(undefined);
+    auth.doLogout();
+  };
 
   useEffect(() => {
     getCurrentUser().then(user => {
@@ -38,6 +44,7 @@ export const UserProvider: FC = ({ children }) => {
         isLoading,
         currentUser,
         isAuthenticated,
+        logout,
         updateCurrentUser,
       }}
     >

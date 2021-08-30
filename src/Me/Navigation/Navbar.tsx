@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import classNames from 'classnames';
-import auth from '../../utils/auth';
 import { mobile, desktop } from '../styles/shared/devices';
 import messages from '../../messages';
 import styled from 'styled-components/macro';
@@ -33,7 +32,7 @@ const MenuItem = ({
 };
 
 const Navbar = () => {
-  const { isAdmin } = useUser();
+  const { isAdmin, logout } = useUser();
   return (
     <>
       <Menu>
@@ -47,7 +46,14 @@ const Navbar = () => {
         {isAdmin && (
           <MenuItem to="/me/admin" icon={IconMentors} label="Admin" />
         )}
-        <Logout to={(window.location.pathname.includes("/me")) ? "/" : window.location.pathname} onClick={auth.doLogout}>
+        <Logout
+          to={
+            window.location.pathname.includes('/me')
+              ? '/'
+              : window.location.pathname
+          }
+          onClick={logout}
+        >
           <IconLogout />
           <Label>{messages.LOGOUT}</Label>
         </Logout>

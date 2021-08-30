@@ -57,7 +57,7 @@ const Me = () => {
             <Route path={`${url}/requests`}>
               <MentorshipRequests />
             </Route>
-            <AuthorizationRoute path={`${url}/admin`} role={'Admin'}>
+            <AuthorizationRoute path={`${url}/admin`} roles={['Admin']}>
               <Admin />
             </AuthorizationRoute>
             <Route path={`${url}`}>
