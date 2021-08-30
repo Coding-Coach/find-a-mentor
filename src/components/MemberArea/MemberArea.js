@@ -97,6 +97,7 @@ const UserAvatar = styled.button`
   height: 50px;
   width: 50px;
   margin-right: 20px;
+  padding: 0;
   border-radius: 50%;
   border: 4px solid #69d5b1;
   cursor: pointer;

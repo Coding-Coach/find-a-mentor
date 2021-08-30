@@ -60,8 +60,7 @@ const MentorsList = props => {
         loadMore={loadMore}
         hasMore={mentorsInList.length < mentors.length}
       >
-        {mentorsList(mentorsInList)}
-        {!ready && <Loader />}
+        {ready ? mentorsList(mentorsInList) : <Loader />}
         {nothingToShow(!!mentorsInList.length)}
       </InfiniteScroll>
     </section>
