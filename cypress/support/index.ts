@@ -23,7 +23,7 @@ before(() => {
 
 // use `Cypress` instead of `cy` so this persists across all tests
 Cypress.on('window:before:load', win => {
-  /* tslint:disable-next-line */
+  // @ts-ignore:next-line
   delete win.fetch;
   win.eval(polyfill);
 });

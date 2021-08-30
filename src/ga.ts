@@ -1,4 +1,4 @@
-export function report(category, action, label) {
+export function report(category: string, action: string, label: string) {
   if (isLocal()) {
     // eslint-disable-next-line no-console
     console.log('Fake report: ');
@@ -16,7 +16,7 @@ export function reportPageView() {
   window.ga('send', 'pageview');
 }
 
-export function reportError(category, label) {
+export function reportError(category: string, label: string) {
   report(category, 'Error', label);
 }
 
