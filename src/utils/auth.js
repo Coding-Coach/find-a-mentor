@@ -1,5 +1,5 @@
 import auth0 from 'auth0-js';
-import Constants from '../config/constants';
+import { auth } from '../config/constants';
 import { clearCurrentUser, getCurrentUser } from '../api';
 import { isMentor } from '../helpers/user';
 
@@ -13,9 +13,9 @@ class Auth {
   expiresAt;
 
   auth0 = new auth0.WebAuth({
-    domain: Constants.auth.DOMAIN,
-    clientID: Constants.auth.CLIENT_ID,
-    redirectUri: Constants.auth.CALLBACK_URL,
+    domain: auth.DOMAIN,
+    clientID: auth.CLIENT_ID,
+    redirectUri: auth.CALLBACK_URL,
     responseType: 'token id_token',
     scope: 'openid',
   });
@@ -26,7 +26,7 @@ class Auth {
         origin: isMentorIntent ? 'mentor' : 'user',
       },
       redirectUri: redirectTo
-        ? `${Constants.auth.CALLBACK_URL}?redirectTo=${redirectTo}`
+        ? `${auth.CALLBACK_URL}?redirectTo=${redirectTo}`
         : window.location.href,
     });
   };
@@ -137,7 +137,7 @@ class Auth {
     this.#logout();
     clearCurrentUser();
     this.auth0.logout({
-      returnTo: Constants.auth.CALLBACK_URL,
+      returnTo: auth.CALLBACK_URL,
     });
   };
 

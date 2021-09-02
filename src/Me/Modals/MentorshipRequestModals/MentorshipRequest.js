@@ -6,6 +6,7 @@ import Textarea from '../../components/Textarea';
 import { applyForMentorship, getMyMentorshipApplication } from '../../../api';
 import ImageSrc from '../../../assets/mentorshipRequestSuccess.svg';
 import Body from './style';
+import { links } from '../../../config/constants';
 
 const FormFields = styled.div`
   display: flex;
@@ -28,8 +29,6 @@ const ExtendedFormField = styled(FormField)`
 
   & label {
     margin-top: 32px;
-    color: ${props =>
-      props.invalid ? 'var(--form-text-invalid)' : 'var(--form-text-default)'};
   }
 `;
 
@@ -55,35 +54,35 @@ const MentorshipRequest = ({ mentor }) => {
     });
   };
 
+  const commonProps = {
+    type: 'longtext',
+    required: true,
+    minLength: 30,
+    validate: value => value.length > 30,
+    helpText: 'Minimum 30 characters',
+    style: {
+      height: '121px',
+    },
+  };
+
   const model = {
     background: {
+      ...commonProps,
       label: 'My Background',
-      type: 'longtext',
       defaultValue: mentorshipRequestDetails.background,
       placeholder: 'Tell the mentor about yourself.',
-      style: {
-        height: '121px',
-      },
     },
     expectation: {
+      ...commonProps,
       label: 'My Expectations',
-      type: 'longtext',
       defaultValue: mentorshipRequestDetails.expectation,
       placeholder: 'What do you expect from this mentorship?',
-      style: {
-        height: '121px',
-      },
     },
     message: {
+      ...commonProps,
       label: 'Message',
-      type: 'longtext',
       defaultValue: mentorshipRequestDetails.message,
-      validate: value => !!value,
-      required: true,
       placeholder: 'Anything else you want to say?',
-      style: {
-        height: '121px',
-      },
     },
   };
 
@@ -104,11 +103,9 @@ const MentorshipRequest = ({ mentor }) => {
               required={config.required}
               placeholder={config.placeholder}
               value={config.defaultValue}
-              style={{
-                ...config.style,
-                borderColor: errors[fieldName] && 'var(--form-text-invalid)',
-              }}
+              style={config.style}
               invalid={errors[fieldName]}
+              minLength={config.minLength}
             />
             {errors[fieldName] && (
               <ErrorMessage>{errors[fieldName]}</ErrorMessage>
@@ -120,27 +117,19 @@ const MentorshipRequest = ({ mentor }) => {
     }
   };
 
-  // validate form details
   const validate = () => {
-    let isValid = true;
     const _errors = {};
     Object.entries(model).forEach(([field, config]) => {
       if (
         config.validate &&
         !config.validate(mentorshipRequestDetails[field])
       ) {
-        _errors[field] = `The ${config.label.toLowerCase()} is required.`;
-        isValid = false;
+        _errors[field] = `${config.label} should be longer than 30 characters`;
       }
     });
 
-    setErrors(pervState => ({
-      ...pervState,
-      ..._errors,
-      isValid,
-    }));
-
-    return isValid;
+    setErrors(_errors);
+    return Object.keys(_errors).length === 0;
   };
 
   const onSubmit = async e => {
@@ -176,6 +165,23 @@ const MentorshipRequest = ({ mentor }) => {
               formField(fieldName, field, i === 0)
             )}
           </FormFields>
+          <ul>
+            <li>
+              Please fill this form with as all the relevant details to make it
+              easier for the mentor to understand who you are, where you stand
+              and what you're looking for. Once you finish, please read it to
+              make sure you havn't miss anything.
+            </li>
+            <li>
+              <span>
+                If you haven't read out {/* eslint-disable-next-line */}
+                <a target="_blank" href={links.MENTORSHIP_GUIDELINES}>
+                  Mentorship Guidelines
+                </a>
+                , now is the a good time
+              </span>
+            </li>
+          </ul>
         </Body>
       )}
     </Modal>

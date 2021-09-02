@@ -8,7 +8,8 @@ const StyledTextarea = styled.textarea<{ invalid?: boolean }>`
   line-height: 17px;
   border-radius: 3px;
   background-color: #fff;
-  border: 1px solid #bfbfbf;
+  border: 1px solid
+    ${props => (props.invalid ? 'var(--form-text-invalid)' : '#bfbfbf')};
   padding: 7px 12px 6px 8px;
   color: #4f4f4f;
   min-height: 75px;

@@ -4,6 +4,7 @@ import { isMentor } from '../../helpers/user';
 import auth from '../../utils/auth';
 import EditProfile from '../MemberArea/EditProfile';
 import UserContext from '../../context/userContext/UserContext';
+import { links } from '../../config/constants';
 
 function Navigation({ isAuthenticated, onOpenModal }) {
   const { currentUser } = useContext(UserContext);
@@ -35,11 +36,17 @@ function Navigation({ isAuthenticated, onOpenModal }) {
     <Nav id="menu">
       <List>
         <Link href="https://codingcoach.io/">About</Link>
-        <Link href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit">
+        <Link href={links.MENTORSHIP_GUIDELINES} target="_blank">
           Mentorship Guidelines
         </Link>
         {renderBecomeAMentor()}
-        <Link href="https://calendar.google.com/calendar/u/0?cid=Y18xdmhxMWlzOTRqdHVwdHZnNTJrbzM0cW42a0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t" target="_blank">Sessions Calender</Link>
+        <Link
+          href="https://calendar.google.com/calendar/u/0?cid=Y18xdmhxMWlzOTRqdHVwdHZnNTJrbzM0cW42a0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sessions Calender
+        </Link>
       </List>
     </Nav>
   );

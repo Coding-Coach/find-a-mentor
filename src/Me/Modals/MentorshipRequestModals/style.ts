@@ -12,10 +12,28 @@ export default styled.div`
   overflow-y: auto;
 
   @media ${desktop} {
-    max-width: 285px;
+    max-width: 500px;
   }
 
   p {
     text-align: center;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+
+    li {
+      display: grid;
+      grid-template-columns: 0 1fr;
+      grid-gap: 1.75em;
+      align-items: baseline;
+
+      &:before {
+        content: '👉';
+      }
+    }
   }
 `;

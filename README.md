@@ -17,7 +17,7 @@ Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
 
-**Please read our [Mentorships Guideline](https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit?ts=5dc96ff1)**
+**Please read our [Mentorships Guideline](https://codingcoach.io/guidelines/mentorship-guidelines)**
 
 1. Go to https://mentors.codingcoach.io/
 2. Register (or Login)
@@ -33,7 +33,7 @@ If you didn't receive any response, you can apply to more mentors.
 
 ## Want to be a mentor?
 
-**Please read our [Mentorships Guideline](https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit?ts=5dc96ff1)**
+**Please read our [Mentorships Guideline](https://codingcoach.io/guidelines/mentorship-guidelines)**
 
 1. Go to https://mentors.codingcoach.io/.
 1. Register

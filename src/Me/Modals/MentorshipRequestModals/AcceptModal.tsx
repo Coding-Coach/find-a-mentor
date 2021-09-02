@@ -1,6 +1,7 @@
 import Body from './style';
 import { Modal } from '../Modal';
 import { ReactComponent as MentorshipSvg } from '../../../assets/me/mentorship.svg';
+import { links } from '../../../config/constants';
 
 type AcceptModalProps = {
   username: string;
@@ -16,9 +17,9 @@ const AcceptModal = ({ username, onClose }: AcceptModalProps) => {
           Awesome! You are now Mentoring <b>{username}!</b> Please make sure to
           follow our{' '}
           <a
-            href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit"
+            href={links.MENTORSHIP_GUIDELINES}
+            // eslint-disable-next-line react/jsx-no-target-blank
             target="_blank"
-            rel="noreferrer"
           >
             Guidelines
           </a>{' '}
