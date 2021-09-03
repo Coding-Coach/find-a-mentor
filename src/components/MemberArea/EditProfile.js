@@ -17,6 +17,7 @@ import { providers } from '../../channelProvider';
 import messages from '../../messages';
 import { report, reportError } from '../../ga';
 import UserContext from '../../context/userContext/UserContext';
+import { links } from '../../config/constants';
 
 export default class EditProfile extends Component {
   static contextType = UserContext;
@@ -352,9 +353,9 @@ export default class EditProfile extends Component {
               <label htmlFor="switch-input-read-guidelines-switch">
                 I have read the{' '}
                 <a
-                  href="https://docs.google.com/document/d/1zKCxmIh0Sd4aWLiQncICOGm6uf38S0kJ0xb0qErNFVA/edit"
+                  href={links.MENTORSHIP_GUIDELINES}
+                  // eslint-disable-next-line react/jsx-no-target-blank
                   target="_blank"
-                  rel="noreferrer"
                 >
                   Mentorship guidelines
                 </a>{' '}
