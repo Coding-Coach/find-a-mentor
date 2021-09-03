@@ -25,6 +25,7 @@ const UserProfileLoader = styled(Loader)`
 
 export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
   const [user, setUser] = useState<User>();
+  const [isLoading, setIsLoading] = useState(true);
   const location = useLocation<{ mentor: Mentor }>();
   const { id } = useParams<{ id: string }>();
 
@@ -35,10 +36,15 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
         if (userFromAPI) {
           setUser(userFromAPI);
         }
+        setIsLoading(false);
       }
     }
     fetchMentorIfNeed();
   }, [id, location.state]);
+
+  if (isLoading) {
+    return <UserProfileLoader size={2} />;
+  }
 
   return (
     <UserProfileContainer>
@@ -50,7 +56,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
           isFav={favorites.indexOf(user._id) > -1}
         />
       ) : (
-        <UserProfileLoader size={2} />
+        <p>User not found</p>
       )}
     </UserProfileContainer>
   );

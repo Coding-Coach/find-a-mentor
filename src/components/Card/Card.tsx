@@ -9,12 +9,12 @@ import auth from '../../utils/auth';
 import { getAvatarUrl } from '../../helpers/avatar';
 import { Tooltip } from 'react-tippy';
 import messages from '../../messages';
-import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useUser } from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
 import { useDeviceType } from '../../utils/useDeviceType';
 import { Channel, Country, Mentor } from '../../types/models';
+import { useFilterParams } from '../../utils/permaLinkService';
 
 type CardProps = {
   mentor: Mentor;
@@ -122,7 +122,7 @@ const Card = ({
   isFav,
   onAvatarClick = () => {},
 }: CardProps) => {
-  const [, dispatch] = useFilters();
+  const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
   const {
     name,
@@ -144,11 +144,11 @@ const Card = ({
   };
 
   const handleTagClick = (tag: string) => {
-    dispatch({ type: 'filterTag', payload: tag });
+    setFilterParams('technology', tag);
   };
 
   const handleCountryClick = (country: Country) => {
-    dispatch({ type: 'filterCountry', payload: country });
+    setFilterParams('country', country);
   };
 
   const MentorDescription = () => {
