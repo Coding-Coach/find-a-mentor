@@ -58,7 +58,7 @@ const MentorshipRequest = ({ mentor }) => {
     type: 'longtext',
     required: true,
     minLength: 30,
-    validate: value => value.length > 30,
+    validate: value => value.length >= 30,
     helpText: 'Minimum 30 characters',
     style: {
       height: '121px',
