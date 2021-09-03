@@ -2,13 +2,16 @@ import Body from './style';
 import { Modal } from '../Modal';
 import { ReactComponent as MentorshipSvg } from '../../../assets/me/mentorship.svg';
 import { links } from '../../../config/constants';
+import { report } from '../../../ga';
+
 
 type AcceptModalProps = {
   username: string;
+  email: string;
   onClose(): void;
 };
 
-const AcceptModal = ({ username, onClose }: AcceptModalProps) => {
+const AcceptModal = ({ username, email, onClose }: AcceptModalProps) => {
   return (
     <Modal center title="Mentorship Started" onClose={onClose}>
       <Body>
@@ -40,6 +43,14 @@ const AcceptModal = ({ username, onClose }: AcceptModalProps) => {
           this point they also have access to your channels so they probably
           will contact you soon.
         </div>
+        <p>
+          <a
+            onClick={() => report('send email to mentee', 'send message')}
+            href={`mailto:${email}`}
+          >
+            Have a question? Send an email to {email}
+          </a>
+        </p>
       </Body>
     </Modal>
   );
