@@ -119,6 +119,7 @@ const MentorshipReq = () => {
   const [openAcceptModal] = useModal(
     <AcceptModal
       username={selectedReq?.username}
+      menteeEmail={selectedReq?.email}
       onClose={() => setSelectedReq(null)}
     />,
     [selectedReq?.id]
