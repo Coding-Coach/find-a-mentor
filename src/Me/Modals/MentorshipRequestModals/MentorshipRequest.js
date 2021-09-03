@@ -124,7 +124,9 @@ const MentorshipRequest = ({ mentor }) => {
         config.validate &&
         !config.validate(mentorshipRequestDetails[field])
       ) {
-        _errors[field] = `${config.label} should be longer than 30 characters`;
+        _errors[
+          field
+        ] = `"${config.label}" should be longer than 30 characters`;
       }
     });
 
@@ -167,14 +169,14 @@ const MentorshipRequest = ({ mentor }) => {
           </FormFields>
           <ul>
             <li>
-              Please fill this form with as all the relevant details to make it
-              easier for the mentor to understand who you are, where you stand
-              and what you're looking for. Once you finish, please read it to
-              make sure you havn't miss anything.
+              It's important to include all the relevant details so the mentor
+              will understand who you are, where you stand and what you're
+              looking for. Once you finish, please read it to make sure you
+              havn't miss anything.
             </li>
             <li>
               <span>
-                If you haven't read out {/* eslint-disable-next-line */}
+                If you haven't read our {/* eslint-disable-next-line */}
                 <a target="_blank" href={links.MENTORSHIP_GUIDELINES}>
                   Mentorship Guidelines
                 </a>
