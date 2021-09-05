@@ -51,6 +51,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
       <Link to={`/`}>Back to mentors list</Link>
       {user ? (
         <Card
+          appearance="extended"
           mentor={user}
           onFavMentor={onFavMentor}
           isFav={favorites.indexOf(user._id) > -1}

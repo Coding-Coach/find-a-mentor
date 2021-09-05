@@ -36,6 +36,7 @@ type CheckboxConfig = BaseConfig & {
 
 type SelectBaseConfig = BaseConfig & {
   options: Option[];
+  maxItems: number;
   validate: (options: Option[]) => boolean;
 };
 
@@ -107,8 +108,8 @@ export const userFields = {
     defaultValue: '',
     maxLength: 140,
     validate: (value: string) =>
-      !value || (value.length > 3 && value.length <= 140),
-    helpText: 'Empty or 3-140 characters',
+      !value || (value.length > 3 && value.length <= 400),
+    helpText: 'Up to 400 characters',
     style: {
       width: '100%',
     },
@@ -147,13 +148,13 @@ export const userFields = {
     label: 'Skills',
     type: 'tags',
     defaultValue: [],
-    maxItems: 5,
+    maxItems: 10,
     style: {
       width: '100%',
     },
     options: tags.map(tag => ({ value: tag, label: tag })),
     validate: (options: Option[]) => !!options.length,
-    helpText: 'Up to 5',
+    helpText: 'Up to 10',
   },
   channels: {
     label: 'Channels',

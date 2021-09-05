@@ -25,6 +25,7 @@ export type User = BaseDBObject & {
   description?: string;
   spokenLanguages: string[];
   channels: Channel[];
+  createdAt: string;
 };
 export type Mentor = User & {};
 export type Application = BaseDBObject & {};

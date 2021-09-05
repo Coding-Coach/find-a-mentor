@@ -15,21 +15,23 @@ import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/Mentorshi
 import { useDeviceType } from '../../utils/useDeviceType';
 import { Channel, Country, Mentor } from '../../types/models';
 import { useFilterParams } from '../../utils/permaLinkService';
+import type { CardProps } from './Card.types';
+import StyledCard from './Card.css';
+import { languageName } from '../../helpers/languages';
+import { UnstyledList } from '../common';
 
-type CardProps = {
-  mentor: Mentor;
-  isFav: boolean;
-  onAvatarClick?(): void;
-  onFavMentor(mentor: Mentor): void;
-};
+const COMPACT_CARD_TAGS_LENGTH = 5;
 
 function handleAnalytics(channelName: string) {
   report('Channel', 'click', channelName);
 }
 
-const tagsList = (tags: string[], handleTagClick: (tag: string) => void) =>
-  tags.map((tag, index) => {
-    return (
+const tagsList = (tags: string[], handleTagClick: (tag: string) => void, showAll = false) => {
+  return <>
+  {
+    tags
+    .slice(0, showAll ? tags.length : COMPACT_CARD_TAGS_LENGTH)
+    .map((tag, index) => (
       <button
         className="tag"
         key={index}
@@ -38,8 +40,14 @@ const tagsList = (tags: string[], handleTagClick: (tag: string) => void) =>
       >
         {tag}
       </button>
-    );
-  });
+    ))
+  }
+  {
+    tags.length > COMPACT_CARD_TAGS_LENGTH && !showAll &&
+      <div className="tag">+{tags.length - COMPACT_CARD_TAGS_LENGTH}</div>
+  }
+</>
+}
 
 const applyOnClick = () => {
   handleAnalytics('apply');
@@ -121,7 +129,9 @@ const Card = ({
   onFavMentor,
   isFav,
   onAvatarClick = () => {},
+  appearance,
 }: CardProps) => {
+  const extended = appearance === 'extended';
   const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
   const {
@@ -132,6 +142,7 @@ const Card = ({
     title,
     _id: mentorID,
     available: availability,
+    createdAt,
   } = mentor;
 
   const toggleFav = () => {
@@ -153,7 +164,7 @@ const Card = ({
 
   const MentorDescription = () => {
     return description ? (
-      <p className="description">"{description}"</p>
+      <p className="description">{description}</p>
     ) : (
       <React.Fragment />
     );
@@ -161,20 +172,24 @@ const Card = ({
 
   const MentorInfo = () => {
     return (
-      <>
-        <div>
-          <h2 className="name" id={`${mentorID}`}>
-            {name}
-          </h2>
-          <h4 className="title">{title}</h4>
-          <MentorDescription />
-        </div>
-      </>
+      <div>
+        <h2 className="name" id={`${mentorID}`}>
+          {name}
+        </h2>
+        <h4 className="title">{title}</h4>
+        {extended && (
+          <>
+            <Languages />
+            <Joined />
+          </>
+        )}
+        <MentorDescription />
+      </div>
     );
   };
 
   const SkillsTags = () => {
-    return <div className="tags">{tagsList(tags, handleTagClick)}</div>;
+    return <div className="tags">{tagsList(tags, handleTagClick, extended)}</div>;
   };
 
   const MentorNotAvailable = () => {
@@ -271,13 +286,27 @@ const Card = ({
     );
   };
 
+  const Languages = () => <div>
+    I'm speaking: <UnstyledList className="languages">{
+    mentor.spokenLanguages.map(languageCode => <li key={languageCode}>{languageName(languageCode)}</li>)
+  }</UnstyledList>
+    </div>
+
+  const Joined = () => <div>
+    Joined: {new Date(createdAt).toLocaleDateString()}
+  </div>
+
   return (
-    <div className="card" aria-label="Mentor card" data-testid="mentor-card">
+    <StyledCard
+      aria-label="Mentor card"
+      data-testid="mentor-card"
+      appearance={appearance}
+    >
       <CardHeader />
       <MentorInfo />
       <SkillsTags />
       <CardFooter />
-    </div>
+    </StyledCard>
   );
 };
 

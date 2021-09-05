@@ -1,6 +1,7 @@
 import ISO6391 from 'iso-639-1';
 import { FC, useState } from 'react';
 import { toast } from 'react-toastify';
+import styled from 'styled-components';
 import countries from 'svg-country-flags/countries.json';
 import {
   clearCurrentUser,
@@ -14,6 +15,13 @@ import { Mentor } from '../../types/models';
 import Card from '../components/Card';
 import List from '../components/List';
 import EditMentorDetails from '../Modals/EditMentorDetails';
+import { desktop } from '../styles/shared/devices';
+
+const ProfileCard = styled(Card)`
+  @media ${desktop} {
+    max-width: 400px;
+  }
+`;
 
 const Profile: FC = () => {
   const { currentUser, updateCurrentUser } = useUser();
@@ -49,7 +57,7 @@ const Profile: FC = () => {
   }
 
   return (
-    <Card title="My Profile" onEdit={openModal}>
+    <ProfileCard title="My Profile" onEdit={openModal}>
       {currentUser && (
         <List>
           <List.Item type="email" value={currentUser.email} />
@@ -69,7 +77,7 @@ const Profile: FC = () => {
           <List.Item type="description" value={currentUser.description || ''} />
         </List>
       )}
-    </Card>
+    </ProfileCard>
   );
 };
 

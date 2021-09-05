@@ -1,13 +1,5 @@
 import { FC, useState } from 'react';
-import styled from 'styled-components';
-
-const Style = {
-  List: styled.ul`
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  `,
-};
+import { UnstyledList } from '../../../components/common';
 
 export const useExpendableRichItems = () => {
   const [expandId, setExpandId] = useState('');
@@ -20,7 +12,7 @@ export const useExpendableRichItems = () => {
 };
 
 export const RichList: FC = ({ children }) => {
-  return <Style.List>{children}</Style.List>;
+  return <UnstyledList>{children}</UnstyledList>;
 };
 
 export default RichList;
