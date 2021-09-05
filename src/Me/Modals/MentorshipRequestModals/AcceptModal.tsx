@@ -45,7 +45,7 @@ const AcceptModal = ({ username, email, onClose }: AcceptModalProps) => {
         </div>
         <p>
           <a
-            onClick={() => report('send email to mentee', 'send message')}
+            onClick={() => report('Member Area', 'Send Email', 'Mentorship')}
             href={`mailto:${email}`}
           >
             Have a question? Send an email to {email}
