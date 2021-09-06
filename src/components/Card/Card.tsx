@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { report } from '../../ga';
 import auth from '../../utils/auth';
 import { getAvatarUrl } from '../../helpers/avatar';
-import { Tooltip } from 'react-tippy';
+import { Tooltip, TooltipProps } from 'react-tippy';
 import messages from '../../messages';
 import { useUser } from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
@@ -26,36 +26,58 @@ function handleAnalytics(channelName: string) {
   report('Channel', 'click', channelName);
 }
 
-const tagsList = (tags: string[], handleTagClick: (tag: string) => void, showAll = false) => {
-  return <>
-  {
-    tags
-    .slice(0, showAll ? tags.length : COMPACT_CARD_TAGS_LENGTH)
-    .map((tag, index) => (
-      <button
-        className="tag"
-        key={index}
-        tabIndex={0}
-        onClick={handleTagClick.bind(null, tag)}
-      >
-        {tag}
-      </button>
-    ))
-  }
-  {
-    tags.length > COMPACT_CARD_TAGS_LENGTH && !showAll &&
-      <div className="tag">+{tags.length - COMPACT_CARD_TAGS_LENGTH}</div>
-  }
-</>
-}
+const tagsList = (
+  tags: string[],
+  handleTagClick: (tag: string) => void,
+  showAll = false
+) => {
+  return (
+    <>
+      {tags
+        .slice(0, showAll ? tags.length : COMPACT_CARD_TAGS_LENGTH)
+        .map((tag, index) => (
+          <button
+            className="tag"
+            key={index}
+            tabIndex={0}
+            onClick={handleTagClick.bind(null, tag)}
+          >
+            {tag}
+          </button>
+        ))}
+      {tags.length > COMPACT_CARD_TAGS_LENGTH && !showAll && (
+        <div className="tag">+{tags.length - COMPACT_CARD_TAGS_LENGTH}</div>
+      )}
+    </>
+  );
+};
 
 const applyOnClick = () => {
   handleAnalytics('apply');
   auth.login();
 };
 
+const CTAButton = ({
+  tooltipProps,
+  onClick,
+  text,
+}: {
+  tooltipProps: TooltipProps;
+  onClick: () => void;
+  text: string;
+}) => (
+  <Tooltip {...tooltipProps} size="big" arrow={true}>
+    <button onClick={onClick}>
+      <div className="icon">
+        <i className="fa fa-hand-o-right fa-lg" />
+      </div>
+      <p className="type">{text}</p>
+    </button>
+  </Tooltip>
+);
+
 const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
-  const isDesktop = useDeviceType();
+  const { isMobile } = useDeviceType();
   const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
   const { isAuthenticated } = useUser();
 
@@ -65,19 +87,14 @@ const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
   const handleClick = isAuthenticated ? openModal : applyOnClick;
 
   return (
-    <Tooltip
-      disabled={!isDesktop}
-      title={tooltipMessage}
-      size="big"
-      arrow={true}
-    >
-      <button onClick={handleClick}>
-        <div className="icon">
-          <i className="fa fa-hand-o-right fa-lg" />
-        </div>
-        <p className="type">Apply</p>
-      </button>
-    </Tooltip>
+    <CTAButton
+      tooltipProps={{
+        title: tooltipMessage,
+        disabled: isMobile,
+      }}
+      onClick={handleClick}
+      text="Apply"
+    />
   );
 };
 
@@ -132,6 +149,7 @@ const Card = ({
   appearance,
 }: CardProps) => {
   const extended = appearance === 'extended';
+  const { isMobile } = useDeviceType();
   const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
   const {
@@ -173,8 +191,15 @@ const Card = ({
   const MentorInfo = () => {
     return (
       <div>
-        <h2 className="name" id={`${mentorID}`}>
-          {name}
+        <h2 className="name" id={`${mentorID}`} onClick={onAvatarClick}>
+          <Tooltip
+            disabled={isMobile}
+            size="big"
+            arrow={true}
+            title={`Go to ${name}'s profile`}
+          >
+            {name}
+          </Tooltip>
         </h2>
         <h4 className="title">{title}</h4>
         {extended && (
@@ -189,7 +214,9 @@ const Card = ({
   };
 
   const SkillsTags = () => {
-    return <div className="tags">{tagsList(tags, handleTagClick, extended)}</div>;
+    return (
+      <div className="tags">{tagsList(tags, handleTagClick, extended)}</div>
+    );
   };
 
   const MentorNotAvailable = () => {
@@ -200,18 +227,33 @@ const Card = ({
     );
   };
 
+  const getChannelsContent = () => {
+    if (!availability) {
+      return <MentorNotAvailable />;
+    }
+    return (
+      <div className="channels-inner">
+        {appearance === 'extended' ? (
+          <Channels channels={mentor.channels} />
+        ) : (
+          <CTAButton
+            tooltipProps={{
+              disabled: true,
+            }}
+            onClick={onAvatarClick}
+            text="Go to profile"
+          />
+        )}
+      </div>
+    );
+  };
+
   const CardFooter = () => {
     return (
       <>
-        <div className="wave" />
         <div className="channels">
-          {availability ? (
-            <div className="channel-inner">
-              <Channels channels={mentor.channels} />
-            </div>
-          ) : (
-            <MentorNotAvailable />
-          )}
+          <div className="wave" />
+          <div className="channel-inner">{getChannelsContent()}</div>
         </div>
       </>
     );
@@ -286,15 +328,20 @@ const Card = ({
     );
   };
 
-  const Languages = () => <div>
-    I'm speaking: <UnstyledList className="languages">{
-    mentor.spokenLanguages.map(languageCode => <li key={languageCode}>{languageName(languageCode)}</li>)
-  }</UnstyledList>
+  const Languages = () => (
+    <div>
+      I'm speaking:{' '}
+      <UnstyledList className="languages">
+        {mentor.spokenLanguages.map((languageCode) => (
+          <li key={languageCode}>{languageName(languageCode)}</li>
+        ))}
+      </UnstyledList>
     </div>
+  );
 
-  const Joined = () => <div>
-    Joined: {new Date(createdAt).toLocaleDateString()}
-  </div>
+  const Joined = () => (
+    <div>Joined: {new Date(createdAt).toLocaleDateString()}</div>
+  );
 
   return (
     <StyledCard

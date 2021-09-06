@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { desktop } from '../Me/styles/shared/devices';
 
 export function useDeviceType() {
-  const [isDesktop, setIsDesktop] = useState();
-  const handleMatcher = ({ matches }) => setIsDesktop(matches);
+  const [isDesktop, setIsDesktop] = useState<boolean>();
+  const handleMatcher = ({ matches }: { matches: boolean }) => setIsDesktop(matches);
 
   useEffect(() => {
     if (typeof window !== 'object') {
@@ -15,5 +15,5 @@ export function useDeviceType() {
     matcher.addEventListener('change', handleMatcher);
   }, []);
 
-  return { isDesktop };
+  return { isDesktop, isMobile: !isDesktop };
 }

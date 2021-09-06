@@ -6,7 +6,7 @@ import './MentorList.css';
 import Card from '../Card/Card';
 import { Loader } from '../Loader';
 import { report } from '../../ga';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 const itemsInPage = 20;
 
@@ -14,7 +14,12 @@ const MentorsList = (props) => {
   const [page, setPage] = useState(1);
   const [ready, setReady] = useState(false);
   const history = useHistory();
-  const navigateToUser = (user) => history.push(`/u/${user._id}`);
+  const location = useLocation();
+  const navigateToUser = (user) =>
+    history.push({
+      pathname: `/u/${user._id}`,
+      search: location.search,
+    });
 
   useEffect(() => {
     setPage(1);

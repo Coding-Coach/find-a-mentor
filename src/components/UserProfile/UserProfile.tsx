@@ -48,7 +48,14 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
 
   return (
     <UserProfileContainer>
-      <Link to={`/`}>Back to mentors list</Link>
+      <Link
+        to={{
+          pathname: '/',
+          search: location.search,
+        }}
+      >
+        Back to mentors list
+      </Link>
       {user ? (
         <Card
           appearance="extended"
