@@ -26,7 +26,6 @@ export default styled.div<StyledCardProps>`
   flex-direction: column;
   width: var(--width);
   text-align: var(--text-align);
-  padding: 0 20px;
   border-radius: 8px;
   position: relative;
   margin-top: calc(var(--avatar-offset) + 20px);
@@ -36,6 +35,10 @@ export default styled.div<StyledCardProps>`
     0 2px 4px 0 rgba(17, 22, 26, 0.08), 0 4px 8px 0 rgba(17, 22, 26, 0.08);
   display: grid;
   grid-auto-rows: 80px minmax(140px, auto) minmax(60px, auto) 80px;
+
+  & > * {
+    padding: 0 20px
+  }
 
   .header {
     display: flex;
@@ -185,11 +188,26 @@ export default styled.div<StyledCardProps>`
   }
 
   .channels {
-    display: flex;
-    flex-direction: column;
     flex-grow: 1;
-    justify-content: flex-end;
+    display: flex;
     position: relative;
+    flex-direction: column;
+    background-color: #d0f8ef;
+    justify-content: flex-end;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    &:before {
+      top: 0;
+      left: 0;
+      content: "";
+      width: 100%;
+      height: 25px;
+      position: absolute;
+      pointer-events: none;
+      background-color: #fff;
+      border-radius: 0% 0% 50% 50%;
+    }
 
     a,
     button {
@@ -232,13 +250,8 @@ export default styled.div<StyledCardProps>`
     .channel-inner {
       display: flex;
       justify-content: space-around;
-      background-color: #d0f8ef;
       align-items: center;
       padding: 20px 10px 5px 10px;
-      margin-right: -20px;
-      margin-left: -20px;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
 
       &.mentor-unavailable {
         height: 70px;
@@ -248,16 +261,6 @@ export default styled.div<StyledCardProps>`
     .type {
       margin: 5px 0;
     }
-  }
-
-  .wave {
-    position: absolute;
-    bottom: 60px;
-    left: 0;
-    background-color: hsl(0, 0%, 100%);
-    height: 30px;
-    width: 100%;
-    border-radius: 0% 0% 50% 50%;
   }
 
   .channel-label {

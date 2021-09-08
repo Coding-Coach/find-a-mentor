@@ -232,7 +232,7 @@ const Card = ({
       return <MentorNotAvailable />;
     }
     return (
-      <div className="channels-inner">
+      <>
         {appearance === 'extended' ? (
           <Channels channels={mentor.channels} />
         ) : (
@@ -244,7 +244,7 @@ const Card = ({
             text="Go to profile"
           />
         )}
-      </div>
+      </>
     );
   };
 
@@ -252,7 +252,7 @@ const Card = ({
     return (
       <>
         <div className="channels">
-          <div className="wave" />
+          {/* <div className="wave" /> */}
           <div className="channel-inner">{getChannelsContent()}</div>
         </div>
       </>
