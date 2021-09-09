@@ -2,6 +2,11 @@ import Body from './style';
 import { Modal } from '../Modal';
 import { ReactComponent as MentorshipSvg } from '../../../assets/me/mentorship.svg';
 import { links } from '../../../config/constants';
+import styled from 'styled-components/macro';
+
+const Illustration = styled(MentorshipSvg)`
+  align-self: center;
+`;
 
 type AcceptModalProps = {
   username: string;
@@ -12,7 +17,7 @@ const AcceptModal = ({ username, onClose }: AcceptModalProps) => {
   return (
     <Modal center title="Mentorship Started" onClose={onClose}>
       <Body>
-        <MentorshipSvg />
+        <Illustration />
         <p>
           Awesome! You are now Mentoring <b>{username}!</b> Please make sure to
           follow our{' '}
