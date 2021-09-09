@@ -37,7 +37,9 @@ export async function makeApiCall<T>(
   method: RequestMethod = 'GET',
   jsonous = true
 ): Promise<OkResponse<T> | ErrorResponse | null> {
-  const url = `${process.env.REACT_APP_API_ENDPOINT}${path}`;
+  const url = `${process.env.REACT_APP_API_ENDPOINT}${path}${
+    method === 'GET' && body ? `?${new URLSearchParams(body)}` : ''
+  }`;
   const optionBody = jsonous
     ? body && JSON.stringify(body)
     : (body as FormData);
@@ -45,16 +47,16 @@ export async function makeApiCall<T>(
     Authorization: `Bearer ${auth.getIdToken()}`,
     ...(jsonous
       ? {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }
       : {}),
   };
 
   const options: RequestInit = {
     mode: 'cors',
     method,
-    body: optionBody,
+    body: method === 'GET' ? null : optionBody,
     headers: optionHeader,
   };
 
