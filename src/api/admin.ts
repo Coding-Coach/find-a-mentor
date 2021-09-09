@@ -2,7 +2,11 @@ import { makeApiCall, paths } from '.';
 import { MentorshipRequest, UserRecord } from '../types/models';
 
 export function getAllMentorshipRequests() {
-  return makeApiCall<MentorshipRequest[]>(`${paths.MENTORSHIP}/requests`);
+  const monthAgo = new Date();
+  monthAgo.setDate(monthAgo.getDate() - 30);
+  return makeApiCall<MentorshipRequest[]>(`${paths.MENTORSHIP}/requests`, {
+    from: monthAgo,
+  });
 }
 
 export async function sendStaledRequestEmail(mentorshipId: string) {
