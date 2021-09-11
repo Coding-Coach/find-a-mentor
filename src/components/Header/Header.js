@@ -9,7 +9,7 @@ import Title from '../SiteTitle';
 import Navigation from '../Navigation/Navigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import auth from '../../utils/auth';
-import { useDeviceType } from '../../utils/useDeviceType';
+import { useDeviceType } from '../../hooks/useDeviceType';
 
 function Header() {
   const [modal, setModal] = useState({

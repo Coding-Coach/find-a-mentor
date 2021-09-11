@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Obfuscate from 'react-obfuscate';
 import orderBy from 'lodash/orderBy';
 import './Card.css';
@@ -12,13 +12,15 @@ import messages from '../../messages';
 import { useUser } from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
-import { useDeviceType } from '../../utils/useDeviceType';
+import { useDeviceType } from '../../hooks/useDeviceType';
 import { Channel, Country, Mentor } from '../../types/models';
 import { useFilterParams } from '../../utils/permaLinkService';
-import type { CardProps } from './Card.types';
+import { CardProps } from './Card.types';
 import StyledCard from './Card.css';
 import { languageName } from '../../helpers/languages';
 import { UnstyledList } from '../common';
+import { Link, LinkProps } from 'react-router-dom';
+import { useNavigation } from '../../hooks/useNavigation';
 
 const COMPACT_CARD_TAGS_LENGTH = 5;
 
@@ -61,20 +63,30 @@ const CTAButton = ({
   tooltipProps,
   onClick,
   text,
+  link,
 }: {
   tooltipProps: TooltipProps;
   onClick: () => void;
   text: string;
-}) => (
-  <Tooltip {...tooltipProps} size="big" arrow={true}>
-    <button onClick={onClick}>
-      <div className="icon">
-        <i className="fa fa-hand-o-right fa-lg" />
-      </div>
-      <p className="type">{text}</p>
-    </button>
-  </Tooltip>
-);
+  link?: LinkProps['to'];
+}) => {
+  const CTAElement: FC = ({ children }) =>
+    link ? (
+      <Link to={link}>{children}</Link>
+    ) : (
+      <button onClick={onClick}>{children}</button>
+    );
+  return (
+    <Tooltip {...tooltipProps} size="big" arrow={true}>
+      <CTAElement>
+        <div className="icon">
+          <i className="fa fa-hand-o-right fa-lg" />
+        </div>
+        <p className="type">{text}</p>
+      </CTAElement>
+    </Tooltip>
+  );
+};
 
 const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
   const { isMobile } = useDeviceType();
@@ -149,9 +161,9 @@ const Card = ({
   appearance,
 }: CardProps) => {
   const extended = appearance === 'extended';
-  const { isMobile } = useDeviceType();
   const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
+  const { getUserRoute } = useNavigation();
   const {
     name,
     country,
@@ -192,14 +204,7 @@ const Card = ({
     return (
       <div>
         <h2 className="name" id={`${mentorID}`} onClick={onAvatarClick}>
-          <Tooltip
-            disabled={isMobile}
-            size="big"
-            arrow={true}
-            title={`Go to ${name}'s profile`}
-          >
-            {name}
-          </Tooltip>
+          {name}
         </h2>
         <h4 className="title">{title}</h4>
         {extended && (
@@ -240,6 +245,7 @@ const Card = ({
             tooltipProps={{
               disabled: true,
             }}
+            link={getUserRoute(mentor)}
             onClick={onAvatarClick}
             text="Go to profile"
           />

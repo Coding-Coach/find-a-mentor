@@ -113,11 +113,6 @@ export default styled.div<StyledCardProps>`
     font-size: 20px;
     margin: 0 0 5px;
     word-break: break-word;
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   .title {

@@ -6,6 +6,8 @@ import Card from '../Card/Card';
 import { Loader } from '../Loader';
 import { getUser } from '../../api';
 import { Mentor, User } from '../../types/models';
+import { Helmet } from 'react-helmet';
+import { prefix } from '../../titleGenerator';
 
 type UserProfileProps = {
   favorites: string[];
@@ -48,6 +50,11 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
 
   return (
     <UserProfileContainer>
+      <Helmet>
+        <title>
+          {prefix} | {user?.name}
+        </title>
+      </Helmet>
       <Link
         to={{
           pathname: '/',

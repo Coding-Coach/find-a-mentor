@@ -16,7 +16,7 @@ import {
   readFavMentorsFromLocalStorage,
   updateFavMentorsForUser,
 } from '../../favoriteManager';
-import { set } from '../../titleGenerator';
+import { set as setWindowTitle } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
@@ -88,7 +88,7 @@ const App = () => {
   };
 
   useEffect(
-    () => set({ tag, country, name, language }),
+    () => setWindowTitle({ tag, country, name, language }),
     [tag, country, name, language]
   );
 
@@ -123,6 +123,7 @@ const App = () => {
   }, [currentUser]);
 
   useEffect(() => {
+    setWindowTitle({});
     initialize();
   }, [initialize]);
 
