@@ -1,4 +1,4 @@
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
@@ -12,8 +12,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ModalHookProvider } from './context/modalContext/ModalContext';
 import { LazyRoute } from './CustomRoutes/LazyRoute';
 import { AuthorizationRoute } from './CustomRoutes/AuthorizedRoute';
-import { Loader } from './components/Loader';
-import styled from 'styled-components';
 
 const PageNotFound = lazy(
   () => import(/* webpackChunkName: "PageNotFound" */ './PageNotFound')
@@ -24,20 +22,6 @@ Sentry.init({
   dsn: 'https://bcc1baf038b847258b4307e6ca5777e2@sentry.io/1542584',
 });
 
-const RouterLoader = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: font;
-  z-index: 1;
-  background: #fff;
-`;
-
 (async () => {
   try {
     await auth.renewSession();
@@ -47,6 +31,9 @@ const RouterLoader = styled.div`
           <Router>
             <FiltersProvider>
               <Switch>
+                <Route path={['/', '/u/:id']} exact>
+                  <App />
+                </Route>
                 <AuthorizationRoute
                   lazy={true}
                   path="/me"
@@ -57,10 +44,6 @@ const RouterLoader = styled.div`
                 <LazyRoute path="*">
                   <PageNotFound />
                 </LazyRoute>
-                <Route path="/me" component={Me} />
-                <Route path={['/', '/u/:id']} exact>
-                  <App />
-                </Route>
               </Switch>
             </FiltersProvider>
           </Router>

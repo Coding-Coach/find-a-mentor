@@ -76,7 +76,7 @@ export const Sidebar = ({ mentors, handleModal }: SidebarProps) => {
       type: 'showFavorites',
       payload: showFavorite,
     });
-    report('Show Favorite', 'switch', showFavorite);
+    report('Show Favorite', 'switch', `${showFavorite}`);
   };
 
   return (
