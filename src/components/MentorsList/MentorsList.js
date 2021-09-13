@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
 import './MentorList.css';
@@ -10,50 +10,32 @@ import { useNavigation } from '../../hooks/useNavigation';
 
 const itemsInPage = 20;
 
-const MentorsList = (props) => {
-  const [page, setPage] = useState(1);
-  const [ready, setReady] = useState(false);
+const MentorsList = ({ onFavMentor, mentors, favorites, ready, className }) => {
   const { navigateToUser } = useNavigation();
-
-  useEffect(() => {
-    setPage(1);
-    setReady(props.ready);
-  }, [props.mentors, props.ready]);
-
-  const loadMore = () => {
-    setPage(page + 1);
-    report('Mentors', 'load more', page + 1);
-  };
 
   const onAvatarClick = (mentor) => {
     navigateToUser(mentor);
   };
 
-  const { mentors, className } = props;
-  const mentorsInList = mentors.slice(0, page * itemsInPage);
-
-  const mentorsList = () => {
-    const { favorites, onFavMentor } = props;
-
-    return mentorsInList.map((mentor, index) => (
-      <Card
-        key={`${mentor._id}-${index}`}
-        mentor={mentor}
-        onFavMentor={onFavMentor}
-        isFav={favorites.indexOf(mentor._id) > -1}
-        onAvatarClick={() => onAvatarClick(mentor)}
-      />
-    ));
-  };
-
-  const nothingToShow = (hasMentors) => {
-    return (
-      ready &&
-      !hasMentors && (
+  const getContent = () => {
+    if (!ready) {
+      return <Loader size={2} />;
+    }
+    if (!mentors.length) {
+      return (
         <div className="nothing-to-show">
           ¯\_(ツ)_/¯ Wow, we can't believe it. We have nothing for you!
         </div>
-      )
+      );
+    }
+
+    return (
+      <Cards
+        mentors={mentors}
+        favorites={favorites}
+        onAvatarClick={onAvatarClick}
+        onFavMentor={onFavMentor}
+      />
     );
   };
 
@@ -62,15 +44,42 @@ const MentorsList = (props) => {
       className={classNames(['mentors-wrapper', className])}
       data-testid="mentors-wrapper"
     >
-      <InfiniteScroll
-        className="mentors-cards"
-        loadMore={loadMore}
-        hasMore={mentorsInList.length < mentors.length}
-      >
-        {ready ? mentorsList(mentorsInList) : <Loader size={2} />}
-        {nothingToShow(!!mentorsInList.length)}
-      </InfiniteScroll>
+      {getContent()}
     </section>
+  );
+};
+
+const Cards = ({ mentors, favorites, onFavMentor, onAvatarClick }) => {
+  const [page, setPage] = useState(1);
+  const mentorsInList = mentors.slice(0, page * itemsInPage);
+
+  const mentorsList = () => {
+    return mentorsInList.map((mentor) => (
+      <Card
+        key={mentor._id}
+        mentor={mentor}
+        onFavMentor={onFavMentor}
+        isFav={favorites.indexOf(mentor._id) > -1}
+        onAvatarClick={() => onAvatarClick(mentor)}
+      />
+    ));
+  };
+
+  const loadMore = () => {
+    setPage(page + 1);
+    report('Mentors', 'load more', page + 1);
+  };
+
+  return (
+    // TODO: InfiniteScroll trigger re-render the entire app. Need to check if there is a way to avoid this or
+    // that we can implement this by ourselves
+    <InfiniteScroll
+      className="mentors-cards"
+      loadMore={loadMore}
+      hasMore={mentorsInList.length < mentors.length}
+    >
+      {mentorsList(mentorsInList)}
+    </InfiniteScroll>
   );
 };
 
