@@ -35,8 +35,8 @@ export default class EditProfile extends Component {
         errors.push(config.label);
       } else if (config.options) {
         if (user[field] instanceof Array) {
-          config.options.forEach(option => {
-            const item = user[field].find(opt => opt.type === option.value);
+          config.options.forEach((option) => {
+            const item = user[field].find((opt) => opt.type === option.value);
             if (option.validate && item && !option.validate(item.id)) {
               errors.push(`${config.label}:${option.label}`);
             }
@@ -53,11 +53,11 @@ export default class EditProfile extends Component {
     return !errors.length;
   }
 
-  onSubmit = async e => {
+  onSubmit = async (e) => {
     report('Member Area', 'Submit start', 'User details');
     const { user } = this.state;
     const { onClose } = this.props;
-    const { updateUser } = this.context;
+    const { updateCurrentUser } = this.context;
 
     e.preventDefault();
     if (!this.validate()) {
@@ -77,7 +77,7 @@ export default class EditProfile extends Component {
         );
         if (createApplicationResult.success) {
           toast.success(createApplicationResult.message);
-          updateUser(fromVMtoM(user));
+          updateCurrentUser(fromVMtoM(user));
           onClose();
           report('Member Area', 'Submit success', 'User details');
         } else {
@@ -147,7 +147,7 @@ export default class EditProfile extends Component {
                   name={fieldName}
                   disabled={config.disabled}
                   required={config.required}
-                  onChange={e => this.handleInputChangeEvent(e)}
+                  onChange={(e) => this.handleInputChangeEvent(e)}
                 />
               </div>
             </label>
@@ -191,14 +191,14 @@ export default class EditProfile extends Component {
                 }
                 menuPortalTarget={document.body}
                 styles={{
-                  menuPortal: base => ({ ...base, zIndex: 1000 }),
+                  menuPortal: (base) => ({ ...base, zIndex: 1000 }),
                 }}
               />
             </label>
           </div>
         );
       case 'keyvalue':
-        const filledChannel = user[fieldName].filter(x => x.id);
+        const filledChannel = user[fieldName].filter((x) => x.id);
         return (
           <div key={fieldName} className="form-field" style={config.style}>
             <label
@@ -214,7 +214,7 @@ export default class EditProfile extends Component {
               <div className="form-fields">
                 {config.options.map((option, indx) => {
                   const propData = user[fieldName].find(
-                    x => x.type === option.value
+                    (x) => x.type === option.value
                   );
                   const inputIcon =
                     providers[option.value].inputIcon ||
@@ -247,7 +247,7 @@ export default class EditProfile extends Component {
                           name={`${fieldName}[${option.value}]`}
                           disabled={isDisabled}
                           placeholder={option.placeholder}
-                          onChange={e =>
+                          onChange={(e) =>
                             this.handleKeyValueChange(
                               fieldName,
                               option.value,
@@ -280,11 +280,11 @@ export default class EditProfile extends Component {
     });
   };
 
-  handleInputChangeEvent = async event => {
+  handleInputChangeEvent = async (event) => {
     const fieldName = event.target.name;
     const value = event.target.value;
     if (fieldName === 'avatar') {
-      const { updateUser } = this.context;
+      const { updateCurrentUser } = this.context;
       this.setState({
         user: {
           ...this.state.user,
@@ -301,7 +301,7 @@ export default class EditProfile extends Component {
           avatar: updatedUser.avatar,
         },
       });
-      updateUser(this.state.user);
+      updateCurrentUser(this.state.user);
     } else {
       this.setState({
         user: {
@@ -314,11 +314,11 @@ export default class EditProfile extends Component {
 
   handleKeyValueChange = (fieldName, prop, value) => {
     const { user } = this.state;
-    const itemIndex = user[fieldName].findIndex(x => x.type === prop);
+    const itemIndex = user[fieldName].findIndex((x) => x.type === prop);
     const isItemExist = itemIndex > -1;
     if (isItemExist) {
       if (value) {
-        user[fieldName] = user[fieldName].map(x => {
+        user[fieldName] = user[fieldName].map((x) => {
           if (x.type === prop) x.id = value;
           return x;
         });
@@ -348,7 +348,7 @@ export default class EditProfile extends Component {
                 id="read-guidelines-switch"
                 value={agree}
                 size="small"
-                onToggle={agreed => this.setState({ agree: agreed })}
+                onToggle={(agreed) => this.setState({ agree: agreed })}
               />
               <label htmlFor="switch-input-read-guidelines-switch">
                 I have read the{' '}
