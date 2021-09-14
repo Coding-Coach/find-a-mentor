@@ -72,7 +72,9 @@ const CTAButton = ({
 }) => {
   const CTAElement: FC = ({ children }) =>
     link ? (
-      <Link to={link}>{children}</Link>
+      <Link to={link} target="_blank">
+        {children}
+      </Link>
     ) : (
       <button onClick={onClick}>{children}</button>
     );

@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
 
 import { useCallback, useEffect, useState, useMemo } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import classNames from 'classnames';
 import { ToastContainer } from 'react-toastify';
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -24,7 +24,6 @@ import { useFilterParams } from '../../utils/permaLinkService';
 import { useUser } from '../../context/userContext/UserContext';
 import { ActionsHandler } from './ActionsHandler';
 import { toast } from 'react-toastify';
-import { Sidebar } from '../Sidebar/Sidebar';
 import { UserProfile } from '../UserProfile/UserProfile';
 import { desktop, mobile } from '../../Me/styles/shared/devices';
 
@@ -148,7 +147,6 @@ const App = () => {
       <Layout>
         <Header />
         <Body>
-          <Sidebar mentors={mentors} handleModal={handleModal} />
           <Main>
             <Switch>
               <Route path="/" exact>
@@ -160,6 +158,7 @@ const App = () => {
                   favorites={favorites}
                   onFavMentor={onFavMentor}
                   ready={isReady}
+                  handleModal={handleModal}
                 />
               </Route>
               <Route path={`/u/:id`} exact>
@@ -196,13 +195,11 @@ const Main = styled.section`
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    margin-left: 276px;
     padding-bottom: 30px;
   }
 
   @media ${mobile} {
     background: #fff;
-    padding: 0 18px;
     position: relative;
     transform: translateY(0);
     transition: transform 0.3s ease;

@@ -2,9 +2,26 @@
   main {
     flex-direction: column;
   }
+
+  .mentors-wrapper {
+    padding: 0 18px;
+    background: #fff;
+    position: relative;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+  }
+
+  .mentors-wrapper.active {
+    transform: translateY(300px);
+    margin-bottom: 50px;
+  }
 }
 
 @media all and (min-width: 800px) {
+  .mentors-wrapper {
+    margin-left: 276px;
+  }
+
   .mentors-cards {
     display: flex;
     flex-wrap: wrap;

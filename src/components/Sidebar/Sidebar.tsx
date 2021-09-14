@@ -14,8 +14,9 @@ const SidebarContainer = styled.aside`
   margin-top: 20px;
 
   @media ${desktop} {
-    max-width: var(--filter-width);
+    left: 0;
     position: fixed;
+    max-width: var(--filter-width);
   }
 
   @media ${mobile} {

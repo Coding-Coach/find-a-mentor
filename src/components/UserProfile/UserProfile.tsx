@@ -19,6 +19,7 @@ const UserProfileContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 10px;
+  padding: 0 18px;
 `;
 
 const UserProfileLoader = styled(Loader)`

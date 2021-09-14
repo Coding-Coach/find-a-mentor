@@ -11,7 +11,7 @@ export const useNavigation = () => {
   const getUserRoute = (user: User) => {
     return {
       pathname: `/u/${user._id}`,
-      search: location.search,
+      // search: location.search,
     };
   };
 

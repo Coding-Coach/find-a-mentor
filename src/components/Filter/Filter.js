@@ -17,9 +17,11 @@ export default function Filter(props) {
   const { tags, countries, names, languages } = generateLists(mentors);
   const { setFilterParams } = useFilterParams();
 
-  const onFilterChange = name => ({ value }) => {
-    setFilterParams(name, value);
-  };
+  const onFilterChange =
+    (name) =>
+    ({ value }) => {
+      setFilterParams(name, value);
+    };
 
   const onTagSelect = onFilterChange('technology');
   const onCountrySelect = onFilterChange('country');
@@ -31,13 +33,15 @@ export default function Filter(props) {
   }, [filters.showFilters, dispatch]);
 
   const countryLabel = useCallback(() => {
-    const countryObject = countries.find(element => element.value === country);
+    const countryObject = countries.find(
+      (element) => element.value === country
+    );
     return (countryObject && countryObject.label) || '';
   }, [countries, country]);
 
   const languageLabel = useCallback(() => {
     const languageObject = languages.find(
-      element => element.value === language
+      (element) => element.value === language
     );
     return (languageObject && languageObject.label) || '';
   }, [languages, language]);

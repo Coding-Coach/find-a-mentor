@@ -1,12 +1,5 @@
-import React, {
-  useReducer,
-  createContext,
-  useContext,
-  useEffect,
-  FC,
-} from 'react';
+import React, { useReducer, createContext, useContext, FC } from 'react';
 import { AnyFixMe } from '../../types/global';
-import { useFilterParams } from '../../utils/permaLinkService';
 
 type FiltersContextState = AnyFixMe;
 type FiltersContextDispatch = React.Dispatch<AnyFixMe>;
@@ -29,7 +22,7 @@ const filterReducer = (state: FiltersContextState, action: AnyFixMe) => {
     case 'showFilters':
       return { ...state, showFilters: action.payload, onPopState: false };
     case 'setFilters':
-      return { ...action.payload, onPopState: false };
+      return { ...state, ...action.payload, onPopState: false };
     case 'onPopState':
       return { ...state, ...action.payload, onPopState: true };
     default:
@@ -38,15 +31,9 @@ const filterReducer = (state: FiltersContextState, action: AnyFixMe) => {
 };
 
 const FiltersProvider: FC = ({ children }) => {
-  const [state, dispatch] = useReducer(filterReducer, {});
-  const { getFilterParams } = useFilterParams();
-  useEffect(() => {
-    const initialFilters = getFilterParams();
-    dispatch({
-      type: 'setFilters',
-      payload: { ...initialFilters, showFilters: false },
-    });
-  }, [getFilterParams]);
+  const [state, dispatch] = useReducer(filterReducer, {
+    showFilters: false,
+  });
 
   return (
     <FiltersStateContext.Provider value={state}>

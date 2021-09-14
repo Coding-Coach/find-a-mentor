@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import classNames from 'classnames';
 import InfiniteScroll from 'react-infinite-scroller';
+import { Sidebar } from '../Sidebar/Sidebar';
 import './MentorList.css';
 
 import Card from '../Card/Card';
@@ -10,7 +11,14 @@ import { useNavigation } from '../../hooks/useNavigation';
 
 const itemsInPage = 20;
 
-const MentorsList = ({ onFavMentor, mentors, favorites, ready, className }) => {
+const MentorsList = ({
+  onFavMentor,
+  mentors,
+  favorites,
+  ready,
+  className,
+  handleModal,
+}) => {
   const { navigateToUser } = useNavigation();
 
   const onAvatarClick = (mentor) => {
@@ -40,12 +48,15 @@ const MentorsList = ({ onFavMentor, mentors, favorites, ready, className }) => {
   };
 
   return (
-    <section
-      className={classNames(['mentors-wrapper', className])}
-      data-testid="mentors-wrapper"
-    >
-      {getContent()}
-    </section>
+    <>
+      <Sidebar mentors={mentors} handleModal={handleModal} />
+      <section
+        className={classNames(['mentors-wrapper', className])}
+        data-testid="mentors-wrapper"
+      >
+        {getContent()}
+      </section>
+    </>
   );
 };
 
