@@ -28,12 +28,13 @@ import {
   getPermalinkParamsValues,
 } from '../../utils/permaLinkService';
 import { ActionsHandler } from './ActionsHandler';
+import { toast } from 'react-toastify';
 
 function scrollToTop() {
   const scrollDuration = 200;
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const scrollStep = -window.scrollY / (scrollDuration / 15),
-      scrollInterval = setInterval(function() {
+      scrollInterval = setInterval(function () {
         if (window.scrollY !== 0) {
           window.scrollBy(0, scrollStep);
         } else {
@@ -66,8 +67,12 @@ const App = () => {
     };
   }, [setFilters]);
 
+  useEffect(() => {
+    toast.warn(`We are experiencing technical difficulties, we are on it 🤯`);
+  }, []);
+
   const filterMentors = useCallback(
-    mentor => {
+    (mentor) => {
       const { tag, country, name, language } = filters;
       return (
         (!tag || mentor.tags.includes(tag)) &&
@@ -83,16 +88,16 @@ const App = () => {
   );
 
   const toggleFields = () => {
-    setFieldsIsActive(fieldsIsActive => !fieldsIsActive);
+    setFieldsIsActive((fieldsIsActive) => !fieldsIsActive);
   };
 
-  const toggleSwitch = async showFavorite => {
+  const toggleSwitch = async (showFavorite) => {
     await scrollToTop();
     setShowFavorites(showFavorite);
     report('Show Favorite', 'switch', showFavorite);
   };
 
-  const onFavMentor = async mentor => {
+  const onFavMentor = async (mentor) => {
     const newFavorites = toggleFavMentor(mentor, [...favorites]);
     setFavorites(newFavorites);
     report('Favorite');
@@ -143,25 +148,23 @@ const App = () => {
     onUpdateName();
   }, [name, onUpdateName]);
 
-  useEffect(() => set({ tag, country, name, language }), [
-    tag,
-    country,
-    name,
-    language,
-  ]);
+  useEffect(
+    () => set({ tag, country, name, language }),
+    [tag, country, name, language]
+  );
 
   const initialize = useCallback(async () => {
     reportPageView();
     const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
     Promise.all([
       currentUser &&
-        getFavorites().then(favorites => {
+        getFavorites().then((favorites) => {
           if (
             Array.isArray(favMentorsFromLocalStorage) &&
             favMentorsFromLocalStorage.length > 0
           ) {
             const mentors = favMentorsFromLocalStorage.filter(
-              m => !favorites.includes(m)
+              (m) => !favorites.includes(m)
             );
             if (mentors.length > 0) updateFavMentorsForUser(mentors);
           }
@@ -171,7 +174,7 @@ const App = () => {
         }),
       getMentors()
         .then(setMentors)
-        .catch(e => {
+        .catch((e) => {
           // eslint-disable-next-line no-console
           console.error(e);
         }),
@@ -193,10 +196,10 @@ const App = () => {
     report('Modal', 'open', title);
   };
 
-  const mentorsInList = useMemo(() => mentors.filter(filterMentors), [
-    mentors,
-    filterMentors,
-  ]);
+  const mentorsInList = useMemo(
+    () => mentors.filter(filterMentors),
+    [mentors, filterMentors]
+  );
 
   return (
     <div className="app">
