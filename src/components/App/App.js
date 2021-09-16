@@ -68,7 +68,18 @@ const App = () => {
   }, [setFilters]);
 
   useEffect(() => {
-    toast.warn(`We are experiencing technical difficulties, we are on it 🤯`);
+    if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
+      toast.warn(
+        <div
+          dangerouslySetInnerHTML={{
+            __html: process.env.REACT_APP_MAINTENANCE_MESSAGE,
+          }}
+        />,
+        {
+          autoClose: false,
+        }
+      );
+    }
   }, []);
 
   const filterMentors = useCallback(
