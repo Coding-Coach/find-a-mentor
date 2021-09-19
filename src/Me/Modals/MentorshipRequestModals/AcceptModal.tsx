@@ -11,11 +11,11 @@ const Illustration = styled(MentorshipSvg)`
 
 type AcceptModalProps = {
   username: string;
-  email: string;
+  menteeEmail: string;
   onClose(): void;
 };
 
-const AcceptModal = ({ username, email, onClose }: AcceptModalProps) => {
+const AcceptModal = ({ username, menteeEmail, onClose }: AcceptModalProps) => {
   return (
     <Modal center title="Mentorship Started" onClose={onClose}>
       <Body>
@@ -50,9 +50,9 @@ const AcceptModal = ({ username, email, onClose }: AcceptModalProps) => {
         <p>
           <a
             onClick={() => report('Member Area', 'Send Email', 'Mentorship')}
-            href={`mailto:${email}`}
+            href={`mailto:${menteeEmail}`}
           >
-            Have a question? Send an email to {email}
+            Have a question? Send an email to {menteeEmail}
           </a>
         </p>
       </Body>

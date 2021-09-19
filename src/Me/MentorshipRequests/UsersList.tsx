@@ -27,6 +27,7 @@ type MentorshipRequestOnResponsePayload = {
   id: string;
   status: Status;
   username: string;
+  menteeEmail: string;
 };
 
 type MentorshipRequestOnSelectPayload = {
@@ -88,6 +89,7 @@ const renderList = ({
         );
       }
       const username = user.name;
+      const menteeEmail = mentee.email;
       return (
         <li key={id}>
           <RichItem
@@ -113,13 +115,13 @@ const renderList = ({
               expectation={expectation}
               menteeEmail={mentee.email}
               onAccept={
-                onAccept ? () => onAccept({ id, status, username }) : null
+                onAccept ? () => onAccept({ id, status, username, menteeEmail }) : null
               }
               onDecline={
-                onDecline ? () => onDecline({ id, status, username }) : null
+                onDecline ? () => onDecline({ id, status, username, menteeEmail }) : null
               }
               onCancel={
-                onCancel ? () => onCancel({ id, status, username }) : null
+                onCancel ? () => onCancel({ id, status, username, menteeEmail }) : null
               }
             />
           </RichItem>
