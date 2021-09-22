@@ -20,18 +20,17 @@ import { set as setWindowTitle } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
-import { useFilterParams } from '../../utils/permaLinkService';
 import { useUser } from '../../context/userContext/UserContext';
 import { ActionsHandler } from './ActionsHandler';
 import { toast } from 'react-toastify';
 import { UserProfile } from '../UserProfile/UserProfile';
 import { desktop, mobile } from '../../Me/styles/shared/devices';
+import { Sidebar } from '../Sidebar/Sidebar';
 
 const App = () => {
-  const { getFilterParams } = useFilterParams();
   const [mentors, setMentors] = useState([]);
   const [isReady, setIsReady] = useState(false);
-  const [filters, setFilters] = useFilters();
+  const [filters] = useFilters();
   const { tag, country, name, language, showFavorites, showFilters } = filters;
   const [favorites, setFavorites] = useState([]);
   const { currentUser } = useUser();
@@ -40,13 +39,6 @@ const App = () => {
     content: null,
     onClose: null,
   });
-
-  useEffect(() => {
-    window.onpopstate = () => {
-      const urlFilters = getFilterParams();
-      setFilters({ type: 'setFilters', payload: urlFilters });
-    };
-  }, [setFilters, getFilterParams]);
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -147,6 +139,7 @@ const App = () => {
       <Layout>
         <Header />
         <Body>
+          <Sidebar mentors={mentorsInList} handleModal={handleModal} />
           <Main>
             <Switch>
               <Route path="/" exact>
@@ -192,10 +185,11 @@ const Body = styled.div`
 
 const Main = styled.section`
   @media ${desktop} {
-    display: flex;
-    justify-content: center;
     flex-grow: 1;
+    display: flex;
+    margin-left: 276px;
     padding-bottom: 30px;
+    justify-content: center;
   }
 
   @media ${mobile} {

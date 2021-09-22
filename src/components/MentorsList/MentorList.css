@@ -18,10 +18,6 @@
 }
 
 @media all and (min-width: 800px) {
-  .mentors-wrapper {
-    margin-left: 276px;
-  }
-
   .mentors-cards {
     display: flex;
     flex-wrap: wrap;

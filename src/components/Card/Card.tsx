@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import { report } from '../../ga';
 import auth from '../../utils/auth';
 import { getAvatarUrl } from '../../helpers/avatar';
-import { Tooltip, TooltipProps } from 'react-tippy';
+import { Tooltip } from 'react-tippy';
 import messages from '../../messages';
 import { useUser } from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
@@ -15,11 +15,11 @@ import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/Mentorshi
 import { useDeviceType } from '../../hooks/useDeviceType';
 import { Channel, Country, Mentor } from '../../types/models';
 import { useFilterParams } from '../../utils/permaLinkService';
-import { CardProps } from './Card.types';
+import { CardProps, CTAButtonProps } from './Card.types';
 import StyledCard from './Card.css';
 import { languageName } from '../../helpers/languages';
 import { UnstyledList } from '../common';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useNavigation } from '../../hooks/useNavigation';
 
 const COMPACT_CARD_TAGS_LENGTH = 5;
@@ -59,31 +59,19 @@ const applyOnClick = () => {
   auth.login();
 };
 
-const CTAButton = ({
-  tooltipProps,
-  onClick,
-  text,
-  link,
-}: {
-  tooltipProps: TooltipProps;
-  onClick: () => void;
-  text: string;
-  link?: LinkProps['to'];
-}) => {
+const CTAButton = ({ tooltipProps, onClick, text, link }: CTAButtonProps) => {
   const CTAElement: FC = ({ children }) =>
     link ? (
-      <Link to={link} target="_blank">
-        {children}
-      </Link>
+      <Link to={link}>{children}</Link>
     ) : (
       <button onClick={onClick}>{children}</button>
     );
   return (
     <Tooltip {...tooltipProps} size="big" arrow={true}>
       <CTAElement>
-        <div className="icon">
+        <span className="icon">
           <i className="fa fa-hand-o-right fa-lg" />
-        </div>
+        </span>
         <p className="type">{text}</p>
       </CTAElement>
     </Tooltip>
@@ -205,7 +193,7 @@ const Card = ({
   const MentorInfo = () => {
     return (
       <div>
-        <h2 className="name" id={`${mentorID}`} onClick={onAvatarClick}>
+        <h2 className="name" id={`${mentorID}`}>
           {name}
         </h2>
         <h4 className="title">{title}</h4>
@@ -238,32 +226,25 @@ const Card = ({
     if (!availability) {
       return <MentorNotAvailable />;
     }
-    return (
-      <>
-        {appearance === 'extended' ? (
-          <Channels channels={mentor.channels} />
-        ) : (
-          <CTAButton
-            tooltipProps={{
-              disabled: true,
-            }}
-            link={getUserRoute(mentor)}
-            onClick={onAvatarClick}
-            text="Go to profile"
-          />
-        )}
-      </>
+    return appearance === 'extended' ? (
+      <Channels channels={mentor.channels} />
+    ) : (
+      <CTAButton
+        tooltipProps={{
+          disabled: true,
+        }}
+        link={getUserRoute(mentor)}
+        onClick={onAvatarClick}
+        text="Go to profile"
+      />
     );
   };
 
   const CardFooter = () => {
     return (
-      <>
-        <div className="channels">
-          {/* <div className="wave" /> */}
-          <div className="channel-inner">{getChannelsContent()}</div>
-        </div>
-      </>
+      <div className="channels">
+        <div className="channel-inner">{getChannelsContent()}</div>
+      </div>
     );
   };
 

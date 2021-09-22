@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import classNames from 'classnames';
-import InfiniteScroll from 'react-infinite-scroller';
-import { Sidebar } from '../Sidebar/Sidebar';
 import './MentorList.css';
 
 import Card from '../Card/Card';
+import { Pager } from './Pager';
 import { Loader } from '../Loader';
 import { report } from '../../ga';
 import { useNavigation } from '../../hooks/useNavigation';
+import { useFilters } from '../../context/filtersContext/FiltersContext';
 
 const itemsInPage = 20;
 
@@ -48,21 +48,24 @@ const MentorsList = ({
   };
 
   return (
-    <>
-      <Sidebar mentors={mentors} handleModal={handleModal} />
-      <section
-        className={classNames(['mentors-wrapper', className])}
-        data-testid="mentors-wrapper"
-      >
-        {getContent()}
-      </section>
-    </>
+    <section
+      className={classNames(['mentors-wrapper', className])}
+      data-testid="mentors-wrapper"
+    >
+      {getContent()}
+    </section>
   );
 };
 
 const Cards = ({ mentors, favorites, onFavMentor, onAvatarClick }) => {
-  const [page, setPage] = useState(1);
-  const mentorsInList = mentors.slice(0, page * itemsInPage);
+  const [{ page }] = useFilters();
+  const to = page * itemsInPage;
+  const from = to - itemsInPage;
+  const mentorsInList = mentors.slice(from, to);
+
+  useEffect(() => {
+    report('Mentors', 'paging', page);
+  }, [page]);
 
   const mentorsList = () => {
     return mentorsInList.map((mentor) => (
@@ -76,21 +79,11 @@ const Cards = ({ mentors, favorites, onFavMentor, onAvatarClick }) => {
     ));
   };
 
-  const loadMore = () => {
-    setPage(page + 1);
-    report('Mentors', 'load more', page + 1);
-  };
-
   return (
-    // TODO: InfiniteScroll trigger re-render the entire app. Need to check if there is a way to avoid this or
-    // that we can implement this by ourselves
-    <InfiniteScroll
-      className="mentors-cards"
-      loadMore={loadMore}
-      hasMore={mentorsInList.length < mentors.length}
-    >
-      {mentorsList(mentorsInList)}
-    </InfiniteScroll>
+    <>
+      <div className="mentors-cards">{mentorsList(mentorsInList)}</div>
+      <Pager hasNext={to < mentors.length} />
+    </>
   );
 };
 

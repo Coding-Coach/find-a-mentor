@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import styled from 'styled-components';
+import { Helmet } from 'react-helmet';
+import styled from 'styled-components/macro';
+import { useLocation, useParams, Link } from 'react-router-dom';
 
 import Card from '../Card/Card';
 import { Loader } from '../Loader';
 import { getUser } from '../../api';
-import { Mentor, User } from '../../types/models';
-import { Helmet } from 'react-helmet';
 import { prefix } from '../../titleGenerator';
+import { Mentor, User } from '../../types/models';
+import { useNavigation } from '../../hooks/useNavigation';
 
 type UserProfileProps = {
   favorites: string[];
@@ -24,6 +25,7 @@ const UserProfileContainer = styled.div`
 
 const UserProfileLoader = styled(Loader)`
   font-size: 1.5rem;
+  margin-top: 15px;
 `;
 
 export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
@@ -31,6 +33,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation<{ mentor: Mentor }>();
   const { id } = useParams<{ id: string }>();
+  const { getPreviousRoute } = useNavigation();
 
   useEffect(() => {
     async function fetchMentorIfNeed() {
@@ -49,29 +52,22 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
     return <UserProfileLoader size={2} />;
   }
 
+  if (!user) {
+    return <p>User not found</p>;
+  }
+
   return (
     <UserProfileContainer>
       <Helmet>
         <title>{`${prefix}|${user?.name}`}</title>
       </Helmet>
-      <Link
-        to={{
-          pathname: '/',
-          search: location.search,
-        }}
-      >
-        Back to mentors list
-      </Link>
-      {user ? (
-        <Card
-          appearance="extended"
-          mentor={user}
-          onFavMentor={onFavMentor}
-          isFav={favorites.indexOf(user._id) > -1}
-        />
-      ) : (
-        <p>User not found</p>
-      )}
+      <Link to={getPreviousRoute()}>Back to mentors list</Link>
+      <Card
+        appearance="extended"
+        mentor={user}
+        onFavMentor={onFavMentor}
+        isFav={favorites.indexOf(user._id) > -1}
+      />
     </UserProfileContainer>
   );
 };

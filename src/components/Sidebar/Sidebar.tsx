@@ -1,4 +1,6 @@
-import styled from 'styled-components';
+import { useHistory } from 'react-router';
+import styled from 'styled-components/macro';
+
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { report } from '../../ga';
 import { scrollToTop } from '../../helpers/window';
@@ -67,12 +69,14 @@ type SidebarProps = {
 };
 
 export const Sidebar = ({ mentors, handleModal }: SidebarProps) => {
+  const history = useHistory();
   const [filters, setFilters] = useFilters();
   const openModal = (title: string, content: string) =>
     handleModal(title, content);
 
   const toggleSwitch = async (showFavorite: boolean) => {
     await scrollToTop();
+    history.replace('/');
     setFilters({
       type: 'showFavorites',
       payload: showFavorite,
