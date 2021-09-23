@@ -47,12 +47,13 @@ const AcceptModal = ({ username, menteeEmail, onClose }: AcceptModalProps) => {
           this point they also have access to your channels so they probably
           will contact you soon.
         </div>
-        <p>
+        <p id="menteeEmailLink">
+            Have a question? Send an email to{' '}
           <a
             onClick={() => report('Member Area', 'Send Email', 'Mentorship')}
             href={`mailto:${menteeEmail}`}
-          >
-            Have a question? Send an email to {menteeEmail}
+          > 
+           {menteeEmail}
           </a>
         </p>
       </Body>
