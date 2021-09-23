@@ -25,6 +25,12 @@ const RequestFooter = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  #menteeEmailLink {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -15px;
+  }
 `;
 
 const CallToAction = styled.div`
@@ -124,6 +130,14 @@ const ReqContent = ({
             </Tooltip>
           </CallToAction>
         )}
+        <p id="menteeEmailLink">
+          <a
+            onClick={() => report('mentorship request', 'send message')}
+            href={`mailto:${menteeEmail}`}
+          >
+            Send a message
+          </a>
+        </p>
       </RequestFooter>
     </div>
   );
