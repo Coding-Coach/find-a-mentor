@@ -114,6 +114,8 @@ const renderList = ({
               background={background}
               expectation={expectation}
               menteeEmail={mentee.email}
+              user={user}
+              mentee={mentee}
               onAccept={
                 onAccept ? () => onAccept({ id, status, username, menteeEmail }) : null
               }

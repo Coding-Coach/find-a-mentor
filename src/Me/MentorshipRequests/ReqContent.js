@@ -27,9 +27,7 @@ const RequestFooter = styled.div`
   justify-content: flex-end;
 
   #menteeEmailLink {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: -15px;
+    align-self: end;
   }
 `;
 
@@ -61,6 +59,8 @@ const ReqContent = ({
   onCancel,
   isLoading,
   menteeEmail,
+  user,
+  mentee
 }) => {
   const shouldShowButtons = () => {
     const requestReviewed = [
@@ -121,23 +121,23 @@ const ReqContent = ({
               arrow={true}
               position="top"
             >
-              <a
-                onClick={() => report('mentorship request', 'send message')}
-                href={`mailto:${menteeEmail}`}
-              >
-                Send a message
-              </a>
+            <a
+              onClick={() => report('mentorship request', 'send message')}
+              href={`mailto:${menteeEmail}`}
+            >
+              Send a message
+            </a>
             </Tooltip>
           </CallToAction>
         )}
-        <p id="menteeEmailLink">
+        {status === 'Approved' && user === mentee && (
           <a
-            onClick={() => report('mentorship request', 'send message')}
+            id="menteeEmailLink" onClick={() => report('mentorship request', 'send message')}
             href={`mailto:${menteeEmail}`}
           >
             Send a message
           </a>
-        </p>
+        )}
       </RequestFooter>
     </div>
   );
