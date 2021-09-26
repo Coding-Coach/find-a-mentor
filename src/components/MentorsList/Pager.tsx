@@ -1,5 +1,7 @@
 import styled from 'styled-components/macro';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
+import { scrollToTop } from '../../helpers/window';
+import { Button } from '../../Me/components/Button/Button';
 import { useFilterParams } from '../../utils/permaLinkService';
 
 type PagerProps = {
@@ -9,7 +11,10 @@ type PagerProps = {
 };
 
 const StyledPager = styled.div`
+  gap: 5px;
   display: flex;
+  margin: 20px 0 0;
+  justify-content: center;
 `;
 
 export const Pager = ({ hasNext }: PagerProps) => {
@@ -17,7 +22,8 @@ export const Pager = ({ hasNext }: PagerProps) => {
   const { setFilterParams } = useFilterParams();
   const { page } = state;
 
-  const setPage = (page: number) => {
+  const setPage = async (page: number) => {
+    await scrollToTop(500);
     setFilterParams('page', page > 1 && page);
     dispatch({
       type: 'setPage',
@@ -27,8 +33,8 @@ export const Pager = ({ hasNext }: PagerProps) => {
 
   return (
     <StyledPager>
-      {page > 1 && <button onClick={() => setPage(page - 1)}>Prev</button>}
-      {hasNext && <button onClick={() => setPage(page + 1)}>Next</button>}
+      {page > 1 && <Button onClick={() => setPage(page - 1)}>Previous</Button>}
+      {hasNext && <Button onClick={() => setPage(page + 1)}>Next</Button>}
     </StyledPager>
   );
 };

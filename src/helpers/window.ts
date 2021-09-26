@@ -1,6 +1,5 @@
-export function scrollToTop() {
-  const scrollDuration = 200;
-  return new Promise<void>(resolve => {
+export function scrollToTop(scrollDuration: number = 200) {
+  return new Promise<void>((resolve) => {
     const scrollStep = -window.scrollY / (scrollDuration / 15),
       scrollInterval = setInterval(function () {
         if (window.scrollY !== 0) {

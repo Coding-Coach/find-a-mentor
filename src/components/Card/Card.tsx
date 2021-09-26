@@ -1,26 +1,30 @@
 import React, { FC } from 'react';
 import Obfuscate from 'react-obfuscate';
 import orderBy from 'lodash/orderBy';
-import './Card.css';
-import { getChannelInfo } from '../../channelProvider';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { Tooltip } from 'react-tippy';
+
+import './Card.css';
+import StyledCard from './Card.css';
+
+import { useNavigation } from '../../hooks/useNavigation';
+import { useDeviceType } from '../../hooks/useDeviceType';
+
 import { report } from '../../ga';
 import auth from '../../utils/auth';
-import { getAvatarUrl } from '../../helpers/avatar';
-import { Tooltip } from 'react-tippy';
 import messages from '../../messages';
+import { UnstyledList } from '../common';
+import { getAvatarUrl } from '../../helpers/avatar';
+import { languageName } from '../../helpers/languages';
+import { getChannelInfo } from '../../channelProvider';
+import { CardProps, CTAButtonProps } from './Card.types';
+import { Channel, Country, Mentor } from '../../types/models';
+import { useFilterParams } from '../../utils/permaLinkService';
 import { useUser } from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
-import { useDeviceType } from '../../hooks/useDeviceType';
-import { Channel, Country, Mentor } from '../../types/models';
-import { useFilterParams } from '../../utils/permaLinkService';
-import { CardProps, CTAButtonProps } from './Card.types';
-import StyledCard from './Card.css';
-import { languageName } from '../../helpers/languages';
-import { UnstyledList } from '../common';
-import { Link } from 'react-router-dom';
-import { useNavigation } from '../../hooks/useNavigation';
+import { formatTimeAgo } from '../../helpers/time';
 
 const COMPACT_CARD_TAGS_LENGTH = 5;
 
@@ -318,9 +322,9 @@ const Card = ({
   };
 
   const Languages = () => (
-    <div>
-      I'm speaking:{' '}
-      <UnstyledList className="languages">
+    <div className="languages" title="Spoken Languages">
+      <i className="fa fa-language" />
+      <UnstyledList>
         {mentor.spokenLanguages.map((languageCode) => (
           <li key={languageCode}>{languageName(languageCode)}</li>
         ))}
@@ -329,7 +333,10 @@ const Card = ({
   );
 
   const Joined = () => (
-    <div>Joined: {new Date(createdAt).toLocaleDateString()}</div>
+    <div className="joined" title="">
+      <i className="fa fa-clock-o" />
+      <span>Joined {formatTimeAgo(new Date(createdAt))}</span>
+    </div>
   );
 
   return (

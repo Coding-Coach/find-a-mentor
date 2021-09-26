@@ -184,12 +184,13 @@ const Body = styled.div`
 `;
 
 const Main = styled.section`
+  display: flex;
+  justify-content: center;
+
   @media ${desktop} {
     flex-grow: 1;
-    display: flex;
     margin-left: 276px;
     padding-bottom: 30px;
-    justify-content: center;
   }
 
   @media ${mobile} {

@@ -15,14 +15,20 @@ type ButtonProps = Pick<
 };
 
 const StyledButton = styled.button`
-  box-sizing: border-box;
   height: 30px;
-  border-radius: 3px;
-  font-family: Lato, sans-serif;
+  cursor: pointer;
   font-size: 14px;
   line-height: 17px;
+  user-select: none;
   text-align: center;
-  cursor: pointer;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: Lato, sans-serif;
+  transition: box-shadow 0.1s ease-in-out;
+
+  &:hover {
+    box-shadow: inset 0 0 100px 0 #00000010;
+  }
 
   &:disabled {
     opacity: 0.5;

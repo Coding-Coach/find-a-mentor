@@ -9,6 +9,7 @@ import { getUser } from '../../api';
 import { prefix } from '../../titleGenerator';
 import { Mentor, User } from '../../types/models';
 import { useNavigation } from '../../hooks/useNavigation';
+import { mobile } from '../../Me/styles/shared/devices';
 
 type UserProfileProps = {
   favorites: string[];
@@ -21,6 +22,10 @@ const UserProfileContainer = styled.div`
   align-items: center;
   margin-top: 10px;
   padding: 0 18px;
+
+  @media ${mobile} {
+    width: 100%;
+  }
 `;
 
 const UserProfileLoader = styled(Loader)`

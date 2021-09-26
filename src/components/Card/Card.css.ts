@@ -4,25 +4,30 @@ import type { CardProps } from './Card.types';
 
 type StyledCardProps = Pick<CardProps, 'appearance'>;
 
-const isExtended = ({ appearance }: StyledCardProps) => appearance === 'extended';
+const isExtended = ({ appearance }: StyledCardProps) =>
+  appearance === 'extended';
 
 export default styled.div<StyledCardProps>`
   --avatar-offset: 54px;
   --avatar-dim: 108px;
 
-  ${(props) => isExtended(props) ? `
-    --text-align: left;
-    --width: 500px;
-  ` : `
-    --text-align: center;
-    --width: 280px;
-  `}
+  ${(props) =>
+    isExtended(props)
+      ? `
+          --text-align: left;
+          --width: 500px;
+        `
+      : `
+          --text-align: center;
+          --width: 280px;
+        `}
 
   @media ${mobile} {
     --width: 100%;
   }
 
   display: flex;
+  color: #4a4a4a;
   flex-direction: column;
   width: var(--width);
   text-align: var(--text-align);
@@ -37,7 +42,7 @@ export default styled.div<StyledCardProps>`
   grid-auto-rows: 80px minmax(140px, auto) minmax(60px, auto) 80px;
 
   & > * {
-    padding: 0 20px
+    padding: 0 20px;
   }
 
   .header {
@@ -109,7 +114,6 @@ export default styled.div<StyledCardProps>`
   }
 
   .name {
-    color: hsl(0, 0%, 29%);
     font-size: 20px;
     margin: 0 0 5px;
     word-break: break-word;
@@ -117,39 +121,54 @@ export default styled.div<StyledCardProps>`
 
   .title {
     word-break: break-word;
-    color: hsl(0, 0%, 29%);
     margin: 0 0 5px;
     font-weight: 400;
   }
 
-  .languages {
-    display: inline-block;
+  .languages,
+  .joined {
+    gap: 5px;
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+
+    ul {
+      display: flex;
+      gap: 2px;
+    }
+
+    li:not(:last-child):after {
+      content: ',';
+    }
   }
 
   .description {
     --margin-block: 5px;
 
-    font-style: italic;
     word-break: break-word;
     color: #16385c;
     font-weight: 600;
     margin: var(--margin-block) 2.5px;
     border-radius: 10px;
 
-    ${(props) => isExtended(props) ? `
-      --margin-block: 15px;
-      line-height: 1.3;
-      font-size: larger;
-    ` : `
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 4;
-      overflow: hidden;
+    ${(props) =>
+      isExtended(props)
+        ? `
+          --margin-block: 15px;
+          line-height: 1.3;
+          font-size: larger;
+          `
+        : `
+          font-style: italic;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 4;
+          overflow: hidden;
 
-      &:before, &:after {
-        content: "";
-      }
-    `}
+          &:before, &:after {
+            content: "";
+          }
+      `}
   }
 
   .tags {
@@ -179,7 +198,6 @@ export default styled.div<StyledCardProps>`
         cursor: pointer;
       }
     }
-
   }
 
   .channels {
@@ -195,7 +213,7 @@ export default styled.div<StyledCardProps>`
     &:before {
       top: 0;
       left: 0;
-      content: "";
+      content: '';
       width: 100%;
       height: 25px;
       position: absolute;
