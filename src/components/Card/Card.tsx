@@ -332,12 +332,13 @@ const Card = ({
     </div>
   );
 
-  const Joined = () => (
-    <div className="joined" title="">
-      <i className="fa fa-clock-o" />
-      <span>Joined {formatTimeAgo(new Date(createdAt))}</span>
-    </div>
-  );
+  const Joined = () =>
+    createdAt ? (
+      <div className="joined">
+        <i className="fa fa-clock-o" />
+        <span>Joined {formatTimeAgo(new Date(createdAt))}</span>
+      </div>
+    ) : null;
 
   return (
     <StyledCard
