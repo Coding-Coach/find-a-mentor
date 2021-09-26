@@ -151,7 +151,6 @@ const App = () => {
                   favorites={favorites}
                   onFavMentor={onFavMentor}
                   ready={isReady}
-                  handleModal={handleModal}
                 />
               </Route>
               <Route path={`/u/:id`} exact>

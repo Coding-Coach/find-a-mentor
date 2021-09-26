@@ -64,7 +64,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
   return (
     <UserProfileContainer>
       <Helmet>
-        <title>{`${prefix}|${user?.name}`}</title>
+        <title>{`${prefix} | ${user?.name}`}</title>
       </Helmet>
       <Link to={getPreviousRoute()}>Back to mentors list</Link>
       <Card

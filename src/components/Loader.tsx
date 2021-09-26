@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import styled from 'styled-components';
 
 const SrOnly = styled.span`
@@ -20,7 +21,10 @@ type LoaderProps = {
 export const Loader = ({ className, size = 1 }: LoaderProps) => {
   return (
     <i
-      className={`loader fa fa-spinner fa-spin fa-${size}x ${className}`}
+      className={classNames([
+        `loader fa fa-spinner fa-spin fa-${size}x`,
+        className,
+      ])}
       role="status"
     >
       <SrOnly data-testid="loading">Loading...</SrOnly>

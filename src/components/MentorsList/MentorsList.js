@@ -11,14 +11,7 @@ import { useFilters } from '../../context/filtersContext/FiltersContext';
 
 const itemsInPage = 20;
 
-const MentorsList = ({
-  onFavMentor,
-  mentors,
-  favorites,
-  ready,
-  className,
-  handleModal,
-}) => {
+const MentorsList = ({ onFavMentor, mentors, favorites, ready, className }) => {
   const { navigateToUser } = useNavigation();
 
   const onAvatarClick = (mentor) => {
