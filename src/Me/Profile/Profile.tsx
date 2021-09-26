@@ -1,7 +1,7 @@
 import ISO6391 from 'iso-639-1';
 import { FC, useState } from 'react';
 import { toast } from 'react-toastify';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import countries from 'svg-country-flags/countries.json';
 import {
   clearCurrentUser,
@@ -64,7 +64,7 @@ const Profile: FC = () => {
           <List.Item
             type="spokenLanguages"
             value={currentUser.spokenLanguages
-              .map(language => ISO6391.getName(language))
+              .map((language) => ISO6391.getName(language))
               .join(', ')}
           />
           <List.Item type="country" value={countries[currentUser.country]} />
