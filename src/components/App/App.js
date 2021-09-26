@@ -65,8 +65,7 @@ const App = () => {
         (!language ||
           (mentor.spokenLanguages &&
             mentor.spokenLanguages.includes(language))) &&
-        (!showFavorites || favorites.indexOf(mentor._id) > -1) &&
-        mentor.available
+        (!showFavorites || favorites.indexOf(mentor._id) > -1)
       );
     },
     [filters, favorites, showFavorites]
