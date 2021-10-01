@@ -15,6 +15,10 @@ export default styled.div`
     max-width: 500px;
   }
 
+  #menteeEmailLink {
+    text-align: left;
+  }
+
   p {
     text-align: center;
   }
