@@ -21,6 +21,12 @@ class Auth {
   });
 
   login = (redirectTo, isMentorIntent) => {
+    if (!redirectTo && window.location.pathname !== '/') {
+      redirectTo = window.location.href.split(auth.CALLBACK_URL)[1];
+      // redirect to the allowed login path
+      window.history.replaceState(null, null, '/');
+    }
+
     this.auth0.authorize({
       appState: {
         origin: isMentorIntent ? 'mentor' : 'user',
@@ -100,7 +106,7 @@ class Auth {
   }
 
   renewSession() {
-    return new Promise(async resolve => {
+    return new Promise(async (resolve) => {
       if (window.location.hash) {
         await this.handleAuthentication();
         // clean the hash
