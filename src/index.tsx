@@ -1,3 +1,4 @@
 import ReactDOM from 'react-dom';
+import { App } from './App';
 
-ReactDOM.hydrate(<div>Hello World</div>, document.getElementById('root'));
+ReactDOM.hydrate(<App />, document.getElementById('root'));
