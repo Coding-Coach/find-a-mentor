@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 import 'jest-styled-components';
 
 // https://github.com/facebook/create-react-app/issues/10126#issuecomment-735272763
-window.matchMedia = query => ({
+window.matchMedia = (query) => ({
   matches: false,
   media: query,
   onchange: null,
