@@ -1,10 +1,12 @@
-import react from 'react';
 import ReactDOMServer from 'react-dom/server.js';
-import http from 'http';
 import { readFileSync } from 'fs';
 import path from 'path';
+import express from 'express';
 
-const app = http.createServer((req, res) => {
+const app = express();
+app.use(express.static(path.resolve(__dirname, '../../public')));
+
+app.get('/', (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
   const content = ReactDOMServer.renderToString(<h1>Hello, world!</h1>);
 
