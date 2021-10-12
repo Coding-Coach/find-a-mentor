@@ -1,7 +1,7 @@
 import React from 'react';
 import ISO6391 from 'iso-639-1';
 import countries from 'svg-country-flags/countries.json';
-import tags from './tags';
+import tags from '../../utils/tags';
 
 const languages = ISO6391.getLanguages(ISO6391.getAllCodes());
 const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
