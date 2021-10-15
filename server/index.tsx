@@ -1,6 +1,7 @@
 import ReactDOMServer from 'react-dom/server.js';
 import { App } from '../src/App';
 import { readFileSync } from 'fs';
+import fetch from 'node-fetch';
 import path from 'path';
 import express from 'express';
 
@@ -15,9 +16,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/html' });
-  const content = ReactDOMServer.renderToString(<App />);
+  const todos = (await (
+    await fetch('https://jsonplaceholder.typicode.com/todos')
+  ).json()) as any[];
+  const content = ReactDOMServer.renderToString(<App ssrItems={todos} />);
 
   const page = readFileSync(path.resolve('build/index.html'), 'utf8');
   res.end(
