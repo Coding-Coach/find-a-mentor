@@ -20,6 +20,10 @@ class Auth {
     scope: 'openid',
   });
 
+  /**
+   * @param {string} [redirectTo]
+   * @param {boolean} [isMentorIntent]
+   */
   login = (redirectTo, isMentorIntent) => {
     if (!redirectTo && window.location.pathname !== '/') {
       redirectTo = window.location.href.split(auth.CALLBACK_URL)[1];
@@ -106,7 +110,7 @@ class Auth {
   }
 
   renewSession() {
-    return new Promise(async (resolve) => {
+    return new Promise(async resolve => {
       if (window.location.hash) {
         await this.handleAuthentication();
         // clean the hash

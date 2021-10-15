@@ -9,7 +9,7 @@ import { links } from '../../config/constants';
 function Navigation({ isAuthenticated, onOpenModal }) {
   const { currentUser } = useContext(UserContext);
 
-  const openProfile = (e) => {
+  const openProfile = e => {
     e.preventDefault();
     onOpenModal('Edit Your Profile', <EditProfile />);
   };
@@ -26,7 +26,10 @@ function Navigation({ isAuthenticated, onOpenModal }) {
       );
     }
     return (
-      <Link href="#" onClick={(e) => e.preventDefault() || auth.login(true)}>
+      <Link
+        href="#"
+        onClick={e => e.preventDefault() || auth.login(null, true)}
+      >
         Become a Mentor
       </Link>
     );
