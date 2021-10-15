@@ -25,6 +25,10 @@ const RequestFooter = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+
+  #menteeEmailLink {
+    align-self: end;
+  }
 `;
 
 const CallToAction = styled.div`
@@ -55,6 +59,8 @@ const ReqContent = ({
   onCancel,
   isLoading,
   menteeEmail,
+  user,
+  mentee,
 }) => {
   const shouldShowButtons = () => {
     const requestReviewed = [
@@ -123,6 +129,15 @@ const ReqContent = ({
               </a>
             </Tooltip>
           </CallToAction>
+        )}
+        {status === 'Approved' && user === mentee && (
+          <a
+            id="menteeEmailLink"
+            onClick={() => report('mentorship request', 'send message')}
+            href={`mailto:${menteeEmail}`}
+          >
+            Send a message
+          </a>
         )}
       </RequestFooter>
     </div>

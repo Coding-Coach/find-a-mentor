@@ -30,11 +30,11 @@ const MentorshipReq = () => {
     if (status !== PREV_STATUS[STATUS.viewed]) return;
     await updateReqStatus({ id, userId }, STATUS.viewed);
   };
-  const acceptReq = async ({ id, status, username }) => {
+  const acceptReq = async ({ id, status, username, menteeEmail}) => {
     if (status !== PREV_STATUS[STATUS.approved]) return;
 
     await updateReqStatus({ id, userId }, STATUS.approved);
-    setSelectedReq({ id, username });
+    setSelectedReq({ id, username, menteeEmail });
     openAcceptModal();
   };
 
@@ -119,6 +119,7 @@ const MentorshipReq = () => {
   const [openAcceptModal] = useModal(
     <AcceptModal
       username={selectedReq?.username}
+      menteeEmail={selectedReq?.menteeEmail}
       onClose={() => setSelectedReq(null)}
     />,
     [selectedReq?.id]

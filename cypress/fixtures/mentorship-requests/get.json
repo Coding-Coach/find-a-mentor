@@ -7,7 +7,8 @@
         "id": "001",
         "name": "User 001",
         "avatar": "https://avatars0.githubusercontent.com/u/219207?s=88&v=4",
-        "title": "J web dev"
+        "title": "J web dev",
+        "email": "mentee@codingcoach.io"
       },
       "status": "Approved",
       "date": 1609748339000,
@@ -22,7 +23,8 @@
         "id": "002",
         "name": "User 002",
         "avatar": "https://avatars0.githubusercontent.com/u/219207?s=88&v=4",
-        "title": "J web dev"
+        "title": "J web dev",
+        "email": "mentee@codingcoach.io"
       },
       "status": "Rejected",
       "date": 1604013539000,
@@ -37,7 +39,8 @@
         "id": "003",
         "name": "User 003",
         "avatar": "https://avatars0.githubusercontent.com/u/219207?s=88&v=4",
-        "title": "J web dev"
+        "title": "J web dev",
+        "email": "mentee@codingcoach.io"
       },
       "status": "New",
       "date": 1609283939000,

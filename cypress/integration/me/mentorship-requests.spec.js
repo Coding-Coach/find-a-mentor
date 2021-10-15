@@ -48,7 +48,7 @@ describe('Mentorship Requests', () => {
         const errorMessage =
           'Unable to find an element by: [data-testid="request-content"]';
 
-        cy.on('fail', err => {
+        cy.on('fail', (err) => {
           expect(err.message).to.contain(errorMessage);
         });
 
@@ -67,7 +67,7 @@ describe('Mentorship Requests', () => {
       it('Should only expand one item at a time', () => {
         const { message } = reqType.new;
         const errorMessage = `Unable to find an element with the text: ${message}`;
-        cy.on('fail', err => {
+        cy.on('fail', (err) => {
           expect(err.message).to.contain(errorMessage);
         });
 
@@ -81,16 +81,22 @@ describe('Mentorship Requests', () => {
         });
       });
 
-      it('Should have Message, Background and Expectation', () => {
+      it.only('Should have Message, Background, Expectation and mentee email', () => {
         cy.findAllByTestId('request-content')
           .findAllByText(/Message|Background|Expectations/)
           .should('have.length', 3);
         cy.findAllByTestId('request-content')
           .get('p')
-          .then($ps => {
+          .then(($ps) => {
             // 3 for each mentorship request + 1 no My Mentorship Requests
             expect($ps).to.have.length(10);
           });
+
+        cy.findAllByText('Send a message').should(
+          'have.attr',
+          'href',
+          'mailto:mentee@codingcoach.io'
+        );
       });
     });
   });
@@ -123,9 +129,7 @@ describe('Mentorship Requests', () => {
       }).as('updateMentorshipStatus');
       cy.visit(`/me/requests`);
 
-      cy.get('li')
-        .contains(mentorships[0].mentor.name)
-        .click();
+      cy.get('li').contains(mentorships[0].mentor.name).click();
     });
 
     it('should display cancel button', () => {
