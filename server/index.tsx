@@ -25,7 +25,12 @@ app.get('/', async (req, res) => {
 
   const page = readFileSync(path.resolve('build/index.html'), 'utf8');
   res.end(
-    page.replace('<div id="root"></div>', `<div id="root">${content}</div>`)
+    page.replace(
+      '<div id="root"></div>',
+      `
+    <script>window.ssrModel = ${JSON.stringify(todos)}</script>
+    <div id="root">${content}</div>`
+    )
   );
 });
 
