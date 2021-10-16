@@ -1,7 +1,13 @@
 import ReactDOM from 'react-dom';
-import { App } from './App';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes } from './ssr/Routes';
 
 ReactDOM.hydrate(
-  <App ssrItems={window.ssrModel} />,
-  document.getElementById('root')
+  <Router>
+    <Routes ssrData={window.ssrData} />
+  </Router>,
+  document.getElementById('root'),
+  () => {
+    delete window.ssrData;
+  }
 );
