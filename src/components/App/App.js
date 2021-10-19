@@ -3,69 +3,42 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
 
 import { useCallback, useEffect, useState, useMemo } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import classNames from 'classnames';
 import { ToastContainer } from 'react-toastify';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import MentorsList from '../MentorsList/MentorsList';
-import Filter from '../Filter/Filter';
-import SocialLinks from '../SocialLinks/SocialLinks';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
-import ModalContent from '../Modal/ModalContent';
 import {
   toggleFavMentor,
   get as getFavorites,
   readFavMentorsFromLocalStorage,
   updateFavMentorsForUser,
 } from '../../favoriteManager';
-import { set } from '../../titleGenerator';
+import { set as setWindowTitle } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
 import { getMentors } from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useUser } from '../../context/userContext/UserContext';
-import {
-  setPermalinkParams,
-  getPermalinkParamsValues,
-} from '../../utils/permaLinkService';
 import { ActionsHandler } from './ActionsHandler';
 import { toast } from 'react-toastify';
-
-function scrollToTop() {
-  const scrollDuration = 200;
-  return new Promise((resolve) => {
-    const scrollStep = -window.scrollY / (scrollDuration / 15),
-      scrollInterval = setInterval(function () {
-        if (window.scrollY !== 0) {
-          window.scrollBy(0, scrollStep);
-        } else {
-          clearInterval(scrollInterval);
-          resolve();
-        }
-      }, 15);
-  });
-}
+import { UserProfile } from '../UserProfile/UserProfile';
+import { desktop, mobile } from '../../Me/styles/shared/devices';
+import { Sidebar } from '../Sidebar/Sidebar';
 
 const App = () => {
   const [mentors, setMentors] = useState([]);
   const [isReady, setIsReady] = useState(false);
-  const [filters, setFilters] = useFilters();
-  const { tag, country, name, language, onPopState } = filters;
+  const [filters] = useFilters();
+  const { tag, country, name, language, showFavorites, showFilters } = filters;
   const [favorites, setFavorites] = useState([]);
-  const [showFavorites, setShowFavorites] = useState(false);
-  const [fieldsIsActive, setFieldsIsActive] = useState(false);
   const { currentUser } = useUser();
   const [modal, setModal] = useState({
     title: null,
     content: null,
     onClose: null,
   });
-
-  useEffect(() => {
-    window.onpopstate = () => {
-      const urlFilters = getPermalinkParamsValues();
-      setFilters({ type: 'setFilters', payload: urlFilters });
-    };
-  }, [setFilters]);
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -98,69 +71,14 @@ const App = () => {
     [filters, favorites, showFavorites]
   );
 
-  const toggleFields = () => {
-    setFieldsIsActive((fieldsIsActive) => !fieldsIsActive);
-  };
-
-  const toggleSwitch = async (showFavorite) => {
-    await scrollToTop();
-    setShowFavorites(showFavorite);
-    report('Show Favorite', 'switch', showFavorite);
-  };
-
   const onFavMentor = async (mentor) => {
     const newFavorites = toggleFavMentor(mentor, [...favorites]);
     setFavorites(newFavorites);
     report('Favorite');
   };
 
-  const onUpdateFilter = useCallback(
-    async (value, param) => {
-      if (typeof value === 'undefined') {
-        return;
-      }
-      await scrollToTop();
-      if (!onPopState) {
-        setPermalinkParams(param, value);
-        if (value) {
-          report('Filter', param, value);
-        }
-      }
-    },
-    [onPopState]
-  );
-
-  useEffect(() => {
-    onUpdateFilter(tag, 'technology');
-  }, [tag, onUpdateFilter]);
-
-  useEffect(() => {
-    onUpdateFilter(country, 'country');
-  }, [country, onUpdateFilter]);
-
-  useEffect(() => {
-    onUpdateFilter(language, 'language');
-  }, [language, onUpdateFilter]);
-
-  const onUpdateName = useCallback(async () => {
-    if (typeof name === 'undefined') {
-      return;
-    }
-    await scrollToTop();
-    if (!onPopState) {
-      setPermalinkParams('name', name);
-      if (name) {
-        report('Filter', 'name', 'name');
-      }
-    }
-  }, [name, onPopState]);
-
-  useEffect(() => {
-    onUpdateName();
-  }, [name, onUpdateName]);
-
   useEffect(
-    () => set({ tag, country, name, language }),
+    () => setWindowTitle({ tag, country, name, language }),
     [tag, country, name, language]
   );
 
@@ -195,6 +113,7 @@ const App = () => {
   }, [currentUser]);
 
   useEffect(() => {
+    setWindowTitle({});
     initialize();
   }, [initialize]);
 
@@ -216,83 +135,72 @@ const App = () => {
     <div className="app">
       <ToastContainer />
       <Modal title={modal.title}>{modal.content}</Modal>
-      <Main>
+      <Layout>
         <Header />
-        <Content>
-          <aside className="sidebar">
-            <Filter
-              onToggleFilter={toggleFields}
-              onToggleSwitch={toggleSwitch}
-              mentorCount={mentorsInList.length}
-              mentors={mentorsInList}
-              showFavorite={showFavorites}
-            />
-            <SocialLinks />
-            <nav className="sidebar-nav">
-              <ModalContent
-                policyTitle={'Cookies policy'}
-                content={'cookies-policy'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-              <ModalContent
-                policyTitle={'Code of Conduct'}
-                content={'code-conduct'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-              <ModalContent
-                policyTitle={'Terms & Conditions'}
-                content={'terms-conditions'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-              <ModalContent
-                policyTitle={'Privacy Statement'}
-                content={'privacy-policy'}
-                handleModal={(title, content) => handleModal(title, content)}
-              />
-            </nav>
-            <a
-              href="https://www.patreon.com/codingcoach_io"
-              className="patreon-link"
-              aria-label="Become a Patreon. A Patreon is a person who helps economically a project he or she believes in."
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <img
-                src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
-                alt="Become a Patron"
-              />
-            </a>
-          </aside>
-          <MentorsList
-            className={classNames({
-              active: fieldsIsActive,
-            })}
-            mentors={mentorsInList}
-            favorites={favorites}
-            onFavMentor={onFavMentor}
-            ready={isReady}
-          />
-        </Content>
-      </Main>
+        <Body>
+          <Sidebar mentors={mentorsInList} handleModal={handleModal} />
+          <Main>
+            <Switch>
+              <Route path="/" exact>
+                <MentorsList
+                  className={classNames({
+                    active: showFilters,
+                  })}
+                  mentors={mentorsInList}
+                  favorites={favorites}
+                  onFavMentor={onFavMentor}
+                  ready={isReady}
+                />
+              </Route>
+              <Route path={`/u/:id`} exact>
+                <UserProfile favorites={favorites} onFavMentor={onFavMentor} />
+              </Route>
+            </Switch>
+          </Main>
+        </Body>
+      </Layout>
     </div>
   );
 };
 
-const AppWithActionHandlers = () => (
+const AppWithActionHandlers = withRouter(() => (
   <ActionsHandler>
     <App />
   </ActionsHandler>
-);
+));
 
-const Main = styled.main`
+const Layout = styled.main`
   display: flex;
   flex-direction: column;
 `;
 
-const Content = styled.div`
+const Body = styled.div`
   display: flex;
   @media all and (max-width: 800px) {
     flex-direction: column;
+  }
+`;
+
+const Main = styled.section`
+  display: flex;
+  justify-content: center;
+
+  @media ${desktop} {
+    flex-grow: 1;
+    margin-left: 276px;
+    padding-bottom: 30px;
+  }
+
+  @media ${mobile} {
+    background: #fff;
+    position: relative;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+
+    &.active {
+      transform: translateY(300px);
+      margin-bottom: 50px;
+    }
   }
 `;
 

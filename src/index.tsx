@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
 import auth from './utils/auth';
-import { getCurrentUser } from './api';
 import './index.css';
 import { reportError } from './ga';
 import * as Sentry from '@sentry/browser';
@@ -14,8 +13,8 @@ import { ModalHookProvider } from './context/modalContext/ModalContext';
 import { LazyRoute } from './CustomRoutes/LazyRoute';
 import { AuthorizationRoute } from './CustomRoutes/AuthorizedRoute';
 
-const PageNotFound = lazy(() =>
-  import(/* webpackChunkName: "PageNotFound" */ './PageNotFound')
+const PageNotFound = lazy(
+  () => import(/* webpackChunkName: "PageNotFound" */ './PageNotFound')
 );
 const Me = lazy(() => import(/* webpackChunkName: "Me" */ './Me/Me'));
 
@@ -26,15 +25,13 @@ Sentry.init({
 (async () => {
   try {
     await auth.renewSession();
-    // prepare user - don't wait for it
-    getCurrentUser();
     ReactDOM.render(
       <UserProvider>
-        <FiltersProvider>
-          <ModalHookProvider>
-            <Router>
+        <ModalHookProvider>
+          <Router>
+            <FiltersProvider>
               <Switch>
-                <Route exact path="/">
+                <Route path={['/', '/u/:id']} exact>
                   <App />
                 </Route>
                 <AuthorizationRoute
@@ -48,14 +45,14 @@ Sentry.init({
                   <PageNotFound />
                 </LazyRoute>
               </Switch>
-            </Router>
-          </ModalHookProvider>
-        </FiltersProvider>
+            </FiltersProvider>
+          </Router>
+        </ModalHookProvider>
       </UserProvider>,
       document.getElementById('root')
     );
   } catch (error) {
-    reportError('Init', error);
+    reportError('Init', `${error}`);
   }
 })();
 

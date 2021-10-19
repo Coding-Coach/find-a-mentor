@@ -1,52 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import classNames from 'classnames';
-import InfiniteScroll from 'react-infinite-scroller';
-import Card from '../Card/Card';
-
 import './MentorList.css';
+
+import Card from '../Card/Card';
+import { Pager } from './Pager';
 import { Loader } from '../Loader';
 import { report } from '../../ga';
+import { useNavigation } from '../../hooks/useNavigation';
+import { useFilters } from '../../context/filtersContext/FiltersContext';
 
 const itemsInPage = 20;
 
-const MentorsList = props => {
-  const [page, setPage] = useState(1);
-  const [ready, setReady] = useState(false);
+const MentorsList = ({ onFavMentor, mentors, favorites, ready, className }) => {
+  const { navigateToUser } = useNavigation();
 
-  useEffect(() => {
-    setPage(1);
-    setReady(props.ready);
-  }, [props.mentors, props.ready]);
-
-  const loadMore = () => {
-    setPage(page + 1);
-    report('Mentors', 'load more', page + 1);
+  const onAvatarClick = (mentor) => {
+    navigateToUser(mentor);
   };
 
-  const { mentors, className } = props;
-  const mentorsInList = mentors.slice(0, page * itemsInPage);
-
-  const mentorsList = () => {
-    const { favorites, onFavMentor } = props;
-
-    return mentorsInList.map((mentor, index) => (
-      <Card
-        key={`${mentor._id}-${index}`}
-        mentor={mentor}
-        onFavMentor={onFavMentor}
-        isFav={favorites.indexOf(mentor._id) > -1}
-      />
-    ));
-  };
-
-  const nothingToShow = hasMentors => {
-    return (
-      ready &&
-      !hasMentors && (
+  const getContent = () => {
+    if (!ready) {
+      return <Loader size={2} />;
+    }
+    if (!mentors.length) {
+      return (
         <div className="nothing-to-show">
           ¯\_(ツ)_/¯ Wow, we can't believe it. We have nothing for you!
         </div>
-      )
+      );
+    }
+
+    return (
+      <Cards
+        mentors={mentors}
+        favorites={favorites}
+        onAvatarClick={onAvatarClick}
+        onFavMentor={onFavMentor}
+      />
     );
   };
 
@@ -55,15 +45,38 @@ const MentorsList = props => {
       className={classNames(['mentors-wrapper', className])}
       data-testid="mentors-wrapper"
     >
-      <InfiniteScroll
-        className="mentors-cards"
-        loadMore={loadMore}
-        hasMore={mentorsInList.length < mentors.length}
-      >
-        {ready ? mentorsList(mentorsInList) : <Loader />}
-        {nothingToShow(!!mentorsInList.length)}
-      </InfiniteScroll>
+      {getContent()}
     </section>
+  );
+};
+
+const Cards = ({ mentors, favorites, onFavMentor, onAvatarClick }) => {
+  const [{ page }] = useFilters();
+  const to = page * itemsInPage;
+  const from = to - itemsInPage;
+  const mentorsInList = mentors.slice(from, to);
+
+  useEffect(() => {
+    report('Mentors', 'paging', page);
+  }, [page]);
+
+  const mentorsList = () => {
+    return mentorsInList.map((mentor) => (
+      <Card
+        key={mentor._id}
+        mentor={mentor}
+        onFavMentor={onFavMentor}
+        isFav={favorites.indexOf(mentor._id) > -1}
+        onAvatarClick={() => onAvatarClick(mentor)}
+      />
+    ));
+  };
+
+  return (
+    <>
+      <div className="mentors-cards">{mentorsList(mentorsInList)}</div>
+      <Pager hasNext={to < mentors.length} />
+    </>
   );
 };
 

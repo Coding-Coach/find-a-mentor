@@ -4,8 +4,8 @@
   }
 
   .mentors-wrapper {
-    background: #fff;
     padding: 0 18px;
+    background: #fff;
     position: relative;
     transform: translateY(0);
     transition: transform 0.3s ease;
@@ -18,12 +18,6 @@
 }
 
 @media all and (min-width: 800px) {
-  .mentors-wrapper {
-    flex-grow: 1;
-    margin-left: 276px;
-    padding-bottom: 30px;
-  }
-
   .mentors-cards {
     display: flex;
     flex-wrap: wrap;
@@ -31,8 +25,8 @@
   }
 }
 
-.mentors-cards .loader {
-  font-size: 2em;
+.mentors-wrapper .loader {
+  font-size: 1.5rem;
   margin-top: 15px;
 }
 

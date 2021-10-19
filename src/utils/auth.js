@@ -20,7 +20,17 @@ class Auth {
     scope: 'openid',
   });
 
+  /**
+   * @param {string} [redirectTo]
+   * @param {boolean} [isMentorIntent]
+   */
   login = (redirectTo, isMentorIntent) => {
+    if (!redirectTo && window.location.pathname !== '/') {
+      redirectTo = window.location.href.split(auth.CALLBACK_URL)[1];
+      // redirect to the allowed login path
+      window.history.replaceState(null, null, '/');
+    }
+
     this.auth0.authorize({
       appState: {
         origin: isMentorIntent ? 'mentor' : 'user',

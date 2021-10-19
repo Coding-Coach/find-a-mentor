@@ -26,7 +26,10 @@ function Navigation({ isAuthenticated, onOpenModal }) {
       );
     }
     return (
-      <Link href="#" onClick={e => e.preventDefault() || auth.login(true)}>
+      <Link
+        href="#"
+        onClick={e => e.preventDefault() || auth.login(null, true)}
+      >
         Become a Mentor
       </Link>
     );

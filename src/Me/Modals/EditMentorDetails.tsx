@@ -197,7 +197,7 @@ const EditMentorDetails = ({
               name={fieldName as string}
               isMulti={config.type === 'tags'}
               options={config.options}
-              maxSelections={5}
+              maxSelections={config.maxItems}
               value={mentorDetails[fieldName] as SelectProps['value']}
               onChange={(selected, data) => {
                 handleInputChange(data.name, selected);

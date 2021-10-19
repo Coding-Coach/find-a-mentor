@@ -14,12 +14,8 @@ import type {
   User,
   UserRecord,
 } from '../../types/models';
-import {
-  daysAgo,
-  formatRequestTime,
-  STATUS,
-  Status,
-} from '../../helpers/mentorship';
+import { STATUS, Status } from '../../helpers/mentorship';
+import { daysAgo, formatTimeAgo } from '../../helpers/time';
 import Button from '../components/Button';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
@@ -86,7 +82,7 @@ const UserDetails = ({
       <div>{user!.name}</div>
       {dontActiveSent ? (
         <>
-          <div>Sent {formatRequestTime(dontActiveSent.createdAt)}</div>
+          <div>Sent {formatTimeAgo(dontActiveSent.createdAt)}</div>
           <Button
             onClick={async () => {
               if (
@@ -115,23 +111,17 @@ const UserDetails = ({
           Send Not Active mail
         </Button>
       )}
-      {
-        user?.channels.map(channel => {
-          const { url, icon } = getChannelInfo(channel);
-          return (
-            <div>
-              <a
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className={`fa fa-${icon}`} />
-                {channel.id}
-              </a>
-            </div>
-          );
-        })
-      }
+      {user?.channels.map((channel) => {
+        const { url, icon } = getChannelInfo(channel);
+        return (
+          <div>
+            <a href={url} target="_blank" rel="noopener noreferrer">
+              <i className={`fa fa-${icon}`} />
+              {channel.id}
+            </a>
+          </div>
+        );
+      })}
     </Card>
   ) : (
     <></>
@@ -165,7 +155,7 @@ const Admin = () => {
   }, [mentorshipRequests, name, sentOnly, showDaysAgo]);
 
   useEffect(() => {
-    getAllMentorshipRequests().then(response => {
+    getAllMentorshipRequests().then((response) => {
       if (response?.success) {
         setMentorshipRequests(
           response.data.filter(({ mentor, mentee }) => !!mentor && !!mentee)
@@ -183,7 +173,7 @@ const Admin = () => {
       setMentorshipLoading(mentorshipId);
       await sendStaledRequestEmail(mentorshipId);
       setMentorshipRequests(
-        mentorshipRequests.map(mentorship => {
+        mentorshipRequests.map((mentorship) => {
           if (mentorship.id === mentorshipId) {
             return {
               ...mentorship,
@@ -201,7 +191,7 @@ const Admin = () => {
 
   const columns = useMemo(
     () =>
-      ['Mentor', 'Mentee', 'Status', 'Created', 'Sent'].map(column => (
+      ['Mentor', 'Mentee', 'Status', 'Created', 'Sent'].map((column) => (
         <td key={column}>{column}</td>
       )),
     []
@@ -212,7 +202,7 @@ const Admin = () => {
       filteredMentorshipRequests.map(
         ({ mentor, mentee, status, date, id, reminderSentAt }) => {
           return (
-            <tr style={{opacity: mentor.available ? 1 : 0.5}} key={id}>
+            <tr style={{ opacity: mentor.available ? 1 : 0.5 }} key={id}>
               <td>
                 <span onClick={() => setUser(mentor)}>{mentor.name}</span>
                 <a
@@ -237,11 +227,9 @@ const Admin = () => {
                 </Mentee>
               </td>
               <td>{status}</td>
-              <td>{formatRequestTime(new Date(date))}</td>
+              <td>{formatTimeAgo(new Date(date))}</td>
               <td>
-                {reminderSentAt
-                  ? formatRequestTime(new Date(reminderSentAt))
-                  : 0}
+                {reminderSentAt ? formatTimeAgo(new Date(reminderSentAt)) : 0}
               </td>
               <td>
                 {pending(status) && (
@@ -286,14 +274,14 @@ const Admin = () => {
             <Input
               type="number"
               value={showDaysAgo}
-              onChange={e => setShowDaysAgo(e.target.valueAsNumber || 0)}
+              onChange={(e) => setShowDaysAgo(e.target.valueAsNumber || 0)}
             />
           </FormField>
           <FormField label="User">
             <Input
               type="search"
               value={name}
-              onChange={e => setName(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
             />
           </FormField>
         </Filters>

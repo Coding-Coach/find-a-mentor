@@ -9,7 +9,7 @@ import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
 import { GlobalStyle } from '../../Me/styles/global';
-import { useDeviceType } from '../../utils/useDeviceType';
+import { useDeviceType } from '../../hooks/useDeviceType';
 
 function MemberArea({ onOpenModal }) {
   const { isDesktop } = useDeviceType();

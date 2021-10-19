@@ -61,7 +61,7 @@ export async function makeApiCall<T>(
   };
 
   try {
-    const data = await fetch(url, options).catch(error => {
+    const data = await fetch(url, options).catch((error) => {
       return new Error(error);
     });
 
@@ -109,14 +109,14 @@ function storeUserInLocalStorage(user: User = currentUser!) {
 
 async function fetchCurrentItem() {
   currentUser = await makeApiCall<User>(`${paths.USERS}/current`).then(
-    response => {
+    (response) => {
       if (response?.success) {
         const { _id, email, name, roles } = response.data || {};
         if (!_id) {
           return;
         }
 
-        Sentry.configureScope(scope => {
+        Sentry.configureScope((scope) => {
           scope.setUser({
             email,
             id: _id,
@@ -161,11 +161,11 @@ let mentorsPromise: Promise<Mentor[]>;
 export async function getMentors() {
   if (!mentorsPromise) {
     mentorsPromise = makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300`).then(
-      response => {
+      (response) => {
         if (response?.success) {
           const [available, unavailable] = partition(
             response.data || [],
-            mentor => mentor.available
+            (mentor) => mentor.available
           );
           return [...shuffle(available), ...unavailable];
         } else {
@@ -183,7 +183,7 @@ export async function getFavorites() {
     `${paths.USERS}/${userId}/favorites`
   );
   if (response?.success) {
-    return response.data.mentors.map(mentor => mentor._id);
+    return response.data.mentors.map((mentor) => mentor._id);
   }
   return [];
 }
@@ -366,7 +366,7 @@ export async function updateMentorshipReqStatus(
 export async function getUser(userId: string) {
   if (mentorsPromise !== undefined) {
     const mentors = await mentorsPromise;
-    const mentor = mentors.find(mentor => mentor._id === userId);
+    const mentor = mentors.find((mentor) => mentor._id === userId);
     if (mentor) {
       return mentor;
     }
