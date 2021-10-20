@@ -7,6 +7,8 @@ declare global {
     interface Chainable {
       login(): Chainable<Element>;
       getByTestId(testId: string): Chainable<Element>;
+      getByText(text: string): Chainable<Element>;
+      getAllByText(text: string): Chainable<Element>;
     }
   }
 }
