@@ -4,7 +4,6 @@ import 'react-tippy/dist/tippy.css';
 
 import { useCallback, useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components/macro';
-import classNames from 'classnames';
 import { ToastContainer } from 'react-toastify';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import MentorsList from '../MentorsList/MentorsList';
@@ -56,7 +55,7 @@ const App = () => {
   }, []);
 
   const filterMentors = useCallback(
-    (mentor) => {
+    mentor => {
       const { tag, country, name, language } = filters;
       return (
         (!tag || mentor.tags.includes(tag)) &&
@@ -71,29 +70,31 @@ const App = () => {
     [filters, favorites, showFavorites]
   );
 
-  const onFavMentor = async (mentor) => {
+  const onFavMentor = async mentor => {
     const newFavorites = toggleFavMentor(mentor, [...favorites]);
     setFavorites(newFavorites);
     report('Favorite');
   };
 
-  useEffect(
-    () => setWindowTitle({ tag, country, name, language }),
-    [tag, country, name, language]
-  );
+  useEffect(() => setWindowTitle({ tag, country, name, language }), [
+    tag,
+    country,
+    name,
+    language,
+  ]);
 
   const initialize = useCallback(async () => {
     reportPageView();
     const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
     Promise.all([
       currentUser &&
-        getFavorites().then((favorites) => {
+        getFavorites().then(favorites => {
           if (
             Array.isArray(favMentorsFromLocalStorage) &&
             favMentorsFromLocalStorage.length > 0
           ) {
             const mentors = favMentorsFromLocalStorage.filter(
-              (m) => !favorites.includes(m)
+              m => !favorites.includes(m)
             );
             if (mentors.length > 0) updateFavMentorsForUser(mentors);
           }
@@ -103,7 +104,7 @@ const App = () => {
         }),
       getMentors()
         .then(setMentors)
-        .catch((e) => {
+        .catch(e => {
           // eslint-disable-next-line no-console
           console.error(e);
         }),
@@ -126,10 +127,10 @@ const App = () => {
     report('Modal', 'open', title);
   };
 
-  const mentorsInList = useMemo(
-    () => mentors.filter(filterMentors),
-    [mentors, filterMentors]
-  );
+  const mentorsInList = useMemo(() => mentors.filter(filterMentors), [
+    mentors,
+    filterMentors,
+  ]);
 
   return (
     <div className="app">
@@ -139,13 +140,10 @@ const App = () => {
         <Header />
         <Body>
           <Sidebar mentors={mentorsInList} handleModal={handleModal} />
-          <Main>
+          <Main showFilters={showFilters}>
             <Switch>
               <Route path="/" exact>
                 <MentorsList
-                  className={classNames({
-                    active: showFilters,
-                  })}
                   mentors={mentorsInList}
                   favorites={favorites}
                   onFavMentor={onFavMentor}
@@ -197,10 +195,12 @@ const Main = styled.section`
     transform: translateY(0);
     transition: transform 0.3s ease;
 
-    &.active {
-      transform: translateY(300px);
-      margin-bottom: 50px;
-    }
+    ${props =>
+      props.showFilters &&
+      `
+        transform: translateY(300px);
+        margin-bottom: 50px;
+      `}
   }
 `;
 

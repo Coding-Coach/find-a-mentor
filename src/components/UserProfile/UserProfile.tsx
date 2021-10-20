@@ -10,6 +10,7 @@ import { prefix } from '../../titleGenerator';
 import { Mentor, User } from '../../types/models';
 import { useNavigation } from '../../hooks/useNavigation';
 import { mobile } from '../../Me/styles/shared/devices';
+import { useFilters } from '../../context/filtersContext/FiltersContext';
 
 type UserProfileProps = {
   favorites: string[];
@@ -39,6 +40,11 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
   const location = useLocation<{ mentor: Mentor }>();
   const { id } = useParams<{ id: string }>();
   const { getPreviousRoute } = useNavigation();
+  const [, dispatch] = useFilters();
+
+  useEffect(() => {
+    dispatch({ type: 'showFilters', payload: false });
+  }, [dispatch]);
 
   useEffect(() => {
     async function fetchMentorIfNeed() {
