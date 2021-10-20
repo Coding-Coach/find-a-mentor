@@ -16,6 +16,10 @@ describe('Mentor Filtering', () => {
     });
     cy.visit('/');
   });
+  afterEach(() => {
+    cy.clearNameFilter();
+  });
+
   it('can filter by technology', () => {
     cy.filterByName('Brent M Clark')
       .getByTestId('technology-filter-autocomplete')
@@ -73,13 +77,34 @@ describe('Mentor Filtering', () => {
       .contains('US');
   });
 
-  it('logged users can click on mentors channel', () => {
-    cy.filterByName('Brent M Clark');
-    cy.getAllByTestId('mentor-card')
-      .first()
+  it(`user can't approach non available mentor`, () => {
+    cy.filterByName('S');
+    cy.getByTestId('mentor-card')
       .get('div.channels')
-      .first()
+      .contains('This mentor is not taking new mentees for now');
+  });
+
+  it(`user navigates to mentor profile`, () => {
+    cy.filterByName('B');
+    cy.get('.tags')
+      .children()
+      .filter('button')
+      .should('have.length', 5);
+    // user has 6 tags and 5 are shown +1
+    cy.getByText('+1');
+    cy.getByTestId('mentor-card')
+      .get('div.channels')
       .click();
+
+    cy.location().should(loc => {
+      expect(loc.pathname).to.eq('/u/1');
+    });
+
+    cy.get('.tags')
+      .children()
+      .filter('button')
+      .should('have.length', 6);
+    cy.getByText('github');
   });
 
   it.skip('user can like mentor', () => {

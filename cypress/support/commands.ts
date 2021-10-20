@@ -1,9 +1,13 @@
 import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add('filterByName', name => {
-  cy.getByTestId('name-filter-autocomplete')
-    .type(name)
-    .type('{enter}');
+  cy.getByTestId('name-filter-autocomplete').type(name);
+
+  cy.get('.ac-menu').click();
+});
+
+Cypress.Commands.add('clearNameFilter', () => {
+  cy.getByText('clear').click();
 });
 
 Cypress.Commands.add('login', () => {
