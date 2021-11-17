@@ -22,9 +22,7 @@ const driverFactory = () => {
 };
 
 const openEditModal = () => {
-  cy.get('button')
-    .should('have.text', 'Edit')
-    .click();
+  cy.contains('Edit').click();
 };
 
 describe('Me / edit profile', () => {

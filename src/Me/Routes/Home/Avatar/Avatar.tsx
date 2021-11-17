@@ -1,10 +1,52 @@
 import React, { FC } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
 import { updateMentorAvatar } from '../../../../api';
 import CardContainer from '../../../components/Card/index';
 import { getAvatarUrl } from '../../../../helpers/avatar';
+import { IconButton } from '../../../components/Button/IconButton';
+import { Tooltip } from 'react-tippy';
+import { toast } from 'react-toastify';
+
+const ShareProfile = ({ url }: { url: string }) => {
+  const [showInput, setShowInput] = React.useState(false);
+
+  const onInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.select();
+    navigator.clipboard.writeText(url);
+    toast.success('Copied to clipboard', {
+      toastId: 'share-profile-toast',
+    });
+  }
+
+  return (
+    <ShareProfileStyled>
+      <Tooltip title="Share your profile">
+        <IconButton
+          icon="share-alt"
+          size="lg"
+          color="#179a6f"
+          onClick={() => setShowInput(!showInput)}
+          buttonProps={{
+            "aria-label": "Share your profile"
+          }}
+        />
+      </Tooltip>
+      {showInput && (
+        <div>
+          <input
+            readOnly
+            type="text"
+            value={url}
+            onFocus={onInputFocus}
+            onBlur={() => setShowInput(false)}
+          />
+        </div>
+      )}
+    </ShareProfileStyled>
+  );
+};
 
 const Avatar: FC = () => {
   const { currentUser, updateCurrentUser } = useUser<true>();
@@ -22,6 +64,9 @@ const Avatar: FC = () => {
   return (
     <CardContainer>
       <Container>
+        <ShareProfile
+          url={`${process.env.REACT_APP_AUTH_CALLBACK}u/${currentUser._id}`}
+        />
         <label htmlFor="upload-button">
           <UserAvatar>
             {currentUser && currentUser.avatar ? (
@@ -70,7 +115,9 @@ const UserImage = styled.img`
 `;
 
 const Container = styled.div`
+  position: relative;
   text-align: center;
+
   h1 {
     color: #4a4a4a;
     font-weight: bold;
@@ -83,6 +130,19 @@ const Container = styled.div`
     line-height: 17px;
     margin: 0;
     margin-top: 1%;
+  }
+`;
+
+const ShareProfileStyled = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+
+  input {
+    margin: 10px 0;
+    padding: 5px;
+    width: 300px;
   }
 `;
 
