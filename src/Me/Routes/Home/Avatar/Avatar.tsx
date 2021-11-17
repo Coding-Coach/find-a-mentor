@@ -65,7 +65,7 @@ const Avatar: FC = () => {
     <CardContainer>
       <Container>
         <ShareProfile
-          url={`${process.env.REACT_APP_AUTH_CALLBACK}u/${currentUser._id}`}
+          url={`${process.env.REACT_APP_AUTH_CALLBACK}/u/${currentUser._id}`}
         />
         <label htmlFor="upload-button">
           <UserAvatar>
