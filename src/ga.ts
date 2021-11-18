@@ -1,4 +1,4 @@
-export function report(category: string, action: string, label: string) {
+export function report(category: string, action: string, label?: string) {
   if (isLocal()) {
     // eslint-disable-next-line no-console
     console.log('Fake report: ');

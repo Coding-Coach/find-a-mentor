@@ -8,11 +8,13 @@ import { getAvatarUrl } from '../../../../helpers/avatar';
 import { IconButton } from '../../../components/Button/IconButton';
 import { Tooltip } from 'react-tippy';
 import { toast } from 'react-toastify';
+import { report } from '../../../../ga';
 
 const ShareProfile = ({ url }: { url: string }) => {
   const [showInput, setShowInput] = React.useState(false);
 
   const onInputFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    report('Avatar', 'share profile');
     e.target.select();
     navigator.clipboard.writeText(url);
     toast.success('Copied to clipboard', {
