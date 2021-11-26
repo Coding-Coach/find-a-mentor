@@ -1,5 +1,3 @@
-import './Filter.css';
-
 import React, { useCallback } from 'react';
 import classNames from 'classnames';
 import AutoComplete from '../AutoComplete/AutoComplete';

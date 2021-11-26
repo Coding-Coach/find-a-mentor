@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import classNames from 'classnames';
-import './MentorList.css';
 
 import Card from '../Card/Card';
 import { Pager } from './Pager';

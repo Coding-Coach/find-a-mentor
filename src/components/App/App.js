@@ -1,11 +1,7 @@
-import './App.css';
-import 'react-toastify/dist/ReactToastify.css';
-import 'react-tippy/dist/tippy.css';
-
 import { useCallback, useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components/macro';
 import { ToastContainer } from 'react-toastify';
-import { Route, Switch, withRouter } from 'react-router-dom';
+// import { Route, Switch } from 'react-router-dom';
 import MentorsList from '../MentorsList/MentorsList';
 import Header from '../Header/Header';
 import Modal from '../Modal/Modal';
@@ -141,7 +137,7 @@ const App = () => {
         <Body>
           <Sidebar mentors={mentorsInList} handleModal={handleModal} />
           <Main showFilters={showFilters}>
-            <Switch>
+            {/* <Switch>
               <Route path="/" exact>
                 <MentorsList
                   mentors={mentorsInList}
@@ -153,7 +149,7 @@ const App = () => {
               <Route path={`/u/:id`} exact>
                 <UserProfile favorites={favorites} onFavMentor={onFavMentor} />
               </Route>
-            </Switch>
+            </Switch> */}
           </Main>
         </Body>
       </Layout>
@@ -161,11 +157,11 @@ const App = () => {
   );
 };
 
-const AppWithActionHandlers = withRouter(() => (
+const AppWithActionHandlers = () => (
   <ActionsHandler>
     <App />
   </ActionsHandler>
-));
+);
 
 const Layout = styled.main`
   display: flex;

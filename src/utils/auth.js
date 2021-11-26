@@ -96,6 +96,9 @@ class Auth {
   }
 
   loadSession() {
+    if (!process.browser) {
+      return
+    }
     const json = localStorage.getItem(storageKey);
 
     if (json) {

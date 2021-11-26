@@ -9,7 +9,6 @@ import {
 } from '../../api';
 import model from './model';
 import Select from 'react-select';
-import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
 import Switch from '../Switch/Switch';
 import { getAvatarUrl } from '../../helpers/avatar';

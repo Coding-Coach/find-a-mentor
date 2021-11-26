@@ -38,3 +38,6 @@ cypress/screenshots
 
 #debug
 debug.log
+
+# Next.js
+.next
