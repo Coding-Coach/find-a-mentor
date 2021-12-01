@@ -1,7 +1,7 @@
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { User } from '../../types/models';
 import { getCurrentUser } from '../../api';
-import auth from '../../utils/auth';
+import { AuthContext } from '../authContext/AuthContext';
 
 type UserProviderContext = {
   isAdmin: boolean;
@@ -20,6 +20,7 @@ const UserContext = React.createContext<UserProviderContext | undefined>(
 export const UserProvider: FC = ({ children }) => {
   const [isLoading, setIsloading] = useState(true);
   const [currentUser, updateCurrentUser] = useState<User>();
+  const auth = useContext(AuthContext)
   const isAuthenticated = auth.isAuthenticated();
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');

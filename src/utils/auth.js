@@ -1,10 +1,8 @@
 import auth0 from 'auth0-js';
-import { auth } from '../config/constants';
 import { clearCurrentUser, getCurrentUser } from '../api';
 import { isMentor } from '../helpers/user';
 
 const storageKey = 'auth-data';
-
 class Auth {
   accessToken;
 
@@ -12,13 +10,27 @@ class Auth {
 
   expiresAt;
 
-  auth0 = new auth0.WebAuth({
-    domain: auth.DOMAIN,
-    clientID: auth.CLIENT_ID,
-    redirectUri: auth.CALLBACK_URL,
-    responseType: 'token id_token',
-    scope: 'openid',
-  });
+  auth0;
+  
+
+  constructor() {
+    if (process.browser) {
+      this.domain = process.env.NEXT_PUBLIC_AUTH_DOMAIN;
+      this.clientId = process.env.NEXT_PUBLIC_AUTH_CLIENT_ID;
+      this.redirectUri = process.env.NEXT_PUBLIC_AUTH_CALLBACK_URL;
+      console.log(this.domain, this.clientId)
+      
+      this.auth0 = new auth0.WebAuth({
+        domain: this.domain,
+        clientID: this.clientId,
+        redirectUri: this.redirectUri,
+        responseType: 'token id_token',
+        scope: 'openid',
+      });
+      
+      this.loadSession()
+    }
+  }
 
   /**
    * @param {string} [redirectTo]
@@ -26,7 +38,7 @@ class Auth {
    */
   login = (redirectTo, isMentorIntent) => {
     if (!redirectTo && window.location.pathname !== '/') {
-      redirectTo = window.location.href.split(auth.CALLBACK_URL)[1];
+      redirectTo = window.location.href.split(this.redirectUri)[1];
       // redirect to the allowed login path
       window.history.replaceState(null, null, '/');
     }
@@ -36,7 +48,7 @@ class Auth {
         origin: isMentorIntent ? 'mentor' : 'user',
       },
       redirectUri: redirectTo
-        ? `${auth.CALLBACK_URL}?redirectTo=${redirectTo}`
+        ? `${this.redirectUri}?redirectTo=${redirectTo}`
         : window.location.href,
     });
   };
@@ -150,7 +162,7 @@ class Auth {
     this.#logout();
     clearCurrentUser();
     this.auth0.logout({
-      returnTo: auth.CALLBACK_URL,
+      returnTo: this.redirectUri,
     });
   };
 
@@ -162,4 +174,4 @@ class Auth {
   }
 }
 
-export default new Auth().loadSession();
+export default Auth;

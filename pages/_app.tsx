@@ -14,8 +14,23 @@ import '../src/components/SocialLinks/SocialLinks.css';
 
 // import App from 'next/app'
 
+import { AuthProvider } from '../src/context/authContext/AuthContext';
+import { UserProvider } from '../src/context/userContext/UserContext';
+import { FiltersProvider } from '../src/context/filtersContext/FiltersContext';
+import { ModalHookProvider } from '../src/context/modalContext/ModalContext';
+
 function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps} />
+    return (
+      <AuthProvider>
+        <UserProvider>
+          <ModalHookProvider>
+            <FiltersProvider>
+              <Component {...pageProps} />
+            </FiltersProvider>
+          </ModalHookProvider>
+        </UserProvider>
+      </AuthProvider>
+    )
   }
   
   // Only uncomment this method if you have blocking data requirements for

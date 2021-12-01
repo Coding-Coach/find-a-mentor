@@ -1,11 +1,12 @@
 import { FC, useEffect, useMemo } from 'react';
-import { Redirect, useLocation } from 'react-router-dom';
+import { useRouter } from 'next/router'
 import auth from '../../utils/auth';
 
 export const ActionsHandler: FC = ({ children }) => {
-  const location = useLocation();
-  const query = useMemo(() => new URLSearchParams(location.search), [
-    location.search,
+  const router = useRouter();
+  console.log({router})
+  const query = useMemo(() => new URLSearchParams(router.asPath.split('?')[1]), [
+    router.query,
   ]);
   const redirectTo = query.get('redirectTo') || '';
 
@@ -17,7 +18,8 @@ export const ActionsHandler: FC = ({ children }) => {
   }, [query]);
 
   if (redirectTo) {
-    return <Redirect to={redirectTo} />;
+    router.push(redirectTo)
+    return <p>Redirecting to {redirectTo}</p>;
   }
 
   return <>{children}</>;

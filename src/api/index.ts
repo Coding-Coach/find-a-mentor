@@ -1,4 +1,3 @@
-import auth from '../utils/auth';
 import { reportError } from '../ga';
 import { toast } from 'react-toastify';
 import messages from '../messages';
@@ -7,6 +6,7 @@ import partition from 'lodash/partition';
 import * as Sentry from '@sentry/browser';
 import { Application, Mentor, User } from '../types/models';
 import { setVisitor } from '../utils/tawk';
+import { AuthContext } from '../context/authContext/AuthContext';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -37,7 +37,8 @@ export async function makeApiCall<T>(
   method: RequestMethod = 'GET',
   jsonous = true
 ): Promise<OkResponse<T> | ErrorResponse | null> {
-  const url = `${process.env.REACT_APP_API_ENDPOINT}${path}${
+  const auth = useContext(AuthContext);
+  const url = `${process.env.NEXT_PUBLIC_API_ENDPOINT}${path}${
     method === 'GET' && body ? `?${new URLSearchParams(body)}` : ''
   }`;
   const optionBody = jsonous
@@ -138,6 +139,7 @@ async function fetchCurrentItem() {
 }
 
 export async function getCurrentUser(): Promise<typeof currentUser> {
+  const auth = useContext(AuthContext);
   if (!currentUser && auth.isAuthenticated()) {
     const userFromLocal = localStorage.getItem(USER_LOCAL_KEY);
     if (userFromLocal) {
