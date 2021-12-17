@@ -208,7 +208,7 @@ const Admin = () => {
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href={`/?name=${mentor.name}`}
+                  href={`/u/${mentor.id}`}
                 >
                   🔗
                 </a>
@@ -223,6 +223,13 @@ const Admin = () => {
                     href={`mailto:${mentee.email}`}
                   >
                     🔗
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`/u/${mentee.id}`}
+                  >
+                    @
                   </a>
                 </Mentee>
               </td>
