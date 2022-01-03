@@ -2,6 +2,9 @@
   "name": "find-a-mentor",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "=16"
+  },
   "dependencies": {
     "@sentry/browser": "^5.6.3",
     "auth0-js": "^9.13.2",
