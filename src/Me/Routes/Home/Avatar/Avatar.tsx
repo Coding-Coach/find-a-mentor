@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import styled from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
-import { updateMentorAvatar } from '../../../../api';
+import ApiService from '../../../../api';
 import CardContainer from '../../../components/Card/index';
 import { getAvatarUrl } from '../../../../helpers/avatar';
 import { IconButton } from '../../../components/Button/IconButton';
@@ -58,7 +58,7 @@ const Avatar: FC = () => {
       const formData = new FormData();
       formData.append('image', e.target.files[0]);
 
-      const updatedUser = await updateMentorAvatar(currentUser, formData);
+      const updatedUser = await ApiService.updateMentorAvatar(currentUser, formData);
       updateCurrentUser(updatedUser);
     }
   };

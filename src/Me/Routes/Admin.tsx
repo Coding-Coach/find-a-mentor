@@ -22,7 +22,7 @@ import styled from 'styled-components';
 import FormField from '../components/FormField';
 import Switch from '../../components/Switch/Switch';
 import Input from '../components/Input';
-import { getUser } from '../../api';
+import ApiService from '../../api';
 import { Loader } from '../../components/Loader';
 import { getChannelInfo } from '../../channelProvider';
 
@@ -58,7 +58,7 @@ const UserDetails = ({
   const [user, setUser] = useState<User>();
 
   useEffect(() => {
-    Promise.all([getUserRecords(userId), getUser(userId)])
+    Promise.all([getUserRecords(userId), ApiService.getUser(userId)])
       .then(([recordsRes, userRes]) => {
         setUser(userRes);
         if (recordsRes?.success) {

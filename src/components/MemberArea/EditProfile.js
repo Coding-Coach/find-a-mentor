@@ -1,12 +1,7 @@
 import { Component } from 'react';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
-import {
-  updateMentor,
-  deleteMentor,
-  createApplicationIfNotExists,
-  updateMentorAvatar,
-} from '../../api';
+import ApiService from '../../api';
 import model from './model';
 import Select from 'react-select';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
@@ -65,13 +60,13 @@ export default class EditProfile extends Component {
     this.setState({ disabled: true });
 
     const { avatar, ...userInfo } = fromVMtoM(user);
-    const updateMentorResult = await updateMentor(userInfo);
+    const updateMentorResult = await ApiService.updateMentor(userInfo);
 
     if (updateMentorResult) {
       if (isMentor(user)) {
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
       } else {
-        const createApplicationResult = await createApplicationIfNotExists(
+        const createApplicationResult = await ApiService.createApplicationIfNotExists(
           user
         );
         if (createApplicationResult.success) {
@@ -97,7 +92,7 @@ export default class EditProfile extends Component {
   onDelete = async () => {
     report('Member Area', 'Delete start', 'User details');
     if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
-      await deleteMentor(this.state.user);
+      await ApiService.deleteMentor(this.state.user);
       report('Member Area', 'Delete success', 'User details');
       this.context.logout();
     }
@@ -293,7 +288,7 @@ export default class EditProfile extends Component {
       const files = Array.from(event.target.files);
       const formData = new FormData();
       formData.append('image', files[0]);
-      const updatedUser = await updateMentorAvatar(this.state.user, formData);
+      const updatedUser = await ApiService.updateMentorAvatar(this.state.user, formData);
       this.setState({
         user: {
           ...this.state.user,
@@ -354,7 +349,7 @@ export default class EditProfile extends Component {
                 <a
                   href={links.MENTORSHIP_GUIDELINES}
                   // eslint-disable-next-line react/jsx-no-target-blank
-                  target="_blank"
+                  target="_blank" rel="noreferrer"
                 >
                   Mentorship guidelines
                 </a>{' '}

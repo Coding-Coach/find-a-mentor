@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Modal } from '../Modal';
 import FormField from '../../components/FormField';
 import Textarea from '../../components/Textarea';
-import { applyForMentorship, getMyMentorshipApplication } from '../../../api';
+import ApiService from '../../../api';
 import ImageSrc from '../../../assets/mentorshipRequestSuccess.svg';
 import Body from './style';
 import { links } from '../../../config/constants';
@@ -138,7 +138,7 @@ const MentorshipRequest = ({ mentor }) => {
     e?.preventDefault();
     if (!validate()) return;
     setIsLoading(true);
-    const success = await applyForMentorship(mentor, mentorshipRequestDetails);
+    const success = await ApiService.applyForMentorship(mentor, mentorshipRequestDetails);
     setConfirmed(success);
     setIsLoading(false);
   };

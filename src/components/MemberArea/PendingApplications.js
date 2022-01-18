@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  getPendingApplications,
-  approveApplication,
-  declineApplication,
-} from '../../api';
+import ApiService from '../../api';
 import { Loader } from '../Loader';
 import { getChannelInfo } from '../../channelProvider';
 import { getAvatarUrl } from '../../helpers/avatar';
@@ -16,7 +12,7 @@ export default class PendingApplications extends Component {
   };
 
   async refreshApplications() {
-    const applications = await getPendingApplications();
+    const applications = await ApiService.getPendingApplications();
     this.setState({
       applications,
     });
@@ -42,7 +38,7 @@ export default class PendingApplications extends Component {
 
   approve = async application => {
     this.toggleLoader(application, true);
-    await approveApplication(application);
+    await ApiService.approveApplication(application);
     await this.refreshApplications();
   };
 
@@ -50,7 +46,7 @@ export default class PendingApplications extends Component {
     const reason = prompt('Why you reject that poor gentleman / lady?');
     if (reason) {
       this.toggleLoader(application, true);
-      await declineApplication(application, reason);
+      await ApiService.declineApplication(application, reason);
       await this.refreshApplications();
     }
   };

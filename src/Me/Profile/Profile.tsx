@@ -3,11 +3,7 @@ import { FC, useState } from 'react';
 import { toast } from 'react-toastify';
 import styled from 'styled-components/macro';
 import countries from 'svg-country-flags/countries.json';
-import {
-  clearCurrentUser,
-  getCurrentUser,
-  updateMentor,
-} from '../../api/index';
+import ApiService from '../../api/index';
 import { useModal } from '../../context/modalContext/ModalContext';
 import { useUser } from '../../context/userContext/UserContext';
 import messages from '../../messages';
@@ -39,11 +35,11 @@ const Profile: FC = () => {
   async function handleUpdateMentor(updatedUserInfo: Mentor) {
     setIsLoading(true);
     try {
-      const updateMentorResult = await updateMentor(updatedUserInfo);
+      const updateMentorResult = await ApiService.updateMentor(updatedUserInfo);
       if (updateMentorResult) {
-        clearCurrentUser();
+        ApiService.clearCurrentUser();
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
-        const updatedUserDetails = (await getCurrentUser())!;
+        const updatedUserDetails = (await ApiService.getCurrentUser())!;
         updateCurrentUser(updatedUserDetails);
         closeModal();
       } else {

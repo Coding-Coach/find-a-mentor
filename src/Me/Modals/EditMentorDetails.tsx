@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { report } from '../../ga';
-import { deleteMentor } from '../../api';
+import ApiService from '../../api';
 import messages from '../../messages';
 import { useUser } from '../../context/userContext/UserContext';
 import { Modal } from './Modal';
@@ -323,7 +323,7 @@ const EditMentorDetails = ({
   const onDelete = async () => {
     report('Member Area', 'Delete start', 'User details');
     if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
-      await deleteMentor(details._id);
+      await ApiService.deleteMentor(details._id);
       report('Member Area', 'Delete success', 'User details');
       logout();
     }

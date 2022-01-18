@@ -5,7 +5,7 @@ import { useLocation, useParams, Link } from 'react-router-dom';
 
 import Card from '../Card/Card';
 import { Loader } from '../Loader';
-import { getUser } from '../../api';
+import ApiService from '../../api';
 import { prefix } from '../../titleGenerator';
 import { Mentor, User } from '../../types/models';
 import { useNavigation } from '../../hooks/useNavigation';
@@ -49,7 +49,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
   useEffect(() => {
     async function fetchMentorIfNeed() {
       if (!location.state?.mentor) {
-        const userFromAPI = await getUser(id);
+        const userFromAPI = await ApiService.getUser(id);
         if (userFromAPI) {
           setUser(userFromAPI);
         }

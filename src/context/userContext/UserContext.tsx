@@ -1,6 +1,6 @@
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { User } from '../../types/models';
-import { getCurrentUser } from '../../api';
+import ApiService from '../../api';
 import { AuthContext } from '../authContext/AuthContext';
 
 type UserProviderContext = {
@@ -31,7 +31,7 @@ export const UserProvider: FC = ({ children }) => {
   };
 
   useEffect(() => {
-    getCurrentUser().then(user => {
+    ApiService.getCurrentUser(auth).then(user => {
       updateCurrentUser(user);
       setIsloading(false);
     });

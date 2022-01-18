@@ -1,5 +1,5 @@
 import auth0 from 'auth0-js';
-import { clearCurrentUser, getCurrentUser } from '../api';
+import ApiService from '../api';
 import { isMentor } from '../helpers/user';
 
 const storageKey = 'auth-data';
@@ -18,7 +18,6 @@ class Auth {
       this.domain = process.env.NEXT_PUBLIC_AUTH_DOMAIN;
       this.clientId = process.env.NEXT_PUBLIC_AUTH_CLIENT_ID;
       this.redirectUri = process.env.NEXT_PUBLIC_AUTH_CALLBACK_URL;
-      console.log(this.domain, this.clientId)
       
       this.auth0 = new auth0.WebAuth({
         domain: this.domain,
@@ -99,7 +98,7 @@ class Auth {
 
   async onMentorRegistered(callback) {
     if (this.origin === 'mentor') {
-      if (isMentor(await getCurrentUser())) {
+      if (isMentor(await ApiService.getCurrentUser())) {
         return;
       }
       callback();
@@ -160,7 +159,7 @@ class Auth {
 
   doLogout = () => {
     this.#logout();
-    clearCurrentUser();
+    ApiService.clearCurrentUser();
     this.auth0.logout({
       returnTo: this.redirectUri,
     });

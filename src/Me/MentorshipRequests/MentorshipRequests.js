@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
-import { getMentorshipRequests, updateMentorshipReqStatus } from '../../api';
+import ApiService from '../../api';
 import Card from '../components/Card';
 import { useUser } from '../../context/userContext/UserContext';
 import { UsersList } from './UsersList';
@@ -66,7 +66,7 @@ const MentorshipReq = () => {
 
   const getMentorshipReq = useCallback(async () => {
     if (isMount.current) {
-      const mentorshipReq = await getMentorshipRequests(userId);
+      const mentorshipReq = await ApiService.getMentorshipRequests(userId);
       const list = { asMentee: [], asMentor: [] };
       mentorshipReq?.forEach(({ isMine, ...req }) => {
         if (isMine) list.asMentee.push({ ...req, isMine });
@@ -89,7 +89,7 @@ const MentorshipReq = () => {
     reason,
     listType = 'mentor'
   ) => {
-    const { success, mentorship } = await updateMentorshipReqStatus(
+    const { success, mentorship } = await ApiService.updateMentorshipReqStatus(
       id,
       userId,
       {

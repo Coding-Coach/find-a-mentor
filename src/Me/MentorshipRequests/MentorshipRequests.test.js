@@ -10,11 +10,11 @@ import {
 import userEvent from '@testing-library/user-event';
 import MentorshipRequests from './MentorshipRequests';
 import { STATUS } from '../../helpers/mentorship';
-import * as api from '../../api';
+import ApiService from '../../api';
 
 function mockMentorshipApi({ getReq, updateStatus }) {
-  api.getMentorshipRequests = jest.fn(() => Promise.resolve(getReq));
-  api.updateMentorshipReqStatus = jest.fn(() =>
+  ApiService.getMentorshipRequests = jest.fn(() => Promise.resolve(getReq));
+  ApiService.updateMentorshipReqStatus = jest.fn(() =>
     Promise.resolve({
       success: updateStatus?.success,
       mentorship: { status: updateStatus.status ?? STATUS.viewed },
@@ -25,7 +25,7 @@ function mockMentorshipApi({ getReq, updateStatus }) {
 describe('MentorshipRequests', () => {
   jest.mock('../../api/index.ts');
   beforeEach(() => {
-    api.getCurrentUser = jest.fn(() => Promise.resolve(userData));
+    ApiService.getCurrentUser = jest.fn(() => Promise.resolve(userData));
   });
 
   describe('MentorshipRequests List', () => {

@@ -13,7 +13,7 @@ import {
 } from '../../favoriteManager';
 import { set as setWindowTitle } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
-import { getMentors } from '../../api';
+import ApiService from '../../api';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useUser } from '../../context/userContext/UserContext';
 import { ActionsHandler } from './ActionsHandler';
@@ -98,7 +98,7 @@ const App = () => {
             ...new Set([...favMentorsFromLocalStorage, ...favorites]),
           ]);
         }),
-      getMentors()
+        ApiService.getMentors()
         .then(setMentors)
         .catch(e => {
           // eslint-disable-next-line no-console
