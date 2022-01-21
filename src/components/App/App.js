@@ -13,7 +13,7 @@ import {
 } from '../../favoriteManager';
 import { set as setWindowTitle } from '../../titleGenerator';
 import { report, reportPageView } from '../../ga';
-import ApiService from '../../api';
+import { useApi } from '../../context/apiContext/ApiContext';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useUser } from '../../context/userContext/UserContext';
 import { ActionsHandler } from './ActionsHandler';
@@ -34,6 +34,7 @@ const App = () => {
     content: null,
     onClose: null,
   });
+  const api = useApi()
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -98,7 +99,7 @@ const App = () => {
             ...new Set([...favMentorsFromLocalStorage, ...favorites]),
           ]);
         }),
-        ApiService.getMentors()
+        api.getMentors()
         .then(setMentors)
         .catch(e => {
           // eslint-disable-next-line no-console
@@ -107,7 +108,7 @@ const App = () => {
     ]).then(() => {
       setIsReady(true);
     });
-  }, [currentUser]);
+  }, [currentUser, api]);
 
   useEffect(() => {
     setWindowTitle({});
@@ -127,7 +128,7 @@ const App = () => {
     mentors,
     filterMentors,
   ]);
-
+// TODO: Split offMentorsList and UserProfile into their respective "pages" files instead of using a Switch here
   return (
     <div className="app">
       <ToastContainer />

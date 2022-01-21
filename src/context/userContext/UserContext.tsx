@@ -1,7 +1,7 @@
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { User } from '../../types/models';
-import ApiService from '../../api';
 import { AuthContext } from '../authContext/AuthContext';
+import { useApi } from '../apiContext/ApiContext'
 
 type UserProviderContext = {
   isAdmin: boolean;
@@ -21,6 +21,7 @@ export const UserProvider: FC = ({ children }) => {
   const [isLoading, setIsloading] = useState(true);
   const [currentUser, updateCurrentUser] = useState<User>();
   const auth = useContext(AuthContext)
+  const api = useApi();
   const isAuthenticated = auth.isAuthenticated();
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');
@@ -31,11 +32,11 @@ export const UserProvider: FC = ({ children }) => {
   };
 
   useEffect(() => {
-    ApiService.getCurrentUser(auth).then(user => {
+    api.getCurrentUser().then(user => {
       updateCurrentUser(user);
       setIsloading(false);
     });
-  }, []);
+  }, [api]);
 
   return (
     <UserContext.Provider

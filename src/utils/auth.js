@@ -1,5 +1,4 @@
 import auth0 from 'auth0-js';
-import ApiService from '../api';
 import { isMentor } from '../helpers/user';
 
 const storageKey = 'auth-data';
@@ -96,9 +95,10 @@ class Auth {
     this.origin = authResult.appState.origin;
   }
 
-  async onMentorRegistered(callback) {
+  // TODO: figure out what mentor registration callbacks have to do with authentication.  Probably move this functionality elsewhere
+  async onMentorRegistered(api, callback) {
     if (this.origin === 'mentor') {
-      if (isMentor(await ApiService.getCurrentUser())) {
+      if (isMentor(await api.getCurrentUser())) {
         return;
       }
       callback();
@@ -157,9 +157,10 @@ class Auth {
     localStorage.removeItem(storageKey);
   };
 
-  doLogout = () => {
+  // TODO: figure out why the API  service needs to clear the current user instead of the Auth class?
+  doLogout = (api) => {
     this.#logout();
-    ApiService.clearCurrentUser();
+    api.clearCurrentUser();
     this.auth0.logout({
       returnTo: this.redirectUri,
     });

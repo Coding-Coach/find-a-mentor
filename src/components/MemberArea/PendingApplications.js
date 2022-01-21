@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
-import ApiService from '../../api';
+
+// TODO: remember how to handle context the old way or pass the context down from a functional component.
+import { ApiContext } from '../../context/apiContext/ApiContext';
 import { Loader } from '../Loader';
 import { getChannelInfo } from '../../channelProvider';
 import { getAvatarUrl } from '../../helpers/avatar';

@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
-import ApiService from '../../api';
+
+// TODO: remember how to handle context the old way or pass the context down from a functional component.
+import { ApiContext } from '../../context/apiContext/ApiContext';
 import model from './model';
 import Select from 'react-select';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';

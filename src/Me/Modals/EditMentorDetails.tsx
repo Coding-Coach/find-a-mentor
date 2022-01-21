@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 import { report } from '../../ga';
-import ApiService from '../../api';
 import messages from '../../messages';
 import { useUser } from '../../context/userContext/UserContext';
 import { Modal } from './Modal';
@@ -18,6 +17,7 @@ import Button from '../components/Button';
 import { toast } from 'react-toastify';
 import { User } from '../../types/models';
 import { SelectProps } from '../components/Select/Select';
+import { useApi } from '../../context/apiContext/ApiContext';
 
 type EditMentorDetailsProps = {
   userDetails: User;
@@ -99,6 +99,7 @@ const EditMentorDetails = ({
   const [mentorDetails, setMentorDetails] = useState(fromMtoVM(details));
 
   const { isMentor, logout } = useUser();
+  const api = useApi()
 
   const handleInputChange = (
     fieldName: string,
@@ -323,7 +324,7 @@ const EditMentorDetails = ({
   const onDelete = async () => {
     report('Member Area', 'Delete start', 'User details');
     if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
-      await ApiService.deleteMentor(details._id);
+      await api.deleteMentor(details._id);
       report('Member Area', 'Delete success', 'User details');
       logout();
     }

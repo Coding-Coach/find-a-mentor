@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
-import ApiService from '../../api';
 import Card from '../components/Card';
+import { useApi } from '../../context/apiContext/ApiContext'
 import { useUser } from '../../context/userContext/UserContext';
 import { UsersList } from './UsersList';
 import { STATUS } from '../../helpers/mentorship';
@@ -25,6 +25,7 @@ const MentorshipReq = () => {
   const userId = currentUser?._id;
   const [loadingState, setLoadingState] = useState(!mentorState);
   const isMount = useRef(true);
+  const api = useApi()
 
   const markViewed = async ({ id, status }) => {
     if (status !== PREV_STATUS[STATUS.viewed]) return;
@@ -66,7 +67,7 @@ const MentorshipReq = () => {
 
   const getMentorshipReq = useCallback(async () => {
     if (isMount.current) {
-      const mentorshipReq = await ApiService.getMentorshipRequests(userId);
+      const mentorshipReq = await api.getMentorshipRequests(userId);
       const list = { asMentee: [], asMentor: [] };
       mentorshipReq?.forEach(({ isMine, ...req }) => {
         if (isMine) list.asMentee.push({ ...req, isMine });
@@ -89,7 +90,7 @@ const MentorshipReq = () => {
     reason,
     listType = 'mentor'
   ) => {
-    const { success, mentorship } = await ApiService.updateMentorshipReqStatus(
+    const { success, mentorship } = await api.updateMentorshipReqStatus(
       id,
       userId,
       {

@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { Modal } from '../Modal';
 import FormField from '../../components/FormField';
 import Textarea from '../../components/Textarea';
-import ApiService from '../../../api';
 import ImageSrc from '../../../assets/mentorshipRequestSuccess.svg';
 import Body from './style';
 import { links } from '../../../config/constants';
+import { useApi } from '../../../context/apiContext/ApiContext';
 
 const FormFields = styled.div`
   display: flex;
@@ -43,6 +43,7 @@ const MentorshipRequest = ({ mentor }) => {
     getMyMentorshipApplication()
   );
   const [errors, setErrors] = useState({});
+  const api = useApi()
 
   const handleInputChange = e => {
     const {
@@ -138,7 +139,7 @@ const MentorshipRequest = ({ mentor }) => {
     e?.preventDefault();
     if (!validate()) return;
     setIsLoading(true);
-    const success = await ApiService.applyForMentorship(mentor, mentorshipRequestDetails);
+    const success = await api.applyForMentorship(mentor, mentorshipRequestDetails);
     setConfirmed(success);
     setIsLoading(false);
   };

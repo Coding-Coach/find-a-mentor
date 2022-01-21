@@ -5,12 +5,12 @@ import { useLocation, useParams, Link } from 'react-router-dom';
 
 import Card from '../Card/Card';
 import { Loader } from '../Loader';
-import ApiService from '../../api';
 import { prefix } from '../../titleGenerator';
 import { Mentor, User } from '../../types/models';
 import { useNavigation } from '../../hooks/useNavigation';
 import { mobile } from '../../Me/styles/shared/devices';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
+import { useApi } from '../../context/apiContext/ApiContext';
 
 type UserProfileProps = {
   favorites: string[];
@@ -41,6 +41,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
   const { id } = useParams<{ id: string }>();
   const { getPreviousRoute } = useNavigation();
   const [, dispatch] = useFilters();
+  const api = useApi()
 
   useEffect(() => {
     dispatch({ type: 'showFilters', payload: false });
@@ -49,7 +50,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
   useEffect(() => {
     async function fetchMentorIfNeed() {
       if (!location.state?.mentor) {
-        const userFromAPI = await ApiService.getUser(id);
+        const userFromAPI = await api.getUser(id);
         if (userFromAPI) {
           setUser(userFromAPI);
         }
@@ -57,7 +58,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
       }
     }
     fetchMentorIfNeed();
-  }, [id, location.state]);
+  }, [id, location.state, api]);
 
   if (isLoading) {
     return <UserProfileLoader size={2} />;

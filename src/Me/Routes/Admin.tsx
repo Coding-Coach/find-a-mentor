@@ -22,9 +22,9 @@ import styled from 'styled-components';
 import FormField from '../components/FormField';
 import Switch from '../../components/Switch/Switch';
 import Input from '../components/Input';
-import ApiService from '../../api';
 import { Loader } from '../../components/Loader';
 import { getChannelInfo } from '../../channelProvider';
+import { useApi } from '../../context/apiContext/ApiContext';
 
 const Mentee = styled.span`
   display: flex;
@@ -56,9 +56,10 @@ const UserDetails = ({
   const [isLoading, setIsLoading] = useState(true);
   const [dontActiveSent, setDontActiveSent] = useState<UserRecord>();
   const [user, setUser] = useState<User>();
+  const api = useApi()
 
   useEffect(() => {
-    Promise.all([getUserRecords(userId), ApiService.getUser(userId)])
+    Promise.all([getUserRecords(userId), api.getUser(userId)])
       .then(([recordsRes, userRes]) => {
         setUser(userRes);
         if (recordsRes?.success) {
@@ -66,7 +67,7 @@ const UserDetails = ({
         }
       })
       .finally(() => setIsLoading(false));
-  }, [userId]);
+  }, [userId, api]);
 
   const showCard =
     (!user || user.available) &&

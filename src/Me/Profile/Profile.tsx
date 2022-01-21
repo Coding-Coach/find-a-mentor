@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { toast } from 'react-toastify';
 import styled from 'styled-components/macro';
 import countries from 'svg-country-flags/countries.json';
-import ApiService from '../../api/index';
+import { useApi } from '../../context/apiContext/ApiContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import { useUser } from '../../context/userContext/UserContext';
 import messages from '../../messages';
@@ -22,6 +22,7 @@ const ProfileCard = styled(Card)`
 const Profile: FC = () => {
   const { currentUser, updateCurrentUser } = useUser();
   const [isLoading, setIsLoading] = useState(false);
+  const api = useApi()
 
   const [openModal, closeModal] = useModal(
     <EditMentorDetails
@@ -35,11 +36,11 @@ const Profile: FC = () => {
   async function handleUpdateMentor(updatedUserInfo: Mentor) {
     setIsLoading(true);
     try {
-      const updateMentorResult = await ApiService.updateMentor(updatedUserInfo);
+      const updateMentorResult = await api.updateMentor(updatedUserInfo);
       if (updateMentorResult) {
-        ApiService.clearCurrentUser();
+        api.clearCurrentUser();
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
-        const updatedUserDetails = (await ApiService.getCurrentUser())!;
+        const updatedUserDetails = (await api.getCurrentUser())!;
         updateCurrentUser(updatedUserDetails);
         closeModal();
       } else {
