@@ -160,7 +160,7 @@ let mentorsPromise: Promise<Mentor[]>;
 
 export async function getMentors() {
   if (!mentorsPromise) {
-    mentorsPromise = makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300`).then(
+    mentorsPromise = makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300&available=true`).then(
       (response) => {
         if (response?.success) {
           const [available, unavailable] = partition(
