@@ -14,7 +14,7 @@ import { AuthorizationRoute } from '../CustomRoutes/AuthorizedRoute';
 import { Helmet } from 'react-helmet';
 
 const Admin = React.lazy(() =>
-  import(/* webpackChunkName: "Admin" */ './Routes/Admin')
+  import(/* webpackChunkName: "Admin" */ './Routes/Admin/Index')
 );
 
 const url = '/me';

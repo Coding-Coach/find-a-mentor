@@ -338,8 +338,8 @@ export function getMyMentorshipApplication() {
   return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
 }
 
-export async function getMentorshipRequests(userId: string) {
-  const response = await makeApiCall(
+export async function getMentorshipRequests<T>(userId: string) {
+  const response = await makeApiCall<T>(
     `${paths.MENTORSHIP}/${userId}/requests`,
     null,
     'GET'
