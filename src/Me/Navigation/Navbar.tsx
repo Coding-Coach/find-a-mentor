@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useRouter } from 'next/router';
+import Link from 'next/Link';
 import classNames from 'classnames';
+import styled from 'styled-components/macro';
+
 import { mobile, desktop } from '../styles/shared/devices';
 import messages from '../../messages';
-import styled from 'styled-components/macro';
 import { ReactComponent as IconHome } from '../../assets/me/home.svg';
 import { ReactComponent as Mentorships } from '../../assets/me/icon-survey.svg';
 import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
@@ -19,7 +21,8 @@ const MenuItem = ({
   label: string;
   to: string;
 }) => {
-  const location = useLocation();
+  const {location} = useRouter();
+  console.log(location)
   return (
     <NavItemDecoration
       className={classNames({ active: location.pathname === to })}
@@ -47,7 +50,7 @@ const Navbar = () => {
           <MenuItem to="/me/admin" icon={IconMentors} label="Admin" />
         )}
         <Logout
-          to={
+          href={
             window.location.pathname.includes('/me')
               ? '/'
               : window.location.pathname

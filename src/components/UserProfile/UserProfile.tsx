@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components/macro';
-import { useLocation, useParams, Link } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
+import Link from 'next/Link';
 
 import Card from '../Card/Card';
 import { Loader } from '../Loader';
 import { prefix } from '../../titleGenerator';
 import { Mentor, User } from '../../types/models';
-import { useNavigation } from '../../hooks/useNavigation';
 import { mobile } from '../../Me/styles/shared/devices';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useApi } from '../../context/apiContext/ApiContext';
@@ -39,7 +39,6 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const location = useLocation<{ mentor: Mentor }>();
   const { id } = useParams<{ id: string }>();
-  const { getPreviousRoute } = useNavigation();
   const [, dispatch] = useFilters();
   const api = useApi()
 
@@ -73,7 +72,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
       <Helmet>
         <title>{`${prefix} | ${user?.name}`}</title>
       </Helmet>
-      <Link to={getPreviousRoute()}>Back to mentors list</Link>
+      <Link href="/">Back to mentors list</Link>
       <Card
         appearance="extended"
         mentor={user}

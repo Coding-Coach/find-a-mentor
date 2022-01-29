@@ -1,6 +1,7 @@
 import { FC, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/router'
-import auth from '../../utils/auth';
+
+import auth from '../../../utils/auth';
 
 export const ActionsHandler: FC = ({ children }) => {
   const router = useRouter();

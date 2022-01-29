@@ -2,13 +2,11 @@ import React, { FC } from 'react';
 import Obfuscate from 'react-obfuscate';
 import orderBy from 'lodash/orderBy';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import Link from 'next/Link';
 import { Tooltip } from 'react-tippy';
 
 import './Card.css';
 import StyledCard from './Card.css';
-
-import { useNavigation } from '../../hooks/useNavigation';
 import { useDeviceType } from '../../hooks/useDeviceType';
 
 import { report } from '../../ga';
@@ -66,7 +64,7 @@ const applyOnClick = () => {
 const CTAButton = ({ tooltipProps, onClick, text, link }: CTAButtonProps) => {
   const CTAElement: FC = ({ children }) =>
     link ? (
-      <Link to={link}>{children}</Link>
+      <Link href={link}><a>{children}</a></Link>
     ) : (
       <button onClick={onClick}>{children}</button>
     );
@@ -157,7 +155,6 @@ const Card = ({
   const extended = appearance === 'extended';
   const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
-  const { getUserRoute } = useNavigation();
   const {
     name,
     country,
@@ -237,8 +234,8 @@ const Card = ({
         tooltipProps={{
           disabled: true,
         }}
-        link={getUserRoute(mentor)}
-        onClick={onAvatarClick}
+        link={`/u/${mentor._id}`}
+        onClick={() => {}}
         text="Go to profile"
       />
     );

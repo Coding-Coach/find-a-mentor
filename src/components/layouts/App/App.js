@@ -1,40 +1,33 @@
 import { useCallback, useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components/macro';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 
-import Header from '../Header/Header';
-import Modal from '../Modal/Modal';
-import {
-  toggleFavMentor,
-  get as getFavorites,
-  readFavMentorsFromLocalStorage,
-  updateFavMentorsForUser,
-} from '../../favoriteManager';
-import { set as setWindowTitle } from '../../titleGenerator';
-import { report, reportPageView } from '../../ga';
-import { useApi } from '../../context/apiContext/ApiContext';
-import { useFilters } from '../../context/filtersContext/FiltersContext';
-import { useUser } from '../../context/userContext/UserContext';
+import Header from '../../Header/Header';
+import Modal from '../../Modal/Modal';
+import { set as setWindowTitle } from '../../../titleGenerator';
+import { report, reportPageView } from '../../../ga';
+import { useFilters } from '../../../context/filtersContext/FiltersContext';
+import { useMentors } from '../../../context/mentorsContext/MentorsContext'
+
 import { ActionsHandler } from './ActionsHandler';
-import { toast } from 'react-toastify';
-import { UserProfile } from '../UserProfile/UserProfile';
-import { desktop, mobile } from '../../Me/styles/shared/devices';
-import { Sidebar } from '../Sidebar/Sidebar';
+
+import { desktop, mobile } from '../../../Me/styles/shared/devices';
+import { Sidebar } from '../../Sidebar/Sidebar';
 
 const App = (props) => {
   const {children} = props
-  const [mentors, setMentors] = useState([]);
-  const [isReady, setIsReady] = useState(false);
+  
   const [filters] = useFilters();
   const { tag, country, name, language, showFavorites, showFilters } = filters;
-  const [favorites, setFavorites] = useState([]);
-  const { currentUser } = useUser();
+  const {mentors, favorites} = useMentors()
+  
+  
   const [modal, setModal] = useState({
     title: null,
     content: null,
     onClose: null,
   });
-  const api = useApi()
+
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -67,12 +60,6 @@ const App = (props) => {
     [filters, favorites, showFavorites]
   );
 
-  const onFavMentor = async mentor => {
-    const newFavorites = toggleFavMentor(mentor, [...favorites]);
-    setFavorites(newFavorites);
-    report('Favorite');
-  };
-
   useEffect(() => setWindowTitle({ tag, country, name, language }), [
     tag,
     country,
@@ -80,42 +67,12 @@ const App = (props) => {
     language,
   ]);
 
-  const initialize = useCallback(async () => {
-    reportPageView();
-    const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
-    Promise.all([
-      currentUser &&
-        getFavorites().then(favorites => {
-          if (
-            Array.isArray(favMentorsFromLocalStorage) &&
-            favMentorsFromLocalStorage.length > 0
-          ) {
-            const mentors = favMentorsFromLocalStorage.filter(
-              m => !favorites.includes(m)
-            );
-            if (mentors.length > 0) updateFavMentorsForUser(mentors);
-          }
-          setFavorites([
-            ...new Set([...favMentorsFromLocalStorage, ...favorites]),
-          ]);
-        }),
-        api.getMentors()
-        .then(data => {
-          setMentors(data)
-        })
-        .catch(e => {
-          // eslint-disable-next-line no-console
-          console.error(e);
-        }),
-    ]).then(() => {
-      setIsReady(true);
-    });
-  }, [currentUser, api]);
+  
 
   useEffect(() => {
     setWindowTitle({});
-    initialize();
-  }, [initialize]);
+    reportPageView()
+  }, []);
 
   const handleModal = (title, content, onClose) => {
     setModal({
@@ -126,11 +83,15 @@ const App = (props) => {
     report('Modal', 'open', title);
   };
 
-  const mentorsInList = useMemo(() => mentors.filter(filterMentors), [
+  const mentorsInList = useMemo(() => mentors?.filter(filterMentors), [
     mentors,
     filterMentors,
   ]);
-// TODO: Split offMentorsList and UserProfile into their respective "pages" files instead of using a Switch here
+
+  if (!mentors) {
+      return null
+  }
+
   return (
     <div className="app">
       <ToastContainer />
@@ -141,14 +102,6 @@ const App = (props) => {
           <Sidebar mentors={mentorsInList} handleModal={handleModal} />
           <Main showFilters={showFilters}>
             {children}
-            {/* <Switch>
-              <Route path="/" exact>
-                
-              </Route>
-              <Route path={`/u/:id`} exact>
-                <UserProfile favorites={favorites} onFavMentor={onFavMentor} />
-              </Route>
-            </Switch> */}
           </Main>
         </Body>
       </Layout>
@@ -156,9 +109,9 @@ const App = (props) => {
   );
 };
 
-const AppWithActionHandlers = () => (
+const AppWithActionHandlers = ({children}) => (
   <ActionsHandler>
-    <App />
+    <App>{children}</App>
   </ActionsHandler>
 );
 

@@ -19,6 +19,7 @@ import { AuthProvider } from '../src/context/authContext/AuthContext';
 import { UserProvider } from '../src/context/userContext/UserContext';
 import { FiltersProvider } from '../src/context/filtersContext/FiltersContext';
 import { ModalHookProvider } from '../src/context/modalContext/ModalContext';
+import { MentorsProvider } from  '../src/context/mentorsContext/MentorsContext'
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -27,7 +28,9 @@ function MyApp({ Component, pageProps }) {
           <UserProvider>
             <ModalHookProvider>
               <FiltersProvider>
-                <Component {...pageProps} />
+                <MentorsProvider>
+                  <Component {...pageProps} />
+                </MentorsProvider>
               </FiltersProvider>
             </ModalHookProvider>
           </UserProvider>

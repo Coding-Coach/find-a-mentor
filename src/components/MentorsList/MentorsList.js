@@ -1,24 +1,21 @@
-import { useEffect } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import Card from '../Card/Card';
 import { Pager } from './Pager';
 import { Loader } from '../Loader';
 import { report } from '../../ga';
-import { useNavigation } from '../../hooks/useNavigation';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
+import { useMentors } from '../../context/mentorsContext/MentorsContext'
 
 const itemsInPage = 20;
 
-const MentorsList = ({ onFavMentor, mentors, favorites, ready, className }) => {
-  const { navigateToUser } = useNavigation();
+const MentorsList = () => {
+  const {mentors, favorites, addFavorites} = useMentors()
 
-  const onAvatarClick = (mentor) => {
-    navigateToUser(mentor);
-  };
 
   const getContent = () => {
-    if (!ready) {
+    if (!mentors) {
       return <Loader size={2} />;
     }
     if (!mentors.length) {
@@ -33,15 +30,14 @@ const MentorsList = ({ onFavMentor, mentors, favorites, ready, className }) => {
       <Cards
         mentors={mentors}
         favorites={favorites}
-        onAvatarClick={onAvatarClick}
-        onFavMentor={onFavMentor}
+        onFavMentor={addFavorites}
       />
     );
   };
 
   return (
     <section
-      className={classNames(['mentors-wrapper', className])}
+      className={classNames(['mentors-wrapper'])}
       data-testid="mentors-wrapper"
     >
       {getContent()}
@@ -49,13 +45,13 @@ const MentorsList = ({ onFavMentor, mentors, favorites, ready, className }) => {
   );
 };
 
-const Cards = ({ mentors, favorites, onFavMentor, onAvatarClick }) => {
+const Cards = ({ mentors, favorites, onFavMentor }) => {
   const [{ page }] = useFilters();
   const to = page * itemsInPage;
   const from = to - itemsInPage;
   const mentorsInList = mentors.slice(from, to);
 
-  useEffect(() => {
+  React.useEffect(() => {
     report('Mentors', 'paging', page);
   }, [page]);
 
@@ -66,7 +62,6 @@ const Cards = ({ mentors, favorites, onFavMentor, onAvatarClick }) => {
         mentor={mentor}
         onFavMentor={onFavMentor}
         isFav={favorites.indexOf(mentor._id) > -1}
-        onAvatarClick={() => onAvatarClick(mentor)}
       />
     ));
   };

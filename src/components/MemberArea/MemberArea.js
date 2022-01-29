@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import onClickOutside from 'react-onclickoutside';
-import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import Link from 'next/Link'
+
 import { getAvatarUrl } from '../../helpers/avatar';
 import { useUser } from '../../context/userContext/UserContext';
 import auth from '../../utils/auth';
@@ -15,9 +16,7 @@ function MemberArea({ onOpenModal }) {
   const { isDesktop } = useDeviceType();
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
   const { currentUser, isMentor, isAdmin, isAuthenticated, logout } = useUser();
-  const history = useHistory();
-  const goToDashboard = () => history.push('/me');
-  const openBecomeMentor = useCallback(
+    const openBecomeMentor = useCallback(
     () => onOpenModal('Edit Your Profile', <EditProfile />),
     [onOpenModal]
   );
@@ -68,9 +67,11 @@ function MemberArea({ onOpenModal }) {
                   Open pending applications
                 </MemberMenuItem>
               )}
-              <MemberMenuItem onClick={goToDashboard}>
-                Manage Account
-              </MemberMenuItem>
+              <Link href="/me">
+                <MemberMenuItem>
+                  Manage Account
+                </MemberMenuItem>
+              </Link>
               {!isMentor && (
                 <MemberMenuItem onClick={openBecomeMentor}>
                   Become a mentor

@@ -59,7 +59,7 @@ const UserDetails = ({
   const api = useApi()
 
   useEffect(() => {
-    Promise.all([getUserRecords(userId), api.getUser(userId)])
+    Promise.all([getUserRecords(api, userId), api.getUser(userId)])
       .then(([recordsRes, userRes]) => {
         setUser(userRes);
         if (recordsRes?.success) {
@@ -93,7 +93,7 @@ const UserDetails = ({
                   ...user!,
                   available: false,
                 });
-                await freezeMentor(user!._id);
+                await freezeMentor(api, user!._id);
                 toast.success('Done');
               }
             }}
@@ -104,7 +104,7 @@ const UserDetails = ({
       ) : (
         <Button
           onClick={async () => {
-            const record = await sendMentorNotActive(user!._id);
+            const record = await sendMentorNotActive(api, user!._id);
             setDontActiveSent(record);
             toast.success('Done');
           }}
@@ -138,6 +138,7 @@ const Admin = () => {
   const [mentorshipRequests, setMentorshipRequests] = useState<
     MentorshipRequest[]
   >([]);
+  const api = useApi()
 
   const filteredMentorshipRequests = useMemo(() => {
     return mentorshipRequests
@@ -156,7 +157,7 @@ const Admin = () => {
   }, [mentorshipRequests, name, sentOnly, showDaysAgo]);
 
   useEffect(() => {
-    getAllMentorshipRequests().then((response) => {
+    getAllMentorshipRequests(api).then((response) => {
       if (response?.success) {
         setMentorshipRequests(
           response.data.filter(({ mentor, mentee }) => !!mentor && !!mentee)
@@ -172,7 +173,7 @@ const Admin = () => {
   const sendEmail = useCallback(
     async (mentorshipId: string) => {
       setMentorshipLoading(mentorshipId);
-      await sendStaledRequestEmail(mentorshipId);
+      await sendStaledRequestEmail(api, mentorshipId);
       setMentorshipRequests(
         mentorshipRequests.map((mentorship) => {
           if (mentorship.id === mentorshipId) {
@@ -187,7 +188,7 @@ const Admin = () => {
       setMentorshipLoading(null);
       toast.success('Email sent');
     },
-    [mentorshipRequests]
+    [mentorshipRequests, api]
   );
 
   const columns = useMemo(

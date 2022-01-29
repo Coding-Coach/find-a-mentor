@@ -1,0 +1,74 @@
+body {
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+}
+
+.app {
+  padding-bottom: 50px;
+}
+
+.main-header {
+  padding: 30px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin: 30px 30px;
+}
+
+.main-header h1 {
+  font-size: 48px;
+}
+
+.social {
+  margin-top: 10px;
+}
+
+@media screen and (max-height: 650px) {
+  .social-wrapper {
+    margin-top: 10px !important;
+  }
+}
+@media screen and (max-height: 677px) {
+  .logo {
+    margin: 5px 30px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .sidebar-nav {
+    position: relative;
+    display: none;
+    padding: 0;
+    justify-content: space-evenly;
+    margin-top: 30px;
+  }
+}
+
+@media all and (max-width: 800px) {
+  .logo {
+    margin: 10px;
+  }
+
+  .logo svg {
+    height: 80px;
+  }
+
+  .patreon-link {
+    margin: 5px auto 10px;
+    width: 130px;
+  }
+
+  .patreon-link img {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .logo {
+    margin: 10px auto;
+  }
+}
