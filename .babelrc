@@ -2,6 +2,6 @@
     "presets": ["next/babel"],
     "plugins": [
         "babel-plugin-macros",
-        "babel-plugin-styled-components"
+        ["babel-plugin-styled-components", { "ssr": true, "displayName": true, "preprocess": false }]
     ]
 }

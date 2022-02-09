@@ -53,6 +53,9 @@ const ShareProfile = ({ url }: { url: string }) => {
 const Avatar: FC = () => {
   const { currentUser, updateCurrentUser } = useUser<true>();
   const api = useApi()
+  if (!currentUser) {
+    return null
+  }
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.length) {
@@ -68,7 +71,7 @@ const Avatar: FC = () => {
     <CardContainer>
       <Container>
         <ShareProfile
-          url={`${process.env.REACT_APP_AUTH_CALLBACK}/u/${currentUser._id}`}
+          url={`${process.env.NEXT_PUBLIC_AUTH_CALLBACK}/u/${currentUser._id}`}
         />
         <label htmlFor="upload-button">
           <UserAvatar>

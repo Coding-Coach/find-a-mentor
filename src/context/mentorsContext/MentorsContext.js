@@ -32,7 +32,7 @@ export const MentorsProvider = (props) => {
 
         Promise.all([
           currentUser &&
-            getFavorites().then(favorites => {
+            getFavorites(api).then(favorites => {
               if (
                 Array.isArray(favMentorsFromLocalStorage) &&
                 favMentorsFromLocalStorage.length > 0

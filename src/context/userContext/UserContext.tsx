@@ -28,7 +28,7 @@ export const UserProvider: FC = ({ children }) => {
 
   const logout = () => {
     updateCurrentUser(undefined);
-    auth.doLogout();
+    auth.doLogout(api);
   };
 
   useEffect(() => {

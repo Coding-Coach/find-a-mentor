@@ -120,7 +120,7 @@ export const Sidebar = ({ mentors, handleModal }: SidebarProps) => {
         target="_blank"
       >
         <img
-          src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
+          src={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
           alt="Become a Patron"
         />
       </PatreonLink>

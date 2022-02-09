@@ -6,10 +6,10 @@ import styled from 'styled-components/macro';
 
 import { mobile, desktop } from '../styles/shared/devices';
 import messages from '../../messages';
-import { ReactComponent as IconHome } from '../../assets/me/home.svg';
-import { ReactComponent as Mentorships } from '../../assets/me/icon-survey.svg';
-import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
-import { ReactComponent as IconLogout } from '../../assets/me/icon-door-exit.svg';
+import IconHome from '../../assets/me/home.svg';
+import Mentorships from '../../assets/me/icon-survey.svg';
+import IconMentors from '../../assets/me/mentors.svg';
+import IconLogout from '../../assets/me/icon-door-exit.svg';
 import { useUser } from '../../context/userContext/UserContext';
 
 const MenuItem = ({
@@ -21,26 +21,25 @@ const MenuItem = ({
   label: string;
   to: string;
 }) => {
-  const {location} = useRouter();
-  console.log(location)
+  const router = useRouter();
   return (
-    <NavItemDecoration
-      className={classNames({ active: location.pathname === to })}
-      to={to}
-    >
-      <Icon />
-      <Label>{label}</Label>
-    </NavItemDecoration>
+    <Link href={to}>
+      <NavItemDecoration className={classNames({ active: router.pathname === to })}>
+        <Icon />
+        <Label>{label}</Label>
+      </NavItemDecoration>
+    </Link>
   );
 };
 
 const Navbar = () => {
   const { isAdmin, logout } = useUser();
+  const router = useRouter();
   return (
     <>
       <Menu>
         <Logo
-          src={`${process.env.PUBLIC_URL}/codingcoach-logo-192.png`}
+          src={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo-192.png`}
           alt="Logo"
         />
         <MenuItem to="/me" icon={IconHome} label="Home" />
@@ -49,17 +48,19 @@ const Navbar = () => {
         {isAdmin && (
           <MenuItem to="/me/admin" icon={IconMentors} label="Admin" />
         )}
+        <Link href={
+            router.pathname.includes('/me')
+            ? '/'
+            : router.pathname
+          }>
         <Logout
-          href={
-            window.location.pathname.includes('/me')
-              ? '/'
-              : window.location.pathname
-          }
+          
           onClick={logout}
-        >
+          >
           <IconLogout />
           <Label>{messages.LOGOUT}</Label>
         </Logout>
+          </Link>
       </Menu>
     </>
   );
@@ -95,7 +96,7 @@ const Menu = styled.nav`
   }
 `;
 
-const NavItemDecoration = styled(Link)`
+const NavItemDecoration = styled.a`
   display: block;
   text-align: center;
   text-decoration: none;

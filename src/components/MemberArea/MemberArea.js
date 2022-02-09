@@ -5,7 +5,7 @@ import Link from 'next/Link'
 
 import { getAvatarUrl } from '../../helpers/avatar';
 import { useUser } from '../../context/userContext/UserContext';
-import auth from '../../utils/auth';
+import { useAuth } from '../../context/authContext/AuthContext'
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
@@ -20,6 +20,10 @@ function MemberArea({ onOpenModal }) {
     () => onOpenModal('Edit Your Profile', <EditProfile />),
     [onOpenModal]
   );
+
+  const auth = useAuth()
+
+  console.log({isAuthenticated})
 
   const openPendingApplications = () => {
     onOpenModal('Pending Applications', <PendingApplications />);

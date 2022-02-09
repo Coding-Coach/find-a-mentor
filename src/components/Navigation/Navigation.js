@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { isMentor } from '../../helpers/user';
-import auth from '../../utils/auth';
+import { useAuth } from '../../context/authContext/AuthContext';
 import EditProfile from '../MemberArea/EditProfile';
 import UserContext from '../../context/userContext/UserContext';
 import { links } from '../../config/constants';
 
 function Navigation({ isAuthenticated, onOpenModal }) {
   const { currentUser } = useContext(UserContext);
+  const auth = useAuth()
 
   const openProfile = e => {
     e.preventDefault();

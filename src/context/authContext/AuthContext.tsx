@@ -6,6 +6,7 @@ export const AuthContext = createContext<any>({});
 export const AuthProvider: FC = (props: any) => {
     const { children } = props
     const auth = new Auth();
+    auth.renewSession()
     return <AuthContext.Provider value={auth}>{children}</AuthContext.Provider>
 };
 

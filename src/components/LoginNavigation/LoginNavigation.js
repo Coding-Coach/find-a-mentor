@@ -1,15 +1,13 @@
 import styled from 'styled-components';
+import { useAuth } from '../../context/authContext/AuthContext';
 import { desktop, mobile } from '../../Me/styles/shared/devices';
-import auth from '../../utils/auth';
 
 function LoginNavigation() {
-  const login = () => {
-    auth.login();
-  };
+  const auth = useAuth()
 
   return (
     <LoginArea>
-      <LoginAreaItem onClick={login}>Login / Register</LoginAreaItem>
+      <LoginAreaItem onClick={() => auth.login()}>Login / Register</LoginAreaItem>
     </LoginArea>
   );
 }

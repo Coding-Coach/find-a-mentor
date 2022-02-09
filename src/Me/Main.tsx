@@ -6,9 +6,11 @@ import { useUser } from '../context/userContext/UserContext';
 
 const Main: FC = ({ children }) => {
   const { currentUser } = useUser();
-  if (!currentUser) {
-    return null;
-  }
+  // if (process.browser && !currentUser) {
+  //   return null;
+  // }
+  console.log({children})
+  return <div>{children}</div>
   return <Content>{children}</Content>;
 };
 

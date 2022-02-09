@@ -2,7 +2,6 @@ import { lazy } from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App';
 import * as serviceWorker from './serviceWorker';
-import auth from './utils/auth';
 import './index.css';
 import { reportError } from './ga';
 import * as Sentry from '@sentry/browser';
@@ -24,7 +23,6 @@ Sentry.init({
 
 (async () => {
   try {
-    await auth.renewSession();
     ReactDOM.render(
       <UserProvider>
         <ModalHookProvider>
