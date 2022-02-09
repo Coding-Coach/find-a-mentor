@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Obfuscate from 'react-obfuscate';
 import orderBy from 'lodash/orderBy';
 import classNames from 'classnames';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { Tooltip } from 'react-tippy';
 
 import './Card.css';

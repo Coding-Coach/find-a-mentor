@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components/macro';
 import { useLocation, useParams } from 'react-router-dom';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 import Card from '../Card/Card';
 import { Loader } from '../Loader';

@@ -1,7 +1,7 @@
 import notFoundImage from './assets/404.svg';
 import Header from './components/Header/Header';
 import styled from 'styled-components';
-import Link from 'next/Link';
+import Link from 'next/link';
 import { Helmet } from 'react-helmet';
 import { desktop, mobile } from './Me/styles/shared/devices';
 
