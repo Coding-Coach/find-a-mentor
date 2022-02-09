@@ -17,7 +17,7 @@ const MenuItem = ({
   label,
   to,
 }: {
-  icon: React.FunctionComponent;
+  icon: string;
   label: string;
   to: string;
 }) => {

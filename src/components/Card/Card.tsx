@@ -10,7 +10,6 @@ import StyledCard from './Card.css';
 import { useDeviceType } from '../../hooks/useDeviceType';
 
 import { report } from '../../ga';
-import auth from '../../utils/auth';
 import messages from '../../messages';
 import { UnstyledList } from '../common';
 import { getAvatarUrl } from '../../helpers/avatar';
@@ -23,6 +22,7 @@ import { useUser } from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
 import { formatTimeAgo } from '../../helpers/time';
+import { useAuth } from '../../context/authContext/AuthContext';
 
 const COMPACT_CARD_TAGS_LENGTH = 5;
 
@@ -56,11 +56,6 @@ const tagsList = (
   );
 };
 
-const applyOnClick = () => {
-  handleAnalytics('apply');
-  auth.login();
-};
-
 const CTAButton = ({ tooltipProps, onClick, text, link }: CTAButtonProps) => {
   const CTAElement: FC = ({ children }) =>
     link ? (
@@ -84,6 +79,12 @@ const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
   const { isMobile } = useDeviceType();
   const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
   const { isAuthenticated } = useUser();
+  const auth = useAuth()
+
+  const applyOnClick = () => {
+    handleAnalytics('apply');
+    auth.login();
+  };
 
   const tooltipMessage = isAuthenticated
     ? messages.CARD_APPLY_REQUEST_TOOLTIP
@@ -165,6 +166,8 @@ const Card = ({
     available: availability,
     createdAt,
   } = mentor;
+
+  const auth = useAuth()
 
   const toggleFav = () => {
     if (currentUser) {
