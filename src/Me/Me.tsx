@@ -22,9 +22,9 @@ import { Helmet } from 'react-helmet';
 const Me = (props: any) => {
   const { children, title } = props
   const { pathname } = useRouter();
-  // return <div>Hello!</div>
-
-  if (!process.browser) {
+  
+  // Ensure we're actually in a browser before rendering the component
+  if (typeof window === 'undefined') {
     return null
   }
 

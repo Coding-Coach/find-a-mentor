@@ -13,7 +13,7 @@ class Auth {
   
 
   constructor() {
-    if (process.browser) {
+    if (typeof window === 'object') {
       this.domain = process.env.NEXT_PUBLIC_AUTH_DOMAIN;
       this.clientId = process.env.NEXT_PUBLIC_AUTH_CLIENT_ID;
       this.redirectUri = process.env.NEXT_PUBLIC_AUTH_CALLBACK_URL;
@@ -110,7 +110,7 @@ class Auth {
   }
 
   loadSession() {
-    if (!process.browser) {
+    if (typeof window === 'undefined') {
       return
     }
     const json = localStorage.getItem(storageKey);
