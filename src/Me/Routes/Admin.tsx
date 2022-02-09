@@ -63,7 +63,7 @@ const UserDetails = ({
       .then(([recordsRes, userRes]) => {
         setUser(userRes);
         if (recordsRes?.success) {
-          setDontActiveSent(recordsRes.data.find(({ type }) => type === 1));
+          setDontActiveSent(recordsRes.data.find(({ type }: {type: any}) => type === 1));
         }
       })
       .finally(() => setIsLoading(false));
@@ -157,10 +157,10 @@ const Admin = () => {
   }, [mentorshipRequests, name, sentOnly, showDaysAgo]);
 
   useEffect(() => {
-    getAllMentorshipRequests(api).then((response) => {
+    getAllMentorshipRequests(api).then((response: any) => {
       if (response?.success) {
         setMentorshipRequests(
-          response.data.filter(({ mentor, mentee }) => !!mentor && !!mentee)
+          response.data.filter(({ mentor, mentee }: { mentor: any, mentee: any }) => !!mentor && !!mentee)
         );
       }
     });
