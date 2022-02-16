@@ -5,14 +5,16 @@ import { useAuth } from '../../context/authContext/AuthContext';
 import EditProfile from '../MemberArea/EditProfile';
 import UserContext from '../../context/userContext/UserContext';
 import { links } from '../../config/constants';
+import { useApi } from '../../context/apiContext/ApiContext';
 
 function Navigation({ isAuthenticated, onOpenModal }) {
   const { currentUser } = useContext(UserContext);
   const auth = useAuth()
+  const api = useApi()
 
   const openProfile = e => {
     e.preventDefault();
-    onOpenModal('Edit Your Profile', <EditProfile />);
+    onOpenModal('Edit Your Profile', <EditProfile api={api}/>);
   };
 
   const renderBecomeAMentor = () => {

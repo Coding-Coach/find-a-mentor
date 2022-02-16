@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import _Button from '../components/Button';
 import { desktop, mobile } from '../styles/shared/devices';
 import { CSSTransition } from 'react-transition-group';
-import { ReactComponent as CloseSvg } from '../../assets/me/close.svg';
+import CloseSvg from '../../assets/me/close.svg';
 import { ModalContext } from '../../context/modalContext/ModalContext';
 
 type ModalProps = {

@@ -12,10 +12,10 @@ import { ModalHookProvider } from './context/modalContext/ModalContext';
 import { LazyRoute } from './CustomRoutes/LazyRoute';
 import { AuthorizationRoute } from './CustomRoutes/AuthorizedRoute';
 
-const PageNotFound = lazy(
-  () => import(/* webpackChunkName: "PageNotFound" */ './PageNotFound')
-);
-const Me = lazy(() => import(/* webpackChunkName: "Me" */ './Me/Me'));
+// const PageNotFound = lazy(
+//   () => import(/* webpackChunkName: "PageNotFound" */ './PageNotFound')
+// );
+// const Me = lazy(() => import(/* webpackChunkName: "Me" */ './Me/Me'));
 
 Sentry.init({
   dsn: 'https://bcc1baf038b847258b4307e6ca5777e2@sentry.io/1542584',
