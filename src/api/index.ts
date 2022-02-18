@@ -137,7 +137,7 @@ export default class ApiService {
   }
 
   getUser = async (userId: string) => {
-    if (this.mentorsPromise !== undefined) {
+    if (this.mentorsPromise != null) {
       const mentors = await this.mentorsPromise;
       const mentor = mentors.find((mentor) => mentor._id === userId);
       if (mentor) {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components/macro';
-import { useLocation, useParams } from 'react-router-dom';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 import Card from '../Card/Card';
@@ -11,11 +11,8 @@ import { Mentor, User } from '../../types/models';
 import { mobile } from '../../Me/styles/shared/devices';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useApi } from '../../context/apiContext/ApiContext';
+import { useMentors } from '../../context/mentorsContext/MentorsContext';
 
-type UserProfileProps = {
-  favorites: string[];
-  onFavMentor(mentor: Mentor): void;
-};
 
 const UserProfileContainer = styled.div`
   display: flex;
@@ -34,30 +31,29 @@ const UserProfileLoader = styled(Loader)`
   margin-top: 15px;
 `;
 
-export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
+export const UserProfile = () => {
   const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState(true);
-  const location = useLocation<{ mentor: Mentor }>();
-  const { id } = useParams<{ id: string }>();
+  const { query } = useRouter();
+  const { id } = query
   const [, dispatch] = useFilters();
   const api = useApi()
+  const { favorites, addFavorite } = useMentors()
 
   useEffect(() => {
     dispatch({ type: 'showFilters', payload: false });
   }, [dispatch]);
 
   useEffect(() => {
-    async function fetchMentorIfNeed() {
-      if (!location.state?.mentor) {
-        const userFromAPI = await api.getUser(id);
-        if (userFromAPI) {
-          setUser(userFromAPI);
-        }
-        setIsLoading(false);
+    async function fetchMentor() {
+      const userFromAPI = await api.getUser(id);
+      if (userFromAPI) {
+        setUser(userFromAPI);
       }
+      setIsLoading(false);
     }
-    fetchMentorIfNeed();
-  }, [id, location.state, api]);
+    fetchMentor();
+  }, [id, api]);
 
   if (isLoading) {
     return <UserProfileLoader size={2} />;
@@ -76,7 +72,7 @@ export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
       <Card
         appearance="extended"
         mentor={user}
-        onFavMentor={onFavMentor}
+        onFavMentor={addFavorite}
         isFav={favorites.indexOf(user._id) > -1}
       />
     </UserProfileContainer>

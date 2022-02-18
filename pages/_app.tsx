@@ -1,5 +1,5 @@
 // Global CSS imports
-import '../src/components/App/App.css';
+import '../src/components/layouts/App/App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';
 import '../src/components/MemberArea/EditProfile.css';

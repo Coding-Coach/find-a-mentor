@@ -11,7 +11,7 @@ import { useMentors } from '../../context/mentorsContext/MentorsContext'
 const itemsInPage = 20;
 
 const MentorsList = () => {
-  const {mentors, favorites, addFavorites} = useMentors()
+  const {mentors, favorites, addFavorite} = useMentors()
 
 
   const getContent = () => {
@@ -30,7 +30,7 @@ const MentorsList = () => {
       <Cards
         mentors={mentors}
         favorites={favorites}
-        onFavMentor={addFavorites}
+        onFavMentor={addFavorite}
       />
     );
   };

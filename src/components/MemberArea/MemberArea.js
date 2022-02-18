@@ -23,8 +23,6 @@ function MemberArea({ onOpenModal }) {
 
   const auth = useAuth()
 
-  console.log({isAuthenticated})
-
   const openPendingApplications = () => {
     onOpenModal('Pending Applications', <PendingApplications />);
   };
@@ -38,7 +36,7 @@ function MemberArea({ onOpenModal }) {
     auth.onMentorRegistered(() => {
       openBecomeMentor();
     });
-  }, [currentUser, openBecomeMentor]);
+  }, [auth, currentUser, openBecomeMentor]);
 
   const onClickLogout = () => {
     logout();

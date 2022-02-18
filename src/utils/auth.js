@@ -57,9 +57,7 @@ class Auth {
         if (err) {
           reject(err);
         } else {
-          console.log("auth handled")
           if (authResult && authResult.accessToken && authResult.idToken) {
-            console.log("Sessioin Set")
             this.setSession(authResult);
           }
           resolve();
@@ -78,7 +76,6 @@ class Auth {
 
   setSession(authResult) {
     const expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
-    console.log('set session')
 
     // Set isLoggedIn flag in localStorage
     localStorage.setItem(
@@ -114,7 +111,6 @@ class Auth {
       return
     }
     const json = localStorage.getItem(storageKey);
-    console.log("Is it ever loading?", json)
 
     if (json) {
       const session = JSON.parse(json);
@@ -129,7 +125,10 @@ class Auth {
 
   renewSession() {
     return new Promise(async (resolve, reject) => {
-      if (window.location.hash) {
+      if (typeof window === 'undefined') {
+        // If there's no window, we're on the server and can't be authenticated yet.
+        resolve()
+      } else if (window.location.hash) {
         await this.handleAuthentication();
         // clean the hash
         window.history.replaceState(
