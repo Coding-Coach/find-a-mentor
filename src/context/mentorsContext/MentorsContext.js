@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useCallback, useState } from 'react';
+import { createContext, useContext, useEffect, useCallback, useState, useMemo } from 'react';
 import { report } from '../../ga';
 import { useUser } from '../userContext/UserContext';
 import { useApi } from '../apiContext/ApiContext';
@@ -7,11 +7,12 @@ import {
     get as getFavorites,
     readFavMentorsFromLocalStorage,
     updateFavMentorsForUser,
-  } from '../../favoriteManager';
+} from '../../favoriteManager';
+import { useFilters } from '../../context/filtersContext/FiltersContext';
 
 const initialState = {
   favorites: [],
-  mentors: undefined,
+  mentors: [],
   addFavorite: () => {}
 }
 
@@ -63,6 +64,29 @@ export const MentorsProvider = (props) => {
           initialize();
       }, [initialize])
 
+      const [filters] = useFilters();
+
+      const filterMentors = useCallback(
+        mentor => {
+          const { tag, country, name, language, showFavorites } = filters;
+          return (
+            (!tag || mentor.tags.includes(tag)) &&
+            (!country || mentor.country === country) &&
+            (!name || mentor.name === name) &&
+            (!language ||
+              (mentor.spokenLanguages &&
+                mentor.spokenLanguages.includes(language))) &&
+            (!showFavorites || favorites.indexOf(mentor._id) > -1)
+          );
+        },
+        [favorites, filters]
+      );
+
+      const filteredMentors = useMemo(() => mentors.filter(filterMentors), [
+        mentors,
+        filterMentors,
+      ]);
+
       useEffect(() => {
         const addFavorite = async mentor => {
           const newFavorites = toggleFavMentor(mentor, [...favorites]);
@@ -70,11 +94,11 @@ export const MentorsProvider = (props) => {
           report('Favorite');
         };
         setContextState({
-          mentors,
+          mentors: filteredMentors,
           favorites,
           addFavorite,
         })
-      }, [mentors, favorites])
+      }, [favorites, filteredMentors])
     
     return <MentorsContext.Provider value={contextState}>{children}</MentorsContext.Provider>
 };
