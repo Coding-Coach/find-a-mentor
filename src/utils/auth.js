@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js';
+import { isSsr } from '../helpers/ssr';
 import { isMentor } from '../helpers/user';
 
 const storageKey = 'auth-data';
@@ -10,14 +11,13 @@ class Auth {
   expiresAt;
 
   auth0;
-  
 
   constructor() {
     if (typeof window === 'object') {
       this.domain = process.env.NEXT_PUBLIC_AUTH_DOMAIN;
       this.clientId = process.env.NEXT_PUBLIC_AUTH_CLIENT_ID;
       this.redirectUri = process.env.NEXT_PUBLIC_AUTH_CALLBACK_URL;
-      
+
       this.auth0 = new auth0.WebAuth({
         domain: this.domain,
         clientID: this.clientId,
@@ -25,7 +25,7 @@ class Auth {
         responseType: 'token id_token',
         scope: 'openid',
       });
-      
+
       this.loadSession()
     }
   }
@@ -124,20 +124,27 @@ class Auth {
   }
 
   renewSession() {
+    if (isSsr()) {
+      return Promise.resolve();
+    }
     return new Promise(async (resolve, reject) => {
       if (typeof window === 'undefined') {
         // If there's no window, we're on the server and can't be authenticated yet.
         resolve()
       } else if (window.location.hash) {
-        await this.handleAuthentication();
+        try {
+          await this.handleAuthentication();
+          window.history.replaceState(
+            null,
+            null,
+            window.location.href.split('#')[0]
+          );
+          resolve();
+        } catch (error) {
+          reject(error);
+        }
         // clean the hash
-        window.history.replaceState(
-          null,
-          null,
-          window.location.href.split('#')[0]
-        );
-        resolve();
-      } else if (!this.isAuthenticated()) {
+      } else if (!this.isAuthenticated) {
         this.auth0.checkSession({}, (err, authResult) => {
           if (err) {
             reject(err)
