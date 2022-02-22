@@ -1,33 +1,27 @@
-import { useCallback, useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
 import { toast, ToastContainer } from 'react-toastify';
 
 import Header from '../../Header/Header';
 import Modal from '../../Modal/Modal';
 import { set as setWindowTitle } from '../../../titleGenerator';
-import { report, reportPageView } from '../../../ga';
+import { report } from '../../../ga';
 import { useFilters } from '../../../context/filtersContext/FiltersContext';
-import { useMentors } from '../../../context/mentorsContext/MentorsContext'
-
 import { ActionsHandler } from './ActionsHandler';
-
 import { desktop, mobile } from '../../../Me/styles/shared/devices';
 import { Sidebar } from '../../Sidebar/Sidebar';
+import { useMentors } from '../../../context/mentorsContext/MentorsContext';
 
 const App = (props) => {
   const {children} = props
-  
   const [filters] = useFilters();
-  const { tag, country, name, language, showFavorites, showFilters } = filters;
-  const {mentors, favorites} = useMentors()
-  
-  
+  const { tag, country, name, language, showFilters } = filters;
   const [modal, setModal] = useState({
     title: null,
     content: null,
     onClose: null,
   });
-
+  const { mentors } = useMentors()
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -44,35 +38,12 @@ const App = (props) => {
     }
   }, []);
 
-  const filterMentors = useCallback(
-    mentor => {
-      const { tag, country, name, language } = filters;
-      return (
-        (!tag || mentor.tags.includes(tag)) &&
-        (!country || mentor.country === country) &&
-        (!name || mentor.name === name) &&
-        (!language ||
-          (mentor.spokenLanguages &&
-            mentor.spokenLanguages.includes(language))) &&
-        (!showFavorites || favorites.indexOf(mentor._id) > -1)
-      );
-    },
-    [filters, favorites, showFavorites]
-  );
-
   useEffect(() => setWindowTitle({ tag, country, name, language }), [
     tag,
     country,
     name,
     language,
   ]);
-
-  
-
-  useEffect(() => {
-    setWindowTitle({});
-    reportPageView()
-  }, []);
 
   const handleModal = (title, content, onClose) => {
     setModal({
@@ -83,15 +54,6 @@ const App = (props) => {
     report('Modal', 'open', title);
   };
 
-  const mentorsInList = useMemo(() => mentors?.filter(filterMentors), [
-    mentors,
-    filterMentors,
-  ]);
-
-  if (!mentors) {
-      return null
-  }
-
   return (
     <div className="app">
       <ToastContainer />
@@ -99,7 +61,7 @@ const App = (props) => {
       <Layout>
         <Header />
         <Body>
-          <Sidebar mentors={mentorsInList} handleModal={handleModal} />
+          <Sidebar mentors={mentors} handleModal={handleModal} />
           <Main showFilters={showFilters}>
             {children}
           </Main>
@@ -109,9 +71,9 @@ const App = (props) => {
   );
 };
 
-const AppWithActionHandlers = ({children}) => (
+const AppWithActionHandlers = (props) => (
   <ActionsHandler>
-    <App>{children}</App>
+    <App {...props} />
   </ActionsHandler>
 );
 

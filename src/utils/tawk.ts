@@ -1,3 +1,4 @@
+import { isSsr } from '../helpers/ssr';
 import { UserRole } from '../types/models';
 
 type Visitor = {
@@ -13,7 +14,7 @@ export type TawkAPI = {
 };
 
 function init() {
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development' || isSsr()) {
     return;
   }
   (function() {

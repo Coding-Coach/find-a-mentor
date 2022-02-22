@@ -2,7 +2,9 @@ import { useEffect, useState } from 'react';
 import { desktop } from '../Me/styles/shared/devices';
 
 export function useDeviceType() {
-  const [isDesktop, setIsDesktop] = useState<boolean>();
+  // Default isDesktop to true because we don't know the device dimensions on the server
+  // TODO: Detect device dimensions on server
+  const [isDesktop, setIsDesktop] = useState<boolean>(true);
   const handleMatcher = ({ matches }: { matches: boolean }) => setIsDesktop(matches);
 
   useEffect(() => {

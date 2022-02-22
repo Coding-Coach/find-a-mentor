@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/App';
+import App from '../src/components/layouts/App';
 import * as serviceWorker from './serviceWorker';
 import './index.css';
 import { reportError } from './ga';
