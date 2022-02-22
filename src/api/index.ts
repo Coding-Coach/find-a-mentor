@@ -59,19 +59,19 @@ export default class ApiService {
           }
         : {}),
     };
-  
+
     const options: RequestInit = {
       mode: 'cors',
       method,
       body: method === 'GET' ? null : optionBody,
       headers: optionHeader,
     };
-  
+
     try {
       const data = await fetch(url, options).catch((error) => {
         return new Error(error);
       });
-  
+
       if (data instanceof Error) {
         throw data;
       }
@@ -83,10 +83,10 @@ export default class ApiService {
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(error);
-  
+
       const errorMessage = this.getErrorMessage(error);
       reportError('Api', `${errorMessage || 'unknown error'} at ${path}`);
-  
+
       !toast.isActive(API_ERROR_TOAST_ID) &&
         toast.error(errorMessage, {
           toastId: API_ERROR_TOAST_ID,
@@ -116,7 +116,7 @@ export default class ApiService {
     currentUser = undefined;
     localStorage.removeItem(USER_LOCAL_KEY);
   }
-  
+
   getMentors = async () => {
     if (!this.mentorsPromise) {
       this.mentorsPromise = this.makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300`).then(
@@ -149,10 +149,10 @@ export default class ApiService {
       return response.data;
     }
   }
-  
+
   getFavorites = async () => {
     const { _id: userId } = (await this.getCurrentUser())!;
-    
+
     const response = await this.makeApiCall<{ mentors: Mentor[] }>(
       `${paths.USERS}/${userId}/favorites`
     );
@@ -161,10 +161,10 @@ export default class ApiService {
     }
     return [];
   }
-  
+
   addMentorToFavorites = async (mentorId: string, userId: string) => {
       // const { _id: userId } = (await getCurrentUser())!;
-  
+
     const response = await this.makeApiCall(
       `${paths.USERS}/${userId}/favorites/${mentorId}`,
       {},
@@ -185,14 +185,16 @@ export default class ApiService {
       { description: 'why not?', status: 'Pending' },
       'POST'
     );
+
+    const success = response?.success === true;
     return {
-      success: !!response?.success,
-      message: response?.success
+      success,
+      message: success
         ? messages.EDIT_DETAILS_APPLICATION_SUBMITTED
         : response?.message,
     };
   }
-  
+
   updateMentor = async (mentor: Mentor) => {
     const response = await this.makeApiCall(
       `${paths.USERS}/${mentor._id}`,
@@ -204,7 +206,7 @@ export default class ApiService {
     }
     return !!response?.success;
   }
-  
+
   updateMentorAvatar = async (mentor: Mentor, value: FormData) => {
     const response = await this.makeApiCall(
       `${paths.USERS}/${mentor._id}/avatar`,
@@ -217,7 +219,7 @@ export default class ApiService {
     }
     return currentUser!;
   }
-  
+
   updateMentorAvailability = async (isAvailable: boolean) => {
     let currentUser = (await this.getCurrentUser())!;
     const userID = currentUser._id;
@@ -231,7 +233,7 @@ export default class ApiService {
     }
     return !!response?.success;
   }
-  
+
   deleteMentor = async (mentorId: string) => {
     const response = await this.makeApiCall(
       `${paths.USERS}/${mentorId}`,
@@ -240,7 +242,7 @@ export default class ApiService {
     );
     return !!response?.success;
   }
-  
+
   getPendingApplications = async () => {
     const response = await this.makeApiCall<Application[]>(
       `${paths.MENTORS}/applications?status=pending`,
@@ -249,7 +251,7 @@ export default class ApiService {
     );
     return response?.success ? response.data : [];
   }
-  
+
   approveApplication = async (mentor: Mentor) => {
     const response = await this.makeApiCall(
       `${paths.MENTORS}/applications/${mentor._id}`,
@@ -260,7 +262,7 @@ export default class ApiService {
     );
     return !!response?.success;
   }
-  
+
   declineApplication = async (mentor: Mentor, reason: string) => {
     const response = await this.makeApiCall(
       `${paths.MENTORS}/applications/${mentor._id}`,
@@ -272,7 +274,7 @@ export default class ApiService {
     );
     return !!response?.success;
   }
-  
+
   applyForMentorship = async (
     mentor: Mentor,
     {
@@ -296,11 +298,11 @@ export default class ApiService {
     }
     return !!response?.success;
   }
-  
+
   getMyMentorshipApplication = () => {
     return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
   }
-  
+
   getMentorshipRequests = async (userId: string) => {
     const response = await this.makeApiCall(
       `${paths.MENTORSHIP}/${userId}/requests`,
@@ -309,7 +311,7 @@ export default class ApiService {
     );
     return response?.success ? response.data : [];
   }
-  
+
   updateMentorshipReqStatus = async (
     requestId: string,
     userId: string,
@@ -351,7 +353,7 @@ export default class ApiService {
           if (!_id) {
             return;
           }
-  
+
           Sentry.configureScope((scope) => {
             scope.setUser({
               email,
@@ -359,13 +361,13 @@ export default class ApiService {
               username: name,
             });
           });
-  
+
           setVisitor({
             name,
             email,
             roles,
           });
-  
+
           return response.data;
         }
       }
@@ -380,7 +382,7 @@ export default class ApiService {
     if (response?.success) {
       return response.data.length > 0;
     }
-  
+
     return false;
   }
 }
