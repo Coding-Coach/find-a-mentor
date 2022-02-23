@@ -16,7 +16,7 @@ class Auth {
     if (typeof window === 'object') {
       this.domain = process.env.NEXT_PUBLIC_AUTH_DOMAIN;
       this.clientId = process.env.NEXT_PUBLIC_AUTH_CLIENT_ID;
-      this.redirectUri = process.env.NEXT_PUBLIC_AUTH_CALLBACK_URL;
+      this.redirectUri = process.env.NEXT_PUBLIC_AUTH_CALLBACK;
 
       this.auth0 = new auth0.WebAuth({
         domain: this.domain,
