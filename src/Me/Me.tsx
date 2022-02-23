@@ -21,12 +21,18 @@ const Me = (props: any) => {
   const { pathname } = useRouter();
   const {currentUser} = useUser()
   const auth = useAuth()
-  if (!currentUser) {
-    auth.login(pathname)
+
+  React.useEffect(() => {
+    if (!currentUser) {
+      auth.login(pathname)
+    }
+  }, [currentUser, auth, pathname])
+
+  if (isSsr()) {
     return null
   }
 
-  if (isSsr()) {
+  if (!currentUser) {
     return null
   }
 
