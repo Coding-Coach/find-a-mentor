@@ -23,6 +23,7 @@ import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
 import { formatTimeAgo } from '../../helpers/time';
 import { useAuth } from '../../context/authContext/AuthContext';
+import { useNavigation } from '../../hooks/useNavigation';
 
 const COMPACT_CARD_TAGS_LENGTH = 5;
 
@@ -156,6 +157,7 @@ const Card = ({
   const extended = appearance === 'extended';
   const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
+  const { getUserRoute } = useNavigation();
   const {
     name,
     country,
@@ -167,7 +169,7 @@ const Card = ({
     createdAt,
   } = mentor;
 
-  const auth = useAuth()
+  const auth = useAuth();
 
   const toggleFav = () => {
     if (currentUser) {
@@ -237,8 +239,8 @@ const Card = ({
         tooltipProps={{
           disabled: true,
         }}
-        link={`/u/${mentor._id}`}
-        onClick={() => {}}
+        link={getUserRoute(mentor)}
+        onClick={onAvatarClick}
         text="Go to profile"
       />
     );

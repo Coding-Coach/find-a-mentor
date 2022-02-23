@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import {useNavigation} from '../../hooks/useNavigation';
 
 import Card from '../Card/Card';
 import { Pager } from './Pager';
@@ -12,6 +13,12 @@ const itemsInPage = 20;
 
 const MentorsList = () => {
   const {mentors, favorites, addFavorite} = useMentors()
+
+  const { navigateToUser } = useNavigation();
+
+  const onAvatarClick = (mentor) => {
+    navigateToUser(mentor);
+  };
 
 
   const getContent = () => {
@@ -30,6 +37,7 @@ const MentorsList = () => {
       <Cards
         mentors={mentors}
         favorites={favorites}
+        onAvatarClick={onAvatarClick}
         onFavMentor={addFavorite}
       />
     );
@@ -45,7 +53,7 @@ const MentorsList = () => {
   );
 };
 
-const Cards = ({ mentors, favorites, onFavMentor }) => {
+const Cards = ({ mentors, favorites, onFavMentor, onAvatarClick }) => {
   const [{ page }] = useFilters();
   const to = page * itemsInPage;
   const from = to - itemsInPage;
@@ -62,6 +70,7 @@ const Cards = ({ mentors, favorites, onFavMentor }) => {
         mentor={mentor}
         onFavMentor={onFavMentor}
         isFav={favorites.indexOf(mentor._id) > -1}
+        onAvatarClick={() => onAvatarClick(mentor)}
       />
     ));
   };
