@@ -25,8 +25,7 @@ const Me = (props: any) => {
     auth.login(pathname)
     return null
   }
-  
-  // Ensure we're actually in a browser before rendering the component
+
   if (isSsr()) {
     return null
   }
