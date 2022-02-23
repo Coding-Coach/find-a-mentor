@@ -3,8 +3,12 @@
  */
  const nextConfig = {
     typescript: {
-        tsconfigPath: './tsconfig.json',
+        // !! WARN !!
+        // Dangerously allow production builds to successfully complete even if
+        // your project has type errors.
+        // !! WARN !!
         ignoreBuildErrors: true,
+        tsconfigPath: './tsconfig.json'
     },
     eslint: {
       // Warning: This allows production builds to successfully complete even if

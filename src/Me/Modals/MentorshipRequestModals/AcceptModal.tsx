@@ -1,6 +1,6 @@
 import Body from './style';
 import { Modal } from '../Modal';
-import { ReactComponent as MentorshipSvg } from '../../../assets/me/mentorship.svg';
+import MentorshipSvg from '../../../assets/me/mentorship.svg';
 import { links } from '../../../config/constants';
 import styled from 'styled-components/macro';
 import { report } from '../../../ga';

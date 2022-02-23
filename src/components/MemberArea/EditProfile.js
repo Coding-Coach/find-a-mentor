@@ -2,8 +2,6 @@ import { Component } from 'react';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
 
-// TODO: remember how to handle context the old way or pass the context down from a functional component.
-import { ApiContext } from '../../context/apiContext/ApiContext';
 import model from './model';
 import Select from 'react-select';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
@@ -52,7 +50,7 @@ export default class EditProfile extends Component {
   onSubmit = async (e) => {
     report('Member Area', 'Submit start', 'User details');
     const { user } = this.state;
-    const { onClose } = this.props;
+    const { onClose, api } = this.props;
     const { updateCurrentUser } = this.context;
 
     e.preventDefault();
@@ -62,13 +60,13 @@ export default class EditProfile extends Component {
     this.setState({ disabled: true });
 
     const { avatar, ...userInfo } = fromVMtoM(user);
-    const updateMentorResult = await ApiService.updateMentor(userInfo);
+    const updateMentorResult = await api.updateMentor(userInfo);
 
     if (updateMentorResult) {
       if (isMentor(user)) {
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
       } else {
-        const createApplicationResult = await ApiService.createApplicationIfNotExists(
+        const createApplicationResult = await api.createApplicationIfNotExists(
           user
         );
         if (createApplicationResult.success) {
@@ -94,7 +92,7 @@ export default class EditProfile extends Component {
   onDelete = async () => {
     report('Member Area', 'Delete start', 'User details');
     if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
-      await ApiService.deleteMentor(this.state.user);
+      await this.props.api.deleteMentor(this.state.user);
       report('Member Area', 'Delete success', 'User details');
       this.context.logout();
     }
@@ -290,7 +288,7 @@ export default class EditProfile extends Component {
       const files = Array.from(event.target.files);
       const formData = new FormData();
       formData.append('image', files[0]);
-      const updatedUser = await ApiService.updateMentorAvatar(this.state.user, formData);
+      const updatedUser = await this.props.api.updateMentorAvatar(this.state.user, formData);
       this.setState({
         user: {
           ...this.state.user,
