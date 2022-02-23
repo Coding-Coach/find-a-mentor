@@ -3,10 +3,10 @@ import { useRouter } from 'next/router';
 import { User } from '../types/models';
 
 export const useNavigation = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const getUserRoute = (user: User) => {
-    return `/u/${user._id}`
+    return `/u/${user._id}`;
   };
 
   // we would probably need to implement it later

@@ -58,9 +58,15 @@ const tagsList = (
 };
 
 const CTAButton = ({ tooltipProps, onClick, text, link }: CTAButtonProps) => {
+  if (!onClick && !link) {
+    // eslint-disable-next-line no-console
+    console.warn('CTA button must have either onClick or link');
+  }
   const CTAElement: FC = ({ children }) =>
     link ? (
-      <Link href={link}><a>{children}</a></Link>
+      <Link href={link}>
+        <a>{children}</a>
+      </Link>
     ) : (
       <button onClick={onClick}>{children}</button>
     );
@@ -80,7 +86,7 @@ const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
   const { isMobile } = useDeviceType();
   const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
   const { isAuthenticated } = useUser();
-  const auth = useAuth()
+  const auth = useAuth();
 
   const applyOnClick = () => {
     handleAnalytics('apply');
@@ -240,7 +246,6 @@ const Card = ({
           disabled: true,
         }}
         link={getUserRoute(mentor)}
-        onClick={onAvatarClick}
         text="Go to profile"
       />
     );
