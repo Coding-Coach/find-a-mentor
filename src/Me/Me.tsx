@@ -6,22 +6,23 @@ import styled from 'styled-components/macro';
 import Header from './Header/Header';
 import Main from './Main';
 import Navbar from './Navigation/Navbar';
-// import Home from './Routes/Home';
-// import MentorshipRequests from '../Me/MentorshipRequests';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
-// import { AuthorizationRoute } from '../CustomRoutes/AuthorizedRoute';
 import { Helmet } from 'react-helmet';
-
-// const Admin = React.lazy(() =>
-//   import(/* webpackChunkName: "Admin" */ './Routes/Admin')
-// );
+import { useUser } from '../context/userContext/UserContext';
+import { useAuth } from '../context/authContext/AuthContext';
 
 
 
 const Me = (props: any) => {
   const { children, title } = props
   const { pathname } = useRouter();
+  const {currentUser} = useUser()
+  const auth = useAuth()
+  if (!currentUser) {
+    auth.login(pathname)
+    return null
+  }
   
   // Ensure we're actually in a browser before rendering the component
   if (typeof window === 'undefined') {
@@ -37,20 +38,9 @@ const Me = (props: any) => {
           <meta name="description" content="codingcoach.io application" />
         </Helmet>
         <Navbar />
-        {/* <Header title={title} /> */}
+        <Header title={title} />
         <Main>
           { children }
-          {/* <Switch>
-            <Route path={`${url}/requests`}>
-            <MentorshipRequests />
-            </Route>
-            <AuthorizationRoute path={`${url}/admin`} roles={['Admin']}>
-            <Admin />
-            </AuthorizationRoute>
-            <Route path={`${url}`}>
-            <Home />
-            </Route>
-          </Switch> */}
         </Main>
       </>
       <ToastContainer />
@@ -65,7 +55,7 @@ const Container = styled.div`
   min-height: 100vh;
   background-color: #f8f8f8;
 
-  /* @media ${desktop} {
+  @media ${desktop} {
     padding-left: 75px;
-  } */
+  }
 `;
