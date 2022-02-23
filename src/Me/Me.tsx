@@ -17,7 +17,7 @@ const Me = (props: any) => {
   const { children, title } = props
   
   // Ensure we're actually in a browser before rendering the component
-  if (!isSsr()) {
+  if (isSsr()) {
     return null
   }
 
