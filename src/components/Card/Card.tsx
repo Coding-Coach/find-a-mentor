@@ -23,7 +23,7 @@ import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
 import { formatTimeAgo } from '../../helpers/time';
 import { useAuth } from '../../context/authContext/AuthContext';
-import { useNavigation } from '../../hooks/useNavigation';
+import { urls } from '../../utils/routes';
 
 const COMPACT_CARD_TAGS_LENGTH = 5;
 
@@ -113,22 +113,22 @@ const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
 const Avatar = ({
   mentor,
   id,
-  handleAvatarClick,
 }: {
   mentor: Mentor;
   id: string;
-  handleAvatarClick: () => void;
 }) => {
   return (
-    <button className="avatar" onClick={handleAvatarClick}>
-      <i className="fa fa-user-circle" />
-      <img
-        src={getAvatarUrl(mentor.avatar)}
-        aria-labelledby={`${id}`}
-        alt={`${mentor.name}`}
-        onError={(e) => e.currentTarget.classList.add('broken')}
-      />
-    </button>
+    <Link href={urls.user.get(mentor)}>
+      <a className="avatar">
+        <i className="fa fa-user-circle" />
+        <img
+          src={getAvatarUrl(mentor.avatar)}
+          aria-labelledby={`${id}`}
+          alt={`${mentor.name}`}
+          onError={(e) => e.currentTarget.classList.add('broken')}
+        />
+      </a>
+    </Link>
   );
 };
 
@@ -157,13 +157,11 @@ const Card = ({
   mentor,
   onFavMentor,
   isFav,
-  onAvatarClick = () => {},
   appearance,
 }: CardProps) => {
   const extended = appearance === 'extended';
   const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
-  const { getUserRoute } = useNavigation();
   const {
     name,
     country,
@@ -245,7 +243,7 @@ const Card = ({
         tooltipProps={{
           disabled: true,
         }}
-        link={getUserRoute(mentor)}
+        link={urls.user.get(mentor)}
         text="Go to profile"
       />
     );
@@ -276,7 +274,6 @@ const Card = ({
         <Avatar
           mentor={mentor}
           id={mentorID}
-          handleAvatarClick={onAvatarClick}
         />
         <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
