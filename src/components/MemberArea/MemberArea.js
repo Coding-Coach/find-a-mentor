@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import styled from 'styled-components';
-import Link from 'next/link'
+import Link from '../Link/Link';
 
 import { getAvatarUrl } from '../../helpers/avatar';
 import { useUser } from '../../context/userContext/UserContext';
-import { useAuth } from '../../context/authContext/AuthContext'
+import { useAuth } from '../../context/authContext/AuthContext';
 import { useApi } from '../../context/apiContext/ApiContext';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import EditProfile from './EditProfile';
@@ -17,15 +17,15 @@ function MemberArea({ onOpenModal }) {
   const { isDesktop } = useDeviceType();
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
   const { currentUser, isMentor, isAdmin, isAuthenticated, logout } = useUser();
-  const api = useApi()
-  const auth = useAuth()
+  const api = useApi();
+  const auth = useAuth();
   const openBecomeMentor = useCallback(
     () => onOpenModal('Edit Your Profile', <EditProfile api={api} />),
     [onOpenModal, api]
   );
 
   const openPendingApplications = () => {
-    onOpenModal('Pending Applications', <PendingApplications api={api}/>);
+    onOpenModal('Pending Applications', <PendingApplications api={api} />);
   };
 
   MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
@@ -71,9 +71,7 @@ function MemberArea({ onOpenModal }) {
                 </MemberMenuItem>
               )}
               <Link href="/me">
-                <MemberMenuItem>
-                  Manage Account
-                </MemberMenuItem>
+                <MemberMenuItem>Manage Account</MemberMenuItem>
               </Link>
               {!isMentor && (
                 <MemberMenuItem onClick={openBecomeMentor}>

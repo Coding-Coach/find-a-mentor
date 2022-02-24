@@ -1,9 +1,9 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 import classNames from 'classnames';
 import styled from 'styled-components/macro';
 
+import Link from '../../components/Link/Link';
 import { mobile, desktop } from '../styles/shared/devices';
 import messages from '../../messages';
 import IconHome from '../../assets/me/home.svg';
@@ -24,7 +24,9 @@ const MenuItem = ({
   const router = useRouter();
   return (
     <Link href={to}>
-      <NavItemDecoration className={classNames({ active: router.pathname === to })}>
+      <NavItemDecoration
+        className={classNames({ active: router.pathname === to })}
+      >
         <Icon />
         <Label>{label}</Label>
       </NavItemDecoration>
@@ -48,19 +50,12 @@ const Navbar = () => {
         {isAdmin && (
           <MenuItem to="/me/admin" icon={IconMentors} label="Admin" />
         )}
-        <Link href={
-            router.pathname.includes('/me')
-            ? '/'
-            : router.pathname
-          }>
-        <Logout
-          
-          onClick={logout}
-          >
-          <IconLogout />
-          <Label>{messages.LOGOUT}</Label>
-        </Logout>
-          </Link>
+        <Link href={router.pathname.includes('/me') ? '/' : router.pathname}>
+          <Logout onClick={logout}>
+            <IconLogout />
+            <Label>{messages.LOGOUT}</Label>
+          </Logout>
+        </Link>
       </Menu>
     </>
   );

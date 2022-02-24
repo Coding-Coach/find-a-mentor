@@ -2,17 +2,16 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components/macro';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
+import Link from '../../components/Link/Link';
 
 import Card from '../Card/Card';
 import { Loader } from '../Loader';
 import { prefix } from '../../titleGenerator';
-import { Mentor, User } from '../../types/models';
+import { User } from '../../types/models';
 import { mobile } from '../../Me/styles/shared/devices';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useApi } from '../../context/apiContext/ApiContext';
 import { useMentors } from '../../context/mentorsContext/MentorsContext';
-
 
 const UserProfileContainer = styled.div`
   display: flex;
@@ -35,10 +34,10 @@ export const UserProfile = () => {
   const [user, setUser] = useState<User>();
   const [isLoading, setIsLoading] = useState(true);
   const { query } = useRouter();
-  const { id } = query
+  const { id } = query;
   const [, dispatch] = useFilters();
-  const api = useApi()
-  const { favorites, addFavorite } = useMentors()
+  const api = useApi();
+  const { favorites, addFavorite } = useMentors();
 
   useEffect(() => {
     dispatch({ type: 'showFilters', payload: false });

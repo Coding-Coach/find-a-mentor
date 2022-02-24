@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Obfuscate from 'react-obfuscate';
 import orderBy from 'lodash/orderBy';
 import classNames from 'classnames';
-import Link from 'next/link';
+import Link from '../Link/Link';
 import { Tooltip } from 'react-tippy';
 
 import './Card.css';
@@ -64,9 +64,7 @@ const CTAButton = ({ tooltipProps, onClick, text, link }: CTAButtonProps) => {
   }
   const CTAElement: FC = ({ children }) =>
     link ? (
-      <Link href={link}>
-        <a>{children}</a>
-      </Link>
+      <Link href={link}>{children}</Link>
     ) : (
       <button onClick={onClick}>{children}</button>
     );
@@ -110,24 +108,16 @@ const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
   );
 };
 
-const Avatar = ({
-  mentor,
-  id,
-}: {
-  mentor: Mentor;
-  id: string;
-}) => {
+const Avatar = ({ mentor, id }: { mentor: Mentor; id: string }) => {
   return (
-    <Link href={urls.user.get(mentor)}>
-      <a className="avatar">
-        <i className="fa fa-user-circle" />
-        <img
-          src={getAvatarUrl(mentor.avatar)}
-          aria-labelledby={`${id}`}
-          alt={`${mentor.name}`}
-          onError={(e) => e.currentTarget.classList.add('broken')}
-        />
-      </a>
+    <Link href={urls.user.get(mentor)} className="avatar">
+      <i className="fa fa-user-circle" />
+      <img
+        src={getAvatarUrl(mentor.avatar)}
+        aria-labelledby={`${id}`}
+        alt={`${mentor.name}`}
+        onError={(e) => e.currentTarget.classList.add('broken')}
+      />
     </Link>
   );
 };
@@ -153,12 +143,7 @@ const LikeButton = ({
   </Tooltip>
 );
 
-const Card = ({
-  mentor,
-  onFavMentor,
-  isFav,
-  appearance,
-}: CardProps) => {
+const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
   const extended = appearance === 'extended';
   const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
@@ -271,10 +256,7 @@ const Card = ({
           <p>{country}</p>
         </button>
 
-        <Avatar
-          mentor={mentor}
-          id={mentorID}
-        />
+        <Avatar mentor={mentor} id={mentorID} />
         <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
     );
