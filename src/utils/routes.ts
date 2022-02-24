@@ -11,6 +11,6 @@ export const urls = {
     },
     admin: {
       get: () => '/me/admin',
-    }
-  }
-}
+    },
+  },
+};
