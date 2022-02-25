@@ -1,6 +1,8 @@
 body {
   font-family: 'Lato', sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
 }
 
 .app {
