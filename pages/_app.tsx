@@ -15,6 +15,7 @@ import '../src/index.css';
 
 // import App from 'next/app'
 
+import Head from './head';
 import { ApiProvider } from '../src/context/apiContext/ApiContext';
 import { AuthProvider } from '../src/context/authContext/AuthContext';
 import { UserProvider } from '../src/context/userContext/UserContext';
@@ -24,19 +25,22 @@ import { MentorsProvider } from '../src/context/mentorsContext/MentorsContext';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthProvider>
-      <ApiProvider>
-        <UserProvider>
-          <ModalHookProvider>
-            <FiltersProvider>
-              <MentorsProvider>
-                <Component {...pageProps} />
-              </MentorsProvider>
-            </FiltersProvider>
-          </ModalHookProvider>
-        </UserProvider>
-      </ApiProvider>
-    </AuthProvider>
+    <>
+      <Head />
+      <AuthProvider>
+        <ApiProvider>
+          <UserProvider>
+            <ModalHookProvider>
+              <FiltersProvider>
+                <MentorsProvider>
+                  <Component {...pageProps} />
+                </MentorsProvider>
+              </FiltersProvider>
+            </ModalHookProvider>
+          </UserProvider>
+        </ApiProvider>
+      </AuthProvider>
+    </>
   );
 }
 
