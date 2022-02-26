@@ -31,7 +31,7 @@ const GoogleAnalyticsPayload = {
 const Head = () => {
   return (
     <NextHead>
-      <title>Coding Coach123</title>
+      <title>Coding Coach</title>
       <meta
         name="Description"
         content="Coding Coach is here to connect mentors and mentees around the world, for free. We believe mentorship should be accessible to all, regardless of circumstance."
