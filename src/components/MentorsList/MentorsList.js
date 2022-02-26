@@ -13,7 +13,6 @@ const itemsInPage = 20;
 const MentorsList = () => {
   const {mentors, favorites, addFavorite} = useMentors()
 
-
   const getContent = () => {
     if (!mentors) {
       return <Loader size={2} />;

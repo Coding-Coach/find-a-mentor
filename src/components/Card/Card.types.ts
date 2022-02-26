@@ -3,7 +3,7 @@ import { Mentor } from '../../types/models';
 
 export type CTAButtonProps = {
   tooltipProps: TooltipProps;
-  onClick: () => void;
+  onClick?: () => void;
   text: string;
   link?: string;
 };
