@@ -1,14 +1,16 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components/macro';
+import { Helmet } from 'react-helmet';
+import { useRouter } from 'next/router';
+
 import Header from './Header/Header';
 import Main from './Main';
 import Navbar from './Navigation/Navbar';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
-import { Helmet } from 'react-helmet';
+import { isSsr } from '../helpers/ssr';
 import { useUser } from '../context/userContext/UserContext';
 import { useAuth } from '../context/authContext/AuthContext';
 
@@ -19,16 +21,20 @@ const Me = (props: any) => {
   const { pathname } = useRouter();
   const {currentUser} = useUser()
   const auth = useAuth()
-  if (!currentUser) {
-    auth.login(pathname)
-    return null
-  }
-  
-  // Ensure we're actually in a browser before rendering the component
-  if (typeof window === 'undefined') {
+
+  React.useEffect(() => {
+    if (!currentUser) {
+      auth.login(pathname)
+    }
+  }, [currentUser, auth, pathname])
+
+  if (isSsr()) {
     return null
   }
 
+  if (!currentUser) {
+    return null
+  }
 
   return (
     <Container>
