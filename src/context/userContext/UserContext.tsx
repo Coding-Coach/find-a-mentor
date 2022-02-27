@@ -1,7 +1,7 @@
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { User } from '../../types/models';
 import { useAuth } from '../authContext/AuthContext';
-import { useApi } from '../apiContext/ApiContext'
+import { useApi } from '../apiContext/ApiContext';
 
 type UserProviderContext = {
   isAdmin: boolean;
@@ -27,12 +27,11 @@ export const UserProvider: FC = ({ children }) => {
   const isAdmin = !!currentUser?.roles?.includes('Admin');
 
   const logout = () => {
-    updateCurrentUser(undefined);
     auth.doLogout(api);
   };
 
   useEffect(() => {
-    api.getCurrentUser().then(user => {
+    api.getCurrentUser().then((user) => {
       updateCurrentUser(user);
       setIsloading(false);
     });

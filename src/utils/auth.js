@@ -26,7 +26,7 @@ class Auth {
         scope: 'openid',
       });
 
-      this.loadSession()
+      this.loadSession();
     }
   }
 
@@ -108,7 +108,7 @@ class Auth {
 
   loadSession() {
     if (typeof window === 'undefined') {
-      return
+      return;
     }
     const json = localStorage.getItem(storageKey);
 
@@ -128,12 +128,10 @@ class Auth {
       return Promise.resolve();
     }
     return new Promise(async (resolve, reject) => {
-      if (typeof window === 'undefined') {
-        // If there's no window, we're on the server and can't be authenticated yet.
-        resolve()
-      } else if (window.location.hash) {
+      if (window.location.hash) {
         try {
           await this.handleAuthentication();
+          // clean the hash
           window.history.replaceState(
             null,
             null,
@@ -143,11 +141,10 @@ class Auth {
         } catch (error) {
           reject(error);
         }
-        // clean the hash
-      } else if (!this.isAuthenticated) {
+      } else if (!this.isAuthenticated()) {
         this.auth0.checkSession({}, (err, authResult) => {
           if (err) {
-            reject(err)
+            reject(err);
           }
           if (authResult && authResult.accessToken && authResult.idToken) {
             this.setSession(authResult);
