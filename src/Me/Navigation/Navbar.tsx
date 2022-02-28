@@ -36,7 +36,6 @@ const MenuItem = ({
 
 const Navbar = () => {
   const { isAdmin, logout } = useUser();
-  const router = useRouter();
   return (
     <>
       <Menu>
@@ -50,12 +49,10 @@ const Navbar = () => {
         {isAdmin && (
           <MenuItem to="/me/admin" icon={IconMentors} label="Admin" />
         )}
-        <Link href={router.pathname.includes('/me') ? '/' : router.pathname}>
-          <Logout onClick={logout}>
-            <IconLogout />
-            <Label>{messages.LOGOUT}</Label>
-          </Logout>
-        </Link>
+        <Logout onClick={logout}>
+          <IconLogout />
+          <Label>{messages.LOGOUT}</Label>
+        </Logout>
       </Menu>
     </>
   );
