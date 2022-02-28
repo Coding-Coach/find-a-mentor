@@ -6,15 +6,15 @@ import { Pager } from './Pager';
 import { Loader } from '../Loader';
 import { report } from '../../ga';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
-import { useMentors } from '../../context/mentorsContext/MentorsContext'
+import { useMentors } from '../../context/mentorsContext/MentorsContext';
 
 const itemsInPage = 20;
 
 const MentorsList = () => {
-  const {mentors, favorites, addFavorite} = useMentors()
+  const { mentors, favorites, addFavorite, isLoading } = useMentors();
 
   const getContent = () => {
-    if (!mentors) {
+    if (isLoading) {
       return <Loader size={2} />;
     }
     if (!mentors.length) {
