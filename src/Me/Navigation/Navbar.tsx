@@ -11,6 +11,7 @@ import Mentorships from '../../assets/me/icon-survey.svg';
 import IconMentors from '../../assets/me/mentors.svg';
 import IconLogout from '../../assets/me/icon-door-exit.svg';
 import { useUser } from '../../context/userContext/UserContext';
+import { urls } from '../../utils/routes'
 
 const MenuItem = ({
   icon: Icon,
@@ -43,11 +44,12 @@ const Navbar = () => {
           src={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo-192.png`}
           alt="Logo"
         />
-        <MenuItem to="/me" icon={IconHome} label="Home" />
-        <MenuItem to="/me/requests" icon={Mentorships} label="Mentorships" />
+        <MenuItem to={urls.me.get()} icon={IconHome} label="Home" />
+        <MenuItem to={urls.me.requests.get()} icon={Mentorships} label="Mentorships" />
+        {/* TODO: Hook up to new root URL */}
         <MenuItem to="/" icon={IconMentors} label="Mentors" />
         {isAdmin && (
-          <MenuItem to="/me/admin" icon={IconMentors} label="Admin" />
+          <MenuItem to={urls.me.admin.get()} icon={IconMentors} label="Admin" />
         )}
         <Logout onClick={logout}>
           <IconLogout />
