@@ -1,8 +1,11 @@
 import { User } from '../types/models';
 
 export const urls = {
+  root: {
+    get: () => getUrlWithFilterParams('/'),
+  },
   user: {
-    get: (user: User) => `/u/${user._id}`,
+    get: (user: User) => getUrlWithFilterParams(`/u/${user._id}`),
   },
   me: {
     get: () => '/me',
@@ -14,3 +17,7 @@ export const urls = {
     },
   },
 };
+
+function getUrlWithFilterParams(url) {
+  return url + window.location.search
+}
