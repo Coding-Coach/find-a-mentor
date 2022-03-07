@@ -46,8 +46,7 @@ const Navbar = () => {
         />
         <MenuItem to={urls.me.get()} icon={IconHome} label="Home" />
         <MenuItem to={urls.me.requests.get()} icon={Mentorships} label="Mentorships" />
-        {/* TODO: Hook up to new root URL */}
-        <MenuItem to="/" icon={IconMentors} label="Mentors" />
+        <MenuItem to={urls.root.get()} icon={IconMentors} label="Mentors" />
         {isAdmin && (
           <MenuItem to={urls.me.admin.get()} icon={IconMentors} label="Admin" />
         )}
