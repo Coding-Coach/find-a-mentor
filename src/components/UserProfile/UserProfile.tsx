@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import styled from 'styled-components/macro';
 import { useRouter } from 'next/router';
-import Link from '../../components/Link/Link';
 
 import Card from '../Card/Card';
+import Link from '../../components/Link/Link';
 import { Loader } from '../Loader';
 import { prefix } from '../../titleGenerator';
 import { User } from '../../types/models';
@@ -12,6 +12,8 @@ import { mobile } from '../../Me/styles/shared/devices';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useApi } from '../../context/apiContext/ApiContext';
 import { useMentors } from '../../context/mentorsContext/MentorsContext';
+import {urls} from '../../utils/routes'
+
 
 const UserProfileContainer = styled.div`
   display: flex;
@@ -67,7 +69,7 @@ export const UserProfile = () => {
       <Helmet>
         <title>{`${prefix} | ${user?.name}`}</title>
       </Helmet>
-      <Link href="/">Back to mentors list</Link>
+      <Link href={urls.root.get()}>Back to mentors list</Link>
       <Card
         appearance="extended"
         mentor={user}
