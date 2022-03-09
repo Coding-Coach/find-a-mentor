@@ -39,7 +39,7 @@
     "test": "yarn test:unit && yarn test:e2e:run",
     "test:unit": "react-scripts test",
     "test:unit:update-snapshot": "react-scripts test -u",
-    "eject": "react-scripts eject",
+    "golden": "yarn prettier:fix",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build",
     "prettier": "prettier \"**/*.{json,js}\" --check --loglevel log",
