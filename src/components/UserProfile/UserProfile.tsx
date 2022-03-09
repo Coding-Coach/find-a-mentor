@@ -53,7 +53,9 @@ export const UserProfile = () => {
       }
       setIsLoading(false);
     }
-    fetchMentor();
+    if (id) {
+      fetchMentor();
+    }
   }, [id, api]);
 
   if (isLoading) {
