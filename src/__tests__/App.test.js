@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import nock from 'nock';
 import { act } from 'react-dom/test-utils';
 
-import App from '../components/Layout/App';
+import App from '../components/layouts/App';
 import { UserProvider } from '../context/userContext/UserContext';
 
 const API_BASE_URL = 'https://api.codingcoach.io';
@@ -21,9 +21,9 @@ it('renders without crashing', async () => {
 
   act(() => {
     ReactDOM.render(
-        <UserProvider>
-          <App />
-        </UserProvider>,
+      <UserProvider>
+        <App />
+      </UserProvider>,
       div
     );
   });

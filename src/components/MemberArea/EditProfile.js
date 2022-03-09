@@ -288,7 +288,10 @@ export default class EditProfile extends Component {
       const files = Array.from(event.target.files);
       const formData = new FormData();
       formData.append('image', files[0]);
-      const updatedUser = await this.props.api.updateMentorAvatar(this.state.user, formData);
+      const updatedUser = await this.props.api.updateMentorAvatar(
+        this.state.user,
+        formData
+      );
       this.setState({
         user: {
           ...this.state.user,
@@ -349,7 +352,8 @@ export default class EditProfile extends Component {
                 <a
                   href={links.MENTORSHIP_GUIDELINES}
                   // eslint-disable-next-line react/jsx-no-target-blank
-                  target="_blank" rel="noreferrer"
+                  target="_blank"
+                  rel="noreferrer"
                 >
                   Mentorship guidelines
                 </a>{' '}

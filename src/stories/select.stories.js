@@ -20,7 +20,7 @@ export const SingleSelect = () => {
       <FormField label="Single select" css={{ width: '60%' }}>
         <Select
           value={selectedValues}
-          onChange={selected => {
+          onChange={(selected) => {
             setSelectedValues(selected);
           }}
           options={options}
@@ -40,7 +40,7 @@ export const MultiSelect = () => {
         <Select
           isMulti={true}
           value={selectedValues}
-          onChange={selected => {
+          onChange={(selected) => {
             setSelectedValues(selected);
           }}
           options={options}
@@ -60,7 +60,7 @@ export const MultiSelectWithMaxItems = () => {
         <Select
           isMulti={true}
           value={selectedValues}
-          onChange={selected => {
+          onChange={(selected) => {
             setSelectedValues(selected);
           }}
           options={options}

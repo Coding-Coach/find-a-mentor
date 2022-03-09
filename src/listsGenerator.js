@@ -28,14 +28,14 @@ export function generateLists(mentors) {
   }
 
   json.names = [...new Set(json.names)].map(mapToItem).sort(sortByLabel);
-  json.tags = [...new Set(json.tags.map(tag => tag.toLowerCase()))]
+  json.tags = [...new Set(json.tags.map((tag) => tag.toLowerCase()))]
     .map(mapToItem)
     .sort(sortByLabel);
   json.countries = [...new Set(json.countries)]
-    .map(country => mapToItem(countries[country], country))
+    .map((country) => mapToItem(countries[country], country))
     .sort(sortByLabel);
   json.languages = [...new Set(json.languages)]
-    .map(language => mapToItem(ISO6391.getName(language), language))
+    .map((language) => mapToItem(ISO6391.getName(language), language))
     .sort(sortByLabel);
   return json;
 }

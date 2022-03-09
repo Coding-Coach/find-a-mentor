@@ -10,7 +10,7 @@ const experiments = {};
  */
 function addSource(source) {
   if (source && source.length) {
-    source.split(',').forEach(exp => {
+    source.split(',').forEach((exp) => {
       experiments[exp] = true;
     });
   }
@@ -26,7 +26,7 @@ if (Object.keys(experiments).length) {
 /**
  * @param {Experiments} name
  */
-export const isOpen = name => {
+export const isOpen = (name) => {
   const openExperiments = JSON.parse(
     localStorage.getItem('experiments') || '{}'
   );
