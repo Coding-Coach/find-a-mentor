@@ -115,7 +115,7 @@ export const Sidebar = ({ mentors, handleModal }: SidebarProps) => {
       <a
         href="https://vercel.com/?utm_source=[coding-coach]&utm_campaign=oss"
         aria-label="Vercel"
-        target="blank"
+        target="_blank"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
