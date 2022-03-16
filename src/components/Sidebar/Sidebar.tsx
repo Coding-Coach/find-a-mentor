@@ -49,7 +49,7 @@ const SidebarNav = styled.nav`
 
 const PatreonLink = styled.a`
   display: block;
-  margin: 0px auto 0;
+  margin: 0 auto;
   width: 150px;
 
   @media ${mobile} {
