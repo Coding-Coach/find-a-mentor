@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const SocialLinks = () => (
   <nav aria-label="Social Media" className="social-wrapper">
     <a

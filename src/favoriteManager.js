@@ -30,9 +30,9 @@ export function readFavMentorsFromLocalStorage() {
 
 export function updateFavMentorsForUser(api, mentors) {
   let timeOut = 0;
-  mentors.forEach(mentorId => {
+  mentors.forEach((mentorId) => {
     setTimeout(
-      mentorId => {
+      (mentorId) => {
         api.addMentorToFavorites(mentorId);
       },
       timeOut,

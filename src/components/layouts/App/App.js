@@ -13,7 +13,7 @@ import { Sidebar } from '../../Sidebar/Sidebar';
 import { useMentors } from '../../../context/mentorsContext/MentorsContext';
 
 const App = (props) => {
-  const {children} = props
+  const { children } = props;
   const [filters] = useFilters();
   const { tag, country, name, language, showFilters } = filters;
   const [modal, setModal] = useState({
@@ -21,7 +21,7 @@ const App = (props) => {
     content: null,
     onClose: null,
   });
-  const { mentors } = useMentors()
+  const { mentors } = useMentors();
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -38,12 +38,10 @@ const App = (props) => {
     }
   }, []);
 
-  useEffect(() => setWindowTitle({ tag, country, name, language }), [
-    tag,
-    country,
-    name,
-    language,
-  ]);
+  useEffect(
+    () => setWindowTitle({ tag, country, name, language }),
+    [tag, country, name, language]
+  );
 
   const handleModal = (title, content, onClose) => {
     setModal({
@@ -62,9 +60,7 @@ const App = (props) => {
         <Header />
         <Body>
           <Sidebar mentors={mentors} handleModal={handleModal} />
-          <Main showFilters={showFilters}>
-            {children}
-          </Main>
+          <Main showFilters={showFilters}>{children}</Main>
         </Body>
       </Layout>
     </div>
@@ -105,7 +101,7 @@ const Main = styled.section`
     transform: translateY(0);
     transition: transform 0.3s ease;
 
-    ${props =>
+    ${(props) =>
       props.showFilters &&
       `
         transform: translateY(300px);

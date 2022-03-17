@@ -3,8 +3,8 @@ const fetch = require('node-fetch');
 
 (async () => {
   const mentors = await fetch(`https://api.codingcoach.io/mentors`)
-    .then(data => data.json())
-    .then(res => res.data);
+    .then((data) => data.json())
+    .then((res) => res.data);
 
   const json = {
     technology: [],
@@ -33,8 +33,8 @@ const fetch = require('node-fetch');
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     ${createUrl()}
     ${Object.keys(json)
-      .map(key =>
-        [...json[key]].map(value => createUrl(key, value)).join(breaklink)
+      .map((key) =>
+        [...json[key]].map((value) => createUrl(key, value)).join(breaklink)
       )
       .join(breaklink)}
   </urlset>

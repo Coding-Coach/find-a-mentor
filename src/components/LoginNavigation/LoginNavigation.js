@@ -3,11 +3,13 @@ import { useAuth } from '../../context/authContext/AuthContext';
 import { desktop, mobile } from '../../Me/styles/shared/devices';
 
 function LoginNavigation() {
-  const auth = useAuth()
+  const auth = useAuth();
 
   return (
     <LoginArea>
-      <LoginAreaItem onClick={() => auth.login()}>Login / Register</LoginAreaItem>
+      <LoginAreaItem onClick={() => auth.login()}>
+        Login / Register
+      </LoginAreaItem>
     </LoginArea>
   );
 }

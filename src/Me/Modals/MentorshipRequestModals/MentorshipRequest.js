@@ -43,9 +43,9 @@ const MentorshipRequest = ({ mentor }) => {
     getMyMentorshipApplication()
   );
   const [errors, setErrors] = useState({});
-  const api = useApi()
+  const api = useApi();
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     const {
       target: { name: fieldName, value },
     } = e;
@@ -59,7 +59,7 @@ const MentorshipRequest = ({ mentor }) => {
     type: 'longtext',
     required: true,
     minLength: 30,
-    validate: value => value.length >= 30,
+    validate: (value) => value.length >= 30,
     helpText: 'Minimum 30 characters',
     style: {
       height: '121px',
@@ -135,11 +135,14 @@ const MentorshipRequest = ({ mentor }) => {
     return Object.keys(_errors).length === 0;
   };
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e?.preventDefault();
     if (!validate()) return;
     setIsLoading(true);
-    const success = await api.applyForMentorship(mentor, mentorshipRequestDetails);
+    const success = await api.applyForMentorship(
+      mentor,
+      mentorshipRequestDetails
+    );
     setConfirmed(success);
     setIsLoading(false);
   };

@@ -12,9 +12,7 @@ describe('login', () => {
       fixture: 'favorites/get',
     });
     cy.visit('/');
-    cy.getByTestId('user-avatar')
-      .getByAltText('brentmclark@gmail.com')
-      .click();
+    cy.getByTestId('user-avatar').getByAltText('brentmclark@gmail.com').click();
     cy.getByText('Logout').should('have.length', 1);
   });
 });

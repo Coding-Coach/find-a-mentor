@@ -9,12 +9,12 @@ import { useApi } from '../../context/apiContext/ApiContext';
 
 function Navigation({ isAuthenticated, onOpenModal }) {
   const { currentUser } = useContext(UserContext);
-  const auth = useAuth()
-  const api = useApi()
+  const auth = useAuth();
+  const api = useApi();
 
-  const openProfile = e => {
+  const openProfile = (e) => {
     e.preventDefault();
-    onOpenModal('Edit Your Profile', <EditProfile api={api}/>);
+    onOpenModal('Edit Your Profile', <EditProfile api={api} />);
   };
 
   const renderBecomeAMentor = () => {
@@ -31,7 +31,7 @@ function Navigation({ isAuthenticated, onOpenModal }) {
     return (
       <Link
         href="#"
-        onClick={e => e.preventDefault() || auth.login(null, true)}
+        onClick={(e) => e.preventDefault() || auth.login(null, true)}
       >
         Become a Mentor
       </Link>

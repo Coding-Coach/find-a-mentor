@@ -19,7 +19,7 @@ function Header() {
   });
   const [isOpen, setIsOpen] = useState(false);
   const { isDesktop } = useDeviceType();
-  const auth = useContext(AuthContext)
+  const auth = useContext(AuthContext);
   const authenticated = auth.isAuthenticated();
 
   const handleModal = ({ title, content, onClose }) => {

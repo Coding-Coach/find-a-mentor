@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from 'react';
 import Card from '../components/Card';
-import { useApi } from '../../context/apiContext/ApiContext'
+import { useApi } from '../../context/apiContext/ApiContext';
 import { useUser } from '../../context/userContext/UserContext';
 import { UsersList } from './UsersList';
 import { STATUS } from '../../helpers/mentorship';
@@ -25,13 +25,13 @@ const MentorshipReq = () => {
   const userId = currentUser?._id;
   const [loadingState, setLoadingState] = useState(!mentorState);
   const isMount = useRef(true);
-  const api = useApi()
+  const api = useApi();
 
   const markViewed = async ({ id, status }) => {
     if (status !== PREV_STATUS[STATUS.viewed]) return;
     await updateReqStatus({ id, userId }, STATUS.viewed);
   };
-  const acceptReq = async ({ id, status, username, menteeEmail}) => {
+  const acceptReq = async ({ id, status, username, menteeEmail }) => {
     if (status !== PREV_STATUS[STATUS.approved]) return;
 
     await updateReqStatus({ id, userId }, STATUS.approved);
@@ -44,7 +44,7 @@ const MentorshipReq = () => {
     openCancelModal();
   };
 
-  const cancelRequest = async message => {
+  const cancelRequest = async (message) => {
     await updateReqStatus(
       { id: selectedReq.id, userId },
       STATUS.cancelled,
@@ -60,7 +60,7 @@ const MentorshipReq = () => {
     openDeclineModal();
   };
 
-  const declineReq = async msg => {
+  const declineReq = async (msg) => {
     await updateReqStatus({ id: selectedReq.id, userId }, STATUS.rejected, msg);
     closeDeclineModal();
   };
@@ -106,7 +106,7 @@ const MentorshipReq = () => {
         ? [mentorState, setMentorState]
         : [menteeState, setMenteeState];
 
-    const itemIndex = list.findIndex(s => s.id === id);
+    const itemIndex = list.findIndex((s) => s.id === id);
     const item = list[itemIndex];
     let newState = [...list];
     newState.splice(itemIndex, 1, {

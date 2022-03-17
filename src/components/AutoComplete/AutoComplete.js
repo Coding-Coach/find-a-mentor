@@ -45,7 +45,7 @@ export default function AutoComplete(props) {
     }
   };
 
-  const onClear = _ => {
+  const onClear = (_) => {
     onChange(_, '');
   };
 
@@ -72,7 +72,7 @@ export default function AutoComplete(props) {
         renderMenu={renderMenu}
         renderInput={renderInput}
         wrapperStyle={{}}
-        getItemValue={item => item.label}
+        getItemValue={(item) => item.label}
         shouldItemRender={matchStateToTerm}
         onSelect={handleSelect}
         onChange={onChange}

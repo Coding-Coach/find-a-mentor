@@ -19,7 +19,7 @@ describe('FormField component', () => {
     render(
       <FormField>
         <formFieldContext.Consumer>
-          {id => (formFieldId = id)}
+          {(id) => (formFieldId = id)}
         </formFieldContext.Consumer>
       </FormField>
     );

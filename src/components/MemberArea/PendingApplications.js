@@ -28,7 +28,7 @@ export default class PendingApplications extends Component {
   toggleLoader = (application, show) => {
     const { applications } = this.state;
     const applicationIndex = applications.findIndex(
-      app => app._id === application._id
+      (app) => app._id === application._id
     );
     applications[applicationIndex].loading = show;
     this.setState({
@@ -36,13 +36,13 @@ export default class PendingApplications extends Component {
     });
   };
 
-  approve = async application => {
+  approve = async (application) => {
     this.toggleLoader(application, true);
     await this.props.api.approveApplication(application);
     await this.refreshApplications();
   };
 
-  reject = async application => {
+  reject = async (application) => {
     const reason = prompt('Why you reject that poor gentleman / lady?');
     if (reason) {
       this.toggleLoader(application, true);
@@ -71,7 +71,7 @@ export default class PendingApplications extends Component {
             </tr>
           </thead>
           <tbody>
-            {applications.map(application => {
+            {applications.map((application) => {
               const { user, loading } = application;
               return (
                 <tr key={application._id}>
@@ -101,7 +101,7 @@ export default class PendingApplications extends Component {
                   </td>
                   <td>{user.name}</td>
                   <td>
-                    {user.channels.map(channel => {
+                    {user.channels.map((channel) => {
                       const { url, icon } = getChannelInfo(channel);
                       return (
                         <div>
