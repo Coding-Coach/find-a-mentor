@@ -51,7 +51,7 @@ function Navigation({ isAuthenticated, onOpenModal }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Sessions Calender
+          Sessions Calendar
         </Link>
       </List>
     </Nav>

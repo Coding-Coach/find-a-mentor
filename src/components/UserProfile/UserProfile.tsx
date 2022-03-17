@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head'
 import styled from 'styled-components/macro';
 import { useRouter } from 'next/router';
 
@@ -68,9 +68,9 @@ export const UserProfile = () => {
 
   return (
     <UserProfileContainer>
-      <Helmet>
+      <Head>
         <title>{`${prefix} | ${user?.name}`}</title>
-      </Helmet>
+      </Head>
       <Link href={urls.root.get()}>Back to mentors list</Link>
       <Card
         appearance="extended"

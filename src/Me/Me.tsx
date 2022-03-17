@@ -2,7 +2,7 @@ import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components/macro';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head'
 import { useRouter } from 'next/router';
 
 import Header from './Header/Header';
@@ -37,10 +37,10 @@ const Me = (props: any) => {
   return (
     <Container>
       <>
-        <Helmet>
+        <Head>
           <title>{title} | CodingCoach</title>
           <meta name="description" content="codingcoach.io application" />
-        </Helmet>
+        </Head>
         <Navbar />
         <Header title={title} />
         <Main>{children}</Main>
