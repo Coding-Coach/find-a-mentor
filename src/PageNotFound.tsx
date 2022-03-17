@@ -2,7 +2,7 @@ import notFoundImage from './assets/404.svg';
 import Header from './components/Header/Header';
 import styled from 'styled-components';
 import Link from 'next/link';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head'
 import { desktop, mobile } from './Me/styles/shared/devices';
 
 const StyleImage = styled.div`
@@ -46,9 +46,9 @@ const Content = styled.div`
 const PageNotFound = () => {
   return (
     <>
-      <Helmet>
+      <Head>
         <title>Page not found | CodingCoach</title>
-      </Helmet>
+      </Head>
       <Header />
       <Content>
         <div className="container py-16 blog-content md:flex md:py-64">
