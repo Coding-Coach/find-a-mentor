@@ -4,6 +4,7 @@ import Modal from '../Modal/Modal';
 import Navigation from '../Navigation/Navigation';
 import ModalContent from '../Modal/ModalContent';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
+import Vercel from '../../assets/powered-by-vercel.svg';
 
 function MobileNavigation(props) {
   const [modal, setModal] = useState({
@@ -11,6 +12,12 @@ function MobileNavigation(props) {
     content: null,
     onClose: null,
   });
+
+  const VercelStyle = styled.a`
+    display: block;
+    width: 10px;
+    color: #f90606;
+  `;
 
   const handleModal = ({ title, content, onClose }) => {
     setModal({ title, content, onClose });
@@ -50,6 +57,14 @@ function MobileNavigation(props) {
           content={'privacy-policy'}
           handleModal={(title, content) => handleModal({ title, content })}
         />
+        <VercelStyle
+          href="https://vercel.com/?utm_source=[coding-coach]&utm_campaign=oss"
+          className="vercel-link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <Vercel />
+        </VercelStyle>
       </ContentWrapper>
     </>
   );

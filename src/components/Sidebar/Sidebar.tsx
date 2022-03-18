@@ -47,12 +47,9 @@ const SidebarNav = styled.nav`
   }
 `;
 const VercelStyle = styled.a`
-  height: 0px;
-  width: 40px;
-  marginright: 10px;
-  color:#f90606 @media ${desktop} {
-    display: none;
-  }
+  display: block;
+  width: 10px;
+  color: #f90606;
 `;
 
 const PatreonLink = styled.a`
@@ -119,16 +116,15 @@ export const Sidebar = ({ mentors, handleModal }: SidebarProps) => {
           content={'privacy-policy'}
           handleModal={openModal}
         />
+        <VercelStyle
+          href="https://vercel.com/?utm_source=[coding-coach]&utm_campaign=oss"
+          className="vercel-link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <Vercel />
+        </VercelStyle>
       </SidebarNav>
-
-      {/* <VercelStyle
-        href="https://vercel.com/?utm_source=[coding-coach]&utm_campaign=oss"
-        className="vercel-link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <Vercel />
-      </VercelStyle> */}
 
       <PatreonLink
         href="https://www.patreon.com/codingcoach_io"
@@ -142,14 +138,6 @@ export const Sidebar = ({ mentors, handleModal }: SidebarProps) => {
           alt="Become a Patron"
         />
       </PatreonLink>
-      <VercelStyle
-        href="https://vercel.com/?utm_source=[coding-coach]&utm_campaign=oss"
-        className="vercel-link"
-        rel="noopener noreferrer"
-        target="_blank"
-      >
-        <Vercel />
-      </VercelStyle>
     </SidebarContainer>
   );
 };
