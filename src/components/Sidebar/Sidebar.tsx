@@ -54,7 +54,7 @@ const VercelStyle = styled.a`
 
 const PatreonLink = styled.a`
   display: block;
-  margin: 0 auto;
+  margin: 20px auto 0;
   width: 150px;
 
   @media ${mobile} {
