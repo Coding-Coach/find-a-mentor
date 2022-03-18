@@ -12,7 +12,7 @@ import SocialLinks from '../SocialLinks/SocialLinks';
 const SidebarContainer = styled.aside`
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-top: 20px;
 
   @media ${desktop} {
     left: 0;
