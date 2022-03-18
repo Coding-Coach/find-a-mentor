@@ -59,7 +59,7 @@ const PatreonLink = styled.a`
 
   @media ${mobile} {
     width: 130px;
-    margin: 0px auto 10px;
+    margin: 5px auto 10px;
   }
 
   img {
