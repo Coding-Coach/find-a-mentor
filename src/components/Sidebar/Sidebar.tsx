@@ -49,7 +49,7 @@ const SidebarNav = styled.nav`
 const VercelStyle = styled.a`
   display: block;
   width: 10px;
-  color: #f90606;
+  margin: 20px 0 10px;
 `;
 
 const PatreonLink = styled.a`
