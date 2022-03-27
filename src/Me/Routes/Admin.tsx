@@ -262,7 +262,7 @@ const Admin = () => {
           mentorships={filteredMentorshipRequests}
         />
       )}
-      <Card>
+      <Card className='wide'>
         <Filters>
           <FormField>
             <Switch

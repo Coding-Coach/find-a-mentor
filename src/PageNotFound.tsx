@@ -1,8 +1,9 @@
-import notFoundImage from './assets/404.svg';
-import Header from './components/Header/Header';
-import styled from 'styled-components';
-import Link from 'next/link';
 import Head from 'next/head'
+import Link from 'next/link';
+import styled from 'styled-components';
+
+import NotFoundImage from './assets/404.svg';
+import Header from './components/Header/Header';
 import { desktop, mobile } from './Me/styles/shared/devices';
 
 const StyleImage = styled.div`
@@ -10,9 +11,9 @@ const StyleImage = styled.div`
     padding: 20px;
   }
 
-  .imge {
+  svg {
     max-width: 35vw;
-    max-height: 35vh;
+    height: auto;
   }
 `;
 
@@ -55,7 +56,7 @@ const PageNotFound = () => {
           <div className="row">
             <div className="col">
               <StyleImage>
-                <img src={notFoundImage} alt="" className="imge" />
+                <NotFoundImage />
               </StyleImage>
             </div>
             <div className="col">

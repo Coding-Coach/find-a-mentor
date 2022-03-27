@@ -3,6 +3,7 @@ import styled from 'styled-components/macro';
 import { desktop, mobile } from './styles/shared/devices';
 import { mobileNavHeight } from './Navigation/Navbar';
 import { useUser } from '../context/userContext/UserContext';
+import { CardContainer } from './components/Card';
 
 const Main: FC = ({ children }) => {
   const { currentUser } = useUser();
@@ -23,10 +24,13 @@ const Content = styled.div`
   justify-content: center;
 
   @media ${desktop} {
-    /* width: 400px; */
     margin-right: auto;
     margin-left: auto;
     padding-bottom: 10px;
+
+    ${CardContainer}:not(.wide) {
+      max-width: 400px;
+    }
   }
 
   @media ${mobile} {

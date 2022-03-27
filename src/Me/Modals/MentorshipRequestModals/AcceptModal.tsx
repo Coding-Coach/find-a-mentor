@@ -2,12 +2,7 @@ import Body from './style';
 import { Modal } from '../Modal';
 import MentorshipSvg from '../../../assets/me/mentorship.svg';
 import { links } from '../../../config/constants';
-import styled from 'styled-components/macro';
 import { report } from '../../../ga';
-
-const Illustration = styled(MentorshipSvg)`
-  align-self: center;
-`;
 
 type AcceptModalProps = {
   username: string;
@@ -19,7 +14,7 @@ const AcceptModal = ({ username, menteeEmail, onClose }: AcceptModalProps) => {
   return (
     <Modal center title="Mentorship Started" onClose={onClose}>
       <Body>
-        <Illustration />
+        <MentorshipSvg />
         <p>
           Awesome! You are now Mentoring <b>{username}!</b> Please make sure to
           follow our{' '}
@@ -52,7 +47,7 @@ const AcceptModal = ({ username, menteeEmail, onClose }: AcceptModalProps) => {
           <a
             onClick={() => report('Member Area', 'Send Email', 'Mentorship')}
             href={`mailto:${menteeEmail}`}
-          > 
+          >
            {menteeEmail}
           </a>
         </p>
