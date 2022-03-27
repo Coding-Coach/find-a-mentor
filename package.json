@@ -41,7 +41,7 @@
     "test:unit": "react-scripts test",
     "test:unit:update-snapshot": "react-scripts test -u",
     "eject": "react-scripts eject",
-    "predeploy": "yarn run build",
+    "predeploy": "yarn build && yarn build-storybook",
     "deploy": "gh-pages -d build",
     "prettier": "prettier \"**/*.{json,js}\" --check --loglevel log",
     "prettier:fix:file": "prettier --write",
