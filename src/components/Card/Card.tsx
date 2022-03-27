@@ -23,7 +23,7 @@ import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
 import { formatTimeAgo } from '../../helpers/time';
 import { useAuth } from '../../context/authContext/AuthContext';
-import { urls } from '../../utils/routes';
+import { useRoutes } from '../../hooks/useRoutes';
 
 const COMPACT_CARD_TAGS_LENGTH = 5;
 
@@ -109,6 +109,7 @@ const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
 };
 
 const Avatar = ({ mentor, id }: { mentor: Mentor; id: string }) => {
+  const urls = useRoutes();
   return (
     <Link href={urls.user.get(mentor)} className="avatar">
       <i className="fa fa-user-circle" />
@@ -147,6 +148,7 @@ const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
   const extended = appearance === 'extended';
   const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
+  const urls = useRoutes();
   const {
     name,
     country,

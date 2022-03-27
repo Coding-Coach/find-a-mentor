@@ -1,5 +1,7 @@
+import { isSsr } from './helpers/ssr';
+
 export function report(category: string, action: string, label?: string) {
-  if (isLocal()) {
+  if (!shouldReport()) {
     // eslint-disable-next-line no-console
     console.log('Fake report: ');
     // eslint-disable-next-line no-console
@@ -10,7 +12,7 @@ export function report(category: string, action: string, label?: string) {
 }
 
 export function reportPageView() {
-  if (isLocal()) {
+  if (!shouldReport()) {
     return;
   }
   window.ga('send', 'pageview');
@@ -20,6 +22,9 @@ export function reportError(category: string, label: string) {
   report(category, 'Error', label);
 }
 
-function isLocal() {
-  return window.location.host.includes('localhost');
+function shouldReport() {
+  if (isSsr()) {
+    return false;
+  }
+  return !window.location.host.includes('localhost');
 }

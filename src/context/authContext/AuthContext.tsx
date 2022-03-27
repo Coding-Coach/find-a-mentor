@@ -1,4 +1,5 @@
 import { createContext, useContext, FC, useEffect, useState } from 'react';
+import { isSsr } from '../../helpers/ssr';
 import Auth from '../../utils/auth';
 
 export const AuthContext = createContext<any>({});
@@ -6,7 +7,7 @@ const auth = new Auth();
 
 export const AuthProvider: FC = (props: any) => {
   const { children } = props;
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(!isSsr() /* ssr doesn't need loader */);
 
   useEffect(() => {
     auth.renewSession().finally(() => {

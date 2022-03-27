@@ -148,6 +148,7 @@ export default class ApiService {
     if (response?.success) {
       return response.data;
     }
+    return null;
   }
 
   getFavorites = async () => {
