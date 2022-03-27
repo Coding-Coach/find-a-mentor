@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Head from 'next/head'
+import Head from 'next/head';
 import styled from 'styled-components/macro';
 
 import Card from '../Card/Card';
@@ -9,7 +9,7 @@ import { User } from '../../types/models';
 import { mobile } from '../../Me/styles/shared/devices';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { useMentors } from '../../context/mentorsContext/MentorsContext';
-import { useRoutes } from '../../hooks/useRoutes'
+import { useRoutes } from '../../hooks/useRoutes';
 import { getTitleTags } from '../../helpers/getTitleTags';
 
 const UserProfileContainer = styled.div`
@@ -35,14 +35,16 @@ export const UserProfile = ({ user }: { user: User }) => {
   }, [dispatch]);
 
   if (!user) {
-    return <p>User not found</p>;
+    return (
+      <p>
+        User not found <Link href="/">back to home</Link>
+      </p>
+    );
   }
 
   return (
     <UserProfileContainer>
-      <Head>
-        {getTitleTags(title)}
-      </Head>
+      <Head>{getTitleTags(title)}</Head>
       <Link href={urls.root.get()}>Back to mentors list</Link>
       <Card
         appearance="extended"

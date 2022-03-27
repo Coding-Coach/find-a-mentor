@@ -30,10 +30,9 @@ const GoogleAnalyticsPayload = {
 };
 
 const Head = () => {
-  const title = 'Coding Coach';
   return (
     <NextHead>
-      {getTitleTags(title)}
+      {getTitleTags('Coding Coach')}
       <meta
         name="Description"
         content="Coding Coach is here to connect mentors and mentees around the world, for free. We believe mentorship should be accessible to all, regardless of circumstance."

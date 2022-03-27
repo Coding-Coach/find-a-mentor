@@ -2,17 +2,10 @@ import { useRouter } from 'next/router';
 import { User } from '../types/models';
 
 export const useRoutes = () => {
-  const { query } = useRouter();
+  const { asPath } = useRouter();
   const getUrlWithFilterParams = (url: string) => {
-    const entries = Object.entries(query);
-    if (entries.length === 0) {
-      return url;
-    }
-    const currentQuery = entries.reduce(
-      (acc, [key, value]) => [...acc, `${key}=${value}`],
-      []
-    );
-    return `${url}?${currentQuery.join('&')}`;
+    const queryParamsOnly = /(.*)(?<query>\?.*)/.exec(asPath)?.groups.query ?? '';
+    return url + queryParamsOnly;
   };
 
   return {
