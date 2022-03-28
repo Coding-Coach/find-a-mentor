@@ -1,19 +1,16 @@
-import { useEffect, useState } from 'react';
-import Head from 'next/head'
+import { useEffect } from 'react';
+import Head from 'next/head';
 import styled from 'styled-components/macro';
-import { useRouter } from 'next/router';
 
 import Card from '../Card/Card';
 import Link from '../../components/Link/Link';
-import { Loader } from '../Loader';
 import { prefix } from '../../titleGenerator';
 import { User } from '../../types/models';
 import { mobile } from '../../Me/styles/shared/devices';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
-import { useApi } from '../../context/apiContext/ApiContext';
 import { useMentors } from '../../context/mentorsContext/MentorsContext';
-import {urls} from '../../utils/routes'
-
+import { useRoutes } from '../../hooks/useRoutes';
+import { getTitleTags } from '../../helpers/getTitleTags';
 
 const UserProfileContainer = styled.div`
   display: flex;
@@ -27,50 +24,27 @@ const UserProfileContainer = styled.div`
   }
 `;
 
-const UserProfileLoader = styled(Loader)`
-  font-size: 1.5rem;
-  margin-top: 15px;
-`;
-
-export const UserProfile = () => {
-  const [user, setUser] = useState<User>();
-  const [isLoading, setIsLoading] = useState(true);
-  const { query } = useRouter();
-  const { id } = query;
+export const UserProfile = ({ user }: { user: User }) => {
+  const title = `${prefix} | ${user?.name}`;
   const [, dispatch] = useFilters();
-  const api = useApi();
+  const urls = useRoutes();
   const { favorites, addFavorite } = useMentors();
 
   useEffect(() => {
     dispatch({ type: 'showFilters', payload: false });
   }, [dispatch]);
 
-  useEffect(() => {
-    async function fetchMentor() {
-      const userFromAPI = await api.getUser(id);
-      if (userFromAPI) {
-        setUser(userFromAPI);
-      }
-      setIsLoading(false);
-    }
-    if (id) {
-      fetchMentor();
-    }
-  }, [id, api]);
-
-  if (isLoading) {
-    return <UserProfileLoader size={2} />;
-  }
-
   if (!user) {
-    return <p>User not found</p>;
+    return (
+      <p>
+        User not found <Link href="/">back to home</Link>
+      </p>
+    );
   }
 
   return (
     <UserProfileContainer>
-      <Head>
-        <title>{`${prefix} | ${user?.name}`}</title>
-      </Head>
+      <Head>{getTitleTags(title)}</Head>
       <Link href={urls.root.get()}>Back to mentors list</Link>
       <Card
         appearance="extended"

@@ -11,7 +11,7 @@ import Mentorships from '../../assets/me/icon-survey.svg';
 import IconMentors from '../../assets/me/mentors.svg';
 import IconLogout from '../../assets/me/icon-door-exit.svg';
 import { useUser } from '../../context/userContext/UserContext';
-import { urls } from '../../utils/routes'
+import { useRoutes } from '../../hooks/useRoutes'
 
 const MenuItem = ({
   icon: Icon,
@@ -37,6 +37,7 @@ const MenuItem = ({
 
 const Navbar = () => {
   const { isAdmin, logout } = useUser();
+  const urls = useRoutes();
   return (
     <>
       <Menu>

@@ -37,13 +37,13 @@ const ErrorMessage = styled.div`
 `;
 
 const MentorshipRequest = ({ mentor }) => {
+  const api = useApi();
   const [confirmed, setConfirmed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [mentorshipRequestDetails, setMentorshipRequestDetails] = useState(
-    getMyMentorshipApplication()
+    api.getMyMentorshipApplication()
   );
   const [errors, setErrors] = useState({});
-  const api = useApi();
 
   const handleInputChange = (e) => {
     const {

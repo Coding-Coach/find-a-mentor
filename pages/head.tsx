@@ -1,4 +1,5 @@
 import NextHead from 'next/head';
+import { getTitleTags } from '../src/helpers/getTitleTags';
 
 const GoogleAnalyticsPayload = {
   dangerouslySetInnerHTML: {
@@ -31,7 +32,7 @@ const GoogleAnalyticsPayload = {
 const Head = () => {
   return (
     <NextHead>
-      <title>Coding Coach</title>
+      {getTitleTags('Coding Coach')}
       <meta
         name="Description"
         content="Coding Coach is here to connect mentors and mentees around the world, for free. We believe mentorship should be accessible to all, regardless of circumstance."
@@ -42,7 +43,6 @@ const Head = () => {
       />
 
       {/* <!-- Open Graph data --> */}
-      <meta property="og:title" content="Coding Coach" />
       <meta property="og:type" content="article" />
       <meta property="og:url" content="/" />
       <meta
@@ -60,7 +60,6 @@ const Head = () => {
       <meta name="twitter:site" content="@codingcoach_io" />
       <meta name="twitter:domain" content="/" />
       <meta name="twitter:creator" content="@codingcoach_io" />
-      <meta name="twitter:title" content="Coding Coach" />
       <meta
         name="twitter:image"
         content={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo.jpg`}
@@ -125,7 +124,6 @@ const Head = () => {
         rel="stylesheet"
       />
 
-      <title>Coding Coach</title>
       <script {...GoogleAnalyticsPayload} />
     </NextHead>
   );
