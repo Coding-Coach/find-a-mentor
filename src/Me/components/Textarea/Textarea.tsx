@@ -1,8 +1,8 @@
 import React, { TextareaHTMLAttributes, useContext } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { formFieldContext } from '../FormField/formContext';
 
-const StyledTextarea = styled.textarea<{ invalid?: boolean }>`
+export const StyledTextarea = styled.textarea<{ invalid?: boolean }>`
   font-family: Lato, sans-serif;
   font-size: 14px;
   line-height: 17px;

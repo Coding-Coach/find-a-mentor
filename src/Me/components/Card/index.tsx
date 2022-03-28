@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { desktop, mobile } from '../../styles/shared/devices';
 
 type CardProps = {
@@ -34,7 +34,7 @@ export const Content = styled.div`
   overflow-x: auto;
 `;
 
-const CardContainer = styled.div`
+export const CardContainer = styled.div`
   --padding-inline: 14px;
 
   position: relative;
