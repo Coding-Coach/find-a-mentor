@@ -1,10 +1,12 @@
-[![Powered By Vercel](https://github.com/Coding-Coach/find-a-mentor/blob/3390fb723a8148c06ea88a7fdb972fd81b5a6064/src/assets/powered-by-vercel.svg)](https://vercel.com/codingcoach?utm_source=coding-coach&utm_campaign=oss)
 [![Tests](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml/badge.svg)](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
 ![create-react-app supported](https://img.shields.io/badge/CRA-supported-green.svg)
 [![storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://mentors.codingcoach.io/sb/)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
+
+
+[![Powered By Vercel](https://github.com/Coding-Coach/find-a-mentor/blob/3390fb723a8148c06ea88a7fdb972fd81b5a6064/src/assets/powered-by-vercel.svg)](https://vercel.com/codingcoach?utm_source=coding-coach&utm_campaign=oss)
 
 
 ## Support Us
