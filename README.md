@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a3969a16-d0ad-4485-b205-d2b297f99051/deploy-status)](https://app.netlify.com/sites/codingcoach-io/deploys)
+[![Powered By Vercel](https://github.com/Coding-Coach/find-a-mentor/blob/3390fb723a8148c06ea88a7fdb972fd81b5a6064/src/assets/powered-by-vercel.svg)](https://vercel.com/codingcoach?utm_source=coding-coach&utm_campaign=oss)
 [![Tests](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml/badge.svg)](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
 ![create-react-app supported](https://img.shields.io/badge/CRA-supported-green.svg)
