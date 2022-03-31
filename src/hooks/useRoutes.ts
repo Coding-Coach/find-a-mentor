@@ -4,7 +4,7 @@ import { User } from '../types/models';
 export const useRoutes = () => {
   const { asPath } = useRouter();
   const getUrlWithFilterParams = (url: string) => {
-    const queryParamsOnly = /(.*)(?<query>\?.*)/.exec(asPath)?.groups.query ?? '';
+    const queryParamsOnly = /.*(\?.*)/.exec(asPath)?.[1] ?? '';
     return url + queryParamsOnly;
   };
 
