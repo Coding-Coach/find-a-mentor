@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 import { desktop } from '../../styles/shared/devices';
+import { StyledTextarea } from '../../components/Textarea/Textarea';
 
 export default styled.div`
   min-height: 415px;
@@ -39,5 +40,13 @@ export default styled.div`
         content: '👉';
       }
     }
+  }
+
+  ${StyledTextarea} {
+    width: 100%;
+  }
+
+  svg {
+    align-self: center;
   }
 `;

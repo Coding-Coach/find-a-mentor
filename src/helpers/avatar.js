@@ -1,6 +1,6 @@
-export const getAvatarUrl = avatar => {
+export const getAvatarUrl = (avatar) => {
   if (avatar?.startsWith('/avatars/')) {
-    return `${process.env.REACT_APP_API_ENDPOINT}${avatar}`;
+    return `${process.env.NEXT_PUBLIC_API_ENDPOINT}${avatar}`;
   }
   return avatar;
 };

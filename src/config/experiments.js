@@ -10,13 +10,13 @@ const experiments = {};
  */
 function addSource(source) {
   if (source && source.length) {
-    source.split(',').forEach(exp => {
+    source.split(',').forEach((exp) => {
       experiments[exp] = true;
     });
   }
 }
 
-addSource(process.env.REACT_APP_EXPERIMENTS);
+addSource(process.env.NEXT_PUBLIC_EXPERIMENTS);
 addSource(new URLSearchParams(window.location.search).get('experiments'));
 
 if (Object.keys(experiments).length) {
@@ -26,7 +26,7 @@ if (Object.keys(experiments).length) {
 /**
  * @param {Experiments} name
  */
-export const isOpen = name => {
+export const isOpen = (name) => {
   const openExperiments = JSON.parse(
     localStorage.getItem('experiments') || '{}'
   );

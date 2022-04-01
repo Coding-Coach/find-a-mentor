@@ -1,6 +1,5 @@
-import { useHistory } from 'react-router';
 import styled from 'styled-components/macro';
-
+import Vercel from '../../assets/powered-by-vercel.svg';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { report } from '../../ga';
 import { scrollToTop } from '../../helpers/window';
@@ -47,6 +46,11 @@ const SidebarNav = styled.nav`
     }
   }
 `;
+const VercelStyle = styled.a`
+  display: block;
+  width: 10px;
+  margin: 20px 0 10px;
+`;
 
 const PatreonLink = styled.a`
   display: block;
@@ -69,14 +73,12 @@ type SidebarProps = {
 };
 
 export const Sidebar = ({ mentors, handleModal }: SidebarProps) => {
-  const history = useHistory();
   const [filters, setFilters] = useFilters();
   const openModal = (title: string, content: string) =>
     handleModal(title, content);
 
   const toggleSwitch = async (showFavorite: boolean) => {
     await scrollToTop();
-    history.replace('/');
     setFilters({
       type: 'showFavorites',
       payload: showFavorite,
@@ -114,7 +116,16 @@ export const Sidebar = ({ mentors, handleModal }: SidebarProps) => {
           content={'privacy-policy'}
           handleModal={openModal}
         />
+        <VercelStyle
+          href="https://vercel.com/?utm_source=[coding-coach]&utm_campaign=oss"
+          className="vercel-link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <Vercel />
+        </VercelStyle>
       </SidebarNav>
+
       <PatreonLink
         href="https://www.patreon.com/codingcoach_io"
         className="patreon-link"
@@ -123,7 +134,7 @@ export const Sidebar = ({ mentors, handleModal }: SidebarProps) => {
         target="_blank"
       >
         <img
-          src={`${process.env.PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
+          src={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/images/coding-coach-patron-button.jpg`}
           alt="Become a Patron"
         />
       </PatreonLink>

@@ -1,8 +1,9 @@
-import notFoundImage from './assets/404.svg';
-import Header from './components/Header/Header';
+import Head from 'next/head'
+import Link from 'next/link';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+
+import NotFoundImage from './assets/404.svg';
+import Header from './components/Header/Header';
 import { desktop, mobile } from './Me/styles/shared/devices';
 
 const StyleImage = styled.div`
@@ -10,9 +11,9 @@ const StyleImage = styled.div`
     padding: 20px;
   }
 
-  .imge {
+  svg {
     max-width: 35vw;
-    max-height: 35vh;
+    height: auto;
   }
 `;
 
@@ -46,16 +47,16 @@ const Content = styled.div`
 const PageNotFound = () => {
   return (
     <>
-      <Helmet>
+      <Head>
         <title>Page not found | CodingCoach</title>
-      </Helmet>
+      </Head>
       <Header />
       <Content>
         <div className="container py-16 blog-content md:flex md:py-64">
           <div className="row">
             <div className="col">
               <StyleImage>
-                <img src={notFoundImage} alt="" className="imge" />
+                <NotFoundImage />
               </StyleImage>
             </div>
             <div className="col">
@@ -63,7 +64,7 @@ const PageNotFound = () => {
               <p>
                 You just hit a route that doesn't exist... What can you do now?
                 That's a good question! There are several things you can do,
-                going to <Link to="/">home page</Link> would be a good idea. You
+                going to <Link href="/">home page</Link> would be a good idea. You
                 might want to{' '}
                 <a href="https://codingcoach.io/blog">read the blog</a>, we have
                 very interesting articles and tutorials!

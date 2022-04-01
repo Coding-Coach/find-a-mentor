@@ -22,9 +22,9 @@ import styled from 'styled-components';
 import FormField from '../components/FormField';
 import Switch from '../../components/Switch/Switch';
 import Input from '../components/Input';
-import { getUser } from '../../api';
 import { Loader } from '../../components/Loader';
 import { getChannelInfo } from '../../channelProvider';
+import { useApi } from '../../context/apiContext/ApiContext';
 
 const Mentee = styled.span`
   display: flex;
@@ -56,17 +56,18 @@ const UserDetails = ({
   const [isLoading, setIsLoading] = useState(true);
   const [dontActiveSent, setDontActiveSent] = useState<UserRecord>();
   const [user, setUser] = useState<User>();
+  const api = useApi()
 
   useEffect(() => {
-    Promise.all([getUserRecords(userId), getUser(userId)])
+    Promise.all([getUserRecords(api, userId), api.getUser(userId)])
       .then(([recordsRes, userRes]) => {
         setUser(userRes);
         if (recordsRes?.success) {
-          setDontActiveSent(recordsRes.data.find(({ type }) => type === 1));
+          setDontActiveSent(recordsRes.data.find(({ type }: {type: any}) => type === 1));
         }
       })
       .finally(() => setIsLoading(false));
-  }, [userId]);
+  }, [userId, api]);
 
   const showCard =
     (!user || user.available) &&
@@ -92,7 +93,7 @@ const UserDetails = ({
                   ...user!,
                   available: false,
                 });
-                await freezeMentor(user!._id);
+                await freezeMentor(api, user!._id);
                 toast.success('Done');
               }
             }}
@@ -103,7 +104,7 @@ const UserDetails = ({
       ) : (
         <Button
           onClick={async () => {
-            const record = await sendMentorNotActive(user!._id);
+            const record = await sendMentorNotActive(api, user!._id);
             setDontActiveSent(record);
             toast.success('Done');
           }}
@@ -137,6 +138,7 @@ const Admin = () => {
   const [mentorshipRequests, setMentorshipRequests] = useState<
     MentorshipRequest[]
   >([]);
+  const api = useApi()
 
   const filteredMentorshipRequests = useMemo(() => {
     return mentorshipRequests
@@ -155,10 +157,10 @@ const Admin = () => {
   }, [mentorshipRequests, name, sentOnly, showDaysAgo]);
 
   useEffect(() => {
-    getAllMentorshipRequests().then((response) => {
+    getAllMentorshipRequests(api).then((response: any) => {
       if (response?.success) {
         setMentorshipRequests(
-          response.data.filter(({ mentor, mentee }) => !!mentor && !!mentee)
+          response.data.filter(({ mentor, mentee }: { mentor: any, mentee: any }) => !!mentor && !!mentee)
         );
       }
     });
@@ -171,7 +173,7 @@ const Admin = () => {
   const sendEmail = useCallback(
     async (mentorshipId: string) => {
       setMentorshipLoading(mentorshipId);
-      await sendStaledRequestEmail(mentorshipId);
+      await sendStaledRequestEmail(api, mentorshipId);
       setMentorshipRequests(
         mentorshipRequests.map((mentorship) => {
           if (mentorship.id === mentorshipId) {
@@ -186,7 +188,7 @@ const Admin = () => {
       setMentorshipLoading(null);
       toast.success('Email sent');
     },
-    [mentorshipRequests]
+    [mentorshipRequests, api]
   );
 
   const columns = useMemo(
@@ -267,7 +269,7 @@ const Admin = () => {
           mentorships={filteredMentorshipRequests}
         />
       )}
-      <Card>
+      <Card className='wide'>
         <Filters>
           <FormField>
             <Switch

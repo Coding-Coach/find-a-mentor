@@ -1,5 +1,4 @@
 import React from 'react';
-import './FilterClear.css';
 
 const FilterClear = ({ onClear }) => {
   return (

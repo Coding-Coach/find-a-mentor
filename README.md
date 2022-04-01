@@ -1,10 +1,12 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a3969a16-d0ad-4485-b205-d2b297f99051/deploy-status)](https://app.netlify.com/sites/codingcoach-io/deploys)
 [![Tests](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml/badge.svg)](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
 ![create-react-app supported](https://img.shields.io/badge/CRA-supported-green.svg)
 [![storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://mentors.codingcoach.io/sb/)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
+
+
+[![Powered By Vercel](https://github.com/Coding-Coach/find-a-mentor/blob/3390fb723a8148c06ea88a7fdb972fd81b5a6064/src/assets/powered-by-vercel.svg)](https://vercel.com/codingcoach?utm_source=coding-coach&utm_campaign=oss)
 
 
 ## Support Us
@@ -124,13 +126,13 @@ Coding Coach is on Slack! [Click here](https://join.slack.com/t/coding-coach/sha
 
 ---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created with [Next.js](https://nextjs.org/)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn dev`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -140,8 +142,7 @@ You will also see any lint errors in the console.
 
 ### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner.
 
 ### `yarn test:e2e`
 

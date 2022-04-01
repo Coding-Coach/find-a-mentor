@@ -1,8 +1,7 @@
-import { getFavorites, addMentorToFavorites } from './api';
 import { report } from './ga';
 const LOCAL_FAV_KEY = 'favs';
 
-export function toggleFavMentor(mentor, favs) {
+export function toggleFavMentor(api, mentor, favs) {
   const favIndex = favs.indexOf(mentor._id);
 
   if (favIndex > -1) {
@@ -10,12 +9,12 @@ export function toggleFavMentor(mentor, favs) {
   } else {
     favs.push(mentor._id);
   }
-  addMentorToFavorites(mentor._id);
+  api.addMentorToFavorites(mentor._id);
   return favs;
 }
 
-export function get() {
-  return getFavorites();
+export function get(api) {
+  return api.getFavorites();
 }
 
 export function readFavMentorsFromLocalStorage() {
@@ -29,12 +28,12 @@ export function readFavMentorsFromLocalStorage() {
   return favMentorsFromLocalStorage;
 }
 
-export function updateFavMentorsForUser(mentors) {
+export function updateFavMentorsForUser(api, mentors) {
   let timeOut = 0;
-  mentors.forEach(mentorId => {
+  mentors.forEach((mentorId) => {
     setTimeout(
-      mentorId => {
-        addMentorToFavorites(mentorId);
+      (mentorId) => {
+        api.addMentorToFavorites(mentorId);
       },
       timeOut,
       mentorId

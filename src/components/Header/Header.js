@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import OffCanvas from 'react-aria-offcanvas';
 import Modal from '../Modal/Modal';
@@ -8,7 +8,7 @@ import Logo from '../Logo';
 import Title from '../SiteTitle';
 import Navigation from '../Navigation/Navigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
-import auth from '../../utils/auth';
+import { AuthContext } from '../../context/authContext/AuthContext';
 import { useDeviceType } from '../../hooks/useDeviceType';
 
 function Header() {
@@ -19,6 +19,7 @@ function Header() {
   });
   const [isOpen, setIsOpen] = useState(false);
   const { isDesktop } = useDeviceType();
+  const auth = useContext(AuthContext);
   const authenticated = auth.isAuthenticated();
 
   const handleModal = ({ title, content, onClose }) => {

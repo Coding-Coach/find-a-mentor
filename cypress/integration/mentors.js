@@ -61,20 +61,14 @@ describe('Mentor Filtering', () => {
     cy.getByTestId('technology-filter-autocomplete')
       .type('reactjs')
       .type('{enter}');
-    cy.getAllByTestId('mentor-card')
-      .first()
-      .get('.tag')
-      .contains('reactjs');
+    cy.getAllByTestId('mentor-card').first().get('.tag').contains('reactjs');
   });
 
   it('verify filtered country label on mentors card', () => {
     cy.getByTestId('country-filter-autocomplete')
       .type('United States')
       .type('{enter}');
-    cy.getAllByTestId('mentor-card')
-      .first()
-      .get('.country')
-      .contains('US');
+    cy.getAllByTestId('mentor-card').first().get('.country').contains('US');
   });
 
   it(`user can't approach non available mentor`, () => {
@@ -86,42 +80,26 @@ describe('Mentor Filtering', () => {
 
   it(`user navigates to mentor profile`, () => {
     cy.filterByName('B');
-    cy.get('.tags')
-      .children()
-      .filter('button')
-      .should('have.length', 5);
+    cy.get('.tags').children().filter('button').should('have.length', 5);
     // user has 6 tags and 5 are shown +1
     cy.getByText('+1');
-    cy.getByTestId('mentor-card')
-      .get('div.channels')
-      .click();
+    cy.getByTestId('mentor-card').get('div.channels').click();
 
-    cy.location().should(loc => {
+    cy.location().should((loc) => {
       expect(loc.pathname).to.eq('/u/1');
     });
 
-    cy.get('.tags')
-      .children()
-      .filter('button')
-      .should('have.length', 6);
+    cy.get('.tags').children().filter('button').should('have.length', 6);
     cy.getByText('github');
   });
 
   it.skip('user can like mentor', () => {
-    cy.get('button.like-button')
-      .first()
-      .click();
-    cy.get('button.like-button i')
-      .first()
-      .should('have.class', 'liked');
+    cy.get('button.like-button').first().click();
+    cy.get('button.like-button i').first().should('have.class', 'liked');
   });
 
   it.skip('user can unlike mentor', () => {
-    cy.get('button.like-button')
-      .first()
-      .click();
-    cy.get('button.like-button i')
-      .first()
-      .should('have.class', 'fa-heart-o');
+    cy.get('button.like-button').first().click();
+    cy.get('button.like-button i').first().should('have.class', 'fa-heart-o');
   });
 });

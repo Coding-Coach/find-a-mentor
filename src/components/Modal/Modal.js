@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import './Modal.css';
 
 export default class Modal extends Component {
   state = {
     isActive: false,
   };
 
-  handleOpen = children => {
+  handleOpen = (children) => {
     this.setState({
       isActive: true,
       children,
@@ -32,7 +31,7 @@ export default class Modal extends Component {
     }
   }
 
-  onTransitionEnd = e => {
+  onTransitionEnd = (e) => {
     if (!this.state.isActive) {
       this.setState({ children: null });
     }

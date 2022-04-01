@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 import styled, { css } from 'styled-components';
-import {
-  getPendingApplications,
-  approveApplication,
-  declineApplication,
-} from '../../api';
+
 import { Loader } from '../Loader';
 import { getChannelInfo } from '../../channelProvider';
 import { getAvatarUrl } from '../../helpers/avatar';
@@ -16,7 +12,7 @@ export default class PendingApplications extends Component {
   };
 
   async refreshApplications() {
-    const applications = await getPendingApplications();
+    const applications = await this.props.api.getPendingApplications();
     this.setState({
       applications,
     });
@@ -32,7 +28,7 @@ export default class PendingApplications extends Component {
   toggleLoader = (application, show) => {
     const { applications } = this.state;
     const applicationIndex = applications.findIndex(
-      app => app._id === application._id
+      (app) => app._id === application._id
     );
     applications[applicationIndex].loading = show;
     this.setState({
@@ -40,17 +36,17 @@ export default class PendingApplications extends Component {
     });
   };
 
-  approve = async application => {
+  approve = async (application) => {
     this.toggleLoader(application, true);
-    await approveApplication(application);
+    await this.props.api.approveApplication(application);
     await this.refreshApplications();
   };
 
-  reject = async application => {
+  reject = async (application) => {
     const reason = prompt('Why you reject that poor gentleman / lady?');
     if (reason) {
       this.toggleLoader(application, true);
-      await declineApplication(application, reason);
+      await this.props.api.declineApplication(application, reason);
       await this.refreshApplications();
     }
   };
@@ -75,7 +71,7 @@ export default class PendingApplications extends Component {
             </tr>
           </thead>
           <tbody>
-            {applications.map(application => {
+            {applications.map((application) => {
               const { user, loading } = application;
               return (
                 <tr key={application._id}>
@@ -105,7 +101,7 @@ export default class PendingApplications extends Component {
                   </td>
                   <td>{user.name}</td>
                   <td>
-                    {user.channels.map(channel => {
+                    {user.channels.map((channel) => {
                       const { url, icon } = getChannelInfo(channel);
                       return (
                         <div>

@@ -1,5 +1,3 @@
-import './AutoComplete.css';
-
 import React, { useState, useEffect } from 'react';
 import Autocomplete from 'react-autocomplete';
 import classNames from 'classnames';
@@ -47,7 +45,7 @@ export default function AutoComplete(props) {
     }
   };
 
-  const onClear = _ => {
+  const onClear = (_) => {
     onChange(_, '');
   };
 
@@ -74,7 +72,7 @@ export default function AutoComplete(props) {
         renderMenu={renderMenu}
         renderInput={renderInput}
         wrapperStyle={{}}
-        getItemValue={item => item.label}
+        getItemValue={(item) => item.label}
         shouldItemRender={matchStateToTerm}
         onSelect={handleSelect}
         onChange={onChange}

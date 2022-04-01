@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { desktop } from '../styles/shared/devices';
-import { ReactComponent as Logo } from '../../assets/me/logo.svg';
+import Logo from '../../assets/me/logo.svg';
 
 const HeaderContainer = styled.div`
   height: 243px;

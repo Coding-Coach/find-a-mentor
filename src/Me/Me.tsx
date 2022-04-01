@@ -1,70 +1,49 @@
 import React from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components/macro';
+import Head from 'next/head'
+import { useRouter } from 'next/router';
+
 import Header from './Header/Header';
 import Main from './Main';
 import Navbar from './Navigation/Navbar';
-import Home from './Routes/Home';
-import MentorshipRequests from '../Me/MentorshipRequests';
 import { GlobalStyle } from './styles/global';
 import { desktop } from './styles/shared/devices';
-import { AuthorizationRoute } from '../CustomRoutes/AuthorizedRoute';
-import { Helmet } from 'react-helmet';
+import { isSsr } from '../helpers/ssr';
+import { useUser } from '../context/userContext/UserContext';
+import { useAuth } from '../context/authContext/AuthContext';
 
-const Admin = React.lazy(() =>
-  import(/* webpackChunkName: "Admin" */ './Routes/Admin')
-);
+const Me = (props: any) => {
+  const { children, title } = props;
+  const { pathname } = useRouter();
+  const { currentUser, isLoading } = useUser();
+  const auth = useAuth();
 
-const url = '/me';
+  React.useEffect(() => {
+    if (!isLoading && !currentUser) {
+      auth.login(pathname);
+    }
+  }, [currentUser, auth, pathname, isLoading]);
 
-const meRoutes = [
-  {
-    path: '/me',
-    name: 'Home',
-  },
-  {
-    path: '/me/requests',
-    name: 'Mentorships',
-  },
-  {
-    path: '/me/admin',
-    name: 'Admin',
-  },
-];
+  if (isSsr()) {
+    return null;
+  }
 
-//function to find the header title based on the path
-const getHeaderNameByPath = (path: string) => {
-  return meRoutes.find(route => route.path === path)?.name ?? '';
-};
-
-const Me = () => {
-  const { pathname } = useLocation();
-  const title = getHeaderNameByPath(pathname);
+  if (!currentUser) {
+    return null;
+  }
 
   return (
     <Container>
       <>
-        <Helmet>
+        <Head>
           <title>{title} | CodingCoach</title>
           <meta name="description" content="codingcoach.io application" />
-        </Helmet>
+        </Head>
         <Navbar />
         <Header title={title} />
-        <Main>
-          <Switch>
-            <Route path={`${url}/requests`}>
-              <MentorshipRequests />
-            </Route>
-            <AuthorizationRoute path={`${url}/admin`} roles={['Admin']}>
-              <Admin />
-            </AuthorizationRoute>
-            <Route path={`${url}`}>
-              <Home />
-            </Route>
-          </Switch>
-        </Main>
+        <Main>{children}</Main>
       </>
       <ToastContainer />
       <GlobalStyle />

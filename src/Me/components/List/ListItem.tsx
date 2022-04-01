@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { ReactComponent as AvailableIcon } from '../../../assets/me/icon-available.svg';
-import { ReactComponent as CountryIcon } from '../../../assets/me/icon-country.svg';
-import { ReactComponent as DescriptionIcon } from '../../../assets/me/icon-description.svg';
-import { ReactComponent as EmailIcon } from '../../../assets/me/icon-email.svg';
-import { ReactComponent as SpokenLanguagesIcon } from '../../../assets/me/icon-spokenLanguages.svg';
-import { ReactComponent as TagsIcon } from '../../../assets/me/icon-tags.svg';
-import { ReactComponent as TitleIcon } from '../../../assets/me/icon-title.svg';
-import { ReactComponent as UnavailableIcon } from '../../../assets/me/icon-unavailable.svg';
+import AvailableIcon from '../../../assets/me/icon-available.svg';
+import CountryIcon from '../../../assets/me/icon-country.svg';
+import DescriptionIcon from '../../../assets/me/icon-description.svg';
+import EmailIcon from '../../../assets/me/icon-email.svg';
+import SpokenLanguagesIcon from '../../../assets/me/icon-spokenLanguages.svg';
+import TagsIcon from '../../../assets/me/icon-tags.svg';
+import TitleIcon from '../../../assets/me/icon-title.svg';
+import UnavailableIcon from '../../../assets/me/icon-unavailable.svg';
 
 export type ListItemProps = {
   type: keyof typeof icons;

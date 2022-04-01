@@ -2,13 +2,13 @@ import React, { FC } from 'react';
 import styled from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
-import { updateMentorAvatar } from '../../../../api';
 import CardContainer from '../../../components/Card/index';
 import { getAvatarUrl } from '../../../../helpers/avatar';
 import { IconButton } from '../../../components/Button/IconButton';
 import { Tooltip } from 'react-tippy';
 import { toast } from 'react-toastify';
 import { report } from '../../../../ga';
+import { useApi } from '../../../../context/apiContext/ApiContext';
 
 const ShareProfile = ({ url }: { url: string }) => {
   const [showInput, setShowInput] = React.useState(false);
@@ -52,13 +52,17 @@ const ShareProfile = ({ url }: { url: string }) => {
 
 const Avatar: FC = () => {
   const { currentUser, updateCurrentUser } = useUser<true>();
+  const api = useApi()
+  if (!currentUser) {
+    return null
+  }
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.length) {
       const formData = new FormData();
       formData.append('image', e.target.files[0]);
 
-      const updatedUser = await updateMentorAvatar(currentUser, formData);
+      const updatedUser = await api.updateMentorAvatar(currentUser, formData);
       updateCurrentUser(updatedUser);
     }
   };
@@ -67,7 +71,7 @@ const Avatar: FC = () => {
     <CardContainer>
       <Container>
         <ShareProfile
-          url={`${process.env.REACT_APP_AUTH_CALLBACK}/u/${currentUser._id}`}
+          url={`${process.env.NEXT_PUBLIC_AUTH_CALLBACK}/u/${currentUser._id}`}
         />
         <label htmlFor="upload-button">
           <UserAvatar>

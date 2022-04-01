@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 import onClickOutside from 'react-onclickoutside';
-import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
+import Link from '../Link/Link';
+
 import { getAvatarUrl } from '../../helpers/avatar';
 import { useUser } from '../../context/userContext/UserContext';
-import auth from '../../utils/auth';
+import { useAuth } from '../../context/authContext/AuthContext';
+import { useApi } from '../../context/apiContext/ApiContext';
 import LoginNavigation from '../LoginNavigation/LoginNavigation';
 import EditProfile from './EditProfile';
 import PendingApplications from './PendingApplications';
@@ -15,15 +17,15 @@ function MemberArea({ onOpenModal }) {
   const { isDesktop } = useDeviceType();
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
   const { currentUser, isMentor, isAdmin, isAuthenticated, logout } = useUser();
-  const history = useHistory();
-  const goToDashboard = () => history.push('/me');
+  const api = useApi();
+  const auth = useAuth();
   const openBecomeMentor = useCallback(
-    () => onOpenModal('Edit Your Profile', <EditProfile />),
-    [onOpenModal]
+    () => onOpenModal('Edit Your Profile', <EditProfile api={api} />),
+    [onOpenModal, api]
   );
 
   const openPendingApplications = () => {
-    onOpenModal('Pending Applications', <PendingApplications />);
+    onOpenModal('Pending Applications', <PendingApplications api={api} />);
   };
 
   MemberArea.handleClickOutside = () => setIsMemberMenuOpen(false);
@@ -35,7 +37,7 @@ function MemberArea({ onOpenModal }) {
     auth.onMentorRegistered(() => {
       openBecomeMentor();
     });
-  }, [currentUser, openBecomeMentor]);
+  }, [auth, currentUser, openBecomeMentor]);
 
   const onClickLogout = () => {
     logout();
@@ -68,9 +70,9 @@ function MemberArea({ onOpenModal }) {
                   Open pending applications
                 </MemberMenuItem>
               )}
-              <MemberMenuItem onClick={goToDashboard}>
-                Manage Account
-              </MemberMenuItem>
+              <Link href="/me">
+                <MemberMenuItem>Manage Account</MemberMenuItem>
+              </Link>
               {!isMentor && (
                 <MemberMenuItem onClick={openBecomeMentor}>
                   Become a mentor

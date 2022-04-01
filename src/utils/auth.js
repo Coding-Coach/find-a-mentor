@@ -1,10 +1,8 @@
 import auth0 from 'auth0-js';
-import { auth } from '../config/constants';
-import { clearCurrentUser, getCurrentUser } from '../api';
+import { isSsr } from '../helpers/ssr';
 import { isMentor } from '../helpers/user';
 
 const storageKey = 'auth-data';
-
 class Auth {
   accessToken;
 
@@ -12,13 +10,25 @@ class Auth {
 
   expiresAt;
 
-  auth0 = new auth0.WebAuth({
-    domain: auth.DOMAIN,
-    clientID: auth.CLIENT_ID,
-    redirectUri: auth.CALLBACK_URL,
-    responseType: 'token id_token',
-    scope: 'openid',
-  });
+  auth0;
+
+  constructor() {
+    if (typeof window === 'object') {
+      this.domain = process.env.NEXT_PUBLIC_AUTH_DOMAIN;
+      this.clientId = process.env.NEXT_PUBLIC_AUTH_CLIENT_ID;
+      this.redirectUri = process.env.NEXT_PUBLIC_AUTH_CALLBACK;
+
+      this.auth0 = new auth0.WebAuth({
+        domain: this.domain,
+        clientID: this.clientId,
+        redirectUri: this.redirectUri,
+        responseType: 'token id_token',
+        scope: 'openid',
+      });
+
+      this.loadSession();
+    }
+  }
 
   /**
    * @param {string} [redirectTo]
@@ -26,7 +36,7 @@ class Auth {
    */
   login = (redirectTo, isMentorIntent) => {
     if (!redirectTo && window.location.pathname !== '/') {
-      redirectTo = window.location.href.split(auth.CALLBACK_URL)[1];
+      redirectTo = window.location.href.split(this.redirectUri)[1];
       // redirect to the allowed login path
       window.history.replaceState(null, null, '/');
     }
@@ -36,7 +46,7 @@ class Auth {
         origin: isMentorIntent ? 'mentor' : 'user',
       },
       redirectUri: redirectTo
-        ? `${auth.CALLBACK_URL}?redirectTo=${redirectTo}`
+        ? `${this.redirectUri}?redirectTo=${redirectTo}`
         : window.location.href,
     });
   };
@@ -85,9 +95,10 @@ class Auth {
     this.origin = authResult.appState.origin;
   }
 
-  async onMentorRegistered(callback) {
+  // TODO: figure out what mentor registration callbacks have to do with authentication.  Probably move this functionality elsewhere
+  async onMentorRegistered(api, callback) {
     if (this.origin === 'mentor') {
-      if (isMentor(await getCurrentUser())) {
+      if (isMentor(await api.getCurrentUser())) {
         return;
       }
       callback();
@@ -96,6 +107,9 @@ class Auth {
   }
 
   loadSession() {
+    if (typeof window === 'undefined') {
+      return;
+    }
     const json = localStorage.getItem(storageKey);
 
     if (json) {
@@ -110,18 +124,28 @@ class Auth {
   }
 
   renewSession() {
-    return new Promise(async resolve => {
+    if (isSsr()) {
+      return Promise.resolve();
+    }
+    return new Promise(async (resolve, reject) => {
       if (window.location.hash) {
-        await this.handleAuthentication();
-        // clean the hash
-        window.history.replaceState(
-          null,
-          null,
-          window.location.href.split('#')[0]
-        );
-        resolve();
+        try {
+          await this.handleAuthentication();
+          // clean the hash
+          window.history.replaceState(
+            null,
+            null,
+            window.location.href.split('#')[0]
+          );
+          resolve();
+        } catch (error) {
+          reject(error);
+        }
       } else if (!this.isAuthenticated()) {
         this.auth0.checkSession({}, (err, authResult) => {
+          if (err) {
+            reject(err);
+          }
           if (authResult && authResult.accessToken && authResult.idToken) {
             this.setSession(authResult);
           }
@@ -143,11 +167,12 @@ class Auth {
     localStorage.removeItem(storageKey);
   };
 
-  doLogout = () => {
+  // TODO: figure out why the API  service needs to clear the current user instead of the Auth class?
+  doLogout = (api) => {
     this.#logout();
-    clearCurrentUser();
+    api.clearCurrentUser();
     this.auth0.logout({
-      returnTo: auth.CALLBACK_URL,
+      returnTo: this.redirectUri,
     });
   };
 
@@ -159,4 +184,4 @@ class Auth {
   }
 }
 
-export default new Auth().loadSession();
+export default Auth;

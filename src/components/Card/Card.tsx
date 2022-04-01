@@ -2,17 +2,14 @@ import React, { FC } from 'react';
 import Obfuscate from 'react-obfuscate';
 import orderBy from 'lodash/orderBy';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
+import Link from '../Link/Link';
 import { Tooltip } from 'react-tippy';
 
 import './Card.css';
 import StyledCard from './Card.css';
-
-import { useNavigation } from '../../hooks/useNavigation';
 import { useDeviceType } from '../../hooks/useDeviceType';
 
 import { report } from '../../ga';
-import auth from '../../utils/auth';
 import messages from '../../messages';
 import { UnstyledList } from '../common';
 import { getAvatarUrl } from '../../helpers/avatar';
@@ -25,6 +22,8 @@ import { useUser } from '../../context/userContext/UserContext';
 import { useModal } from '../../context/modalContext/ModalContext';
 import MentorshipRequest from '../../Me/Modals/MentorshipRequestModals/MentorshipRequest';
 import { formatTimeAgo } from '../../helpers/time';
+import { useAuth } from '../../context/authContext/AuthContext';
+import { useRoutes } from '../../hooks/useRoutes';
 
 const COMPACT_CARD_TAGS_LENGTH = 5;
 
@@ -58,15 +57,14 @@ const tagsList = (
   );
 };
 
-const applyOnClick = () => {
-  handleAnalytics('apply');
-  auth.login();
-};
-
 const CTAButton = ({ tooltipProps, onClick, text, link }: CTAButtonProps) => {
+  if (!onClick && !link) {
+    // eslint-disable-next-line no-console
+    console.warn('CTA button must have either onClick or link');
+  }
   const CTAElement: FC = ({ children }) =>
     link ? (
-      <Link to={link}>{children}</Link>
+      <Link href={link}>{children}</Link>
     ) : (
       <button onClick={onClick}>{children}</button>
     );
@@ -86,6 +84,12 @@ const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
   const { isMobile } = useDeviceType();
   const [openModal] = useModal(<MentorshipRequest mentor={mentor} />);
   const { isAuthenticated } = useUser();
+  const auth = useAuth();
+
+  const applyOnClick = () => {
+    handleAnalytics('apply');
+    auth.login();
+  };
 
   const tooltipMessage = isAuthenticated
     ? messages.CARD_APPLY_REQUEST_TOOLTIP
@@ -104,17 +108,10 @@ const ApplyButton = ({ mentor }: { mentor: Mentor }) => {
   );
 };
 
-const Avatar = ({
-  mentor,
-  id,
-  handleAvatarClick,
-}: {
-  mentor: Mentor;
-  id: string;
-  handleAvatarClick: () => void;
-}) => {
+const Avatar = ({ mentor, id }: { mentor: Mentor; id: string }) => {
+  const urls = useRoutes();
   return (
-    <button className="avatar" onClick={handleAvatarClick}>
+    <Link href={urls.user.get(mentor)} className="avatar">
       <i className="fa fa-user-circle" />
       <img
         src={getAvatarUrl(mentor.avatar)}
@@ -122,7 +119,7 @@ const Avatar = ({
         alt={`${mentor.name}`}
         onError={(e) => e.currentTarget.classList.add('broken')}
       />
-    </button>
+    </Link>
   );
 };
 
@@ -147,17 +144,11 @@ const LikeButton = ({
   </Tooltip>
 );
 
-const Card = ({
-  mentor,
-  onFavMentor,
-  isFav,
-  onAvatarClick = () => {},
-  appearance,
-}: CardProps) => {
+const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
   const extended = appearance === 'extended';
   const { setFilterParams } = useFilterParams();
   const { currentUser } = useUser();
-  const { getUserRoute } = useNavigation();
+  const urls = useRoutes();
   const {
     name,
     country,
@@ -168,6 +159,8 @@ const Card = ({
     available: availability,
     createdAt,
   } = mentor;
+
+  const auth = useAuth();
 
   const toggleFav = () => {
     if (currentUser) {
@@ -237,8 +230,7 @@ const Card = ({
         tooltipProps={{
           disabled: true,
         }}
-        link={getUserRoute(mentor)}
-        onClick={onAvatarClick}
+        link={urls.user.get(mentor)}
         text="Go to profile"
       />
     );
@@ -266,11 +258,7 @@ const Card = ({
           <p>{country}</p>
         </button>
 
-        <Avatar
-          mentor={mentor}
-          id={mentorID}
-          handleAvatarClick={onAvatarClick}
-        />
+        <Avatar mentor={mentor} id={mentorID} />
         <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
     );

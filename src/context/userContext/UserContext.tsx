@@ -1,7 +1,7 @@
 import React, { FC, useContext, useEffect, useState } from 'react';
 import { User } from '../../types/models';
-import { getCurrentUser } from '../../api';
-import auth from '../../utils/auth';
+import { useAuth } from '../authContext/AuthContext';
+import { useApi } from '../apiContext/ApiContext';
 
 type UserProviderContext = {
   isAdmin: boolean;
@@ -20,21 +20,22 @@ const UserContext = React.createContext<UserProviderContext | undefined>(
 export const UserProvider: FC = ({ children }) => {
   const [isLoading, setIsloading] = useState(true);
   const [currentUser, updateCurrentUser] = useState<User>();
+  const auth = useAuth();
+  const api = useApi();
   const isAuthenticated = auth.isAuthenticated();
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');
 
   const logout = () => {
-    updateCurrentUser(undefined);
-    auth.doLogout();
+    auth.doLogout(api);
   };
 
   useEffect(() => {
-    getCurrentUser().then(user => {
+    api.getCurrentUser().then((user) => {
       updateCurrentUser(user);
       setIsloading(false);
     });
-  }, []);
+  }, [api]);
 
   return (
     <UserContext.Provider

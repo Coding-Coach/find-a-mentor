@@ -6,7 +6,7 @@ import React, {
   useContext,
   createContext,
 } from 'react';
-import { useLocation } from 'react-router';
+import { useRouter } from 'next/router';
 import { AnyFixMe } from '../../types/global';
 import { Country } from '../../types/models';
 import { getFilterParams } from '../../utils/permaLinkService';
@@ -66,8 +66,8 @@ const filterReducer = (state: FiltersContextState, action: AnyFixMe) => {
 };
 
 const FiltersProvider: FC = ({ children }) => {
-  const location = useLocation();
-  const filterParams = getFilterParams(location);
+  const router = useRouter();
+  const filterParams = getFilterParams(router.asPath.split('?')[1]);
   const firstRun = useRef(true);
   const [state, dispatch] = useReducer(filterReducer, {
     ...initialState,
@@ -79,9 +79,9 @@ const FiltersProvider: FC = ({ children }) => {
       firstRun.current = false;
       return;
     }
-    dispatch({ type: 'setFilters', payload: getFilterParams(location) });
+    dispatch({ type: 'setFilters', payload: getFilterParams(router.asPath.split('?')[1]) });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.search, dispatch]);
+  }, [router.asPath, dispatch]);
 
   return (
     <FiltersStateContext.Provider value={state}>

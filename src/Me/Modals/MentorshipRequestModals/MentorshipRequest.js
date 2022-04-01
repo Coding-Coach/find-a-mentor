@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import { Modal } from '../Modal';
 import FormField from '../../components/FormField';
 import Textarea from '../../components/Textarea';
-import { applyForMentorship, getMyMentorshipApplication } from '../../../api';
-import ImageSrc from '../../../assets/mentorshipRequestSuccess.svg';
+import MentorshipRequestSuccess from '../../../assets/mentorshipRequestSuccess.svg';
 import Body from './style';
 import { links } from '../../../config/constants';
+import { useApi } from '../../../context/apiContext/ApiContext';
 
 const FormFields = styled.div`
   display: flex;
@@ -37,14 +37,15 @@ const ErrorMessage = styled.div`
 `;
 
 const MentorshipRequest = ({ mentor }) => {
+  const api = useApi();
   const [confirmed, setConfirmed] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [mentorshipRequestDetails, setMentorshipRequestDetails] = useState(
-    getMyMentorshipApplication()
+    api.getMyMentorshipApplication()
   );
   const [errors, setErrors] = useState({});
 
-  const handleInputChange = e => {
+  const handleInputChange = (e) => {
     const {
       target: { name: fieldName, value },
     } = e;
@@ -58,7 +59,7 @@ const MentorshipRequest = ({ mentor }) => {
     type: 'longtext',
     required: true,
     minLength: 30,
-    validate: value => value.length >= 30,
+    validate: (value) => value.length >= 30,
     helpText: 'Minimum 30 characters',
     style: {
       height: '121px',
@@ -134,11 +135,14 @@ const MentorshipRequest = ({ mentor }) => {
     return Object.keys(_errors).length === 0;
   };
 
-  const onSubmit = async e => {
+  const onSubmit = async (e) => {
     e?.preventDefault();
     if (!validate()) return;
     setIsLoading(true);
-    const success = await applyForMentorship(mentor, mentorshipRequestDetails);
+    const success = await api.applyForMentorship(
+      mentor,
+      mentorshipRequestDetails
+    );
     setConfirmed(success);
     setIsLoading(false);
   };
@@ -154,7 +158,7 @@ const MentorshipRequest = ({ mentor }) => {
     >
       {confirmed ? (
         <Body>
-          <img src={ImageSrc} alt="successfully sent mentorship request" />
+          <MentorshipRequestSuccess />
           <p>
             Your application has been sent! We will contact you when we hear
             from {mentor.name}

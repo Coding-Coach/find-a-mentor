@@ -83,7 +83,7 @@ const IconContainer = styled.div`
   align-items: center;
   border: 1px solid #aaa;
 
-  ${props => props.light && { background: '#eee' }}
+  ${(props) => props.light && { background: '#eee' }}
 
   > svg {
     width: 100%;

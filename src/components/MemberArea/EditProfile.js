@@ -1,15 +1,9 @@
 import { Component } from 'react';
 import classNames from 'classnames';
 import { toast } from 'react-toastify';
-import {
-  updateMentor,
-  deleteMentor,
-  createApplicationIfNotExists,
-  updateMentorAvatar,
-} from '../../api';
+
 import model from './model';
 import Select from 'react-select';
-import './EditProfile.css';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
 import Switch from '../Switch/Switch';
 import { getAvatarUrl } from '../../helpers/avatar';
@@ -56,7 +50,7 @@ export default class EditProfile extends Component {
   onSubmit = async (e) => {
     report('Member Area', 'Submit start', 'User details');
     const { user } = this.state;
-    const { onClose } = this.props;
+    const { onClose, api } = this.props;
     const { updateCurrentUser } = this.context;
 
     e.preventDefault();
@@ -66,13 +60,13 @@ export default class EditProfile extends Component {
     this.setState({ disabled: true });
 
     const { avatar, ...userInfo } = fromVMtoM(user);
-    const updateMentorResult = await updateMentor(userInfo);
+    const updateMentorResult = await api.updateMentor(userInfo);
 
     if (updateMentorResult) {
       if (isMentor(user)) {
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
       } else {
-        const createApplicationResult = await createApplicationIfNotExists(
+        const createApplicationResult = await api.createApplicationIfNotExists(
           user
         );
         if (createApplicationResult.success) {
@@ -98,7 +92,7 @@ export default class EditProfile extends Component {
   onDelete = async () => {
     report('Member Area', 'Delete start', 'User details');
     if (window.confirm(messages.EDIT_DETAILS_DELETE_ACCOUNT_CONFIRM)) {
-      await deleteMentor(this.state.user);
+      await this.props.api.deleteMentor(this.state.user);
       report('Member Area', 'Delete success', 'User details');
       this.context.logout();
     }
@@ -294,7 +288,10 @@ export default class EditProfile extends Component {
       const files = Array.from(event.target.files);
       const formData = new FormData();
       formData.append('image', files[0]);
-      const updatedUser = await updateMentorAvatar(this.state.user, formData);
+      const updatedUser = await this.props.api.updateMentorAvatar(
+        this.state.user,
+        formData
+      );
       this.setState({
         user: {
           ...this.state.user,
@@ -356,6 +353,7 @@ export default class EditProfile extends Component {
                   href={links.MENTORSHIP_GUIDELINES}
                   // eslint-disable-next-line react/jsx-no-target-blank
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Mentorship guidelines
                 </a>{' '}

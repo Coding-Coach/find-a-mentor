@@ -4,8 +4,6 @@ import termsAndConditions from '../../contents/termsAndConditions';
 import privacyPolicy from '../../contents/privacyPolicy';
 import codeOfConduct from '../../contents/codeOfConduct.js';
 
-import './Content.css';
-
 const Contents = {
   'cookies-policy': cookiesPolicy,
   'terms-conditions': termsAndConditions,

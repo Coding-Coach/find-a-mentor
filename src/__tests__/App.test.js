@@ -1,10 +1,8 @@
 import ReactDOM from 'react-dom';
 import nock from 'nock';
 import { act } from 'react-dom/test-utils';
-import { Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
 
-import App from '../components/App/App';
+import App from '../components/layouts/App';
 import { UserProvider } from '../context/userContext/UserContext';
 
 const API_BASE_URL = 'https://api.codingcoach.io';
@@ -20,15 +18,12 @@ it('renders without crashing', async () => {
     .reply(() => ({}));
 
   const div = document.createElement('div');
-  const history = createMemoryHistory();
 
   act(() => {
     ReactDOM.render(
-      <Router history={history}>
-        <UserProvider>
-          <App />
-        </UserProvider>
-      </Router>,
+      <UserProvider>
+        <App />
+      </UserProvider>,
       div
     );
   });

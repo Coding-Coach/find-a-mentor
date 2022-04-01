@@ -1,7 +1,7 @@
-import { useHistory, useLocation } from 'react-router';
+import { useRouter } from 'next/router';
 
-export const getFilterParams = (location) => {
-  const params = new URLSearchParams(location.search);
+export const getFilterParams = (search) => {
+  const params = new URLSearchParams(search);
   return {
     tag: params.get('technology') || '',
     country: params.get('country') || '',
@@ -12,12 +12,11 @@ export const getFilterParams = (location) => {
 };
 
 export const useFilterParams = () => {
-  const history = useHistory();
-  const location = useLocation();
+  const router = useRouter();
 
   return {
     setFilterParams: (param, value) => {
-      const params = new URLSearchParams(location.search);
+      const params = new URLSearchParams(router.asPath.split('?')[1]);
       if (value) {
         if (params.get(param) !== value) {
           params.set(param, value);
@@ -28,7 +27,7 @@ export const useFilterParams = () => {
       if (param !== 'page') {
         params.delete('page');
       }
-      history.push({
+      router.push({
         pathname: '/',
         search: new URLSearchParams(params).toString(),
       });

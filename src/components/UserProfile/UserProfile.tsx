@@ -1,21 +1,16 @@
-import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { useEffect } from 'react';
+import Head from 'next/head';
 import styled from 'styled-components/macro';
-import { useLocation, useParams, Link } from 'react-router-dom';
 
 import Card from '../Card/Card';
-import { Loader } from '../Loader';
-import { getUser } from '../../api';
+import Link from '../../components/Link/Link';
 import { prefix } from '../../titleGenerator';
-import { Mentor, User } from '../../types/models';
-import { useNavigation } from '../../hooks/useNavigation';
+import { User } from '../../types/models';
 import { mobile } from '../../Me/styles/shared/devices';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
-
-type UserProfileProps = {
-  favorites: string[];
-  onFavMentor(mentor: Mentor): void;
-};
+import { useMentors } from '../../context/mentorsContext/MentorsContext';
+import { useRoutes } from '../../hooks/useRoutes';
+import { getTitleTags } from '../../helpers/getTitleTags';
 
 const UserProfileContainer = styled.div`
   display: flex;
@@ -29,54 +24,32 @@ const UserProfileContainer = styled.div`
   }
 `;
 
-const UserProfileLoader = styled(Loader)`
-  font-size: 1.5rem;
-  margin-top: 15px;
-`;
-
-export const UserProfile = ({ favorites, onFavMentor }: UserProfileProps) => {
-  const [user, setUser] = useState<User>();
-  const [isLoading, setIsLoading] = useState(true);
-  const location = useLocation<{ mentor: Mentor }>();
-  const { id } = useParams<{ id: string }>();
-  const { getPreviousRoute } = useNavigation();
+export const UserProfile = ({ user }: { user: User }) => {
+  const title = `${prefix} | ${user?.name}`;
   const [, dispatch] = useFilters();
+  const urls = useRoutes();
+  const { favorites, addFavorite } = useMentors();
 
   useEffect(() => {
     dispatch({ type: 'showFilters', payload: false });
   }, [dispatch]);
 
-  useEffect(() => {
-    async function fetchMentorIfNeed() {
-      if (!location.state?.mentor) {
-        const userFromAPI = await getUser(id);
-        if (userFromAPI) {
-          setUser(userFromAPI);
-        }
-        setIsLoading(false);
-      }
-    }
-    fetchMentorIfNeed();
-  }, [id, location.state]);
-
-  if (isLoading) {
-    return <UserProfileLoader size={2} />;
-  }
-
   if (!user) {
-    return <p>User not found</p>;
+    return (
+      <p>
+        User not found <Link href="/">back to home</Link>
+      </p>
+    );
   }
 
   return (
     <UserProfileContainer>
-      <Helmet>
-        <title>{`${prefix} | ${user?.name}`}</title>
-      </Helmet>
-      <Link to={getPreviousRoute()}>Back to mentors list</Link>
+      <Head>{getTitleTags(title)}</Head>
+      <Link href={urls.root.get()}>Back to mentors list</Link>
       <Card
         appearance="extended"
         mentor={user}
-        onFavMentor={onFavMentor}
+        onFavMentor={addFavorite}
         isFav={favorites.indexOf(user._id) > -1}
       />
     </UserProfileContainer>
