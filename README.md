@@ -31,7 +31,7 @@ Pre-release version of Coding Coach.
 
 We're aware that some mentors are not active and we are working on ways to keep only the active mentors.
 If you didn't receive any response, you can apply to more mentors.
-**Don't forget** to let the the other mentors to know once you started a mentorship.
+**Don't forget** to let the the other mentors know once you started a mentorship with a different mentor.
 
 ## Want to be a mentor?
 
@@ -50,20 +50,20 @@ If you didn't receive any response, you can apply to more mentors.
 - Nodejs [Install Nodejs](https://nodejs.org/en/download/). **Notice v11.11.0 breaks the tests**
 - Yarn (we recommend using yarn as a package manager) [Install Yarn](https://yarnpkg.com/en/)
 
-## Want to contribute this project?
+## Want to contribute to this project?
 
-That's why we here! 😀
+That's why we're here! 😀
 
-Have an idea? Please **use a branch** and [create a PR](https://help.github.com/articles/creating-a-pull-request/). If you not sure how to do this, ask us or find a mentor who can assist.
+Have an idea? Please **use a branch** and [create a PR](https://help.github.com/articles/creating-a-pull-request/). If you aren't sure how to do this, ask us or find a mentor who can assist.
 
-Haven't time to code it? Please open an [issue](https://github.com/Coding-Coach/find-a-mentor/issues/new).
+Don't have time to code it? Please open an [issue](https://github.com/Coding-Coach/find-a-mentor/issues/new).
 
 ### Workflow
 
-This section describes the workflow we are going to follow when working in a new feature or fixing a bug. If you want to contribute, please follow these steps:
+This section describes the workflow we are going to follow when working on a new feature or fixing a bug. If you want to contribute, please follow these steps:
 
 1. Fork this project
-2. Clone the forked project to your local environment, for example: `git clone git@github.com:crysfel/coding-coach-front-end.git` (Make sure to replace the URL to your own repository).
+2. Clone the forked project to your local environment, for example: `git clone git@github.com:crysfel/coding-coach-front-end.git` (Make sure to replace the URL with the one to your own repository).
 3. Add the original project as a remote, for this example the name is `upstream`, feel free to use whatever name you want. `git remote add upstream https://github.com/Coding-Coach/find-a-mentor.git`.
 
 Forking the project will create a copy of that project in your own GitHub account, you will commit your work against your own repository.
@@ -93,7 +93,7 @@ https://mentors.codingcoach.io/sb/
 yarn storybook
 ```
 
-The stories located under `src/stories`
+The stories are located under `src/stories`
 
 #### Updating your local
 
@@ -118,11 +118,11 @@ $ git rebase master
 
 After this, your commits will be on top of the `master` commits. From here you can push to your `origin` repository and create a PR.
 
-You might have some conflicts while rebasing, try to resolve the conflicts for each individual commit. Rebasing is intimidating at the beginning, if you need help don't be afraid to reach out in slack.
+You might have some conflicts while rebasing, try to resolve the conflicts for each individual commit. Rebasing is intimidating at the beginning, if you need help, don't be afraid to reach out in Slack.
 
 ## Slack
 
-Coding Coach is on Slack! [Click here](https://join.slack.com/t/coding-coach/shared_invite/enQtODYwODU0NDE2OTkzLTRmMTY3NTZmOGI2MjYyZTM2ZDBlZTNjNmMwNGRhY2I3MzZkMjA3ZjlhZjliYmQzMGQyYTkxNTViZTc3MzJmOTU) to join.
+Coding Coach is on Slack! [Click here](https://join.slack.com/t/coding-coach/shared_invite/zt-15kky1m4x-JrrLzQevCLkdyZiaqT_DTg) to join.
 
 ---
 
@@ -154,7 +154,7 @@ Alternatively You can also use Gitpod ( a free online IDE that will automate you
 
 # Code of Conduct
 
-At Coding Coach, we value all our mentors, mentees, and contributors. Our goal is to make this a safe space where new and experienced developers can connect and learn from one another. Therefore, we do not tolerate any form of harassment or prejudice. This Code of Conduct applies to all Coding Coach spaces including but not limited to slack, email correspondence, and social media.
+At Coding Coach, we value all our mentors, mentees, and contributors. Our goal is to make this a safe space where new and experienced developers can connect and learn from one another. Therefore, we do not tolerate any form of harassment or prejudice. This Code of Conduct applies to all Coding Coach spaces including but not limited to Slack, email correspondence, and social media.
 
 Harassment includes but is not limited to:
 
@@ -174,7 +174,7 @@ Harassment includes but is not limited to:
 
 We value integrity here at Coding Coach. As such, mentees may not ask for solutions to technical interview take home assessments. We're happy to mentor you in the process of solving difficult questions, but will not provide you with solutions to your assessments as they are meant to reflect your personal skill set.
 
-Members who violate this code of conduct will be approached by someone of the Coding Coach leadership team and asked to stop immediately. Members may also be banned from the Coding Coach slack, blocked on social media, and removed from the website.
+Members who violate this code of conduct will be approached by someone of the Coding Coach leadership team and asked to stop immediately. Members may also be banned from the Coding Coach Slack, blocked on social media, and removed from the website.
 
 If someone makes you or anyone else feel unsafe or unwelcome, please report it as soon as possible. To report an incident of harassment, anonymously or otherwise, please fill out our [report form](https://forms.gle/bcSWqNNcsdo3zDD17).
 

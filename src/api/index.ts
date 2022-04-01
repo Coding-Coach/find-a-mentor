@@ -119,7 +119,7 @@ export default class ApiService {
 
   getMentors = async () => {
     if (!this.mentorsPromise) {
-      this.mentorsPromise = this.makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300`).then(
+      this.mentorsPromise = this.makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300&available=true`).then(
         (response) => {
           if (response?.success) {
             const [available, unavailable] = partition(
