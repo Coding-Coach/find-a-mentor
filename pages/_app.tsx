@@ -22,10 +22,12 @@ import { UserProvider } from '../src/context/userContext/UserContext';
 import { FiltersProvider } from '../src/context/filtersContext/FiltersContext';
 import { ModalHookProvider } from '../src/context/modalContext/ModalContext';
 import { MentorsProvider } from '../src/context/mentorsContext/MentorsContext';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Scripts />
       <Head />
       <AuthProvider>
         <ApiProvider>
@@ -43,6 +45,36 @@ function MyApp({ Component, pageProps }) {
     </>
   );
 }
+
+const Scripts = () => (
+  <>
+    <Script id="google-analytics">
+      {`
+        (function (i, s, o, g, r, a, m) {
+          i['GoogleAnalyticsObject'] = r;
+          (i[r] =
+            i[r] ||
+            function () {
+              (i[r].q = i[r].q || []).push(arguments);
+            }),
+            (i[r].l = 1 * new Date());
+          (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+          a.async = 1;
+          a.src = g;
+          m.parentNode.insertBefore(a, m);
+        })(
+          window,
+          document,
+          'script',
+          'https://www.google-analytics.com/analytics.js',
+          'ga'
+        );
+        ga('create', 'UA-133820299-2', 'auto');
+        ga('send', 'pageview');
+        `}
+    </Script>
+  </>
+);
 
 // Only uncomment this method if you have blocking data requirements for
 // every single page in your application. This disables the ability to
