@@ -1,34 +1,6 @@
 import NextHead from 'next/head';
 import { getTitleTags } from '../src/helpers/getTitleTags';
 
-const GoogleAnalyticsPayload = {
-  dangerouslySetInnerHTML: {
-    __html: `
-        (function (i, s, o, g, r, a, m) {
-          i['GoogleAnalyticsObject'] = r;
-          (i[r] =
-            i[r] ||
-            function () {
-              (i[r].q = i[r].q || []).push(arguments);
-            }),
-            (i[r].l = 1 * new Date());
-          (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
-          a.async = 1;
-          a.src = g;
-          m.parentNode.insertBefore(a, m);
-        })(
-          window,
-          document,
-          'script',
-          'https://www.google-analytics.com/analytics.js',
-          'ga'
-        );
-        ga('create', 'UA-133820299-2', 'auto');
-        ga('send', 'pageview');
-      `,
-  },
-};
-
 const Head = () => {
   return (
     <NextHead>
@@ -110,21 +82,8 @@ const Head = () => {
       <meta name="theme-color" content="#20293a" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-
-      <link
-        href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        rel="stylesheet"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-        crossOrigin="anonymous"
-      />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap"
-        rel="stylesheet"
-      />
-
-      <script {...GoogleAnalyticsPayload} />
     </NextHead>
   );
 };
