@@ -1,9 +1,12 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import Link from '../../../components/Link/Link';
+import { useRoutes } from '../../../hooks/useRoutes';
 import { RichItemProps, RichItemTagTheme } from './ReachItemTypes';
 
 const RichItem: FC<RichItemProps> = ({
   id,
+  userId,
   avatar,
   title,
   subtitle,
@@ -13,11 +16,12 @@ const RichItem: FC<RichItemProps> = ({
   onClick,
   children,
 }) => {
+  const routes = useRoutes();
   return (
     <Root highlight={!!children && !expand} expanded={expand}>
       <Main onClick={() => onClick(id)}>
         <ItemRow>
-          <ItemAvatar>{avatar && <img src={avatar} alt="avatar" />}</ItemAvatar>
+          <ItemAvatar href={routes.user.get(userId)}>{avatar && <img src={avatar} alt="avatar" />}</ItemAvatar>
           <Titles>
             <ItemRow>
               <Title>{title}</Title>
@@ -71,7 +75,7 @@ const Titles = styled(ItemCol)`
   }
 `;
 
-const ItemAvatar = styled.div`
+const ItemAvatar = styled(Link)`
   user-select: none;
   width: 45px;
   overflow: hidden;
