@@ -220,7 +220,8 @@ const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
   };
 
   const getChannelsContent = () => {
-    if (!availability) {
+    const isMyMentor = mentor.channels.length > 0;
+    if (!availability && !isMyMentor) {
       return <MentorNotAvailable />;
     }
     return appearance === 'extended' ? (
