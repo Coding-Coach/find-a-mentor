@@ -100,7 +100,7 @@ export const MentorsProvider = (props) => {
 
   useEffect(() => {
     const addFavorite = async (mentor) => {
-      const newFavorites = toggleFavMentor(mentor, [...favorites]);
+      const newFavorites = toggleFavMentor(api, mentor, [...favorites]);
       setFavorites(newFavorites);
       report('Favorite');
     };
@@ -110,7 +110,7 @@ export const MentorsProvider = (props) => {
       favorites,
       addFavorite,
     }));
-  }, [favorites, filteredMentors]);
+  }, [favorites, filteredMentors, api]);
 
   return (
     <MentorsContext.Provider value={contextState}>
