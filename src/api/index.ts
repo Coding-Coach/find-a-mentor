@@ -163,8 +163,8 @@ export default class ApiService {
     return [];
   }
 
-  addMentorToFavorites = async (mentorId: string, userId: string) => {
-      // const { _id: userId } = (await getCurrentUser())!;
+  addMentorToFavorites = async (mentorId: string) => {
+      const { _id: userId } = (await this.getCurrentUser())!;
 
     const response = await this.makeApiCall(
       `${paths.USERS}/${userId}/favorites/${mentorId}`,
