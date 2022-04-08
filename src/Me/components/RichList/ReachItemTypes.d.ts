@@ -8,6 +8,7 @@ export type RichItemTagTheme =
 
 export type RichItemProps = {
   id: string;
+  userId: string;
   avatar: string;
   title: string;
   subtitle: string;
