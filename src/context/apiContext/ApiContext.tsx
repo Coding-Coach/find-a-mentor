@@ -2,7 +2,7 @@ import { createContext, useContext, FC, useMemo } from 'react';
 import { AuthContext } from '../authContext/AuthContext';
 import ApiService from '../../api';
 
-export const ApiContext = createContext<any>({});
+export const ApiContext = createContext<ApiService>(null);
 
 export const ApiProvider: FC = (props: any) => {
     const { children } = props
@@ -11,7 +11,7 @@ export const ApiProvider: FC = (props: any) => {
     return <ApiContext.Provider value={api}>{children}</ApiContext.Provider>
 };
 
-export function useApi(): any {
+export function useApi(): ApiService {
   const api = useContext(ApiContext);
   return api;
 }

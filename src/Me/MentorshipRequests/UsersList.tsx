@@ -95,6 +95,7 @@ const renderList = ({
         <li key={id}>
           <RichItem
             id={id}
+            userId={user.id}
             avatar={getAvatarUrl(user.avatar)}
             title={user.name}
             subtitle={user.title}
