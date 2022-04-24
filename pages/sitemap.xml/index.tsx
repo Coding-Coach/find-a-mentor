@@ -5,7 +5,6 @@ export default function Index() {
   return null;
 }
 
-
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   res.setHeader('Content-Type', 'text/xml');
   const xml = await buildSitemap();
@@ -17,4 +16,4 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   return {
     props: {},
   };
-}
+};
