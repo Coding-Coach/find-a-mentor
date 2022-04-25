@@ -1,7 +1,21 @@
-import fs from 'fs';
-import fetch from 'node-fetch';
+const getPath = (key?: string, value?: string) => {
+  if (!key) {
+    return '';
+  }
+  if (key === 'id') {
+    return `u/${value}`;
+  }
+  return `?${key}=${encodeURIComponent(value)}`;
+};
 
-(async () => {
+const createUrl = (key?: string, value?: string) => {
+  return `<url><loc>https://mentors.codingcoach.io/${getPath(
+    key,
+    value
+  )}</loc></url>`;
+};
+
+export const buildSitemap = async () => {
   const mentors = await fetch(`https://api.codingcoach.io/mentors?limit=1400`)
     .then((data) => data.json())
     .then((res) => res.data);
@@ -25,30 +39,14 @@ import fetch from 'node-fetch';
   json.language = [...new Set(json.language)];
 
   const lineBreak = '\n\t';
+  const URLs = Object.keys(json)
+    .map((key) => [...json[key]].map((value) => createUrl(key, value)))
+    .flat();
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${createUrl()}
-    ${Object.keys(json)
-      .map((key) =>
-        [...json[key]].map((value) => createUrl(key, value)).join(lineBreak)
-      )
-      .join(lineBreak)}
-  </urlset>
-  `;
-
-  fs.writeFileSync('public/sitemap.xml', xml);
-})();
-
-const getPath = (key, value) => {
-  if (!key) {
-    return '';
-  }
-  if (key === 'id') {
-    return `u/${value}`;
-  }
-  return `?${key}=${encodeURIComponent(value)}`;
-}
-
-const createUrl = (key, value) => {
-  return `<url><loc>https://mentors.codingcoach.io/${getPath(key, value)}</loc></url>`;
-}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${createUrl()}
+  ${URLs.join(lineBreak)}
+</urlset>
+`;
+  return xml;
+};
