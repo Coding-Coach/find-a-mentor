@@ -45,6 +45,7 @@ class Auth {
       appState: {
         origin: isMentorIntent ? 'mentor' : 'user',
       },
+      scope: 'email',
       redirectUri: redirectTo
         ? `${this.redirectUri}?redirectTo=${redirectTo}`
         : window.location.href,
