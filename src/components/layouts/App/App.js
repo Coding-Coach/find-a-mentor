@@ -12,6 +12,7 @@ import { desktop, mobile } from '../../../Me/styles/shared/devices';
 import { Sidebar } from '../../Sidebar/Sidebar';
 import { useMentors } from '../../../context/mentorsContext/MentorsContext';
 import { useUser } from '../../../context/userContext/UserContext';
+import { maskEmail } from '../../../utils/maskSansitiveString';
 
 const App = (props) => {
   const { children } = props;
@@ -23,7 +24,7 @@ const App = (props) => {
     onClose: null,
   });
   const { mentors } = useMentors();
-  const {isEmailVerifed} = useUser();
+  const {emailVerifedInfo} = useUser();
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -41,24 +42,23 @@ const App = (props) => {
   }, []);
 
   useEffect(() => {
-    if (isEmailVerifed === false) {
-      showVerifyEmailModal();
+    if (emailVerifedInfo?.isVerified === false) {
+      showVerifyEmailModal(emailVerifedInfo.email);
     }
-  }, [isEmailVerifed]);
+  }, [emailVerifedInfo]);
 
   useEffect(
     () => setWindowTitle({ tag, country, name, language }),
     [tag, country, name, language]
   );
 
-  const showVerifyEmailModal = () => {
-    throw new Error('Not implemented');
+  const showVerifyEmailModal = (email) => {
     setModal({
       title: 'Verify your email',
       content: (
         <div>
           <p>
-            Please verify your email address to continue using the platform.
+            Please verify your email address ({maskEmail(email)}) to continue using the platform.
           </p>
           <p>
             <a href="/verify-email">Resend verification email</a>

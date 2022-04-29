@@ -3,12 +3,19 @@ import { User } from '../../types/models';
 import { useAuth } from '../authContext/AuthContext';
 import { useApi } from '../apiContext/ApiContext';
 
+type EmailNotVerifiedInfo = {
+  isVerified: true;
+} | {
+  isVerified: false;
+  email: string;
+}
+
 type UserProviderContext = {
   isAdmin: boolean;
   isMentor: boolean;
   isLoading: boolean;
   currentUser?: User;
-  isEmailVerifed?: boolean;
+  emailVerifedInfo?: EmailNotVerifiedInfo;
   isAuthenticated: boolean;
   updateCurrentUser(user: User): void;
   logout(): void;
@@ -21,7 +28,7 @@ const UserContext = React.createContext<UserProviderContext | undefined>(
 export const UserProvider: FC = ({ children }) => {
   const [isLoading, setIsloading] = useState(true);
   const [currentUser, updateCurrentUser] = useState<User>();
-  const [isEmailVerifed, setIsEmailVerified] = useState<boolean>();
+  const [emailVerifedInfo, setEmailVerifedInfo] = useState<EmailNotVerifiedInfo>();
   const auth = useAuth();
   const api = useApi();
   const isAuthenticated = auth.isAuthenticated();
@@ -36,7 +43,15 @@ export const UserProvider: FC = ({ children }) => {
     async function getCurrentUser() {
       const user = await api.getCurrentUser();
       setIsloading(false);
-      setIsEmailVerified(user.email_verified);
+      if (!user) {
+        return;
+      }
+
+      setEmailVerifedInfo({
+        isVerified: user.email_verified,
+        email: user.email,
+      });
+
       if (user.email_verified) {
         updateCurrentUser(user);
       }
@@ -51,7 +66,7 @@ export const UserProvider: FC = ({ children }) => {
         isMentor,
         isLoading,
         currentUser,
-        isEmailVerifed,
+        emailVerifedInfo,
         isAuthenticated,
         logout,
         updateCurrentUser,
