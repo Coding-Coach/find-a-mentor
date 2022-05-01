@@ -3,12 +3,12 @@ import classNames from 'classnames';
 
 export default class Modal extends Component {
   state = {
-    isActive: false,
+    isActive: this.props.isActive ?? false,
   };
 
   handleOpen = (children) => {
     this.setState({
-      isActive: true,
+      isActive: !!children,
       children,
     });
   };

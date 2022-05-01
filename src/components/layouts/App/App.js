@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -12,7 +12,7 @@ import { desktop, mobile } from '../../../Me/styles/shared/devices';
 import { Sidebar } from '../../Sidebar/Sidebar';
 import { useMentors } from '../../../context/mentorsContext/MentorsContext';
 import { useUser } from '../../../context/userContext/UserContext';
-import { maskEmail } from '../../../utils/maskSansitiveString';
+import { VerificationModal } from './VerificationModal';
 
 const App = (props) => {
   const { children } = props;
@@ -24,7 +24,23 @@ const App = (props) => {
     onClose: null,
   });
   const { mentors } = useMentors();
-  const {emailVerifedInfo} = useUser();
+  const { emailVerifedInfo } = useUser();
+  const closeModal = useCallback(() => setModal({}), []);
+
+  const showVerifyEmailModal = useCallback(() => {
+    setModal({
+      title: 'Verify your email',
+      content: (
+        <VerificationModal
+          onSuccess={() => {
+            toast.success('Email verified successfully');
+            closeModal();
+          }}
+        />
+      ),
+      onClose: closeModal,
+    });
+  }, [closeModal]);
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -45,29 +61,12 @@ const App = (props) => {
     if (emailVerifedInfo?.isVerified === false) {
       showVerifyEmailModal(emailVerifedInfo.email);
     }
-  }, [emailVerifedInfo]);
+  }, [emailVerifedInfo, showVerifyEmailModal]);
 
   useEffect(
     () => setWindowTitle({ tag, country, name, language }),
     [tag, country, name, language]
   );
-
-  const showVerifyEmailModal = (email) => {
-    setModal({
-      title: 'Verify your email',
-      content: (
-        <div>
-          <p>
-            Please verify your email address ({maskEmail(email)}) to continue using the platform.
-          </p>
-          <p>
-            <a href="/verify-email">Resend verification email</a>
-          </p>
-        </div>
-      ),
-      onClose: () => setModal({}),
-    });
-  }
 
   const handleModal = (title, content, onClose) => {
     setModal({

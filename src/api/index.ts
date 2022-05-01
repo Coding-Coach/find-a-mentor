@@ -387,4 +387,8 @@ export default class ApiService {
 
     return false;
   }
+
+  resendVerificationEmail = async () => {
+    return this.makeApiCall(`${paths.USERS}/verify`, null, 'POST');
+  }
 }
