@@ -2699,6 +2699,11 @@
   version "4.2.2"
   resolved "https://registry.yarnpkg.com/@types/aria-query/-/aria-query-4.2.2.tgz#ed4e0ad92306a704f9fb132a0cfcf77486dbe2bc"
 
+"@types/auth0-js@^9.14.6":
+  version "9.14.6"
+  resolved "https://registry.yarnpkg.com/@types/auth0-js/-/auth0-js-9.14.6.tgz#a1b0cdaf1c5a7062480455d9b255326bdc748117"
+  integrity sha512-dQrWP1G5PO5onJcDdto803OKvw1mplNBoRTdMJzRemfLyKSMAShiVBVD12jZ8VbB1RRDlg6R2eheEH/sxv1ZtQ==
+
 "@types/babel__core@^7.0.0", "@types/babel__core@^7.1.7":
   version "7.1.16"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.16.tgz#bc12c74b7d65e82d29876b5d0baf5c625ac58702"

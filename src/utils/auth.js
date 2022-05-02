@@ -23,7 +23,7 @@ class Auth {
         clientID: this.clientId,
         redirectUri: this.redirectUri,
         responseType: 'token id_token',
-        scope: 'openid',
+        scope: 'openid email',
       });
 
       this.loadSession();
@@ -45,7 +45,6 @@ class Auth {
       appState: {
         origin: isMentorIntent ? 'mentor' : 'user',
       },
-      scope: 'openid email',
       redirectUri: redirectTo
         ? `${this.redirectUri}?redirectTo=${redirectTo}`
         : window.location.href,
@@ -145,7 +144,7 @@ class Auth {
       } else if (!this.isAuthenticated()) {
         this.auth0.checkSession({}, (err, authResult) => {
           if (err) {
-            reject(err);
+            return reject(err);
           }
           if (authResult && authResult.accessToken && authResult.idToken) {
             this.setSession(authResult);
