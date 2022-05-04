@@ -115,6 +115,11 @@ export default class ApiService {
 
   clearCurrentUser = () => {
     currentUser = undefined;
+    ApiService.clearCurrentUserFromStorage();
+  }
+
+  // because we need to call it from authContext which doesn't have access to ApiService
+  static clearCurrentUserFromStorage = () => {
     localStorage.removeItem(USER_LOCAL_KEY);
   }
 

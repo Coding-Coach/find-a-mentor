@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js';
+import ApiService from '../api';
 import { isSsr } from '../helpers/ssr';
 import { isMentor } from '../helpers/user';
 
@@ -141,9 +142,9 @@ class Auth {
         } catch (error) {
           reject(error);
         }
-      } else if (!this.isAuthenticated()) {
+      } else {
         this.auth0.checkSession({}, (err, authResult) => {
-          if (err) {
+          if (err && !this.#shouldSkipError(err)) {
             return reject(err);
           }
           if (authResult && authResult.accessToken && authResult.idToken) {
@@ -151,13 +152,14 @@ class Auth {
           }
           resolve();
         });
-      } else {
-        resolve();
       }
     });
   }
 
-  #logout = () => {
+  /**
+   * @param {ApiService=} api
+   */
+  forgetUser = (api) => {
     // Remove tokens and expiry time from memory
     this.accessToken = null;
     this.idToken = null;
@@ -165,12 +167,16 @@ class Auth {
 
     // Remove token from localStorage
     localStorage.removeItem(storageKey);
+    ApiService.clearCurrentUserFromStorage();
+    api?.clearCurrentUser();
   };
 
   // TODO: figure out why the API  service needs to clear the current user instead of the Auth class?
+  /**
+   * @param  {ApiService} api
+   */
   doLogout = (api) => {
-    this.#logout();
-    api.clearCurrentUser();
+    this.forgetUser(api);
     this.auth0.logout({
       returnTo: this.redirectUri,
     });
@@ -181,6 +187,10 @@ class Auth {
     // access token's expiry time
     let expiresAt = this.expiresAt;
     return new Date().getTime() < expiresAt;
+  }
+
+  #shouldSkipError = (error) => {
+    return error.code === 'login_required';
   }
 }
 

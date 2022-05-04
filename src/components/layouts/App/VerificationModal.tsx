@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styled from 'styled-components/macro';
 import { useApi } from '../../../context/apiContext/ApiContext';
 import { useUser } from '../../../context/userContext/UserContext';
 import Button from '../../../Me/components/Button';
@@ -8,6 +9,12 @@ type VerificationModalProps = {
   onSuccess: () => void;
   email: string;
 };
+
+const ModalText = styled.p`
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+`;
 
 export const VerificationModal = ({ onSuccess }: VerificationModalProps) => {
   const [loading, setLoading] = useState(false);
@@ -33,15 +40,26 @@ export const VerificationModal = ({ onSuccess }: VerificationModalProps) => {
 
   return (
     <>
-      <p>
-        Please verify your email address ({maskEmail(emailVerifedInfo.email)})
-        to continue using the platform.
-      </p>
-      <p>
-        <Button isLoading={loading} onClick={send}>
-          Resend verification email
-        </Button>
-      </p>
+      <ModalText>
+        Psst, we believe that you are who you say you are.
+        <br />
+        Just to make sure, we need you to verify your email.
+        <h3>Recognize {maskEmail(emailVerifedInfo.email)}?</h3>
+        {emailVerifedInfo.isRegisteredRecently ? (
+          <>
+            This is the address we sent a verification email to.
+            <br />
+            Can't find it? Hit the button
+          </>
+        ) : (
+          <>Hit the button to send a verification email right to your inbox</>
+        )}
+        <p>
+          <Button isLoading={loading} onClick={send}>
+            Resend verification email
+          </Button>
+        </p>
+      </ModalText>
     </>
   );
 };

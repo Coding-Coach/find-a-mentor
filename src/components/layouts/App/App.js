@@ -33,7 +33,7 @@ const App = (props) => {
       content: (
         <VerificationModal
           onSuccess={() => {
-            toast.success('Email verified successfully');
+            toast.success('We just sent you the verification email');
             closeModal();
           }}
         />

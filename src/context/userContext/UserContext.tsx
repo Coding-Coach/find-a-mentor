@@ -2,12 +2,14 @@ import React, { FC, useContext, useEffect, useState } from 'react';
 import { User } from '../../types/models';
 import { useAuth } from '../authContext/AuthContext';
 import { useApi } from '../apiContext/ApiContext';
+import { daysAgo } from '../../helpers/time';
 
 type EmailNotVerifiedInfo = {
   isVerified: true;
 } | {
-  isVerified: false;
   email: string;
+  isVerified: false;
+  isRegisteredRecently: boolean;
 }
 
 type UserProviderContext = {
@@ -16,6 +18,7 @@ type UserProviderContext = {
   isLoading: boolean;
   currentUser?: User;
   emailVerifedInfo?: EmailNotVerifiedInfo;
+  isNotYetVerified: boolean;
   isAuthenticated: boolean;
   updateCurrentUser(user: User): void;
   logout(): void;
@@ -34,6 +37,7 @@ export const UserProvider: FC = ({ children }) => {
   const isAuthenticated = auth.isAuthenticated();
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');
+  const isNotYetVerified = emailVerifedInfo?.isVerified === false;
 
   const logout = () => {
     auth.doLogout(api);
@@ -49,6 +53,7 @@ export const UserProvider: FC = ({ children }) => {
 
       setEmailVerifedInfo({
         isVerified: user.email_verified,
+        isRegisteredRecently: daysAgo(user.createdAt) <= 5,
         email: user.email,
       });
 
@@ -67,6 +72,7 @@ export const UserProvider: FC = ({ children }) => {
         isLoading,
         currentUser,
         emailVerifedInfo,
+        isNotYetVerified,
         isAuthenticated,
         logout,
         updateCurrentUser,
