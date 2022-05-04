@@ -191,7 +191,7 @@ class Auth {
 
   #shouldSkipError = (error) => {
     return error.code === 'login_required';
-  }
+  };
 }
 
 export default Auth;
