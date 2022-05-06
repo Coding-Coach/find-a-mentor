@@ -24,7 +24,7 @@ const App = (props) => {
     onClose: null,
   });
   const { mentors } = useMentors();
-  const { emailVerifedInfo } = useUser();
+  const { emailVerifiedInfo } = useUser();
   const closeModal = useCallback(() => setModal({}), []);
 
   const showVerifyEmailModal = useCallback(() => {
@@ -58,10 +58,10 @@ const App = (props) => {
   }, []);
 
   useEffect(() => {
-    if (emailVerifedInfo?.isVerified === false) {
-      showVerifyEmailModal(emailVerifedInfo.email);
+    if (emailVerifiedInfo?.isVerified === false) {
+      showVerifyEmailModal(emailVerifiedInfo.email);
     }
-  }, [emailVerifedInfo, showVerifyEmailModal]);
+  }, [emailVerifiedInfo, showVerifyEmailModal]);
 
   useEffect(
     () => setWindowTitle({ tag, country, name, language }),

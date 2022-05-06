@@ -18,10 +18,10 @@ const ModalText = styled.p`
 
 export const VerificationModal = ({ onSuccess }: VerificationModalProps) => {
   const [loading, setLoading] = useState(false);
-  const { emailVerifedInfo } = useUser();
+  const { emailVerifiedInfo } = useUser();
   const api = useApi();
 
-  if (emailVerifedInfo.isVerified === true) {
+  if (emailVerifiedInfo.isVerified === true) {
     // eslint-disable-next-line no-console
     console.warn('email is verified');
     return;
@@ -44,8 +44,8 @@ export const VerificationModal = ({ onSuccess }: VerificationModalProps) => {
         Psst, we believe that you are who you say you are.
         <br />
         Just to make sure, we need you to verify your email.
-        <h3>Recognize {maskEmail(emailVerifedInfo.email)}?</h3>
-        {emailVerifedInfo.isRegisteredRecently ? (
+        <h3>Recognize {maskEmail(emailVerifiedInfo.email)}?</h3>
+        {emailVerifiedInfo.isRegisteredRecently ? (
           <>
             This is the address we sent a verification email to.
             <br />

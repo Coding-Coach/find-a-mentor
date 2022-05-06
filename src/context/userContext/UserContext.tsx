@@ -17,7 +17,7 @@ type UserProviderContext = {
   isMentor: boolean;
   isLoading: boolean;
   currentUser?: User;
-  emailVerifedInfo?: EmailNotVerifiedInfo;
+  emailVerifiedInfo?: EmailNotVerifiedInfo;
   isNotYetVerified: boolean;
   isAuthenticated: boolean;
   updateCurrentUser(user: User): void;
@@ -31,13 +31,13 @@ const UserContext = React.createContext<UserProviderContext | undefined>(
 export const UserProvider: FC = ({ children }) => {
   const [isLoading, setIsloading] = useState(true);
   const [currentUser, updateCurrentUser] = useState<User>();
-  const [emailVerifedInfo, setEmailVerifedInfo] = useState<EmailNotVerifiedInfo>();
+  const [emailVerifiedInfo, setemailVerifiedInfo] = useState<EmailNotVerifiedInfo>();
   const auth = useAuth();
   const api = useApi();
   const isAuthenticated = auth.isAuthenticated();
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');
-  const isNotYetVerified = emailVerifedInfo?.isVerified === false;
+  const isNotYetVerified = emailVerifiedInfo?.isVerified === false;
 
   const logout = () => {
     auth.doLogout(api);
@@ -51,7 +51,7 @@ export const UserProvider: FC = ({ children }) => {
         return;
       }
 
-      setEmailVerifedInfo({
+      setemailVerifiedInfo({
         isVerified: user.email_verified,
         isRegisteredRecently: daysAgo(user.createdAt) <= 5,
         email: user.email,
@@ -71,7 +71,7 @@ export const UserProvider: FC = ({ children }) => {
         isMentor,
         isLoading,
         currentUser,
-        emailVerifedInfo,
+        emailVerifiedInfo,
         isNotYetVerified,
         isAuthenticated,
         logout,
