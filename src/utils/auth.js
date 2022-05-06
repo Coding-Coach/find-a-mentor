@@ -157,7 +157,7 @@ class Auth {
   }
 
   /**
-   * @param {ApiService=} api
+   * @param {ApiService=} api - it's empty when called from AuthContext because it's hieghr in the Providers tree
    */
   forgetUser = (api) => {
     // Remove tokens and expiry time from memory
@@ -167,8 +167,11 @@ class Auth {
 
     // Remove token from localStorage
     localStorage.removeItem(storageKey);
-    ApiService.clearCurrentUserFromStorage();
-    api?.clearCurrentUser();
+    if (api) {
+      api?.clearCurrentUser();
+    } else {
+      ApiService.clearCurrentUserFromStorage();
+    }
   };
 
   // TODO: figure out why the API  service needs to clear the current user instead of the Auth class?
