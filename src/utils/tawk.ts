@@ -14,9 +14,9 @@ export type TawkAPI = {
 };
 
 function init() {
-  if (process.env.NODE_ENV === 'development' || isSsr()) {
-    return;
-  }
+  // if (process.env.NODE_ENV === 'development' || isSsr()) {
+  //   return;
+  // }
   (function() {
     const s1 = document.createElement('script');
     s1.async = true;

@@ -11,7 +11,7 @@ import Mentorships from '../../assets/me/icon-survey.svg';
 import IconMentors from '../../assets/me/mentors.svg';
 import IconLogout from '../../assets/me/icon-door-exit.svg';
 import { useUser } from '../../context/userContext/UserContext';
-import { useRoutes } from '../../hooks/useRoutes'
+import { useRoutes } from '../../hooks/useRoutes';
 
 const MenuItem = ({
   icon: Icon,
@@ -20,19 +20,31 @@ const MenuItem = ({
 }: {
   icon: string;
   label: string;
-  to: string;
+  to?: string;
 }) => {
   const router = useRouter();
-  return (
-    <Link href={to}>
-      <NavItemDecoration
-        className={classNames({ active: router.pathname === to })}
-      >
-        <Icon />
-        <Label>{label}</Label>
-      </NavItemDecoration>
-    </Link>
-  );
+  if (to) {
+    return (
+      <Link href={to}>
+        <NavItemDecoration
+          className={classNames({ active: router.pathname === to })}
+        >
+          <Icon />
+          <Label>{label}</Label>
+        </NavItemDecoration>
+      </Link>
+    );
+  } else
+    return (
+      <button onClick={() => console.log('open the tawk')}>
+        <NavItemDecoration
+          className={classNames({ active: router.pathname === to })}
+        >
+          <Icon />
+          <Label>{label}</Label>
+        </NavItemDecoration>
+      </button>
+    );
 };
 
 const Navbar = () => {
@@ -46,8 +58,14 @@ const Navbar = () => {
           alt="Logo"
         />
         <MenuItem to={urls.me.get()} icon={IconHome} label="Home" />
-        <MenuItem to={urls.me.requests.get()} icon={Mentorships} label="Mentorships" />
+        <MenuItem
+          to={urls.me.requests.get()}
+          icon={Mentorships}
+          label="Mentorships"
+        />
         <MenuItem to={urls.root.get()} icon={IconMentors} label="Mentors" />
+        <MenuItem icon={IconMentors} label="Tawk" />
+
         {isAdmin && (
           <MenuItem to={urls.me.admin.get()} icon={IconMentors} label="Admin" />
         )}
