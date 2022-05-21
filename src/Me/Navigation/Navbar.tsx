@@ -12,7 +12,7 @@ import IconMentors from '../../assets/me/mentors.svg';
 import IconLogout from '../../assets/me/icon-door-exit.svg';
 import { useUser } from '../../context/userContext/UserContext';
 import { useRoutes } from '../../hooks/useRoutes';
-import Tawk from '../Tawk';
+import Tawk from '../Tawk.tsx';
 const MenuItem = ({
   icon: Icon,
   label,
@@ -58,7 +58,7 @@ const Navbar = () => {
   console.log({ tawkShowing });
   return (
     <>
-      {tawkShowing && <Tawk />}
+      <Tawk tawkShowing={tawkShowing} />
       <Menu>
         <Logo
           src={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo-192.png`}
