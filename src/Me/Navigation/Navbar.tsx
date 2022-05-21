@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import styled from 'styled-components/macro';
@@ -12,54 +12,41 @@ import IconMentors from '../../assets/me/mentors.svg';
 import IconLogout from '../../assets/me/icon-door-exit.svg';
 import { useUser } from '../../context/userContext/UserContext';
 import { useRoutes } from '../../hooks/useRoutes';
-import Tawk from '../Tawk.tsx';
+// import Tawk from './Tawk.jsx';
+import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+
 const MenuItem = ({
   icon: Icon,
   label,
   to,
-  setIsTawkShowing,
-  tawkShowing,
 }: {
   icon: string;
   label: string;
-  to?: string;
-  setIsTawkShowing?: (arg0: boolean) => void;
-  tawkShowing?: boolean;
+  to: string;
 }) => {
   const router = useRouter();
-  if (to) {
-    return (
-      <Link href={to}>
-        <NavItemDecoration
-          className={classNames({ active: router.pathname === to })}
-        >
-          <Icon />
-          <Label>{label}</Label>
-        </NavItemDecoration>
-      </Link>
-    );
-  } else
-    return (
-      <button onClick={() => setIsTawkShowing(!tawkShowing)}>
-        <NavItemDecoration
-          className={classNames({ active: router.pathname === to })}
-        >
-          <Icon />
-          <Label>{label}</Label>
-        </NavItemDecoration>
-      </button>
-    );
+  return (
+    <Link href={to}>
+      <NavItemDecoration
+        className={classNames({ active: router.pathname === to })}
+      >
+        <Icon />
+        <Label>{label}</Label>
+      </NavItemDecoration>
+    </Link>
+  );
 };
 
 const Navbar = () => {
-  const [tawkShowing, setIsTawkShowing] = useState(false);
   const { isAdmin, logout } = useUser();
   const urls = useRoutes();
-  console.log({ tawkShowing });
   return (
     <>
-      <Tawk tawkShowing={tawkShowing} />
       <Menu>
+        <TawkMessengerReact
+          propertyId="62887ef0b0d10b6f3e735155"
+          widgetId="1g3iivn8k"
+        />
         <Logo
           src={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo-192.png`}
           alt="Logo"
@@ -71,12 +58,6 @@ const Navbar = () => {
           label="Mentorships"
         />
         <MenuItem to={urls.root.get()} icon={IconMentors} label="Mentors" />
-        <MenuItem
-          icon={IconMentors}
-          setIsTawkShowing={setIsTawkShowing}
-          tawkShowing={tawkShowing}
-          label="Tak"
-        />
 
         {isAdmin && (
           <MenuItem to={urls.me.admin.get()} icon={IconMentors} label="Admin" />

@@ -5,7 +5,6 @@ import shuffle from 'lodash/shuffle';
 import partition from 'lodash/partition';
 import * as Sentry from '@sentry/browser';
 import { Application, Mentor, User } from '../types/models';
-// import { setVisitor } from '../utils/tawk';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -367,13 +366,6 @@ export default class ApiService {
               username: name,
             });
           });
-
-          // setVisitor({
-          //   name,
-          //   email,
-          //   roles,
-          // });
-
           return response.data;
         }
       }
