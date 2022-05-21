@@ -5,7 +5,7 @@ import shuffle from 'lodash/shuffle';
 import partition from 'lodash/partition';
 import * as Sentry from '@sentry/browser';
 import { Application, Mentor, User } from '../types/models';
-import { setVisitor } from '../utils/tawk';
+// import { setVisitor } from '../utils/tawk';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -31,11 +31,11 @@ export const paths = {
 let currentUser: User | undefined;
 
 export default class ApiService {
-  mentorsPromise: Promise<Mentor[]> | null = null
-  auth: any
+  mentorsPromise: Promise<Mentor[]> | null = null;
+  auth: any;
 
   constructor(auth: any) {
-    this.auth = auth
+    this.auth = auth;
   }
 
   makeApiCall = async <T>(
@@ -96,7 +96,7 @@ export default class ApiService {
         message: error,
       };
     }
-  }
+  };
 
   getCurrentUser = async (): Promise<typeof currentUser> => {
     if (!currentUser && this.auth.isAuthenticated()) {
@@ -110,31 +110,31 @@ export default class ApiService {
       }
     }
     return currentUser;
-  }
+  };
 
   clearCurrentUser = () => {
     currentUser = undefined;
     localStorage.removeItem(USER_LOCAL_KEY);
-  }
+  };
 
   getMentors = async () => {
     if (!this.mentorsPromise) {
-      this.mentorsPromise = this.makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300&available=true`).then(
-        (response) => {
-          if (response?.success) {
-            const [available, unavailable] = partition(
-              response.data || [],
-              (mentor) => mentor.available
-            );
-            return [...shuffle(available), ...unavailable];
-          } else {
-            return [];
-          }
+      this.mentorsPromise = this.makeApiCall<Mentor[]>(
+        `${paths.MENTORS}?limit=1300&available=true`
+      ).then((response) => {
+        if (response?.success) {
+          const [available, unavailable] = partition(
+            response.data || [],
+            (mentor) => mentor.available
+          );
+          return [...shuffle(available), ...unavailable];
+        } else {
+          return [];
         }
-      );
+      });
     }
     return this.mentorsPromise;
-  }
+  };
 
   getUser = async (userId: string) => {
     if (this.mentorsPromise != null) {
@@ -149,7 +149,7 @@ export default class ApiService {
       return response.data;
     }
     return null;
-  }
+  };
 
   getFavorites = async () => {
     const { _id: userId } = (await this.getCurrentUser())!;
@@ -161,10 +161,10 @@ export default class ApiService {
       return response.data.mentors.map((mentor) => mentor._id);
     }
     return [];
-  }
+  };
 
   addMentorToFavorites = async (mentorId: string) => {
-      const { _id: userId } = (await this.getCurrentUser())!;
+    const { _id: userId } = (await this.getCurrentUser())!;
 
     const response = await this.makeApiCall(
       `${paths.USERS}/${userId}/favorites/${mentorId}`,
@@ -172,7 +172,7 @@ export default class ApiService {
       'POST'
     );
     return !!response?.success;
-  }
+  };
 
   createApplicationIfNotExists = async (user: User) => {
     if (await this.userHasPendingApplication(user)) {
@@ -194,7 +194,7 @@ export default class ApiService {
         ? messages.EDIT_DETAILS_APPLICATION_SUBMITTED
         : response?.message,
     };
-  }
+  };
 
   updateMentor = async (mentor: Mentor) => {
     const response = await this.makeApiCall(
@@ -206,7 +206,7 @@ export default class ApiService {
       this.storeUserInLocalStorage(mentor);
     }
     return !!response?.success;
-  }
+  };
 
   updateMentorAvatar = async (mentor: Mentor, value: FormData) => {
     const response = await this.makeApiCall(
@@ -219,7 +219,7 @@ export default class ApiService {
       await this.fetchCurrentItem();
     }
     return currentUser!;
-  }
+  };
 
   updateMentorAvailability = async (isAvailable: boolean) => {
     let currentUser = (await this.getCurrentUser())!;
@@ -233,7 +233,7 @@ export default class ApiService {
       this.storeUserInLocalStorage({ ...currentUser, available: isAvailable });
     }
     return !!response?.success;
-  }
+  };
 
   deleteMentor = async (mentorId: string) => {
     const response = await this.makeApiCall(
@@ -242,7 +242,7 @@ export default class ApiService {
       'DELETE'
     );
     return !!response?.success;
-  }
+  };
 
   getPendingApplications = async () => {
     const response = await this.makeApiCall<Application[]>(
@@ -251,7 +251,7 @@ export default class ApiService {
       'GET'
     );
     return response?.success ? response.data : [];
-  }
+  };
 
   approveApplication = async (mentor: Mentor) => {
     const response = await this.makeApiCall(
@@ -262,7 +262,7 @@ export default class ApiService {
       'PUT'
     );
     return !!response?.success;
-  }
+  };
 
   declineApplication = async (mentor: Mentor, reason: string) => {
     const response = await this.makeApiCall(
@@ -274,7 +274,7 @@ export default class ApiService {
       'PUT'
     );
     return !!response?.success;
-  }
+  };
 
   applyForMentorship = async (
     mentor: Mentor,
@@ -298,11 +298,11 @@ export default class ApiService {
       localStorage.setItem(USER_MENTORSHIP_REQUEST, JSON.stringify(payload));
     }
     return !!response?.success;
-  }
+  };
 
   getMyMentorshipApplication = () => {
     return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
-  }
+  };
 
   getMentorshipRequests = async (userId: string) => {
     const response = await this.makeApiCall(
@@ -311,7 +311,7 @@ export default class ApiService {
       'GET'
     );
     return response?.success ? response.data : [];
-  }
+  };
 
   updateMentorshipReqStatus = async (
     requestId: string,
@@ -327,7 +327,7 @@ export default class ApiService {
       'PUT'
     );
     return res;
-  }
+  };
 
   // Private methods
   getErrorMessage = (error: { constraints: Record<string, string> }[]) => {
@@ -338,19 +338,24 @@ export default class ApiService {
       return error;
     }
     return messages.GENERIC_ERROR;
-  }
+  };
 
   storeUserInLocalStorage = (user: User = currentUser!) => {
     if (user) {
       localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(user));
     }
-  }
+  };
 
   fetchCurrentItem = async () => {
     currentUser = await this.makeApiCall<User>(`${paths.USERS}/current`).then(
       (response) => {
         if (response?.success) {
-          const { _id, email, name, roles } = response.data || {};
+          const {
+            _id,
+            email,
+            name,
+            //  roles
+          } = response.data || {};
           if (!_id) {
             return;
           }
@@ -363,18 +368,18 @@ export default class ApiService {
             });
           });
 
-          setVisitor({
-            name,
-            email,
-            roles,
-          });
+          // setVisitor({
+          //   name,
+          //   email,
+          //   roles,
+          // });
 
           return response.data;
         }
       }
     );
     this.storeUserInLocalStorage();
-  }
+  };
 
   userHasPendingApplication = async (user: User) => {
     const response = await this.makeApiCall<Application[]>(
@@ -385,5 +390,5 @@ export default class ApiService {
     }
 
     return false;
-  }
+  };
 }
