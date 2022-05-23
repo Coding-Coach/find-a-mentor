@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import styled from 'styled-components/macro';
@@ -10,10 +10,11 @@ import IconHome from '../../assets/me/home.svg';
 import Mentorships from '../../assets/me/icon-survey.svg';
 import IconMentors from '../../assets/me/mentors.svg';
 import IconLogout from '../../assets/me/icon-door-exit.svg';
+import TawkIcon from '../../assets/me/tawk.svg';
 import { useUser } from '../../context/userContext/UserContext';
 import { useRoutes } from '../../hooks/useRoutes';
-// import Tawk from './Tawk.jsx';
-import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
+import { hideWidget, toggleChat, showWidget } from '../../utils/tawk';
+import { useDeviceType } from '../../hooks/useDeviceType';
 
 const MenuItem = ({
   icon: Icon,
@@ -22,31 +23,45 @@ const MenuItem = ({
 }: {
   icon: string;
   label: string;
-  to: string;
+  to?: string;
+  onClick?: () => void;
 }) => {
   const router = useRouter();
+  if (to) {
+    return (
+      <Link href={to}>
+        <NavItemDecoration
+          className={classNames({ active: router.pathname === to })}
+        >
+          <Icon />
+          <Label>{label}</Label>
+        </NavItemDecoration>
+      </Link>
+    );
+  }
   return (
-    <Link href={to}>
-      <NavItemDecoration
-        className={classNames({ active: router.pathname === to })}
-      >
+    <button onClick={toggleChat}>
+      <NavItemDecoration>
         <Icon />
         <Label>{label}</Label>
       </NavItemDecoration>
-    </Link>
+    </button>
   );
 };
 
 const Navbar = () => {
   const { isAdmin, logout } = useUser();
   const urls = useRoutes();
+  const { isMobile } = useDeviceType();
+  useEffect(() => {
+    if (!isMobile) return;
+    hideWidget();
+    return () => showWidget();
+  }, [isMobile]);
+
   return (
     <>
       <Menu>
-        <TawkMessengerReact
-          propertyId="62887ef0b0d10b6f3e735155"
-          widgetId="1g3iivn8k"
-        />
         <Logo
           src={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo-192.png`}
           alt="Logo"
@@ -57,6 +72,10 @@ const Navbar = () => {
           icon={Mentorships}
           label="Mentorships"
         />
+        {isMobile && (
+          <MenuItem onClick={toggleChat} icon={TawkIcon} label="Tawk" />
+        )}
+
         <MenuItem to={urls.root.get()} icon={IconMentors} label="Mentors" />
 
         {isAdmin && (
