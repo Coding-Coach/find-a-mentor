@@ -62,6 +62,4 @@ export function showWidget(): void {
   window.Tawk_API.showWidget();
 }
 
-//Example
-
 init();

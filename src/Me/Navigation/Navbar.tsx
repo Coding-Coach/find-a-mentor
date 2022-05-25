@@ -20,6 +20,7 @@ const MenuItem = ({
   icon: Icon,
   label,
   to,
+  onClick,
 }: {
   icon: string;
   label: string;
@@ -40,7 +41,7 @@ const MenuItem = ({
     );
   }
   return (
-    <button onClick={toggleChat}>
+    <button onClick={onClick}>
       <NavItemDecoration>
         <Icon />
         <Label>{label}</Label>
@@ -53,6 +54,7 @@ const Navbar = () => {
   const { isAdmin, logout } = useUser();
   const urls = useRoutes();
   const { isMobile } = useDeviceType();
+
   useEffect(() => {
     if (!isMobile) return;
     hideWidget();
@@ -156,6 +158,3 @@ const Logout = styled(NavItemDecoration)`
     margin-bottom: 10px;
   }
 `;
-function setIsTawkShowing(arg0: boolean): void {
-  throw new Error('Function not implemented.');
-}
