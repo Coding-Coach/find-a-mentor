@@ -56,9 +56,8 @@ const Navbar = () => {
   const { isMobile } = useDeviceType();
 
   useEffect(() => {
-    if (!isMobile) return;
+    if (!isMobile) return showWidget();
     hideWidget();
-    return () => showWidget();
   }, [isMobile]);
 
   return (

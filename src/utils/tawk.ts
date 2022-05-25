@@ -18,7 +18,7 @@ export type TawkAPI = {
 
 function init() {
   if (process.env.NODE_ENV === 'development' || isSsr()) {
-    // return;
+    return;
   }
   (function () {
     const s1 = document.createElement('script');
