@@ -65,8 +65,10 @@ export type ModelConfig =
   | KeyValueConfig;
 
 const languages = ISO6391.getLanguages(ISO6391.getAllCodes());
-const emailPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-const urlPattern = /^https:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/;
+const emailPattern =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const urlPattern =
+  /^https:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/;
 const linkedinPattern = /^\p{Lu}|\p{Ll}|\p{Lt}|\p{Lm}|\p{Lo}|-|[0-9]{1,50}$/u;
 const facebookPattern = /^[a-z\d.]{5,50}$/i;
 const twitterPattern = /^[A-Za-z0-9_]{1,15}$/;
@@ -99,6 +101,7 @@ export const userFields = {
     type: 'text',
     maxLength: 50,
     defaultValue: '',
+    helpText: 'e.g. Software Developer',
     validate: (value: string) =>
       !!value && value.length > 3 && value.length <= 50,
   },
@@ -138,7 +141,7 @@ export const userFields = {
     label: 'Spoken Languages',
     type: 'tags',
     defaultValue: [],
-    options: languages.map(lang => ({
+    options: languages.map((lang) => ({
       value: lang.code,
       label: lang.name,
     })),
@@ -152,7 +155,7 @@ export const userFields = {
     style: {
       width: '100%',
     },
-    options: tags.map(tag => ({ value: tag, label: tag })),
+    options: tags.map((tag) => ({ value: tag, label: tag })),
     validate: (options: Option[]) => !!options.length,
     helpText: 'Up to 10',
   },
