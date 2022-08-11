@@ -104,7 +104,7 @@ export default class PendingApplications extends Component {
                     {user.channels.map((channel) => {
                       const { url, icon } = getChannelInfo(channel);
                       return (
-                        <div>
+                        <div key={channel.id}>
                           <a
                             href={url}
                             target="_blank"

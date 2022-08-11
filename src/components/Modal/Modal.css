@@ -82,7 +82,8 @@
 .scroll-helper {
   height: auto;
   max-height: calc(100vh - 200px);
-  overflow-y: auto;
+  max-width: 100%;
+  overflow: auto;
   margin: 0 auto 10px;
 }
 
