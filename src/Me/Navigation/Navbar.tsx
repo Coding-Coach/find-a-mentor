@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
 import styled from 'styled-components/macro';
@@ -10,34 +10,56 @@ import IconHome from '../../assets/me/home.svg';
 import Mentorships from '../../assets/me/icon-survey.svg';
 import IconMentors from '../../assets/me/mentors.svg';
 import IconLogout from '../../assets/me/icon-door-exit.svg';
+import TawkIcon from '../../assets/me/tawk.svg';
 import { useUser } from '../../context/userContext/UserContext';
-import { useRoutes } from '../../hooks/useRoutes'
+import { useRoutes } from '../../hooks/useRoutes';
+import { hideWidget, toggleChat, showWidget } from '../../utils/tawk';
+import { useDeviceType } from '../../hooks/useDeviceType';
 
 const MenuItem = ({
   icon: Icon,
   label,
   to,
+  onClick,
 }: {
   icon: string;
   label: string;
-  to: string;
+  to?: string;
+  onClick?: () => void;
 }) => {
   const router = useRouter();
+  if (to) {
+    return (
+      <Link href={to}>
+        <NavItemDecoration
+          className={classNames({ active: router.pathname === to })}
+        >
+          <Icon />
+          <Label>{label}</Label>
+        </NavItemDecoration>
+      </Link>
+    );
+  }
   return (
-    <Link href={to}>
-      <NavItemDecoration
-        className={classNames({ active: router.pathname === to })}
-      >
+    <button onClick={onClick}>
+      <NavItemDecoration>
         <Icon />
         <Label>{label}</Label>
       </NavItemDecoration>
-    </Link>
+    </button>
   );
 };
 
 const Navbar = () => {
   const { isAdmin, logout } = useUser();
   const urls = useRoutes();
+  const { isMobile } = useDeviceType();
+
+  useEffect(() => {
+    if (!isMobile) return showWidget();
+    hideWidget();
+  }, [isMobile]);
+
   return (
     <>
       <Menu>
@@ -46,8 +68,17 @@ const Navbar = () => {
           alt="Logo"
         />
         <MenuItem to={urls.me.get()} icon={IconHome} label="Home" />
-        <MenuItem to={urls.me.requests.get()} icon={Mentorships} label="Mentorships" />
+        <MenuItem
+          to={urls.me.requests.get()}
+          icon={Mentorships}
+          label="Mentorships"
+        />
+        {isMobile && (
+          <MenuItem onClick={toggleChat} icon={TawkIcon} label="Tawk" />
+        )}
+
         <MenuItem to={urls.root.get()} icon={IconMentors} label="Mentors" />
+
         {isAdmin && (
           <MenuItem to={urls.me.admin.get()} icon={IconMentors} label="Admin" />
         )}

@@ -4,6 +4,12 @@ export declare global {
   interface Window {
     Tawk_API: TawkAPI;
     ga(operation: 'send', event: 'pageview'): void;
-    ga(operation: 'send', event: 'event', category: string, action: string, label?: string): void;
+    ga(
+      operation: 'send',
+      event: 'event',
+      category: string,
+      action: string,
+      label?: string
+    ): void;
   }
 }
