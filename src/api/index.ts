@@ -310,7 +310,8 @@ export default class ApiService {
       null,
       'GET'
     );
-    return response?.success ? response.data : [];
+    const apiOrder = response?.success ? response.data : [];
+    return apiOrder.reverse();
   }
 
   updateMentorshipReqStatus = async (
