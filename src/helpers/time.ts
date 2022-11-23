@@ -20,5 +20,5 @@ export function formatTimeAgo(timestamp: number | Date | string) {
   if (time < 30) return `${Math.floor(time)} Days Ago`;
   if (time < 365) return `${Math.floor(time / 30)} Months Ago`;
 
-  return `${Math.floor(time / 365)} Months Ago`;
+  return `${Math.floor(time / 365)} Year Ago`;
 }
