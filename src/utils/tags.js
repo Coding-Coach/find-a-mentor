@@ -198,6 +198,7 @@ export default [
   'start-ups',
   'stenciljs',
   'stimulusjs',
+  'svelte',
   'svg',
   'swift',
   'swoole',
