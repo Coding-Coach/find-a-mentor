@@ -101,9 +101,9 @@ export const userFields = {
     type: 'text',
     maxLength: 50,
     defaultValue: '',
-    helpText: 'e.g. Software Developer',
+    helpText: 'e.g. Software Developer. Min 3 characters',
     validate: (value: string) =>
-      !!value && value.length > 3 && value.length <= 50,
+      !!value && value.length > 2 && value.length <= 50,
   },
   description: {
     label: 'About',
