@@ -50,7 +50,7 @@ export default {
     maxLength: 50,
     defaultValue: '',
     helpText: 'e.g. Software Developer',
-    validate: (value) => !!value && value.length > 3 && value.length <= 50,
+    validate: (value) => !!value && value.length > 2 && value.length <= 50,
   },
   description: {
     label: 'Description',
