@@ -49,7 +49,7 @@ export default {
     type: 'text',
     maxLength: 50,
     defaultValue: '',
-    helpText: 'e.g. Software Developer',
+    helpText: 'e.g. Software Developer. Min 3 characters',
     validate: (value) => !!value && value.length > 2 && value.length <= 50,
   },
   description: {
