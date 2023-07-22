@@ -144,24 +144,14 @@ const LikeButton = ({
   </Tooltip>
 );
 
-const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
-  const extended = appearance === 'extended';
-  const { setFilterParams } = useFilterParams();
+const CardHeader = ({mentor, onFavMentor, isFav}) => {
+  const {country, mentorID} = mentor;
   const { currentUser } = useUser();
-  const urls = useRoutes();
-  const {
-    name,
-    country,
-    description,
-    tags,
-    title,
-    _id: mentorID,
-    available: availability,
-    createdAt,
-  } = mentor;
-
   const auth = useAuth();
-
+  const { setFilterParams } = useFilterParams();
+  const handleCountryClick = (country: Country) => {
+    setFilterParams('country', country);
+  };
   const toggleFav = () => {
     if (currentUser) {
       isFav = !isFav;
@@ -171,96 +161,32 @@ const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
     }
   };
 
-  const handleTagClick = (tag: string) => {
-    setFilterParams('technology', tag);
-  };
+  const tooltip = currentUser
+    ? undefined
+    : messages.CARD_ANONYMOUS_LIKE_TOOLTIP;
+  return (
+    <div className="header">
+      <button
+        className="country location"
+        onClick={() => handleCountryClick(country)}
+      >
+        <i className={'fa fa-map-marker'} />
+        <p>{country}</p>
+      </button>
 
-  const handleCountryClick = (country: Country) => {
-    setFilterParams('country', country);
-  };
+      <Avatar mentor={mentor} id={mentorID} />
+      <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
+    </div>
+  );
+};
 
-  const MentorDescription = () => {
-    return description ? (
-      <p className="description">{description}</p>
-    ) : (
-      <React.Fragment />
-    );
-  };
-
-  const MentorInfo = () => {
-    return (
-      <div>
-        <h2 className="name" id={`${mentorID}`}>
-          {name}
-        </h2>
-        <h4 className="title">{title}</h4>
-        {extended && (
-          <>
-            <Languages />
-            <Joined />
-          </>
-        )}
-        <MentorDescription />
-      </div>
-    );
-  };
-
-  const SkillsTags = () => {
-    return (
-      <div className="tags">{tagsList(tags, handleTagClick, extended)}</div>
-    );
-  };
+const CardFooter = ({mentor, availability, appearance}) => {
+  const urls = useRoutes();
 
   const MentorNotAvailable = () => {
     return (
       <div className="channel-inner mentor-unavailable">
         This mentor is not taking new mentees for now
-      </div>
-    );
-  };
-
-  const getChannelsContent = () => {
-    const isMyMentor = mentor.channels.length > 0;
-    if (!availability && !isMyMentor) {
-      return <MentorNotAvailable />;
-    }
-    return appearance === 'extended' ? (
-      <Channels channels={mentor.channels} />
-    ) : (
-      <CTAButton
-        tooltipProps={{
-          disabled: true,
-        }}
-        link={urls.user.get(mentor)}
-        text="Go to profile"
-      />
-    );
-  };
-
-  const CardFooter = () => {
-    return (
-      <div className="channels">
-        <div className="channel-inner">{getChannelsContent()}</div>
-      </div>
-    );
-  };
-
-  const CardHeader = () => {
-    const tooltip = currentUser
-      ? undefined
-      : messages.CARD_ANONYMOUS_LIKE_TOOLTIP;
-    return (
-      <div className="header">
-        <button
-          className="country location"
-          onClick={() => handleCountryClick(country)}
-        >
-          <i className={'fa fa-map-marker'} />
-          <p>{country}</p>
-        </button>
-
-        <Avatar mentor={mentor} id={mentorID} />
-        <LikeButton onClick={toggleFav} liked={isFav} tooltip={tooltip} />
       </div>
     );
   };
@@ -310,6 +236,81 @@ const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
     );
   };
 
+  const getChannelsContent = () => {
+    const isMyMentor = mentor.channels.length > 0;
+    if (!availability && !isMyMentor) {
+      return <MentorNotAvailable />;
+    }
+    return appearance === 'extended' ? (
+      <Channels channels={mentor.channels} />
+    ) : (
+      <CTAButton
+        tooltipProps={{
+          disabled: true,
+        }}
+        link={urls.user.get(mentor)}
+        text="Go to profile"
+      />
+    );
+  };
+
+  return (
+    <div className="channels">
+      <div className="channel-inner">{getChannelsContent()}</div>
+    </div>
+  );
+};
+
+const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
+  const extended = appearance === 'extended';
+  const { setFilterParams } = useFilterParams();
+  const {
+    name,
+    country,
+    description,
+    tags,
+    title,
+    _id: mentorID,
+    available: availability,
+    createdAt,
+  } = mentor;
+
+  const handleTagClick = (tag: string) => {
+    setFilterParams('technology', tag);
+  };
+
+  const MentorDescription = () => {
+    return description ? (
+      <p className="description">{description}</p>
+    ) : (
+      <React.Fragment />
+    );
+  };
+
+  const MentorInfo = () => {
+    return (
+      <div>
+        <h2 className="name" id={`${mentorID}`}>
+          {name}
+        </h2>
+        <h4 className="title">{title}</h4>
+        {extended && (
+          <>
+            <Languages />
+            <Joined />
+          </>
+        )}
+        <MentorDescription />
+      </div>
+    );
+  };
+
+  const SkillsTags = () => {
+    return (
+      <div className="tags">{tagsList(tags, handleTagClick, extended)}</div>
+    );
+  };
+
   const Languages = () => (
     <div className="languages" title="Spoken Languages">
       <i className="fa fa-language" />
@@ -335,10 +336,18 @@ const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
       data-testid="mentor-card"
       appearance={appearance}
     >
-      <CardHeader />
+      <CardHeader 
+        mentor={mentor}
+        onFavMentor={onFavMentor}
+        isFav={isFav}
+      />
       <MentorInfo />
       <SkillsTags />
-      <CardFooter />
+      <CardFooter 
+        mentor={mentor}
+        availability={availability}
+        appearance={appearance}
+      />
     </StyledCard>
   );
 };
