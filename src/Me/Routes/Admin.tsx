@@ -157,14 +157,14 @@ const Admin = () => {
   }, [mentorshipRequests, name, sentOnly, showDaysAgo]);
 
   useEffect(() => {
-    getAllMentorshipRequests(api).then((response: any) => {
+    getAllMentorshipRequests(api, 3).then((response: any) => {
       if (response?.success) {
         setMentorshipRequests(
           response.data.filter(({ mentor, mentee }: { mentor: any, mentee: any }) => !!mentor && !!mentee)
         );
       }
     });
-  }, []);
+  }, [showDaysAgo, api]);
 
   useEffect(() => {
     setName(user?.name || '');
