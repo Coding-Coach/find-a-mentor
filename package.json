@@ -10,7 +10,7 @@
     "auth0-js": "^9.13.2",
     "babel-plugin-styled-components": "^2.0.1",
     "classnames": "^2.3.1",
-    "express": "^4.17.3",
+    "express": "^4.19.2",
     "inquirer-autocomplete-prompt": "^1.0.1",
     "inquirer-checkbox-plus-prompt": "^1.0.1",
     "iso-639-1": "^2.1.3",
