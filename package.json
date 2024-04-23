@@ -92,7 +92,7 @@
     "cors": "^2.8.5",
     "cypress": "^7.6.0",
     "execa": "^2.0.4",
-    "gh-pages": "^2.1.1",
+    "gh-pages": "^5.0.0",
     "image-type": "^4.1.0",
     "inquirer": "^7.0.0",
     "is-ci-cli": "^1.1.1",
