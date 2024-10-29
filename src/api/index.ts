@@ -356,20 +356,6 @@ export default class ApiService {
             return;
           }
 
-          Sentry?.configureScope((scope) => {
-            scope.setUser({
-              email,
-              id: _id,
-              username: name,
-            });
-          });
-
-          setVisitor({
-            name,
-            email,
-            roles,
-          });
-
           return response.data;
         }
       }
