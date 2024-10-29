@@ -356,7 +356,7 @@ export default class ApiService {
             return;
           }
 
-          Sentry.configureScope((scope) => {
+          Sentry?.configureScope((scope) => {
             scope.setUser({
               email,
               id: _id,
