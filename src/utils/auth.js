@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js';
+import Cookies from 'js-cookie';
 import { isSsr } from '../helpers/ssr';
 import { isMentor } from '../helpers/user';
 
@@ -77,8 +78,8 @@ class Auth {
   setSession(authResult) {
     const expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
 
-    // Set isLoggedIn flag in localStorage
-    localStorage.setItem(
+    // Set isLoggedIn flag in cookies
+    Cookies.set(
       storageKey,
       JSON.stringify({
         accessToken: authResult.accessToken,
@@ -110,7 +111,7 @@ class Auth {
     if (typeof window === 'undefined') {
       return;
     }
-    const json = localStorage.getItem(storageKey);
+    const json = Cookies.get(storageKey);
 
     if (json) {
       const session = JSON.parse(json);
@@ -163,8 +164,8 @@ class Auth {
     this.idToken = null;
     this.expiresAt = 0;
 
-    // Remove token from localStorage
-    localStorage.removeItem(storageKey);
+    // Remove token from cookies
+    Cookies.remove(storageKey);
   };
 
   // TODO: figure out why the API  service needs to clear the current user instead of the Auth class?
