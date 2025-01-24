@@ -6,6 +6,7 @@ import partition from 'lodash/partition';
 import * as Sentry from '@sentry/browser';
 import { Application, Mentor, User } from '../types/models';
 import { setVisitor } from '../utils/tawk';
+import Auth from '../utils/auth';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -32,9 +33,9 @@ let currentUser: User | undefined;
 
 export default class ApiService {
   mentorsPromise: Promise<Mentor[]> | null = null
-  auth: any
+  auth: Auth;
 
-  constructor(auth: any) {
+  constructor(auth: Auth) {
     this.auth = auth
   }
 
@@ -114,6 +115,11 @@ export default class ApiService {
 
   clearCurrentUser = () => {
     currentUser = undefined;
+    ApiService.clearCurrentUserFromStorage();
+  }
+
+  // because we need to call it from authContext which doesn't have access to ApiService
+  static clearCurrentUserFromStorage = () => {
     localStorage.removeItem(USER_LOCAL_KEY);
   }
 
@@ -372,5 +378,9 @@ export default class ApiService {
     }
 
     return false;
+  }
+
+  resendVerificationEmail = async () => {
+    return this.makeApiCall(`${paths.USERS}/verify`, null, 'POST');
   }
 }
