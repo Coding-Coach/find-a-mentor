@@ -4,11 +4,7 @@
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
+  NODE_VERSION = "18"
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  package = "@netlify/plugin-nextjs@4.41.3"
