@@ -1751,6 +1751,11 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@netlify/plugin-nextjs@^5.10.0":
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/@netlify/plugin-nextjs/-/plugin-nextjs-5.10.0.tgz#5c8ff56732213edba6f52c99e98ad768bed4c195"
+  integrity sha512-h2ugfCAQRhp6NIYABW+20AvVkrM/ReuELBfgkH+5DALfrKrsQXYeS1YPZi9y4bCfNFj8Zxdhu4DtuVFDiUONiA==
+
 "@next/env@12.1.0":
   version "12.1.0"
   resolved "https://registry.yarnpkg.com/@next/env/-/env-12.1.0.tgz#73713399399b34aa5a01771fb73272b55b22c314"
