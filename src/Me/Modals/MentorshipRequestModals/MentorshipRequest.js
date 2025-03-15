@@ -125,8 +125,9 @@ const MentorshipRequest = ({ mentor }) => {
         config.validate &&
         !config.validate(mentorshipRequestDetails[field])
       ) {
-        _errors[field] =
-          `"${config.label}" should be longer than 30 characters`;
+        _errors[
+          field
+        ] = `"${config.label}" should be longer than 30 characters`;
       }
     });
 
