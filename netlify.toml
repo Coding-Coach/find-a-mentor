@@ -7,4 +7,4 @@
   NODE_VERSION = "18"
 
 [[plugins]]
-  package = "@netlify/plugin-nextjs@4.41.3"
+  package = "netlify-plugin-one"
