@@ -1,3 +1,4 @@
+import React from 'react';
 import NextHead from 'next/head';
 import { getTitleTags } from '../src/helpers/getTitleTags';
 
@@ -19,7 +20,7 @@ const Head = () => {
       <meta property="og:url" content="/" />
       <meta
         property="og:image"
-        content={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo.jpg`}
+        content="/codingcoach-logo.jpg"
       />
       <meta
         property="og:description"
@@ -34,7 +35,7 @@ const Head = () => {
       <meta name="twitter:creator" content="@codingcoach_io" />
       <meta
         name="twitter:image"
-        content={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo.jpg`}
+        content="/codingcoach-logo.jpg"
       />
       <meta
         name="twitter:description"
@@ -44,38 +45,38 @@ const Head = () => {
       {/* <!-- Favicon --> */}
       <link
         rel="shortcut icon"
-        href={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/favicon.ico`}
+        href="/favicon.ico"
       />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
-        href={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/apple-touch-icon.png`}
+        href="/apple-touch-icon.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo-32.png`}
+        href="/codingcoach-logo-32.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo-16.png`}
+        href="/codingcoach-logo-16.png"
       />
       <link
         rel="icon"
         type="image/png"
         sizes="512x512"
-        href={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/codingcoach-logo-512.png`}
+        href="/codingcoach-logo-512.png"
       />
       <link
         rel="manifest"
-        href={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/manifest.json`}
+        href="/manifest.json"
       />
       <link
         rel="mask-icon"
-        href={`${process.env.NEXT_PUBLIC_PUBLIC_URL}/safari-pinned-tab.svg`}
+        href="/safari-pinned-tab.svg"
         color="#20293a"
       />
       <meta name="msapplication-TileColor" content="#20293a" />
