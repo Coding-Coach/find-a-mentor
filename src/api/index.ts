@@ -3,9 +3,7 @@ import { toast } from 'react-toastify';
 import messages from '../messages';
 import shuffle from 'lodash/shuffle';
 import partition from 'lodash/partition';
-import * as Sentry from '@sentry/browser';
-import { Application, Mentor, User } from '../types/models';
-import { setVisitor } from '../utils/tawk';
+import { Application, Mentor, User, MentorshipRequest } from '../types/models';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -305,7 +303,7 @@ export default class ApiService {
   }
 
   getMentorshipRequests = async (userId: string) => {
-    const response = await this.makeApiCall(
+    const response = await this.makeApiCall<MentorshipRequest[]>(
       `${paths.MENTORSHIP}/${userId}/requests`,
       null,
       'GET'

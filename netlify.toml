@@ -1,6 +1,7 @@
 [build]
   command = "yarn build"
   publish = ".next"
+  functions = "netlify/functions"
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
@@ -8,3 +9,8 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
