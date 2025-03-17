@@ -110,3 +110,9 @@ server/src/modules/users/__tests__/users.controller.spec.ts
 server/src/utils/mimes.ts
 server/src/utils/objectid.ts
 server/src/utils/request.d.ts
+
+# Local Netlify folder
+.netlify
+netlify/functions/**/*.js
+# Environment variables
+.env*

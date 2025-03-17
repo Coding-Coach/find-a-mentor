@@ -1,7 +1,10 @@
 [build]
   command = "yarn build"
   publish = ".next"
-  functions = "netlify/functions"
+  functions = "netlify/functions-src/modules/mentors"  # Updated path
+
+[dev]
+  command = "yarn dev"
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"

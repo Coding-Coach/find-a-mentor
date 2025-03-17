@@ -2,12 +2,14 @@ import { ErrorResponse, SuccessResponse, ApiHandler } from '../types'
 
 export const success = <T>(data: T, statusCode = 200): SuccessResponse => ({
   statusCode,
-  body: JSON.stringify({ data })
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ success: true, ...data })
 })
 
 export const error = (message: string, statusCode = 400): ErrorResponse => ({
   statusCode,
-  body: JSON.stringify({ message })
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ success: false, message })
 })
 
 export const withErrorHandling = (handler: ApiHandler): ApiHandler => {

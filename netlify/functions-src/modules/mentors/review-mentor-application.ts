@@ -18,14 +18,14 @@ enum Role {
 }
 
 interface User {
-  _id: string
+  _id: ObjectId
   auth0Id: string
   roles: Role[]
   available: boolean
 }
 
 interface Application {
-  _id: string
+  _id: ObjectId
   user: string | ObjectId
   status: Status
   description?: string

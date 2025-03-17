@@ -36,8 +36,9 @@ export interface SuccessResponse extends BaseResponse {
 export type ApiResponse = Promise<BaseResponse>
 
 export interface PaginationParams {
-  page?: string
-  limit?: string
+  page: number
+  total: number
+  hasMore: boolean
 }
 
 export interface FilterParams {

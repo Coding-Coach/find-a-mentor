@@ -24,7 +24,7 @@ const getFeaturedMentor = async (): Promise<Mentor> => {
 
   // Find a random available mentor
   const mentors = await collection
-    .aggregate([
+    .aggregate<Mentor>([
       { $match: { roles: 'mentor', available: true } },
       { $sample: { size: 1 } }
     ])

@@ -2,7 +2,7 @@ import { HandlerEvent } from '@netlify/functions'
 import { withErrorHandling } from '../../utils/response'
 import { success } from '../../utils/response'
 import { connectToDatabase, getCollection } from '../../utils/db'
-import { ApiHandler } from '../../types'
+import { ApiHandler, type PaginationParams } from '../../types'
 
 interface Mentor {
   _id: string
@@ -16,6 +16,11 @@ interface Mentor {
   avatar?: string
 }
 
+enum Role {
+  ADMIN = 'admin',
+  MENTOR = 'mentor'
+}
+
 interface GetMentorsQuery {
   tags?: string | string[]
   country?: string
@@ -25,18 +30,22 @@ interface GetMentorsQuery {
 }
 
 interface GetMentorsResponse {
-  mentors: Mentor[]
-  page: number
-  limit: number
+  data: Mentor[]
+  filters: any[]
+  pagination: PaginationParams;
 }
 
 const getMentors = async (query: GetMentorsQuery): Promise<GetMentorsResponse> => {
-  const { tags, country, spokenLanguages, page = '1', limit = '20' } = query
+  const { tags, country, spokenLanguages, page: pageInQuery = '1', page: limitinQuery = '20' } = query
+  const page = parseInt(pageInQuery)
+  const limit = parseInt(limitinQuery)
 
   await connectToDatabase()
-  const collection = getCollection<Mentor>('mentors')
+  const collection = getCollection<Mentor>('users')
 
-  const filter: any = {}
+  const filter: any = {
+    roles: Role.MENTOR,
+  };
 
   if (tags) {
     filter.tags = Array.isArray(tags) ? { $in: tags } : { $in: [tags] }
@@ -51,18 +60,21 @@ const getMentors = async (query: GetMentorsQuery): Promise<GetMentorsResponse> =
       ? { $in: spokenLanguages }
       : { $in: [spokenLanguages] }
   }
-
-  const skip = (parseInt(page) - 1) * parseInt(limit)
+  const skip = (page - 1) * limit
   const mentors = await collection
     .find(filter)
     .skip(skip)
-    .limit(parseInt(limit))
+    .limit(limit)
     .toArray()
 
   return {
-    mentors,
-    page: parseInt(page),
-    limit: parseInt(limit)
+    data: mentors,
+    filters: [],
+    pagination: {
+      hasMore: mentors.length === limit,
+      page,
+      total: 0,
+    }
   }
 }
 

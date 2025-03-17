@@ -41,7 +41,6 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "yarn golden",
     "build": "next build && tsc --project tsconfig.functions.json",
     "start": "next start",
     "test": "yarn test:unit && yarn test:e2e:run",

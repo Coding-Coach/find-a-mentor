@@ -37,8 +37,9 @@ const getApplications = async (status?: string): Promise<Application[]> => {
   const collection = getCollection<Application>('applications')
 
   const filter: any = {}
-  if (status && Status[status.toUpperCase()]) {
-    filter.status = Status[status.toUpperCase()]
+  const nextStatus = status?.toUpperCase() as keyof typeof Status;
+  if (status && nextStatus) {
+    filter.status = nextStatus;
   }
 
   return collection.find(filter).toArray()
