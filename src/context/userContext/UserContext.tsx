@@ -35,6 +35,8 @@ export const UserProvider: FC = ({ children }) => {
       updateCurrentUser(user);
       setIsloading(false);
     });
+
+    window.logout = logout;
   }, [api]);
 
   return (

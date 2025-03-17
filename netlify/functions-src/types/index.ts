@@ -1,16 +1,16 @@
 import { HandlerContext, HandlerEvent, HandlerResponse } from '@netlify/functions'
 
 export interface AuthUser {
+  auth0Id: string
   id: string
-  email: string
-  name?: string
-  avatar?: string
-  title?: string
-  company?: string
-  channels?: {
-    id: string
-    type: string
-  }[]
+  // email: string
+  // name?: string
+  // avatar?: string
+  // title?: string
+  // channels?: {
+  //   id: string
+  //   type: string
+  // }[]
 }
 
 export interface AuthContext extends HandlerContext {
