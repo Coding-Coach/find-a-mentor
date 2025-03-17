@@ -1,12 +1,12 @@
 import { Handler, HandlerResponse } from '@netlify/functions'
-import { AuthUser, ApiHandler } from '../types'
+import { ApiHandler } from '../types'
 import { error } from './response'
 import * as jwt from 'jsonwebtoken'
 import jwksClient from 'jwks-rsa'
 import config from '../config'
 
-const AUTH0_DOMAIN = process.env.AUTH0_DOMAIN || ''
-const AUTH0_AUDIENCE = process.env.AUTH0_AUDIENCE || ''
+const AUTH0_DOMAIN = config.auth0.backend.DOMAIN
+const CLIENT_ID = config.auth0.frontend.CLIENT_ID
 
 const client = jwksClient({
   cache: true,
@@ -28,7 +28,7 @@ export const verifyToken = async (token: string): Promise<jwt.JwtPayload> => {
       token,
       getKey,
       {
-        // audience: AUTH0_AUDIENCE,
+        audience: CLIENT_ID,
         issuer: `https://${AUTH0_DOMAIN}/`,
         algorithms: ['RS256']
       },
@@ -59,7 +59,6 @@ export const withAuth = (handler: ApiHandler): Handler => {
 
       const token = authHeader.split(' ')[1]
       const decodedToken = await verifyToken(token)
-      console.log('user:', decodedToken)
 
       return await handler(event, {
         ...context,
