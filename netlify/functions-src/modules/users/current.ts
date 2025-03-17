@@ -70,14 +70,13 @@ const getCurrentUser = async (auth0Id: string): Promise<any> => {
   return currentUser
 }
 
-const getCurrentUserHandler: ApiHandler = async (event: HandlerEvent, context: AuthContext) => {
+const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: AuthContext) => {
   const auth0Id = context.user?.auth0Id;
-  console.log('context', auth0Id)
   if (!auth0Id) {
     return error('Unauthorized: user not found', 401)
   }
   const result = await getCurrentUser(auth0Id)
-  return success({ success: true, data: result })
+  return success({ data: result })
 }
 
 export const handler = withAuth(withErrorHandling(getCurrentUserHandler))
