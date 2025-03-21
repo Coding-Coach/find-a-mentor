@@ -31,10 +31,11 @@ export const UserProvider: FC = ({ children }) => {
   };
 
   useEffect(() => {
-    api.getCurrentUser().then((user) => {
-      updateCurrentUser(user);
-      setIsloading(false);
-    });
+    // TODO: bring back when app is ready
+    // api.getCurrentUser().then((user) => {
+    //   updateCurrentUser(user);
+    //   setIsloading(false);
+    // });
   }, [api]);
 
   return (
