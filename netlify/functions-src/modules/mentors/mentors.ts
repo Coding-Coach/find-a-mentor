@@ -17,8 +17,8 @@ interface Mentor {
 }
 
 enum Role {
-  ADMIN = 'admin',
-  MENTOR = 'mentor'
+  ADMIN = 'Admin',
+  MENTOR = 'Mentor'
 }
 
 interface GetMentorsQuery {
@@ -61,6 +61,7 @@ const getMentors = async (query: GetMentorsQuery): Promise<GetMentorsResponse> =
       : { $in: [spokenLanguages] }
   }
   const skip = (page - 1) * limit
+  console.log(1111, filter)
   const mentors = await collection
     .find(filter)
     .skip(skip)

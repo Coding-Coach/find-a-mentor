@@ -4,6 +4,8 @@ import { error } from './response'
 import * as jwt from 'jsonwebtoken'
 import jwksClient from 'jwks-rsa'
 import config from '../config'
+import { Role } from '../common/interfaces/user.interface'
+import { getCurrentUser } from '../modules/users/current'
 
 const AUTH0_DOMAIN = config.auth0.backend.DOMAIN
 const CLIENT_ID = config.auth0.frontend.CLIENT_ID
@@ -49,7 +51,7 @@ export const verifyToken = async (token: string): Promise<jwt.JwtPayload> => {
 //   return (decoded as jwt.JwtPayload).payload as AuthUser;
 // }
 
-export const withAuth = (handler: ApiHandler): Handler => {
+export const withAuth = (handler: ApiHandler, role?: Role): Handler => {
   return async (event, context): Promise<HandlerResponse> => {
     try {
       const authHeader = event.headers.authorization
@@ -59,6 +61,14 @@ export const withAuth = (handler: ApiHandler): Handler => {
 
       const token = authHeader.split(' ')[1]
       const decodedToken = await verifyToken(token)
+
+      // TODO: instead, set a custom prop on auth0 - is admin to save the call to the database and get it from the token
+      if (role) {
+        const currentUser = await getCurrentUser(decodedToken.sub as string)
+        if (!currentUser.roles.includes(role)) {
+          return error('Unauthorized', 401)
+        }
+      }
 
       return await handler(event, {
         ...context,

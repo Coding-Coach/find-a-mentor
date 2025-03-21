@@ -1,4 +1,5 @@
 // Global CSS imports
+import React from 'react';
 import '../src/components/layouts/App/App.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-tippy/dist/tippy.css';

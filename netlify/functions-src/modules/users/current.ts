@@ -12,7 +12,7 @@ import { Auth0Service } from '../../common/auth0.service'
 import { EmailService } from '../../common/email.service'
 import { withAuth } from '../../utils/auth'
 
-const getCurrentUser = async (auth0Id: string): Promise<any> => {
+export const getCurrentUser = async (auth0Id: string): Promise<any> => {
   await connectToDatabase()
   const usersCollection = getCollection<User>('users')
   const currentUser = await usersCollection.findOne({ auth0Id })

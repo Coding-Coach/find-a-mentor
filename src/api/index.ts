@@ -42,7 +42,7 @@ export default class ApiService {
     method: RequestMethod = 'GET',
     jsonous = true
   ): Promise<OkResponse<T> | ErrorResponse | null> => {
-    const url = `api${path}${
+    const url = `/api${path}${
       method === 'GET' && body ? `?${new URLSearchParams(body)}` : ''
     }`;
     const optionBody = jsonous
