@@ -42,7 +42,8 @@ export default class ApiService {
     method: RequestMethod = 'GET',
     jsonous = true
   ): Promise<OkResponse<T> | ErrorResponse | null> => {
-    const url = `/api${path}${
+    // public url for ssr
+    const url = `${process.env.NEXT_PUBLIC_PUBLIC_URL}/api${path}${
       method === 'GET' && body ? `?${new URLSearchParams(body)}` : ''
     }`;
     const optionBody = jsonous
