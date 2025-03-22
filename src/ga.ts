@@ -8,14 +8,20 @@ export function report(category: string, action: string, label?: string) {
     console.log({ category, action, label });
     return;
   }
-  window.ga('send', 'event', category, action, label);
+  window.gtag('event', action, {
+    event_category: category,
+    event_label: label,
+  });
 }
 
 export function reportPageView() {
   if (!shouldReport()) {
     return;
   }
-  window.ga('send', 'pageview');
+  window.gtag('event', 'page_view', {
+    page_path: window.location.pathname,
+    page_title: document.title,
+  });
 }
 
 export function reportError(category: string, label: string) {
