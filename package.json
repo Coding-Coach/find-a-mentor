@@ -45,9 +45,9 @@
     "url-pattern": "^1.0.3"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "netlify dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next dev",
     "test": "yarn test:unit && yarn test:e2e:run",
     "test:unit": "react-scripts test",
     "test:unit:update-snapshot": "react-scripts test -u",

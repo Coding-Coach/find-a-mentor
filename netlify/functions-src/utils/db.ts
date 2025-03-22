@@ -30,7 +30,7 @@ export async function connectToDatabase(): Promise<Db> {
 // Helper function to get a collection with proper typing
 export const getCollection = <T extends Document>(collectionName: string) => {
   if (!cachedDb) {
-    throw new Error('Database not connected. Call connectToDatabase first.')
+    throw new Error('Database not connected. Have you remembered to wrap your function with withDB?.')
   }
   return cachedDb.collection<T>(collectionName)
 }

@@ -1,6 +1,5 @@
 import { HandlerEvent } from '@netlify/functions'
-import { error, withErrorHandling } from '../../utils/response'
-import { success } from '../../utils/response'
+import { error, success } from '../../utils/response'
 import { connectToDatabase, getCollection } from '../../utils/db'
 import { ApiHandler, type AuthContext } from '../../types'
 import { UserDto } from '../../common/dto/user.dto'
@@ -79,4 +78,4 @@ const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: 
   return success({ data: result })
 }
 
-export const handler = withAuth(withErrorHandling(getCurrentUserHandler))
+export const handler = withAuth(getCurrentUserHandler)

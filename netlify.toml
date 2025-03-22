@@ -4,7 +4,7 @@
   functions = "netlify/functions-src/modules/mentors"  # Updated path
 
 [dev]
-  command = "yarn dev"
+  command = "yarn start"
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
