@@ -1,9 +1,9 @@
 import { HandlerEvent } from '@netlify/functions'
-import { withErrorHandling } from '../../utils/response'
-import { success, error } from '../../utils/response'
-import { connectToDatabase, getCollection } from '../../utils/db'
-import { ApiHandler } from '../../types'
-import { withAuth } from '../../utils/auth'
+import { withErrorHandling } from '../utils/response'
+import { success, error } from '../utils/response'
+import { connectToDatabase, getCollection } from '../utils/db'
+import { ApiHandler } from '../types'
+import { withAuth } from '../utils/auth'
 import { ObjectId } from 'mongodb'
 
 enum Status {

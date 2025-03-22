@@ -51,7 +51,7 @@ export const verifyToken = async (token: string): Promise<jwt.JwtPayload> => {
 //   return (decoded as jwt.JwtPayload).payload as AuthUser;
 // }
 
-export const withAuth = (handler: ApiHandler, role?: Role): ApiHandler => {
+export function withAuth(handler: ApiHandler, role?: Role): ApiHandler {
   return async (event, context): Promise<HandlerResponse> => {
     try {
       const authHeader = event.headers.authorization

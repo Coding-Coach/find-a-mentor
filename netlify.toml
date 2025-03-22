@@ -1,7 +1,10 @@
 [build]
   command = "yarn build"
   publish = ".next"
-  functions = "netlify/functions-src/modules/mentors"  # Updated path
+
+[functions]
+  directory = "netlify/functions-src/functions"
+  included_files = ["netlify/functions-src/utils/**"]
 
 [dev]
   command = "yarn start"

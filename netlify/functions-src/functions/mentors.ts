@@ -1,8 +1,8 @@
 import { HandlerEvent } from '@netlify/functions'
-import { withErrorHandling } from '../../utils/response'
-import { success } from '../../utils/response'
-import { connectToDatabase, getCollection } from '../../utils/db'
-import { ApiHandler, type PaginationParams } from '../../types'
+import { withErrorHandling } from './utils/response'
+import { success } from './utils/response'
+import { connectToDatabase, getCollection } from './utils/db'
+import { ApiHandler, type PaginationParams } from './types'
 
 interface Mentor {
   _id: string
@@ -61,7 +61,6 @@ const getMentors = async (query: GetMentorsQuery): Promise<GetMentorsResponse> =
       : { $in: [spokenLanguages] }
   }
   const skip = (page - 1) * limit
-  console.log(1111, filter)
   const mentors = await collection
     .find(filter)
     .skip(skip)

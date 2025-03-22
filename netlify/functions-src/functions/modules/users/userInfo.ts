@@ -2,7 +2,7 @@ import { ObjectId } from 'mongodb';
 import { User } from '../../common/interfaces/user.interface';
 import type { ApiHandler } from '../../types';
 import { getCollection } from '../../utils/db';
-import { success } from '../../utils/response';
+import { error, success } from '../../utils/response';
 
 export const handler: ApiHandler = async (event) => {
   const userId = event.queryStringParameters?.userId;
@@ -23,6 +23,11 @@ export const handler: ApiHandler = async (event) => {
 
   const user = await getCollection<User>('users')
     .findOne({ _id: new ObjectId(userId) });
+
+  if (!user) {
+    console.error(`User not found with id: ${userId}`);
+    return error('User not found', 404);
+  }
 
   return success({
     data: user,

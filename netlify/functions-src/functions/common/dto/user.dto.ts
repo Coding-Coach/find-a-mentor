@@ -1,7 +1,8 @@
+import type { ObjectId } from 'mongodb'
 import { Role } from '../interfaces/user.interface'
 
 export class UserDto {
-  _id?: string
+  _id?: ObjectId
   auth0Id: string
   email: string
   name: string

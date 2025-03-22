@@ -1,18 +1,19 @@
 import nPath from 'path';
 import UrlPattern from 'url-pattern';
-import { error } from '../../utils/response';
-import type { Handler } from '@netlify/functions';
-import type { ApiHandler } from '../../types';
+import { error } from '../utils/response';
+import type { ApiHandler } from '../types';
 
 type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
-export type Routes = [pattern: string, HttpMethod, ApiHandler][];
+export type Routes = [pattern: `/${string}`, HttpMethod, ApiHandler][];
 
 export const withRouter = (routes: Routes): ApiHandler => {
   return async (event, context) => {
     try {
-      // event.path = /api/<module>/...
+      // event.path = /api/mentorships/:userId/requests
       const [,,,...innerSegments] = event.path.split(nPath.sep);
-      const path = innerSegments.join('/');
+      // path = /:userId/requests
+      const path = `/${innerSegments.join('/')}`;
+
       const route = routes.find(([pattern]) => {
         const urlPattern = new UrlPattern(pattern);
         return urlPattern.match(path);
@@ -30,8 +31,9 @@ export const withRouter = (routes: Routes): ApiHandler => {
 
       const params = new UrlPattern(pattern).match(path);
       return await handler({ ...event, queryStringParameters: params }, context);
-    } catch (error) {
-      return error(`Internal server error: ${error.message}`, 500);
+    } catch (e) {
+      console.error(e);
+      return error(`Internal server error: ${e.message}`, 500);
     }
   };
 }

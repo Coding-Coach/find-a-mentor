@@ -1,9 +1,9 @@
 import { HandlerEvent } from '@netlify/functions'
-import { withErrorHandling } from '../../utils/response'
-import { success } from '../../utils/response'
-import { connectToDatabase, getCollection } from '../../utils/db'
-import { ApiHandler, AuthContext } from '../../types'
-import { withAuth } from '../../utils/auth'
+import { withErrorHandling } from '../utils/response'
+import { success } from '../utils/response'
+import { connectToDatabase, getCollection } from '../utils/db'
+import { ApiHandler, AuthContext } from '../types'
+import { withAuth } from '../utils/auth'
 
 enum Status {
   PENDING = 'pending',

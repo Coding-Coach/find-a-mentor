@@ -1,10 +1,10 @@
 import Config from '../config'
 import * as sgMail from '@sendgrid/mail'
 import * as sgClient from '@sendgrid/client'
-import { EmailParams, SendData } from '../email/interfaces/email.interface'
+import { EmailParams, SendData } from '../../email/interfaces/email.interface'
 import { promises } from 'fs'
 import { compile } from 'ejs'
-import { User } from '../common/interfaces/user.interface'
+import { User } from './interfaces/user.interface'
 
 const isProduction = process.env.NODE_ENV === 'production'
 const defaults = {

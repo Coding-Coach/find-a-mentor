@@ -4,8 +4,8 @@ import { connectToDatabase, getCollection } from '../../utils/db'
 import { ApiHandler, type AuthContext } from '../../types'
 import { UserDto } from '../../common/dto/user.dto'
 import { Role, User } from '../../common/interfaces/user.interface'
-import { ListDto } from '../../lists/dto/list.dto'
-import { Template } from '../../email/interfaces/email.interface'
+import { ListDto } from '../../../lists/dto/list.dto'
+import { Template } from '../../../email/interfaces/email.interface'
 import * as Sentry from '@sentry/node'
 import { Auth0Service } from '../../common/auth0.service'
 import { EmailService } from '../../common/email.service'
@@ -44,7 +44,7 @@ export const getCurrentUser = async (auth0Id: string): Promise<any> => {
       const favorites: ListDto = new ListDto({
         name: 'Favorites',
         isFavorite: true,
-        user: newUser.insertedId,
+        user: newUser.insertedId.toString(),
         mentors: [],
       })
       await listsCollection.insertOne(favorites)
