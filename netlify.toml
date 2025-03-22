@@ -4,7 +4,6 @@
 
 [functions]
   directory = "netlify/functions-src/functions"
-  included_files = ["netlify/functions-src/utils/**"]
 
 [dev]
   command = "yarn start"
