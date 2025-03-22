@@ -36,7 +36,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "yarn golden",
+    "": "// yarn prebuild yarn golden",
     "build": "next build",
     "start": "next start",
     "test": "yarn test:unit && yarn test:e2e:run",
