@@ -59,7 +59,7 @@ const Scripts = () => (
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-FPJS88RWMJ');
+        gtag('config', 'G-0S2Z5NGKQ1');
         `}
     </Script>
   </>
