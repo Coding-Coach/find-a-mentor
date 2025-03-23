@@ -2,6 +2,7 @@ import type { ObjectId } from 'mongodb'
 
 export interface User {
   _id?: ObjectId
+  available?: boolean
   auth0Id: string
   email: string
   name: string

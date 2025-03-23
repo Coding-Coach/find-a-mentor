@@ -1,4 +1,5 @@
 import { HandlerContext, HandlerEvent, HandlerResponse } from '@netlify/functions'
+import type { WithId } from 'mongodb'
 
 export interface AuthUser {
   auth0Id: string
@@ -46,3 +47,5 @@ export interface FilterParams {
 }
 
 export type ApiHandler = (event: HandlerEvent, context: AuthContext) => Promise<HandlerResponse>
+
+export type CreateRequest<T extends WithId<unknown>> = Omit<T, '_id'>

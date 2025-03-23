@@ -9,10 +9,16 @@ export function success<T>(data: T, statusCode = 200): SuccessResponse {
 }
 
 export function error(message: string, statusCode = 400): ErrorResponse {
+  if (process.env.CONTEXT !== 'production') {
+    console.error(message);
+  }
   return {
     statusCode,
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ success: false, message })
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store',
+    },
+    body: JSON.stringify({ success: false, error: message })
   }
 }
 

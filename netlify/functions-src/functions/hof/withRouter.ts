@@ -20,7 +20,7 @@ export const withRouter = (routes: Routes): ApiHandler => {
       });
 
       if (!route) {
-        return error('Not found', 404);
+        return error(`Route '${event.path}' not found`, 404);
       }
 
       const [pattern, HttpMethod, handler] = route;

@@ -65,6 +65,13 @@ const getMentors = async (query: GetMentorsQuery): Promise<GetMentorsResponse> =
     .find(filter)
     .skip(skip)
     .limit(limit)
+    .map(function (mentor) {
+      return {
+        ...mentor,
+        // TODO: return channels when is current user's mentor
+        channels: [],
+      }
+    })
     .toArray()
 
   return {

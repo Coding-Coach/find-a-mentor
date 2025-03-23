@@ -1,12 +1,10 @@
 import { HandlerEvent } from '@netlify/functions';
-import { connectToDatabase, getCollection } from '../../utils/db';
+import { getCollection } from '../../utils/db';
 import { withErrorHandling, error, success } from '../../utils/response';
-import { ObjectId } from 'mongodb'; // Import ObjectId for proper ID handling
 import { withAuth } from '../../utils/auth';
 import { Role } from '../../common/interfaces/user.interface';
 
 const getMentorships = async (query: any): Promise<any[]> => {
-  await connectToDatabase();
   const mentorshipsCollection = getCollection('mentorships');
 
   const {from, to} = query;
