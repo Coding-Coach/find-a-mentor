@@ -29,6 +29,14 @@ export const withRouter = (routes: Routes): ApiHandler => {
         return error('Method not allowed', 405);
       }
 
+      if (['POST', 'PUT'].includes(event.httpMethod) && event.body) {
+        try {
+          event.parsedBody = JSON.parse(event.body);
+        } catch (e) {
+          return error('Invalid JSON', 400);
+        }
+      }
+
       const params = new UrlPattern(pattern).match(path);
       return await handler({ ...event, queryStringParameters: params }, context);
     } catch (e) {

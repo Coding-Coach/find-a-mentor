@@ -9,7 +9,8 @@ db.getCollection('users').updateOne(
   { email: 'moshfeu@gmail.com' },
   {
     $set: {
-      roles: ['Member', 'Mentor', 'Admin'],
+      // roles: ['Member', 'Mentor', 'Admin'],
+      name: 'The Mentor'
     },
   },
 );

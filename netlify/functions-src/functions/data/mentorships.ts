@@ -1,7 +1,9 @@
-import type { ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import { getCollection } from '../utils/db'
 import { Status, type Mentorship } from '../interfaces/mentorship';
-import type { CreateEntityPayload } from './types';
+import { DataError } from './errors';
+import { upsertEntity } from './utils';
+import type { EntityPayload } from './types';
 
 export const findMentorship = async (mentorId: ObjectId, userId: ObjectId) => {
   const mentorship = getCollection('mentorships')
@@ -25,8 +27,7 @@ export const getOpenRequestsCount = async (userId: ObjectId) => {
   return openRequests;
 }
 
-export const createMentorship = async (mentorship: CreateEntityPayload<Mentorship>) => {
-  const mentorshipsCollection = getCollection('mentorships');
-  await mentorshipsCollection.insertOne(mentorship);
-  return mentorship;
+export const upsertMentorship = async (mentorship: EntityPayload<Mentorship>) => {
+  const upsertedMentorship = upsertEntity<Mentorship>('mentorships', mentorship);
+  return upsertedMentorship;
 }

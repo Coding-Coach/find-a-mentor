@@ -1,3 +1,5 @@
-import type { WithId } from 'mongodb';
+import type { OptionalId, WithId } from 'mongodb';
 
-export type CreateEntityPayload<T extends WithId<unknown>> = Omit<T, '_id'>;
+type UpdateEntityPayload<T> = WithId<Partial<T>>;
+export type CreateEntityPayload<T> = OptionalId<T>;
+export type EntityPayload<T> = CreateEntityPayload<T> | UpdateEntityPayload<T>;

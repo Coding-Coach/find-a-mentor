@@ -25,14 +25,14 @@ const UserWasRemoved = styled.div`
 `;
 
 type MentorshipRequestOnResponsePayload = {
-  id: string;
+  _id: string;
   status: Status;
   username: string;
   menteeEmail: string;
 };
 
 type MentorshipRequestOnSelectPayload = {
-  id: string;
+  _id: string;
   status: Status;
 };
 
@@ -68,9 +68,9 @@ const renderList = ({
 }: RenderListPayload) =>
   requests?.map(
     ({
-      id,
+      _id,
       status,
-      date,
+      createdAt,
       message,
       background,
       expectation,
@@ -81,7 +81,7 @@ const renderList = ({
       const user = isMine ? mentor : mentee;
       if (!user) {
         return (
-          <li key={id}>
+          <li key={_id}>
             <UserWasRemoved>
               <UserWasRemovedIcon />
               User was removed
@@ -92,22 +92,22 @@ const renderList = ({
       const username = user.name;
       const menteeEmail = mentee.email;
       return (
-        <li key={id}>
+        <li key={_id}>
           <RichItem
-            id={id}
-            userId={user.id}
+            id={_id}
+            userId={user._id}
             avatar={getAvatarUrl(user.avatar)}
             title={user.name}
             subtitle={user.title}
             onClick={() => {
-              onSelect({ id, status });
+              onSelect({ _id, status });
             }}
-            expand={id === expandId}
+            expand={_id === expandId}
             tag={{
               value: status,
               theme: STATUS_THEME[status],
             }}
-            info={formatTimeAgo(new Date(date))}
+            info={formatTimeAgo(new Date(createdAt))}
           >
             <ReqContent
               status={status}
@@ -119,13 +119,13 @@ const renderList = ({
               user={user}
               mentee={mentee}
               onAccept={
-                onAccept ? () => onAccept({ id, status, username, menteeEmail }) : null
+                onAccept ? () => onAccept({ _id, status, username, menteeEmail }) : null
               }
               onDecline={
-                onDecline ? () => onDecline({ id, status, username, menteeEmail }) : null
+                onDecline ? () => onDecline({ _id, status, username, menteeEmail }) : null
               }
               onCancel={
-                onCancel ? () => onCancel({ id, status, username, menteeEmail }) : null
+                onCancel ? () => onCancel({ _id, status, username, menteeEmail }) : null
               }
             />
           </RichItem>
@@ -161,7 +161,7 @@ export const UsersList = ({
           onCancel,
           onSelect: (item: MentorshipRequestOnSelectPayload) => {
             onItemSelect?.(item);
-            onSelect?.(item.id);
+            onSelect?.(item._id);
           },
         })}
       </RichList>

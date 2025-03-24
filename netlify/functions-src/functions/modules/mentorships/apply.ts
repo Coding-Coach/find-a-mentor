@@ -1,21 +1,20 @@
 import { getUserByAuthId, getUserById } from '../../data/users';
 import type { ApiHandler } from '../../types';
-import { createMentorship, findMentorship, getOpenRequestsCount } from '../../data/mentorships';
+import { upsertMentorship, findMentorship, getOpenRequestsCount } from '../../data/mentorships';
 import { Status, type Mentorship } from '../../interfaces/mentorship';
 import { error, success } from '../../utils/response';
 import type { CreateEntityPayload } from '../../data/types';
 import { EmailService } from '../../common/email.service';
-import { withAuth } from '../../utils/auth';
 
 const ALLOWED_OPEN_MENTORSHIPS = 5;
 
 const applyForMentorshipHandler: ApiHandler = async (event, context) => {
   const currentUserId = context.user!.auth0Id;
-  console.log('currentUserId', currentUserId);
   const mentorId = event.queryStringParameters?.mentorId;
   if (!event.body) {
     return error('mentorship data is required');
   }
+  // TODO: use event.parsedBody
   const mentorshipData: CreateEntityPayload<Mentorship> = JSON.parse(event.body);
 
   if (!mentorId || !currentUserId) {
@@ -61,7 +60,7 @@ const applyForMentorshipHandler: ApiHandler = async (event, context) => {
     );
   }
 
-  const createdMentorship = await createMentorship({
+  const createdMentorship = await upsertMentorship({
     ...mentorshipData,
     mentor: mentor._id,
     mentee: current._id,
@@ -90,4 +89,4 @@ const applyForMentorshipHandler: ApiHandler = async (event, context) => {
   return success(createdMentorship);
 }
 
-export const handler = withAuth(applyForMentorshipHandler);
+export const handler = applyForMentorshipHandler;

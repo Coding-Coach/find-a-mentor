@@ -18,7 +18,7 @@ export interface Mentorship {
   readonly goals: string[];
   readonly expectation: string;
   readonly background: string;
-  reason: string;
+  reason?: string;
   readonly createdAt: Date;
   readonly updatedAt: Date;
   readonly reminderSentAt?: Date;

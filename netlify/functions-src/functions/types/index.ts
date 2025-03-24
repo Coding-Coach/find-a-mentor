@@ -46,6 +46,8 @@ export interface FilterParams {
   [key: string]: string | string[] | undefined
 }
 
-export type ApiHandler = (event: HandlerEvent, context: AuthContext) => Promise<HandlerResponse>
+export type HandlerEventWithBody<T = undefined> = HandlerEvent & { parsedBody?: T }
+
+export type ApiHandler<T extends unknown = undefined> = (event: HandlerEventWithBody<T>, context: AuthContext) => Promise<HandlerResponse>
 
 export type CreateRequest<T extends WithId<unknown>> = Omit<T, '_id'>

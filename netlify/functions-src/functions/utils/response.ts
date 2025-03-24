@@ -10,9 +10,10 @@ export function success<T>(data: T, statusCode = 200): SuccessResponse {
 
 export function error(message: string, statusCode = 400): ErrorResponse {
   if (process.env.CONTEXT !== 'production') {
-    console.error(message);
+    console.error('===== error ======', message);
   }
-  return {
+
+  const response =  {
     statusCode,
     headers: {
       'Content-Type': 'application/json',
@@ -20,6 +21,7 @@ export function error(message: string, statusCode = 400): ErrorResponse {
     },
     body: JSON.stringify({ success: false, error: message })
   }
+  return response;
 }
 
 export function withErrorHandling(handler: ApiHandler): ApiHandler {

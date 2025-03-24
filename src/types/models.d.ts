@@ -30,11 +30,11 @@ export type User = BaseDBObject & {
 export type Mentor = User & {};
 export type Application = BaseDBObject & {};
 
-export type MentorshipUser = Pick<User, 'avatar' | 'name' | 'email' | 'title' | 'available'> & { id: string };
+export type MentorshipUser = Pick<User, '_id' | 'avatar' | 'name' | 'email' | 'title' | 'available'>;
 export type MentorshipRequest = {
-  id: string;
+  _id: string;
   status: Status;
-  date: string;
+  createdAt: string;
   message: string;
   background: string;
   expectation: string;

@@ -31,7 +31,4 @@ const getAllMentorshipsHandler = async (event: HandlerEvent) => {
   }
 };
 
-export const handler = withAuth(
-  withErrorHandling(getAllMentorshipsHandler),
-  Role.ADMIN
-);
+export const handler = getAllMentorshipsHandler;
