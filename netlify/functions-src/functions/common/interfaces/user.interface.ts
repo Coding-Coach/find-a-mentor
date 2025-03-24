@@ -1,7 +1,7 @@
 import type { ObjectId } from 'mongodb'
 
 export interface User {
-  _id?: ObjectId
+  readonly _id: ObjectId;
   available?: boolean
   auth0Id: string
   email: string

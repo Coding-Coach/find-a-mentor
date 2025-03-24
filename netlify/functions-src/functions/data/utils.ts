@@ -5,15 +5,16 @@ import { DataError } from './errors';
 
 export async function upsertEntity<T extends WithId<unknown>>(collectionName: string, entity: EntityPayload<T>): Promise<WithId<T>> {
   const collection = getCollection<T>(collectionName);
+  const { _id: entityId, ...entityData } = entity;
 
-  if (entity._id) {
+  if (entityId) {
     const updatedEntity = await collection.findOneAndUpdate(
-      { _id: new ObjectId(entity._id) as Filter<T> },
-      { $set: entity as Partial<T> },
+      { _id: new ObjectId(entityId) as Filter<T> },
+      { $set: entityData as Partial<T> },
       { returnDocument: "after" }
     );
     if (!updatedEntity) {
-      throw new DataError(404, `${collectionName}'s ${entity._id} is not found`);
+      throw new DataError(404, `${collectionName}: entitiy id: '${entity._id}' not found`);
     }
     return updatedEntity;
   } else {

@@ -197,7 +197,7 @@ export default class ApiService {
 
   updateMentor = async (mentor: Mentor) => {
     const response = await this.makeApiCall(
-      `${paths.USERS}/${mentor._id}`,
+      `${paths.USERS}`,
       mentor,
       'PUT'
     );

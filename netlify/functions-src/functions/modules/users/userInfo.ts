@@ -1,6 +1,7 @@
 import type { ApiHandler } from '../../types';
 import { error, success } from '../../utils/response';
-import { getUserById } from '../../data/users';
+import { getUserById, upsertUser } from '../../data/users';
+import type { User } from '../../common/interfaces/user.interface';
 
 export const handler: ApiHandler = async (event) => {
   const userId = event.queryStringParameters?.userId;
@@ -24,4 +25,24 @@ export const handler: ApiHandler = async (event) => {
       channels: [],
     },
   });
+}
+
+export const updateUserInfoHandler: ApiHandler<User> = async (event, context) => {
+  try {
+    const user = event.parsedBody;
+    if (!user) {
+      return error('Invalid request body', 400);
+    }
+
+    if (user.auth0Id !== context.user?.auth0Id) {
+      return error('Unauthorized', 401);
+    }
+
+    const upsertedUser = await upsertUser(user);
+    return success({
+      data: upsertedUser,
+    });
+  } catch (e) {
+    return error(e.message, 400);
+  }
 }
