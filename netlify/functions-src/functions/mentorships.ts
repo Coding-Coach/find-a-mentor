@@ -9,7 +9,7 @@ import { Role } from './common/interfaces/user.interface';
 
 export const handler: Handler = withDB(
   withRouter([
-    ['/', 'GET', withAuth(getAllMentorshipsHandler, Role.ADMIN)],
+    ['/', 'GET', withAuth(getAllMentorshipsHandler, { role: Role.ADMIN })],
     ['/:userId/requests', 'GET', withAuth(mentorshipsRequestsHandler)],
     ['/:userId/requests/:mentorshipId', 'PUT', withAuth(updateRequestHandler)],
     ['/:mentorId/apply', 'POST', withAuth(applyForMentorshipHandler)],

@@ -22,6 +22,7 @@ export const handler: ApiHandler = async (event) => {
   return success({
     data: {
       ...user,
+      // TODO: return the channels if user is a mentee
       channels: [],
     },
   });

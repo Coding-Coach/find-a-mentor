@@ -36,6 +36,15 @@ export default class ApiService {
     this.auth = auth
   }
 
+  getAuthorizationHeader(): HeadersInit {
+    const token = this.auth?.getIdToken();
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  }
+
+  getContentTypeHeader(jsonous: boolean): HeadersInit {
+    return jsonous ? { 'Content-Type': 'application/json' } : {};
+  }
+
   makeApiCall = async <T>(
     path: string,
     body?: Record<string, any> | string | null,
@@ -49,14 +58,10 @@ export default class ApiService {
     const optionBody = jsonous
       ? body && JSON.stringify(body)
       : (body as FormData);
+
     const optionHeader: HeadersInit = {
-      Authorization: `Bearer ${this.auth.getIdToken()}`,
-      ...(jsonous
-        ? {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          }
-        : {}),
+      ...this.getAuthorizationHeader(),
+      ...this.getContentTypeHeader(jsonous),
     };
 
     const options: RequestInit = {

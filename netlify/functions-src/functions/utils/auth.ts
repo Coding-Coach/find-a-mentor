@@ -1,4 +1,4 @@
-import { Handler, HandlerResponse } from '@netlify/functions'
+import { HandlerResponse } from '@netlify/functions'
 import { ApiHandler } from '../types'
 import { error } from './response'
 import * as jwt from 'jsonwebtoken'
@@ -51,12 +51,23 @@ export const verifyToken = async (token: string): Promise<jwt.JwtPayload> => {
 //   return (decoded as jwt.JwtPayload).payload as AuthUser;
 // }
 
-export function withAuth(handler: ApiHandler, role?: Role): ApiHandler {
+export function withAuth(handler: ApiHandler, options: {
+  role?: Role,
+  authRequired?: boolean
+} = {
+  role: undefined,
+  authRequired: true
+}): ApiHandler {
   return async (event, context): Promise<HandlerResponse> => {
     try {
       const authHeader = event.headers.authorization
+      const { role, authRequired } = options
+
       if (!authHeader?.startsWith('Bearer ')) {
-        return error('Unauthorized', 401)
+        if (authRequired) {
+          return error('Unauthorized', 401)
+        }
+        return await handler(event, context)
       }
 
       const token = authHeader.split(' ')[1]
@@ -76,7 +87,7 @@ export function withAuth(handler: ApiHandler, role?: Role): ApiHandler {
           id: decodedToken.sub as string,
           auth0Id: decodedToken.sub as string,
         }
-       })
+      })
     } catch (err) {
       console.error('Error:', err)
       return error('Unauthorized', 401)
