@@ -3,8 +3,9 @@ import { error, success } from '../../utils/response';
 import { getUserById, upsertUser } from '../../data/users';
 import type { User } from '../../common/interfaces/user.interface';
 
-export const handler: ApiHandler = async (event) => {
+export const handler: ApiHandler = async (event, context) => {
   const userId = event.queryStringParameters?.userId;
+  const currentUserAuth0Id = context.user?.auth0Id;
 
   if (!userId) {
     return {
@@ -12,7 +13,7 @@ export const handler: ApiHandler = async (event) => {
       body: 'userId is required',
     };
   }
-  const user = await getUserById(userId);
+  const user = await getUserById(userId, currentUserAuth0Id);
 
   if (!user) {
     console.error(`User id: ${userId} not found`);
@@ -20,11 +21,7 @@ export const handler: ApiHandler = async (event) => {
   }
 
   return success({
-    data: {
-      ...user,
-      // TODO: return the channels if user is a mentee
-      channels: [],
-    },
+    data: user,
   });
 }
 

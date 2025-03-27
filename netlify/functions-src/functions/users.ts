@@ -10,7 +10,9 @@ export const handler: Handler = withDB(
   withRouter([
     ['/', 'PUT', withAuth(updateUserInfoHandler)],
     ['/current', 'GET', usersCurrentHandler],
-    ['/:userId', 'GET', getUserInfoHandler],
+    ['/:userId', 'GET', withAuth(getUserInfoHandler, {
+      authRequired: false,
+    })],
     ['/:userId/favorites', 'GET', getFavoritesHandler],
     ['/:userId/favorites/:mentorId', 'POST', addFavoriteHandler],
   ])
