@@ -16,6 +16,8 @@ const getMentorships = async (query: Record<string, string | undefined>): Promis
     throw new Error('User ID is required');
   }
 
+  // TODO: - validate that either it's admin or the userId is the same as the one in the token
+
   const filter: Filter<Document> = {
     $or: [
       { mentor: new ObjectId(userId) },

@@ -3,7 +3,12 @@ import type { User } from '../common/interfaces/user.interface';
 import { getCollection } from '../utils/db';
 import { upsertEntity } from './utils';
 
-export const getUserById = async (id: string, currentUserAuth0Id?: string) => {
+const getUserWithoutChannels = async (id: string) => {
+  const { channels, ...user } = await getCollection<User>('users').findOne({ _id: new ObjectId(id) }) || {};
+  return user;
+}
+
+const getUserWithChannels = async (id: string, currentUserAuth0Id: string) => {
   const user = await getCollection<User>('users').aggregate([
     { $match: { _id: new ObjectId(id) } },
     {
@@ -59,51 +64,16 @@ export const getUserById = async (id: string, currentUserAuth0Id?: string) => {
         },
       },
     },
-    // {
-    //   $lookup: {
-    //     from: 'mentorships',
-    //     localField: '_id',
-    //     foreignField: 'mentee',
-    //     as: 'mentorships',
-    //   },
-    // },
-    // {
-    //   $addFields: {
-    //     isMentorOfCurrentUser: {
-    //       $in: [
-    //         currentUserAuth0Id,
-    //         {
-    //           $map: {
-    //             input: '$mentorships',
-    //             as: 'mentorship',
-    //             in: {
-    //               $cond: {
-    //                 if: { $eq: ['$$mentorship.status', 'approved'] },
-    //                 then: '$$mentorship.mentee',
-    //                 else: null,
-    //               },
-    //             },
-    //           },
-    //         },
-    //       ],
-    //     },
-    //   },
-    // },
-    // {
-    //   $addFields: {
-    //     channels: {
-    //       $cond: {
-    //         if: '$isMentorOfCurrentUser',
-    //         then: '$channels',
-    //         else: [],
-    //       },
-    //     },
-    //   },
-    // },
-    // { $unset: 'isMentorOfCurrentUser' },
   ]).next();
 
   return user;
+}
+
+export const getUserById = async (id: string, currentUserAuth0Id?: string) => {
+  if (currentUserAuth0Id) {
+    return getUserWithChannels(id, currentUserAuth0Id);
+  }
+  return getUserWithoutChannels(id);
 }
 
 export const getUserByAuthId = async (auth0Id: string) => {

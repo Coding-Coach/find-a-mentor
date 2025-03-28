@@ -178,13 +178,7 @@ export default class ApiService {
     return !!response?.success;
   }
 
-  createApplicationIfNotExists = async (user: User) => {
-    if (await this.userHasPendingApplication(user)) {
-      return {
-        success: true,
-        message: messages.EDIT_DETAILS_MENTOR_SUCCESS,
-      };
-    }
+  upsertApplication = async () => {
     const response = await this.makeApiCall(
       `${paths.MENTORS}/applications`,
       { description: 'why not?', status: 'Pending' },
@@ -365,16 +359,5 @@ export default class ApiService {
       }
     );
     this.storeUserInLocalStorage();
-  }
-
-  userHasPendingApplication = async (user: User) => {
-    const response = await this.makeApiCall<Application[]>(
-      `${paths.MENTORS}/${user._id}/applications?status=pending`
-    );
-    if (response?.success) {
-      return response.data.length > 0;
-    }
-
-    return false;
   }
 }

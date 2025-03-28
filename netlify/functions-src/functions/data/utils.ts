@@ -1,9 +1,30 @@
-import { ObjectId, type Filter, type OptionalUnlessRequiredId, type WithId } from 'mongodb';
+import { ObjectId, type Filter, type MatchKeysAndValues, type OptionalId, type OptionalUnlessRequiredId, type WithId } from 'mongodb';
 import { getCollection } from '../utils/db';
-import type { EntityPayload } from './types';
+import type { CollectionName, EntityPayload, UpsertResult } from './types';
 import { DataError } from './errors';
 
-export async function upsertEntity<T extends WithId<unknown>>(collectionName: string, entity: EntityPayload<T>): Promise<WithId<T>> {
+export const upsertEntityByCondition = async <T extends OptionalId<unknown>>(
+  collectionName: CollectionName,
+  condition: Filter<T>,
+  entity: MatchKeysAndValues<T>,
+): UpsertResult<T> => {
+  const collection = getCollection<T>(collectionName);
+  const { value: upsertedEntity, lastErrorObject } = await collection.findOneAndUpdate(
+    condition,
+    { $setOnInsert: entity },
+    { upsert: true, returnDocument: 'after', includeResultMetadata: true }
+  );
+  const isNew = lastErrorObject?.updatedExisting === false;
+  if (!upsertedEntity) {
+    throw new Error('Failed to upsert application');
+  }
+  return {
+    data: upsertedEntity,
+    isNew,
+  };
+}
+
+export async function upsertEntity<T extends WithId<unknown>>(collectionName: CollectionName, entity: EntityPayload<T>): Promise<WithId<T>> {
   const collection = getCollection<T>(collectionName);
   const { _id: entityId, ...entityData } = entity;
 

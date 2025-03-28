@@ -6,6 +6,7 @@ import jwksClient from 'jwks-rsa'
 import config from '../config'
 import { Role } from '../common/interfaces/user.interface'
 import { getCurrentUser } from '../modules/users/current'
+import { getUserByAuthId } from '../data/users'
 
 const AUTH0_DOMAIN = config.auth0.backend.DOMAIN
 const CLIENT_ID = config.auth0.frontend.CLIENT_ID
@@ -46,22 +47,19 @@ export const verifyToken = async (token: string): Promise<jwt.JwtPayload> => {
   })
 }
 
-// const verifyToken = async (token: string): Promise<AuthUser> => {
-//   const decoded = jwt.verify(token, config.auth0.backend.CLIENT_SECRET || config.auth0.backend.DOMAIN); // Verify token
-//   return (decoded as jwt.JwtPayload).payload as AuthUser;
-// }
-
 export function withAuth(handler: ApiHandler, options: {
   role?: Role,
-  authRequired?: boolean
+  authRequired?: boolean,
+  returnUser?: boolean
 } = {
   role: undefined,
-  authRequired: true
+  authRequired: true,
+  returnUser: false
 }): ApiHandler {
   return async (event, context): Promise<HandlerResponse> => {
     try {
       const authHeader = event.headers.authorization
-      const { role, authRequired } = options
+      const { role, authRequired, returnUser } = options
 
       if (!authHeader?.startsWith('Bearer ')) {
         if (authRequired) {
@@ -72,22 +70,32 @@ export function withAuth(handler: ApiHandler, options: {
 
       const token = authHeader.split(' ')[1]
       const decodedToken = await verifyToken(token)
+      if (!decodedToken.sub || decodedToken.aud !== CLIENT_ID || decodedToken.iss !== `https://${AUTH0_DOMAIN}/`) {
+        return error('Unauthorized', 401)
+      }
+
+      context.user = {
+        auth0Id: decodedToken.sub,
+      }
 
       // TODO: instead, set a custom prop on auth0 - is admin to save the call to the database and get it from the token
       if (role) {
-        const currentUser = await getCurrentUser(decodedToken.sub as string)
+        const currentUser = await getCurrentUser(decodedToken.sub)
         if (!currentUser.roles.includes(role)) {
           return error('Unauthorized', 401)
         }
       }
 
-      return await handler(event, {
-        ...context,
-        user: {
-          id: decodedToken.sub as string,
-          auth0Id: decodedToken.sub as string,
+      if (returnUser && decodedToken.sub) {
+        const userDto = await getUserByAuthId(decodedToken.sub)
+        if (!userDto) {
+          return error('User not found', 404)
         }
-      })
+
+        context.user = userDto;
+      }
+
+      return await handler(event, context)
     } catch (err) {
       console.error('Error:', err)
       return error('Unauthorized', 401)
