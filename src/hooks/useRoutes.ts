@@ -14,12 +14,13 @@ export const useRoutes = () => {
       get: () => getUrlWithFilterParams('/'),
     },
     user: {
-      get: (userOrUsreId: User | string) =>
-        getUrlWithFilterParams(
+      get: (userOrUserId: User | string) => {
+        return getUrlWithFilterParams(
           `/u/${
-            typeof userOrUsreId === 'string' ? userOrUsreId : userOrUsreId._id
+            typeof userOrUserId === 'string' ? userOrUserId : userOrUserId._id
           }`
-        ),
+        );
+      }
     },
     me: {
       get: () => '/me',

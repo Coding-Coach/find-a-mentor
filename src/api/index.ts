@@ -3,9 +3,7 @@ import { toast } from 'react-toastify';
 import messages from '../messages';
 import shuffle from 'lodash/shuffle';
 import partition from 'lodash/partition';
-import * as Sentry from '@sentry/browser';
-import { Application, Mentor, User } from '../types/models';
-import { setVisitor } from '../utils/tawk';
+import { Application, Mentor, User, MentorshipRequest } from '../types/models';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -38,26 +36,32 @@ export default class ApiService {
     this.auth = auth
   }
 
+  getAuthorizationHeader(): HeadersInit {
+    const token = this.auth?.getIdToken();
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  }
+
+  getContentTypeHeader(jsonous: boolean): HeadersInit {
+    return jsonous ? { 'Content-Type': 'application/json' } : {};
+  }
+
   makeApiCall = async <T>(
     path: string,
     body?: Record<string, any> | string | null,
     method: RequestMethod = 'GET',
     jsonous = true
   ): Promise<OkResponse<T> | ErrorResponse | null> => {
-    const url = `${process.env.NEXT_PUBLIC_API_ENDPOINT}${path}${
+    // public url for ssr
+    const url = `${process.env.NEXT_PUBLIC_PUBLIC_URL}/api${path}${
       method === 'GET' && body ? `?${new URLSearchParams(body)}` : ''
     }`;
     const optionBody = jsonous
       ? body && JSON.stringify(body)
       : (body as FormData);
+
     const optionHeader: HeadersInit = {
-      Authorization: `Bearer ${this.auth.getIdToken()}`,
-      ...(jsonous
-        ? {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          }
-        : {}),
+      ...this.getAuthorizationHeader(),
+      ...this.getContentTypeHeader(jsonous),
     };
 
     const options: RequestInit = {
@@ -174,13 +178,7 @@ export default class ApiService {
     return !!response?.success;
   }
 
-  createApplicationIfNotExists = async (user: User) => {
-    if (await this.userHasPendingApplication(user)) {
-      return {
-        success: true,
-        message: messages.EDIT_DETAILS_MENTOR_SUCCESS,
-      };
-    }
+  upsertApplication = async () => {
     const response = await this.makeApiCall(
       `${paths.MENTORS}/applications`,
       { description: 'why not?', status: 'Pending' },
@@ -198,7 +196,7 @@ export default class ApiService {
 
   updateMentor = async (mentor: Mentor) => {
     const response = await this.makeApiCall(
-      `${paths.USERS}/${mentor._id}`,
+      `${paths.USERS}`,
       mentor,
       'PUT'
     );
@@ -305,7 +303,7 @@ export default class ApiService {
   }
 
   getMentorshipRequests = async (userId: string) => {
-    const response = await this.makeApiCall(
+    const response = await this.makeApiCall<MentorshipRequest[]>(
       `${paths.MENTORSHIP}/${userId}/requests`,
       null,
       'GET'
@@ -361,16 +359,5 @@ export default class ApiService {
       }
     );
     this.storeUserInLocalStorage();
-  }
-
-  userHasPendingApplication = async (user: User) => {
-    const response = await this.makeApiCall<Application[]>(
-      `${paths.MENTORS}/${user._id}/applications?status=pending`
-    );
-    if (response?.success) {
-      return response.data.length > 0;
-    }
-
-    return false;
   }
 }
