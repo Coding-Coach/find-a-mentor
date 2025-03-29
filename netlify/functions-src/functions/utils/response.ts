@@ -1,6 +1,11 @@
 import { ErrorResponse, SuccessResponse, ApiHandler } from '../types'
 
-export function success<T>(data: T, statusCode = 200): SuccessResponse {
+type SuccessPayload<T> = {
+  [key: string]: any;
+  data: T;
+}
+
+export function success<T>(data: SuccessPayload<T>, statusCode = 200): SuccessResponse {
   return {
     statusCode,
     headers: { 'Content-Type': 'application/json' },

@@ -17,7 +17,12 @@ const findRouteByPath = (routes: Routes, path: string, httpMethod: string) => {
     case 0:
       throw new DataError(404, `Route '${path}' not found`);
     case 1:
-      return matchedRoutes[0];
+      const [matchedRoute] = matchedRoutes;
+      const [, routeHttpMethod] = matchedRoute;
+      if (routeHttpMethod !== httpMethod) {
+        throw new DataError(405, 'Method not allowed');
+      }
+      return matchedRoute;
     default:
       const route = matchedRoutes.find(([, HttpMethod]) => HttpMethod === httpMethod);
       if (!route) {

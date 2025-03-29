@@ -2,14 +2,22 @@ import { ObjectId } from 'mongodb';
 import type { User } from '../common/interfaces/user.interface';
 import { getCollection } from '../utils/db';
 import { upsertEntity } from './utils';
+import { DataError } from './errors';
 
-const getUserWithoutChannels = async (id: string) => {
-  const { channels, ...user } = await getCollection<User>('users').findOne({ _id: new ObjectId(id) }) || {};
-  return user;
+const getUserWithoutChannels = async (id: string): Promise<User> => {
+  const user = await getCollection<User>('users').findOne({ _id: new ObjectId(id) });
+  if (!user) {
+    throw new DataError(404, 'User not found');
+  }
+
+  return {
+    ...user,
+    channels: [],
+  };
 }
 
-const getUserWithChannels = async (id: string, currentUserAuth0Id: string) => {
-  const user = await getCollection<User>('users').aggregate([
+const getUserWithChannels = async (id: string, currentUserAuth0Id: string): Promise<User> => {
+  const user = await getCollection<User>('users').aggregate<User>([
     { $match: { _id: new ObjectId(id) } },
     {
       $lookup: {
@@ -66,10 +74,14 @@ const getUserWithChannels = async (id: string, currentUserAuth0Id: string) => {
     },
   ]).next();
 
+  if (!user) {
+    throw new DataError(404, 'User not found');
+  }
+
   return user;
 }
 
-export const getUserById = async (id: string, currentUserAuth0Id?: string) => {
+export const getUserById = async (id: string, currentUserAuth0Id?: string): Promise<User> => {
   if (currentUserAuth0Id) {
     return getUserWithChannels(id, currentUserAuth0Id);
   }
@@ -80,6 +92,9 @@ export const getUserByAuthId = async (auth0Id: string) => {
   const user = await getCollection<User>('users')
     .findOne({ auth0Id });
 
+  if (!user) {
+    throw new DataError(404, 'User not found');
+  }
   return user;
 }
 

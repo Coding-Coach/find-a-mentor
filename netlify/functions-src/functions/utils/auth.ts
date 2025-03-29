@@ -7,6 +7,7 @@ import config from '../config'
 import { Role } from '../common/interfaces/user.interface'
 import { getCurrentUser } from '../modules/users/current'
 import { getUserByAuthId } from '../data/users'
+import { DataError } from '../data/errors'
 
 const AUTH0_DOMAIN = config.auth0.backend.DOMAIN
 const CLIENT_ID = config.auth0.frontend.CLIENT_ID
@@ -98,6 +99,9 @@ export function withAuth(handler: ApiHandler, options: {
       return await handler(event, context)
     } catch (err) {
       console.error('Error:', err)
+      if (err instanceof DataError) {
+        return error(err.message, err.statusCode)
+      }
       return error('Unauthorized', 401)
     }
   }

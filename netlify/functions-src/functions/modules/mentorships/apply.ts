@@ -86,7 +86,7 @@ const applyForMentorshipHandler: ApiHandler = async (event, context) => {
     console.error('Failed to send email');
   }
 
-  return success(createdMentorship);
+  return success({ data: createdMentorship });
 }
 
 export const handler = applyForMentorshipHandler;
