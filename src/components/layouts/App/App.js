@@ -54,8 +54,22 @@ const App = (props) => {
 
   return (
     <div className="app">
+      {/* TODO: remove this modal when app is ready */}
+      <Modal>
+        <>
+          <h2 style={{ color: '#69d5b1;'}}>🚀 We're Moving to a New Home!</h2>
+          <p style={{
+            fontSize: 'large',
+            padding: '0 10px',
+            lineHeight: 1.4,
+          }}>
+            Our digital spaceship is heading to a brand new infrastructure (to save some money and to simplify our ci-cd
+            pipeline) but don't worry, our engineers have their coffee ready! <StayTunedLink href="https://x.com/codingcoach_io">Stay Tuned!</StayTunedLink>
+          </p>
+        </>
+      </Modal>
       <ToastContainer />
-      <Modal title={modal.title}>{modal.content}</Modal>
+      <Modal title={modal?.title}>{modal?.content}</Modal>
       <Layout>
         <Header />
         <Body>
@@ -107,6 +121,28 @@ const Main = styled.section`
         transform: translateY(300px);
         margin-bottom: 50px;
       `}
+  }
+`;
+
+const StayTunedLink = styled.a`
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-family: Lato,sans-serif;
+  transition: box-shadow 0.1s ease-in-out;
+  background-color: #69d5b1;
+  color: #fff;
+  margin: 10px auto;
+  display: block;
+  width: fit-content;
+  padding: 5px 10px;
+  text-decoration: none;
+
+  &:hover {
+    box-shadow: inset 0 0 100px 0 #00000010;
+  }
+
+  &:disabled {
+    opacity: 0.5;
   }
 `;
 

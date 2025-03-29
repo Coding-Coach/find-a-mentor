@@ -3,7 +3,7 @@ import { TawkAPI } from './utils/tawk';
 export declare global {
   interface Window {
     Tawk_API: TawkAPI;
-    ga(operation: 'send', event: 'pageview'): void;
-    ga(operation: 'send', event: 'event', category: string, action: string, label?: string): void;
+    gtag(command: 'config', targetId: string, config?: Record<string, any>): void;
+    gtag(command: 'event', eventName: string, params?: Record<string, any>): void;
   }
 }
