@@ -46,13 +46,9 @@ export default class Modal extends Component {
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className="modal-box">
-          {
-            this.props.onClose && (
-              <button className="close" onClick={this.handleClose}>
-                <i className="fa fa-times" aria-hidden="true"></i>
-              </button>
-            )
-          }
+          <button className="close" onClick={this.handleClose}>
+            <i className="fa fa-times" aria-hidden="true"></i>
+          </button>
           {
             title && (
               <div className="modal-head">

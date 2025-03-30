@@ -90,6 +90,9 @@ const Avatar: FC = () => {
           id="upload-button"
           style={{ display: 'none' }}
           onChange={handleChange}
+          accept='image/*'
+          aria-label="Upload profile picture"
+          aria-describedby="upload-button"
         />
         <h1>{currentUser ? currentUser.name : ''}</h1>
         <p>{currentUser ? currentUser.title : ''}</p>

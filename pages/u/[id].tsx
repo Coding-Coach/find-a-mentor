@@ -1,3 +1,4 @@
+import React from 'react';
 import { GetServerSideProps } from 'next';
 import ApiService from '../../src/api';
 import App from '../../src/components/layouts/App';
@@ -26,7 +27,12 @@ export const getServerSideProps: GetServerSideProps<UserPageProps> = async (
   const api = new ApiService({
     getIdToken: () => '',
   });
-  const user = await api.getUser(Array.isArray(id) ? id[0] : id);
+  const user = await api.getUser(Array.isArray(id) ? id[0] : id!);
+  if (!user) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {

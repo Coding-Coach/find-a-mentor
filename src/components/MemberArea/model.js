@@ -42,6 +42,10 @@ export default {
     defaultValue: '',
     helpText: 'https public URL to an image file',
     previewImage: true,
+    props: {
+      accept: 'image/*',
+      maxSize: 500000, // 500KB
+    },
     validate: (value) => !!value,
   },
   title: {

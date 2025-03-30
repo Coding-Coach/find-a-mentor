@@ -142,18 +142,18 @@ const Admin = () => {
 
   const filteredMentorshipRequests = useMemo(() => {
     return mentorshipRequests
-      .filter(({ reminderSentAt, mentor, mentee, date }) => {
+      .filter(({ reminderSentAt, mentor, mentee, createdAt }) => {
         return (
           (!sentOnly || !!reminderSentAt) &&
           (!showDaysAgo ||
             name ||
-            Math.floor(daysAgo(new Date(date))) === showDaysAgo) &&
+            Math.floor(daysAgo(new Date(createdAt))) === showDaysAgo) &&
           (!name ||
             includeStr(mentor.name, name) ||
             includeStr(mentee.name, name))
         );
       })
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   }, [mentorshipRequests, name, sentOnly, showDaysAgo]);
 
   useEffect(() => {
@@ -176,7 +176,7 @@ const Admin = () => {
       await sendStaledRequestEmail(api, mentorshipId);
       setMentorshipRequests(
         mentorshipRequests.map((mentorship) => {
-          if (mentorship.id === mentorshipId) {
+          if (mentorship._id === mentorshipId) {
             return {
               ...mentorship,
               reminderSentAt: new Date().toString(),
@@ -202,7 +202,7 @@ const Admin = () => {
   const rows = useMemo(
     () =>
       filteredMentorshipRequests.map(
-        ({ mentor, mentee, status, date, id, reminderSentAt }) => {
+        ({ mentor, mentee, status, createdAt: date, _id: id, reminderSentAt }) => {
           return (
             <tr style={{ opacity: mentor.available ? 1 : 0.5 }} key={id}>
               <td>
@@ -210,7 +210,7 @@ const Admin = () => {
                 <a
                   target="_blank"
                   rel="noreferrer"
-                  href={`/u/${mentor.id}`}
+                  href={`/u/${mentor._id}`}
                 >
                   🔗
                 </a>
@@ -229,7 +229,7 @@ const Admin = () => {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    href={`/u/${mentee.id}`}
+                    href={`/u/${mentee._id}`}
                   >
                     @
                   </a>
@@ -265,7 +265,7 @@ const Admin = () => {
     <>
       {user && (
         <UserDetails
-          userId={user.id}
+          userId={user._id}
           mentorships={filteredMentorshipRequests}
         />
       )}
