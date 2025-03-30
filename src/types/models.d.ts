@@ -28,7 +28,11 @@ export type User = BaseDBObject & {
   createdAt: string;
 };
 export type Mentor = User & {};
-export type Application = BaseDBObject & {};
+type ApplicationStatus = 'Pending' | 'Approved' | 'Rejected';
+export type Application = BaseDBObject & {
+  status: ApplicationStatus;
+  reason?: string;
+};
 
 export type MentorshipUser = Pick<User, '_id' | 'avatar' | 'name' | 'email' | 'title' | 'available'>;
 export type MentorshipRequest = {

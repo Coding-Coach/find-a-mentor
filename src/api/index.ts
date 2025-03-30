@@ -4,6 +4,7 @@ import messages from '../messages';
 import shuffle from 'lodash/shuffle';
 import partition from 'lodash/partition';
 import { Application, Mentor, User, MentorshipRequest } from '../types/models';
+import type { ApplicationStatus } from '../types/models';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -243,32 +244,19 @@ export default class ApiService {
   }
 
   getPendingApplications = async () => {
+    const applicationStatus: Application['status'] = 'Pending';
     const response = await this.makeApiCall<Application[]>(
-      `${paths.MENTORS}/applications?status=pending`,
+      `${paths.MENTORS}/applications?status=${applicationStatus}`,
       null,
       'GET'
     );
     return response?.success ? response.data : [];
   }
 
-  approveApplication = async (mentor: Mentor) => {
+  respondApplication = async ({_id, ...applicationData}: Application) => {
     const response = await this.makeApiCall(
-      `${paths.MENTORS}/applications/${mentor._id}`,
-      {
-        status: 'Approved',
-      },
-      'PUT'
-    );
-    return !!response?.success;
-  }
-
-  declineApplication = async (mentor: Mentor, reason: string) => {
-    const response = await this.makeApiCall(
-      `${paths.MENTORS}/applications/${mentor._id}`,
-      {
-        status: 'Rejected',
-        reason,
-      },
+      `${paths.MENTORS}/applications/${_id}`,
+      applicationData,
       'PUT'
     );
     return !!response?.success;

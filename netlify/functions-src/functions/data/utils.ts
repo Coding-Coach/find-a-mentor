@@ -11,7 +11,7 @@ export const upsertEntityByCondition = async <T extends OptionalId<unknown>>(
   const collection = getCollection<T>(collectionName);
   const { value: upsertedEntity, lastErrorObject } = await collection.findOneAndUpdate(
     condition,
-    { $setOnInsert: entity },
+    { $set: entity },
     { upsert: true, returnDocument: 'after', includeResultMetadata: true }
   );
   const isNew = lastErrorObject?.updatedExisting === false;

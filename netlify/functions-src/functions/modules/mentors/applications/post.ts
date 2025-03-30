@@ -4,7 +4,12 @@ import type { ApiHandler } from '../../../types';
 import { success } from '../../../utils/response';
 import type { Application } from '../types';
 
-export const handler: ApiHandler<Application, User> = async (_event, context) => {
-  const { data, isNew } = await upsertApplication(context.user._id);
+export const handler: ApiHandler<Application, User> = async (event, context) => {
+  const application = event.parsedBody!;
+  const { data, isNew } = await upsertApplication({
+    ...application,
+    user: context.user._id,
+    status: 'Pending',
+  });
   return success({ data }, isNew ? 201 : 200);
 }

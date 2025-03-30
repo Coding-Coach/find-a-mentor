@@ -7,9 +7,6 @@ body {
 
 .app {
   padding-bottom: 50px;
-  /* TODO: remove when the app is ready */
-  overflow: hidden;
-  height: 100vh;
 }
 
 .main-header {

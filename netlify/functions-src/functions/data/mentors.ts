@@ -1,23 +1,23 @@
-import { ObjectId } from 'mongodb';
 import type { Application } from '../modules/mentors/types';
 import type { UpsertResult } from './types';
 import { upsertEntityByCondition } from './utils';
 import { getCollection } from '../utils/db';
+import { ObjectId, type Filter, type MatchKeysAndValues } from 'mongodb';
 
-export const upsertApplication = async (userId: ObjectId): UpsertResult<Application> => {
-  const applicationPayload = {
-    user: userId,
-    status: 'pending',
+export const upsertApplication = async (application: MatchKeysAndValues<Application>): UpsertResult<Application> => {
+  const filter: Filter<Application> = {};
+  if (application._id) {
+    filter._id = new ObjectId(application._id);
   }
 
-  const { data: application, isNew } = await upsertEntityByCondition<Application>(
+  const { data: upsertedApplication, isNew } = await upsertEntityByCondition<Application>(
     'applications',
-    { user: userId, status: 'pending' },
-    applicationPayload
+    filter,
+    application,
   );
 
   return {
-    data: application,
+    data: upsertedApplication,
     isNew,
   };
 }
@@ -26,7 +26,7 @@ export const getApplications = async (status?: string): Promise<Application[]> =
   const collection = getCollection<Application>('applications');
   const filter: any = {};
   if (status) {
-    filter.status = status?.toUpperCase();
+    filter.status = status;
   }
 
   const pipeline = [

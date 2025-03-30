@@ -13,11 +13,12 @@ export interface Mentor {
   avatar?: string
 }
 
+export type ApplicationStatus = 'Pending' | 'Approved' | 'Rejected';
 export type Application = OptionalId<{
   user: ObjectId;
-  status: string;
+  status: ApplicationStatus;
+  reason?: string;
 }>;
-
 
 export interface GetMentorsQuery {
   tags?: string | string[]

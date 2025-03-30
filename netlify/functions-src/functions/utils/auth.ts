@@ -80,6 +80,7 @@ export function withAuth(handler: ApiHandler, options: {
       }
 
       // TODO: instead, set a custom prop on auth0 - is admin to save the call to the database and get it from the token
+      // TODO: combine these 2 getCurrentUser calls
       if (role) {
         const currentUser = await getCurrentUser(decodedToken.sub)
         if (!currentUser.roles.includes(role)) {

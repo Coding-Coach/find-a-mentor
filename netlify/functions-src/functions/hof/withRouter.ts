@@ -4,10 +4,17 @@ import { error } from '../utils/response';
 import type { ApiHandler, HttpMethod } from '../types';
 import { DataError } from '../data/errors';
 
-type Route = [pattern: string, HttpMethod, ApiHandler];
+type Route = [pattern: string, HttpMethod | HttpMethod[], ApiHandler];
 export type Routes = Route[];
 
-const findRouteByPath = (routes: Routes, path: string, httpMethod: string) => {
+const matchesHttpMethod = (allowedMethods: HttpMethod | HttpMethod[], requestMethod: HttpMethod): allowedMethods is HttpMethod => {
+  if (Array.isArray(allowedMethods)) {
+    return allowedMethods.includes(requestMethod);
+  }
+  return allowedMethods === requestMethod;
+}
+
+const findRouteByPath = (routes: Routes, path: string, httpMethod: HttpMethod) => {
   const matchedRoutes = routes.filter(([pattern]) => {
     const urlPattern = new UrlPattern(pattern);
     return urlPattern.match(path);
@@ -19,12 +26,14 @@ const findRouteByPath = (routes: Routes, path: string, httpMethod: string) => {
     case 1:
       const [matchedRoute] = matchedRoutes;
       const [, routeHttpMethod] = matchedRoute;
-      if (routeHttpMethod !== httpMethod) {
+      if (!matchesHttpMethod(routeHttpMethod, httpMethod)) {
         throw new DataError(405, 'Method not allowed');
       }
       return matchedRoute;
     default:
-      const route = matchedRoutes.find(([, HttpMethod]) => HttpMethod === httpMethod);
+      const route = matchedRoutes.find(
+        ([, routeHttpMethod]) => matchesHttpMethod(routeHttpMethod, httpMethod)
+      );
       if (!route) {
         throw new DataError(405, 'Method not allowed');
       }
@@ -49,7 +58,7 @@ export const withRouter = (routes: Routes): ApiHandler => {
   return async (event, context) => {
     try {
       const path = getAppPath(event.path);
-      const route = findRouteByPath(routes, path, event.httpMethod);
+      const route = findRouteByPath(routes, path, event.httpMethod as HttpMethod);
 
       const { handler, params } = getRouteData(route, path);
 
@@ -61,7 +70,12 @@ export const withRouter = (routes: Routes): ApiHandler => {
         }
       }
 
-      return await handler({ ...event, queryStringParameters: params }, context);
+      const queryStringParameters = {
+        ...event.queryStringParameters,
+        ...params,
+      };
+
+      return await handler({ ...event, queryStringParameters }, context);
     } catch (e) {
       console.error(e);
       if (e instanceof DataError) {
