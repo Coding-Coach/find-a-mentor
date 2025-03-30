@@ -18,7 +18,27 @@ const getMentorships = async (query: any): Promise<any[]> => {
     filter.createdAt = { $lte: new Date(query.to) };
   }
 
-  return mentorshipsCollection.find(filter).toArray();
+  return mentorshipsCollection.aggregate([
+    { $match: filter },
+    {
+      $lookup: {
+        from: 'users',
+        localField: 'mentor',
+        foreignField: '_id',
+        as: 'mentor'
+      }
+    },
+    {
+      $lookup: {
+        from: 'users',
+        localField: 'mentee',
+        foreignField: '_id',
+        as: 'mentee'
+      }
+    },
+    { $unwind: { path: '$mentor' } },
+    { $unwind: { path: '$mentee' } }
+  ]).toArray();
 };
 
 const getAllMentorshipsHandler = async (event: HandlerEvent) => {

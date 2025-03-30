@@ -1,6 +1,6 @@
 import { ObjectId, type Filter, type MatchKeysAndValues, type OptionalId, type OptionalUnlessRequiredId, type WithId } from 'mongodb';
 import { getCollection } from '../utils/db';
-import type { CollectionName, EntityPayload, UpsertResult } from './types';
+import type { BaseExistingEntity, CollectionName, EntityPayload, UpsertResult } from './types';
 import { DataError } from './errors';
 
 export const upsertEntityByCondition = async <T extends OptionalId<unknown>>(
@@ -24,14 +24,16 @@ export const upsertEntityByCondition = async <T extends OptionalId<unknown>>(
   };
 }
 
-export async function upsertEntity<T extends WithId<unknown>>(collectionName: CollectionName, entity: EntityPayload<T>): Promise<WithId<T>> {
+export async function upsertEntity<T extends BaseExistingEntity>(collectionName: CollectionName, entity: EntityPayload<T>): Promise<WithId<T>> {
   const collection = getCollection<T>(collectionName);
   const { _id: entityId, ...entityData } = entity;
 
   if (entityId) {
     const updatedEntity = await collection.findOneAndUpdate(
       { _id: new ObjectId(entityId) as Filter<T> },
-      { $set: entityData as Partial<T> },
+      {
+        $set: entityData as Partial<T>,
+      },
       { returnDocument: "after" }
     );
     if (!updatedEntity) {
@@ -39,7 +41,11 @@ export async function upsertEntity<T extends WithId<unknown>>(collectionName: Co
     }
     return updatedEntity;
   } else {
-    const result = await collection.insertOne(entity as OptionalUnlessRequiredId<T>);
-    return { ...entity, _id: result.insertedId } as WithId<T>;
+    const entityPayload = {
+      ...entity as OptionalUnlessRequiredId<T>,
+      createdAt: new Date(),
+    };
+    const result = await collection.insertOne(entityPayload);
+    return { ...entityPayload, _id: result.insertedId } as WithId<T>;
   }
 }

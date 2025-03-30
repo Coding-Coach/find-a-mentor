@@ -68,25 +68,8 @@ const getMentorships = async (query: Record<string, string | undefined>): Promis
             userId
           ]
         },
-        // Add createdAt field derived from _id.getTimestamp()
-        createdAt: { $toDate: "$_id" }
       }
     },
-    {
-      $project: {
-        // Include all original fields from the mentorship
-        _id: 1,
-        mentor: 1,
-        mentee: 1,
-        status: 1,
-        createdAt: 1, // Include the derived createdAt field
-        updatedAt: 1,
-        message: 1,
-        background: 1,
-        expectation: 1,
-        isMine: 1
-      }
-    }
   ]).toArray();
 };
 
@@ -104,7 +87,7 @@ const updateMentorshipHandler = async (event: HandlerEventWithBody<Partial<Mento
       reason,
     };
     const upsertedMentorship = await upsertMentorship(mentorshipToUpsert);
-    return success({ mentorship: upsertedMentorship });
+    return success({ data: upsertedMentorship });
   } catch (e) {
     if (e instanceof DataError) {
       return error(e.message, e.statusCode);

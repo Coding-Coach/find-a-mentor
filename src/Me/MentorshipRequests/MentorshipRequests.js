@@ -90,7 +90,7 @@ const MentorshipReq = () => {
     reason,
     listType = 'mentor'
   ) => {
-    const { success, mentorship } = await api.updateMentorshipReqStatus(
+    const { success, data: mentorship } = await api.updateMentorshipReqStatus(
       _id,
       userId,
       {

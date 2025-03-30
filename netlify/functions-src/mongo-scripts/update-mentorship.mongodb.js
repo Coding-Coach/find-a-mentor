@@ -11,7 +11,7 @@ use('codingcoach');
 //   { _id: new ObjectId('67e049568a3938d0aac4a216') },
 // );
 db.getCollection('mentorships').updateOne(
-  { _id: new ObjectId('67e140e3bcacb881b788c9eb') },
+  { _id: new ObjectId('67e9a7023ce1a19ad81bd5b7') },
   {
     $set: {
       status: 'New',
