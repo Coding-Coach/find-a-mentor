@@ -2,6 +2,7 @@ import React, { FC, useContext, useEffect, useState } from 'react';
 import { User } from '../../types/models';
 import { useAuth } from '../authContext/AuthContext';
 import { useApi } from '../apiContext/ApiContext';
+import { isDeep } from '../../utils/isDeep';
 
 type UserProviderContext = {
   isAdmin: boolean;
@@ -32,10 +33,12 @@ export const UserProvider: FC = ({ children }) => {
 
   useEffect(() => {
     // TODO: bring back when app is ready
-    // api.getCurrentUser().then((user) => {
-    //   updateCurrentUser(user);
-    //   setIsloading(false);
-    // });
+    if (isDeep()) {
+      api.getCurrentUser().then((user) => {
+        updateCurrentUser(user);
+        setIsloading(false);
+      });
+    }
   }, [api]);
 
   return (

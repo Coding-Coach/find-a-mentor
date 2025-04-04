@@ -41,3 +41,4 @@ debug.log
 
 # Next.js
 .next
+.netlify
