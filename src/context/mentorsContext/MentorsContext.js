@@ -17,6 +17,7 @@ import {
 } from '../../favoriteManager';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
 import { mockMentors } from './mockMentors';
+import { isDeep } from '../../utils/isDeep';
 
 const initialState = {
   favorites: [],
@@ -75,7 +76,7 @@ export const MentorsProvider = (props) => {
   }, [currentUser, api]);
 
   useEffect(() => {
-    // initialize();
+    isDeep() && initialize();
   }, [initialize]);
 
   const [filters] = useFilters();

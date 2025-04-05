@@ -1,5 +1,3 @@
-import { isSsr } from '../helpers/ssr';
-
 export const isDeep = () => {
   if (typeof window === 'undefined') {
     return false;
