@@ -12,6 +12,7 @@ import { desktop, mobile } from '../../../Me/styles/shared/devices';
 import { Sidebar } from '../../Sidebar/Sidebar';
 import { useMentors } from '../../../context/mentorsContext/MentorsContext';
 import { isDeep } from '../../../utils/isDeep';
+import SocialLinks from '../../SocialLinks/SocialLinks';
 
 const App = (props) => {
   const { children } = props;
@@ -65,8 +66,12 @@ const App = (props) => {
             lineHeight: 1.4,
           }}>
             Our digital spaceship is heading to a brand new infrastructure (to save some money and to simplify our ci-cd
-            pipeline) but don't worry, our engineers have their coffee ready! <StayTunedLink href="https://x.com/codingcoach_io">Stay Tuned!</StayTunedLink>
+            pipeline) but don't worry, our engineers have their coffee ready!
           </p>
+          <div style={{ textAlign: 'center' }}>
+            <h2>Stay Tuned</h2>
+            <SocialLinks />
+          </div>
         </>
       </Modal>)}
       <ToastContainer />
