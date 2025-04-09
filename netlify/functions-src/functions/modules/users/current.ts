@@ -4,12 +4,11 @@ import { connectToDatabase, getCollection } from '../../utils/db'
 import { ApiHandler, type AuthContext } from '../../types'
 import { UserDto } from '../../common/dto/user.dto'
 import { Role, User } from '../../common/interfaces/user.interface'
-import { ListDto } from '../../../lists/dto/list.dto'
-import { Template } from '../../../email/interfaces/email.interface'
-import * as Sentry from '@sentry/node'
+// TODO: import * as Sentry from '@sentry/node'
 import { Auth0Service } from '../../common/auth0.service'
-import { EmailService } from '../../common/email.service'
 import { withAuth } from '../../utils/auth'
+import { send } from '../../email/client'
+import { upsertUser } from '../../data/users'
 
 export const getCurrentUser = async (auth0Id: string): Promise<any> => {
   await connectToDatabase()
@@ -31,45 +30,35 @@ export const getCurrentUser = async (auth0Id: string): Promise<any> => {
       await usersCollection.updateOne({ _id: existingMentor._id }, { $set: userDto })
       return existingMentor
     } else {
-      const userDto: UserDto = new UserDto({
-        auth0Id: auth0Id,
+      const newUser = await upsertUser({
+        auth0Id,
         email: user.email,
         name: user.nickname,
         avatar: user.picture,
         roles: [Role.MEMBER],
+        createdAt: new Date(),
+        spokenLanguages: [],
+        tags: [],
+        channels: [],
       })
-      const newUser = await usersCollection.insertOne(userDto)
 
-      const listsCollection = getCollection<ListDto>('lists')
-      const favorites: ListDto = new ListDto({
-        name: 'Favorites',
-        isFavorite: true,
-        user: newUser.insertedId.toString(),
-        mentors: [],
-      })
-      await listsCollection.insertOne(favorites)
-
-      const emailService = new EmailService()
-      emailService.sendLocalTemplate({
-        to: userDto.email,
+      send({
+        to: user.email,
         name: 'welcome',
         subject: 'Welcome to Coding Coach! 🥳',
         data: {
-          name: userDto.name,
+          name: user.nickname,
         },
       })
 
-      return {
-        ...userDto,
-        _id: newUser.insertedId,
-      }
+      return newUser;
     }
   }
 
   return currentUser
 }
 
-const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: AuthContext) => {
+const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: AuthContext<User>) => {
   const auth0Id = context.user?.auth0Id;
   if (!auth0Id) {
     return error('Unauthorized: user not found', 401)

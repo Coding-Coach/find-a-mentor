@@ -71,7 +71,7 @@ export const MentorsProvider = (props) => {
   }, [currentUser, api]);
 
   useEffect(() => {
-    // initialize();
+    initialize();
   }, [initialize]);
 
   const [filters] = useFilters();

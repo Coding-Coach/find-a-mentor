@@ -236,7 +236,7 @@ export default class ApiService {
 
   deleteMentor = async (mentorId: string) => {
     const response = await this.makeApiCall(
-      `${paths.USERS}/${mentorId}`,
+      `${paths.USERS}/`,
       null,
       'DELETE'
     );

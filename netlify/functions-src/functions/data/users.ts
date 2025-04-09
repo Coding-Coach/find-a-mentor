@@ -3,6 +3,7 @@ import type { User } from '../common/interfaces/user.interface';
 import { getCollection } from '../utils/db';
 import { upsertEntity } from './utils';
 import { DataError } from './errors';
+import type { EntityPayload } from './types';
 
 const getUserWithoutChannels = async (id: string): Promise<User> => {
   const user = await getCollection<User>('users').findOne({ _id: new ObjectId(id) });
@@ -98,7 +99,15 @@ export const getUserByAuthId = async (auth0Id: string) => {
   return user;
 }
 
-export const upsertUser = async (user: User) => {
+export const upsertUser = async (user: EntityPayload<User>) => {
   const upsertedUser = await upsertEntity<User>('users', user);
   return upsertedUser;
+}
+
+export const deleteUser = async (id: ObjectId) => {
+  const result = await getCollection<User>('users').deleteOne({ _id: id });
+  if (result.deletedCount === 0) {
+    throw new DataError(404, 'User not found');
+  }
+  return result.acknowledged;
 }

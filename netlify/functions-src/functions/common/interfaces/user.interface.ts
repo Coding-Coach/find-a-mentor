@@ -14,6 +14,8 @@ export interface User {
   };
   channels?: any[];
   createdAt: Date;
+  spokenLanguages?: string[];
+  tags?: string[];
 }
 
 export enum Role {
