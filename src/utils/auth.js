@@ -1,4 +1,5 @@
 import auth0 from 'auth0-js';
+import ApiService from '../api';
 import { isSsr } from '../helpers/ssr';
 import { isMentor } from '../helpers/user';
 
@@ -23,7 +24,7 @@ class Auth {
         clientID: this.clientId,
         redirectUri: this.redirectUri,
         responseType: 'token id_token',
-        scope: 'openid',
+        scope: 'openid email',
       });
 
       this.loadSession();
@@ -141,23 +142,24 @@ class Auth {
         } catch (error) {
           reject(error);
         }
-      } else if (!this.isAuthenticated()) {
+      } else {
         this.auth0.checkSession({}, (err, authResult) => {
-          if (err) {
-            reject(err);
+          if (err && !this.#shouldSkipError(err)) {
+            return reject(err);
           }
           if (authResult && authResult.accessToken && authResult.idToken) {
             this.setSession(authResult);
           }
           resolve();
         });
-      } else {
-        resolve();
       }
     });
   }
 
-  #logout = () => {
+  /**
+   * @param {ApiService=} api - it's empty when called from AuthContext because it's hieghr in the Providers tree
+   */
+  forgetUser = (api) => {
     // Remove tokens and expiry time from memory
     this.accessToken = null;
     this.idToken = null;
@@ -165,12 +167,19 @@ class Auth {
 
     // Remove token from localStorage
     localStorage.removeItem(storageKey);
+    if (api) {
+      api?.clearCurrentUser();
+    } else {
+      ApiService.clearCurrentUserFromStorage();
+    }
   };
 
   // TODO: figure out why the API  service needs to clear the current user instead of the Auth class?
+  /**
+   * @param  {ApiService} api
+   */
   doLogout = (api) => {
-    this.#logout();
-    api.clearCurrentUser();
+    this.forgetUser(api);
     this.auth0.logout({
       returnTo: this.redirectUri,
     });
@@ -182,6 +191,10 @@ class Auth {
     let expiresAt = this.expiresAt;
     return new Date().getTime() < expiresAt;
   }
+
+  #shouldSkipError = (error) => {
+    return error.code === 'login_required';
+  };
 }
 
 export default Auth;

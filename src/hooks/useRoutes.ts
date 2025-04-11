@@ -11,7 +11,7 @@ export const useRoutes = () => {
 
   return {
     root: {
-      get: () => getUrlWithFilterParams('/'),
+      get: () => getUrlWithFilterParams('/')
     },
     user: {
       get: (userOrUserId: User | string) => {

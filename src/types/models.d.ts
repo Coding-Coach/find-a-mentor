@@ -17,6 +17,7 @@ export type User = BaseDBObject & {
   name: string;
   title: string;
   email: string;
+  email_verified: boolean;
   tags: string[];
   avatar?: string;
   country: Country;
