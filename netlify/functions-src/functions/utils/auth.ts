@@ -8,6 +8,7 @@ import { Role } from '../common/interfaces/user.interface'
 import { getCurrentUser } from '../modules/users/current'
 import { getUserBy } from '../data/users'
 import { DataError } from '../data/errors'
+import { ErrorCodes } from '../../../../api-types/errorCodes'
 
 const AUTH0_DOMAIN = config.auth0.backend.DOMAIN
 const CLIENT_ID = config.auth0.frontend.CLIENT_ID
@@ -51,16 +52,18 @@ export const verifyToken = async (token: string): Promise<jwt.JwtPayload> => {
 export function withAuth(handler: ApiHandler, options: {
   role?: Role,
   authRequired?: boolean,
-  returnUser?: boolean
+  returnUser?: boolean,
+  emailVerificationRequired?: boolean
 } = {
   role: undefined,
   authRequired: true,
+    emailVerificationRequired: true,
   returnUser: false
 }): ApiHandler {
   return async (event, context): Promise<HandlerResponse> => {
     try {
       const authHeader = event.headers.authorization
-      const { role, authRequired, returnUser } = options
+      const { role, authRequired, returnUser, emailVerificationRequired } = options
 
       if (!authHeader?.startsWith('Bearer ')) {
         if (authRequired) {
@@ -74,8 +77,8 @@ export function withAuth(handler: ApiHandler, options: {
       if (!decodedToken.sub || decodedToken.aud !== CLIENT_ID || decodedToken.iss !== `https://${AUTH0_DOMAIN}/`) {
         return error('Unauthorized', 401)
       }
-      if (authRequired && !decodedToken.email_verified) {
-        return error('Email is not verified', 403)
+      if (emailVerificationRequired && !decodedToken.email_verified) {
+        return error('Email is not verified', 403, ErrorCodes.EmailNotVerified)
       }
       context.user = {
         auth0Id: decodedToken.sub,

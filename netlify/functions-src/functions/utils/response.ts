@@ -1,3 +1,4 @@
+import type { ErrorCodes } from '../../../../api-types/errorCodes';
 import { ErrorResponse, SuccessResponse, ApiHandler } from '../types'
 
 type SuccessPayload<T> = {
@@ -13,7 +14,7 @@ export function success<T>(data: SuccessPayload<T>, statusCode = 200): SuccessRe
   }
 }
 
-export function error(message: string, statusCode = 400): ErrorResponse {
+export function error(message: string, statusCode = 400, errorCode?: ErrorCodes): ErrorResponse {
   if (process.env.CONTEXT !== 'production') {
     console.error('===== error ======', message);
   }
@@ -24,7 +25,7 @@ export function error(message: string, statusCode = 400): ErrorResponse {
       'Content-Type': 'application/json',
       'Cache-Control': 'no-store',
     },
-    body: JSON.stringify({ success: false, error: message })
+    body: JSON.stringify({ success: false, error: message, errorCode })
   }
   return response;
 }

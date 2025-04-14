@@ -64,4 +64,6 @@ const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: 
   return success({ data: applicationUser })
 }
 
-export const handler = withAuth(getCurrentUserHandler)
+export const handler = withAuth(getCurrentUserHandler, {
+  emailVerificationRequired: false,
+})
