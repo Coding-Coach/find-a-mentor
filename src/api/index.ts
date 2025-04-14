@@ -4,7 +4,6 @@ import messages from '../messages';
 import shuffle from 'lodash/shuffle';
 import partition from 'lodash/partition';
 import { Application, Mentor, User, MentorshipRequest } from '../types/models';
-import type { ApplicationStatus } from '../types/models';
 import Auth from '../utils/auth';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
@@ -54,7 +53,7 @@ export default class ApiService {
     jsonous = true
   ): Promise<OkResponse<T> | ErrorResponse | null> => {
     // public url for ssr
-    const url = `${process.env.NEXT_PUBLIC_PUBLIC_URL}/api${path}${
+    const url = `${process.env.NEXT_PUBLIC_PUBLIC_URL}/.netlify/functions${path}${
       method === 'GET' && body ? `?${new URLSearchParams(body)}` : ''
     }`;
     const optionBody = jsonous

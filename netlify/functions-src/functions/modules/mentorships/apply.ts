@@ -1,15 +1,15 @@
-import { getUserByAuthId, getUserById } from '../../data/users';
+import { getUserBy, getUserById } from '../../data/users';
 import type { ApiHandler } from '../../types';
 import { upsertMentorship, findMentorship, getOpenRequestsCount } from '../../data/mentorships';
 import { Status, type Mentorship } from '../../interfaces/mentorship';
 import { error, success } from '../../utils/response';
 import type { CreateEntityPayload } from '../../data/types';
 import { EmailService } from '../../common/email.service';
+import type { User } from '../../common/interfaces/user.interface';
 
 const ALLOWED_OPEN_MENTORSHIPS = 5;
 
-const applyForMentorshipHandler: ApiHandler = async (event, context) => {
-  const currentUserId = context.user!.auth0Id;
+const applyForMentorshipHandler: ApiHandler<void, User> = async (event, context) => {
   const mentorId = event.queryStringParameters?.mentorId;
   if (!event.body) {
     return error('mentorship data is required');
@@ -17,12 +17,12 @@ const applyForMentorshipHandler: ApiHandler = async (event, context) => {
   // TODO: use event.parsedBody
   const mentorshipData: CreateEntityPayload<Mentorship> = JSON.parse(event.body);
 
-  if (!mentorId || !currentUserId) {
+  if (!mentorId || !context.user.auth0Id) {
     return error('mentorId and current userId is required');
   }
 
   const [current, mentor] = await Promise.all([
-    getUserByAuthId(currentUserId),
+    getUserBy('auth0Id', context.user.auth0Id),
     getUserById(mentorId),
   ]);
 
@@ -35,11 +35,11 @@ const applyForMentorshipHandler: ApiHandler = async (event, context) => {
   }
 
   if (mentor._id.equals(current!._id)) {
-    return error(`Are you planning to mentor yourself?`);
+    return error(`Are you planning to mentor yourself?`, 400);
   }
 
   if (!mentor.available) {
-    return error('Mentor is not available');
+    return error('Mentor is not available', 400);
   }
 
   const mentorship: Mentorship = await findMentorship(

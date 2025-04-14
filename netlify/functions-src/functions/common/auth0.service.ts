@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios, { type AxiosResponse } from 'axios'
 import Config from '../config'
 
 export class Auth0Service {
@@ -7,7 +7,7 @@ export class Auth0Service {
   private readonly clientSecret = Config.auth0.backend.CLIENT_SECRET
   private readonly audience = Config.auth0.backend.AUDIENCE
 
-  async getAdminAccessToken(): Promise<any> {
+  async getAdminAccessToken(): Promise<AxiosResponse<{ access_token: string }>['data']> {
     try {
       const response = await axios.post(`https://${this.auth0Domain}/oauth/token`, {
         client_id: this.clientId,
@@ -22,13 +22,19 @@ export class Auth0Service {
     }
   }
 
-  async getUserProfile(accessToken: string, userId: string): Promise<any> {
-    const response = await axios.get(`https://${this.auth0Domain}/api/v2/users/${userId}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-    return response.data
+  async getUserProfile(userId: string): Promise<AxiosResponse<{ email: string, nickname: string, picture: string }>['data']> {
+    try {
+      const { access_token } = await this.getAdminAccessToken();
+      const response = await axios.get(`https://${this.auth0Domain}/api/v2/users/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      })
+      return response.data
+    } catch (error) {
+      console.error('getUserProfile, Error:', error)
+      throw new Error('Error getting user profile')
+    }
   }
 
   async deleteUser(accessToken: string, userId: string): Promise<void> {

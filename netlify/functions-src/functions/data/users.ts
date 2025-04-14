@@ -89,13 +89,10 @@ export const getUserById = async (id: string, currentUserAuth0Id?: string): Prom
   return getUserWithoutChannels(id);
 }
 
-export const getUserByAuthId = async (auth0Id: string) => {
+export const getUserBy = async <T extends keyof Pick<User, '_id' | 'auth0Id' | 'email'>>(prop: T, value: User[T]) => {
   const user = await getCollection<User>('users')
-    .findOne({ auth0Id });
+    .findOne({ [prop]: value });
 
-  if (!user) {
-    throw new DataError(404, 'User not found');
-  }
   return user;
 }
 
