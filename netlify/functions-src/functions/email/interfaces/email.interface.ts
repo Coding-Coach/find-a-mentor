@@ -95,6 +95,14 @@ interface MentorFreeze {
   };
 }
 
+interface EmailVerification {
+  name: 'email-verification';
+  data: {
+    name: string;
+    link: string;
+  };
+}
+
 export type EmailParams = Required<Pick<MailData, 'to' | 'subject'>> &
   (
     | WelcomePayload
@@ -107,6 +115,7 @@ export type EmailParams = Required<Pick<MailData, 'to' | 'subject'>> &
     | MentorApplicationDeclined
     | MentorApplicationApproved
     | MentorNotActive
+  | EmailVerification
     | MentorFreeze
   );
 

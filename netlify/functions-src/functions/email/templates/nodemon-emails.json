@@ -1,0 +1,5 @@
+{
+  "watch": ["."],
+  "ext": "html,js",
+  "exec": "node netlify/functions-src/functions/email/templates/show.js"
+}

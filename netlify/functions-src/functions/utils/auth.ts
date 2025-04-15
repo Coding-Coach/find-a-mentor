@@ -52,18 +52,18 @@ export const verifyToken = async (token: string): Promise<jwt.JwtPayload> => {
 export function withAuth(handler: ApiHandler, options: {
   role?: Role,
   authRequired?: boolean,
-  returnUser?: boolean,
+  includeFullUser?: boolean,
   emailVerificationRequired?: boolean
 } = {
   role: undefined,
   authRequired: true,
     emailVerificationRequired: true,
-  returnUser: false
+    includeFullUser: false
 }): ApiHandler {
   return async (event, context): Promise<HandlerResponse> => {
     try {
       const authHeader = event.headers.authorization
-      const { role, authRequired, returnUser, emailVerificationRequired } = options
+      const { role, authRequired, includeFullUser, emailVerificationRequired } = options
 
       if (!authHeader?.startsWith('Bearer ')) {
         if (authRequired) {
@@ -95,7 +95,7 @@ export function withAuth(handler: ApiHandler, options: {
         }
       }
 
-      if (returnUser && decodedToken.sub) {
+      if (includeFullUser && decodedToken.sub) {
         const userDto = await getUserBy('auth0Id', decodedToken.sub)
         if (!userDto) {
           return error('User not found', 404)

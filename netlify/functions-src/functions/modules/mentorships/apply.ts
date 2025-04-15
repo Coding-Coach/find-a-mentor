@@ -4,7 +4,7 @@ import { upsertMentorship, findMentorship, getOpenRequestsCount } from '../../da
 import { Status, type Mentorship } from '../../interfaces/mentorship';
 import { error, success } from '../../utils/response';
 import type { CreateEntityPayload } from '../../data/types';
-import { EmailService } from '../../common/email.service';
+import { send as sendEmail } from '../../email/client';
 import type { User } from '../../common/interfaces/user.interface';
 
 const ALLOWED_OPEN_MENTORSHIPS = 5;
@@ -68,8 +68,7 @@ const applyForMentorshipHandler: ApiHandler<void, User> = async (event, context)
   });
 
   try {
-    const emailService = new EmailService();
-    await emailService.sendLocalTemplate({
+    await sendEmail({
       name: 'mentorship-requested',
       to: mentor.email,
       subject: 'Mentorship Requested',

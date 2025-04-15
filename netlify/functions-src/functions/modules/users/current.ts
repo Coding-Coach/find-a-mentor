@@ -4,16 +4,15 @@ import { ApiHandler, type AuthContext } from '../../types'
 import { UserDto } from '../../common/dto/user.dto'
 import { Role, type ApplicationUser, type User } from '../../common/interfaces/user.interface'
 // TODO: import * as Sentry from '@sentry/node'
-import { Auth0Service } from '../../common/auth0.service'
+import { auth0Service } from '../../common/auth0.service'
 import { withAuth } from '../../utils/auth'
-import { send } from '../../email/client'
 import { getUserBy, upsertUser } from '../../data/users'
 
 export const getCurrentUser = async (auth0Id: string): Promise<User> => {
   const currentUser = await getUserBy('auth0Id', auth0Id);
   if (!currentUser) {
     // ...existing code for fetching user from Auth0 and handling new user creation...
-    const user = await new Auth0Service().getUserProfile(auth0Id)
+    const user = await auth0Service.getUserProfile(auth0Id)
 
     const existingMentor = await getUserBy('email', user.email)
     if (existingMentor) {
@@ -36,14 +35,15 @@ export const getCurrentUser = async (auth0Id: string): Promise<User> => {
         channels: [],
       })
 
-      send({
-        to: user.email,
-        name: 'welcome',
-        subject: 'Welcome to Coding Coach! 🥳',
-        data: {
-          name: user.nickname,
-        },
-      })
+      // no need to send the email. it's sent by auth0 as part of the email verification process
+      // send({
+      //   to: user.email,
+      //   name: 'welcome',
+      //   subject: 'Welcome to Coding Coach! 🥳',
+      //   data: {
+      //     name: user.nickname,
+      //   },
+      // })
 
       return newUser;
     }
