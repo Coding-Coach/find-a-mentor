@@ -20,7 +20,7 @@ const ShareProfile = ({ url }: { url: string }) => {
     toast.success('Copied to clipboard', {
       toastId: 'share-profile-toast',
     });
-  }
+  };
 
   return (
     <ShareProfileStyled>
@@ -31,7 +31,7 @@ const ShareProfile = ({ url }: { url: string }) => {
           color="#179a6f"
           onClick={() => setShowInput(!showInput)}
           buttonProps={{
-            "aria-label": "Share your profile"
+            'aria-label': 'Share your profile',
           }}
         />
       </Tooltip>
@@ -52,9 +52,9 @@ const ShareProfile = ({ url }: { url: string }) => {
 
 const Avatar: FC = () => {
   const { currentUser, updateCurrentUser } = useUser<true>();
-  const api = useApi()
+  const api = useApi();
   if (!currentUser) {
-    return null
+    return null;
   }
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -74,18 +74,29 @@ const Avatar: FC = () => {
           url={`${process.env.NEXT_PUBLIC_AUTH_CALLBACK}/u/${currentUser._id}`}
         />
         <label htmlFor="upload-button">
-          <UserAvatar>
-            {currentUser && currentUser.avatar ? (
-              <UserImage
-                alt={currentUser.email}
-                src={getAvatarUrl(currentUser.avatar)}
-              />
-            ) : (
-              <AvatarPlaceHolder alt="No profile picture" src={Camera} />
-            )}
-          </UserAvatar>
+          <Tooltip title="Change your avatar on Gravatar">
+            <UserAvatar>
+              <a
+                className="change-avatar"
+                href="https://gravatar.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fa fa-pencil" />
+              </a>
+
+              {currentUser && currentUser.avatar ? (
+                <UserImage
+                  alt={currentUser.email}
+                  src={getAvatarUrl(currentUser.avatar)}
+                />
+              ) : (
+                <AvatarPlaceHolder alt="No profile picture" src={Camera} />
+              )}
+            </UserAvatar>
+          </Tooltip>
         </label>
-        <input
+        {/* <input
           type="file"
           id="upload-button"
           style={{ display: 'none' }}
@@ -93,7 +104,7 @@ const Avatar: FC = () => {
           accept='image/*'
           aria-label="Upload profile picture"
           aria-describedby="upload-button"
-        />
+        /> */}
         <h1>{currentUser ? currentUser.name : ''}</h1>
         <p>{currentUser ? currentUser.title : ''}</p>
       </Container>
@@ -102,6 +113,7 @@ const Avatar: FC = () => {
 };
 
 const UserAvatar = styled.div`
+  position: relative;
   height: 100px;
   width: 100px;
   margin: auto;
@@ -110,6 +122,44 @@ const UserAvatar = styled.div`
   border-radius: 50%;
   display: flex;
   cursor: pointer;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    &:before,
+    .change-avatar {
+      opacity: 1;
+    }
+  }
+
+  .change-avatar {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease;
+    padding: 10px;
+    background: #f8f8f8;
+    border-radius: 50%;
+    text-decoration: none;
+
+    i {
+      display: block;
+    }
+  }
 `;
 
 const AvatarPlaceHolder = styled.img`

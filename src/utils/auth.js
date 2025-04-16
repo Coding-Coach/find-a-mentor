@@ -24,7 +24,7 @@ class Auth {
         clientID: this.clientId,
         redirectUri: this.redirectUri,
         responseType: 'token id_token',
-        scope: 'openid email',
+        scope: 'openid profile email',
       });
 
       this.loadSession();
