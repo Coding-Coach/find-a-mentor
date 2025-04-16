@@ -22,6 +22,7 @@ const App = (props) => {
     title: null,
     content: null,
     onClose: null,
+    showCloseButton: true,
   });
   const { mentors } = useMentors();
   const { emailVerifiedInfo } = useUser();
@@ -29,6 +30,7 @@ const App = (props) => {
 
   const showVerifyEmailModal = useCallback(() => {
     setModal({
+      showCloseButton: false,
       title: 'Verify your email',
       content: (
         <VerificationModal
@@ -80,7 +82,7 @@ const App = (props) => {
   return (
     <div className="app">
       <ToastContainer />
-      <Modal title={modal?.title}>{modal?.content}</Modal>
+      <Modal title={modal?.title} showCloseButton={modal.showCloseButton}>{modal?.content}</Modal>
       <Layout>
         <Header />
         <Body>

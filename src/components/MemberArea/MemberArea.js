@@ -52,7 +52,7 @@ function MemberArea({ onOpenModal }) {
           <UserAvatar
             data-testid="user-avatar"
             onClick={() => {
-              if (!currentUser || user.isNotYetVerified) {
+              if (!currentUser) {
                 return;
               }
               setIsMemberMenuOpen(!isMemberMenuOpen);
