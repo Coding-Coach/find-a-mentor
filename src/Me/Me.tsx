@@ -13,10 +13,12 @@ import { desktop } from './styles/shared/devices';
 import { isSsr } from '../helpers/ssr';
 import { useUser } from '../context/userContext/UserContext';
 import { useAuth } from '../context/authContext/AuthContext';
+import { useRoutes } from '../hooks/useRoutes';
 
 const Me = (props: any) => {
   const { children, title } = props;
-  const { pathname } = useRouter();
+  const { pathname, push } = useRouter();
+  const routes = useRoutes();
   const { currentUser, isLoading } = useUser();
   const auth = useAuth();
 
@@ -32,6 +34,11 @@ const Me = (props: any) => {
 
   if (!currentUser) {
     return null;
+  }
+
+  if (!currentUser.email_verified) {
+    push(routes.root.get());
+    return <p>Email not verified, redirecting...</p>;
   }
 
   return (

@@ -4,7 +4,7 @@ import messages from '../messages';
 import shuffle from 'lodash/shuffle';
 import partition from 'lodash/partition';
 import { Application, Mentor, User, MentorshipRequest } from '../types/models';
-import type { ApplicationStatus } from '../types/models';
+import Auth from '../utils/auth';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -31,9 +31,9 @@ let currentUser: User | undefined;
 
 export default class ApiService {
   mentorsPromise: Promise<Mentor[]> | null = null
-  auth: any
+  auth: Auth;
 
-  constructor(auth: any) {
+  constructor(auth: Auth) {
     this.auth = auth
   }
 
@@ -53,7 +53,7 @@ export default class ApiService {
     jsonous = true
   ): Promise<OkResponse<T> | ErrorResponse | null> => {
     // public url for ssr
-    const url = `${process.env.NEXT_PUBLIC_PUBLIC_URL}/api${path}${
+    const url = `${process.env.NEXT_PUBLIC_PUBLIC_URL}/.netlify/functions${path}${
       method === 'GET' && body ? `?${new URLSearchParams(body)}` : ''
     }`;
     const optionBody = jsonous
@@ -119,6 +119,11 @@ export default class ApiService {
 
   clearCurrentUser = () => {
     currentUser = undefined;
+    ApiService.clearCurrentUserFromStorage();
+  }
+
+  // because we need to call it from authContext which doesn't have access to ApiService
+  static clearCurrentUserFromStorage = () => {
     localStorage.removeItem(USER_LOCAL_KEY);
   }
 
@@ -347,5 +352,9 @@ export default class ApiService {
       }
     );
     this.storeUserInLocalStorage();
+  }
+
+  resendVerificationEmail = async () => {
+    return this.makeApiCall(`${paths.USERS}/verify`, null, 'POST');
   }
 }

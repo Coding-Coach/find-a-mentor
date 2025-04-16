@@ -6,8 +6,9 @@ import jwksClient from 'jwks-rsa'
 import config from '../config'
 import { Role } from '../common/interfaces/user.interface'
 import { getCurrentUser } from '../modules/users/current'
-import { getUserByAuthId } from '../data/users'
+import { getUserBy } from '../data/users'
 import { DataError } from '../data/errors'
+import { ErrorCodes } from '../../../../api-types/errorCodes'
 
 const AUTH0_DOMAIN = config.auth0.backend.DOMAIN
 const CLIENT_ID = config.auth0.frontend.CLIENT_ID
@@ -51,16 +52,18 @@ export const verifyToken = async (token: string): Promise<jwt.JwtPayload> => {
 export function withAuth(handler: ApiHandler, options: {
   role?: Role,
   authRequired?: boolean,
-  returnUser?: boolean
+  includeFullUser?: boolean,
+  emailVerificationRequired?: boolean
 } = {
   role: undefined,
   authRequired: true,
-  returnUser: false
+    emailVerificationRequired: true,
+    includeFullUser: false
 }): ApiHandler {
   return async (event, context): Promise<HandlerResponse> => {
     try {
       const authHeader = event.headers.authorization
-      const { role, authRequired, returnUser } = options
+      const { role, authRequired, includeFullUser, emailVerificationRequired } = options
 
       if (!authHeader?.startsWith('Bearer ')) {
         if (authRequired) {
@@ -74,9 +77,13 @@ export function withAuth(handler: ApiHandler, options: {
       if (!decodedToken.sub || decodedToken.aud !== CLIENT_ID || decodedToken.iss !== `https://${AUTH0_DOMAIN}/`) {
         return error('Unauthorized', 401)
       }
-
+      if (emailVerificationRequired && !decodedToken.email_verified) {
+        return error('Email is not verified', 403, ErrorCodes.EmailNotVerified)
+      }
       context.user = {
         auth0Id: decodedToken.sub,
+        // https://chatgpt.com/share/67f93816-4f0c-800c-a8e7-5bbf99d85d4b
+        email_verified: decodedToken.email_verified,
       }
 
       // TODO: instead, set a custom prop on auth0 - is admin to save the call to the database and get it from the token
@@ -88,8 +95,8 @@ export function withAuth(handler: ApiHandler, options: {
         }
       }
 
-      if (returnUser && decodedToken.sub) {
-        const userDto = await getUserByAuthId(decodedToken.sub)
+      if (includeFullUser && decodedToken.sub) {
+        const userDto = await getUserBy('auth0Id', decodedToken.sub)
         if (!userDto) {
           return error('User not found', 404)
         }

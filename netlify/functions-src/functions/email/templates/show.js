@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const app = express();
 const port = 3003;
-const layout = fs.readFileSync('content/email_templates/layout.html', {
+const layout = fs.readFileSync(`${__dirname}/layout.html`, {
   encoding: 'utf8',
 });
 
@@ -20,7 +20,7 @@ app.get('/:templateName', function (req, res) {
   if (templateName.includes('.')) return;
   const { data } = req.query;
   const template = fs.readFileSync(
-    `content/email_templates/${templateName}.html`,
+    `${__dirname}/${templateName}.html`,
     { encoding: 'utf8' },
   );
   const content = injectData(

@@ -2,7 +2,7 @@ import type { ObjectId } from 'mongodb'
 import { Role } from '../interfaces/user.interface'
 
 export class UserDto {
-  _id?: ObjectId
+  _id: ObjectId
   auth0Id: string
   email: string
   name: string

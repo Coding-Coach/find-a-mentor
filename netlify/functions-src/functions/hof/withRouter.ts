@@ -49,8 +49,8 @@ const getRouteData = (route: Route, path: string) => {
 }
 
 const getAppPath = (eventPath: string) => {
-  // event.path = /api/mentorships/:userId/requests
-  const [,,,...innerSegments] = eventPath.split(nPath.sep);
+  // event.path = /.netlify/functions/mentorships/:userId/requests
+  const [,,,,...innerSegments] = eventPath.split(nPath.sep);
   return `/${innerSegments.join('/')}`;
 }
 

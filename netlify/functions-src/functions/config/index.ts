@@ -33,6 +33,9 @@ const config = {
   pagination: {
     limit: 20,
   },
+  urls: {
+    CLIENT_BASE_URL: process.env.CLIENT_BASE_URL,
+  },
 };
 
 export default config;

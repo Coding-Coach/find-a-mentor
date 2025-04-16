@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components/macro';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -11,6 +11,8 @@ import { ActionsHandler } from './ActionsHandler';
 import { desktop, mobile } from '../../../Me/styles/shared/devices';
 import { Sidebar } from '../../Sidebar/Sidebar';
 import { useMentors } from '../../../context/mentorsContext/MentorsContext';
+import { useUser } from '../../../context/userContext/UserContext';
+import { VerificationModal } from './VerificationModal';
 
 const App = (props) => {
   const { children } = props;
@@ -20,8 +22,27 @@ const App = (props) => {
     title: null,
     content: null,
     onClose: null,
+    showCloseButton: true,
   });
   const { mentors } = useMentors();
+  const { emailVerifiedInfo } = useUser();
+  const closeModal = useCallback(() => setModal({}), []);
+
+  const showVerifyEmailModal = useCallback(() => {
+    setModal({
+      showCloseButton: false,
+      title: 'Verify your email',
+      content: (
+        <VerificationModal
+          onSuccess={() => {
+            toast.success('We just sent you the verification email');
+            closeModal();
+          }}
+        />
+      ),
+      onClose: closeModal,
+    });
+  }, [closeModal]);
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -37,6 +58,12 @@ const App = (props) => {
       );
     }
   }, []);
+
+  useEffect(() => {
+    if (emailVerifiedInfo?.isVerified === false) {
+      showVerifyEmailModal(emailVerifiedInfo.email);
+    }
+  }, [emailVerifiedInfo, showVerifyEmailModal]);
 
   useEffect(
     () => setWindowTitle({ tag, country, name, language }),
@@ -55,7 +82,7 @@ const App = (props) => {
   return (
     <div className="app">
       <ToastContainer />
-      <Modal title={modal?.title}>{modal?.content}</Modal>
+      <Modal title={modal?.title} showCloseButton={modal.showCloseButton}>{modal?.content}</Modal>
       <Layout>
         <Header />
         <Body>

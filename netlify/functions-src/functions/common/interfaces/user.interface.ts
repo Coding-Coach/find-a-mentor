@@ -18,6 +18,10 @@ export interface User {
   tags?: string[];
 }
 
+export type ApplicationUser = User & {
+  email_verified: boolean;
+}
+
 export enum Role {
   ADMIN = 'Admin',
   MEMBER = 'Member',

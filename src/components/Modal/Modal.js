@@ -3,12 +3,12 @@ import classNames from 'classnames';
 
 export default class Modal extends Component {
   state = {
-    isActive: false,
+    isActive: this.props.isActive ?? false,
   };
 
   handleOpen = (children) => {
     this.setState({
-      isActive: true,
+      isActive: !!children,
       children,
     });
   };
@@ -39,16 +39,20 @@ export default class Modal extends Component {
 
   render() {
     const { isActive, children } = this.state;
-    const { title, size = '' } = this.props;
+    const { title, size = '', showCloseButton = true } = this.props;
     return (
       <div
         className={classNames(['modal-container', size, { active: isActive }])}
         onTransitionEnd={this.onTransitionEnd}
       >
         <div className="modal-box">
-          <button className="close" onClick={this.handleClose}>
-            <i className="fa fa-times" aria-hidden="true"></i>
-          </button>
+          {
+            showCloseButton && (
+              <button className="close" onClick={this.handleClose}>
+                <i className="fa fa-times" aria-hidden="true"></i>
+              </button>
+            )
+          }
           {
             title && (
               <div className="modal-head">
