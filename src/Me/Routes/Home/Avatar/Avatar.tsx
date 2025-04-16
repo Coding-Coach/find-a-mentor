@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
 import Camera from '../../../../assets/me/camera.svg';
@@ -8,7 +8,7 @@ import { IconButton } from '../../../components/Button/IconButton';
 import { Tooltip } from 'react-tippy';
 import { toast } from 'react-toastify';
 import { report } from '../../../../ga';
-import { useApi } from '../../../../context/apiContext/ApiContext';
+import { Modal } from '../../../Modals/Modal';
 
 const ShareProfile = ({ url }: { url: string }) => {
   const [showInput, setShowInput] = React.useState(false);
@@ -51,20 +51,16 @@ const ShareProfile = ({ url }: { url: string }) => {
 };
 
 const Avatar: FC = () => {
-  const { currentUser, updateCurrentUser } = useUser<true>();
-  const api = useApi();
+  const { currentUser } = useUser<true>();
+  const [isModalOpen, setModalOpen] = useState(false);
+
   if (!currentUser) {
     return null;
   }
 
-  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.length) {
-      const formData = new FormData();
-      formData.append('image', e.target.files[0]);
-
-      const updatedUser = await api.updateMentorAvatar(currentUser, formData);
-      updateCurrentUser(updatedUser);
-    }
+  const handleProceed = () => {
+    window.open('https://gravatar.com', '_blank', 'noopener,noreferrer');
+    setModalOpen(false);
   };
 
   return (
@@ -73,104 +69,72 @@ const Avatar: FC = () => {
         <ShareProfile
           url={`${process.env.NEXT_PUBLIC_AUTH_CALLBACK}/u/${currentUser._id}`}
         />
-        <label htmlFor="upload-button">
-          <Tooltip title="Change your avatar on Gravatar">
-            <UserAvatar>
-              <a
-                className="change-avatar"
-                href="https://gravatar.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <i className="fa fa-pencil" />
-              </a>
-
-              {currentUser && currentUser.avatar ? (
-                <UserImage
-                  alt={currentUser.email}
-                  src={getAvatarUrl(currentUser.avatar)}
-                />
-              ) : (
-                <AvatarPlaceHolder alt="No profile picture" src={Camera} />
-              )}
-            </UserAvatar>
-          </Tooltip>
-        </label>
-        {/* <input
-          type="file"
-          id="upload-button"
-          style={{ display: 'none' }}
-          onChange={handleChange}
-          accept='image/*'
-          aria-label="Upload profile picture"
-          aria-describedby="upload-button"
-        /> */}
+        <div>
+          {currentUser && currentUser.avatar ? (
+            <UserImage
+              alt={currentUser.email}
+              src={getAvatarUrl(currentUser.avatar)}
+            />
+          ) : (
+            <AvatarPlaceHolder alt="No profile picture" src={Camera} />
+          )}
+          <ChangeAvatarButton onClick={() => setModalOpen(true)}>
+            Change your avatar on Gravatar
+          </ChangeAvatarButton>
+        </div>
         <h1>{currentUser ? currentUser.name : ''}</h1>
         <p>{currentUser ? currentUser.title : ''}</p>
+        {isModalOpen && (
+          <Modal
+            title="Change Avatar"
+            onClose={() => setModalOpen(false)}
+            submitLabel="Proceed"
+            onSave={handleProceed}
+            center={true}
+          >
+            <p>
+              You will be redirected to Gravatar.com to change your avatar.
+              <br />
+              Note that it may take a few minutes for the changes to reflect.
+            </p>
+          </Modal>
+        )}
       </Container>
     </CardContainer>
   );
 };
 
-const UserAvatar = styled.div`
-  position: relative;
-  height: 100px;
-  width: 100px;
-  margin: auto;
-  background-color: #20293a;
-  margin-bottom: 10px;
-  border-radius: 50%;
-  display: flex;
+// Styled components for the updated UI elements
+const ChangeAvatarButton = styled.button`
+  color: #179a6f;
   cursor: pointer;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  display: block;
+  margin: auto auto 10px;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0;
-    transition: all 0.2s ease;
-  }
-
-  &:hover {
-    &:before,
-    .change-avatar {
-      opacity: 1;
-    }
-  }
-
-  .change-avatar {
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: all 0.2s ease;
-    padding: 10px;
-    background: #f8f8f8;
-    border-radius: 50%;
-    text-decoration: none;
-
-    i {
-      display: block;
-    }
+  &:focus {
+    outline: 2px solid #179a6f;
+    outline-offset: 2px;
   }
 `;
 
 const AvatarPlaceHolder = styled.img`
-  width: 50%;
+  width: 100px;
+  height: 100px;
   margin: auto;
+  object-fit: cover;
+  border-radius: 8px;
 `;
 
 const UserImage = styled.img`
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  overflow: hidden;
-  border-radius: 50%;
+  border-radius: 8px;
 `;
 
 const Container = styled.div`
