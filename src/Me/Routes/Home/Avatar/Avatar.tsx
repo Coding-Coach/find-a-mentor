@@ -8,7 +8,7 @@ import { IconButton } from '../../../components/Button/IconButton';
 import { Tooltip } from 'react-tippy';
 import { toast } from 'react-toastify';
 import { report } from '../../../../ga';
-import { Modal } from '../../../Modals/Modal';
+import { RedirectToGravatar } from '../../../Modals/RedirectToGravatar';
 
 const ShareProfile = ({ url }: { url: string }) => {
   const [showInput, setShowInput] = React.useState(false);
@@ -78,48 +78,20 @@ const Avatar: FC = () => {
           ) : (
             <AvatarPlaceHolder alt="No profile picture" src={Camera} />
           )}
-          <ChangeAvatarButton onClick={() => setModalOpen(true)}>
-            Change your avatar on Gravatar
-          </ChangeAvatarButton>
+          <ChangeAvatarSection onClick={() => setModalOpen(true)}>
+            Change your avatar on <RedirectToGravatar />
+          </ChangeAvatarSection>
         </div>
         <h1>{currentUser ? currentUser.name : ''}</h1>
         <p>{currentUser ? currentUser.title : ''}</p>
-        {isModalOpen && (
-          <Modal
-            title="Change Avatar"
-            onClose={() => setModalOpen(false)}
-            submitLabel="Proceed"
-            onSave={handleProceed}
-            center={true}
-          >
-            <p>
-              You will be redirected to Gravatar.com to change your avatar.
-              <br />
-              Note that it may take a few minutes for the changes to reflect.
-            </p>
-          </Modal>
-        )}
       </Container>
     </CardContainer>
   );
 };
 
 // Styled components for the updated UI elements
-const ChangeAvatarButton = styled.button`
-  color: #179a6f;
-  cursor: pointer;
-  text-decoration: underline;
-  background: none;
-  border: none;
-  padding: 0;
-  font: inherit;
-  display: block;
+const ChangeAvatarSection = styled.div`
   margin: auto auto 10px;
-
-  &:focus {
-    outline: 2px solid #179a6f;
-    outline-offset: 2px;
-  }
 `;
 
 const AvatarPlaceHolder = styled.img`

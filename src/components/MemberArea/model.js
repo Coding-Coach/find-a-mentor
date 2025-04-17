@@ -38,15 +38,11 @@ export default {
   },
   avatar: {
     label: 'Avatar',
-    type: 'file',
+    type: 'gravatar',
     defaultValue: '',
-    helpText: 'https public URL to an image file',
+    helpText: 'Please use your real image',
     previewImage: true,
-    props: {
-      accept: 'image/*',
-      maxSize: 500000, // 500KB
-    },
-    validate: (value) => !!value,
+    validate: (value) => value.includes('gravatar'),
   },
   title: {
     label: 'Title',
