@@ -84,6 +84,7 @@ const ButtonBar = styled.div`
 `;
 
 const Center = css`
+  margin-inline: 5px;
   height: fit-content;
   width: fit-content;
   box-shadow: 0 0 4px 0 rgba(17, 22, 26, 0.16),
@@ -123,15 +124,14 @@ const ModalContainer = styled.div<{ posCenter: boolean }>`
   background-color: #fff;
   backface-visibility: hidden;
   will-change: transform, opacity;
+  ${(props) => (props.posCenter ? Center : Cover)}
 
-  ${Cover}
   @media ${mobile} {
     padding: 0 10px;
   }
 
   @media ${desktop} {
     padding: 0 45px;
-    ${(props) => (props.posCenter ? Center : Cover)}
   }
 `;
 
@@ -176,6 +176,14 @@ export const Modal: FC<ModalProps> = ({
   const { closeModal } = useContext(ModalContext);
   const [visible, setVisible] = useState(false);
 
+  const handleOverlayClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (e.target === e.currentTarget) {
+      close();
+    }
+  };
+
   const save = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     onSave?.(e);
   };
@@ -203,7 +211,7 @@ export const Modal: FC<ModalProps> = ({
   }, []);
 
   return (
-    <Overlay posCenter={center}>
+    <Overlay posCenter={center} onClick={handleOverlayClick}>
       {transitionStyle}
       {center && transitionCenter}
 
