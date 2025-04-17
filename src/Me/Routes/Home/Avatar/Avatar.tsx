@@ -8,7 +8,7 @@ import { IconButton } from '../../../components/Button/IconButton';
 import { Tooltip } from 'react-tippy';
 import { toast } from 'react-toastify';
 import { report } from '../../../../ga';
-import { useApi } from '../../../../context/apiContext/ApiContext';
+import { RedirectToGravatar } from '../../../Modals/RedirectToGravatar';
 
 const ShareProfile = ({ url }: { url: string }) => {
   const [showInput, setShowInput] = React.useState(false);
@@ -20,7 +20,7 @@ const ShareProfile = ({ url }: { url: string }) => {
     toast.success('Copied to clipboard', {
       toastId: 'share-profile-toast',
     });
-  }
+  };
 
   return (
     <ShareProfileStyled>
@@ -31,7 +31,7 @@ const ShareProfile = ({ url }: { url: string }) => {
           color="#179a6f"
           onClick={() => setShowInput(!showInput)}
           buttonProps={{
-            "aria-label": "Share your profile"
+            'aria-label': 'Share your profile',
           }}
         />
       </Tooltip>
@@ -51,21 +51,11 @@ const ShareProfile = ({ url }: { url: string }) => {
 };
 
 const Avatar: FC = () => {
-  const { currentUser, updateCurrentUser } = useUser<true>();
-  const api = useApi()
+  const { currentUser } = useUser<true>();
+
   if (!currentUser) {
-    return null
+    return null;
   }
-
-  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.length) {
-      const formData = new FormData();
-      formData.append('image', e.target.files[0]);
-
-      const updatedUser = await api.updateMentorAvatar(currentUser, formData);
-      updateCurrentUser(updatedUser);
-    }
-  };
 
   return (
     <CardContainer>
@@ -73,27 +63,19 @@ const Avatar: FC = () => {
         <ShareProfile
           url={`${process.env.NEXT_PUBLIC_AUTH_CALLBACK}/u/${currentUser._id}`}
         />
-        <label htmlFor="upload-button">
-          <UserAvatar>
-            {currentUser && currentUser.avatar ? (
-              <UserImage
-                alt={currentUser.email}
-                src={getAvatarUrl(currentUser.avatar)}
-              />
-            ) : (
-              <AvatarPlaceHolder alt="No profile picture" src={Camera} />
-            )}
-          </UserAvatar>
-        </label>
-        <input
-          type="file"
-          id="upload-button"
-          style={{ display: 'none' }}
-          onChange={handleChange}
-          accept='image/*'
-          aria-label="Upload profile picture"
-          aria-describedby="upload-button"
-        />
+        <div>
+          {currentUser && currentUser.avatar ? (
+            <UserImage
+              alt={currentUser.email}
+              src={getAvatarUrl(currentUser.avatar)}
+            />
+          ) : (
+            <AvatarPlaceHolder alt="No profile picture" src={Camera} />
+          )}
+          <ChangeAvatarSection>
+            Change your avatar on <RedirectToGravatar />
+          </ChangeAvatarSection>
+        </div>
         <h1>{currentUser ? currentUser.name : ''}</h1>
         <p>{currentUser ? currentUser.title : ''}</p>
       </Container>
@@ -101,26 +83,24 @@ const Avatar: FC = () => {
   );
 };
 
-const UserAvatar = styled.div`
-  height: 100px;
-  width: 100px;
-  margin: auto;
-  background-color: #20293a;
-  margin-bottom: 10px;
-  border-radius: 50%;
-  display: flex;
-  cursor: pointer;
+// Styled components for the updated UI elements
+const ChangeAvatarSection = styled.div`
+  margin: auto auto 10px;
 `;
 
 const AvatarPlaceHolder = styled.img`
-  width: 50%;
+  width: 100px;
+  height: 100px;
   margin: auto;
+  object-fit: cover;
+  border-radius: 8px;
 `;
 
 const UserImage = styled.img`
+  width: 100px;
+  height: 100px;
   object-fit: cover;
-  overflow: hidden;
-  border-radius: 50%;
+  border-radius: 8px;
 `;
 
 const Container = styled.div`

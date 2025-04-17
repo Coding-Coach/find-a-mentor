@@ -3,14 +3,17 @@ import { User } from '../../types/models';
 import { useAuth } from '../authContext/AuthContext';
 import { useApi } from '../apiContext/ApiContext';
 import { daysAgo } from '../../helpers/time';
+import { getPersistData, setPersistData } from '../../persistData';
 
-type EmailNotVerifiedInfo = {
-  isVerified: true;
-} | {
-  email: string;
-  isVerified: false;
-  isRegisteredRecently: boolean;
-}
+type EmailNotVerifiedInfo =
+  | {
+      isVerified: true;
+    }
+  | {
+      email: string;
+      isVerified: false;
+      isRegisteredRecently: boolean;
+    };
 
 type UserProviderContext = {
   isAdmin: boolean;
@@ -30,7 +33,9 @@ const UserContext = React.createContext<UserProviderContext | undefined>(
 
 export const UserProvider: FC = ({ children }) => {
   const [isLoading, setIsloading] = useState(true);
-  const [currentUser, updateCurrentUser] = useState<User>();
+  const [currentUser, updateCurrentUser] = useState<User>(() =>
+    getPersistData('user')
+  );
   const [emailVerifiedInfo, setEmailVerifiedInfo] =
     useState<EmailNotVerifiedInfo>();
   const auth = useAuth();
@@ -62,6 +67,10 @@ export const UserProvider: FC = ({ children }) => {
     }
     getCurrentUser();
   }, [api]);
+
+  useEffect(() => {
+    setPersistData('user', currentUser);
+  }, [currentUser]);
 
   return (
     <UserContext.Provider

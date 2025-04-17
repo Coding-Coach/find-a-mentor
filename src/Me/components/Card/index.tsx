@@ -28,7 +28,6 @@ const EditButton = styled.button`
 
 export const Content = styled.div`
   color: #4f4f4f;
-  font-family: Lato;
   font-size: 1rem;
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   overflow-x: auto;
