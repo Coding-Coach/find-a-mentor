@@ -4,6 +4,10 @@ import { compile } from 'ejs';
 import type { EmailParams } from './interfaces/email.interface';
 import { sendEmail } from './sendgrid';
 
+const SYSTEM_DATA = {
+  baseUrl: process.env.CLIENT_BASE_URL,
+}
+
 export const send = async (params: EmailParams) => {
   const { to, subject, data = {}, name } = params;
 
@@ -24,7 +28,10 @@ export const send = async (params: EmailParams) => {
 const injectData = async (name: string, data: Record<string, string>) => {
   const template = await getTemplateContent(name);
   const layout = await getLayout();
-  const content = compile(template)(data);
+  const content = compile(template)({
+    ...SYSTEM_DATA,
+    ...data
+  });
   return compile(layout)({ content });
 }
 
@@ -32,14 +39,16 @@ const getLayout = async () => {
   return getTemplateContent('layout');
 }
 
-const getTemplateContent = (name: string) => {
+const getTemplateContent = async (name: string) => {
   const templatesDir = path.resolve(__dirname, 'email/templates');
   const templatePath = `${templatesDir}/${name}.html`;
-  return promises.readFile(templatePath, {
-    encoding: 'utf8',
-  }).catch((error) => {
+  try {
+    return promises.readFile(templatePath, {
+      encoding: 'utf8',
+    });
+  } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Error reading template file:', error);
     throw new Error(`Template file not found: ${templatePath}`);
-  });
+  }
 }

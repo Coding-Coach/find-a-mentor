@@ -52,16 +52,10 @@ const ShareProfile = ({ url }: { url: string }) => {
 
 const Avatar: FC = () => {
   const { currentUser } = useUser<true>();
-  const [isModalOpen, setModalOpen] = useState(false);
 
   if (!currentUser) {
     return null;
   }
-
-  const handleProceed = () => {
-    window.open('https://gravatar.com', '_blank', 'noopener,noreferrer');
-    setModalOpen(false);
-  };
 
   return (
     <CardContainer>
@@ -78,7 +72,7 @@ const Avatar: FC = () => {
           ) : (
             <AvatarPlaceHolder alt="No profile picture" src={Camera} />
           )}
-          <ChangeAvatarSection onClick={() => setModalOpen(true)}>
+          <ChangeAvatarSection>
             Change your avatar on <RedirectToGravatar />
           </ChangeAvatarSection>
         </div>

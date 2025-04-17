@@ -104,17 +104,13 @@ export default class ApiService {
   }
 
   getCurrentUser = async (): Promise<typeof currentUser> => {
-    if (!currentUser && this.auth.isAuthenticated()) {
-      const userFromLocal = localStorage.getItem(USER_LOCAL_KEY);
-      if (userFromLocal) {
-        currentUser = JSON.parse(userFromLocal);
-        // meantime, fetch the real user
-        this.fetchCurrentItem();
-      } else {
-        await this.fetchCurrentItem();
-      }
+    if (!this.auth.isAuthenticated()) {
+      return null;
     }
-    return currentUser;
+    const currentUserResponse = await this.makeApiCall<User>(`${paths.USERS}/current`)
+    if (currentUserResponse?.success) {
+      return currentUserResponse.data;
+    }
   }
 
   clearCurrentUser = () => {
@@ -124,6 +120,8 @@ export default class ApiService {
 
   // because we need to call it from authContext which doesn't have access to ApiService
   static clearCurrentUserFromStorage = () => {
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     localStorage.removeItem(USER_LOCAL_KEY);
   }
 
@@ -206,38 +204,37 @@ export default class ApiService {
       mentor,
       'PUT'
     );
-    if (response?.success) {
-      this.storeUserInLocalStorage(mentor);
-    }
     return !!response?.success;
   }
 
-  updateMentorAvatar = async (mentor: Mentor, value: FormData) => {
-    const response = await this.makeApiCall(
-      `${paths.USERS}/${mentor._id}/avatar`,
-      value,
-      'POST',
-      false
-    );
-    if (response?.success) {
-      await this.fetchCurrentItem();
-    }
-    return currentUser!;
-  }
+  // no need. we're using gravatar now
+  // updateMentorAvatar = async (mentor: Mentor, value: FormData) => {
+  //   const response = await this.makeApiCall(
+  //     `${paths.USERS}/${mentor._id}/avatar`,
+  //     value,
+  //     'POST',
+  //     false
+  //   );
+  //   if (response?.success) {
+  //     await this.fetchCurrentItem();
+  //   }
+  //   return currentUser!;
+  // }
 
-  updateMentorAvailability = async (isAvailable: boolean) => {
-    let currentUser = (await this.getCurrentUser())!;
-    const userID = currentUser._id;
-    const response = await this.makeApiCall(
-      `${paths.USERS}/${userID}`,
-      { available: isAvailable },
-      'PUT'
-    );
-    if (response?.success) {
-      this.storeUserInLocalStorage({ ...currentUser, available: isAvailable });
-    }
-    return !!response?.success;
-  }
+  // TODO: do we need this? I think we have a general user update
+  // updateMentorAvailability = async (isAvailable: boolean) => {
+  //   let currentUser = (await this.getCurrentUser())!;
+  //   const userID = currentUser._id;
+  //   const response = await this.makeApiCall(
+  //     `${paths.USERS}/${userID}`,
+  //     { available: isAvailable },
+  //     'PUT'
+  //   );
+  //   if (response?.success) {
+  //     this.storeUserInLocalStorage({ ...currentUser, available: isAvailable });
+  //   }
+  //   return !!response?.success;
+  // }
 
   deleteMentor = async (mentorId: string) => {
     const response = await this.makeApiCall(
@@ -286,12 +283,16 @@ export default class ApiService {
       'POST'
     );
     if (response?.success) {
+      // TODO: use persistData
+      // eslint-disable-next-line no-restricted-syntax
       localStorage.setItem(USER_MENTORSHIP_REQUEST, JSON.stringify(payload));
     }
     return !!response?.success;
   }
 
   getMyMentorshipApplication = () => {
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
   }
 
@@ -332,26 +333,8 @@ export default class ApiService {
     return messages.GENERIC_ERROR;
   }
 
-  storeUserInLocalStorage = (user: User = currentUser!) => {
-    if (user) {
-      localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(user));
-    }
-  }
-
   fetchCurrentItem = async () => {
-    currentUser = await this.makeApiCall<User>(`${paths.USERS}/current`).then(
-      (response) => {
-        if (response?.success) {
-          const { _id, email, name, roles } = response.data || {};
-          if (!_id) {
-            return;
-          }
 
-          return response.data;
-        }
-      }
-    );
-    this.storeUserInLocalStorage();
   }
 
   resendVerificationEmail = async () => {

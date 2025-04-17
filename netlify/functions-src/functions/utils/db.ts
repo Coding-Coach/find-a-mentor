@@ -28,6 +28,14 @@ export async function connectToDatabase(): Promise<Db> {
   return db
 }
 
+// can't run transactions on a sharded cluster
+// export const startSession = () => {
+//   if (!client) {
+//     throw new Error('Database client not connected. Have you remembered to call connectToDatabase()?')
+//   }
+//   return client.startSession()
+// }
+
 // Helper function to get a collection with proper typing
 export const getCollection = <T extends Document>(collectionName: CollectionName) => {
   if (!cachedDb) {

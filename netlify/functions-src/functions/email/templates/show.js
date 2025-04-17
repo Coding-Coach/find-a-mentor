@@ -9,7 +9,10 @@ const layout = fs.readFileSync(`${__dirname}/layout.html`, {
 });
 
 function injectData(template, data) {
-  const content = compile(template)(data);
+  const content = compile(template)({
+    ...data,
+    baseUrl: 'https://example.com',
+  });
   return compile(layout)({
     content,
   });
