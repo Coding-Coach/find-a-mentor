@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Modal } from './Modal';
+import styled from 'styled-components';
 
 export const RedirectToGravatar = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -35,13 +36,21 @@ export const RedirectToGravatar = () => {
           onSave={handleProceed}
           center={true}
         >
-          <p>
-            You will be redirected to Gravatar.com to change your avatar.
+          <Content>
+            We’ll take you to Gravatar.com to update your avatar
             <br />
-            Note that it may take a few minutes for the changes to reflect.
-          </p>
+            Don’t have an account? You're a developer, you'll manage 😉
+            <br />
+            Once you make a change, your new look will show up here once
+            Gravatar's cache expires
+          </Content>
         </Modal>
       )}
     </>
   );
 };
+
+const Content = styled.div`
+  font-size: 1.2rem;
+  line-height: 1.3;
+`;
