@@ -1,6 +1,6 @@
 import { send } from './client';
 
-export const sendApplocationApprovedEmail = async ({ name, email }: { name: string; email: string; }) => {
+export const sendApplicationApprovedEmail = async ({ name, email }: { name: string; email: string; }) => {
   return send({
     name: 'mentor-application-approved',
     to: email,
