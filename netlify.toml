@@ -2,6 +2,13 @@
   command = "yarn build"
   publish = ".next"
 
+[functions]
+  directory = "netlify/functions-src/functions"
+  included_files = ["netlify/functions-src/functions/email/templates/**.html"]
+
+[dev]
+  command = "yarn start"
+
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
   NODE_VERSION = "18"

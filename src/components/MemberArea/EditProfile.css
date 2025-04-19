@@ -42,7 +42,8 @@
 }
 
 .edit-profile .form-field input,
-.edit-profile .form-field textarea {
+.edit-profile .form-field textarea,
+.edit-profile .form-field .input-like {
   padding: 0.67857143em 1em;
 }
 
@@ -88,7 +89,8 @@
 }
 
 .edit-profile .form-field-input-wrapper .form-field-preview + input,
-.edit-profile .form-field-input-wrapper i + input {
+.edit-profile .form-field-input-wrapper i+input,
+.edit-profile .form-field-input-wrapper img+.input-like {
   padding-left: 40px;
 }
 

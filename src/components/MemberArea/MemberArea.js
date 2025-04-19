@@ -18,6 +18,7 @@ function MemberArea({ onOpenModal }) {
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
   const { currentUser, isMentor, isAdmin, isAuthenticated, logout } = useUser();
   const api = useApi();
+  const user = useUser();
   const auth = useAuth();
   const openBecomeMentor = useCallback(
     () => onOpenModal('Edit Your Profile', <EditProfile api={api} />),
@@ -50,9 +51,12 @@ function MemberArea({ onOpenModal }) {
         <>
           <UserAvatar
             data-testid="user-avatar"
-            onClick={() =>
-              currentUser && setIsMemberMenuOpen(!isMemberMenuOpen)
-            }
+            onClick={() => {
+              if (!currentUser) {
+                return;
+              }
+              setIsMemberMenuOpen(!isMemberMenuOpen);
+            }}
           >
             {currentUser ? (
               <UserImage
@@ -70,10 +74,12 @@ function MemberArea({ onOpenModal }) {
                   Open pending applications
                 </MemberMenuItem>
               )}
-              <Link href="/me">
-                <MemberMenuItem>Manage Account</MemberMenuItem>
-              </Link>
-              {!isMentor && (
+              {!user.isNotYetVerified && (
+                <Link href="/me">
+                  <MemberMenuItem>Manage Account</MemberMenuItem>
+                </Link>
+              )}
+              {!isMentor && !user.isNotYetVerified && (
                 <MemberMenuItem onClick={openBecomeMentor}>
                   Become a mentor
                 </MemberMenuItem>

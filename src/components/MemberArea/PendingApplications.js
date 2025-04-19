@@ -36,20 +36,23 @@ export default class PendingApplications extends Component {
     });
   };
 
-  approve = async (application) => {
-    this.toggleLoader(application, true);
-    await this.props.api.approveApplication(application);
-    await this.refreshApplications();
-  };
-
-  reject = async (application) => {
-    const reason = prompt('Why you reject that poor gentleman / lady?');
-    if (reason) {
-      this.toggleLoader(application, true);
-      await this.props.api.declineApplication(application, reason);
-      await this.refreshApplications();
+  respondApplication = async (application, status) => {
+    let reason;
+    if (status === 'Rejected') {
+      reason = prompt('Why do you reject that poor gentleman / lady?');
+      if (!reason) {
+        return;
+      }
     }
-  };
+
+    this.toggleLoader(application, true);
+    await this.props.api.respondApplication({
+      ...application,
+      status,
+      reason
+    });
+    await this.refreshApplications();
+  }
 
   render() {
     const { applications, ready } = this.state;
@@ -81,12 +84,12 @@ export default class PendingApplications extends Component {
                     ) : (
                       <>
                         <ApproveButton
-                          onClick={this.approve.bind(null, application)}
+                          onClick={() => this.respondApplication(application, 'Approved')}
                         >
                           <i className="fa fa-thumbs-up" />
                         </ApproveButton>
                         <RejectButton
-                          onClick={this.reject.bind(null, application)}
+                          onClick={() => this.respondApplication(application, 'Rejected')}
                         >
                           <i className="fa fa-thumbs-down" />
                         </RejectButton>

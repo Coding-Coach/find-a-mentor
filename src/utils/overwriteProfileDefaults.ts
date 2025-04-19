@@ -9,6 +9,5 @@ export function overwriteProfileDefaults({
 
   return {
     name: emailName === name ? '' : name,
-    avatar: avatar && avatar.includes('auth0') ? '' : avatar,
   };
 }

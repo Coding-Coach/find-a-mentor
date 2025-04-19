@@ -4,7 +4,7 @@ import { MentorshipRequest, UserRecord } from '../types/models';
 export function getAllMentorshipRequests(apiService: ApiService, numMonthAgo: number = 1) {
   const monthAgo = new Date();
   monthAgo.setMonth(monthAgo.getMonth() - numMonthAgo);
-  return apiService.makeApiCall<MentorshipRequest[]>(`${paths.MENTORSHIP}/requests`, {
+  return apiService.makeApiCall<MentorshipRequest[]>(`${paths.MENTORSHIP}`, {
     from: monthAgo,
   });
 }

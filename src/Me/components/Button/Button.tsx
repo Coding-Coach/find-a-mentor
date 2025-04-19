@@ -8,7 +8,14 @@ type ButtonProps = Pick<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
     HTMLButtonElement
   >,
-  'onClick' | 'id' | 'disabled' | 'type' | 'name' | 'children' | 'title'
+  | 'onClick'
+  | 'id'
+  | 'disabled'
+  | 'type'
+  | 'name'
+  | 'children'
+  | 'title'
+  | 'autoFocus'
 > & {
   skin?: Skin;
   isLoading?: boolean;

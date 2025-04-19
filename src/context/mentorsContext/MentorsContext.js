@@ -16,15 +16,11 @@ import {
   updateFavMentorsForUser,
 } from '../../favoriteManager';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
-import { mockMentors } from './mockMentors';
-import { isDeep } from '../../utils/isDeep';
 
 const initialState = {
   favorites: [],
   mentors: [],
   addFavorite: () => {},
-  // TODO: Replace isLoading with true when app is ready
-  isLoading: false,
 };
 
 export const MentorsContext = createContext(initialState);
@@ -33,8 +29,7 @@ export const MentorsProvider = (props) => {
   const { children } = props;
 
   const [favorites, setFavorites] = useState([]);
-  // TODO: Replace mockMentors with an empty array when app is ready
-  const [mentors, setMentors] = useState(mockMentors);
+  const [mentors, setMentors] = useState([]);
   const [contextState, setContextState] = useState(initialState);
 
   const { currentUser } = useUser();
@@ -76,7 +71,7 @@ export const MentorsProvider = (props) => {
   }, [currentUser, api]);
 
   useEffect(() => {
-    isDeep() && initialize();
+    initialize();
   }, [initialize]);
 
   const [filters] = useFilters();
