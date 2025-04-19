@@ -116,3 +116,4 @@ server/src/utils/request.d.ts
 netlify/functions/**/*.js
 # Environment variables
 .env*
+.netlify
