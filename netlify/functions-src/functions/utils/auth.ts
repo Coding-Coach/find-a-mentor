@@ -84,6 +84,7 @@ export function withAuth(handler: ApiHandler, options: {
         auth0Id: decodedToken.sub,
         // https://chatgpt.com/share/67f93816-4f0c-800c-a8e7-5bbf99d85d4b
         email_verified: decodedToken.email_verified,
+        picture: decodedToken.picture,
       }
 
       // TODO: instead, set a custom prop on auth0 - is admin to save the call to the database and get it from the token

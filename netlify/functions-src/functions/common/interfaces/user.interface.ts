@@ -1,5 +1,20 @@
 import type { ObjectId } from 'mongodb'
 
+export enum ChannelName {
+  EMAIL = 'email',
+  SLACK = 'slack',
+  LINKED = 'linkedin',
+  FACEBOOK = 'facebook',
+  TWITTER = 'twitter',
+  GITHUB = 'github',
+  WEBSITE = 'website',
+}
+
+export interface Channel extends Document {
+  readonly type: ChannelName;
+  readonly id: string;
+}
+
 export interface User {
   readonly _id: ObjectId;
   available?: boolean;
@@ -12,7 +27,7 @@ export interface User {
   image?: {
     filename: string;
   };
-  channels?: any[];
+  channels?: Channel[];
   createdAt: Date;
   spokenLanguages?: string[];
   tags?: string[];
@@ -20,6 +35,7 @@ export interface User {
 
 export type ApplicationUser = User & {
   email_verified: boolean;
+  picture: string;
 }
 
 export enum Role {

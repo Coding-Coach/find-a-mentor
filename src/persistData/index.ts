@@ -1,9 +1,10 @@
 /* eslint-disable no-restricted-syntax */
 import { isSsr } from '../helpers/ssr';
-import type { User } from '../types/models';
+import type { MentorshipRequest, User } from '../types/models';
 
 type PersistDataKeyMap = {
   user: User;
+  'mentorship-request': Pick<MentorshipRequest, 'expectation' | 'background' | 'message'>;
 }
 
 type PersistDataKey = keyof PersistDataKeyMap;

@@ -28,20 +28,29 @@ type ApproveApplicationResult = {
   user: User;
 }
 
-export const approveApplication = async (applicationId: string): Promise<ApproveApplicationResult> => {
+export const respondToApplication = async (
+  applicationId: string,
+  status: Application['status'],
+  reason?: string
+): Promise<Application> => {
   const applicationsCollection = getCollection<Application>('applications');
-  const usersCollection = getCollection<User>('users');
 
-  // Update the application status to "Approved"
   const updatedApplication = await applicationsCollection.findOneAndUpdate(
     { _id: new ObjectId(applicationId) },
-    { $set: { status: 'Approved' } },
+    { $set: { status, reason } },
     { returnDocument: 'after' }
   );
 
   if (!updatedApplication) {
     throw new Error(`Application ${applicationId} not found`);
   }
+
+  return updatedApplication;
+}
+
+export const approveApplication = async (applicationId: string): Promise<ApproveApplicationResult> => {
+  const updatedApplication = await respondToApplication(applicationId, 'Approved');
+  const usersCollection = getCollection<User>('users');
 
   const updatedUser = await usersCollection.findOneAndUpdate(
     { _id: updatedApplication.user },

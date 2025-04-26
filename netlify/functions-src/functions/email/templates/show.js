@@ -1,6 +1,8 @@
 const express = require('express');
 const { compile } = require('ejs');
 const fs = require('fs');
+const path = require('path');
+const { marked } = require('marked');
 
 const app = express();
 const port = 3003;
@@ -17,6 +19,14 @@ function injectData(template, data) {
     content,
   });
 }
+
+app.get('/', function (req, res) {
+  // Return README.md content if templateName is empty
+  const readmePath = path.join(__dirname, 'README.md');
+  const readmeContent = fs.readFileSync(readmePath, { encoding: 'utf8' });
+  const htmlContent = marked(readmeContent);
+  return res.send(htmlContent);
+});
 
 app.get('/:templateName', function (req, res) {
   const { templateName } = req.params;

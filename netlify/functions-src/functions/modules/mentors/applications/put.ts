@@ -1,15 +1,15 @@
-import { ObjectId } from 'mongodb';
 import type { User } from '../../../common/interfaces/user.interface';
-import { approveApplication, upsertApplication } from '../../../data/mentors';
+import { approveApplication, respondToApplication } from '../../../data/mentors';
 import type { ApiHandler } from '../../../types';
-import type { ApplicationStatus } from '../types';
+import type { Application } from '../types';
 import { error, success } from '../../../utils/response';
-import { sendApplocationApprovedEmail, sendApplocationDeclinedEmail } from '../../../email/emails';
+import { sendApplicationApprovedEmail, sendApplicationDeclinedEmail } from '../../../email/emails';
 import { getUserBy } from '../../../data/users';
 
-export const handler: ApiHandler<{ status: ApplicationStatus }, User> = async (event, context) => {
+// update application by admin
+export const handler: ApiHandler<Pick<Application, 'status' | 'reason'>, User> = async (event, context) => {
   const { applicationId } = event.queryStringParameters || {};
-  const { status } = event.parsedBody || {};
+  const { status, reason } = event.parsedBody || {};
 
   if (!applicationId || !status) {
     return { statusCode: 400, body: 'Bad request' };
@@ -18,7 +18,7 @@ export const handler: ApiHandler<{ status: ApplicationStatus }, User> = async (e
   if (status === 'Approved') {
     try {
       const { user, application } = await approveApplication(applicationId);
-      sendApplocationApprovedEmail({ name: user.name, email: user.email });
+      sendApplicationApprovedEmail({ name: user.name, email: user.email });
 
       return success({
         data: application,
@@ -28,20 +28,17 @@ export const handler: ApiHandler<{ status: ApplicationStatus }, User> = async (e
     }
   }
 
-  const { data, isNew } = await upsertApplication({
-    _id: new ObjectId(applicationId),
-    status,
-  });
-
   if (status === 'Rejected') {
-    const user = await getUserBy('_id', data.user);
+    const application = await respondToApplication(applicationId, status, reason);
+    const user = await getUserBy('_id', application.user);
     if (user) {
-      sendApplocationDeclinedEmail({ name: user.name, email: user.email, reason: data.reason! });
+      sendApplicationDeclinedEmail({ name: user.name, email: user.email, reason: application.reason! });
     }
+
+    return success({
+      data: application,
+    });
   }
 
-  return success({
-    data,
-    isNew,
-  });
+  return error(`Invalid status ${status}`, 400);
 }
