@@ -7,7 +7,7 @@ export type BaseExistingEntity = WithId<{
 type UpdateEntityPayload<T> = WithId<Partial<T>>;
 export type CreateEntityPayload<T> = OptionalId<T>;
 export type EntityPayload<T> = CreateEntityPayload<T> | UpdateEntityPayload<T>;
-export type CollectionName = 'users' | 'applications' | 'mentorships';
+export type CollectionName = 'users' | 'applications' | 'mentorships' | 'favorites';
 
 export type UpsertResult<T> = Promise<{
   data: WithId<T>;

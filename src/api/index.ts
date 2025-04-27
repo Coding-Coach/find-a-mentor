@@ -26,6 +26,7 @@ export const paths = {
   USERS: '/users',
   MENTORSHIP: '/mentorships',
   ADMIN: '/admin',
+  FAVORITES: '/favorites',
 };
 
 let currentUser: User | undefined;
@@ -162,22 +163,18 @@ export default class ApiService {
   }
 
   getFavorites = async () => {
-    const { _id: userId } = (await this.getCurrentUser())!;
-
-    const response = await this.makeApiCall<{ mentors: Mentor[] }>(
-      `${paths.USERS}/${userId}/favorites`
+    const response = await this.makeApiCall<{ mentorIds: string[] }>(
+      `${paths.FAVORITES}`
     );
     if (response?.success) {
-      return response.data.mentors.map((mentor) => mentor._id);
+      return response.data.mentorIds;
     }
     return [];
   }
 
   addMentorToFavorites = async (mentorId: string) => {
-      const { _id: userId } = (await this.getCurrentUser())!;
-
     const response = await this.makeApiCall(
-      `${paths.USERS}/${userId}/favorites/${mentorId}`,
+      `${paths.FAVORITES}/${mentorId}`,
       {},
       'POST'
     );
