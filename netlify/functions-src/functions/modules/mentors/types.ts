@@ -21,6 +21,7 @@ export type Application = OptionalId<{
 }>;
 
 export interface GetMentorsQuery {
+  available?: boolean
   tags?: string | string[]
   country?: string
   spokenLanguages?: string | string[]
