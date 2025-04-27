@@ -25,7 +25,7 @@ export function error(message: string, statusCode = 400, errorCode?: ErrorCodes)
       'Content-Type': 'application/json',
       'Cache-Control': 'no-store',
     },
-    body: JSON.stringify({ success: false, error: message, errorCode })
+    body: JSON.stringify({ success: false, message, errorCode })
   }
   return response;
 }

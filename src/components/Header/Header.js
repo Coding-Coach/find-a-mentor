@@ -10,6 +10,7 @@ import Navigation from '../Navigation/Navigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import { useAuth } from '../../context/authContext/AuthContext';
 import { useDeviceType } from '../../hooks/useDeviceType';
+import Link from '../Link/Link';
 
 function Header() {
   const [modal, setModal] = useState({
@@ -29,15 +30,14 @@ function Header() {
 
   return (
     <HeaderWrapper>
-      <LogoTitleWrapper>
-        <LogoWrapper>
-          <LogoLink href="https://codingcoach.io/">
+      <LogoLink href="/">
+        <LogoTitleWrapper>
+          <LogoWrapper>
             <Logo />
-          </LogoLink>
-        </LogoWrapper>
-        {isDesktop && <Title />}
-      </LogoTitleWrapper>
-
+          </LogoWrapper>
+          {isDesktop && <Title />}
+        </LogoTitleWrapper>
+      </LogoLink>
       {isDesktop ? (
         <>
           <Navigation
@@ -112,7 +112,7 @@ const LogoWrapper = styled.div`
   margin: 0 10px;
 `;
 
-const LogoLink = styled.a``;
+const LogoLink = styled(Link)``;
 
 const HeaderOffCanvas = styled(OffCanvas)`
   outline: currentcolor none 0;

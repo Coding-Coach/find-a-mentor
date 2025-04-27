@@ -19,7 +19,6 @@ const SiteTitle = () => {
         />
       </g>
       <g>
-        <title>Layer 1</title>
         <g id="svg_2">
           <path
             id="svg_3"

@@ -23,6 +23,7 @@ type UserProviderContext = {
   emailVerifiedInfo?: EmailNotVerifiedInfo;
   isNotYetVerified: boolean;
   isAuthenticated: boolean;
+  isAuthenticatedAndVerified: boolean;
   updateCurrentUser(user: User): void;
   logout(): void;
 };
@@ -33,14 +34,15 @@ const UserContext = React.createContext<UserProviderContext | undefined>(
 
 export const UserProvider: FC = ({ children }) => {
   const [isLoading, setIsloading] = useState(true);
+  const auth = useAuth();
+  const api = useApi();
   const [currentUser, updateCurrentUser] = useState<User>(() =>
-    getPersistData('user')
+    auth.getCurrentUserFromPersistData()
   );
   const [emailVerifiedInfo, setEmailVerifiedInfo] =
     useState<EmailNotVerifiedInfo>();
-  const auth = useAuth();
-  const api = useApi();
   const isAuthenticated = auth.isAuthenticated();
+  const isAuthenticatedAndVerified = isAuthenticated && emailVerifiedInfo?.isVerified;
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');
   const isNotYetVerified = emailVerifiedInfo?.isVerified === false;
@@ -54,6 +56,8 @@ export const UserProvider: FC = ({ children }) => {
       const user = await api.getCurrentUser();
       setIsloading(false);
       if (!user) {
+        updateCurrentUser(null);
+        auth.forgetUser(api);
         return;
       }
 
@@ -66,7 +70,7 @@ export const UserProvider: FC = ({ children }) => {
       updateCurrentUser(user);
     }
     getCurrentUser();
-  }, [api]);
+  }, [api, auth]);
 
   useEffect(() => {
     setPersistData('user', currentUser);
@@ -82,6 +86,7 @@ export const UserProvider: FC = ({ children }) => {
         emailVerifiedInfo,
         isNotYetVerified,
         isAuthenticated,
+        isAuthenticatedAndVerified,
         logout,
         updateCurrentUser,
       }}

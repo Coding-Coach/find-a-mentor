@@ -5,6 +5,7 @@ import shuffle from 'lodash/shuffle';
 import partition from 'lodash/partition';
 import { Application, Mentor, User, MentorshipRequest } from '../types/models';
 import Auth from '../utils/auth';
+import { setPersistData } from '../persistData';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -105,6 +106,7 @@ export default class ApiService {
 
   getCurrentUser = async (): Promise<typeof currentUser> => {
     if (!this.auth.isAuthenticated()) {
+      this.clearCurrentUser();
       return null;
     }
     const currentUserResponse = await this.makeApiCall<User>(`${paths.USERS}/current`)
@@ -127,7 +129,7 @@ export default class ApiService {
 
   getMentors = async () => {
     if (!this.mentorsPromise) {
-      this.mentorsPromise = this.makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300&available=true`).then(
+      this.mentorsPromise = this.makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=100&available=true`).then(
         (response) => {
           if (response?.success) {
             const [available, unavailable] = partition(
@@ -282,12 +284,8 @@ export default class ApiService {
       payload,
       'POST'
     );
-    if (response?.success) {
-      // TODO: use persistData
-      // eslint-disable-next-line no-restricted-syntax
-      localStorage.setItem(USER_MENTORSHIP_REQUEST, JSON.stringify(payload));
-    }
-    return !!response?.success;
+    setPersistData('mentorship-request', payload);
+    return response;
   }
 
   getMyMentorshipApplication = () => {

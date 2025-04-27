@@ -6,9 +6,9 @@ const Logo = () => {
       width="90.78"
       height="47.7400016784668"
       xmlns="http://www.w3.org/2000/svg"
+      title="CodingCoach logo"
     >
       <g>
-        <title>background</title>
         <rect
           fill="none"
           id="canvas_background"
@@ -19,7 +19,6 @@ const Logo = () => {
         />
       </g>
       <g>
-        <title>Layer 1</title>
         <g id="svg_1" fill="none">
           <g id="svg_2">
             <polygon

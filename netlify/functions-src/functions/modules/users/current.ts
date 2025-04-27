@@ -60,7 +60,9 @@ const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: 
   const applicationUser = {
     ...await getCurrentUser(auth0Id),
     email_verified: context.user?.email_verified,
+    avatar: context.user?.picture,
   };
+  // TODO: remove avatar from the database
   return success({ data: applicationUser })
 }
 

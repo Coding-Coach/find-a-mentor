@@ -16,9 +16,8 @@ import { useDeviceType } from '../../hooks/useDeviceType';
 function MemberArea({ onOpenModal }) {
   const { isDesktop } = useDeviceType();
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const { currentUser, isMentor, isAdmin, isAuthenticated, logout } = useUser();
+  const { currentUser, isMentor, isAdmin, isAuthenticated, logout, isNotYetVerified } = useUser();
   const api = useApi();
-  const user = useUser();
   const auth = useAuth();
   const openBecomeMentor = useCallback(
     () => onOpenModal('Edit Your Profile', <EditProfile api={api} />),
@@ -74,12 +73,12 @@ function MemberArea({ onOpenModal }) {
                   Open pending applications
                 </MemberMenuItem>
               )}
-              {!user.isNotYetVerified && (
+              {!isNotYetVerified && (
                 <Link href="/me">
                   <MemberMenuItem>Manage Account</MemberMenuItem>
                 </Link>
               )}
-              {!isMentor && !user.isNotYetVerified && (
+              {!isMentor && !isNotYetVerified && (
                 <MemberMenuItem onClick={openBecomeMentor}>
                   Become a mentor
                 </MemberMenuItem>

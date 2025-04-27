@@ -36,7 +36,6 @@ const App = (props) => {
         <VerificationModal
           onSuccess={() => {
             toast.success('We just sent you the verification email');
-            closeModal();
           }}
         />
       ),

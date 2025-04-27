@@ -2,7 +2,7 @@ import auth0 from 'auth0-js';
 import ApiService from '../api';
 import { isSsr } from '../helpers/ssr';
 import { isMentor } from '../helpers/user';
-
+import { getPersistData } from '../persistData';
 const storageKey = 'auth-data';
 class Auth {
   accessToken;
@@ -79,6 +79,8 @@ class Auth {
     const expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
 
     // Set isLoggedIn flag in localStorage
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     localStorage.setItem(
       storageKey,
       JSON.stringify({
@@ -96,6 +98,14 @@ class Auth {
     this.origin = authResult.appState.origin;
   }
 
+  getCurrentUserFromPersistData() {
+    if (!this.isAuthenticated()) {
+      return null;
+    }
+    const persistData = getPersistData('user');
+    return persistData;
+  }
+
   // TODO: figure out what mentor registration callbacks have to do with authentication.  Probably move this functionality elsewhere
   async onMentorRegistered(api, callback) {
     if (this.origin === 'mentor') {
@@ -111,6 +121,8 @@ class Auth {
     if (typeof window === 'undefined') {
       return;
     }
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     const json = localStorage.getItem(storageKey);
 
     if (json) {
@@ -166,6 +178,8 @@ class Auth {
     this.expiresAt = 0;
 
     // Remove token from localStorage
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     localStorage.removeItem(storageKey);
     if (api) {
       api?.clearCurrentUser();

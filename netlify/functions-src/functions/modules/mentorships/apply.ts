@@ -1,41 +1,35 @@
-import { getUserBy, getUserById } from '../../data/users';
+import { getUserById } from '../../data/users';
 import type { ApiHandler } from '../../types';
 import { upsertMentorship, findMentorship, getOpenRequestsCount } from '../../data/mentorships';
 import { Status, type Mentorship } from '../../interfaces/mentorship';
 import { error, success } from '../../utils/response';
 import type { CreateEntityPayload } from '../../data/types';
-import { send as sendEmail } from '../../email/client';
+import { sendMentorshipRequest } from '../../email/emails';
 import type { User } from '../../common/interfaces/user.interface';
 
 const ALLOWED_OPEN_MENTORSHIPS = 5;
 
-const applyForMentorshipHandler: ApiHandler<void, User> = async (event, context) => {
+const applyForMentorshipHandler: ApiHandler<CreateEntityPayload<Mentorship>, User> = async (event, context) => {
   const mentorId = event.queryStringParameters?.mentorId;
-  if (!event.body) {
-    return error('mentorship data is required');
-  }
-  // TODO: use event.parsedBody
-  const mentorshipData: CreateEntityPayload<Mentorship> = JSON.parse(event.body);
+  const mentorshipData = event.parsedBody;
+  const { user: current } = context;
 
-  if (!mentorId || !context.user.auth0Id) {
+  if (!mentorId) {
     return error('mentorId and current userId is required');
   }
 
-  const [current, mentor] = await Promise.all([
-    getUserBy('auth0Id', context.user.auth0Id),
-    getUserById(mentorId),
-  ]);
+  if (current._id.equals(mentorId)) {
+    return error('Are you planning to mentor yourself?', 400);
+  }
+
+  if (!mentorshipData) {
+    return error('Mentorship data is required');
+  }
+
+  const mentor = await getUserById(mentorId);
 
   if (!mentor) {
     return error('Mentor not found', 404);
-  }
-
-  if (!current) {
-    return error('User not found', 404);
-  }
-
-  if (mentor._id.equals(current!._id)) {
-    return error(`Are you planning to mentor yourself?`, 400);
   }
 
   if (!mentor.available) {
@@ -68,19 +62,15 @@ const applyForMentorshipHandler: ApiHandler<void, User> = async (event, context)
   });
 
   try {
-    await sendEmail({
-      name: 'mentorship-requested',
-      to: mentor.email,
-      subject: 'Mentorship Requested',
-      data: {
-        mentorName: mentor.name,
-        menteeName: current.name,
-        menteeEmail: current.email,
-        message: mentorshipData.message,
-        background: mentorshipData.background,
-        expectation: mentorshipData.expectation,
-      },
-    });
+    sendMentorshipRequest({
+      menteeName: current.name,
+      email: mentor.email,
+      mentorName: mentor.name,
+      message: mentorshipData.message,
+      background: mentorshipData.background,
+      expectation: mentorshipData.expectation,
+      menteeEmail: current.email,
+    })
   } catch (error) {
     console.error('Failed to send email');
   }

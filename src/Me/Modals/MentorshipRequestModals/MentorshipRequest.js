@@ -139,11 +139,18 @@ const MentorshipRequest = ({ mentor }) => {
     e?.preventDefault();
     if (!validate()) return;
     setIsLoading(true);
-    const success = await api.applyForMentorship(
+    const response = await api.applyForMentorship(
       mentor,
       mentorshipRequestDetails
     );
-    setConfirmed(success);
+    if (response.success) {
+      setConfirmed(true);
+    } else {
+      setErrors({
+        ...errors,
+        form: response.message,
+      });
+    }
     setIsLoading(false);
   };
 
@@ -188,6 +195,13 @@ const MentorshipRequest = ({ mentor }) => {
               </span>
             </li>
           </ul>
+            {
+              errors.form && (
+                <ErrorMessage style={{ marginTop: '16px' }}>
+                  {errors.form}
+                </ErrorMessage>
+              )
+            }
         </Body>
       )}
     </Modal>

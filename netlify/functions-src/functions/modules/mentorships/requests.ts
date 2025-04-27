@@ -1,81 +1,19 @@
-import { ObjectId, type Filter } from 'mongodb';
-import { Document } from 'bson'
+import { ObjectId } from 'mongodb';
 import { HandlerEvent } from '@netlify/functions';
 import { getCollection } from '../../utils/db';
 import { error, success } from '../../utils/response';
-import { upsertMentorship } from '../../data/mentorships';
-import type { Mentorship } from '../../interfaces/mentorship';
-import type { HandlerEventWithBody } from '../../types';
+import { getMenteeOpenRequestsCount, getMentorContactURL, getMentorships, upsertMentorship } from '../../data/mentorships';
+import { Status, type Mentorship } from '../../interfaces/mentorship';
+import type { ApiHandler } from '../../types';
 import { DataError } from '../../data/errors';
+import { sendMentorshipAccepted, sendMentorshipDeclined, sendMentorshipRequestCancelled } from '../../email/emails';
+import type { User } from '../../common/interfaces/user.interface';
 
-const getMentorships = async (query: Record<string, string | undefined>): Promise<any[]> => {
-  const mentorshipsCollection = getCollection('mentorships');
-
-  const userId = query.userId;
-  if (!userId) {
-    throw new Error('User ID is required');
-  }
-
-  // TODO: - validate that either it's admin or the userId is the same as the one in the token
-
-  const filter: Filter<Document> = {
-    $or: [
-      { mentor: new ObjectId(userId) },
-      { mentee: new ObjectId(userId) },
-    ],
-  };
-
-  if (query.id) {
-    try {
-      const objectId = new ObjectId(query.id); // Convert the ID to ObjectId
-      filter._id = objectId;
-    } catch {
-      throw new Error('Invalid mentorship ID');
-    }
-  }
-
-  if (query.from) {
-    filter.createdAt = { $gte: new Date(query.from) };
-  }
-
-  // Create an aggregation pipeline that includes the full user objects
-  return mentorshipsCollection.aggregate([
-    { $match: filter },
-    {
-      $lookup: {
-        from: 'users',
-        localField: 'mentor',
-        foreignField: '_id',
-        as: 'mentorData'
-      }
-    },
-    {
-      $lookup: {
-        from: 'users',
-        localField: 'mentee',
-        foreignField: '_id',
-        as: 'menteeData'
-      }
-    },
-    {
-      $addFields: {
-        mentor: { $arrayElemAt: ['$mentorData', 0] },
-        mentee: { $arrayElemAt: ['$menteeData', 0] },
-        // Add isMine field that checks if mentee._id equals userId
-        isMine: {
-          $eq: [
-            { $toString: { $arrayElemAt: ['$menteeData._id', 0] } },
-            userId
-          ]
-        },
-      }
-    },
-  ]).toArray();
-};
-
-const updateMentorshipHandler = async (event: HandlerEventWithBody<Partial<Mentorship>>) => {
+export const updateMentorshipRequestHandler: ApiHandler<Mentorship, User> = async (event, context) => {
   const { mentorshipId } = event.queryStringParameters || {};
   const { reason, status } = event.parsedBody || {};
+  const { user: mentor } = context;
+
   if (!mentorshipId || !status) {
     return error('Mentorship ID and status are required', 400);
   }
@@ -87,6 +25,48 @@ const updateMentorshipHandler = async (event: HandlerEventWithBody<Partial<Mento
       reason,
     };
     const upsertedMentorship = await upsertMentorship(mentorshipToUpsert);
+    if (!upsertedMentorship) {
+      return error(`mentorships ${mentorshipId} not found`, 404);
+    }
+
+    // send emails async
+    (async () => {
+      const mentee = await getCollection('users').findOne({ _id: upsertedMentorship.mentee });
+      if (!mentee) {
+        throw new DataError(404, 'Mentor or mentee not found');
+      }
+      if (status === Status.APPROVED) {
+        const contactURL = getMentorContactURL(mentor);
+        const openRequests = await getMenteeOpenRequestsCount(upsertedMentorship.mentee);
+
+        sendMentorshipAccepted({
+          menteeName: mentee.name,
+          email: mentee.email,
+          mentorName: mentor.name,
+          contactURL,
+          openRequests,
+        });
+      }
+      if (status === Status.REJECTED) {
+        sendMentorshipDeclined({
+          menteeName: mentee.name,
+          mentorName: mentor.name,
+          bySystem: false,
+          email: mentee.email,
+          reason: upsertedMentorship.reason!
+        });
+      }
+
+      if (status === Status.CANCELLED) {
+        sendMentorshipRequestCancelled({
+          email: mentee.email,
+          menteeName: mentee.name,
+          mentorName: mentor.name,
+          reason: upsertedMentorship.reason!
+        })
+      }
+    })();
+
     return success({ data: upsertedMentorship });
   } catch (e) {
     if (e instanceof DataError) {
@@ -107,4 +87,3 @@ const mentorshipHandler = async (event: HandlerEvent) => {
 };
 
 export const handler = mentorshipHandler;
-export const updateRequestHandler = updateMentorshipHandler;

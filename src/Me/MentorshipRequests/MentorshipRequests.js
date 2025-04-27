@@ -157,7 +157,7 @@ const MentorshipReq = () => {
   }, [userId, getMentorshipReq]);
   return (
     <>
-      <Card title="Mentorship Requests">
+      <Card title="Mentorship Requests I've Received">
         <UsersList
           requests={mentorState}
           onAccept={acceptReq}
@@ -167,7 +167,7 @@ const MentorshipReq = () => {
           closeOpenItem={selectedReq?._id}
         />
       </Card>
-      <Card title="My Mentorship Requests">
+      <Card title="Mentorship Requests I've Sent">
         <UsersList
           requests={menteeState}
           isLoading={loadingState}

@@ -32,14 +32,14 @@ export const MentorsProvider = (props) => {
   const [mentors, setMentors] = useState([]);
   const [contextState, setContextState] = useState(initialState);
 
-  const { currentUser } = useUser();
+  const { isAuthenticatedAndVerified } = useUser();
   const api = useApi();
 
   const initialize = useCallback(async () => {
     const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
 
     await Promise.all([
-      currentUser &&
+      isAuthenticatedAndVerified &&
         getFavorites(api).then((favorites) => {
           if (
             Array.isArray(favMentorsFromLocalStorage) &&
@@ -68,7 +68,7 @@ export const MentorsProvider = (props) => {
       ...state,
       isLoading: false,
     }));
-  }, [currentUser, api]);
+  }, [isAuthenticatedAndVerified, api]);
 
   useEffect(() => {
     initialize();

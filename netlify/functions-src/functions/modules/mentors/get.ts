@@ -6,7 +6,7 @@ import { success } from '../../utils/response';
 import type { GetMentorsQuery, GetMentorsResponse, Mentor } from './types';
 
 const getMentors = async (query: GetMentorsQuery, user?: AuthUser): Promise<GetMentorsResponse> => {
-  const { tags, country, spokenLanguages, page: pageInQuery = '1', page: limitinQuery = '20' } = query;
+  const { available, tags, country, spokenLanguages, page: pageInQuery = '1', page: limitinQuery = '20' } = query;
   const page = parseInt(pageInQuery);
   const limit = parseInt(limitinQuery);
 
@@ -15,6 +15,10 @@ const getMentors = async (query: GetMentorsQuery, user?: AuthUser): Promise<GetM
   const filter: any = {
     roles: Role.MENTOR,
   };
+
+  if (available) {
+    filter.available = Boolean(available);
+  }
 
   if (tags) {
     filter.tags = Array.isArray(tags) ? { $in: tags } : { $in: [tags] };
