@@ -13,12 +13,6 @@ function MobileNavigation(props) {
     onClose: null,
   });
 
-  const VercelStyle = styled.a`
-    display: block;
-    width: 10px;
-    margin: 20px 0 10px;
-  `;
-
   const handleModal = ({ title, content, onClose }) => {
     setModal({ title, content, onClose });
   };
@@ -57,14 +51,6 @@ function MobileNavigation(props) {
           content={'privacy-policy'}
           handleModal={(title, content) => handleModal({ title, content })}
         />
-        <VercelStyle
-          href="https://vercel.com/?utm_source=[coding-coach]&utm_campaign=oss"
-          className="vercel-link"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <Vercel />
-        </VercelStyle>
       </ContentWrapper>
     </>
   );

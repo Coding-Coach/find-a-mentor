@@ -21,6 +21,7 @@ const initialState = {
   favorites: [],
   mentors: [],
   addFavorite: () => {},
+  hasAnyMentors: false,
 };
 
 export const MentorsContext = createContext(initialState);
@@ -108,8 +109,9 @@ export const MentorsProvider = (props) => {
       mentors: filteredMentors,
       favorites,
       addFavorite,
+      hasAnyMentors: mentors.length > 0,
     }));
-  }, [favorites, filteredMentors, api]);
+  }, [favorites, filteredMentors, api, mentors]);
 
   return (
     <MentorsContext.Provider value={contextState}>

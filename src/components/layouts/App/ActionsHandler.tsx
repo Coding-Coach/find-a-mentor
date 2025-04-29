@@ -11,7 +11,7 @@ export const ActionsHandler: FC = ({ children }) => {
   useEffect(() => {
     const redirectedFrom = query.from;
     if (redirectedFrom) {
-      auth.login(redirectedFrom);
+      auth.login(redirectedFrom as string);
     }
   }, [query]);
 

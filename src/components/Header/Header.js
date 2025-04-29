@@ -11,6 +11,7 @@ import MobileNavigation from '../MobileNavigation/MobileNavigation';
 import { useAuth } from '../../context/authContext/AuthContext';
 import { useDeviceType } from '../../hooks/useDeviceType';
 import Link from '../Link/Link';
+import { mobile } from '../../Me/styles/shared/devices';
 
 function Header() {
   const [modal, setModal] = useState({
@@ -105,14 +106,17 @@ const LogoTitleWrapper = styled.div`
   align-items: center;
   margin-right: 20px;
   height: ${common.headerHeight}px;
-  width: 320px;
 `;
 
 const LogoWrapper = styled.div`
   margin: 0 10px;
 `;
 
-const LogoLink = styled(Link)``;
+const LogoLink = styled(Link)`
+  @media ${mobile} {
+    flex: 1;
+  }
+`;
 
 const HeaderOffCanvas = styled(OffCanvas)`
   outline: currentcolor none 0;
@@ -133,11 +137,7 @@ const HeaderOffCanvas = styled(OffCanvas)`
 const Open = styled.i`
   font-size: 38px;
   color: #05345e;
-  padding: 10px 15px 0 15px;
-  position: absolute;
-  top: 15px;
-  right: ${({ isAuthenticated }) => (isAuthenticated ? '70px' : '10px')};
-  z-index: 100;
+  padding: 0 15px;
 
   &:hover {
     color: #69d5b1;

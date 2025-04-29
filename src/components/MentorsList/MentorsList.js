@@ -11,7 +11,7 @@ import { useMentors } from '../../context/mentorsContext/MentorsContext';
 const itemsInPage = 20;
 
 const MentorsList = () => {
-  const { mentors, favorites, addFavorite, isLoading } = useMentors();
+  const { mentors, favorites, addFavorite, isLoading, hasAnyMentors } = useMentors();
 
   const getContent = () => {
     if (isLoading) {
@@ -20,7 +20,10 @@ const MentorsList = () => {
     if (!mentors.length) {
       return (
         <div className="nothing-to-show">
-          ¯\_(ツ)_/¯ Wow, we can't believe it. We have nothing for you!
+          ¯\_(ツ)_/¯
+          {
+           hasAnyMentors ? ` Wow, we can't believe it. We have nothing for you!` : ` We're still waiting for mentors to join us! Please check back later.`
+          }
         </div>
       );
     }
