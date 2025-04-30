@@ -102,3 +102,18 @@ export const sendMentorshipRequestCancelled = async ({ menteeName, mentorName, e
     },
   });
 }
+
+export const sendMentorApplicationAdminNotification = async ({
+  name,
+}: {
+  name: string;
+}) => {
+  return send({
+    name: 'mentor-application-received',
+    to: process.env.ADMIN_EMAIL!,
+    subject: 'New Mentor Application Submitted',
+    data: {
+      name,
+    },
+  });
+};
