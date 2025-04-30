@@ -16,7 +16,7 @@ import { useDeviceType } from '../../hooks/useDeviceType';
 function MemberArea({ onOpenModal }) {
   const { isDesktop } = useDeviceType();
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const { currentUser, isMentor, isAdmin, isAuthenticated, logout } = useUser();
+  const { currentUser, isMentor, isAdmin, isAuthenticated, logout, isNotYetVerified } = useUser();
   const api = useApi();
   const auth = useAuth();
   const openBecomeMentor = useCallback(
@@ -50,9 +50,12 @@ function MemberArea({ onOpenModal }) {
         <>
           <UserAvatar
             data-testid="user-avatar"
-            onClick={() =>
-              currentUser && setIsMemberMenuOpen(!isMemberMenuOpen)
-            }
+            onClick={() => {
+              if (!currentUser) {
+                return;
+              }
+              setIsMemberMenuOpen(!isMemberMenuOpen);
+            }}
           >
             {currentUser ? (
               <UserImage
@@ -70,10 +73,12 @@ function MemberArea({ onOpenModal }) {
                   Open pending applications
                 </MemberMenuItem>
               )}
-              <Link href="/me">
-                <MemberMenuItem>Manage Account</MemberMenuItem>
-              </Link>
-              {!isMentor && (
+              {!isNotYetVerified && (
+                <Link href="/me">
+                  <MemberMenuItem>Manage Account</MemberMenuItem>
+                </Link>
+              )}
+              {!isMentor && !isNotYetVerified && (
                 <MemberMenuItem onClick={openBecomeMentor}>
                   Become a mentor
                 </MemberMenuItem>

@@ -6,9 +6,6 @@
 [![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
 
 
-[![Powered By Vercel](https://github.com/Coding-Coach/find-a-mentor/blob/3390fb723a8148c06ea88a7fdb972fd81b5a6064/src/assets/powered-by-vercel.svg)](https://vercel.com/codingcoach?utm_source=coding-coach&utm_campaign=oss)
-
-
 ## Support Us
 
 CodingCoach is a FREE platform that is built and managed entirely by volunteers. As always, there are ongoing costs to run this site such as servers, domains, email, and more.  Please consider becoming a patron so we can continue our mission of being accessible and free ❤️

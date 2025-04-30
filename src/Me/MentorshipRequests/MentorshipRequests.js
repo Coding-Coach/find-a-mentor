@@ -27,26 +27,26 @@ const MentorshipReq = () => {
   const isMount = useRef(true);
   const api = useApi();
 
-  const markViewed = async ({ id, status }) => {
+  const markViewed = async ({ _id, status }) => {
     if (status !== PREV_STATUS[STATUS.viewed]) return;
-    await updateReqStatus({ id, userId }, STATUS.viewed);
+    await updateReqStatus({ _id, userId }, STATUS.viewed);
   };
-  const acceptReq = async ({ id, status, username, menteeEmail }) => {
+  const acceptReq = async ({ _id, status, username, menteeEmail }) => {
     if (status !== PREV_STATUS[STATUS.approved]) return;
 
-    await updateReqStatus({ id, userId }, STATUS.approved);
-    setSelectedReq({ id, username, menteeEmail });
+    await updateReqStatus({ _id, userId }, STATUS.approved);
+    setSelectedReq({ _id, username, menteeEmail });
     openAcceptModal();
   };
 
-  const onCancel = ({ id, username }) => {
-    setSelectedReq({ id, username });
+  const onCancel = ({ _id, username }) => {
+    setSelectedReq({ _id, username });
     openCancelModal();
   };
 
   const cancelRequest = async (message) => {
     await updateReqStatus(
-      { id: selectedReq.id, userId },
+      { _id: selectedReq._id, userId },
       STATUS.cancelled,
       message,
       'mentee'
@@ -54,14 +54,14 @@ const MentorshipReq = () => {
     closeCancelModal();
   };
 
-  const onDeclineReq = ({ id, status, username }) => {
+  const onDeclineReq = ({ _id, status, username }) => {
     if (status !== PREV_STATUS[STATUS.rejected]) return;
-    setSelectedReq({ id, username });
+    setSelectedReq({ _id, username });
     openDeclineModal();
   };
 
   const declineReq = async (msg) => {
-    await updateReqStatus({ id: selectedReq.id, userId }, STATUS.rejected, msg);
+    await updateReqStatus({ _id: selectedReq._id, userId }, STATUS.rejected, msg);
     closeDeclineModal();
   };
 
@@ -85,13 +85,13 @@ const MentorshipReq = () => {
    * @param  {'mentee' | 'mentor'} listType
    */
   const updateReqStatus = async (
-    { id, userId },
+    { _id, userId },
     nextStatus,
     reason,
     listType = 'mentor'
   ) => {
-    const { success, mentorship } = await api.updateMentorshipReqStatus(
-      id,
+    const { success, data: mentorship } = await api.updateMentorshipReqStatus(
+      _id,
       userId,
       {
         status: nextStatus,
@@ -106,7 +106,7 @@ const MentorshipReq = () => {
         ? [mentorState, setMentorState]
         : [menteeState, setMenteeState];
 
-    const itemIndex = list.findIndex((s) => s.id === id);
+    const itemIndex = list.findIndex((s) => s._id === _id);
     const item = list[itemIndex];
     let newState = [...list];
     newState.splice(itemIndex, 1, {
@@ -123,7 +123,7 @@ const MentorshipReq = () => {
       menteeEmail={selectedReq?.menteeEmail}
       onClose={() => setSelectedReq(null)}
     />,
-    [selectedReq?.id]
+    [selectedReq?._id]
   );
 
   const [openDeclineModal, closeDeclineModal] = useModal(
@@ -132,7 +132,7 @@ const MentorshipReq = () => {
       onSave={declineReq}
       onClose={() => setSelectedReq(null)}
     />,
-    [selectedReq?.id]
+    [selectedReq?._id]
   );
 
   const [openCancelModal, closeCancelModal] = useModal(
@@ -141,7 +141,7 @@ const MentorshipReq = () => {
       onSave={cancelRequest}
       onClose={() => setSelectedReq(null)}
     />,
-    [selectedReq?.id]
+    [selectedReq?._id]
   );
 
   useEffect(() => {
@@ -157,17 +157,17 @@ const MentorshipReq = () => {
   }, [userId, getMentorshipReq]);
   return (
     <>
-      <Card title="Mentorship Requests">
+      <Card title="Mentorship Requests I've Received">
         <UsersList
           requests={mentorState}
           onAccept={acceptReq}
           onDecline={onDeclineReq}
           isLoading={loadingState}
           onSelect={markViewed}
-          closeOpenItem={selectedReq?.id}
+          closeOpenItem={selectedReq?._id}
         />
       </Card>
-      <Card title="My Mentorship Requests">
+      <Card title="Mentorship Requests I've Sent">
         <UsersList
           requests={menteeState}
           isLoading={loadingState}

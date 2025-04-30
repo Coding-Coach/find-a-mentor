@@ -12,6 +12,7 @@ import messages from '../../messages';
 import { report, reportError } from '../../ga';
 import UserContext from '../../context/userContext/UserContext';
 import { links } from '../../config/constants';
+import { RedirectToGravatar } from '../../Me/Modals/RedirectToGravatar';
 
 export default class EditProfile extends Component {
   static contextType = UserContext;
@@ -66,9 +67,7 @@ export default class EditProfile extends Component {
       if (isMentor(user)) {
         toast.success(messages.EDIT_DETAILS_MENTOR_SUCCESS);
       } else {
-        const createApplicationResult = await api.createApplicationIfNotExists(
-          user
-        );
+        const createApplicationResult = await api.upsertApplication();
         if (createApplicationResult.success) {
           toast.success(createApplicationResult.message);
           updateCurrentUser(fromVMtoM(user));
@@ -105,7 +104,6 @@ export default class EditProfile extends Component {
       case 'longtext':
       case 'file':
         const CustomTag = config.type === 'longtext' ? 'textarea' : 'input';
-
         return (
           <div key={fieldName} className="form-field" style={config.style}>
             <label
@@ -142,7 +140,32 @@ export default class EditProfile extends Component {
                   disabled={config.disabled}
                   required={config.required}
                   onChange={(e) => this.handleInputChangeEvent(e)}
+                  {...config.props}
                 />
+              </div>
+            </label>
+          </div>
+        );
+      case 'gravatar':
+        return (
+          <div key={fieldName} className="form-field" style={config.style}>
+            <label
+              id={fieldName}
+              className={classNames({ required: !!config.validate })}
+            >
+              <div className="form-field-name">
+                {config.label}
+                {config.helpText && (
+                  <span className="help-text">{config.helpText}</span>
+                )}
+              </div>
+              <div className="form-field-input-wrapper">
+                <img
+                  className="form-field-preview"
+                  src={getAvatarUrl(user[fieldName])}
+                  alt="avatar"
+                />
+                <div className='input-like'>Change your avatar on <RedirectToGravatar /></div>
               </div>
             </label>
           </div>
@@ -173,14 +196,14 @@ export default class EditProfile extends Component {
                 }
                 options={
                   config.maxItems &&
-                  (this.state.user[fieldName] || []).length === config.maxItems
+                    (this.state.user[fieldName] || []).length === config.maxItems
                     ? [
-                        {
-                          label: 'Reached max items',
-                          value: undefined,
-                          isDisabled: true,
-                        },
-                      ]
+                      {
+                        label: 'Reached max items',
+                        value: undefined,
+                        isDisabled: true,
+                      },
+                    ]
                     : config.options
                 }
                 menuPortalTarget={document.body}
@@ -277,7 +300,7 @@ export default class EditProfile extends Component {
   handleInputChangeEvent = async (event) => {
     const fieldName = event.target.name;
     const value = event.target.value;
-    if (fieldName === 'avatar') {
+    if (model[fieldName].type === 'file') {
       const { updateCurrentUser } = this.context;
       this.setState({
         user: {

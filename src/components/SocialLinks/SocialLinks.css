@@ -17,7 +17,7 @@
 
 @media all and (max-width: 800px) {
   .social-wrapper {
-    margin-top: 10px;
+    margin-block: 10px;
   }
 
   .social-link {

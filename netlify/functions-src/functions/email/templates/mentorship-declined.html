@@ -1,0 +1,55 @@
+<div style="font-size: 18px; line-height: 1.5">
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td align="center">
+          <img
+            style="width: 39%; max-width: 234px"
+            src="http://cdn.mcauto-images-production.sendgrid.net/83a8af126d5ca8ff/a3372217-691c-453e-bda3-27046e59b871/600x533.png"
+            alt="Illustration"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 style="font-size: 26px; font-weight: normal">
+    Hello, <%= menteeName %>!
+  </h2>
+  <h1
+    style="
+      font-size: 32px;
+      line-height: 42px;
+      font-weight: normal;
+      color: #69d5b1;
+    "
+  >
+    Mentorship Request Not Accepted
+  </h1>
+
+  <% if (typeof(bySystem) !="undefined" && bySystem) { %>
+  <p>
+    Unfortunately, your request for mentorship with
+    <span style="font-weight: bold; font-style: italic"><%= mentorName %></span>
+    has been declined by our system because
+    <span style="font-weight: bold; font-style: italic"><%= mentorName %></span>
+    seems to be unavailable at the moment.
+  </p>
+  <% } else { %>
+  <p>
+    Unfortunately, your request for mentorship with
+    <span style="font-weight: bold; font-style: italic"><%= mentorName %></span>
+    was not accepted.
+  </p>
+  <p>
+    They provided the reason below, which we hope will help you find your next
+    mentor:
+  </p>
+  <pre><%= reason %></pre>
+  <% } %>
+
+  <p>
+    Although this one didn't work out, there are many other mentors at
+    <a href="https://mentors.codingcoach.io/">CodingCoach</a> looking to mentor
+    someone like you.
+  </p>
+</div>

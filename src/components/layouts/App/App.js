@@ -11,8 +11,6 @@ import { ActionsHandler } from './ActionsHandler';
 import { desktop, mobile } from '../../../Me/styles/shared/devices';
 import { Sidebar } from '../../Sidebar/Sidebar';
 import { useMentors } from '../../../context/mentorsContext/MentorsContext';
-import { isDeep } from '../../../utils/isDeep';
-import SocialLinks from '../../SocialLinks/SocialLinks';
 
 const App = (props) => {
   const { children } = props;
@@ -56,26 +54,8 @@ const App = (props) => {
 
   return (
     <div className="app">
-      {/* TODO: remove this modal when app is ready */}
-      {!isDeep() && (<Modal>
-        <>
-          <h2 style={{ color: '#69d5b1;'}}>🚀 We're Moving to a New Home!</h2>
-          <p style={{
-            fontSize: 'large',
-            padding: '0 10px',
-            lineHeight: 1.4,
-          }}>
-            Our digital spaceship is heading to a brand new infrastructure (to save some money and to simplify our ci-cd
-            pipeline) but don't worry, our engineers have their coffee ready!
-          </p>
-          <div style={{ textAlign: 'center' }}>
-            <h2>Stay Tuned</h2>
-            <SocialLinks />
-          </div>
-        </>
-      </Modal>)}
       <ToastContainer />
-      <Modal title={modal?.title}>{modal?.content}</Modal>
+      <Modal title={modal?.title} showCloseButton={modal.showCloseButton}>{modal?.content}</Modal>
       <Layout>
         <Header />
         <Body>

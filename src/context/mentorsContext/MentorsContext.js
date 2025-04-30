@@ -16,15 +16,12 @@ import {
   updateFavMentorsForUser,
 } from '../../favoriteManager';
 import { useFilters } from '../../context/filtersContext/FiltersContext';
-import { mockMentors } from './mockMentors';
-import { isDeep } from '../../utils/isDeep';
 
 const initialState = {
   favorites: [],
   mentors: [],
   addFavorite: () => {},
-  // TODO: Replace isLoading with true when app is ready
-  isLoading: false,
+  hasAnyMentors: false,
 };
 
 export const MentorsContext = createContext(initialState);
@@ -33,18 +30,17 @@ export const MentorsProvider = (props) => {
   const { children } = props;
 
   const [favorites, setFavorites] = useState([]);
-  // TODO: Replace mockMentors with an empty array when app is ready
-  const [mentors, setMentors] = useState(mockMentors);
+  const [mentors, setMentors] = useState([]);
   const [contextState, setContextState] = useState(initialState);
 
-  const { currentUser } = useUser();
+  const { isAuthenticatedAndVerified } = useUser();
   const api = useApi();
 
   const initialize = useCallback(async () => {
     const favMentorsFromLocalStorage = readFavMentorsFromLocalStorage();
 
     await Promise.all([
-      currentUser &&
+      isAuthenticatedAndVerified &&
         getFavorites(api).then((favorites) => {
           if (
             Array.isArray(favMentorsFromLocalStorage) &&
@@ -73,10 +69,10 @@ export const MentorsProvider = (props) => {
       ...state,
       isLoading: false,
     }));
-  }, [currentUser, api]);
+  }, [isAuthenticatedAndVerified, api]);
 
   useEffect(() => {
-    isDeep() && initialize();
+    initialize();
   }, [initialize]);
 
   const [filters] = useFilters();
@@ -113,8 +109,9 @@ export const MentorsProvider = (props) => {
       mentors: filteredMentors,
       favorites,
       addFavorite,
+      hasAnyMentors: mentors.length > 0,
     }));
-  }, [favorites, filteredMentors, api]);
+  }, [favorites, filteredMentors, api, mentors]);
 
   return (
     <MentorsContext.Provider value={contextState}>

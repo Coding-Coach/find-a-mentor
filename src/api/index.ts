@@ -3,9 +3,9 @@ import { toast } from 'react-toastify';
 import messages from '../messages';
 import shuffle from 'lodash/shuffle';
 import partition from 'lodash/partition';
-import * as Sentry from '@sentry/browser';
-import { Application, Mentor, User } from '../types/models';
-import { setVisitor } from '../utils/tawk';
+import { Application, Mentor, User, MentorshipRequest } from '../types/models';
+import Auth from '../utils/auth';
+import { setPersistData } from '../persistData';
 
 type RequestMethod = 'POST' | 'GET' | 'PUT' | 'DELETE';
 type ErrorResponse = {
@@ -26,16 +26,26 @@ export const paths = {
   USERS: '/users',
   MENTORSHIP: '/mentorships',
   ADMIN: '/admin',
+  FAVORITES: '/favorites',
 };
 
 let currentUser: User | undefined;
 
 export default class ApiService {
   mentorsPromise: Promise<Mentor[]> | null = null
-  auth: any
+  auth: Auth;
 
-  constructor(auth: any) {
+  constructor(auth: Auth) {
     this.auth = auth
+  }
+
+  getAuthorizationHeader(): HeadersInit {
+    const token = this.auth?.getIdToken();
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  }
+
+  getContentTypeHeader(jsonous: boolean): HeadersInit {
+    return jsonous ? { 'Content-Type': 'application/json' } : {};
   }
 
   makeApiCall = async <T>(
@@ -44,20 +54,17 @@ export default class ApiService {
     method: RequestMethod = 'GET',
     jsonous = true
   ): Promise<OkResponse<T> | ErrorResponse | null> => {
-    const url = `${process.env.NEXT_PUBLIC_API_ENDPOINT}${path}${
+    // public url for ssr
+    const url = `${process.env.NEXT_PUBLIC_PUBLIC_URL}/.netlify/functions${path}${
       method === 'GET' && body ? `?${new URLSearchParams(body)}` : ''
     }`;
     const optionBody = jsonous
       ? body && JSON.stringify(body)
       : (body as FormData);
+
     const optionHeader: HeadersInit = {
-      Authorization: `Bearer ${this.auth.getIdToken()}`,
-      ...(jsonous
-        ? {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          }
-        : {}),
+      ...this.getAuthorizationHeader(),
+      ...this.getContentTypeHeader(jsonous),
     };
 
     const options: RequestInit = {
@@ -99,27 +106,31 @@ export default class ApiService {
   }
 
   getCurrentUser = async (): Promise<typeof currentUser> => {
-    if (!currentUser && this.auth.isAuthenticated()) {
-      const userFromLocal = localStorage.getItem(USER_LOCAL_KEY);
-      if (userFromLocal) {
-        currentUser = JSON.parse(userFromLocal);
-        // meantime, fetch the real user
-        this.fetchCurrentItem();
-      } else {
-        await this.fetchCurrentItem();
-      }
+    if (!this.auth.isAuthenticated()) {
+      this.clearCurrentUser();
+      return null;
     }
-    return currentUser;
+    const currentUserResponse = await this.makeApiCall<User>(`${paths.USERS}/current`)
+    if (currentUserResponse?.success) {
+      return currentUserResponse.data;
+    }
   }
 
   clearCurrentUser = () => {
     currentUser = undefined;
+    ApiService.clearCurrentUserFromStorage();
+  }
+
+  // because we need to call it from authContext which doesn't have access to ApiService
+  static clearCurrentUserFromStorage = () => {
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     localStorage.removeItem(USER_LOCAL_KEY);
   }
 
   getMentors = async () => {
     if (!this.mentorsPromise) {
-      this.mentorsPromise = this.makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=1300&available=true`).then(
+      this.mentorsPromise = this.makeApiCall<Mentor[]>(`${paths.MENTORS}?limit=100&available=true`).then(
         (response) => {
           if (response?.success) {
             const [available, unavailable] = partition(
@@ -152,35 +163,25 @@ export default class ApiService {
   }
 
   getFavorites = async () => {
-    const { _id: userId } = (await this.getCurrentUser())!;
-
-    const response = await this.makeApiCall<{ mentors: Mentor[] }>(
-      `${paths.USERS}/${userId}/favorites`
+    const response = await this.makeApiCall<{ mentorIds: string[] }>(
+      `${paths.FAVORITES}`
     );
     if (response?.success) {
-      return response.data.mentors.map((mentor) => mentor._id);
+      return response.data.mentorIds;
     }
     return [];
   }
 
   addMentorToFavorites = async (mentorId: string) => {
-      const { _id: userId } = (await this.getCurrentUser())!;
-
     const response = await this.makeApiCall(
-      `${paths.USERS}/${userId}/favorites/${mentorId}`,
+      `${paths.FAVORITES}/${mentorId}`,
       {},
       'POST'
     );
     return !!response?.success;
   }
 
-  createApplicationIfNotExists = async (user: User) => {
-    if (await this.userHasPendingApplication(user)) {
-      return {
-        success: true,
-        message: messages.EDIT_DETAILS_MENTOR_SUCCESS,
-      };
-    }
+  upsertApplication = async () => {
     const response = await this.makeApiCall(
       `${paths.MENTORS}/applications`,
       { description: 'why not?', status: 'Pending' },
@@ -198,46 +199,45 @@ export default class ApiService {
 
   updateMentor = async (mentor: Mentor) => {
     const response = await this.makeApiCall(
-      `${paths.USERS}/${mentor._id}`,
+      `${paths.USERS}`,
       mentor,
       'PUT'
     );
-    if (response?.success) {
-      this.storeUserInLocalStorage(mentor);
-    }
     return !!response?.success;
   }
 
-  updateMentorAvatar = async (mentor: Mentor, value: FormData) => {
-    const response = await this.makeApiCall(
-      `${paths.USERS}/${mentor._id}/avatar`,
-      value,
-      'POST',
-      false
-    );
-    if (response?.success) {
-      await this.fetchCurrentItem();
-    }
-    return currentUser!;
-  }
+  // no need. we're using gravatar now
+  // updateMentorAvatar = async (mentor: Mentor, value: FormData) => {
+  //   const response = await this.makeApiCall(
+  //     `${paths.USERS}/${mentor._id}/avatar`,
+  //     value,
+  //     'POST',
+  //     false
+  //   );
+  //   if (response?.success) {
+  //     await this.fetchCurrentItem();
+  //   }
+  //   return currentUser!;
+  // }
 
-  updateMentorAvailability = async (isAvailable: boolean) => {
-    let currentUser = (await this.getCurrentUser())!;
-    const userID = currentUser._id;
-    const response = await this.makeApiCall(
-      `${paths.USERS}/${userID}`,
-      { available: isAvailable },
-      'PUT'
-    );
-    if (response?.success) {
-      this.storeUserInLocalStorage({ ...currentUser, available: isAvailable });
-    }
-    return !!response?.success;
-  }
+  // TODO: do we need this? I think we have a general user update
+  // updateMentorAvailability = async (isAvailable: boolean) => {
+  //   let currentUser = (await this.getCurrentUser())!;
+  //   const userID = currentUser._id;
+  //   const response = await this.makeApiCall(
+  //     `${paths.USERS}/${userID}`,
+  //     { available: isAvailable },
+  //     'PUT'
+  //   );
+  //   if (response?.success) {
+  //     this.storeUserInLocalStorage({ ...currentUser, available: isAvailable });
+  //   }
+  //   return !!response?.success;
+  // }
 
   deleteMentor = async (mentorId: string) => {
     const response = await this.makeApiCall(
-      `${paths.USERS}/${mentorId}`,
+      `${paths.USERS}/`,
       null,
       'DELETE'
     );
@@ -245,32 +245,19 @@ export default class ApiService {
   }
 
   getPendingApplications = async () => {
+    const applicationStatus: Application['status'] = 'Pending';
     const response = await this.makeApiCall<Application[]>(
-      `${paths.MENTORS}/applications?status=pending`,
+      `${paths.MENTORS}/applications?status=${applicationStatus}`,
       null,
       'GET'
     );
     return response?.success ? response.data : [];
   }
 
-  approveApplication = async (mentor: Mentor) => {
+  respondApplication = async ({_id, ...applicationData}: Application) => {
     const response = await this.makeApiCall(
-      `${paths.MENTORS}/applications/${mentor._id}`,
-      {
-        status: 'Approved',
-      },
-      'PUT'
-    );
-    return !!response?.success;
-  }
-
-  declineApplication = async (mentor: Mentor, reason: string) => {
-    const response = await this.makeApiCall(
-      `${paths.MENTORS}/applications/${mentor._id}`,
-      {
-        status: 'Rejected',
-        reason,
-      },
+      `${paths.MENTORS}/applications/${_id}`,
+      applicationData,
       'PUT'
     );
     return !!response?.success;
@@ -294,18 +281,18 @@ export default class ApiService {
       payload,
       'POST'
     );
-    if (response?.success) {
-      localStorage.setItem(USER_MENTORSHIP_REQUEST, JSON.stringify(payload));
-    }
-    return !!response?.success;
+    setPersistData('mentorship-request', payload);
+    return response;
   }
 
   getMyMentorshipApplication = () => {
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     return JSON.parse(localStorage.getItem(USER_MENTORSHIP_REQUEST) || '{}');
   }
 
   getMentorshipRequests = async (userId: string) => {
-    const response = await this.makeApiCall(
+    const response = await this.makeApiCall<MentorshipRequest[]>(
       `${paths.MENTORSHIP}/${userId}/requests`,
       null,
       'GET'
@@ -341,36 +328,11 @@ export default class ApiService {
     return messages.GENERIC_ERROR;
   }
 
-  storeUserInLocalStorage = (user: User = currentUser!) => {
-    if (user) {
-      localStorage.setItem(USER_LOCAL_KEY, JSON.stringify(user));
-    }
-  }
-
   fetchCurrentItem = async () => {
-    currentUser = await this.makeApiCall<User>(`${paths.USERS}/current`).then(
-      (response) => {
-        if (response?.success) {
-          const { _id, email, name, roles } = response.data || {};
-          if (!_id) {
-            return;
-          }
 
-          return response.data;
-        }
-      }
-    );
-    this.storeUserInLocalStorage();
   }
 
-  userHasPendingApplication = async (user: User) => {
-    const response = await this.makeApiCall<Application[]>(
-      `${paths.MENTORS}/${user._id}/applications?status=pending`
-    );
-    if (response?.success) {
-      return response.data.length > 0;
-    }
-
-    return false;
+  resendVerificationEmail = async () => {
+    return this.makeApiCall(`${paths.USERS}/verify`, null, 'POST');
   }
 }

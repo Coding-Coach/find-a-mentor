@@ -2,14 +2,28 @@ import React, { FC, useContext, useEffect, useState } from 'react';
 import { User } from '../../types/models';
 import { useAuth } from '../authContext/AuthContext';
 import { useApi } from '../apiContext/ApiContext';
-import { isDeep } from '../../utils/isDeep';
+import { daysAgo } from '../../helpers/time';
+import { getPersistData, setPersistData } from '../../persistData';
+
+type EmailNotVerifiedInfo =
+  | {
+      isVerified: true;
+    }
+  | {
+      email: string;
+      isVerified: false;
+      isRegisteredRecently: boolean;
+    };
 
 type UserProviderContext = {
   isAdmin: boolean;
   isMentor: boolean;
   isLoading: boolean;
   currentUser?: User;
+  emailVerifiedInfo?: EmailNotVerifiedInfo;
+  isNotYetVerified: boolean;
   isAuthenticated: boolean;
+  isAuthenticatedAndVerified: boolean;
   updateCurrentUser(user: User): void;
   logout(): void;
 };
@@ -20,26 +34,47 @@ const UserContext = React.createContext<UserProviderContext | undefined>(
 
 export const UserProvider: FC = ({ children }) => {
   const [isLoading, setIsloading] = useState(true);
-  const [currentUser, updateCurrentUser] = useState<User>();
   const auth = useAuth();
   const api = useApi();
+  const [currentUser, updateCurrentUser] = useState<User>(() =>
+    auth.getCurrentUserFromPersistData()
+  );
+  const [emailVerifiedInfo, setEmailVerifiedInfo] =
+    useState<EmailNotVerifiedInfo>();
   const isAuthenticated = auth.isAuthenticated();
+  const isAuthenticatedAndVerified = isAuthenticated && emailVerifiedInfo?.isVerified;
   const isMentor = !!currentUser?.roles?.includes('Mentor');
   const isAdmin = !!currentUser?.roles?.includes('Admin');
+  const isNotYetVerified = emailVerifiedInfo?.isVerified === false;
 
   const logout = () => {
     auth.doLogout(api);
   };
 
   useEffect(() => {
-    // TODO: bring back when app is ready
-    if (isDeep()) {
-      api.getCurrentUser().then((user) => {
-        updateCurrentUser(user);
-        setIsloading(false);
+    async function getCurrentUser() {
+      const user = await api.getCurrentUser();
+      setIsloading(false);
+      if (!user) {
+        updateCurrentUser(null);
+        auth.forgetUser(api);
+        return;
+      }
+
+      setEmailVerifiedInfo({
+        isVerified: Boolean(user.email_verified),
+        isRegisteredRecently: daysAgo(user.createdAt) <= 5,
+        email: user.email,
       });
+
+      updateCurrentUser(user);
     }
-  }, [api]);
+    getCurrentUser();
+  }, [api, auth]);
+
+  useEffect(() => {
+    setPersistData('user', currentUser);
+  }, [currentUser]);
 
   return (
     <UserContext.Provider
@@ -48,7 +83,10 @@ export const UserProvider: FC = ({ children }) => {
         isMentor,
         isLoading,
         currentUser,
+        emailVerifiedInfo,
+        isNotYetVerified,
         isAuthenticated,
+        isAuthenticatedAndVerified,
         logout,
         updateCurrentUser,
       }}

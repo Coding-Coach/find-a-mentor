@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import OffCanvas from 'react-aria-offcanvas';
 import Modal from '../Modal/Modal';
@@ -8,8 +8,10 @@ import Logo from '../Logo';
 import Title from '../SiteTitle';
 import Navigation from '../Navigation/Navigation';
 import MobileNavigation from '../MobileNavigation/MobileNavigation';
-import { AuthContext } from '../../context/authContext/AuthContext';
+import { useAuth } from '../../context/authContext/AuthContext';
 import { useDeviceType } from '../../hooks/useDeviceType';
+import Link from '../Link/Link';
+import { mobile } from '../../Me/styles/shared/devices';
 
 function Header() {
   const [modal, setModal] = useState({
@@ -19,7 +21,7 @@ function Header() {
   });
   const [isOpen, setIsOpen] = useState(false);
   const { isDesktop } = useDeviceType();
-  const auth = useContext(AuthContext);
+  const auth = useAuth();
   const authenticated = auth.isAuthenticated();
 
   const handleModal = ({ title, content, onClose }) => {
@@ -29,15 +31,14 @@ function Header() {
 
   return (
     <HeaderWrapper>
-      <LogoTitleWrapper>
-        <LogoWrapper>
-          <LogoLink href="https://codingcoach.io/">
+      <LogoLink href="/">
+        <LogoTitleWrapper>
+          <LogoWrapper>
             <Logo />
-          </LogoLink>
-        </LogoWrapper>
-        {isDesktop && <Title />}
-      </LogoTitleWrapper>
-
+          </LogoWrapper>
+          {isDesktop && <Title />}
+        </LogoTitleWrapper>
+      </LogoLink>
       {isDesktop ? (
         <>
           <Navigation
@@ -105,14 +106,17 @@ const LogoTitleWrapper = styled.div`
   align-items: center;
   margin-right: 20px;
   height: ${common.headerHeight}px;
-  width: 320px;
 `;
 
 const LogoWrapper = styled.div`
   margin: 0 10px;
 `;
 
-const LogoLink = styled.a``;
+const LogoLink = styled(Link)`
+  @media ${mobile} {
+    flex: 1;
+  }
+`;
 
 const HeaderOffCanvas = styled(OffCanvas)`
   outline: currentcolor none 0;
@@ -133,11 +137,7 @@ const HeaderOffCanvas = styled(OffCanvas)`
 const Open = styled.i`
   font-size: 38px;
   color: #05345e;
-  padding: 10px 15px 0 15px;
-  position: absolute;
-  top: 15px;
-  right: ${({ isAuthenticated }) => (isAuthenticated ? '70px' : '10px')};
-  z-index: 100;
+  padding: 0 15px;
 
   &:hover {
     color: #69d5b1;

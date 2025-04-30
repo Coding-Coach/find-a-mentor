@@ -1,7 +1,8 @@
 import auth0 from 'auth0-js';
+import ApiService from '../api';
 import { isSsr } from '../helpers/ssr';
 import { isMentor } from '../helpers/user';
-
+import { getPersistData } from '../persistData';
 const storageKey = 'auth-data';
 class Auth {
   accessToken;
@@ -23,7 +24,7 @@ class Auth {
         clientID: this.clientId,
         redirectUri: this.redirectUri,
         responseType: 'token id_token',
-        scope: 'openid',
+        scope: 'openid profile email',
       });
 
       this.loadSession();
@@ -78,6 +79,8 @@ class Auth {
     const expiresAt = authResult.expiresIn * 1000 + new Date().getTime();
 
     // Set isLoggedIn flag in localStorage
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     localStorage.setItem(
       storageKey,
       JSON.stringify({
@@ -95,6 +98,14 @@ class Auth {
     this.origin = authResult.appState.origin;
   }
 
+  getCurrentUserFromPersistData() {
+    if (!this.isAuthenticated()) {
+      return null;
+    }
+    const persistData = getPersistData('user');
+    return persistData;
+  }
+
   // TODO: figure out what mentor registration callbacks have to do with authentication.  Probably move this functionality elsewhere
   async onMentorRegistered(api, callback) {
     if (this.origin === 'mentor') {
@@ -110,6 +121,8 @@ class Auth {
     if (typeof window === 'undefined') {
       return;
     }
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     const json = localStorage.getItem(storageKey);
 
     if (json) {
@@ -141,36 +154,46 @@ class Auth {
         } catch (error) {
           reject(error);
         }
-      } else if (!this.isAuthenticated()) {
+      } else {
         this.auth0.checkSession({}, (err, authResult) => {
-          if (err) {
-            reject(err);
+          if (err && !this.#shouldSkipError(err)) {
+            return reject(err);
           }
           if (authResult && authResult.accessToken && authResult.idToken) {
             this.setSession(authResult);
           }
           resolve();
         });
-      } else {
-        resolve();
       }
     });
   }
 
-  #logout = () => {
+  /**
+   * @param {ApiService=} api - it's empty when called from AuthContext because it's hieghr in the Providers tree
+   */
+  forgetUser = (api) => {
     // Remove tokens and expiry time from memory
     this.accessToken = null;
     this.idToken = null;
     this.expiresAt = 0;
 
     // Remove token from localStorage
+    // TODO: use persistData
+    // eslint-disable-next-line no-restricted-syntax
     localStorage.removeItem(storageKey);
+    if (api) {
+      api?.clearCurrentUser();
+    } else {
+      ApiService.clearCurrentUserFromStorage();
+    }
   };
 
   // TODO: figure out why the API  service needs to clear the current user instead of the Auth class?
+  /**
+   * @param  {ApiService} api
+   */
   doLogout = (api) => {
-    this.#logout();
-    api.clearCurrentUser();
+    this.forgetUser(api);
     this.auth0.logout({
       returnTo: this.redirectUri,
     });
@@ -182,6 +205,10 @@ class Auth {
     let expiresAt = this.expiresAt;
     return new Date().getTime() < expiresAt;
   }
+
+  #shouldSkipError = (error) => {
+    return error.code === 'login_required';
+  };
 }
 
 export default Auth;

@@ -84,8 +84,9 @@ const ButtonBar = styled.div`
 `;
 
 const Center = css`
-  height: auto;
-  width: auto;
+  margin-inline: 5px;
+  height: fit-content;
+  width: fit-content;
   box-shadow: 0 0 4px 0 rgba(17, 22, 26, 0.16),
     0 2px 4px 0 rgba(17, 22, 26, 0.08), 0 4px 8px 0 rgba(17, 22, 26, 0.08);
 
@@ -108,7 +109,7 @@ const Overlay = styled.div<{ posCenter: boolean }>`
   align-items: center;
   justify-content: center;
 
-  ${props =>
+  ${(props) =>
     props.posCenter &&
     `
     background: #00000030;
@@ -123,15 +124,14 @@ const ModalContainer = styled.div<{ posCenter: boolean }>`
   background-color: #fff;
   backface-visibility: hidden;
   will-change: transform, opacity;
+  ${(props) => (props.posCenter ? Center : Cover)}
 
-  ${Cover}
   @media ${mobile} {
     padding: 0 10px;
   }
 
   @media ${desktop} {
     padding: 0 45px;
-    ${props => (props.posCenter ? Center : Cover)}
   }
 `;
 
@@ -176,6 +176,14 @@ export const Modal: FC<ModalProps> = ({
   const { closeModal } = useContext(ModalContext);
   const [visible, setVisible] = useState(false);
 
+  const handleOverlayClick = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    if (e.target === e.currentTarget) {
+      close();
+    }
+  };
+
   const save = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     onSave?.(e);
   };
@@ -189,8 +197,21 @@ export const Modal: FC<ModalProps> = ({
     setVisible(true);
   }, []);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setVisible(false);
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
-    <Overlay posCenter={center}>
+    <Overlay posCenter={center} onClick={handleOverlayClick}>
       {transitionStyle}
       {center && transitionCenter}
 
@@ -218,6 +239,7 @@ export const Modal: FC<ModalProps> = ({
                   onClick={save}
                   isLoading={isLoading}
                   disabled={isLoading}
+                  autoFocus={true}
                 >
                   {submitLabel}
                 </Button>
