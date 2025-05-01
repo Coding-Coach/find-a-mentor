@@ -103,6 +103,19 @@ interface EmailVerification {
   };
 }
 
+interface MentorApplicationAdminNotification {
+  name: 'mentor-application-admin-notification';
+  data: {
+    name: string;
+    email: string;
+    title?: string;
+    tags?: string[];
+    country?: string;
+    spokenLanguages?: string[];
+    avatar?: string;
+  };
+}
+
 export type EmailParams = Required<Pick<MailData, 'to' | 'subject'>> &
   (
     | WelcomePayload
@@ -115,8 +128,9 @@ export type EmailParams = Required<Pick<MailData, 'to' | 'subject'>> &
     | MentorApplicationDeclined
     | MentorApplicationApproved
     | MentorNotActive
-  | EmailVerification
+    | EmailVerification
     | MentorFreeze
+    | MentorApplicationAdminNotification
   );
 
 /**

@@ -6,7 +6,6 @@ export interface Mentor {
   name: string
   email: string
   title?: string
-  company?: string
   tags?: string[]
   country?: string
   spokenLanguages?: string[]

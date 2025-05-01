@@ -1,0 +1,49 @@
+<div style="text-align: center; font-size: 18px; line-height: 1.5">
+  <table width="100%">
+    <tbody>
+      <tr>
+        <td align="center">
+          <img
+            style="width: 39%; max-width: 234px;"
+            src="http://cdn.mcauto-images-production.sendgrid.net/83a8af126d5ca8ff/1bd45837-1c43-432c-8b8b-27a0b02ce5a9/600x522.jpg"
+            alt="Illustration"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <h2 style="font-size: 26px; font-weight: normal;">
+    Hello, Admin!
+  </h2>
+  <h1
+    style="font-size: 32px; line-height: 42px; font-weight: normal; color: #69d5b1"
+  >
+    New Mentor Application Received
+  </h1>
+  <p>
+    A new mentor application has been submitted by <%= name %>. Here are the details:
+  </p>
+  <div style="text-align: left; margin: 20px auto; max-width: 600px;">
+    <p><strong>Name:</strong> <%= name %></p>
+    <p><strong>Email:</strong> <%= email %></p>
+    <% if (title) { %>
+      <p><strong>Title:</strong> <%= title %></p>
+    <% } %>
+    <% if (tags && tags.length > 0) { %>
+      <p><strong>Tags:</strong> <%= tags.join(', ') %></p>
+    <% } %>
+    <% if (country) { %>
+      <p><strong>Country:</strong> <%= country %></p>
+    <% } %>
+    <% if (spokenLanguages && spokenLanguages.length > 0) { %>
+      <p><strong>Spoken Languages:</strong> <%= spokenLanguages.join(', ') %></p>
+    <% } %>
+  </div>
+  <p>&nbsp;</p>
+  <p>
+    Please review this application as soon as possible. <a href="<%= baseUrl %>" target="_blank">View Application</a>
+  </p>
+  <p>
+    Thank you for your attention.
+  </p>
+</div>
