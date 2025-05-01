@@ -1,3 +1,4 @@
+import type { User } from '../common/interfaces/user.interface';
 import { send } from './client';
 
 export const sendEmailVerification = async ({ name, email, link }: { name: string; email: string; link: string; }) => {
@@ -103,17 +104,11 @@ export const sendMentorshipRequestCancelled = async ({ menteeName, mentorName, e
   });
 }
 
-export const sendMentorApplicationAdminNotification = async ({
-  name,
-}: {
-  name: string;
-}) => {
+export const sendMentorApplicationAdminNotification = async (user: User) => {
   return send({
-    name: 'mentor-application-received',
+    name: 'mentor-application-admin-notification',
     to: process.env.ADMIN_EMAIL!,
     subject: 'New Mentor Application Submitted',
-    data: {
-      name,
-    },
+    data: user,
   });
 };

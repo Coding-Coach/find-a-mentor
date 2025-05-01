@@ -21,9 +21,32 @@
     New Mentor Application Received
   </h1>
   <p>
-    A new mentor application has been submitted by <%= name %>. Please review it as soon as possible.
+    A new mentor application has been submitted by <%= name %>. Here are the details:
   </p>
+  <div style="text-align: left; margin: 20px auto; max-width: 600px;">
+    <p><strong>Name:</strong> <%= name %></p>
+    <p><strong>Email:</strong> <%= email %></p>
+    <% if (title) { %>
+      <p><strong>Title:</strong> <%= title %></p>
+    <% } %>
+    <% if (company) { %>
+      <p><strong>Company:</strong> <%= company %></p>
+    <% } %>
+    <% if (tags && tags.length > 0) { %>
+      <p><strong>Tags:</strong> <%= tags.join(', ') %></p>
+    <% } %>
+    <% if (country) { %>
+      <p><strong>Country:</strong> <%= country %></p>
+    <% } %>
+    <% if (spokenLanguages && spokenLanguages.length > 0) { %>
+      <p><strong>Spoken Languages:</strong> <%= spokenLanguages.join(', ') %></p>
+    <% } %>
+    <p><strong>Status:</strong> <%= status %></p>
+  </div>
   <p>&nbsp;</p>
+  <p>
+    Please review this application as soon as possible.
+  </p>
   <p>
     Thank you for your attention.
   </p>

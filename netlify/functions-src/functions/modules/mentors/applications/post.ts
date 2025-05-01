@@ -19,9 +19,7 @@ export const handler: ApiHandler<Application, User> = async (event, context) => 
       name: context.user.name,
       email: context.user.email,
     });
-    sendMentorApplicationAdminNotification({
-      name: context.user.name,
-    });
+    sendMentorApplicationAdminNotification(context.user);
   }
 
   return success({ data }, isNew ? 201 : 200);
