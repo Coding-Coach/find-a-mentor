@@ -109,7 +109,6 @@ interface MentorApplicationAdminNotification {
     name: string;
     email: string;
     title?: string;
-    company?: string;
     tags?: string[];
     country?: string;
     spokenLanguages?: string[];

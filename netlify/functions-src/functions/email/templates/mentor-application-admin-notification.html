@@ -29,9 +29,6 @@
     <% if (title) { %>
       <p><strong>Title:</strong> <%= title %></p>
     <% } %>
-    <% if (company) { %>
-      <p><strong>Company:</strong> <%= company %></p>
-    <% } %>
     <% if (tags && tags.length > 0) { %>
       <p><strong>Tags:</strong> <%= tags.join(', ') %></p>
     <% } %>
@@ -41,11 +38,10 @@
     <% if (spokenLanguages && spokenLanguages.length > 0) { %>
       <p><strong>Spoken Languages:</strong> <%= spokenLanguages.join(', ') %></p>
     <% } %>
-    <p><strong>Status:</strong> <%= status %></p>
   </div>
   <p>&nbsp;</p>
   <p>
-    Please review this application as soon as possible.
+    Please review this application as soon as possible. <a href="<%= baseUrl %>" target="_blank">View Application</a>
   </p>
   <p>
     Thank you for your attention.
