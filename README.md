@@ -1,18 +1,6 @@
 [![Tests](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml/badge.svg)](https://github.com/Coding-Coach/find-a-mentor/actions/workflows/main.yml)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a3969a16-d0ad-4485-b205-d2b297f99051/deploy-status)](https://app.netlify.com/sites/codingcoach-io/deploys)
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Coding-Coach/find-a-mentor/issues)
-![create-react-app supported](https://img.shields.io/badge/CRA-supported-green.svg)
-[![storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://mentors.codingcoach.io/sb/)
-[![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
-[![TypeScript](https://img.shields.io/badge/%3C%2F%3E-TypeScript-%230074c1.svg)](http://www.typescriptlang.org/)
-
-
-## Support Us
-
-CodingCoach is a FREE platform that is built and managed entirely by volunteers. As always, there are ongoing costs to run this site such as servers, domains, email, and more.  Please consider becoming a patron so we can continue our mission of being accessible and free ❤️
-
-<a href="https://patreon.com/codingcoach_io"><img src="https://img.shields.io/endpoint.svg?url=https://moshef9.wixsite.com/patreon-badge/_functions/badge/?username=codingcoach_io" alt="Patreon donate button" /> </a>
-
-Pre-release version of Coding Coach.
 
 ## Looking for a mentor?
 
