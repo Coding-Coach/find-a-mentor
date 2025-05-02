@@ -5,6 +5,7 @@ import Config from '../config';
 sgMail.setApiKey(Config.sendGrid.API_KEY);
 
 export const sendEmail = async (payload: SendData) => {
+  console.log('Sending email:', payload);
   try {
     const msg = {
       to: payload.to,
