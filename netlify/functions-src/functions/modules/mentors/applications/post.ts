@@ -17,6 +17,7 @@ export const handler: ApiHandler<Application, User> = async (event, context) => 
   console.log('Application upserted:', data, isNew);
 
   if (isNew) {
+    console.log('Sending mentor application received email:', context.user);
     sendMentorApplicationReceived({
       name: context.user.name,
       email: context.user.email,
