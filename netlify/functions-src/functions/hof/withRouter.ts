@@ -59,7 +59,7 @@ export const withRouter = (routes: Routes): ApiHandler => {
     try {
       const path = getAppPath(event.path);
       const route = findRouteByPath(routes, path, event.httpMethod as HttpMethod);
-
+      console.log('Route:', route);
       const { handler, params } = getRouteData(route, path);
 
       if (['POST', 'PUT'].includes(event.httpMethod) && event.body) {

@@ -13,7 +13,9 @@ export const sendEmail = async (payload: SendData) => {
       html: payload.html,
     };
 
-    return sgMail.send(msg);
+    const result = await sgMail.send(msg);
+    console.log('Email sent:', msg, result);
+    return result;
   } catch (error) {
     console.error('Error sending email:', error);
     throw new Error('Failed to send email');
