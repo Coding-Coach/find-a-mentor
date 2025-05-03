@@ -18,11 +18,15 @@ export const handler: ApiHandler<Application, User> = async (event, context) => 
 
   if (isNew) {
     console.log('Sending mentor application received email:', context.user);
-    sendMentorApplicationReceived({
-      name: context.user.name,
-      email: context.user.email,
-    });
-    sendMentorApplicationAdminNotification(context.user);
+    try {
+      await sendMentorApplicationReceived({
+        name: context.user.name,
+        email: context.user.email,
+      });
+      await sendMentorApplicationAdminNotification(context.user);
+    } catch (error) {
+      console.error('Error sending mentor application received email:', error);
+    }
   }
 
   return success({ data }, isNew ? 201 : 200);

@@ -3,6 +3,7 @@ import type { SendData } from './interfaces/email.interface';
 import Config from '../config';
 
 sgMail.setApiKey(Config.sendGrid.API_KEY);
+console.log('SendGrid API key:', Config.sendGrid.API_KEY.slice(0, 5) + '...');
 
 export const sendEmail = async (payload: SendData) => {
   try {
