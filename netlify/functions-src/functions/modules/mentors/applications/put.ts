@@ -32,7 +32,7 @@ export const handler: ApiHandler<Pick<Application, 'status' | 'reason'>, User> =
     const application = await respondToApplication(applicationId, status, reason);
     const user = await getUserBy('_id', application.user);
     if (user) {
-      sendApplicationDeclinedEmail({ name: user.name, email: user.email, reason: application.reason! });
+      await sendApplicationDeclinedEmail({ name: user.name, email: user.email, reason: application.reason! });
     }
 
     return success({

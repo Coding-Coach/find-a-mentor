@@ -39,7 +39,7 @@ export const updateMentorshipRequestHandler: ApiHandler<Mentorship, User> = asyn
         const contactURL = getMentorContactURL(mentor);
         const openRequests = await getMenteeOpenRequestsCount(upsertedMentorship.mentee);
 
-        sendMentorshipAccepted({
+        await sendMentorshipAccepted({
           menteeName: mentee.name,
           email: mentee.email,
           mentorName: mentor.name,
@@ -48,7 +48,7 @@ export const updateMentorshipRequestHandler: ApiHandler<Mentorship, User> = asyn
         });
       }
       if (status === Status.REJECTED) {
-        sendMentorshipDeclined({
+        await sendMentorshipDeclined({
           menteeName: mentee.name,
           mentorName: mentor.name,
           bySystem: false,
@@ -58,7 +58,7 @@ export const updateMentorshipRequestHandler: ApiHandler<Mentorship, User> = asyn
       }
 
       if (status === Status.CANCELLED) {
-        sendMentorshipRequestCancelled({
+        await sendMentorshipRequestCancelled({
           email: mentee.email,
           menteeName: mentee.name,
           mentorName: mentor.name,

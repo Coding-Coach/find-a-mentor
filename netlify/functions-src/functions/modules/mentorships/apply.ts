@@ -62,7 +62,7 @@ const applyForMentorshipHandler: ApiHandler<CreateEntityPayload<Mentorship>, Use
   });
 
   try {
-    sendMentorshipRequest({
+    await sendMentorshipRequest({
       menteeName: current.name,
       email: mentor.email,
       mentorName: mentor.name,
