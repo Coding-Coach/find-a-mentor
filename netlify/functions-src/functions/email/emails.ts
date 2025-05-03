@@ -108,7 +108,7 @@ export const sendMentorApplicationAdminNotification = async (user: User) => {
   console.log('Sending mentor application admin notification:', user);
   return send({
     name: 'mentor-application-admin-notification',
-    to: 'noreply@codingcoach.io',
+    to: process.env.ADMIN_EMAIL!,
     subject: 'New Mentor Application Submitted',
     data: user,
   });
