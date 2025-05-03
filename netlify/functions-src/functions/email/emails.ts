@@ -105,6 +105,7 @@ export const sendMentorshipRequestCancelled = async ({ menteeName, mentorName, e
 }
 
 export const sendMentorApplicationAdminNotification = async (user: User) => {
+  console.log('Sending mentor application admin notification:', user._id);
   return send({
     name: 'mentor-application-admin-notification',
     to: process.env.ADMIN_EMAIL!,

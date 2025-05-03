@@ -18,7 +18,7 @@ export const handler: ApiHandler<Pick<Application, 'status' | 'reason'>, User> =
   if (status === 'Approved') {
     try {
       const { user, application } = await approveApplication(applicationId);
-      sendApplicationApprovedEmail({ name: user.name, email: user.email });
+      await sendApplicationApprovedEmail({ name: user.name, email: user.email });
 
       return success({
         data: application,
@@ -32,7 +32,7 @@ export const handler: ApiHandler<Pick<Application, 'status' | 'reason'>, User> =
     const application = await respondToApplication(applicationId, status, reason);
     const user = await getUserBy('_id', application.user);
     if (user) {
-      sendApplicationDeclinedEmail({ name: user.name, email: user.email, reason: application.reason! });
+      await sendApplicationDeclinedEmail({ name: user.name, email: user.email, reason: application.reason! });
     }
 
     return success({

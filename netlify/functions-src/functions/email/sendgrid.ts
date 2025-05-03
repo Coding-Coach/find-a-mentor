@@ -13,8 +13,9 @@ export const sendEmail = async (payload: SendData) => {
       html: payload.html,
     };
 
+    console.log('Sending email:', msg.to, msg.subject);
     const result = await sgMail.send(msg);
-    console.log('Email sent:', msg, result);
+    console.log('Email sent:', msg.to, msg.subject, result[0].statusCode);
     return result;
   } catch (error) {
     console.error('Error sending email:', error);

@@ -8,7 +8,7 @@ export const handler: ApiHandler<void, User> = async (_event, context) => {
   try {
     const { auth0Id, name, email } = context.user;
     const { ticket } = await auth0Service.createVerificationEmailTicket(auth0Id);
-    sendEmailVerification({
+    await sendEmailVerification({
       name,
       email,
       link: ticket,
