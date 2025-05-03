@@ -14,7 +14,6 @@ export const upsertEntityByCondition = async <T extends OptionalId<unknown>>(
     { $set: entity },
     { upsert: true, returnDocument: 'after', includeResultMetadata: true }
   );
-  console.log('Upserted entity:', upsertedEntity, lastErrorObject);
   const isNew = lastErrorObject?.updatedExisting === false;
   if (!upsertedEntity) {
     throw new Error('Failed to upsert application');
