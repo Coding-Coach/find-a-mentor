@@ -6,10 +6,9 @@ import { ObjectId, type Filter, type MatchKeysAndValues } from 'mongodb';
 import type { User } from '../common/interfaces/user.interface';
 
 export const upsertApplication = async (application: MatchKeysAndValues<Application>): UpsertResult<Application> => {
-  const filter: Filter<Application> = {};
-  if (application._id) {
-    filter._id = new ObjectId(application._id);
-  }
+  const filter: Filter<Application> = {
+    user: application.user,
+  };
 
   const { data: upsertedApplication, isNew } = await upsertEntityByCondition<Application>(
     'applications',
