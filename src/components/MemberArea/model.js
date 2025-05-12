@@ -42,7 +42,9 @@ export default {
     defaultValue: '',
     helpText: 'Please use your real image',
     previewImage: true,
-    validate: (value) => value.includes('gravatar'),
+    validate: (value) => {
+      return ['gravatar', 'googleusercontent'].some((provider) => value.includes(provider))
+    },
   },
   title: {
     label: 'Title',
