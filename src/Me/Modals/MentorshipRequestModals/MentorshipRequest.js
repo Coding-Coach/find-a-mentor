@@ -130,7 +130,6 @@ const MentorshipRequest = ({ mentor }) => {
         ] = `"${config.label}" should be longer than 30 characters`;
       }
     });
-
     setErrors(_errors);
     return Object.keys(_errors).length === 0;
   };
@@ -146,10 +145,10 @@ const MentorshipRequest = ({ mentor }) => {
     if (response.success) {
       setConfirmed(true);
     } else {
-      setErrors({
-        ...errors,
+      setErrors(currentErrors => ({
+        ...currentErrors,
         form: response.message,
-      });
+      }));
     }
     setIsLoading(false);
   };
