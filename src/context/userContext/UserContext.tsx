@@ -3,7 +3,7 @@ import { User } from '../../types/models';
 import { useAuth } from '../authContext/AuthContext';
 import { useApi } from '../apiContext/ApiContext';
 import { daysAgo } from '../../helpers/time';
-import { getPersistData, setPersistData } from '../../persistData';
+import { setPersistData } from '../../persistData';
 
 type EmailNotVerifiedInfo =
   | {

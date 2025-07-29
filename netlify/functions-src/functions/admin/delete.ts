@@ -43,6 +43,4 @@ export const deleteUser = async (userId: string): Promise<void> => {
   if (!response.ok) {
     throw new Error(`Failed to delete user: ${response.statusText}`);
   }
-
-  return response.json();
 }
