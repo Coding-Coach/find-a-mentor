@@ -26,7 +26,7 @@ db.getCollection('users').insertOne({
   country: 'US',
   spokenLanguages: ['en', 'es'],
   tags: ['JavaScript', 'Node.js', 'MongoDB'],
-  roles: ['mentor'],
+  roles: ['Mentor'],
   channels: [
     {
       type: 'email',
