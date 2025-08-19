@@ -2,7 +2,7 @@ import { promises } from 'fs';
 import path from 'path';
 import { compile } from 'ejs';
 import type { EmailParams } from './interfaces/email.interface';
-import { sendEmail } from './sendgrid';
+import { sendEmail } from './smtp2go';
 
 const SYSTEM_DATA = {
   baseUrl: process.env.CLIENT_BASE_URL,

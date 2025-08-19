@@ -20,11 +20,14 @@ const config = {
   sendGrid: {
     API_KEY: process.env.SENDGRID_API_KEY!,
   },
+  smtp2go: {
+    API_KEY: process.env.SMTP2GO_API_KEY!,
+  },
   sentry: {
     DSN: process.env.SENTRY_DSN,
   },
   email: {
-    FROM: 'Coding Coach <no-reply@mail.codingcoach.io>',
+    FROM: 'Coding Coach <admin@codingcoach.io>',
   },
   files: {
     public: process.env.PUBLIC_FOLDER,
