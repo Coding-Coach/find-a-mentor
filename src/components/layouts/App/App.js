@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import styled from 'styled-components/macro';
 import { toast, ToastContainer } from 'react-toastify';
 
@@ -11,6 +11,8 @@ import { ActionsHandler } from './ActionsHandler';
 import { desktop, mobile } from '../../../Me/styles/shared/devices';
 import { Sidebar } from '../../Sidebar/Sidebar';
 import { useMentors } from '../../../context/mentorsContext/MentorsContext';
+import { useUser } from '../../../context/userContext/UserContext';
+import { VerificationModal } from './VerificationModal';
 
 const App = (props) => {
   const { children } = props;
@@ -22,6 +24,16 @@ const App = (props) => {
     onClose: null,
   });
   const { mentors } = useMentors();
+  const { isNotYetVerified, emailVerifiedInfo } = useUser();
+
+  const handleModal = useCallback((title, content, onClose) => {
+    setModal({
+      title,
+      content,
+      onClose,
+    });
+    report('Modal', 'open', title);
+  }, []);
 
   useEffect(() => {
     if (process.env.REACT_APP_MAINTENANCE_MESSAGE) {
@@ -43,14 +55,22 @@ const App = (props) => {
     [tag, country, name, language]
   );
 
-  const handleModal = (title, content, onClose) => {
-    setModal({
-      title,
-      content,
-      onClose,
-    });
-    report('Modal', 'open', title);
-  };
+  useEffect(() => {
+    if (isNotYetVerified && emailVerifiedInfo?.email) {
+      handleModal(
+        'Email Verification Required',
+        <VerificationModal
+          onSuccess={() => {
+            setModal({ title: null, content: null, onClose: null });
+            toast.success('Verification email sent! Please check your inbox.');
+          }}
+        />,
+        () => {
+          // Optional: handle modal close
+        }
+      );
+    }
+  }, [isNotYetVerified, emailVerifiedInfo, handleModal]);
 
   return (
     <div className="app">
@@ -107,28 +127,6 @@ const Main = styled.section`
         transform: translateY(300px);
         margin-bottom: 50px;
       `}
-  }
-`;
-
-const StayTunedLink = styled.a`
-  border-radius: 3px;
-  box-sizing: border-box;
-  font-family: Lato,sans-serif;
-  transition: box-shadow 0.1s ease-in-out;
-  background-color: #69d5b1;
-  color: #fff;
-  margin: 10px auto;
-  display: block;
-  width: fit-content;
-  padding: 5px 10px;
-  text-decoration: none;
-
-  &:hover {
-    box-shadow: inset 0 0 100px 0 #00000010;
-  }
-
-  &:disabled {
-    opacity: 0.5;
   }
 `;
 
