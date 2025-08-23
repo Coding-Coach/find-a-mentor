@@ -111,7 +111,7 @@ export function withAuth(handler: ApiHandler, options: {
       if (err instanceof DataError) {
         return error(err.message, err.statusCode)
       }
-      return error('Unauthorized', 401)
+      return error('Internal Server Error', 500)
     }
   }
 }

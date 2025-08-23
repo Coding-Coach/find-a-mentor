@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb';
-import type { User } from '../common/interfaces/user.interface';
+import { Role, type User } from '../common/interfaces/user.interface';
 import { getCollection } from '../utils/db';
 import { upsertEntity } from './utils';
 import { DataError } from './errors';
@@ -31,7 +31,7 @@ const getUserWithChannels = async (id: string, currentUserAuth0Id: string): Prom
             },
           },
           {
-            $project: { _id: 1 }, // Only fetch the _id of the current user
+            $project: { _id: 1, roles: 1 },
           },
         ],
         as: 'currentUser',
@@ -40,6 +40,7 @@ const getUserWithChannels = async (id: string, currentUserAuth0Id: string): Prom
     {
       $addFields: {
         currentUserId: { $arrayElemAt: ['$currentUser._id', 0] }, // Extract the current user's _id
+        currentUserRoles: { $ifNull: [{ $arrayElemAt: ['$currentUser.roles', 0] }, []] },
       },
     },
     {
@@ -66,7 +67,12 @@ const getUserWithChannels = async (id: string, currentUserAuth0Id: string): Prom
       $addFields: {
         channels: {
           $cond: {
-            if: { $gt: [{ $size: '$approvedMentorships' }, 0] },
+            if: {
+              $or: [
+                { $gt: [{ $size: '$approvedMentorships' }, 0] },
+                { $in: [Role.ADMIN, '$currentUserRoles'] }
+              ]
+            },
             then: '$channels',
             else: [],
           },
