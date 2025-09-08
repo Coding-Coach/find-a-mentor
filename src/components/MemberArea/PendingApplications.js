@@ -97,10 +97,19 @@ export default class PendingApplications extends Component {
                     )}
                   </td>
                   <td>
-                    <AvatarImage
-                      alt={user.name}
-                      src={getAvatarUrl(user.avatar)}
-                    />
+                    <AvatarContainer>
+                      <AvatarImage
+                        alt={user.name}
+                        src={getAvatarUrl(user.avatar)}
+                      />
+                      <span>
+                        {user.avatar?.includes('gravatar.com') ? (
+                          <>Gr </>
+                        ) : (
+                          <>Go</>
+                        )}
+                      </span>
+                    </AvatarContainer>
                   </td>
                   <td>{user.name}</td>
                   <td>
@@ -162,9 +171,22 @@ const Table = styled.table`
   }
 `;
 
+const AvatarContainer = styled.div`
+  position: relative;
+`;
+
 const AvatarImage = styled.img`
   width: 40px;
   border-radius: 50%;
+
+  & + span {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 2px;
+  }
 `;
 
 const actionButton = css`
