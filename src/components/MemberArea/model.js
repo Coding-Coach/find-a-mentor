@@ -40,10 +40,16 @@ export default {
     label: 'Avatar',
     type: 'gravatar',
     defaultValue: '',
-    helpText: 'Please use your real image',
+    helpText: 'Enter any public image URL or leave empty to use OAuth default',
     previewImage: true,
     validate: (value) => {
-      return ['gravatar', 'googleusercontent'].some((provider) => value.includes(provider))
+      if (!value) return true;
+      try {
+        const url = new URL(value);
+        return url.protocol === 'http:' || url.protocol === 'https:';
+      } catch {
+        return false;
+      }
     },
   },
   title: {

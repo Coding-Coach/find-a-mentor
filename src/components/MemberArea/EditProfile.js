@@ -164,8 +164,24 @@ export default class EditProfile extends Component {
                   className="form-field-preview"
                   src={getAvatarUrl(user[fieldName])}
                   alt="avatar"
+                  onError={(e) => {
+                    if (user.auth0Picture && e.target.src !== user.auth0Picture) {
+                      e.target.src = user.auth0Picture;
+                    }
+                  }}
                 />
-                <div className='input-like'>Change your avatar on <RedirectToGravatar /></div>
+                <input
+                  type="url"
+                  name={fieldName}
+                  value={user[fieldName] || ''}
+                  placeholder="https://example.com/avatar.jpg or leave empty for OAuth default"
+                  onChange={(e) => this.handleInputChangeEvent(e)}
+                  className="input"
+                  style={{ marginTop: '8px' }}
+                />
+                <div className='input-like' style={{ marginTop: '4px', fontSize: '12px', color: '#888' }}>
+                  Use any public image URL (Gravatar, Imgur, etc.) or <RedirectToGravatar />
+                </div>
               </div>
             </label>
           </div>

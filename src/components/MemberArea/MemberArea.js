@@ -16,6 +16,7 @@ import { useDeviceType } from '../../hooks/useDeviceType';
 function MemberArea({ onOpenModal }) {
   const { isDesktop } = useDeviceType();
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
+  const [avatarError, setAvatarError] = useState(false);
   const { currentUser, isMentor, isAdmin, isAuthenticated, logout, isNotYetVerified } = useUser();
   const api = useApi();
   const auth = useAuth();
@@ -44,6 +45,10 @@ function MemberArea({ onOpenModal }) {
     setIsMemberMenuOpen(false);
   };
 
+  const avatarUrl = avatarError && currentUser?.auth0Picture
+    ? currentUser.auth0Picture
+    : currentUser?.avatar || currentUser?.auth0Picture;
+
   return (
     <div className="auth">
       {isAuthenticated ? (
@@ -60,7 +65,8 @@ function MemberArea({ onOpenModal }) {
             {currentUser ? (
               <UserImage
                 alt={currentUser.email}
-                src={getAvatarUrl(currentUser.avatar)}
+                src={getAvatarUrl(avatarUrl)}
+                onError={() => setAvatarError(true)}
               />
             ) : (
               <AvatarPlaceHolder className="fa fa-user-circle" />
