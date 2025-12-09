@@ -1,16 +1,17 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
+import type { User } from '../../../../types/models';
 import Camera from '../../../../assets/me/camera.svg';
 import CardContainer from '../../../components/Card/index';
-import { getAvatarUrl } from '../../../../helpers/avatar';
+import { isGoogleOAuthUser } from '../../../../helpers/authProvider';
 import { IconButton } from '../../../components/Button/IconButton';
 import { Tooltip } from 'react-tippy';
 import { toast } from 'react-toastify';
 import { report } from '../../../../ga';
 import { useApi } from '../../../../context/apiContext/ApiContext';
 import messages from '../../../../messages';
-import AvatarEditModal from './AvatarEditModal';
+import Switch from '../../../../components/Switch/Switch';
 
 const ShareProfile = ({ url }: { url: string }) => {
   const [showInput, setShowInput] = React.useState(false);
@@ -55,55 +56,23 @@ const ShareProfile = ({ url }: { url: string }) => {
 const Avatar: FC = () => {
   const { currentUser, updateCurrentUser } = useUser<true>();
   const api = useApi();
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
-  const [primaryAvatarFailed, setPrimaryAvatarFailed] = useState(false);
 
   if (!currentUser) {
     return null;
   }
 
-  // Access auth0Picture dynamically - it's returned from API but not in schema
-  const auth0Picture = (currentUser as any).auth0Picture;
+  const isUsingGravatar = currentUser.avatar?.includes('gravatar.com') || false;
 
-  // Reset failed state when avatar data changes
-  useEffect(() => {
-    setPrimaryAvatarFailed(false);
-  }, [currentUser.avatar, auth0Picture]);
-
-  // Determine which avatar to display
-  // If primary avatar exists and hasn't failed, use it. Otherwise use auth0Picture
-  const displayAvatar = (!primaryAvatarFailed && currentUser.avatar)
-    ? currentUser.avatar
-    : auth0Picture;
-
-  const isUsingCustomAvatar = currentUser.avatar && currentUser.avatar !== auth0Picture;
-
-  const handleImageError = () => {
-    // Only mark as failed if this is the primary avatar, not the fallback
-    if (!primaryAvatarFailed) {
-      setPrimaryAvatarFailed(true);
-    }
-  };
-
-  const handleSaveAvatar = async (avatarUrl: string) => {
+  const handleToggleGravatar = async (newValue: boolean) => {
     setIsSaving(true);
-
     try {
-      const updateMentorResult = await api.updateMentor({
-        ...currentUser,
-        avatar: avatarUrl || null, // null to clear and use Auth0 default
-      });
-
-      if (updateMentorResult) {
+      report('Avatar', newValue ? 'use gravatar' : 'use google profile picture');
+      const updatedUser = await api.toggleAvatar(newValue);
+      if (updatedUser) {
         api.clearCurrentUser();
-        const updatedUser = await api.getCurrentUser();
-        if (updatedUser) {
-          updateCurrentUser(updatedUser);
-          setPrimaryAvatarFailed(false); // Reset error state
-          toast.success('Avatar updated successfully');
-          setIsModalOpen(false);
-        }
+        updateCurrentUser(updatedUser);
+        toast.success('Avatar updated successfully', { toastId: 'avatar-updated' });
       } else {
         toast.error(messages.GENERIC_ERROR);
       }
@@ -114,6 +83,8 @@ const Avatar: FC = () => {
     }
   };
 
+  const isGoogleUser = isGoogleOAuthUser(currentUser.auth0Id);
+
   return (
     <CardContainer>
       <Container>
@@ -121,33 +92,47 @@ const Avatar: FC = () => {
           url={`${process.env.NEXT_PUBLIC_AUTH_CALLBACK}/u/${currentUser._id}`}
         />
         <AvatarContainer>
-          <AvatarWrapper onClick={() => setIsModalOpen(true)}>
-            {displayAvatar ? (
+          <AvatarWrapper>
+            {currentUser.avatar ? (
               <UserImage
                 alt={currentUser.email}
-                src={getAvatarUrl(displayAvatar)}
-                onError={handleImageError}
+                src={currentUser.avatar}
               />
             ) : (
               <AvatarPlaceHolder alt="No profile picture" src={Camera} />
             )}
-            <AvatarSourceBadge>
-              {isUsingCustomAvatar ? '📷' : '🔐'}
-            </AvatarSourceBadge>
           </AvatarWrapper>
-          <AvatarHint>Click to change avatar</AvatarHint>
         </AvatarContainer>
+
+        {isGoogleUser && (
+          <>
+            <Tooltip
+              title="Use Gravatar for a different avatar from your Google photo"
+              size="regular"
+              arrow={true}
+              position="bottom"
+            >
+              <i className="fa fa-info-circle"></i>
+            </Tooltip>{" "}
+            <ToggleLabel>
+              <Switch
+                label="Use Gravatar"
+                isChecked={isUsingGravatar}
+                onToggle={handleToggleGravatar}
+                size="small"
+              />
+            </ToggleLabel>
+            <ToggleDescription>
+              Update your avatar picture at{" "}
+              {isUsingGravatar
+                ? <a href="https://gravatar.com/profile/avatars" target="_blank" rel="noopener noreferrer">Gravatar</a>
+                : <a href="https://myaccount.google.com/profile" target="_blank" rel="noopener noreferrer">Google Profile</a>
+              }
+            </ToggleDescription>
+          </>
+        )}
         <h1>{currentUser ? currentUser.name : ''}</h1>
         <p>{currentUser ? currentUser.title : ''}</p>
-
-        <AvatarEditModal
-          isOpen={isModalOpen}
-          currentAvatar={currentUser.avatar || ''}
-          auth0Id={currentUser.auth0Id}
-          onClose={() => setIsModalOpen(false)}
-          onSave={handleSaveAvatar}
-          isSaving={isSaving}
-        />
       </Container>
     </CardContainer>
   );
@@ -163,35 +148,11 @@ const AvatarContainer = styled.div`
 
 const AvatarWrapper = styled.div`
   position: relative;
-  cursor: pointer;
   display: inline-block;
 
   &:hover img {
     opacity: 0.9;
   }
-`;
-
-const AvatarSourceBadge = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 28px;
-  height: 28px;
-  background-color: white;
-  border: 2px solid #f0f0f0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-`;
-
-const AvatarHint = styled.p`
-  font-size: 12px;
-  color: #999;
-  margin: 0;
-  font-style: italic;
 `;
 
 const AvatarPlaceHolder = styled.img`
@@ -205,9 +166,24 @@ const AvatarPlaceHolder = styled.img`
 const UserImage = styled.img`
   width: 100px;
   height: 100px;
+  display: block;
   object-fit: cover;
   border-radius: 8px;
+  border: 2px solid #e0e0e0;
   transition: opacity 0.2s ease;
+`;
+
+const ToggleLabel = styled.div`
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+`;
+
+const ToggleDescription = styled.div`
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 12px 0;
+  line-height: 1.5;
 `;
 
 const Container = styled.div`

@@ -3,7 +3,6 @@ import onClickOutside from 'react-onclickoutside';
 import styled from 'styled-components';
 import Link from '../Link/Link';
 
-import { getAvatarUrl } from '../../helpers/avatar';
 import { useUser } from '../../context/userContext/UserContext';
 import { useAuth } from '../../context/authContext/AuthContext';
 import { useApi } from '../../context/apiContext/ApiContext';
@@ -65,7 +64,7 @@ function MemberArea({ onOpenModal }) {
             {currentUser ? (
               <UserImage
                 alt={currentUser.email}
-                src={getAvatarUrl(avatarUrl)}
+                src={avatarUrl}
                 onError={() => setAvatarError(true)}
               />
             ) : (
