@@ -6,13 +6,12 @@ import model from './model';
 import Select from 'react-select';
 import { isMentor, fromMtoVM, fromVMtoM } from '../../helpers/user';
 import Switch from '../Switch/Switch';
-import { getAvatarUrl } from '../../helpers/avatar';
 import { providers } from '../../channelProvider';
 import messages from '../../messages';
 import { report, reportError } from '../../ga';
 import UserContext from '../../context/userContext/UserContext';
 import { links } from '../../config/constants';
-import { RedirectToGravatar } from '../../Me/Modals/RedirectToGravatar';
+import AvatarField from './AvatarField';
 
 export default class EditProfile extends Component {
   static contextType = UserContext;
@@ -20,6 +19,7 @@ export default class EditProfile extends Component {
     user: fromMtoVM(this.context.currentUser),
     errors: [],
     agree: false,
+    isUsingGravatar: this.context.currentUser?.avatar?.includes('gravatar.com') || false,
   };
 
   validate() {
@@ -97,6 +97,32 @@ export default class EditProfile extends Component {
     }
   };
 
+  handleToggleGravatar = async (newValue) => {
+    const { updateCurrentUser } = this.context;
+    const { api } = this.props;
+
+    this.setState({ disabled: true });
+    try {
+      report('Avatar', newValue ? 'use gravatar' : 'use google profile picture');
+      const updatedUser = await api.toggleAvatar(newValue);
+      if (updatedUser) {
+        api.clearCurrentUser();
+        updateCurrentUser(updatedUser);
+        this.setState({
+          user: fromMtoVM(updatedUser),
+          isUsingGravatar: newValue,
+        });
+        toast.success('Avatar updated successfully', { toastId: 'avatar-updated' });
+      } else {
+        toast.error(messages.GENERIC_ERROR);
+      }
+    } catch (error) {
+      toast.error(messages.GENERIC_ERROR);
+    } finally {
+      this.setState({ disabled: false });
+    }
+  };
+
   formField = (fieldName, config) => {
     const { user } = this.state;
     switch (config.type) {
@@ -121,7 +147,7 @@ export default class EditProfile extends Component {
                   (user[fieldName] ? (
                     <img
                       className="form-field-preview"
-                      src={getAvatarUrl(user[fieldName])}
+                    src={user[fieldName]}
                       alt="avatar"
                     />
                   ) : (
@@ -147,43 +173,15 @@ export default class EditProfile extends Component {
           </div>
         );
       case 'gravatar':
+        const { isUsingGravatar } = this.state;
+
         return (
           <div key={fieldName} className="form-field" style={config.style}>
-            <label
-              id={fieldName}
-              className={classNames({ required: !!config.validate })}
-            >
-              <div className="form-field-name">
-                {config.label}
-                {config.helpText && (
-                  <span className="help-text">{config.helpText}</span>
-                )}
-              </div>
-              <div className="form-field-input-wrapper">
-                <img
-                  className="form-field-preview"
-                  src={getAvatarUrl(user[fieldName])}
-                  alt="avatar"
-                  onError={(e) => {
-                    if (user.auth0Picture && e.target.src !== user.auth0Picture) {
-                      e.target.src = user.auth0Picture;
-                    }
-                  }}
-                />
-                <input
-                  type="url"
-                  name={fieldName}
-                  value={user[fieldName] || ''}
-                  placeholder="https://example.com/avatar.jpg or leave empty for OAuth default"
-                  onChange={(e) => this.handleInputChangeEvent(e)}
-                  className="input"
-                  style={{ marginTop: '8px' }}
-                />
-                <div className='input-like' style={{ marginTop: '4px', fontSize: '12px', color: '#888' }}>
-                  Use any public image URL (Gravatar, Imgur, etc.) or <RedirectToGravatar />
-                </div>
-              </div>
-            </label>
+            <AvatarField
+              user={user}
+              isUsingGravatar={isUsingGravatar}
+              onToggleGravatar={this.handleToggleGravatar}
+            />
           </div>
         );
       case 'tags':

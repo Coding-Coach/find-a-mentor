@@ -1,9 +1,9 @@
 import React, { FC, useState, useEffect } from 'react';
 import styled from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
+import type { User } from '../../../../types/models';
 import Camera from '../../../../assets/me/camera.svg';
 import CardContainer from '../../../components/Card/index';
-import { getAvatarUrl } from '../../../../helpers/avatar';
 import { isGoogleOAuthUser } from '../../../../helpers/authProvider';
 import { IconButton } from '../../../components/Button/IconButton';
 import { Tooltip } from 'react-tippy';
@@ -57,49 +57,22 @@ const Avatar: FC = () => {
   const { currentUser, updateCurrentUser } = useUser<true>();
   const api = useApi();
   const [isSaving, setIsSaving] = useState(false);
-  const [primaryAvatarFailed, setPrimaryAvatarFailed] = useState(false);
 
   if (!currentUser) {
     return null;
   }
 
-  // Access auth0Picture dynamically - it's returned from API but not in schema
-  const auth0Picture = (currentUser as any).auth0Picture;
-  const isUsingCustomAvatar = currentUser.avatar === 'gravatar';
-
-  // Reset failed state when avatar data changes
-  useEffect(() => {
-    setPrimaryAvatarFailed(false);
-  }, [currentUser.avatar, auth0Picture]);
-
-  const displayAvatar = (!primaryAvatarFailed && currentUser.avatar)
-    ? currentUser.avatar
-    : auth0Picture;
-
-
-  const handleImageError = () => {
-    // Only mark as failed if this is the primary avatar, not the fallback
-    if (!primaryAvatarFailed) {
-      setPrimaryAvatarFailed(true);
-    }
-  };
+  const isUsingGravatar = currentUser.avatar?.includes('gravatar.com') || false;
 
   const handleToggleGravatar = async (newValue: boolean) => {
     setIsSaving(true);
     try {
       report('Avatar', newValue ? 'use gravatar' : 'use google profile picture');
-      const updatedMentor = await api.updateMentor({
-        ...currentUser,
-        avatar: newValue ? 'gravatar' : '',
-      });
-      if (updatedMentor) {
+      const updatedUser = await api.toggleAvatar(newValue);
+      if (updatedUser) {
         api.clearCurrentUser();
-        const updatedUser = await api.getCurrentUser();
-        if (updatedUser) {
-          updateCurrentUser(updatedUser);
-          toast.success('Avatar updated successfully', { toastId: 'avatar-updated' });
-          setPrimaryAvatarFailed(false);
-        }
+        updateCurrentUser(updatedUser);
+        toast.success('Avatar updated successfully', { toastId: 'avatar-updated' });
       } else {
         toast.error(messages.GENERIC_ERROR);
       }
@@ -120,11 +93,10 @@ const Avatar: FC = () => {
         />
         <AvatarContainer>
           <AvatarWrapper>
-            {displayAvatar ? (
+            {currentUser.avatar ? (
               <UserImage
                 alt={currentUser.email}
-                src={getAvatarUrl(currentUser)}
-                onError={handleImageError}
+                src={currentUser.avatar}
               />
             ) : (
               <AvatarPlaceHolder alt="No profile picture" src={Camera} />
@@ -134,18 +106,26 @@ const Avatar: FC = () => {
 
         {isGoogleUser && (
           <>
+            <Tooltip
+              title="Use Gravatar for a different avatar from your Google photo"
+              size="regular"
+              arrow={true}
+              position="bottom"
+            >
+              <i className="fa fa-info-circle"></i>
+            </Tooltip>{" "}
             <ToggleLabel>
               <Switch
                 label="Use Gravatar"
-                isChecked={isUsingCustomAvatar}
+                isChecked={isUsingGravatar}
                 onToggle={handleToggleGravatar}
                 size="small"
               />
             </ToggleLabel>
             <ToggleDescription>
               Update your avatar picture at{" "}
-              {isUsingCustomAvatar
-                ? <a href="https://gravatar.com" target="_blank" rel="noopener noreferrer">Gravatar</a>
+              {isUsingGravatar
+                ? <a href="https://gravatar.com/profile/avatars" target="_blank" rel="noopener noreferrer">Gravatar</a>
                 : <a href="https://myaccount.google.com/profile" target="_blank" rel="noopener noreferrer">Google Profile</a>
               }
             </ToggleDescription>
@@ -186,8 +166,10 @@ const AvatarPlaceHolder = styled.img`
 const UserImage = styled.img`
   width: 100px;
   height: 100px;
+  display: block;
   object-fit: cover;
   border-radius: 8px;
+  border: 2px solid #e0e0e0;
   transition: opacity 0.2s ease;
 `;
 
@@ -197,10 +179,10 @@ const ToggleLabel = styled.div`
   gap: 12px;
 `;
 
-const ToggleDescription = styled.p`
+const ToggleDescription = styled.div`
   font-size: 13px;
   color: #666;
-  margin: 0;
+  margin: 0 0 12px 0;
   line-height: 1.5;
 `;
 

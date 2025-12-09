@@ -59,10 +59,13 @@ const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: 
   }
   const currentUser = await getCurrentUser(auth0Id);
 
+  // Use stored avatar if exists, otherwise fallback to Auth0 picture
+  const avatarUrl = currentUser.avatar || context.user?.picture;
+
   const applicationUser = {
     ...currentUser,
     email_verified: context.user?.email_verified,
-    auth0Picture: context.user?.picture, // Temporary field for client-side fallback (not in DB)
+    avatar: avatarUrl,
   };
   return success({ data: applicationUser })
 }
