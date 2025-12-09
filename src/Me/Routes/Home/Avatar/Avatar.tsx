@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
 import type { User } from '../../../../types/models';
