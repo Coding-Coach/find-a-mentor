@@ -58,10 +58,10 @@ const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: 
     return error('Unauthorized: user not found', 401)
   }
   const currentUser = await getCurrentUser(auth0Id);
+
   const applicationUser = {
     ...currentUser,
     email_verified: context.user?.email_verified,
-    avatar: currentUser.avatar || context.user?.picture, // Use custom avatar if set, otherwise Auth0 picture
     auth0Picture: context.user?.picture, // Temporary field for client-side fallback (not in DB)
   };
   return success({ data: applicationUser })
