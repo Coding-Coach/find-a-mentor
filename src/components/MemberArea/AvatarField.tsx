@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Switch from '../Switch/Switch';
 import { isGoogleOAuthUser } from '../../helpers/authProvider';
 import type { User } from '../../types/models';
+import { Tooltip } from 'react-tippy';
 
 type AvatarFieldProps = {
   user: Pick<User, 'auth0Id' | 'avatar' | 'auth0Picture'>;
@@ -37,6 +38,14 @@ const AvatarField: FC<AvatarFieldProps> = ({
                 onToggle={onToggleGravatar}
                 size="small"
               />
+              <Tooltip
+                title="Toggle between your Google profile picture and Gravatar avatar"
+                size="regular"
+                arrow={true}
+                position="bottom"
+              >
+                <i className="fa fa-info-circle" style={{ verticalAlign: 'top' }}></i>
+              </Tooltip>
             </SwitchWrapper>
             <HelpText>
               Update your avatar picture at{' '}
