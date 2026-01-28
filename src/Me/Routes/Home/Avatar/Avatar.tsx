@@ -112,7 +112,7 @@ const Avatar: FC = () => {
           <GravatarToggleContainer>
             <ToggleLabel>
               <Switch
-                label="Use Gravatar"
+                label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
                 isChecked={isUsingGravatar}
                 onToggle={handleToggleGravatar}
                 size="small"

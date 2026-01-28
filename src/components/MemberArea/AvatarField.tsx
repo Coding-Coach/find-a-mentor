@@ -33,7 +33,7 @@ const AvatarField: FC<AvatarFieldProps> = ({
           <>
             <SwitchWrapper>
               <Switch
-                label="Use Gravatar"
+                label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
                 isChecked={isUsingGravatar}
                 onToggle={onToggleGravatar}
                 size="small"
