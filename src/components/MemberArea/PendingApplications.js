@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 
 import { Loader } from '../Loader';
 import { getChannelInfo } from '../../channelProvider';
+import { getAvatarUrl } from '../../helpers/avatar';
 
 export default class PendingApplications extends Component {
   state = {
@@ -98,7 +99,7 @@ export default class PendingApplications extends Component {
                   <td>
                     <AvatarImage
                       alt={user.name}
-                      src={user.avatar}
+                      src={getAvatarUrl(user.avatar)}
                     />
                   </td>
                   <td>{user.name}</td>

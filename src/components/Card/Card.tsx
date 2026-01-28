@@ -12,6 +12,7 @@ import { useDeviceType } from '../../hooks/useDeviceType';
 import { report } from '../../ga';
 import messages from '../../messages';
 import { UnstyledList } from '../common';
+import { getAvatarUrl } from '../../helpers/avatar';
 import { languageName } from '../../helpers/languages';
 import { getChannelInfo } from '../../channelProvider';
 import { CardProps, CTAButtonProps } from './Card.types';
@@ -113,7 +114,7 @@ const Avatar = ({ mentor, id }: { mentor: Mentor; id: string }) => {
     <Link href={urls.user.get(mentor)} className="avatar">
       <i className="fa fa-user-circle" />
       <img
-        src={mentor.avatar}
+        src={getAvatarUrl(mentor.avatar)}
         aria-labelledby={`${id}`}
         alt={`${mentor.name}`}
         onError={(e) => e.currentTarget.classList.add('broken')}
@@ -335,14 +336,14 @@ const Card = ({ mentor, onFavMentor, isFav, appearance }: CardProps) => {
       data-testid="mentor-card"
       appearance={appearance}
     >
-      <CardHeader
+      <CardHeader 
         mentor={mentor}
         onFavMentor={onFavMentor}
         isFav={isFav}
       />
       <MentorInfo />
       <SkillsTags />
-      <CardFooter
+      <CardFooter 
         mentor={mentor}
         availability={availability}
         appearance={appearance}

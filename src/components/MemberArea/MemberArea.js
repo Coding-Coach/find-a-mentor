@@ -3,6 +3,7 @@ import onClickOutside from 'react-onclickoutside';
 import styled from 'styled-components';
 import Link from '../Link/Link';
 
+import { getAvatarUrl } from '../../helpers/avatar';
 import { useUser } from '../../context/userContext/UserContext';
 import { useAuth } from '../../context/authContext/AuthContext';
 import { useApi } from '../../context/apiContext/ApiContext';
@@ -15,7 +16,6 @@ import { useDeviceType } from '../../hooks/useDeviceType';
 function MemberArea({ onOpenModal }) {
   const { isDesktop } = useDeviceType();
   const [isMemberMenuOpen, setIsMemberMenuOpen] = useState(false);
-  const [avatarError, setAvatarError] = useState(false);
   const { currentUser, isMentor, isAdmin, isAuthenticated, logout, isNotYetVerified } = useUser();
   const api = useApi();
   const auth = useAuth();
@@ -44,10 +44,6 @@ function MemberArea({ onOpenModal }) {
     setIsMemberMenuOpen(false);
   };
 
-  const avatarUrl = avatarError && currentUser?.auth0Picture
-    ? currentUser.auth0Picture
-    : currentUser?.avatar || currentUser?.auth0Picture;
-
   return (
     <div className="auth">
       {isAuthenticated ? (
@@ -64,8 +60,7 @@ function MemberArea({ onOpenModal }) {
             {currentUser ? (
               <UserImage
                 alt={currentUser.email}
-                src={avatarUrl}
-                onError={() => setAvatarError(true)}
+                src={getAvatarUrl(currentUser.avatar)}
               />
             ) : (
               <AvatarPlaceHolder className="fa fa-user-circle" />

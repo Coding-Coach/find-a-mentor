@@ -1,3 +1,4 @@
+import { getAvatarUrl } from '../../helpers/avatar';
 import ReqContent from './ReqContent';
 import { Status } from '../../helpers/mentorship';
 import { formatTimeAgo } from '../../helpers/time';
@@ -95,7 +96,7 @@ const renderList = ({
           <RichItem
             id={_id}
             userId={user._id}
-            avatar={user.avatar}
+            avatar={getAvatarUrl(user.avatar)}
             title={user.name}
             subtitle={user.title}
             onClick={() => {

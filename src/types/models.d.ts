@@ -20,8 +20,6 @@ export type User = BaseDBObject & {
   email_verified: boolean;
   tags: string[];
   avatar?: string;
-  auth0Picture?: string;
-  auth0Id?: string;
   country: Country;
   roles: UserRole[];
   available: boolean;

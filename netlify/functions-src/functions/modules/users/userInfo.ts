@@ -41,6 +41,6 @@ export const updateUserInfoHandler: ApiHandler<User> = async (event, context) =>
       data: upsertedUser,
     });
   } catch (e) {
-    return error((e as Error).message, 400);
+    return error(e.message, 400);
   }
 }
