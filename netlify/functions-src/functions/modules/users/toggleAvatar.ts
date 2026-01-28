@@ -44,7 +44,11 @@ export const toggleAvatarHandler: ApiHandler<ToggleAvatarRequest> = async (event
     const updatedUser = await upsertUser(userDto);
 
     return success({
-      data: updatedUser,
+      data: {
+        ...updatedUser,
+        auth0Picture: context.user?.picture,
+        auth0Id: updatedUser.auth0Id,
+      },
     });
   } catch (e) {
     return error((e as Error).message, 500);

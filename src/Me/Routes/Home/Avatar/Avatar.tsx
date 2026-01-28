@@ -65,6 +65,10 @@ const Avatar: FC = () => {
   const isUsingGravatar = currentUser.avatar?.includes('gravatar.com') || false;
 
   const handleToggleGravatar = async (newValue: boolean) => {
+    if (isSaving) {
+      return;
+    }
+
     setIsSaving(true);
     try {
       report('Avatar', newValue ? 'use gravatar' : 'use google profile picture');
@@ -105,15 +109,7 @@ const Avatar: FC = () => {
         </AvatarContainer>
 
         {isGoogleUser && (
-          <>
-            <Tooltip
-              title="Use Gravatar for a different avatar from your Google photo"
-              size="regular"
-              arrow={true}
-              position="bottom"
-            >
-              <i className="fa fa-info-circle"></i>
-            </Tooltip>{" "}
+          <GravatarToggleContainer>
             <ToggleLabel>
               <Switch
                 label="Use Gravatar"
@@ -122,6 +118,14 @@ const Avatar: FC = () => {
                 size="small"
               />
             </ToggleLabel>
+            <Tooltip
+              title="Toggle between your Google profile picture and Gravatar avatar"
+              size="regular"
+              arrow={true}
+              position="bottom"
+            >
+              <i className="fa fa-info-circle"></i>
+            </Tooltip>
             <ToggleDescription>
               Update your avatar picture at{" "}
               {isUsingGravatar
@@ -129,7 +133,7 @@ const Avatar: FC = () => {
                 : <a href="https://myaccount.google.com/profile" target="_blank" rel="noopener noreferrer">Google Profile</a>
               }
             </ToggleDescription>
-          </>
+          </GravatarToggleContainer>
         )}
         <h1>{currentUser ? currentUser.name : ''}</h1>
         <p>{currentUser ? currentUser.title : ''}</p>
@@ -144,6 +148,11 @@ const AvatarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 8px;
+`;
+
+const GravatarToggleContainer = styled.div`
+  margin-top: 8px;
+  text-align: center;
 `;
 
 const AvatarWrapper = styled.div`
@@ -176,7 +185,11 @@ const UserImage = styled.img`
 const ToggleLabel = styled.div`
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  margin-inline-end: 5px;
+
+  label {
+    cursor: pointer;
+  }
 `;
 
 const ToggleDescription = styled.div`

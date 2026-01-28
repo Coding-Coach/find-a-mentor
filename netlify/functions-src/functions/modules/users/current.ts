@@ -66,6 +66,8 @@ const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: 
     ...currentUser,
     email_verified: context.user?.email_verified,
     avatar: avatarUrl,
+    auth0Picture: context.user?.picture,
+    auth0Id: currentUser.auth0Id,
   };
   return success({ data: applicationUser })
 }
