@@ -57,12 +57,16 @@ const getCurrentUserHandler: ApiHandler = async (_event: HandlerEvent, context: 
   if (!auth0Id) {
     return error('Unauthorized: user not found', 401)
   }
+  const currentUser = await getCurrentUser(auth0Id);
+
+  // Use stored avatar if exists, otherwise fallback to Auth0 picture
+  const avatarUrl = currentUser.avatar || context.user?.picture;
+
   const applicationUser = {
-    ...await getCurrentUser(auth0Id),
+    ...currentUser,
     email_verified: context.user?.email_verified,
-    avatar: context.user?.picture,
+    avatar: avatarUrl,
   };
-  // TODO: remove avatar from the database
   return success({ data: applicationUser })
 }
 

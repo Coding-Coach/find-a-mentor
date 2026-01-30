@@ -21,6 +21,12 @@ const nameValidation = (value) =>
   value.length > 3 && value.length <= 50 && /^\S+(\s\S+)+$/.test(value);
 
 export default {
+  avatar: {
+    type: 'gravatar',
+    style: {
+      width: '100%',
+    },
+  },
   email: {
     label: 'Email',
     type: 'text',
@@ -36,16 +42,6 @@ export default {
     helpText: 'Please use your real name',
     validate: (value) => !!value && nameValidation(value),
   },
-  avatar: {
-    label: 'Avatar',
-    type: 'gravatar',
-    defaultValue: '',
-    helpText: 'Please use your real image',
-    previewImage: true,
-    validate: (value) => {
-      return ['gravatar', 'googleusercontent'].some((provider) => value.includes(provider))
-    },
-  },
   title: {
     label: 'Title',
     type: 'text',
@@ -53,6 +49,9 @@ export default {
     defaultValue: '',
     helpText: 'e.g. Software Developer. Min 3 characters',
     validate: (value) => !!value && value.length > 2 && value.length <= 50,
+    style: {
+      width: '100%',
+    },
   },
   description: {
     label: 'Description',
