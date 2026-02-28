@@ -1,7 +1,7 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
-import type { User } from '../../../../types/models';
+
 import Camera from '../../../../assets/me/camera.svg';
 import CardContainer from '../../../components/Card/index';
 import { isGoogleOAuthUser } from '../../../../helpers/authProvider';

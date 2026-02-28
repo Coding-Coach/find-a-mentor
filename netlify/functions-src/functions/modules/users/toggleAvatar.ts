@@ -34,8 +34,17 @@ export const toggleAvatarHandler: ApiHandler<ToggleAvatarRequest> = async (event
       return error('User not found', 404);
     }
 
-    const avatarUrl = useGravatar ? getGravatarUrl(currentUser.email) : context.user?.picture;
+    const isGoogleOAuthUser = auth0Id.startsWith('google-oauth2|');
+    if (!useGravatar) {
+      if (!isGoogleOAuthUser || !context.user?.picture) {
+        return error(
+          'Switching to Google profile picture is only allowed for Google OAuth users.',
+          400
+        );
+      }
+    }
 
+    const avatarUrl = useGravatar ? getGravatarUrl(currentUser.email) : context.user.picture;
     const userDto: UserDto = new UserDto({
       _id: currentUser._id,
       avatar: avatarUrl,
