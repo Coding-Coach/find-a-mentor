@@ -1,12 +1,13 @@
 import { FC, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
-import auth from '../../../utils/auth';
+import { useAuth } from '../../../context/authContext/AuthContext';
 
 export const ActionsHandler: FC = ({ children }) => {
   const router = useRouter();
   const {query} = router;
   const redirectTo = query.redirectTo || '';
+  const auth = useAuth();
 
   useEffect(() => {
     const redirectedFrom = query.from;
