@@ -47,11 +47,11 @@ function Navigation({ isAuthenticated, onOpenModal }) {
         </Link>
         {renderBecomeAMentor()}
         <Link
-          href="https://calendar.google.com/calendar/u/0?cid=Y18xdmhxMWlzOTRqdHVwdHZnNTJrbzM0cW42a0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t"
+          href="https://codingcoach.tawk.help"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Sessions Calendar
+          Knowledge Base
         </Link>
       </List>
     </Nav>
