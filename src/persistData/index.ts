@@ -5,6 +5,7 @@ import type { MentorshipRequest, User } from '../types/models';
 type PersistDataKeyMap = {
   user: User;
   'mentorship-request': Pick<MentorshipRequest, 'expectation' | 'background' | 'message'>;
+  experiments: Record<string, boolean>;
 }
 
 type PersistDataKey = keyof PersistDataKeyMap;

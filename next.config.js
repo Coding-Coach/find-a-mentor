@@ -2,6 +2,7 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
+  productionBrowserSourceMaps: true,
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
