@@ -206,6 +206,18 @@ export default class ApiService {
     return !!response?.success;
   }
 
+  toggleAvatar = async (useGravatar: boolean) => {
+    const response = await this.makeApiCall<User>(
+      `${paths.USERS}/current/avatar`,
+      { useGravatar },
+      'POST'
+    );
+    if (response?.success) {
+      return response.data;
+    }
+    return null;
+  }
+
   // no need. we're using gravatar now
   // updateMentorAvatar = async (mentor: Mentor, value: FormData) => {
   //   const response = await this.makeApiCall(
