@@ -55,6 +55,7 @@ export const toggleAvatarHandler: ApiHandler<ToggleAvatarRequest> = async (event
     return success({
       data: {
         ...updatedUser,
+        email_verified: context.user?.email_verified,
         auth0Picture: context.user?.picture,
         auth0Id: updatedUser.auth0Id,
       },
