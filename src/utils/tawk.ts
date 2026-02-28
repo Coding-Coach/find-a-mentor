@@ -25,7 +25,7 @@ function init() {
     document.head.prepend(s1);
   })();
 
-  window.Tawk_API = window.Tawk_API || {};
+  window.Tawk_API = window.Tawk_API || ({} as TawkAPI);
   window.Tawk_API.onLoad = function() {
     window.Tawk_API.addTags(['Mentor', 'User']);
   };

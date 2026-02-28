@@ -3,6 +3,9 @@
  * @typedef {'newBackoffice'} Experiments
  */
 
+import { getPersistData, setPersistData } from '../persistData';
+
+/** @type {Record<string, boolean>} */
 const experiments = {};
 
 /**
@@ -20,15 +23,13 @@ addSource(process.env.NEXT_PUBLIC_EXPERIMENTS);
 addSource(new URLSearchParams(window.location.search).get('experiments'));
 
 if (Object.keys(experiments).length) {
-  localStorage.setItem('experiments', JSON.stringify(experiments));
+  setPersistData('experiments', experiments);
 }
 
 /**
  * @param {Experiments} name
  */
 export const isOpen = (name) => {
-  const openExperiments = JSON.parse(
-    localStorage.getItem('experiments') || '{}'
-  );
+  const openExperiments = getPersistData('experiments') || {};
   return openExperiments[name];
 };
