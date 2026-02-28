@@ -4,6 +4,10 @@ import { getUserBy, upsertUser } from '../../data/users';
 import { UserDto } from '../../common/dto/user.dto';
 import crypto from 'crypto';
 
+export type ToggleAvatarRequest = {
+  useGravatar: boolean;
+};
+
 function getGravatarUrl(email: string): string {
   const hash = crypto
     .createHash('md5')
@@ -12,9 +16,6 @@ function getGravatarUrl(email: string): string {
   return `https://www.gravatar.com/avatar/${hash}?s=200&d=identicon`;
 }
 
-type ToggleAvatarRequest = {
-  useGravatar: boolean;
-};
 
 export const toggleAvatarHandler: ApiHandler<ToggleAvatarRequest> = async (event, context) => {
   try {
@@ -55,11 +56,13 @@ export const toggleAvatarHandler: ApiHandler<ToggleAvatarRequest> = async (event
     return success({
       data: {
         ...updatedUser,
+        email_verified: context.user?.email_verified,
         auth0Picture: context.user?.picture,
         auth0Id: updatedUser.auth0Id,
       },
     });
   } catch (e) {
-    return error((e as Error).message, 500);
+    const message = e instanceof Error ? e.message : String(e);
+    return error(message, 500);
   }
 };
