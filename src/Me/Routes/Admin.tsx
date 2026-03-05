@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   freezeMentor,
   getAllMentorshipRequests,
+  getInactiveMentors,
   getUserRecords,
   sendMentorNotActive,
   sendStaledRequestEmail,
@@ -26,6 +27,8 @@ import { Loader } from '../../components/Loader';
 import { getChannelInfo } from '../../channelProvider';
 import { useApi } from '../../context/apiContext/ApiContext';
 
+type InactiveMentor = Pick<User, '_id' | 'name' | 'email' | 'createdAt' | 'avatar'>;
+
 const Mentee = styled.span`
   display: flex;
   align-items: center;
@@ -45,6 +48,68 @@ const Filters = styled.div`
 
 const pending = (status: Status) =>
   status === STATUS.new || status === STATUS.viewed;
+
+const InactiveMentorsSection = () => {
+  const [mentors, setMentors] = useState<InactiveMentor[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const api = useApi();
+
+  useEffect(() => {
+    getInactiveMentors(api)
+      .then((response) => {
+        if (response?.success) {
+          setMentors(response.data);
+        }
+      })
+      .finally(() => setIsLoading(false));
+  }, [api]);
+
+  return (
+    <Card title="Approved Mentors – Never Set Active" className="wide">
+      {isLoading ? (
+        <Loader />
+      ) : mentors.length === 0 ? (
+        <p>No inactive mentors found.</p>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              {['Name', 'Email', 'Joined', 'Profile'].map((col) => (
+                <th key={col}>{col}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {mentors.map(({ _id, name, email, createdAt, avatar }) => (
+              <tr key={_id}>
+                <td>
+                  {avatar && (
+                    <img
+                      src={avatar}
+                      width="20"
+                      alt=""
+                      style={{ borderRadius: '50%', marginRight: 4 }}
+                    />
+                  )}
+                  {name}
+                </td>
+                <td>
+                  <a href={`mailto:${email}`}>{email}</a>
+                </td>
+                <td>{formatTimeAgo(new Date(createdAt))}</td>
+                <td>
+                  <a target="_blank" rel="noreferrer" href={`/u/${_id}`}>
+                    🔗
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+    </Card>
+  );
+};
 
 const UserDetails = ({
   userId,
@@ -269,6 +334,7 @@ const Admin = () => {
           mentorships={filteredMentorshipRequests}
         />
       )}
+      <InactiveMentorsSection />
       <Card className='wide'>
         <Filters>
           <FormField>
