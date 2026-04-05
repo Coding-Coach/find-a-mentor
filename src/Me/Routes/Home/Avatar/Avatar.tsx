@@ -108,8 +108,25 @@ const Avatar: FC = () => {
           </AvatarWrapper>
         </AvatarContainer>
 
+        <RealPhotoNotice>
+          <i className="fa fa-exclamation-circle" />{' '}
+          Your profile picture must be a real photo of your face.
+        </RealPhotoNotice>
         {isGoogleUser && (
           <GravatarToggleContainer>
+            {!isUsingGravatar && (
+              <GravatarSuggestion>
+                We suggest switching to{' '}
+                <a
+                  href="https://gravatar.com/profile/avatars"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Gravatar
+                </a>{' '}
+                so you can use a dedicated real profile photo.
+              </GravatarSuggestion>
+            )}
             <ToggleLabel>
               <Switch
                 label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
@@ -197,6 +214,30 @@ const ToggleDescription = styled.div`
   color: #666;
   margin: 0 0 12px 0;
   line-height: 1.5;
+`;
+
+const RealPhotoNotice = styled.div`
+  font-size: 12px;
+  color: #e67e22;
+  margin: 8px 0;
+  line-height: 1.4;
+`;
+
+const GravatarSuggestion = styled.div`
+  font-size: 12px;
+  color: #4a90e2;
+  margin-bottom: 6px;
+  line-height: 1.4;
+
+  a {
+    color: #4a90e2;
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 `;
 
 const Container = styled.div`
