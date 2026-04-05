@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import styled from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
 
@@ -12,6 +12,7 @@ import { report } from '../../../../ga';
 import { useApi } from '../../../../context/apiContext/ApiContext';
 import messages from '../../../../messages';
 import Switch from '../../../../components/Switch/Switch';
+import { useFaceDetection } from '../../../../hooks/useFaceDetection';
 
 const ShareProfile = ({ url }: { url: string }) => {
   const [showInput, setShowInput] = React.useState(false);
@@ -57,6 +58,8 @@ const Avatar: FC = () => {
   const { currentUser, updateCurrentUser } = useUser<true>();
   const api = useApi();
   const [isSaving, setIsSaving] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const { faceDetected, isChecking } = useFaceDetection(imageRef);
 
   if (!currentUser) {
     return null;
@@ -99,8 +102,10 @@ const Avatar: FC = () => {
           <AvatarWrapper>
             {currentUser.avatar ? (
               <UserImage
+                ref={imageRef}
                 alt={currentUser.email}
                 src={currentUser.avatar}
+                crossOrigin="anonymous"
               />
             ) : (
               <AvatarPlaceHolder alt="No profile picture" src={Camera} />
@@ -112,9 +117,20 @@ const Avatar: FC = () => {
           <i className="fa fa-exclamation-circle" />{' '}
           Your profile picture must be a real photo of your face.
         </RealPhotoNotice>
+        {isChecking && (
+          <FaceDetectionStatus>
+            <i className="fa fa-spin fa-spinner" /> Checking photo…
+          </FaceDetectionStatus>
+        )}
+        {faceDetected === false && (
+          <FaceDetectionWarning>
+            <i className="fa fa-times-circle" /> No face detected in your
+            current avatar. Please use a real photo of your face.
+          </FaceDetectionWarning>
+        )}
         {isGoogleUser && (
           <GravatarToggleContainer>
-            {!isUsingGravatar && (
+            {!isUsingGravatar && faceDetected === false && (
               <GravatarSuggestion>
                 We suggest switching to{' '}
                 <a
@@ -220,6 +236,20 @@ const RealPhotoNotice = styled.div`
   font-size: 12px;
   color: #e67e22;
   margin: 8px 0;
+  line-height: 1.4;
+`;
+
+const FaceDetectionStatus = styled.div`
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+  line-height: 1.4;
+`;
+
+const FaceDetectionWarning = styled.div`
+  font-size: 12px;
+  color: #c0392b;
+  margin-bottom: 4px;
   line-height: 1.4;
 `;
 

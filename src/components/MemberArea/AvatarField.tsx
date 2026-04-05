@@ -1,9 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
 import styled from 'styled-components';
 import Switch from '../Switch/Switch';
 import { isGoogleOAuthUser } from '../../helpers/authProvider';
 import type { User } from '../../types/models';
 import { Tooltip } from 'react-tippy';
+import { useFaceDetection } from '../../hooks/useFaceDetection';
 
 type AvatarFieldProps = {
   user: Pick<User, 'auth0Id' | 'avatar' | 'auth0Picture'>;
@@ -18,12 +19,19 @@ const AvatarField: FC<AvatarFieldProps> = ({
 }) => {
   const isGoogleUser = isGoogleOAuthUser(user.auth0Id);
   const displayAvatar = user.avatar || user.auth0Picture;
+  const imageRef = useRef<HTMLImageElement>(null);
+  const { faceDetected, isChecking } = useFaceDetection(imageRef);
 
   return (
     <AvatarContainer>
       <AvatarPreview>
         {displayAvatar ? (
-          <AvatarImage src={displayAvatar} alt="avatar" />
+          <AvatarImage
+            ref={imageRef}
+            src={displayAvatar}
+            alt="avatar"
+            crossOrigin="anonymous"
+          />
         ) : (
           <AvatarPlaceholder className="fa fa-user-circle" />
         )}
@@ -33,9 +41,20 @@ const AvatarField: FC<AvatarFieldProps> = ({
           <i className="fa fa-exclamation-circle" />{' '}
           Your profile picture must be a real photo of your face.
         </RealPhotoNotice>
+        {isChecking && (
+          <FaceDetectionStatus>
+            <i className="fa fa-spin fa-spinner" /> Checking photo…
+          </FaceDetectionStatus>
+        )}
+        {faceDetected === false && (
+          <FaceDetectionWarning>
+            <i className="fa fa-times-circle" /> No face detected in your
+            current avatar. Please use a real photo of your face.
+          </FaceDetectionWarning>
+        )}
         {isGoogleUser ? (
           <>
-            {!isUsingGravatar && (
+            {!isUsingGravatar && faceDetected === false && (
               <GravatarSuggestion>
                 We suggest switching to{' '}
                 <a
@@ -163,6 +182,18 @@ const RealPhotoNotice = styled.div`
   font-size: 12px;
   color: #e67e22;
   margin-bottom: 8px;
+  line-height: 1.4;
+`;
+
+const FaceDetectionStatus = styled.div`
+  font-size: 12px;
+  color: #888;
+  line-height: 1.4;
+`;
+
+const FaceDetectionWarning = styled.div`
+  font-size: 12px;
+  color: #c0392b;
   line-height: 1.4;
 `;
 

@@ -6,6 +6,7 @@
     "node": "18.x"
   },
   "dependencies": {
+    "@mediapipe/tasks-vision": "0.10.34",
     "@netlify/functions": "^2.0.0",
     "@sendgrid/client": "^8.1.4",
     "@sendgrid/mail": "^8.1.4",
