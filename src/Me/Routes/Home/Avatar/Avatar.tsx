@@ -113,10 +113,6 @@ const Avatar: FC = () => {
           </AvatarWrapper>
         </AvatarContainer>
 
-        <RealPhotoNotice>
-          <i className="fa fa-exclamation-circle" />{' '}
-          Your profile picture must be a real photo of your face.
-        </RealPhotoNotice>
         {isChecking && (
           <FaceDetectionStatus>
             <i className="fa fa-spin fa-spinner" /> Checking photo…
@@ -126,23 +122,22 @@ const Avatar: FC = () => {
           <FaceDetectionWarning>
             <i className="fa fa-times-circle" /> No face detected in your
             current avatar. Please use a real photo of your face.
-          </FaceDetectionWarning>
-        )}
-        {isGoogleUser && (
-          <GravatarToggleContainer>
-            {!isUsingGravatar && faceDetected === false && (
-              <GravatarSuggestion>
-                We suggest switching to{' '}
+            {isGoogleUser && !isUsingGravatar && (
+              <> If you prefer not to change your Google avatar,{' '}
                 <a
                   href="https://gravatar.com/profile/avatars"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Gravatar
-                </a>{' '}
-                so you can use a dedicated real profile photo.
-              </GravatarSuggestion>
+                  switch to Gravatar
+                </a>
+                .
+              </>
             )}
+          </FaceDetectionWarning>
+        )}
+        {isGoogleUser && (
+          <GravatarToggleContainer>
             <ToggleLabel>
               <Switch
                 label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
@@ -232,13 +227,6 @@ const ToggleDescription = styled.div`
   line-height: 1.5;
 `;
 
-const RealPhotoNotice = styled.div`
-  font-size: 12px;
-  color: #e67e22;
-  margin: 8px 0;
-  line-height: 1.4;
-`;
-
 const FaceDetectionStatus = styled.div`
   font-size: 12px;
   color: #888;
@@ -251,21 +239,14 @@ const FaceDetectionWarning = styled.div`
   color: #c0392b;
   margin-bottom: 4px;
   line-height: 1.4;
-`;
-
-const GravatarSuggestion = styled.div`
-  font-size: 12px;
-  color: #4a90e2;
-  margin-bottom: 6px;
-  line-height: 1.4;
 
   a {
-    color: #4a90e2;
+    color: #c0392b;
     font-weight: bold;
-    text-decoration: none;
+    text-decoration: underline;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
 `;
