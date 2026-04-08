@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import Switch from '../Switch/Switch';
 import { isGoogleOAuthUser } from '../../helpers/authProvider';
 import type { User } from '../../types/models';
-import { Tooltip } from 'react-tippy';
 import { useFaceDetection } from '../../hooks/useFaceDetection';
 
 type AvatarFieldProps = {
@@ -61,44 +60,12 @@ const AvatarField: FC<AvatarFieldProps> = ({
           </FaceDetectionWarning>
         )}
         {isGoogleUser ? (
-          <>
-            <SwitchWrapper>
-              <Switch
-                label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
-                isChecked={isUsingGravatar}
-                onToggle={onToggleGravatar}
-                size="small"
-              />
-              <Tooltip
-                title="Toggle between your Google profile picture and Gravatar avatar"
-                size="regular"
-                arrow={true}
-                position="bottom"
-              >
-                <i className="fa fa-info-circle" style={{ verticalAlign: 'top' }}></i>
-              </Tooltip>
-            </SwitchWrapper>
-            <HelpText>
-              Update your avatar picture at{' '}
-              {isUsingGravatar ? (
-                <a
-                  href="https://gravatar.com/profile/avatars"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Gravatar
-                </a>
-              ) : (
-                <a
-                  href="https://myaccount.google.com/profile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Google Profile
-                </a>
-              )}
-            </HelpText>
-          </>
+          <Switch
+            label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
+            isChecked={isUsingGravatar}
+            onToggle={onToggleGravatar}
+            size="small"
+          />
         ) : (
           <>
             <HelpText>
@@ -150,12 +117,6 @@ const AvatarControls = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
-`;
-
-const SwitchWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
 `;
 
 const HelpText = styled.div`

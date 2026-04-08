@@ -138,29 +138,12 @@ const Avatar: FC = () => {
         )}
         {isGoogleUser && (
           <GravatarToggleContainer>
-            <ToggleLabel>
-              <Switch
-                label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
-                isChecked={isUsingGravatar}
-                onToggle={handleToggleGravatar}
-                size="small"
-              />
-            </ToggleLabel>
-            <Tooltip
-              title="Toggle between your Google profile picture and Gravatar avatar"
-              size="regular"
-              arrow={true}
-              position="bottom"
-            >
-              <i className="fa fa-info-circle"></i>
-            </Tooltip>
-            <ToggleDescription>
-              Update your avatar picture at{" "}
-              {isUsingGravatar
-                ? <a href="https://gravatar.com/profile/avatars" target="_blank" rel="noopener noreferrer">Gravatar</a>
-                : <a href="https://myaccount.google.com/profile" target="_blank" rel="noopener noreferrer">Google Profile</a>
-              }
-            </ToggleDescription>
+            <Switch
+              label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
+              isChecked={isUsingGravatar}
+              onToggle={handleToggleGravatar}
+              size="small"
+            />
           </GravatarToggleContainer>
         )}
         <h1>{currentUser ? currentUser.name : ''}</h1>
@@ -208,23 +191,6 @@ const UserImage = styled.img`
   border-radius: 8px;
   border: 2px solid #e0e0e0;
   transition: opacity 0.2s ease;
-`;
-
-const ToggleLabel = styled.div`
-  display: inline-flex;
-  align-items: center;
-  margin-inline-end: 5px;
-
-  label {
-    cursor: pointer;
-  }
-`;
-
-const ToggleDescription = styled.div`
-  font-size: 13px;
-  color: #666;
-  margin: 0 0 12px 0;
-  line-height: 1.5;
 `;
 
 const FaceDetectionStatus = styled.div`
