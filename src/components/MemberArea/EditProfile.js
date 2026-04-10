@@ -20,11 +20,15 @@ export default class EditProfile extends Component {
     errors: [],
     agree: false,
     isUsingGravatar: this.context.currentUser?.avatar?.includes('gravatar.com') || false,
+    avatarHasFace: null,
   };
 
   validate() {
     const errors = [];
-    const { user, agree } = this.state;
+    const { user, agree, avatarHasFace } = this.state;
+    if (!isMentor(user) && avatarHasFace !== true) {
+      errors.push('Profile photo');
+    }
     Object.entries(model).forEach(([field, config]) => {
       if (config.validate && !config.validate(user[field])) {
         errors.push(config.label);
@@ -123,6 +127,12 @@ export default class EditProfile extends Component {
     }
   };
 
+  handleFaceDetectionChange = (avatarHasFace) => {
+    this.setState((prevState) =>
+      prevState.avatarHasFace === avatarHasFace ? null : { avatarHasFace }
+    );
+  };
+
   formField = (fieldName, config) => {
     const { user } = this.state;
     switch (config.type) {
@@ -181,6 +191,8 @@ export default class EditProfile extends Component {
               user={user}
               isUsingGravatar={isUsingGravatar}
               onToggleGravatar={this.handleToggleGravatar}
+              disabled={this.state.disabled}
+              onFaceDetectionChange={this.handleFaceDetectionChange}
             />
           </div>
         );

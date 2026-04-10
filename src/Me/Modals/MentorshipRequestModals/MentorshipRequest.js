@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { Modal } from '../Modal';
 import FormField from '../../components/FormField';
 import Textarea from '../../components/Textarea';
-import MentorshipRequestSuccess from '../../../assets/mentorshipRequestSuccess.svg';
+import { ReactComponent as MentorshipRequestSuccess } from '../../../assets/mentorshipRequestSuccess.svg';
 import Body from './style';
 import { links } from '../../../config/constants';
 import { useApi } from '../../../context/apiContext/ApiContext';

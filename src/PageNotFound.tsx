@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
-import NotFoundImage from './assets/404.svg';
+import { ReactComponent as NotFoundImage } from './assets/404.svg';
 import Header from './components/Header/Header';
 import { desktop, mobile } from './Me/styles/shared/devices';
 

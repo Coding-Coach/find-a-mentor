@@ -8,3 +8,8 @@ export const links = {
   MENTORSHIP_GUIDELINES:
     'https://codingcoach.io/guidelines/mentorship-guidelines',
 };
+
+export const avatarChangeProviderLinks = {
+  GRAVATAR: 'https://gravatar.com/profile/avatars',
+  GOOGLE: 'https://myaccount.google.com/profile',
+};
