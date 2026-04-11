@@ -84,7 +84,7 @@ const AvatarField: FC<AvatarFieldProps> = ({
             <i className="fa fa-times-circle" />{' '}
             {showGoogleAvatarLoadWarning
               ? "We couldn't load your Google avatar."
-              : 'Please use a real photo of your face.'}
+              : 'Please use a real photo'}
             {(showNonFaceWarning || showGoogleAvatarLoadWarning) &&
               isGoogleUser &&
               !isUsingGravatar && (
