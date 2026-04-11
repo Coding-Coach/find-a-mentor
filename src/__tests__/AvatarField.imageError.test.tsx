@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import AvatarField from '../components/MemberArea/AvatarField';
+import { useFaceDetection } from '../hooks/useFaceDetection';
 
 jest.mock('../hooks/useFaceDetection', () => ({
   useFaceDetection: jest.fn(),
@@ -10,7 +11,6 @@ jest.mock('../helpers/authProvider', () => ({
   isGoogleOAuthUser: jest.fn(() => true),
 }));
 
-import { useFaceDetection } from '../hooks/useFaceDetection';
 
 describe('AvatarField image error', () => {
   const dataUri = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVQYV2NgYAAAAAMAAWgmWQ0AAAAASUVORK5CYII=';

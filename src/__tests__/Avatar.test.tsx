@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Avatar from '../Me/Routes/Home/Avatar/Avatar';
+import { useFaceDetection } from '../hooks/useFaceDetection';
 
 jest.mock('../hooks/useFaceDetection', () => ({
   useFaceDetection: jest.fn(),
@@ -31,8 +32,6 @@ jest.mock('../context/apiContext/ApiContext', () => ({
     clearCurrentUser: jest.fn(),
   }),
 }));
-
-import { useFaceDetection } from '../hooks/useFaceDetection';
 
 describe('Avatar component', () => {
   it('shows non-face warning when faceDetected is false', () => {

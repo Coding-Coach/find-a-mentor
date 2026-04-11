@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import AvatarField from '../components/MemberArea/AvatarField';
+import { useFaceDetection } from '../hooks/useFaceDetection';
 
 // Mock the hook and auth helper
 jest.mock('../hooks/useFaceDetection', () => ({
@@ -11,7 +12,6 @@ jest.mock('../helpers/authProvider', () => ({
   isGoogleOAuthUser: jest.fn(() => true),
 }));
 
-import { useFaceDetection } from '../hooks/useFaceDetection';
 
 describe('AvatarField', () => {
   const googleUser = {
