@@ -6,9 +6,9 @@ import { success } from '../../utils/response';
 import type { GetMentorsQuery, GetMentorsResponse, Mentor } from './types';
 
 const getMentors = async (query: GetMentorsQuery, user?: AuthUser): Promise<GetMentorsResponse> => {
-  const { available, tags, country, spokenLanguages, page: pageInQuery = '1', page: limitinQuery = '20' } = query;
+  const { available, tags, country, spokenLanguages, page: pageInQuery = '1', limit: limitInQuery = '20' } = query;
   const page = parseInt(pageInQuery);
-  const limit = parseInt(limitinQuery);
+  const limit = parseInt(limitInQuery);
 
   const collection = getCollection<Mentor>('users');
 
