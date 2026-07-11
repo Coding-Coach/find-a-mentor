@@ -6,11 +6,13 @@ import { handler as getMentorsHanler } from './modules/mentors/get';
 import { handler as getApplicationsHandler } from './modules/mentors/applications/get';
 import { handler as upsertApplicationHandler } from './modules/mentors/applications/post';
 import { handler as updateApplicationHandler } from './modules/mentors/applications/put';
+import { handler as getInactiveMentorsHandler } from './modules/mentors/inactive';
 import { Role } from './common/interfaces/user.interface';
 
 export const handler: ApiHandler = withDB(
   withRouter([
     ['/', 'GET', withAuth(getMentorsHanler, { authRequired: false })],
+    ['/inactive', 'GET', withAuth(getInactiveMentorsHandler, { role: Role.ADMIN })],
     ['/applications', 'GET', withAuth(getApplicationsHandler, { includeFullUser: true, role: Role.ADMIN })],
     ['/applications/:applicationId', 'PUT', withAuth(updateApplicationHandler, { includeFullUser: true, role: Role.ADMIN })],
     ['/applications', 'POST', withAuth(upsertApplicationHandler, { includeFullUser: true, })],
