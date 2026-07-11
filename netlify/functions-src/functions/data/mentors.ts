@@ -3,7 +3,7 @@ import type { UpsertResult } from './types';
 import { upsertEntityByCondition } from './utils';
 import { getCollection } from '../utils/db';
 import { ObjectId, type Filter, type MatchKeysAndValues } from 'mongodb';
-import type { User } from '../common/interfaces/user.interface';
+import { Role, type User } from '../common/interfaces/user.interface';
 
 export const upsertApplication = async (application: MatchKeysAndValues<Application>): UpsertResult<Application> => {
   const filter: Filter<Application> = {
@@ -84,4 +84,15 @@ export const getApplications = async (status?: string): Promise<Application[]> =
   ];
 
   return collection.aggregate<Application>(pipeline).toArray();
+}
+
+export const getInactiveMentors = async (): Promise<User[]> => {
+  const collection = getCollection<User>('users');
+  // Matches mentors with available: false OR missing available field (never activated)
+  return collection
+    .find(
+      { roles: Role.MENTOR, available: { $ne: true } },
+      { projection: { _id: 1, name: 1, email: 1, avatar: 1, createdAt: 1 } }
+    )
+    .toArray();
 }

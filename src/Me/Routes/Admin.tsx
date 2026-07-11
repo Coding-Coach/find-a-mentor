@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import {
   freezeMentor,
   getAllMentorshipRequests,
+  getInactiveMentors,
   getUserRecords,
   sendMentorNotActive,
   sendStaledRequestEmail,
@@ -138,6 +139,7 @@ const Admin = () => {
   const [mentorshipRequests, setMentorshipRequests] = useState<
     MentorshipRequest[]
   >([]);
+  const [inactiveMentors, setInactiveMentors] = useState<User[]>([]);
   const api = useApi()
 
   const filteredMentorshipRequests = useMemo(() => {
@@ -165,6 +167,14 @@ const Admin = () => {
       }
     });
   }, [showDaysAgo, api]);
+
+  useEffect(() => {
+    getInactiveMentors(api).then((response) => {
+      if (response?.success) {
+        setInactiveMentors(response.data);
+      }
+    });
+  }, [api]);
 
   useEffect(() => {
     setName(user?.name || '');
@@ -269,6 +279,37 @@ const Admin = () => {
           mentorships={filteredMentorshipRequests}
         />
       )}
+      <Card className='wide'>
+        <h3>Pending Activation ({inactiveMentors.length})</h3>
+        {inactiveMentors.length ? (
+          <table>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Email</td>
+                <td>Joined</td>
+                <td>Profile</td>
+              </tr>
+            </thead>
+            <tbody>
+              {inactiveMentors.map(({ _id, name: mentorName, email, createdAt }) => (
+                <tr key={_id}>
+                  <td>{mentorName}</td>
+                  <td>{email}</td>
+                  <td>{formatTimeAgo(new Date(createdAt))}</td>
+                  <td>
+                    <a target="_blank" rel="noreferrer" href={`/u/${_id}`} aria-label={`View profile for ${mentorName}`}>
+                      🔗
+                    </a>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <>No pending activation mentors</>
+        )}
+      </Card>
       <Card className='wide'>
         <Filters>
           <FormField>

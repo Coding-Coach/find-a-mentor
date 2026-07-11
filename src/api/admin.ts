@@ -1,5 +1,5 @@
 import ApiService, { paths } from '.';
-import { MentorshipRequest, UserRecord } from '../types/models';
+import { MentorshipRequest, User, UserRecord } from '../types/models';
 
 export function getAllMentorshipRequests(apiService: ApiService, numMonthAgo: number = 1) {
   const monthAgo = new Date();
@@ -34,4 +34,8 @@ export async function freezeMentor(apiService: any, mentorId: string) {
 
 export function getUserRecords(apiService: ApiService, userId: string) {
   return apiService.makeApiCall<UserRecord[]>(`${paths.USERS}/${userId}/records`);
+}
+
+export function getInactiveMentors(apiService: ApiService) {
+  return apiService.makeApiCall<User[]>(`${paths.MENTORS}/pending-activation`);
 }
