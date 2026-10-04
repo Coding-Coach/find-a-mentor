@@ -29,6 +29,10 @@ export const useRoutes = () => {
       },
       admin: {
         get: () => '/me/admin',
+        deleteUser: {
+          get: (userId?: string) =>
+            `/me/admin/delete-user${userId ? `?userId=${encodeURIComponent(userId)}` : ''}`,
+        },
       },
     },
   };

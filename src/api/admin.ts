@@ -35,3 +35,12 @@ export async function freezeMentor(apiService: any, mentorId: string) {
 export function getUserRecords(apiService: ApiService, userId: string) {
   return apiService.makeApiCall<UserRecord[]>(`${paths.USERS}/${userId}/records`);
 }
+
+export async function deleteUserAccount(apiService: ApiService, userId: string) {
+  const response = await apiService.makeApiCall(
+    `${paths.USERS}/${userId}`,
+    null,
+    'DELETE'
+  );
+  return !!response?.success;
+}
