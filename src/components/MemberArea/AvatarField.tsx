@@ -1,86 +1,106 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
-import Switch from '../Switch/Switch';
+import React, { FC, useEffect, useRef, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
 import { isGoogleOAuthUser } from '../../helpers/authProvider';
+import { isKnownNonFaceAvatar } from '../../helpers/avatar';
 import type { User } from '../../types/models';
-import { Tooltip } from 'react-tippy';
+import { useFaceDetection } from '../../hooks/useFaceDetection';
+import AvatarProviderLink from '../AvatarProviderLink';
+import { avatarChangeProviderLinks } from '../../config/constants';
 
 type AvatarFieldProps = {
   user: Pick<User, 'auth0Id' | 'avatar' | 'auth0Picture'>;
   isUsingGravatar: boolean;
   onToggleGravatar: (value: boolean) => void;
-}
+  disabled?: boolean;
+  onFaceDetectionChange?: (hasFace: boolean | null) => void;
+};
 
 const AvatarField: FC<AvatarFieldProps> = ({
   user,
   isUsingGravatar,
   onToggleGravatar,
+  disabled = false,
+  onFaceDetectionChange,
 }) => {
   const isGoogleUser = isGoogleOAuthUser(user.auth0Id);
   const displayAvatar = user.avatar || user.auth0Picture;
+  const [avatarLoadError, setAvatarLoadError] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const { faceDetected, isChecking, status } = useFaceDetection(imageRef);
+  const hasKnownNonFaceAvatar = isKnownNonFaceAvatar(displayAvatar);
+  const showNonFaceWarning = faceDetected === false || hasKnownNonFaceAvatar;
+  const showGoogleAvatarLoadWarning =
+    avatarLoadError && isGoogleUser && !isUsingGravatar;
+  const showAvatarWarning = showNonFaceWarning || showGoogleAvatarLoadWarning;
+  const shouldPulseAvatar =
+    isChecking && !hasKnownNonFaceAvatar && !avatarLoadError;
+  const avatarHasFace =
+    !displayAvatar || avatarLoadError || hasKnownNonFaceAvatar || faceDetected === false
+      ? false
+      : faceDetected === true
+      ? true
+      : status === 'checking' || status === 'idle' || status === 'error'
+      ? null
+      : false;
+  const updateAvatarUrl = isUsingGravatar
+    ? avatarChangeProviderLinks.GRAVATAR
+    : avatarChangeProviderLinks.GOOGLE;
+  const updateAvatarTitle = `Update avatar on ${isUsingGravatar ? 'Gravatar' : 'Google'}`;
+
+  useEffect(() => {
+    setAvatarLoadError(false);
+  }, [displayAvatar]);
+
+  useEffect(() => {
+    onFaceDetectionChange?.(avatarHasFace);
+  }, [avatarHasFace, onFaceDetectionChange]);
 
   return (
     <AvatarContainer>
       <AvatarPreview>
-        {displayAvatar ? (
-          <AvatarImage src={displayAvatar} alt="avatar" />
+        <AvatarSourceOverlay>
+          <AvatarProviderLink
+            href={updateAvatarUrl}
+            title={updateAvatarTitle}
+          />
+        </AvatarSourceOverlay>
+        {displayAvatar && !avatarLoadError ? (
+          <AvatarImage
+            $isChecking={shouldPulseAvatar}
+            ref={imageRef}
+            src={displayAvatar}
+            alt="avatar"
+            crossOrigin={hasKnownNonFaceAvatar ? undefined : 'anonymous'}
+            onError={() => setAvatarLoadError(true)}
+            onLoad={() => setAvatarLoadError(false)}
+          />
         ) : (
           <AvatarPlaceholder className="fa fa-user-circle" />
         )}
       </AvatarPreview>
       <AvatarControls>
-        {isGoogleUser ? (
-          <>
-            <SwitchWrapper>
-              <Switch
-                label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
-                isChecked={isUsingGravatar}
-                onToggle={onToggleGravatar}
-                size="small"
-              />
-              <Tooltip
-                title="Toggle between your Google profile picture and Gravatar avatar"
-                size="regular"
-                arrow={true}
-                position="bottom"
-              >
-                <i className="fa fa-info-circle" style={{ verticalAlign: 'top' }}></i>
-              </Tooltip>
-            </SwitchWrapper>
-            <HelpText>
-              Update your avatar picture at{' '}
-              {isUsingGravatar ? (
-                <a
-                  href="https://gravatar.com/profile/avatars"
-                  target="_blank"
-                  rel="noopener noreferrer"
+        {showAvatarWarning && (
+          <FaceDetectionWarning>
+            <i className="fa fa-times-circle" />{' '}
+            {showGoogleAvatarLoadWarning
+              ? "We couldn't load your Google avatar."
+              : 'Please use a real photo'}
+            {(showNonFaceWarning || showGoogleAvatarLoadWarning) &&
+              isGoogleUser &&
+              !isUsingGravatar && (
+              <>
+                <br />
+                If you prefer not to change your Google avatar,{' '}
+                <ActionLinkButton
+                  disabled={disabled}
+                  onClick={() => onToggleGravatar(true)}
                 >
-                  Gravatar
-                </a>
-              ) : (
-                <a
-                  href="https://myaccount.google.com/profile"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Google Profile
-                </a>
-              )}
-            </HelpText>
-          </>
-        ) : (
-          <>
-            <HelpText>
-              Your avatar is managed by Gravatar using your email address.
-            </HelpText>
-            <a
-              href="https://gravatar.com/profile/avatars"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Update at Gravatar →
-            </a>
-          </>
+                  switch to Gravatar
+                </ActionLinkButton>
+                .
+              </>
+            )}
+          </FaceDetectionWarning>
         )}
       </AvatarControls>
     </AvatarContainer>
@@ -95,7 +115,9 @@ const AvatarContainer = styled.div`
 `;
 
 const AvatarPreview = styled.div`
+  position: relative;
   display: flex;
+  flex: 0 0 100px;
   width: 100px;
   height: 100px;
   border-radius: 8px;
@@ -104,10 +126,39 @@ const AvatarPreview = styled.div`
   border: 2px solid #e0e0e0;
 `;
 
-const AvatarImage = styled.img`
+const AvatarSourceOverlay = styled.div`
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  ${AvatarPreview}:hover & {
+    opacity: 1;
+  }
+`;
+
+const avatarCheckingPulse = keyframes`
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+`;
+
+const AvatarImage = styled.img<{ $isChecking: boolean }>`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  ${({ $isChecking }) =>
+    $isChecking &&
+    css`
+      animation: ${avatarCheckingPulse} 1.4s ease-in-out infinite;
+    `}
 `;
 
 const AvatarPlaceholder = styled.i`
@@ -118,28 +169,33 @@ const AvatarPlaceholder = styled.i`
 const AvatarControls = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 0;
   gap: 5px;
 `;
 
-const SwitchWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-`;
-
-const HelpText = styled.div`
+const FaceDetectionWarning = styled.div`
   font-size: 12px;
-  color: #888;
+  color: #c0392b;
   line-height: 1.4;
 
-  a {
-    color: #4a90e2;
-    text-decoration: none;
+  a,
+  button {
+    color: #c0392b;
+    font-weight: bold;
+    text-decoration: underline;
 
     &:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
   }
+`;
+
+const ActionLinkButton = styled.button`
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
 `;
 
 export default AvatarField;

@@ -1,17 +1,20 @@
-import React, { FC, useState } from 'react';
-import styled from 'styled-components/macro';
+import React, { FC, useRef, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components/macro';
 import { useUser } from '../../../../context/userContext/UserContext';
 
 import Camera from '../../../../assets/me/camera.svg';
 import CardContainer from '../../../components/Card/index';
 import { isGoogleOAuthUser } from '../../../../helpers/authProvider';
+import { isKnownNonFaceAvatar } from '../../../../helpers/avatar';
 import { IconButton } from '../../../components/Button/IconButton';
 import { Tooltip } from 'react-tippy';
 import { toast } from 'react-toastify';
 import { report } from '../../../../ga';
 import { useApi } from '../../../../context/apiContext/ApiContext';
 import messages from '../../../../messages';
-import Switch from '../../../../components/Switch/Switch';
+import { useFaceDetection } from '../../../../hooks/useFaceDetection';
+import AvatarProviderLink from '../../../../components/AvatarProviderLink';
+import { avatarChangeProviderLinks } from '../../../../config/constants';
 
 const ShareProfile = ({ url }: { url: string }) => {
   const [showInput, setShowInput] = React.useState(false);
@@ -57,12 +60,31 @@ const Avatar: FC = () => {
   const { currentUser, updateCurrentUser } = useUser<true>();
   const api = useApi();
   const [isSaving, setIsSaving] = useState(false);
+  const [avatarLoadError, setAvatarLoadError] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const { faceDetected, isChecking } = useFaceDetection(imageRef);
+
+  React.useEffect(() => {
+    setAvatarLoadError(false);
+  }, [currentUser?.avatar]);
 
   if (!currentUser) {
     return null;
   }
 
   const isUsingGravatar = currentUser.avatar?.includes('gravatar.com') || false;
+  const isGoogleUser = isGoogleOAuthUser(currentUser.auth0Id);
+  const hasKnownNonFaceAvatar = isKnownNonFaceAvatar(currentUser.avatar);
+  const showNonFaceWarning = faceDetected === false || hasKnownNonFaceAvatar;
+  const showGoogleAvatarLoadWarning =
+    avatarLoadError && isGoogleUser && !isUsingGravatar;
+  const showAvatarWarning = showNonFaceWarning || showGoogleAvatarLoadWarning;
+  const shouldPulseAvatar =
+    isChecking && !hasKnownNonFaceAvatar && !avatarLoadError;
+  const updateAvatarUrl = isUsingGravatar
+    ? avatarChangeProviderLinks.GRAVATAR
+    : avatarChangeProviderLinks.GOOGLE;
+  const updateAvatarTitle = `Update avatar on ${isUsingGravatar ? 'Gravatar' : 'Google'}`;
 
   const handleToggleGravatar = async (newValue: boolean) => {
     if (isSaving) {
@@ -87,8 +109,6 @@ const Avatar: FC = () => {
     }
   };
 
-  const isGoogleUser = isGoogleOAuthUser(currentUser.auth0Id);
-
   return (
     <CardContainer>
       <Container>
@@ -97,43 +117,52 @@ const Avatar: FC = () => {
         />
         <AvatarContainer>
           <AvatarWrapper>
-            {currentUser.avatar ? (
+            <AvatarSourceOverlay>
+              <AvatarProviderLink
+                href={updateAvatarUrl}
+                title={updateAvatarTitle}
+              />
+            </AvatarSourceOverlay>
+            {currentUser.avatar && !avatarLoadError ? (
               <UserImage
+                $isChecking={shouldPulseAvatar}
+                ref={imageRef}
                 alt={currentUser.email}
                 src={currentUser.avatar}
+                crossOrigin={hasKnownNonFaceAvatar ? undefined : 'anonymous'}
+                onError={() => setAvatarLoadError(true)}
+                onLoad={() => setAvatarLoadError(false)}
               />
             ) : (
               <AvatarPlaceHolder alt="No profile picture" src={Camera} />
             )}
           </AvatarWrapper>
         </AvatarContainer>
-
-        {isGoogleUser && (
-          <GravatarToggleContainer>
-            <ToggleLabel>
-              <Switch
-                label={`Switch to ${isUsingGravatar ? 'Google' : 'Gravatar'} Avatar`}
-                isChecked={isUsingGravatar}
-                onToggle={handleToggleGravatar}
-                size="small"
-              />
-            </ToggleLabel>
-            <Tooltip
-              title="Toggle between your Google profile picture and Gravatar avatar"
-              size="regular"
-              arrow={true}
-              position="bottom"
-            >
-              <i className="fa fa-info-circle"></i>
-            </Tooltip>
-            <ToggleDescription>
-              Update your avatar picture at{" "}
-              {isUsingGravatar
-                ? <a href="https://gravatar.com/profile/avatars" target="_blank" rel="noopener noreferrer">Gravatar</a>
-                : <a href="https://myaccount.google.com/profile" target="_blank" rel="noopener noreferrer">Google Profile</a>
-              }
-            </ToggleDescription>
-          </GravatarToggleContainer>
+        {showAvatarWarning && (
+          <FaceDetectionWarning>
+            <i className="fa fa-times-circle" />{' '}
+            {showGoogleAvatarLoadWarning
+              ? "We couldn't load your Google avatar."
+              : 'Please use a real picture'}
+            {(showNonFaceWarning || showGoogleAvatarLoadWarning) &&
+              isGoogleUser &&
+              !isUsingGravatar && (
+              <>
+                <br />
+                {
+                  showNonFaceWarning ? "If you prefer not to change your Google avatar, " : "If you're having trouble with your Google avatar, you can "
+                }
+                <ActionLinkButton
+                  type="button"
+                  disabled={isSaving}
+                  onClick={() => handleToggleGravatar(true)}
+                >
+                  switch to Gravatar
+                </ActionLinkButton>
+                .
+              </>
+            )}
+          </FaceDetectionWarning>
         )}
         <h1>{currentUser ? currentUser.name : ''}</h1>
         <p>{currentUser ? currentUser.title : ''}</p>
@@ -150,18 +179,23 @@ const AvatarContainer = styled.div`
   gap: 8px;
 `;
 
-const GravatarToggleContainer = styled.div`
-  margin-top: 8px;
-  text-align: center;
-`;
-
 const AvatarWrapper = styled.div`
   position: relative;
   display: inline-block;
+  width: 100px;
+  height: 100px;
+  flex: 0 0 100px;
 
   &:hover img {
     opacity: 0.9;
   }
+`;
+
+const AvatarSourceOverlay = styled.div`
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 1;
 `;
 
 const AvatarPlaceHolder = styled.img`
@@ -172,7 +206,18 @@ const AvatarPlaceHolder = styled.img`
   border-radius: 8px;
 `;
 
-const UserImage = styled.img`
+const avatarCheckingPulse = keyframes`
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+`;
+
+const UserImage = styled.img<{ $isChecking: boolean }>`
   width: 100px;
   height: 100px;
   display: block;
@@ -180,23 +225,36 @@ const UserImage = styled.img`
   border-radius: 8px;
   border: 2px solid #e0e0e0;
   transition: opacity 0.2s ease;
+  ${({ $isChecking }) =>
+    $isChecking &&
+    css`
+      animation: ${avatarCheckingPulse} 1.4s ease-in-out infinite;
+    `}
 `;
 
-const ToggleLabel = styled.div`
-  display: inline-flex;
-  align-items: center;
-  margin-inline-end: 5px;
+const FaceDetectionWarning = styled.div`
+  font-size: 12px;
+  color: #c0392b;
+  margin-bottom: 4px;
+  line-height: 1.4;
 
-  label {
-    cursor: pointer;
+  a,
+  button {
+    color: #c0392b;
+    font-weight: bold;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 `;
 
-const ToggleDescription = styled.div`
-  font-size: 13px;
-  color: #666;
-  margin: 0 0 12px 0;
-  line-height: 1.5;
+const ActionLinkButton = styled.button`
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
 `;
 
 const Container = styled.div`

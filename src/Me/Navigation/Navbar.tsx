@@ -6,10 +6,10 @@ import styled from 'styled-components/macro';
 import Link from '../../components/Link/Link';
 import { mobile, desktop } from '../styles/shared/devices';
 import messages from '../../messages';
-import IconHome from '../../assets/me/home.svg';
-import Mentorships from '../../assets/me/icon-survey.svg';
-import IconMentors from '../../assets/me/mentors.svg';
-import IconLogout from '../../assets/me/icon-door-exit.svg';
+import { ReactComponent as IconHome } from '../../assets/me/home.svg';
+import { ReactComponent as Mentorships } from '../../assets/me/icon-survey.svg';
+import { ReactComponent as IconMentors } from '../../assets/me/mentors.svg';
+import { ReactComponent as IconLogout } from '../../assets/me/icon-door-exit.svg';
 import { useUser } from '../../context/userContext/UserContext';
 import { useRoutes } from '../../hooks/useRoutes'
 
@@ -18,7 +18,7 @@ const MenuItem = ({
   label,
   to,
 }: {
-  icon: string;
+  icon: React.ComponentType;
   label: string;
   to: string;
 }) => {
