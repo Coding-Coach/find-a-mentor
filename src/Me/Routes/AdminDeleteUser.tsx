@@ -8,7 +8,7 @@ import Input from '../components/Input';
 import { Loader } from '../../components/Loader';
 import { useApi } from '../../context/apiContext/ApiContext';
 import { useUser } from '../../context/userContext/UserContext';
-import { deleteUserAccount, searchUsers, type UserSuggestion } from '../../api/admin';
+import { deleteUserAccount, searchUsers, UserSuggestion } from '../../api/admin';
 
 const MIN_QUERY_LENGTH = 2;
 const DEBOUNCE_MS = 300;
