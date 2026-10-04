@@ -85,7 +85,17 @@
           "message": "Do not use `sessionStorage` directly, use the storage wrapper instead"
         }
       ]
-    }
+    },
+    "overrides": [
+      {
+        "files": [
+          "netlify/functions-src/**/*"
+        ],
+        "rules": {
+          "no-console": "off"
+        }
+      }
+    ]
   },
   "browserslist": [
     ">0.2%",

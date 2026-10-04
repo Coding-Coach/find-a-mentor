@@ -83,11 +83,16 @@ const AdminDeleteUser = () => {
       return;
     }
     setIsDeleting(true);
-    const deleted = await deleteUserAccount(api, selected._id);
-    setIsDeleting(false);
-    if (deleted) {
-      toast.success(`${selected.name} was deleted`);
-      setSelected(null);
+    try {
+      const deleted = await deleteUserAccount(api, selected._id);
+      if (deleted) {
+        toast.success(`${selected.name} was deleted`);
+        setSelected(null);
+      } else {
+        toast.error(`Failed to delete ${selected.name}`);
+      }
+    } finally {
+      setIsDeleting(false);
     }
   };
 

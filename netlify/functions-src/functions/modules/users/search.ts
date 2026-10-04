@@ -7,11 +7,15 @@ import { success } from '../../utils/response';
 type UserSuggestion = Pick<User, '_id' | 'name' | 'email' | 'avatar'>;
 
 // Admin only. Must be wrapped with `withAuth(..., { role: Role.ADMIN })`
-export const adminSearchHandler: ApiHandler<unknown, UserSuggestion[]> = async (event) => {
+export const adminSearchHandler: ApiHandler<unknown, UserSuggestion[]> = async (event, context) => {
   const query = (event.queryStringParameters?.q ?? '').trim();
+  // query itself is not logged since it may contain an email address
+  console.log('Admin user search requested:', { adminId: context.user?._id?.toString(), queryLength: query.length });
   if (query.length < 2) {
+    console.error('Admin user search rejected: query too short');
     throw new DataError(400, 'Query must be at least 2 characters');
   }
   const users = await searchUsers(query);
+  console.log('Admin user search completed:', { results: users.length });
   return success({ data: users });
 };
