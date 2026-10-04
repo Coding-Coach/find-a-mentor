@@ -25,6 +25,7 @@ import Input from '../components/Input';
 import { Loader } from '../../components/Loader';
 import { getChannelInfo } from '../../channelProvider';
 import { useApi } from '../../context/apiContext/ApiContext';
+import { useRoutes } from '../../hooks/useRoutes';
 
 const Mentee = styled.span`
   display: flex;
@@ -139,6 +140,7 @@ const Admin = () => {
     MentorshipRequest[]
   >([]);
   const api = useApi()
+  const routes = useRoutes();
 
   const filteredMentorshipRequests = useMemo(() => {
     return mentorshipRequests
@@ -269,6 +271,9 @@ const Admin = () => {
           mentorships={filteredMentorshipRequests}
         />
       )}
+      <Card>
+        <a href={routes.me.admin.deleteUser.get()}>Delete a user</a>
+      </Card>
       <Card className='wide'>
         <Filters>
           <FormField>
