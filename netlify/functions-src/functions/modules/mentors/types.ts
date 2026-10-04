@@ -13,10 +13,20 @@ export interface Mentor {
 }
 
 export type ApplicationStatus = 'Pending' | 'Approved' | 'Rejected';
+
+// 'unknown' = the check was skipped or failed, so an admin should look at the photo themselves
+export type AvatarCheckStatus = 'face' | 'no-face' | 'unknown';
+export type AvatarCheck = {
+  status: AvatarCheckStatus;
+  avatarUrl?: string;
+  checkedAt: Date;
+};
+
 export type Application = OptionalId<{
   user: ObjectId;
   status: ApplicationStatus;
   reason?: string;
+  avatarCheck?: AvatarCheck;
 }>;
 
 export interface GetMentorsQuery {

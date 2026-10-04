@@ -12,7 +12,6 @@ type AvatarFieldProps = {
   isUsingGravatar: boolean;
   onToggleGravatar: (value: boolean) => void;
   disabled?: boolean;
-  onFaceDetectionChange?: (hasFace: boolean | null) => void;
 };
 
 const AvatarField: FC<AvatarFieldProps> = ({
@@ -20,13 +19,12 @@ const AvatarField: FC<AvatarFieldProps> = ({
   isUsingGravatar,
   onToggleGravatar,
   disabled = false,
-  onFaceDetectionChange,
 }) => {
   const isGoogleUser = isGoogleOAuthUser(user.auth0Id);
   const displayAvatar = user.avatar || user.auth0Picture;
   const [avatarLoadError, setAvatarLoadError] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
-  const { faceDetected, isChecking, status } = useFaceDetection(imageRef);
+  const { faceDetected, isChecking } = useFaceDetection(imageRef);
   const hasKnownNonFaceAvatar = isKnownNonFaceAvatar(displayAvatar);
   const showNonFaceWarning = faceDetected === false || hasKnownNonFaceAvatar;
   const showGoogleAvatarLoadWarning =
@@ -34,14 +32,6 @@ const AvatarField: FC<AvatarFieldProps> = ({
   const showAvatarWarning = showNonFaceWarning || showGoogleAvatarLoadWarning;
   const shouldPulseAvatar =
     isChecking && !hasKnownNonFaceAvatar && !avatarLoadError;
-  const avatarHasFace =
-    !displayAvatar || avatarLoadError || hasKnownNonFaceAvatar || faceDetected === false
-      ? false
-      : faceDetected === true
-      ? true
-      : status === 'checking' || status === 'idle' || status === 'error'
-      ? null
-      : false;
   const updateAvatarUrl = isUsingGravatar
     ? avatarChangeProviderLinks.GRAVATAR
     : avatarChangeProviderLinks.GOOGLE;
@@ -50,10 +40,6 @@ const AvatarField: FC<AvatarFieldProps> = ({
   useEffect(() => {
     setAvatarLoadError(false);
   }, [displayAvatar]);
-
-  useEffect(() => {
-    onFaceDetectionChange?.(avatarHasFace);
-  }, [avatarHasFace, onFaceDetectionChange]);
 
   return (
     <AvatarContainer>
@@ -92,6 +78,7 @@ const AvatarField: FC<AvatarFieldProps> = ({
                 <br />
                 If you prefer not to change your Google avatar,{' '}
                 <ActionLinkButton
+                  type="button"
                   disabled={disabled}
                   onClick={() => onToggleGravatar(true)}
                 >

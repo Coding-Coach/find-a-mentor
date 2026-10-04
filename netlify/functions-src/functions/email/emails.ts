@@ -1,4 +1,5 @@
 import type { User } from '../common/interfaces/user.interface';
+import type { AvatarCheck } from '../modules/mentors/types';
 import { send } from './client';
 
 export const sendEmailVerification = async ({ name, email, link }: { name: string; email: string; link: string; }) => {
@@ -104,12 +105,15 @@ export const sendMentorshipRequestCancelled = async ({ menteeName, mentorName, e
   });
 }
 
-export const sendMentorApplicationAdminNotification = async (user: User) => {
+export const sendMentorApplicationAdminNotification = async (user: User, avatarCheck?: AvatarCheck) => {
   console.log('Sending mentor application admin notification:', user._id);
   return send({
     name: 'mentor-application-admin-notification',
     to: process.env.ADMIN_EMAIL!,
     subject: 'New Mentor Application Submitted',
-    data: user,
+    data: {
+      ...user,
+      avatarCheckStatus: avatarCheck?.status,
+    },
   });
 };

@@ -1,5 +1,6 @@
 import type { MailData } from '@sendgrid/helpers/classes/mail';
 import type { User } from '../../common/interfaces/user.interface';
+import type { AvatarCheckStatus } from '../../modules/mentors/types';
 
 interface WelcomePayload {
   name: 'welcome';
@@ -113,6 +114,7 @@ interface MentorApplicationAdminNotification {
     country?: string;
     spokenLanguages?: string[];
     avatar?: string;
+    avatarCheckStatus?: AvatarCheckStatus;
   };
 }
 

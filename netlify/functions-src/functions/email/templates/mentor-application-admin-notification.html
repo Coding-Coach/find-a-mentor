@@ -38,6 +38,9 @@
     <% if (spokenLanguages && spokenLanguages.length > 0) { %>
       <p><strong>Spoken Languages:</strong> <%= spokenLanguages.join(', ') %></p>
     <% } %>
+    <% if (locals.avatarCheckStatus === 'no-face') { %>
+      <p style="color: #c0392b;"><strong>Profile photo:</strong> no face was detected in the applicant's avatar. Please check it before approving.</p>
+    <% } %>
   </div>
   <p>&nbsp;</p>
   <p>

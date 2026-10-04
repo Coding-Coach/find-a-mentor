@@ -23,6 +23,10 @@ const config = {
   smtp2go: {
     API_KEY: process.env.SMTP2GO_API_KEY!,
   },
+  // Optional. Without it the avatar face check on mentor applications is skipped.
+  googleVision: {
+    API_KEY: process.env.GOOGLE_VISION_API_KEY as string | undefined,
+  },
   sentry: {
     DSN: process.env.SENTRY_DSN,
   },
