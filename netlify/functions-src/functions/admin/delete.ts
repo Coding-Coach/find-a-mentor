@@ -20,7 +20,6 @@ const getAdminAccessToken = async (): Promise<string> => {
     const data = await response.json();
     return data.access_token;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error fetching admin access token:', error);
     throw new Error('Failed to fetch access token');
   }

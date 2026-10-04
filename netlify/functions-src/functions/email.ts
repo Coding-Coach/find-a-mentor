@@ -19,7 +19,6 @@ export const handler: Handler = async (event) => {
       body: JSON.stringify({ message: 'Email sent successfully' }),
     };
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error sending email:', error);
     return {
       statusCode: 500,

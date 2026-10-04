@@ -19,7 +19,6 @@ export const send = async (params: EmailParams) => {
       html: content,
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Send email error', params, JSON.stringify(error, null, 2));
     throw new Error('Failed to send email');
   }
@@ -47,7 +46,6 @@ const getTemplateContent = async (name: string) => {
       encoding: 'utf8',
     });
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error reading template file:', error);
     throw new Error(`Template file not found: ${templatePath}`);
   }

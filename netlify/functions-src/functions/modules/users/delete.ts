@@ -7,18 +7,14 @@ import { deleteUser as deleteUserFromAuth0 } from '../../admin/delete';
 import { success } from '../../utils/response';
 
 const deleteUserAccount = async ({ _id, auth0Id }: Pick<User, '_id' | 'auth0Id'>) => {
-  // eslint-disable-next-line no-console
   console.log('Deleting user from DB:', { userId: _id.toString(), auth0Id });
   const result = await deleteUser(_id);
-  // eslint-disable-next-line no-console
   console.log('User deleted from DB:', { userId: _id.toString(), result });
   deleteUserFromAuth0(auth0Id)
     .then(result => {
-      // eslint-disable-next-line no-console
       console.log('User deleted from Auth0:', result);
     })
     .catch(error => {
-      // eslint-disable-next-line no-console
       console.error('Error deleting user from Auth0:', error);
     });
   return result;
@@ -26,7 +22,6 @@ const deleteUserAccount = async ({ _id, auth0Id }: Pick<User, '_id' | 'auth0Id'>
 
 // A user deleting their own account
 export const handler: ApiHandler<unknown, User> = async (event, context) => {
-  // eslint-disable-next-line no-console
   console.log('Self delete requested:', { userId: context.user._id.toString() });
   const result = await deleteUserAccount(context.user);
   return success({ data: result }, 204);
@@ -35,24 +30,20 @@ export const handler: ApiHandler<unknown, User> = async (event, context) => {
 // An admin deleting any user's account. Must be wrapped with `withAuth(..., { role: Role.ADMIN })`
 export const adminDeleteHandler: ApiHandler<unknown, User> = async (event, context) => {
   const { userId } = event.queryStringParameters ?? {};
-  // eslint-disable-next-line no-console
   console.log('Admin delete requested:', { adminId: context.user?._id?.toString(), userId });
 
   if (!userId || !ObjectId.isValid(userId)) {
-    // eslint-disable-next-line no-console
     console.error('Admin delete rejected: invalid user id', { userId });
     throw new DataError(400, 'Invalid user id');
   }
 
   const user = await getUserBy('_id', new ObjectId(userId));
   if (!user) {
-    // eslint-disable-next-line no-console
     console.error('Admin delete failed: user not found', { userId });
     throw new DataError(404, 'User not found');
   }
 
   const result = await deleteUserAccount(user);
-  // eslint-disable-next-line no-console
   console.log('Admin delete completed:', { adminId: context.user?._id?.toString(), userId });
   // 200 with a body (not 204) so the client can parse the response
   return success({ data: result });
