@@ -2,6 +2,7 @@ import type { ApiHandler } from './types';
 import { handler as usersCurrentHandler } from './modules/users/current'
 import { handler as getUserInfoHandler, updateUserInfoHandler } from './modules/users/userInfo'
 import { handler as deleteUser, adminDeleteHandler } from './modules/users/delete'
+import { adminSearchHandler } from './modules/users/search'
 import { handler as verifyUserHandler } from './modules/users/verify'
 import { toggleAvatarHandler } from './modules/users/toggleAvatar'
 import { withRouter } from './hof/withRouter';
@@ -17,6 +18,9 @@ export const handler: ApiHandler = withDB(
     })],
     ['/current', 'GET', usersCurrentHandler],
     ['/current/avatar', 'POST', withAuth(toggleAvatarHandler)],
+    ['/search', 'GET', withAuth(adminSearchHandler, {
+      role: Role.ADMIN,
+    })],
     ['/verify', 'POST', withAuth(verifyUserHandler, {
       emailVerificationRequired: false,
       includeFullUser: true,
