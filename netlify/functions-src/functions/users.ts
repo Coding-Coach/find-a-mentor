@@ -1,12 +1,14 @@
 import type { ApiHandler } from './types';
 import { handler as usersCurrentHandler } from './modules/users/current'
 import { handler as getUserInfoHandler, updateUserInfoHandler } from './modules/users/userInfo'
-import { handler as deleteUser } from './modules/users/delete'
+import { handler as deleteUser, adminDeleteHandler } from './modules/users/delete'
+import { adminSearchHandler } from './modules/users/search'
 import { handler as verifyUserHandler } from './modules/users/verify'
 import { toggleAvatarHandler } from './modules/users/toggleAvatar'
 import { withRouter } from './hof/withRouter';
 import { withDB } from './hof/withDB';
 import { withAuth } from './utils/auth';
+import { Role } from './common/interfaces/user.interface';
 
 export const handler: ApiHandler = withDB(
   withRouter([
@@ -16,12 +18,18 @@ export const handler: ApiHandler = withDB(
     })],
     ['/current', 'GET', usersCurrentHandler],
     ['/current/avatar', 'POST', withAuth(toggleAvatarHandler)],
+    ['/search', 'GET', withAuth(adminSearchHandler, {
+      role: Role.ADMIN,
+    })],
     ['/verify', 'POST', withAuth(verifyUserHandler, {
       emailVerificationRequired: false,
       includeFullUser: true,
     })],
     ['/:userId', 'GET', withAuth(getUserInfoHandler, {
       authRequired: false,
+    })],
+    ['/:userId', 'DELETE', withAuth(adminDeleteHandler, {
+      role: Role.ADMIN,
     })],
   ])
 )

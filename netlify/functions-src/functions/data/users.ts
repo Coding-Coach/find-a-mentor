@@ -102,6 +102,16 @@ export const getUserBy = async <T extends keyof Pick<User, '_id' | 'auth0Id' | '
   return user;
 }
 
+export const searchUsers = async (query: string, limit = 10) => {
+  const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(escaped, 'i');
+  return getCollection<User>('users')
+    .find({ $or: [{ name: regex }, { email: regex }] })
+    .project<Pick<User, '_id' | 'name' | 'email' | 'avatar'>>({ _id: 1, name: 1, email: 1, avatar: 1 })
+    .limit(limit)
+    .toArray();
+}
+
 export const upsertUser = async (user: EntityPayload<User>) => {
   const upsertedUser = await upsertEntity<User>('users', user);
   return upsertedUser;

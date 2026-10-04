@@ -1,6 +1,13 @@
 import ApiService, { paths } from '.';
 import { MentorshipRequest, UserRecord } from '../types/models';
 
+export type UserSuggestion = {
+  _id: string;
+  name: string;
+  email: string;
+  avatar?: string;
+};
+
 export function getAllMentorshipRequests(apiService: ApiService, numMonthAgo: number = 1) {
   const monthAgo = new Date();
   monthAgo.setMonth(monthAgo.getMonth() - numMonthAgo);
@@ -34,4 +41,21 @@ export async function freezeMentor(apiService: any, mentorId: string) {
 
 export function getUserRecords(apiService: ApiService, userId: string) {
   return apiService.makeApiCall<UserRecord[]>(`${paths.USERS}/${userId}/records`);
+}
+
+export async function searchUsers(apiService: ApiService, query: string) {
+  const response = await apiService.makeApiCall<UserSuggestion[]>(
+    `${paths.USERS}/search`,
+    { q: query }
+  );
+  return response?.success ? response.data : [];
+}
+
+export async function deleteUserAccount(apiService: ApiService, userId: string) {
+  const response = await apiService.makeApiCall(
+    `${paths.USERS}/${userId}`,
+    null,
+    'DELETE'
+  );
+  return !!response?.success;
 }
