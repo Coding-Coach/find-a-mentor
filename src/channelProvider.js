@@ -18,9 +18,8 @@ export const providers = {
     url: 'https://www.facebook.com/{id}',
   },
   twitter: {
-    icon: 'twitter',
-    inputIcon: 'twitter-square',
-    url: 'https://twitter.com/{id}',
+    icon: 'x-twitter',
+    url: 'https://x.com/{id}',
   },
   github: {
     icon: 'github',

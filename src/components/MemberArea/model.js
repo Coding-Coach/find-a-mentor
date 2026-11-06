@@ -129,10 +129,10 @@ export default {
       },
       {
         value: 'twitter',
-        label: 'Twitter',
-        prefix: 'https://twitter.com/',
+        label: 'X',
+        prefix: 'https://x.com/',
         validate: (value) => twitterValidation(value),
-        helpText: 'Add only your Twitter handle',
+        helpText: 'Add only your X handle',
       },
       {
         value: 'github',
